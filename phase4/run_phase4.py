@@ -81,7 +81,7 @@ def parse_args(argv=None):
     m.add_argument("--f-step", type=float, default=0.1, help="grid step of the community fraction")
     m.add_argument("--sigma", type=float, nargs=4, default=None,
                    help="per-band 1-sigma reflectance uncertainty; default: chosen by maximum marginal likelihood "
-                        "on the 31 co-located field samples (Cook et al. 2020)")
+                        "on the 64 co-located field samples (field_validation.py)")
 
     q = p.add_argument_group("priors")
     q.add_argument("--prior-scale", type=float, default=1.0, help="multiply all prior SDs (sensitivity test)")
@@ -182,7 +182,8 @@ def main(argv=None):
     spacecraft = ED.spacecraft_from_scene(scene.item.get("id", ""))
     common = dict(ice_mode=a.ice_mode, rho=a.rho, rho_bottom=a.rho_bottom, sza=round(scene.sza),
                   r_um=tuple(a.r_range), spacecraft=spacecraft,
-                  dust_ppb=E.DUST_NODES_PPB if a.dust else ())
+                  dust_ppb=E.DUST_NODES_PPB if a.dust else (),
+                  day_of_year=int(pd.Timestamp(scene.date).dayofyear) if scene.date else 196)
     cfg_o = E.EmulatorConfig(model="ours", tier=a.tier, phenol=a.phenol, photosynthetic=not a.no_photosynthetic,
                              f_n=(0.0, 1.0, a.f_step), **common)
     cfg_a = E.EmulatorConfig(model="tierA", **common)

@@ -66,7 +66,8 @@ class CustomImpurity:
 
 @dataclass
 class IceSpec:
-    """Two-layer bare-ice column: algae-bearing weathering crust over clean ice.
+    """Bare-ice column: algae-bearing weathering crust (dz_top) over clean ice (dz_bottom); with film_dz
+    the crust is split into two sub-layers (3 layers in total).
 
     mode='grains': granular ice spheres of radius `rds_um` (layer_type 0)
     mode='bubbly': solid ice with Fresnel surface, `rds_um` = bubble radius (layer_type 1)
@@ -109,14 +110,20 @@ def _layer_concs(spec: IceSpec, conc: float, unit: int):
     return [c, 0.0]
 
 
-def sw_down_clear_sky(sza_deg: float, transmissivity: float = 0.75) -> float:
+FIELD_SEASON_DOY = 196            # 15 July: centre of the S6 field campaigns used throughout
+
+
+def sw_down_clear_sky(sza_deg: float, transmissivity: float | None = None, day_of_year: int = FIELD_SEASON_DOY) -> float:
     """Broadband clear-sky downwelling shortwave at the surface [W m^-2]:
-    SW = S0 cos(SZA) T^(1/cos SZA) (Beer-Lambert bulk atmosphere, relative air mass
-    1/cos SZA). Default T = 0.75 gives ~560 W m^-2 at SZA 50 deg, consistent with
-    clear-sky ablation-zone observations; pass measured fluxes (e.g. PROMICE AWS)
-    via --sw-down to replace it."""
+    SW = S0 E0(doy) cos(SZA) T^(1/cos SZA) (Beer-Lambert bulk atmosphere, relative air mass
+    1/cos SZA; E0 = 1 + 0.033 cos(2 pi doy / 365), the Earth-Sun distance factor used in the fit of T). Default T: fitted to PROMICE KAN_M clear-sky hours (0.919;
+    empirical_data.clear_sky_transmissivity); pass measured fluxes via --sw-down instead."""
+    if transmissivity is None:
+        import empirical_data as ED
+        transmissivity = ED.clear_sky_transmissivity()[0]
     mu = np.cos(np.radians(sza_deg))
-    return float(S0 * mu * transmissivity ** (1.0 / mu))
+    e0 = 1.0 + 0.033 * np.cos(2.0 * np.pi * day_of_year / 365.0)
+    return float(S0 * e0 * mu * transmissivity ** (1.0 / mu))
 
 
 class BioSNICARRunner:

@@ -83,6 +83,7 @@ class EmulatorConfig:
     film_dz: float | None = None              # algae in a surface film of this thickness (m) inside the 2 cm
     film_only: bool = True                    # (see biosnicar_bridge.IceSpec); None = uniform over 2 cm
     sw_down: float | None = None              # broadband SW (W m^-2); None = clear-sky param.
+    day_of_year: int = 196                    # for the Earth-Sun distance in the clear-sky SW
     species: dict = field(default_factory=empirical_species)
 
     def axes(self):
@@ -185,7 +186,7 @@ class _Builder:
         self.runner = bb.BioSNICARRunner(root, incoming=3)
         self.srf = ED.s2_srf_480(cfg.spacecraft, S2_BANDS)          # official ESA SRFs
         self.sw = cfg.sw_down if cfg.sw_down is not None else \
-            bb.sw_down_clear_sky(cfg.sza, ED.clear_sky_transmissivity()[0])
+            bb.sw_down_clear_sky(cfg.sza, ED.clear_sky_transmissivity()[0], cfg.day_of_year)
         self.pg_per_cell = {}
         if cfg.model == "ours":
             kw = co.water_k_480(root)

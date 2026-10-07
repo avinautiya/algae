@@ -73,7 +73,9 @@ def parse_args(argv=None):
     p.add_argument("--lebedev", type=int, default=29,
                    help="PCM Lebedev order per atomic sphere (29 -> 302 pts; 17 -> 110 pts, faster)")
     p.add_argument("--outdir", default=None)
-    p.add_argument("--max-memory", type=int, default=10000, help="PySCF memory limit in MB")
+    p.add_argument("--max-memory", type=int, default=10000,
+                   help="PySCF memory limit in MB (loosely honoured: on a 16 GB machine use about 7000)")
+    p.add_argument("--verbose", type=int, default=3, help="PySCF verbosity (4 prints every SCF cycle with timings)")
     return p.parse_args(argv)
 
 
@@ -102,7 +104,7 @@ def main(argv=None):
         xyz = molecules.get_xyz(a.level, rebuild=a.rebuild)
         print("Starting geometry: built-in MMFF94s conformer" + (" (rebuilt)" if a.rebuild else ""))
     mol = molecules.get_mole(a.level, basis=a.basis, xyz=xyz, cart=not a.spherical,
-                             max_memory=a.max_memory, verbose=3)
+                             max_memory=a.max_memory, verbose=a.verbose)
     print(f"{spec['name']}: {mol.natm} atoms, {mol.nelectron} electrons, {mol.nao} basis functions, "
           f"charge {mol.charge}, multiplicity {mol.spin + 1}", flush=True)
 

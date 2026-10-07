@@ -1,0 +1,55 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.16, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3
+rootdir: /home/user/algae
+plugins: anyio-4.15.1
+collecting ... collected 23 items
+
+phase1/tests/test_phase1.py::test_broadening_conserves_oscillator_strength PASSED [  4%]
+phase1/tests/test_phase1.py::test_units PASSED                           [  8%]
+phase1/tests/test_phase1.py::test_molecule_definitions PASSED            [ 13%]
+phase1/tests/test_phase1.py::test_tiny_tddft_runs PASSED                 [ 17%]
+phase2/tests/test_phase2.py::test_sphere_mc_matches_analytic PASSED      [ 21%]
+phase2/tests/test_phase2.py::test_limits_and_cauchy PASSED               [ 26%]
+phase2/tests/test_phase2.py::test_mie_vs_duysens PASSED                  [ 30%]
+phase2/tests/test_phase2.py::test_cell_optics_energy_conservation PASSED [ 34%]
+phase2/tests/test_phase2.py::test_photosynthetic_pigments_and_empirical_inputs PASSED [ 39%]
+phase2/tests/test_phase2.py::test_new_empirical_components PASSED        [ 43%]
+phase2/tests/test_phase2.py::test_stibal2017_manual_ingestion PASSED     [ 47%]
+phase2/tests/test_phase2.py::test_fe_scale_invariance PASSED             [ 52%]
+phase2/tests/test_phase2.py::test_bridge_matches_run_model PASSED        [ 56%]
+phase2/tests/test_phase2.py::test_fast_lut_matches_biosnicar PASSED      [ 60%]
+phase3/tests/test_phase3.py::test_ishigami_sobol PASSED                  [ 65%]
+phase3/tests/test_phase3.py::test_lhs_stratified PASSED                  [ 69%]
+phase3/tests/test_phase3.py::test_qstar_table PASSED                     [ 73%]
+phase3/tests/test_phase3.py::test_forward_model_matches_phase2 PASSED    [ 78%]
+phase3/tests/test_phase3.py::test_bootstrap_coverage PASSED              [ 82%]
+phase4/tests/test_phase4.py::test_k_marginalisation PASSED               [ 86%]
+phase4/tests/test_phase4.py::test_emulator_accuracy PASSED               [ 91%]
+phase4/tests/test_phase4.py::test_grid_vs_mcmc_and_calibration PASSED    [ 95%]
+phase4/tests/test_phase4.py::test_s2_scaling_and_slope PASSED            [100%]
+
+============================== slowest durations ===============================
+52.75s call     phase4/tests/test_phase4.py::test_grid_vs_mcmc_and_calibration
+45.02s call     phase3/tests/test_phase3.py::test_forward_model_matches_phase2
+13.80s call     phase2/tests/test_phase2.py::test_new_empirical_components
+11.68s call     phase2/tests/test_phase2.py::test_cell_optics_energy_conservation
+8.74s call     phase3/tests/test_phase3.py::test_qstar_table
+6.60s call     phase4/tests/test_phase4.py::test_emulator_accuracy
+3.66s call     phase2/tests/test_phase2.py::test_photosynthetic_pigments_and_empirical_inputs
+1.08s call     phase4/tests/test_phase4.py::test_k_marginalisation
+0.84s call     phase2/tests/test_phase2.py::test_bridge_matches_run_model
+0.83s call     phase2/tests/test_phase2.py::test_fast_lut_matches_biosnicar
+0.55s call     phase1/tests/test_phase1.py::test_tiny_tddft_runs
+0.38s call     phase3/tests/test_phase3.py::test_lhs_stratified
+0.35s call     phase2/tests/test_phase2.py::test_sphere_mc_matches_analytic
+0.24s call     phase3/tests/test_phase3.py::test_ishigami_sobol
+0.24s call     phase3/tests/test_phase3.py::test_bootstrap_coverage
+0.16s call     phase1/tests/test_phase1.py::test_molecule_definitions
+0.16s call     phase2/tests/test_phase2.py::test_stibal2017_manual_ingestion
+0.15s call     phase2/tests/test_phase2.py::test_limits_and_cauchy
+0.05s call     phase2/tests/test_phase2.py::test_fe_scale_invariance
+0.01s call     phase2/tests/test_phase2.py::test_mie_vs_duysens
+
+(49 durations < 0.005s hidden.  Use -vv to show these durations.)
+======================== 23 passed in 148.28s (0:02:28) ========================
+exit 0

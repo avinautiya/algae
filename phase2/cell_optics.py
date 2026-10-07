@@ -18,12 +18,13 @@ This module builds those arrays for the model tiers from first principles:
   * scattering: sigma_sca = sigma_ext - sigma_abs(packaged). Tier B keeps the
     SAME scattering as tier C and only replaces the absorption, so B vs C
     isolates the packaging effect;
-  * asymmetry parameter: g = 0.96 for every tier by default (BioSNICAR's
-    empirical glacier-algae value, so tiers differ only in absorption), or the
-    van Diedenhoven et al. (2014) geometric-optics parameterisation BioSNICAR
-    uses for algal cylinders (g_mode='vd2014'). The vd2014 single-scattering
-    albedo is always returned as an independent cross-check of our
-    packaging-based SSA.
+  * asymmetry parameter: Mie g(lambda) of the equal-volume sphere with the measured
+    cell refractive index 1.38 in an ice host and k from the cell's own absorption
+    (g_mode='mie', default; mie_g). Alternatives: BioSNICAR's fixed 0.96
+    (g_mode='fixed') or the van Diedenhoven et al. (2014) parameterisation
+    (g_mode='vd2014'). The choice changes forcing by < 0.15 % (SOURCES.md). The
+    vd2014 single-scattering albedo is returned as an independent cross-check of
+    the packaging-based SSA.
 
 Wavelength handling (task spec): the molecular MAC is used inside a window
 (default 350-800 nm). Above the window pigment absorption is set to zero
