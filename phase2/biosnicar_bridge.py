@@ -218,6 +218,23 @@ class BioSNICARRunner:
         out = adding_doubling_solver(tau, ssa, g, L, ice, ill, self.model_config)
         return np.asarray(out.albedo, dtype=float), np.asarray(ill.flx_slr, dtype=float), float(out.BBA)
 
+    def run_multi(self, spec: IceSpec, sza_deg: float, impurities_concs):
+        """Like run(), for several impurities at once: [(impurity, conc), ...] in the surface layer
+        (e.g. two algal species, or algae + mineral dust). Units follow each impurity's .unit."""
+        from biosnicar.optical_properties.column_OPs import mix_in_impurities
+        from biosnicar.rt_solvers.adding_doubling_solver import adding_doubling_solver
+
+        ice, ssa_i, g_i, mac_i = self.ice(spec)
+        imps = []
+        for imp, c in impurities_concs:
+            if c > 0:
+                imp.conc = [float(c), 0.0]
+                imps.append(imp)
+        tau, ssa, g, L = mix_in_impurities(ssa_i, g_i, mac_i, ice, imps, self.model_config)
+        ill = self.illumination(sza_deg)
+        out = adding_doubling_solver(tau, ssa, g, L, ice, ill, self.model_config)
+        return np.asarray(out.albedo, dtype=float), np.asarray(ill.flx_slr, dtype=float), float(out.BBA)
+
     def broadband(self, albedo, flx):
         """Irradiance-weighted broadband albedo over the configured band (300-2500 nm)."""
         b = self.band
