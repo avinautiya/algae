@@ -29,6 +29,7 @@ python run_phase4.py --source s2 ... --field-csv cell_counts.csv
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import json
 import os
 import sys
@@ -63,8 +64,9 @@ def parse_args(argv=None):
     m.add_argument("--demo", action="store_true", help="BioSNICAR ppg.csv instead of Phase 1 (DEMO)")
     m.add_argument("--biosnicar", default=None)
     m.add_argument("--tier", choices=["C", "D"], default="C")
-    m.add_argument("--phenol", choices=["tddft", "williamson2020"], default="tddft",
-                   help="phenolic MAC: Phase 1 TD-DFT Level 2, or the measured in vivo MAC of Williamson et al. 2020")
+    m.add_argument("--phenol", choices=["tddft", "tddft_raw", "williamson2020"], default="tddft",
+                   help="phenolic MAC: Phase 1 TD-DFT Level 2 calibrated to measured pigment spectra (default), "
+                        "uncalibrated (tddft_raw), or the measured extract MAC of Williamson et al. 2020")
     m.add_argument("--no-photosynthetic", action="store_true", help="omit chl a, chl b and carotenoids")
     m.add_argument("--ice-mode", choices=["grains", "bubbly"], default="bubbly",
                    help="bubbly solid ice reproduces the field NIR reflectance (README); grains does not")
@@ -148,7 +150,7 @@ def environment(a, scene, bounds):
     pdd = np.full(scene.shape, np.nan)
     if np.isfinite(dem).any() and scene.date[:4] == "2019":
         pdd = ED.pdd_at_elevation(np.nan_to_num(dem, nan=np.nanmedian(dem)), end=scene.date).reshape(dem.shape)
-    return dem, slope, pdd, PriorConfig(scale=a.prior_scale)
+    return dem, slope, pdd, PriorConfig.for_density(a.rho_bottom, scale=a.prior_scale)
 
 
 def main(argv=None):
@@ -172,7 +174,7 @@ def main(argv=None):
     H, W = scene.shape
     print(f"Grid {H}x{W} @ {a.resolution:g} m, SZA {scene.sza:.1f} deg, date {scene.date}, "
           f"elev {np.nanmin(dem):.0f}-{np.nanmax(dem):.0f} m, PDD {np.nanmin(pdd):.0f}-{np.nanmax(pdd):.0f} degC d")
-    print("Empirical priors:", pc.describe())
+    print("Priors from measurements (the ice-radius prior is re-estimated from the field spectra below):", pc.describe())
 
     # ------------------------------------------------------------- emulators
     import empirical_data as ED
@@ -190,17 +192,26 @@ def main(argv=None):
     # ------------------------------------------------------------- field validation / calibration
     field_df = field_metrics = None
     sig_model = {}
+    pc_model = {"ours": pc, "tierA": pc}
     if not a.no_field_validation:
         import field_validation as FV
-        print("Field validation on 31 co-located samples (Cook et al. 2020, S6, July 2017) ...", flush=True)
+        print("Field validation on 64 co-located samples (S6 2017, Cook et al. 2020; S Greenland 2021, "
+              "Chevrollier et al. 2023) ...", flush=True)
         field_df, field_metrics, fres = FV.run(phase1_l2=kw["phase1_l2"], demo=a.demo, biosnicar=a.biosnicar,
                                                workers=a.workers, cache_dir=cache, tier=a.tier, phenol=a.phenol,
                                                photosynthetic=not a.no_photosynthetic, spacecraft=spacecraft,
-                                               verbose=False)
+                                               rho_bottom=a.rho_bottom, verbose=False)
         field_df.to_csv(os.path.join(tab, "field_validation_samples.csv"), index=False, float_format="%.5g")
         field_metrics.to_csv(os.path.join(tab, "field_validation_metrics.csv"), index=False, float_format="%.4g")
         print(field_metrics.drop(columns=[c for c in ("note",) if c in field_metrics]).round(3).to_string(index=False))
         sig_model = {m: np.full(4, fres[m]["sigma_all"]) for m in ("ours", "tierA")}
+        # surface ice-radius population distribution estimated from the field spectra (empirical Bayes)
+        pc_model = {m: dataclasses.replace(pc, mu_lnr=fres[m]["mu_lnr"], sd_lnr=fres[m]["sd_lnr"])
+                    for m in ("ours", "tierA")}
+        for m in ("ours", "tierA"):
+            print(f"Ice-radius prior [{m}]: {fres[m]['r_prior']} median {np.exp(fres[m]['mu_lnr']):.0f} um, ln-SD "
+                  f"{fres[m]['sd_lnr']:.2f} (log evidence {fres[m]['total_log_evidence']:.1f} vs "
+                  f"{fres[m]['log_evidence_measured_ssa_prior']:.1f} with the measured-SSA prior)")
         print(f"Reflectance sigma (max marginal likelihood on field data): ours {fres['ours']['sigma_all']:.3f}, "
               f"Tier A {fres['tierA']['sigma_all']:.3f}")
     if a.sigma is not None:
@@ -212,7 +223,7 @@ def main(argv=None):
     truth = None
     if a.source == "synthetic":
         import synthetic as SYN
-        truth = SYN.make_truth(scene.shape, pc, a.resolution, with_dust=a.dust)
+        truth = SYN.make_truth(scene.shape, pc_model["ours"], a.resolution, with_dust=a.dust)
         tcfg = cfg_o if a.truth_model == "ours" else cfg_a
         print(f"Synthesising {H * W} pixels with direct BioSNICAR ({a.truth_model} optics) ...", flush=True)
         R, extra = SYN.synthesise(truth, tcfg, workers=a.workers, noise=tuple(a.noise), **{
@@ -239,7 +250,7 @@ def main(argv=None):
         I = (fd.B4 - fd.B2) / (fd.B4 + fd.B2)
         X = np.column_stack([np.ones(len(fd)), I, I ** 2])
         coef, *_ = np.linalg.lstsq(X, np.log10(fd.cells), rcond=None)
-        cal_note = f"fitted to {len(fd)} counted field samples (Cook et al. 2020)"
+        cal_note = f"fitted to {len(fd)} counted field samples (S6 2017 + S Greenland 2021)"
     else:
         coef, rm = EMP.calibrate(em_a)
         cal_note = f"calibrated on Tier A simulations (no field data), RMSE {rm:.2f} dex"
@@ -251,7 +262,7 @@ def main(argv=None):
     res = {}
     for name, em in (("ours", em_o), ("tierA", em_a)):
         sigma = sig_model[name]
-        lp, sk, mk, mu_b = prior_logpdfs(em.axes, int(valid.sum()), pc)
+        lp, sk, mk, mu_b = prior_logpdfs(em.axes, int(valid.sum()), pc_model[name])
         t1 = time.time()
         r = INV.GridPosterior(em, sigma).run(Rp[valid], lp, sk, mk=mk)
         if a.spatial_pooling > 0 and name == "ours":
@@ -344,16 +355,23 @@ def main(argv=None):
     picks = [int(np.nanargmin(np.abs(lbm - np.nanpercentile(lbm, q)))) for q in (25, 85)]
     mcmc_rows, corner_figs = [], []
     from priors import mcmc_prior_params
-    lp_all, sk, mk, mu_b_all = prior_logpdfs(em_o.axes, int(valid.sum()), pc)
+    lp_all, sk, mk, mu_b_all = prior_logpdfs(em_o.axes, int(valid.sum()), pc_model["ours"])
     for n_pick, i in enumerate(picks):
         pix = vidx[i]
-        pp = mcmc_prior_params(pc)
-        out = INV.mcmc_pixel(em_o, Rp[pix], sig_model["ours"], pp, sk, n_steps=a.mcmc_steps, burn=a.mcmc_steps // 3,
-                             seed=n_pick)
+        pp = mcmc_prior_params(pc_model["ours"])
         lp1 = {k: (v[i:i + 1] if v.shape[0] > 1 else v) for k, v in lp_all.items()}
         g1 = INV.GridPosterior(em_o, sig_model["ours"]).run(Rp[pix][None, :], lp1, sk, keep_full=np.array([0]),
                                                            mk=mk)
         post = g1["full_posteriors"][0]
+        # start the walkers from draws of the exact grid posterior (the k-r brightness trade-off makes the
+        # posterior long and curved; uniform starts mix slowly)
+        rng0 = np.random.default_rng(100 + n_pick)
+        flat_idx = rng0.choice(post.size, size=256, p=(post / post.sum()).ravel())
+        grid_idx = np.unravel_index(flat_idx, post.shape)
+        init = np.column_stack([em_o.axes[n][grid_idx[em_o.names.index(n)]] for n in em_o.active]
+                               + [np.full(256, float(g1["k_map"][0]))])
+        out = INV.mcmc_pixel(em_o, Rp[pix], sig_model["ours"], pp, sk, n_steps=a.mcmc_steps, burn=a.mcmc_steps // 3,
+                             seed=n_pick, init=init)
         marg = {}
         for ax, n in enumerate(em_o.names):
             other = tuple(j for j in range(post.ndim) if j != ax)
@@ -417,13 +435,13 @@ def main(argv=None):
         fdc = field_df[field_df.cells > 0]
         M.save(M.fig_s4_validation(fdc.log_b_obs.to_numpy(), {k: v[field_df.cells > 0].to_numpy() for k, v in F_ests.items()},
                                    field_metrics, quantity="log_b", label=r"$\log_{10}$ cells mL$^{-1}$",
-                                   title="Field validation: 25 counted samples, S6 2017 (Cook et al. 2020)"),
+                                   title=f"Field validation: {len(fdc)} counted samples (S6 2017, S Greenland 2021)"),
                figd, "FigS5_field_validation")
 
     summary = dict(source=a.source, scene=scene.item.get("id", a.local_dir), date=scene.date, sza=scene.sza,
                    shape=[H, W], resolution_m=a.resolution, valid_pixels=int(valid.sum()),
                    empirical_coefs=list(map(float, coef)), empirical_calibration=cal_note,
-                   f_n_identifiability_sd_ratio=float(shrink_f), priors=pc.describe(),
+                   f_n_identifiability_sd_ratio=float(shrink_f), priors={m: pc_model[m].describe() for m in pc_model},
                    sigma={k: float(v[0]) for k, v in sig_model.items()},
                    field_validation=None if field_metrics is None else field_metrics.to_dict(orient="records"),
                    chi2_fail_frac={k: float(np.mean(v["chi2"] > CHI2_99_DF4)) for k, v in res.items()},

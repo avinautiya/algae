@@ -11,15 +11,19 @@ python run_phase2.py --phase1-l1 ../phase1/results/level1 --phase1-l2 ../phase1/
 # Pipeline check before Phase 1 is finished (BioSNICAR's ppg.csv as a stand-in; outputs marked DEMO)
 python run_phase2.py --demo
 
-# Tier D from real Level 3/4 TD-DFT output instead of the provisional surrogate
+# Tier D from Level 3/4 TD-DFT output instead of the empirical Fe-complex model
 python run_phase2.py --level34-csv ../phase1/results/level3/level3_B3LYP_spectrum.csv --level34-molar-mass 908.5
 
 Tiers
 -----
 A  BioSNICAR default empirical glacier-algae optics (ice_algae_empirical_Chevrollier2023)
-B  Level 2 molecular MAC, pigment absorbing as if dissolved (no packaging)
-C  Level 2 molecular MAC with Duysens packaging inside Ancylonema-like cells
-D  Fe(III)-phenolic complexed + aggregated MAC (Level 3/4 CSV, or provisional surrogate), packaged
+B  Level 2 molecular MAC (empirically calibrated), pigment absorbing as if dissolved (no packaging)
+C  Level 2 molecular MAC (empirically calibrated) with Duysens packaging inside Ancylonema cells
+D  C plus the measured Fe-complex absorption at the fitted complexed fraction (or Level 3/4 CSV), packaged
+
+Calibration (phase2/tddft_calibration.py): the TD-DFT band shift, width and strength are fitted to
+measured spectra of the same pigment (HPLC-isolated chromophore and whole-extract MAC, Williamson et
+al. 2020), which also converts the MAC to the phenol-equivalent units of the measured per-cell content.
 """
 
 from __future__ import annotations
@@ -48,6 +52,8 @@ def parse_args(argv=None):
     io.add_argument("--demo", action="store_true", help="use BioSNICAR's ppg.csv instead of Phase 1 output")
     io.add_argument("--level34-csv", default=None, help="Level 3/4 MAC CSV (Wavelength_nm, MAC_estimated)")
     io.add_argument("--level34-molar-mass", type=float, default=None)
+    io.add_argument("--raw-tddft", action="store_true",
+                    help="skip the empirical calibration (uncalibrated TD-DFT; units then inconsistent with c_i)")
     io.add_argument("--biosnicar", default=None, help="path to a biosnicar-py checkout")
     io.add_argument("--outdir", default=os.path.join(HERE, "results"))
     io.add_argument("--usetex", action="store_true", help="render labels with a LaTeX installation")
@@ -75,8 +81,9 @@ def parse_args(argv=None):
 
     ice = p.add_argument_group("ice column / illumination sweep")
     ice.add_argument("--ice-mode", choices=["grains", "bubbly"], default="bubbly")
-    ice.add_argument("--grains", type=float, nargs="+", default=[1000, 3000, 6000, 10000, 15000],
-                     help="grain (or bubble) effective radius, um")
+    ice.add_argument("--grains", type=float, nargs="+", default=None,
+                     help="grain (or bubble) effective radius, um; default: measured-SSA prior quantiles "
+                          "(2.5/16/50/84/97.5 %%) converted at --rho-bottom")
     ice.add_argument("--densities", type=float, nargs="+", default=[330, 450, 560],
                      help="surface-layer density, kg m^-3")
     ice.add_argument("--rho-bottom", type=float, default=690.0,
@@ -91,11 +98,14 @@ def parse_args(argv=None):
     ice.add_argument("--diffuse", action="store_true", help="diffuse (cloudy) instead of direct beam")
     ice.add_argument("--sw-down", type=float, default=None,
                      help="fixed broadband SW down (W m^-2); default: clear-sky parameterisation per SZA")
-    ice.add_argument("--transmissivity", type=float, default=0.75)
+    ice.add_argument("--transmissivity", type=float, default=None,
+                     help="clear-sky bulk transmissivity; default: fitted to PROMICE KAN_M clear-sky hours")
 
     ref = p.add_argument_group("reference state for figures")
-    ref.add_argument("--ref-grain", type=float, default=10000,
-                     help="um; Cooper et al. (2021) bubbly-ice optical radius 9.3-10.6 mm at S6")
+    ref.add_argument("--ref-grain", type=float, default=None,
+                     help="um; default: median of the measured-SSA prior converted at --rho-bottom")
+    ref.add_argument("--ref-species", choices=["nordenskioeldii", "alaskanum"], default="nordenskioeldii",
+                     help="species of the reference cell (geometry and size-scaled pigment concentration)")
     ref.add_argument("--ref-density", type=float, default=450,
                      help="kg/m3; Cooper et al. (2018) weathering-crust mean")
     ref.add_argument("--ref-sza", type=float, default=45, help="deg; ~solar noon at S6 in July")
@@ -107,17 +117,30 @@ def parse_args(argv=None):
 def _empirical_defaults(a):
     """Fill unset cell parameters from published measurements (phase2/empirical_data.py)."""
     import empirical_data as ED
-    g = ED.species_geometry()["nordenskioeldii"]
+    import biosnicar_bridge as bb
+    g = ED.species_geometry()[a.ref_species]
     if a.cell_radius is None:
         a.cell_radius = g["diameter_um"] / 2.0
     if a.cell_length is None:
         a.cell_length = g["length_um"]
-    ci = ED.intracellular_concentration_kg_m3("phenolics")
+    ci = ED.species_concentrations_kg_m3("phenolics")[a.ref_species]
     if a.c_internal is None:
         a.c_internal = ci
     if a.c_internal_grid is None:
         m, sd = ED.pigments_per_cell()["phenolics"]
         a.c_internal_grid = [ci * (m - sd) / m, ci, ci * (m + sd) / m]
+    if a.transmissivity is None:
+        a.transmissivity = ED.clear_sky_transmissivity()[0]
+    if a.grains is None or a.ref_grain is None:
+        runner = bb.BioSNICARRunner(bb.locate_biosnicar(a.biosnicar))
+        mu, sd = ED.bubble_radius_prior(a.rho_bottom) if a.ice_mode == "bubbly" else (None, None)
+        if mu is None:
+            raise SystemExit("granular mode has no empirical grain-size prior: pass --grains and --ref-grain")
+        snap = lambda r: float(runner.snap_radius(r, a.ice_mode))  # noqa: E731
+        if a.grains is None:
+            a.grains = [snap(np.exp(mu + z * sd)) for z in (-1.96, -1.0, 0.0, 1.0, 1.96)]
+        if a.ref_grain is None:
+            a.ref_grain = snap(np.exp(mu))
 
 
 def size_to_geom(size_um, a, CellGeometry):
@@ -157,22 +180,38 @@ def main(argv=None):
             print("Level 1 results not found - Fig. 2A shows Level 2 only")
     print(f"Level 2 pigment: {l2.name} [{l2.source}]")
 
+    cal = None
+    if a.raw_tddft:
+        mac_C_fn = l2.mac_at
+        f_hat = 1.0
+        print("WARNING: --raw-tddft: TD-DFT MAC per kg glucoside used with c_i in phenol equivalents")
+    else:
+        import tddft_calibration as TC
+        cal = TC.calibrate(l2)
+        mac_C_fn = cal.mac_C
+        f_hat = cal.mean("f")
+        with open(os.path.join(tabdir, "tddft_calibration.json"), "w") as fh:
+            json.dump(cal.summary(), fh, indent=1)
+        TC.plot_calibration(cal, figdir, F)
+        if l1 is not None:
+            TC.calibrate_core(l1)
     if a.level34_csv:
         mm = a.level34_molar_mass or l2.molar_mass
         l34 = co.load_mac_csv(a.level34_csv, "Level 3/4", mm)
-        mac_D_fn = l34.mac_at
-        d_source = f"Level 3/4 CSV {a.level34_csv}"
-        surrogate = None
+        mac_D_fn = lambda wl: f_hat * l34.mac_at(wl)  # noqa: E731
+        d_source = f"Level 3/4 CSV {a.level34_csv} (x calibrated f = {f_hat:.3g})"
+    elif cal is not None:
+        mac_D_fn = cal.mac_D
+        d_source = (f"calibrated TD-DFT + measured Fe-purpurogallin increment (Prochazkova et al. 2025), "
+                    f"complexed fraction {cal.mean('phi'):.3f} +/- {cal.sd('phi'):.3f} fitted to the S6 extract MAC")
     else:
-        surrogate = co.FePhenolicSurrogate()
-        mac_D_fn = lambda wl: surrogate.mac(l2, wl)  # noqa: E731
-        d_source = "PROVISIONAL Fe(III)-phenolic surrogate (replace with Level 3/4 TD-DFT)"
+        raise SystemExit("--raw-tddft needs --level34-csv for tier D")
     print(f"Tier D source: {d_source}")
 
     # --------------------------------------------- Task 1: packaging (300-800 nm)
     wl = np.arange(300.0, 801.0, 1.0)
-    mac_l2 = l2.mac_at(wl)
-    if a.sizes is None:      # the two Ancylonema species (Chevrollier 2022 volume, Prochazkova 2021 shape)
+    mac_l2 = mac_C_fn(wl)
+    if a.sizes is None:      # the two Ancylonema species (Halbach 2022 volume, Prochazkova 2021 shape)
         import empirical_data as ED
         sizes_geom = [CellGeometry("cylinder", g["diameter_um"] / 2.0, g["length_um"])
                       for g in ED.species_geometry().values()]
@@ -201,7 +240,12 @@ def main(argv=None):
     else:
         mv_ref = {g.label(): grid[i, jc] for i, g in enumerate(sizes_geom)}
         q_ref = {g.label(): qgrid[i, jc] for i, g in enumerate(sizes_geom)}
-    raw = {"Level 2 glucoside": mac_l2} if l1 is None else {"Level 2 glucoside": mac_l2, "Level 1 core": l1.mac_at(wl)}
+    raw = {"Level 2 glucoside (calibrated)" if cal else "Level 2 glucoside": mac_l2}
+    if l1 is not None:
+        raw["Level 1 core (uncalibrated)"] = f_hat * l1.mac_at(wl)
+    import empirical_data as ED
+    wl_e, mac_e, _ = ED.phenolic_extract_mac()
+    raw["S6 extract, measured"] = np.interp(wl, wl_e, mac_e, left=np.nan, right=np.nan)
     pck = np.loadtxt(os.path.join(root, "data", "pigments", "pckg_GA.csv"))
     wl_p = 200.0 + np.arange(pck.size)
     keep = (wl_p >= 300) & (wl_p <= 600)      # empirical factor exceeds 1 (noise) beyond ~600 nm
@@ -212,9 +256,9 @@ def main(argv=None):
     # ------------------------------------------------ cell optics, 480 bands
     kw = co.water_k_480(root)
     ref_geom = CellGeometry(a.cell_shape, a.cell_radius, a.cell_length)
-    extra = () if a.no_photosynthetic else co.empirical_pigments()
+    extra = () if a.no_photosynthetic else co.empirical_pigments(species=a.ref_species)
     cell = co.CellModel(ref_geom, a.c_internal, a.vacuole_fraction, g_mode=a.g_mode, extra_pigments=extra)
-    mac480_L2 = co.to_480(l2.mac_at, tuple(a.window), a.uv_mode)
+    mac480_L2 = co.to_480(mac_C_fn, tuple(a.window), a.uv_mode)
     mac480_D = co.to_480(mac_D_fn, tuple(a.window), a.uv_mode)
     optics = {"A": co.model_a_optics(root)}
     optics["C"] = cell.optics(mac480_L2, kw, packaged=True)
@@ -298,7 +342,7 @@ def main(argv=None):
 
     cfg = vars(a).copy()
     cfg.update(demo=a.demo, level2_source=l2.source, tier_d_source=d_source,
-               tier_d_surrogate=(surrogate.__dict__ if surrogate else None),
+               tddft_calibration=(cal.summary() if cal else None),
                reference_cell=co.describe(cell), biosnicar_root=root,
                runtime_s=round(time.time() - t0, 1))
     with open(os.path.join(a.outdir, "run_config.json"), "w") as fh:

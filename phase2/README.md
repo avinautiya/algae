@@ -27,7 +27,9 @@ BioSNICAR must be used from a **git checkout**: it locates its `data/` folder re
 | File | Purpose |
 |---|---|
 | `pigment_packaging.py` | Duysens/Morel–Bricaud sphere formula, a Monte Carlo chord-length method for any convex cell (cylinders), `mac_vivo`, `mac_vivo_grid` |
-| `cell_optics.py` | Phase 1 loaders, 480-band mapping, per-cell optics for tiers B/C/D, the provisional tier D Fe(III)-phenolic model, the tier A loader |
+| `cell_optics.py` | Phase 1 loaders, 480-band mapping, per-cell optics for tiers B/C/D (Mie asymmetry parameter), the tier A loader |
+| `tddft_calibration.py` | Empirical calibration of the Phase 1 spectrum against measured spectra of the pigment; tier D (Fe-complexed) MAC from the measured Fe-purpurogallin spectrum; Fig. S0 |
+| `empirical_data.py` | Every measured input (see `data/empirical/SOURCES.md`) |
 | `biosnicar_bridge.py` | Locates BioSNICAR, injects in-memory impurities into its mixing step and solver, clear-sky SW↓, broadband albedo and forcing, lap.npz export |
 | `figures.py` | Publication style; Fig. 2A–2C plus supplementary S1–S2 (PDF and 600-dpi PNG) |
 | `run_phase2.py` | Command-line driver (all parameters are flags; run with `-h`) |
@@ -56,7 +58,7 @@ BioSNICAR must be used from a **git checkout**: it locates its `data/` folder re
 - **Scattering:** σ_sca = σ_ext − σ_abs,packaged.
 - **Tier B** keeps tier C's scattering and swaps in the unpackaged absorption, MAC·m_pig. So B vs C isolates packaging alone.
 - **Cell water:** absorption by intracellular water (60% water by volume, k of water) is included and packaged the same way.
-- **Asymmetry parameter:** g = 0.96 for every tier, which is BioSNICAR's empirical value. `--g-mode vd2014` uses the van Diedenhoven parameterization instead. The van Diedenhoven SSA is always written out as an independent cross-check of the packaging-based SSA.
+- **Asymmetry parameter:** g(λ) from Mie theory for the equal-volume sphere (`cell_optics.mie_g`). It uses the measured cell refractive index of 1.38 (Chevrollier et al. 2023), the ice host (n = 1.31) and k from the cell's own absorption, giving g ≈ 0.98–0.99. Measured g of green microalgae is > 0.95 (Pilon & Kandilian 2016). BioSNICAR's 0.96 is available as `g_mode="fixed"`, and the van Diedenhoven parameterization (`vd2014`) treats n as relative to air. The van Diedenhoven SSA is always written out as an independent cross-check of the packaging-based SSA.
 
 ### 3. Spectral window
 
@@ -70,27 +72,38 @@ BioSNICAR must be used from a **git checkout**: it locates its `data/` folder re
 - Two-layer column (defaults from measurements; `data/empirical/SOURCES.md`): a 2 cm algae-bearing **bubbly** weathering crust over 2 m of clean ice.
   - The crust's density is 330/450/560 kg m⁻³: Cooper et al. (2018) range and mean.
   - The ice below is 690 kg m⁻³ (Cooper et al. 2018).
-  - The optical radius sweep is 1–15 mm; the reference of 10 mm follows Cooper et al. (2021), who measured about 9.3–10.6 mm.
+  - The bubble-radius sweep is the 2.5/16/50/84/97.5 % quantiles of the **measured specific surface area** of bubbly ice (Cooper et al. 2021; Dadic et al. 2013; ln SSA ~ N(−0.97, 0.35)), converted at 690 kg m⁻³: about 1.45–5.65 mm. The reference is the median, 2.85 mm. (Cooper et al.'s 9.3–10.6 mm are ice-sphere radii, not bubble radii; only their SSA carries over.)
   - Granular ice (`--ice-mode grains`) cannot reproduce the field NIR reflectance (see Phase 4).
-- Algae are in the top layer, in cells mL⁻¹, using BioSNICAR's convention.
+- Algae are in the top 2 cm, in cells mL⁻¹. This is the sampling depth that defines the measured abundances: "the top 2 cm collected" (Williamson et al. 2018); "scraping off the top ~2 cm" (Halbach et al. 2025).
 
 ### 5. Forcing
 
-RF = SW↓ Σ_λ f(λ)[α_clean(λ) − α(λ)] over 300–2500 nm. Here f is BioSNICAR's normalized irradiance spectrum, and SW↓ = S₀ cos θ · 0.75^(1/cos θ) for clear sky; pass `--sw-down` to use measured fluxes instead (e.g. PROMICE). Broadband albedo uses the same weighting.
+RF = SW↓ Σ_λ f(λ)[α_clean(λ) − α(λ)] over 300–2500 nm. Here f is BioSNICAR's normalized irradiance spectrum, and SW↓ = S₀ cos θ · T^(1/cos θ) for clear sky, with **T = 0.919** fitted to 2301 clear-sky hours of PROMICE KAN_M radiation (`empirical_data.clear_sky_transmissivity`; the former 0.75 gave about 35 % less SW↓); pass `--sw-down` to use measured fluxes instead (e.g. PROMICE). Broadband albedo uses the same weighting.
 
 ## Model tiers
 
 | Tier | Absorption | Source |
 |---|---|---|
 | A | BioSNICAR empirical glacier algae | `ice_algae_empirical_Chevrollier2023` (whole-cell measured optics) |
-| B | Level 2 MAC, unpackaged | Phase 1 TD-DFT |
-| C | Level 2 MAC × Q\* | Phase 1 TD-DFT + `pigment_packaging.py` |
-| D | Fe(III)-complexed + aggregated MAC × Q\* | **Provisional surrogate** until Level 3/4 TD-DFT exists (`--level34-csv`) |
+| B | Calibrated Level 2 MAC, unpackaged | Phase 1 TD-DFT, calibrated (below) |
+| C | Calibrated Level 2 MAC × Q\* | Phase 1 TD-DFT, calibrated + `pigment_packaging.py` |
+| D | C + measured Fe-complex absorption × Q\* | Procházková et al. (2025) Fig. 4 at the complexed fraction fitted to the S6 extract (or `--level34-csv`) |
 
-The tier D surrogate (`cell_optics.FePhenolicSurrogate`) works on the Level 2 bands:
-- It red-shifts them by 0.10 eV and adds 0.25 eV of extra broadening to represent aggregation.
-- It adds an Fe(III)←phenolate LMCT band at 570 nm (FWHM 0.70 eV, ε = 4000 M⁻¹ cm⁻¹ per Fe, one Fe per two ligands). These are typical literature ranges for Fe(III)-catecholate/galloyl complexes, and they **must be cited and varied** before quoting tier D numbers.
-- MAC is expressed per kg of ligand, so tiers B–D contain the same number of pigment molecules per cell.
+### Empirical calibration of the TD-DFT spectrum (`tddft_calibration.py`, Fig. S0)
+
+The pigment of the field algae has measured spectra (Williamson et al. 2020 deposit). The Phase 1 spectrum is fitted to them in two stages:
+1. **Band shift ΔE and Gaussian FWHM** from the diode-array spectra of the HPLC-isolated (uncomplexed) chromophore.
+2. **Scale f and Fe-complexed fraction φ** from the measured MAC of whole S6 extracts. The fit is in log space, so the visible weighs as much as the UV peak.
+
+Two details matter:
+- **Units.** Phenolics were quantified as **phenol equivalents** (US EPA 420.1), in both the per-cell content and the extract MAC. f converts the TD-DFT MAC (per kg glucoside) to those units, which the uncalibrated model did not do. `--raw-tddft` turns the calibration off.
+- **Tier D.** Tier D = f·[M + φ·I_M·D], where D is the measured Fe-induced absorbance change of purpurogallin (Procházková et al. 2025, Fig. 4; digitised).
+
+With the placeholder Phase 1 spectrum (sto-3g):
+- **Fit:** ΔE = +0.07 eV, FWHM = 1.17 eV, f = 38, φ = 0.27.
+- **Effect:** calibrated tier C forcing is within about 6 % of BioSNICAR's measured tier A at the reference state (43 vs 41 W m⁻² at 10⁴ cells mL⁻¹; 232 vs 220 at 10⁵). Without calibration, tiers B–D combined a MAC per kg of glucoside with a concentration in phenol equivalents.
+
+Rerun with the production Phase 1 output; `tables/tddft_calibration.json` records the fit and its diagnostics.
 
 ## Validation (`tests/test_phase2.py`, all passing)
 
@@ -118,14 +131,15 @@ Two independent comparisons are printed or plotted on every run:
 
 ## Defaults to justify or replace in the paper
 
-- **Cell size (empirical).** The reference cell is *A. nordenskioeldii*, 10.75 × 25.44 µm: Greenland mean volume (Chevrollier et al. 2022) with the measured length:width ratio (Procházková et al. 2021). Fig. 2A shows both species; *A. alaskanum* is 8.95 × 13.08 µm. `--sizes` overrides this.
+- **Cell size (empirical).** The reference cell is *A. nordenskioeldii*, 10.75 × 25.44 µm: Greenland mean volume (Halbach et al. 2022) with the measured length:width ratio (Procházková et al. 2021). Fig. 2A shows both species; *A. alaskanum* is 8.95 × 13.08 µm. `--sizes` overrides this.
 - **Pigment concentration (empirical).** The phenolic concentration is c_i = 22.0 kg m⁻³: measured phenolics per cell / measured biovolume per cell at S6 (Williamson et al. 2020). The packaging grid uses c_i and c_i × (mean ± 1 SD)/mean.
   - **Stated assumption:** the concentration is the same in both species.
 - **Photosynthetic pigments.** Chlorophyll a, chlorophyll b and carotenoids are included in tiers B–D at their measured per-cell concentrations, with in vivo MACs (Williamson et al. 2020). They absorb inside the same packaged cell. `--no-photosynthetic` gives the phenolic-only cell.
-- **Not empirical:**
-  - g = 0.96.
-  - Clear-sky transmissivity 0.75.
-  - The Tier D surrogate (provisional until Level 3/4 TD-DFT output exists).
+- **Species concentrations.** The size dependence of the measured intracellular concentration (`empirical_data.phenolic_size_scaling`, γ = −0.73 ± 0.73, consistent with 0) sets the per-species values: 19.6 (A. nordenskioeldii) and 41.6 kg m⁻³ (A. alaskanum). `--ref-species` selects the reference cell.
+- **Remaining stated assumptions** (see `data/empirical/SOURCES.md`):
+  - equal PG amounts in the two solutions of Procházková Fig. 4;
+  - the equal-volume sphere for g;
+  - uniform algae within the 2 cm layer.
 - **Concentration range.** 10⁷ cells mL⁻¹ is far above observed blooms, which reach about 10⁴–10⁵ cells mL⁻¹.
 - **Tier A cell size.** Tier A's extinction (7.1×10⁻¹⁰ m² per cell) reflects BioSNICAR's empirical cell size, which differs from our reference cell. Fig. S1 shows the per-cell absorption so the difference stays visible.
 - **Forcing scope.** Forcing is instantaneous, clear-sky and direct-beam, with no melt feedbacks.

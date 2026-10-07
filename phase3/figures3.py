@@ -29,8 +29,9 @@ SHORT = {"dE_ev": r"$\Delta E$", "f_scale": r"$f$ scale", "fwhm_ev": "FWHM",
          "cell_length_um": r"$L$", "cell_diameter_um": r"$d$", "cell_volume_um3": r"$V$",
          "cell_aspect": r"$L/d$", "c_internal": r"$c_i$", "grain_um": r"$r_{ice}$",
          "rho_top": r"$\rho$", "conc_cells_ml": "abundance",
-         "lmct_eps": r"$\varepsilon_{LMCT}$", "lmct_center_nm": r"$\lambda_{LMCT}$"}
-S2_DEFAULT = ["cell_volume_um3", "cell_aspect", "c_internal", "grain_um", "rho_top", "conc_cells_ml"]
+         "fe_fraction": r"$\phi_{Fe}$", "conc_size_exponent": r"$\gamma$", "ice_ssa": "SSA",
+         "transmissivity": r"$T$"}
+S2_DEFAULT = ["cell_volume_um3", "cell_aspect", "c_internal", "ice_ssa", "rho_top", "conc_cells_ml"]
 OUTPUT_LABELS = {
     "rf_A": r"$RF_A$", "rf_B": r"$RF_B$", "rf_C": r"$RF_C$", "rf_D": r"$RF_D$",
     "eff_C": r"$RF_C$ per $10^4$ cells mL$^{-1}$", "eff_D": r"$RF_D$ per $10^4$ cells mL$^{-1}$",

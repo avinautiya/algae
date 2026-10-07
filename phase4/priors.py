@@ -9,9 +9,10 @@ citations in data/empirical/SOURCES.md):
              independent of the 2017 field-validation samples (Cook et al. 2020).
   f_n      ~ Beta(17.4, 11.4)    method-of-moments fit to the three published Greenland community
              surveys (A. nordenskioeldii fraction 0.65, 0.66, 0.50).
-  r        ~ log-uniform on [300, 20000] um (bubbly-ice optical radius): the range spanned by the
-             field NIR reflectances at the measured ice densities; Cooper et al. (2021) measured
-             ~9.3-10.6 mm in this ice. No measured distribution exists, so the prior is flat in log r.
+  r        BioSNICAR bubble radius, log-normal: the measured specific surface area of bubbly bare
+             ice, ln SSA ~ N(-0.97, 0.35) (Cooper et al. 2021, Greenland; Dadic et al. 2013, micro-CT;
+             data/empirical/ice_ssa_measurements.csv) converted at the bottom-layer density
+             (r = 3 (1 - rho/917) / (rho SSA)); median ~2.8 mm at 690 kg m^-3. Grid support 0.3-20 mm.
   k        ~ Normal(0.90, 0.175) the band-averaged anisotropic reflectance factor HCRF/albedo of 51
              field spectra (biosnicar-py ARF_master.csv), linking directional reflectance to albedo.
   dust     log-uniform over its nodes, only if the dust axis is enabled. Field studies at S6 found
@@ -37,11 +38,12 @@ sys.path.insert(0, os.path.join(HERE, "..", "phase2"))
 import empirical_data as ED  # noqa: E402
 
 
-def _defaults():
+def _defaults(rho_bottom=None):
     mu_b, sd_b, n_b, _ = ED.abundance_prior()
     fa, fb, _, _ = ED.community_prior()
     mk, sk, _ = ED.anisotropy_prior()
-    return dict(mu_b=mu_b, sd_b=sd_b, f_alpha=fa, f_beta=fb, mu_k=mk, sd_k=sk)
+    mr, sr = ED.bubble_radius_prior(rho_bottom)
+    return dict(mu_b=mu_b, sd_b=sd_b, f_alpha=fa, f_beta=fb, mu_k=mk, sd_k=sk, mu_lnr=mr, sd_lnr=sr)
 
 
 @dataclass
@@ -52,12 +54,21 @@ class PriorConfig:
     f_beta: float = field(default_factory=lambda: _defaults()["f_beta"])
     mu_k: float = field(default_factory=lambda: _defaults()["mu_k"])
     sd_k: float = field(default_factory=lambda: _defaults()["sd_k"])
+    mu_lnr: float = field(default_factory=lambda: _defaults()["mu_lnr"])
+    sd_lnr: float = field(default_factory=lambda: _defaults()["sd_lnr"])
     scale: float = 1.0                          # multiply prior SDs (sensitivity test only)
+
+    @classmethod
+    def for_density(cls, rho_bottom, **kw):
+        """Priors with the bubble-radius prior converted at a given bottom-layer density."""
+        d = _defaults(rho_bottom)
+        return cls(mu_lnr=d["mu_lnr"], sd_lnr=d["sd_lnr"], **kw)
 
     def describe(self):
         return dict(log_b=f"Normal({self.mu_b:.3f}, {self.sd_b:.3f})",
                     f_n=f"Beta({self.f_alpha:.2f}, {self.f_beta:.2f})",
-                    r_um=f"log-uniform {ED.ICE_RADIUS_BOUNDS_UM}", k=f"Normal({self.mu_k:.3f}, {self.sd_k:.3f})")
+                    r_um=f"logNormal(ln r: {self.mu_lnr:.3f}, {self.sd_lnr:.3f}) [median {np.exp(self.mu_lnr):.0f} um]",
+                    k=f"Normal({self.mu_k:.3f}, {self.sd_k:.3f})")
 
 
 def prior_logpdfs(emu_axes: dict, n_pixels: int, cfg: PriorConfig):
@@ -77,10 +88,11 @@ def prior_logpdfs(emu_axes: dict, n_pixels: int, cfg: PriorConfig):
     else:
         out["f_n"] = np.zeros((1, 1))
     r = emu_axes["r_um"]
-    # log-uniform density on the (possibly non-uniform) node set: weight each node by its share of log r
+    # log-normal density in ln r on the (possibly non-uniform) node set: density x each node's share of ln r
     lr = np.log(r)
     edges = np.concatenate([[lr[0]], 0.5 * (lr[1:] + lr[:-1]), [lr[-1]]]) if len(r) > 1 else np.array([0, 1])
-    out["r_um"] = np.log(np.maximum(np.diff(edges), 1e-12))[None, :]
+    out["r_um"] = (np.log(np.maximum(np.diff(edges), 1e-12))
+                   + stats.norm.logpdf(lr, cfg.mu_lnr, cfg.sd_lnr * sc))[None, :]
     if "dust_ppb" in emu_axes:
         out["dust_ppb"] = np.zeros((1, len(emu_axes["dust_ppb"])))
     for k, v in out.items():
@@ -90,4 +102,4 @@ def prior_logpdfs(emu_axes: dict, n_pixels: int, cfg: PriorConfig):
 
 def mcmc_prior_params(cfg: PriorConfig):
     return dict(mu_b=cfg.mu_b, sd_b=cfg.sd_b * cfg.scale, f_alpha=cfg.f_alpha, f_beta=cfg.f_beta,
-                mu_k=cfg.mu_k, r_prior="loguniform")
+                mu_k=cfg.mu_k, r_prior="lognormal", mu_lnr=cfg.mu_lnr, sd_lnr=cfg.sd_lnr * cfg.scale)

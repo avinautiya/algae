@@ -101,7 +101,7 @@ def test_photosynthetic_pigments_and_empirical_inputs():
     assert abs(ED.pigments_per_cell()["phenolics"][0] - 0.04322) < 1e-4
     assert 21.5 < ED.intracellular_concentration_kg_m3("phenolics") < 22.5
     g = ED.species_geometry()
-    for name, V in (("nordenskioeldii", 2307.0), ("alaskanum", 822.0)):   # Chevrollier et al. (2022)
+    for name, V in (("nordenskioeldii", 2307.0), ("alaskanum", 822.0)):   # Halbach et al. (2022)
         d, L = g[name]["diameter_um"], g[name]["length_um"]
         assert abs(np.pi * d ** 2 / 4 * L - V) < 1e-6 * V
     srf = ED.s2_srf_480("S2A")
@@ -123,6 +123,39 @@ def test_photosynthetic_pigments_and_empirical_inputs():
     assert np.all(full["abs_xsc"] >= base["abs_xsc"] * (1 - 1e-9))
     assert full["abs_xsc"][red].mean() > 1.5 * base["abs_xsc"][red].mean()
     assert np.all(full["abs_xsc"] <= geom.projected_area_um2 * 1e-12 * (1 + 2e-3))
+
+
+def test_new_empirical_components():
+    """Transmissivity, ice SSA prior, field samples, size scaling, Mie g and the TD-DFT calibration."""
+    import empirical_data as ED
+    tau, sd, n = ED.clear_sky_transmissivity()
+    assert 0.85 < tau < 0.97 and n > 1000                     # PROMICE KAN_M clear-sky hours
+    m, sdl, nn = ED.ice_ssa_prior()
+    assert nn == 19 and 0.2 < np.exp(m) < 0.6
+    r = ED.bubble_radius_um(0.35, 835.0)                        # Cooper et al. (2021) SSA at its density
+    assert abs(ED.ssa_from_bubble_radius(r, 835.0) - 0.35) < 1e-12 and 800 < r < 1000
+    tab, spectra = ED.field_samples()
+    assert (tab.dataset == "s6_2017").sum() == 47 and (tab.dataset == "sgris_2021").sum() == 18
+    assert "22_7_SB6" not in set(tab["sample"])                 # not in the primary count workbook
+    g = ED.phenolic_size_scaling()
+    assert g["n"] == 64 and g["gamma_se"] > 0
+    import cell_optics as co
+    gg = co.mie_g(7.0, np.zeros(co.WVL_480_NM.size))
+    vis = (co.WVL_480_NM >= 400) & (co.WVL_480_NM <= 700)
+    assert np.all((gg[vis] > 0.95) & (gg[vis] < 0.999))         # measured microalgae: g > 0.95
+    root = _biosnicar_root()
+    if root is None:
+        print("BioSNICAR not found - skipping calibration part")
+        return
+    import tddft_calibration as TC
+    cal = TC.calibrate(co.demo_spectrum(root), n_steps=800, burn=300, n_stage2=40, draws_per=10, verbose=False)
+    d = cal.summary()
+    assert d["shape_r2"] > 0.8 and 0 <= d["phi"]["mean"] <= 1
+    wl, E, _ = ED.phenolic_extract_mac()
+    k = (wl >= 450) & (wl <= 700)
+    errC = np.mean(np.log(cal.mac_C(wl[k]) / E[k]) ** 2)
+    errD = np.mean(np.log(cal.mac_D(wl[k]) / E[k]) ** 2)
+    assert errD <= errC                                          # the Fe term explains the visible tail
 
 
 def test_bridge_matches_run_model():

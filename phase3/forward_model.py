@@ -21,7 +21,6 @@ eff_{A,B,C,D}               forcing efficiency, rf / (conc / 10^4 cells mL^-1):
 
 from __future__ import annotations
 
-import dataclasses
 import os
 import sys
 import time
@@ -38,31 +37,50 @@ TIERS = ("A", "B", "C", "D")
 class ForwardModel:
     def __init__(self, phase1_l2: str | None = None, functional: str = "B3LYP", demo: bool = False,
                  biosnicar: str | None = None, sza: float = 45.0, sw_down: float | None = None,
-                 transmissivity: float = 0.75, incoming: int = 3, window=(350.0, 800.0),
+                 transmissivity: float | None = None, incoming: int = 3, window=(350.0, 800.0),
                  uv_mode: str = "hold", ice_mode: str = "bubbly", rho_bottom: float = 690.0,
                  photosynthetic: bool = True,
                  dz_top: float = 0.02, dz_bottom: float = 2.0, g_fixed: float = 0.96,
-                 qtable_cache: str | None = None):
+                 qtable_cache: str | None = None, calibration_point: dict | None = None):
         import biosnicar_bridge as bb
         import cell_optics as co
+        import empirical_data as ED
+        import tddft_calibration as TC
         from qstar_table import QStarTable
 
-        self.bb, self.co = bb, co
+        self.bb, self.co, self.ED, self.TC = bb, co, ED, TC
         self.root = bb.locate_biosnicar(biosnicar)
         self.ligand = co.demo_spectrum(self.root) if demo else co.load_phase1(phase1_l2, "level2", functional)
         self.demo = demo
         self.runner = bb.BioSNICARRunner(self.root, incoming=incoming)
         self.kw = co.water_k_480(self.root)
         self.qtab = QStarTable(cache=qtable_cache)
-        self.surrogate = co.FePhenolicSurrogate()
         self.tierA = self.runner.default_impurity("glacier_algae")
         self.sza = sza
-        self.sw = sw_down if sw_down is not None else bb.sw_down_clear_sky(sza, transmissivity)
+        self.sw_fixed = sw_down
+        self.tau = ED.clear_sky_transmissivity()[0] if transmissivity is None else transmissivity
         self.window, self.uv_mode = tuple(window), uv_mode
+        self.rho_bottom = rho_bottom
         self.ice_kw = dict(rho_bottom=rho_bottom, dz_top=dz_top, dz_bottom=dz_bottom, mode=ice_mode)
         self.g_fixed = g_fixed
         # chlorophyll a/b + carotenoids at their measured per-cell concentrations (Williamson et al. 2020)
         self.extra = co.empirical_pigments() if photosynthetic else ()
+        self.v_ref = ED.s6_biovolume_um3()[0]
+        if calibration_point is None:
+            calibration_point = TC.calibrate(self.ligand, verbose=False).point()
+        self.cal = calibration_point          # defaults for absent molecular parameters
+
+    def resolve(self, p: dict) -> dict:
+        """Derived inputs of one sample: bubble radius from the ice SSA (at the bottom-layer density),
+        size-scaled intracellular concentration, downwelling shortwave from the transmissivity."""
+        q = dict(p)
+        if "ice_ssa" in q:
+            q["grain_um"] = float(self.ED.bubble_radius_um(q["ice_ssa"], self.rho_bottom))
+        d, L = cell_dimensions(q)
+        q["size_factor"] = (np.pi * d * d / 4.0 * L / self.v_ref) ** q.get("conc_size_exponent", 0.0)
+        tau = q.get("transmissivity", self.tau)
+        q["sw_down"] = self.sw_fixed if self.sw_fixed is not None else self.bb.sw_down_clear_sky(self.sza, tau)
+        return q
 
     def warm(self, grain_min: float, grain_max: float):
         """Pre-compute clean-ice optics for every LUT radius in range (shared by forked workers)."""
@@ -76,37 +94,29 @@ class ForwardModel:
         self.runner.detach_luts()
 
     # ---- molecular -------------------------------------------------------------
-    def _ligand(self, p):
-        """Phase 1 spectrum perturbed by the molecular parameters."""
-        L = self.ligand
-        if L.has_sticks:
-            return dataclasses.replace(L, energies_ev=L.energies_ev + p.get("dE_ev", 0.0),
-                                       osc=L.osc * p.get("f_scale", 1.0),
-                                       fwhm_ev=p.get("fwhm_ev", L.fwhm_ev))
-        # continuous (demo) curve: shift + extra broadening + scaling
-        extra = float(np.sqrt(max(p.get("fwhm_ev", L.fwhm_ev) ** 2 - L.fwhm_ev ** 2, 0.0)))
-        dE, fs = p.get("dE_ev", 0.0), p.get("f_scale", 1.0)
-        return _Scaled(L, dE, extra, fs)
-
     def mac480(self, p):
-        lig = self._ligand(p)
-        mac_c = self.co.to_480(lig.mac_at, self.window, self.uv_mode)
-        sur = dataclasses.replace(self.surrogate,
-                                  lmct_eps_per_fe=p.get("lmct_eps", self.surrogate.lmct_eps_per_fe),
-                                  lmct_center_nm=p.get("lmct_center_nm", self.surrogate.lmct_center_nm))
-        mac_d = self.co.to_480(lambda wl: sur.mac(lig, wl), self.window, self.uv_mode)
+        """Calibrated pigment MAC (tier B/C) and with the Fe-complexed fraction (tier D); the
+        molecular parameters are the calibration's dE (eV), FWHM (eV), f and phi."""
+        c = self.cal
+        dE, w = p.get("dE_ev", c["dE"]), p.get("fwhm_ev", c["w"])
+        f, phi = p.get("f_scale", c["f"]), p.get("fe_fraction", c["phi"])
+        mac_c = self.co.to_480(self.TC.perturbed_mac(self.ligand, dE, f, w), self.window, self.uv_mode)
+        mac_d = self.co.to_480(self.TC.complexed_mac(self.ligand, dE, f, w, phi), self.window, self.uv_mode)
         return mac_c, mac_d
 
     # ---- cellular --------------------------------------------------------------
     def cell(self, p):
         from pigment_packaging import CellGeometry
         d, L = cell_dimensions(p)
-        return self.co.CellModel(CellGeometry("cylinder", d / 2.0, L), p["c_internal"], q_func=self.qtab,
-                                 vd_diagnostic=False, g_fixed=self.g_fixed, extra_pigments=self.extra)
+        k = p.get("size_factor", 1.0)
+        extra = tuple((m, c * k) for m, c in self.extra)
+        return self.co.CellModel(CellGeometry("cylinder", d / 2.0, L), p["c_internal"] * k, q_func=self.qtab,
+                                 vd_diagnostic=False, g_fixed=self.g_fixed, extra_pigments=extra)
 
     # ---- full chain ------------------------------------------------------------
     def evaluate(self, p: dict) -> dict:
         bb = self.bb
+        p = self.resolve(p)
         mac_c, mac_d = self.mac480(p)
         cell = self.cell(p)
         oC = cell.optics(mac_c, self.kw, packaged=True)
@@ -123,7 +133,7 @@ class ForwardModel:
         for t, imp in imps.items():
             alb, _, _ = self.runner.run(spec, self.sza, imp, conc)
             out[f"bba_{t}"] = self.runner.broadband(alb, flx)
-            out[f"rf_{t}"] = self.runner.forcing(alb0, alb, flx, self.sw)
+            out[f"rf_{t}"] = self.runner.forcing(alb0, alb, flx, p["sw_down"])
             out[f"eff_{t}"] = out[f"rf_{t}"] / (conc / 1e4)
         out["d_CB"] = out["rf_C"] - out["rf_B"]
         out["d_DC"] = out["rf_D"] - out["rf_C"]
@@ -131,6 +141,8 @@ class ForwardModel:
             out[f"d_{t}A"] = out[f"rf_{t}"] - out["rf_A"]
         out["pigment_pg_per_cell"] = cell.pigment_mass_per_cell_kg * 1e15
         out["cell_diameter_um"], out["cell_length_um"] = cell_dimensions(p)
+        out["ice_radius_um"], out["sw_down"] = p["grain_um"], p["sw_down"]
+        out["c_internal_eff"] = p["c_internal"] * p["size_factor"]
         return out
 
 
@@ -141,18 +153,6 @@ def cell_dimensions(p: dict):
         d = (4.0 * p["cell_volume_um3"] / (np.pi * ar)) ** (1.0 / 3.0)
         return d, ar * d
     return p["cell_diameter_um"], p["cell_length_um"]
-
-
-class _Scaled:
-    """Continuous-spectrum ligand with shift / broadening / scale (demo input)."""
-
-    def __init__(self, base, dE, extra, fs):
-        self.base, self.dE, self.extra, self.fs = base, dE, extra, fs
-        self.molar_mass = base.molar_mass
-
-    def mac_at(self, wl, shift_ev=0.0, extra_fwhm_ev=0.0):
-        ex = float(np.hypot(self.extra, extra_fwhm_ev))
-        return self.fs * self.base.mac_at(wl, shift_ev=self.dE + shift_ev, extra_fwhm_ev=ex)
 
 
 # --------------------------------------------------------------------------- #
@@ -185,7 +185,7 @@ def evaluate_many(model_kwargs: dict, samples: list[dict], workers: int = 1, chu
     if _WORKER is None or getattr(_WORKER, "_kwargs", None) != model_kwargs:
         _WORKER = ForwardModel(**model_kwargs)
         _WORKER._kwargs = dict(model_kwargs)
-    g = [s["grain_um"] for s in samples]
+    g = [_WORKER.resolve(s)["grain_um"] for s in samples]
     _WORKER.warm(min(g), max(g))
     chunks = [samples[i:i + chunk] for i in range(0, len(samples), chunk)]
     results = []

@@ -143,11 +143,11 @@ def _quantile_from_cdf(vals, cdf, q):
 # MCMC cross-check                                                             #
 # --------------------------------------------------------------------------- #
 def mcmc_pixel(emulator, R, sigma, prior_params: dict, sk: float, n_walkers: int = 32,
-               n_steps: int = 6000, burn: int = 2000, seed: int = 0):
+               n_steps: int = 6000, burn: int = 2000, seed: int = 0, init=None):
     """emcee sampling of (state..., k) for one pixel on the continuous emulator.
 
-    prior_params: dict with mu_b, sd_b, f_alpha, f_beta, mu_k and r_prior ("loguniform", as on the grid,
-    or "normal" with mu_r, sd_r).
+    prior_params: dict with mu_b, sd_b, f_alpha, f_beta, mu_k and r_prior ("lognormal" with mu_lnr,
+    sd_lnr, as on the grid; "loguniform"; or "normal" with mu_r, sd_r).
     Returns dict(samples, names, tau, ess, rhat, acceptance).
     """
     import emcee
@@ -155,12 +155,15 @@ def mcmc_pixel(emulator, R, sigma, prior_params: dict, sk: float, n_walkers: int
 
     I = emulator.interpolator("bands")
     act = emulator.active
-    lo = np.array([emulator.coord(n)[0] for n in act])
-    hi = np.array([emulator.coord(n)[-1] for n in act])
+    ir = act.index("r_um")
+    # the radius is sampled as ln r: it spans almost two orders of magnitude
+    lo = np.array([emulator.coord(n)[0] for n in act], dtype=float)
+    hi = np.array([emulator.coord(n)[-1] for n in act], dtype=float)
+    lo[ir], hi[ir] = np.log(lo[ir]), np.log(hi[ir])
     R = np.asarray(R, dtype=float)
     sig = np.asarray(sigma, dtype=float)
     pp = prior_params
-    ib, ir = act.index("log_b"), act.index("r_um")
+    ib = act.index("log_b")
     i_f = act.index("f_n") if "f_n" in act else None
 
     def logp(th):
@@ -168,29 +171,42 @@ def mcmc_pixel(emulator, R, sigma, prior_params: dict, sk: float, n_walkers: int
         if np.any(z < lo) or np.any(z > hi):
             return -np.inf
         lpr = stats.norm.logpdf(z[ib], pp["mu_b"], pp["sd_b"]) + stats.norm.logpdf(k, pp.get("mu_k", 1.0), sk)
-        if pp.get("r_prior", "loguniform") == "loguniform":
-            lpr += -np.log(z[ir])                       # log-uniform density in r
-        else:
-            lpr += stats.norm.logpdf(z[ir], pp["mu_r"], pp["sd_r"])
+        lr = z[ir]                                      # densities below are in ln r
+        if pp.get("r_prior", "loguniform") == "lognormal":
+            lpr += stats.norm.logpdf(lr, pp["mu_lnr"], pp["sd_lnr"])
+        elif pp["r_prior"] == "normal":
+            lpr += stats.norm.logpdf(np.exp(lr), pp["mu_r"], pp["sd_r"]) + lr
         if i_f is not None:
             lpr += stats.beta.logpdf(np.clip(z[i_f], 1e-6, 1 - 1e-6), pp["f_alpha"], pp["f_beta"])
-        F = I(z[None, :])[0]
+        zr = z.copy()
+        zr[ir] = np.exp(lr)
+        F = I(zr[None, :])[0]
         return lpr - 0.5 * np.sum(((R - k * F) / sig) ** 2)
 
     rng = np.random.default_rng(seed)
     ndim = len(act) + 1
     p0 = np.empty((n_walkers, ndim))
-    p0[:, :-1] = lo + (hi - lo) * rng.uniform(0.25, 0.75, size=(n_walkers, len(act)))
-    p0[:, ib] = np.clip(pp["mu_b"] + 0.1 * rng.normal(size=n_walkers), lo[ib] + 0.01, hi[ib] - 0.01)
-    p0[:, -1] = pp.get("mu_k", 1.0) + 0.01 * rng.normal(size=n_walkers)
+    if init is not None:               # e.g. draws from the grid posterior (states, k), r in um
+        idx = rng.choice(len(init), size=n_walkers, replace=len(init) < n_walkers)
+        p0[:] = np.asarray(init, float)[idx]
+        p0[:, ir] = np.log(p0[:, ir])
+        p0[:, :-1] = np.clip(p0[:, :-1] + 1e-3 * (hi - lo) * rng.normal(size=(n_walkers, len(act))),
+                             lo + 1e-6, hi - 1e-6)
+        p0[:, -1] += 0.25 * sk * rng.normal(size=n_walkers)   # differential-evolution moves need spread in k
+    else:
+        p0[:, :-1] = lo + (hi - lo) * rng.uniform(0.25, 0.75, size=(n_walkers, len(act)))
+        p0[:, ib] = np.clip(pp["mu_b"] + 0.1 * rng.normal(size=n_walkers), lo[ib] + 0.01, hi[ib] - 0.01)
+        p0[:, -1] = pp.get("mu_k", 1.0) + 0.01 * rng.normal(size=n_walkers)
     sampler = emcee.EnsembleSampler(n_walkers, ndim, logp, moves=[(emcee.moves.DEMove(), 0.8),
                                                                     (emcee.moves.DESnookerMove(), 0.2)])
     sampler.run_mcmc(p0, n_steps, progress=False)
     chain = sampler.get_chain(discard=burn)                    # (steps, walkers, ndim)
     tau = sampler.get_autocorr_time(discard=burn, quiet=True)
+    rhat = _split_rhat(chain)                                  # on (log B, f, ln r, k)
+    chain[..., ir] = np.exp(chain[..., ir])                   # back to um
     flat = chain.reshape(-1, ndim)
     return dict(samples=flat, names=act + ["k"], tau=tau, ess=flat.shape[0] / np.maximum(tau, 1.0),
-                rhat=_split_rhat(chain), acceptance=float(np.mean(sampler.acceptance_fraction)))
+                rhat=rhat, acceptance=float(np.mean(sampler.acceptance_fraction)))
 
 
 def _split_rhat(chain):

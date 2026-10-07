@@ -9,10 +9,12 @@ A pixel's state is z = [log10 B, f_n, r, (dust)] where
     dust optional mineral-dust nuisance (ppb, BioSNICAR's Greenland dust optics)
 
 "Ours" (physics-informed): each species is a Phase 2 packaged cell of its own EMPIRICAL
-geometry (Greenland volumes, Chevrollier et al. 2022; length:width, Prochazkova et al. 2021)
-containing the phenolic pigment (Phase 1 TD-DFT Level 2 MAC, or the measured in vivo MAC of
-Williamson et al. 2020) at the measured mass per cell, plus chlorophyll a/b and carotenoids
-(Williamson et al. 2020). Tier D uses the provisional Fe-phenolic surrogate (not empirical).
+geometry (Greenland volumes, Halbach et al. 2022; length:width, Prochazkova et al. 2021)
+containing the phenolic pigment (Phase 1 TD-DFT Level 2 MAC calibrated against measured spectra of
+the pigment - phase2/tddft_calibration.py - or the measured extract MAC of Williamson et al. 2020)
+at the measured mass per cell scaled by the measured size dependence of concentration, plus
+chlorophyll a/b and carotenoids (Williamson et al. 2020). Tier D adds the measured Fe-purpurogallin
+absorption (Prochazkova et al. 2025) at the complexed fraction fitted to the S6 extract MAC.
 Both species are mixed in BioSNICAR as two impurities.
 "Tier A" (empirical baseline): BioSNICAR's default empirical glacier-algae optics,
 which has no species information (f axis collapsed).
@@ -38,6 +40,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "phase2"))
 
 S2_BANDS = ("B2", "B3", "B4", "B8")
+# bump when the forward physics changes, so cached emulators are rebuilt (v3: calibrated pigment MAC,
+# Mie g, size-scaled species concentrations, measured clear-sky transmissivity)
+PHYSICS_VERSION = "v3"
 S2_CENTRES_NM = (490, 560, 665, 842)
 
 
@@ -50,7 +55,7 @@ class SpeciesSpec:
 
 
 def empirical_species():
-    """Greenland cell volumes (Chevrollier et al. 2022) with measured length:width ratios
+    """Greenland cell volumes (Halbach et al. 2022) with measured length:width ratios
     (Prochazkova et al. 2021); see phase2/empirical_data.species_geometry()."""
     import empirical_data as ED
     g = ED.species_geometry()
@@ -60,8 +65,8 @@ def empirical_species():
 @dataclass
 class EmulatorConfig:
     model: str = "ours"                       # 'ours' or 'tierA'
-    tier: str = "C"                           # optical tier for 'ours': 'C' or 'D' (D = provisional surrogate)
-    phenol: str = "tddft"                     # phenolic MAC: 'tddft' (Phase 1 Level 2) or 'williamson2020'
+    tier: str = "C"                           # optical tier for 'ours': 'C' (uncomplexed) or 'D' (+ Fe complex)
+    phenol: str = "tddft"                     # 'tddft' (calibrated Phase 1 Level 2), 'tddft_raw', 'williamson2020'
     photosynthetic: bool = True               # add chl a, chl b, carotenoids (Williamson et al. 2020)
     ice_mode: str = "bubbly"                  # empirical: field NIR requires solid bubbly ice (README)
     rho: float = 450.0                        # weathering crust (Cooper et al. 2018, mean 0.45 g cm-3)
@@ -83,6 +88,15 @@ class EmulatorConfig:
         if self.dust_ppb:
             ax["dust_ppb"] = np.array(self.dust_ppb, dtype=float)
         return ax
+
+
+def _plain(x):
+    """numpy scalars -> Python scalars so the metadata repr round-trips through ast.literal_eval."""
+    if isinstance(x, dict):
+        return {k: _plain(v) for k, v in x.items()}
+    if isinstance(x, (list, tuple)):
+        return type(x)(_plain(v) for v in x)
+    return x.item() if isinstance(x, np.generic) else x
 
 
 class Emulator:
@@ -107,7 +121,7 @@ class Emulator:
     def save(self, path):
         np.savez_compressed(path, **{f"axis__{k}": v for k, v in self.axes.items()},
                             **{f"data__{k}": v for k, v in self.data.items()},
-                            meta=np.array(repr(self.meta)))
+                            meta=np.array(repr(_plain(self.meta))))
 
     @classmethod
     def load(cls, path):
@@ -165,28 +179,30 @@ class _Builder:
         import empirical_data as ED
         self.runner = bb.BioSNICARRunner(root, incoming=3)
         self.srf = ED.s2_srf_480(cfg.spacecraft, S2_BANDS)          # official ESA SRFs
-        self.sw = cfg.sw_down if cfg.sw_down is not None else bb.sw_down_clear_sky(cfg.sza)
+        self.sw = cfg.sw_down if cfg.sw_down is not None else \
+            bb.sw_down_clear_sky(cfg.sza, ED.clear_sky_transmissivity()[0])
         self.pg_per_cell = {}
         if cfg.model == "ours":
             kw = co.water_k_480(root)
+            import tddft_calibration as TC
             if cfg.phenol == "williamson2020":
+                if cfg.tier == "D":
+                    raise ValueError("tier D is built from the calibrated TD-DFT spectrum (phenol='tddft')")
                 ph = ED.pigment_macs_480()["phenolics_williamson2020"]
-                ligand_mac = lambda wl: np.interp(wl, co.WVL_480_NM, ph)  # noqa: E731
-                ligand = None
+                mac = co.to_480(lambda wl: np.interp(wl, co.WVL_480_NM, ph))
             else:
                 ligand = co.demo_spectrum(root) if demo else co.load_phase1(phase1_l2, "level2")
-                ligand_mac = ligand.mac_at
-            if cfg.tier == "D":
-                if ligand is None:
-                    raise ValueError("tier D needs the TD-DFT ligand spectrum (phenol='tddft')")
-                sur = co.FePhenolicSurrogate()
-                mac = co.to_480(lambda wl: sur.mac(ligand, wl))
-            else:
-                mac = co.to_480(ligand_mac)
-            extra = co.empirical_pigments() if cfg.photosynthetic else ()
+                if cfg.phenol == "tddft_raw":
+                    if cfg.tier == "D":
+                        raise ValueError("tier D needs the calibration (phenol='tddft')")
+                    mac = co.to_480(ligand.mac_at)
+                else:
+                    cal = TC.cached_calibration(ligand, verbose=False)
+                    mac = co.to_480(cal.mac_D if cfg.tier == "D" else cal.mac_C)
             self.imps = {}
             for name, sp in cfg.species.items():
-                c_i = sp.c_internal if sp.c_internal is not None else co.empirical_phenolic_concentration()
+                extra = co.empirical_pigments(species=name) if cfg.photosynthetic else ()
+                c_i = sp.c_internal if sp.c_internal is not None else co.empirical_phenolic_concentration(name)
                 cell = co.CellModel(CellGeometry("cylinder", sp.diameter_um / 2.0, sp.length_um),
                                     c_i, vd_diagnostic=False, extra_pigments=extra)
                 o = cell.optics(mac, kw, packaged=True)
@@ -253,10 +269,14 @@ def build_emulator(cfg: EmulatorConfig, phase1_l2: str | None = None, demo: bool
                    biosnicar: str | None = None, workers: int = 1, cache: str | None = None,
                    verbose: bool = True) -> Emulator:
     global _BUILDER
-    tag = repr({k: v for k, v in asdict(cfg).items() if k != "species"}) + repr(cfg.species) + str(demo)
+    tag = (repr({k: v for k, v in asdict(cfg).items() if k != "species"}) + repr(cfg.species) + str(demo)
+           + f"|{PHYSICS_VERSION}|{phase1_l2}")
     if cache and os.path.isfile(cache):
-        em = Emulator.load(cache)
-        if em.meta.get("tag") == tag:
+        try:
+            em = Emulator.load(cache)
+        except (ValueError, SyntaxError, KeyError):        # unreadable or older cache format: rebuild
+            em = None
+        if em is not None and em.meta.get("tag") == tag:
             if verbose:
                 print(f"Emulator ({cfg.model}) loaded from {cache}")
             return em

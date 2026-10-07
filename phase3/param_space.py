@@ -25,9 +25,7 @@ _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 
 
 GROUPS = ("molecular", "cellular", "environmental")
 
-# ln(bubbly-ice radius / um): mean and SD of the posterior-mean radii retrieved from the 31 Cook et al.
-# (2020) field spectra by phase4/field_validation.py (empirical configuration, Williamson MACs).
-FIELD_LN_RADIUS = (7.386, 0.977)
+
 
 
 @dataclass(frozen=True)
@@ -45,9 +43,15 @@ class Param:
         return v if self.transform is None else self.transform(v)
 
 
-def default_parameters(include_tier_d: bool = True) -> list[Param]:
-    """Default PDFs. Cellular and environmental PDFs come from published measurements
-    (phase2/empirical_data.py); the molecular PDFs are user-specified TD-DFT error models."""
+def default_parameters(include_tier_d: bool = True, calibration: dict | None = None) -> list[Param]:
+    """Default PDFs, all from data. Molecular: marginal posteriors of the empirical TD-DFT calibration
+    (phase2/tddft_calibration.py; pass `calibration` = Calibration.summary()). Cellular and
+    environmental: published measurements (phase2/empirical_data.py, data/empirical/SOURCES.md).
+    Correlations between the calibrated molecular parameters (reported in the calibration summary)
+    are dropped, as the Sobol' decomposition needs independent inputs."""
+    if calibration is None:
+        raise ValueError("default_parameters needs the TD-DFT calibration summary (tddft_calibration)")
+    cal = calibration
     import empirical_data as ED
     _V = ED.s6_biovolume_um3()                                    # pooled, per-sample mean, SD, n
     _AR = [g["aspect"] for g in ED.species_geometry().values()]
@@ -56,22 +60,26 @@ def default_parameters(include_tier_d: bool = True) -> list[Param]:
     _CI = (ci, ci * sd / m)
     _B = ED.abundance_prior()
     _RHO = ED.ICE_DENSITY["weathering_crust"]
-    _R_LO, _R_HI = ED.ICE_RADIUS_BOUNDS_UM
-    _LR = FIELD_LN_RADIUS
+    _SSA = ED.ice_ssa_prior()
+    _G = ED.phenolic_size_scaling()
+    _TAU = ED.clear_sky_transmissivity()
+
+    def _tn(lo, hi, m, sd):
+        return stats.truncnorm((lo - m) / sd, (hi - m) / sd, loc=m, scale=sd)
     p = [
         # ---------------- molecular -------------------------------------------------
         Param("dE_ev", r"$\Delta E$ (TD-DFT shift)", "eV", "molecular",
-              stats.truncnorm(-2.0, 2.0, loc=0.0, scale=0.075),
-              "Systematic TD-DFT excitation-energy error: N(0, 0.075 eV) truncated at +/-0.15 eV "
-              "(USER-SPECIFIED, not measured: no experimental spectrum of the glucoside to calibrate against)."),
+              _tn(-1.0, 1.0, cal["dE"]["mean"], cal["dE"]["sd"]),
+              f"Band shift of the Phase 1 spectrum, N({cal['dE']['mean']:+.3f}, {cal['dE']['sd']:.3f}) eV: posterior of "
+              "the fit to HPLC spectra of the isolated pigment (Williamson et al. 2020)."),
         Param("f_scale", r"$f$ scale factor", "-", "molecular",
-              stats.lognorm(s=0.20, scale=1.0),
-              "Multiplicative oscillator-strength error, log-normal with median 1 and "
-              "sigma_ln = 0.20 (~+/-20 %, 1 sigma) (USER-SPECIFIED, not measured)."),
+              stats.lognorm(s=cal["log_f"]["sd"], scale=np.exp(cal["log_f"]["mean"])),
+              f"Oscillator-strength scale incl. glucoside -> phenol-equivalent units, log-normal (median "
+              f"{np.exp(cal['log_f']['mean']):.3g}, sigma_ln {cal['log_f']['sd']:.3f}): posterior of the fit to the "
+              "measured S6 extract MAC (Williamson et al. 2020)."),
         Param("fwhm_ev", r"Band FWHM", "eV", "molecular",
-              stats.uniform(0.25, 0.15),
-              "Vibronic + inhomogeneous solvent broadening, U(0.25, 0.40) eV around the "
-              "Phase 1 choice of 0.30 eV (USER-SPECIFIED, not measured)."),
+              _tn(0.05, 2.0, cal["w"]["mean"], cal["w"]["sd"]),
+              f"Gaussian band FWHM, N({cal['w']['mean']:.3f}, {cal['w']['sd']:.3f}) eV: posterior of the HPLC-shape fit."),
         # ---------------- cellular (measured; phase2/empirical_data.py, data/empirical/SOURCES.md) ----
         Param("cell_volume_um3", r"Cell volume $V$", r"$\mu$m$^3$", "cellular",
               stats.truncnorm((400.0 - _V[1]) / _V[2], np.inf, loc=_V[1], scale=_V[2]),
@@ -85,13 +93,17 @@ def default_parameters(include_tier_d: bool = True) -> list[Param]:
               stats.truncnorm((0.5 - _CI[0]) / _CI[1], np.inf, loc=_CI[0], scale=_CI[1]),
               f"Intracellular phenolic concentration N({_CI[0]:.1f}, {_CI[1]:.1f}) kg m^-3: phenolics per cell "
               "(mean, SD over 53 samples) / pooled S6 biovolume (Williamson et al. 2020); truncated at 0.5."),
+        Param("conc_size_exponent", r"Conc. size exponent $\gamma$", "-", "cellular",
+              stats.norm(_G["gamma"], _G["gamma_se"]),
+              f"Intracellular concentration ~ V^gamma, gamma ~ N({_G['gamma']:.2f}, {_G['gamma_se']:.2f}) (jackknife SE): "
+              f"maximum-likelihood fit of phenolics per cell vs biovolume per cell over {_G['n']} S6 samples "
+              "(Williamson et al. 2020); gamma = 0 is equal concentration in both species."),
         # ---------------- environmental (measured) ----------------------------------
-        Param("grain_um", r"Bubbly-ice radius", r"$\mu$m", "environmental",
-              stats.truncnorm((np.log(_R_LO) - _LR[0]) / _LR[1], (np.log(_R_HI) - _LR[0]) / _LR[1],
-                              loc=_LR[0], scale=_LR[1]),
-              f"Bubbly-ice optical radius, log-normal (ln r ~ N({_LR[0]:.2f}, {_LR[1]:.2f})) on "
-              f"[{_R_LO:.0f}, {_R_HI:.0f}] um: fitted to the radii retrieved by the Phase 4 inversion from the "
-              "31 Cook et al. (2020) field spectra.", transform=np.exp),
+        Param("ice_ssa", r"Ice SSA", r"m$^2$ kg$^{-1}$", "environmental",
+              stats.lognorm(s=_SSA[1], scale=np.exp(_SSA[0])),
+              f"Specific surface area of bubbly bare ice, ln SSA ~ N({_SSA[0]:.3f}, {_SSA[1]:.3f}): {_SSA[2]} measurements "
+              "(Cooper et al. 2021 Greenland; Dadic et al. 2013 micro-CT), studies weighted equally; converted to "
+              "BioSNICAR's bubble radius at the bottom-layer density."),
         Param("rho_top", r"Surface density $\rho$", r"kg m$^{-3}$", "environmental",
               stats.uniform(_RHO["lo"], _RHO["hi"] - _RHO["lo"]),
               f"Weathering-crust density, U({_RHO['lo']:.0f}, {_RHO['hi']:.0f}) kg m^-3: measured range at S6 "
@@ -100,16 +112,18 @@ def default_parameters(include_tier_d: bool = True) -> list[Param]:
               stats.lognorm(s=_B[1] * np.log(10.0), scale=10.0 ** _B[0]),
               f"Algal abundance, log10 B ~ N({_B[0]:.2f}, {_B[1]:.2f}): {_B[2]} S6 surface-ice samples with "
               "cells > 0 (Williamson et al. 2020 counts)."),
+        Param("transmissivity", r"Clear-sky $T$", "-", "environmental",
+              _tn(0.5, 1.0, _TAU[0], _TAU[1]),
+              f"Bulk clear-sky transmissivity N({_TAU[0]:.3f}, {_TAU[1]:.3f}): {_TAU[2]} clear-sky hours at PROMICE KAN_M "
+              "(June-August, all years)."),
     ]
     if include_tier_d:
         p += [
-            Param("lmct_eps", r"LMCT $\varepsilon_{max}$", r"M$^{-1}$cm$^{-1}$", "molecular",
-                  stats.uniform(3000.0, 2000.0),
-                  "Fe(III)<-phenolate LMCT molar absorptivity per Fe, U(3000, 5000) (tier D only; PROVISIONAL "
-                  "surrogate - no measured spectrum of the algal Fe-phenolic complex is published)."),
-            Param("lmct_center_nm", r"LMCT $\lambda_{max}$", "nm", "molecular",
-                  stats.uniform(520.0, 100.0),
-                  "LMCT band centre, U(520, 620) nm (tier D only; PROVISIONAL, as above)."),
+            Param("fe_fraction", r"Fe-complexed fraction $\phi$", "-", "molecular",
+                  _tn(0.0, 1.0, cal["phi"]["mean"], max(cal["phi"]["sd"], 1e-3)),
+                  f"Fraction of pigment complexed with Fe, N({cal['phi']['mean']:.3f}, {cal['phi']['sd']:.3f}) on [0, 1]: "
+                  "posterior of the fit of the measured Fe-purpurogallin increment (Prochazkova et al. 2025) to the "
+                  "S6 extract MAC (tier D only)."),
         ]
     return p
 

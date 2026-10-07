@@ -30,17 +30,17 @@ def grf(shape, sd, corr_px, rng):
 
 def make_truth(shape, prior_cfg, res_m, seed=7, with_dust=False):
     """Spatially correlated truth drawn around the EMPIRICAL priors (priors.PriorConfig):
-    log10 B ~ N(mu_b, sd_b) field, f_n around the community mean, log r uniform-ish field, k ~ N(mu_k, 0.25 sd_k)."""
+    log10 B ~ N(mu_b, sd_b) field, f_n around the community mean, ln r ~ N(mu_lnr, sd_lnr) field (measured
+    ice SSA) clipped to the grid support, k ~ N(mu_k, 0.25 sd_k)."""
     import empirical_data as ED
     rng = np.random.default_rng(seed)
     corr = 300.0 / res_m
     m_f = prior_cfg.f_alpha / (prior_cfg.f_alpha + prior_cfg.f_beta)
     lo, hi = np.log(ED.ICE_RADIUS_BOUNDS_UM[0] * 1.5), np.log(ED.ICE_RADIUS_BOUNDS_UM[1] / 1.5)
-    z = grf(shape, 1.0, corr, rng)
     t = dict(
         log_b=np.clip(prior_cfg.mu_b + grf(shape, prior_cfg.sd_b, corr, rng), 1.5, 5.5),
         f_n=1.0 / (1.0 + np.exp(-(np.log(m_f / (1 - m_f)) + grf(shape, 0.8, corr, rng)))),
-        r_um=np.exp(lo + (hi - lo) * 0.5 * (1 + np.tanh(z))),
+        r_um=np.exp(np.clip(prior_cfg.mu_lnr + grf(shape, prior_cfg.sd_lnr, corr, rng), lo, hi)),
         k=prior_cfg.mu_k + grf(shape, 0.25 * prior_cfg.sd_k, 2 * corr, rng),
     )
     if with_dust:

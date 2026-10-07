@@ -1,6 +1,6 @@
 # Phase 3: Monte Carlo uncertainty propagation and Sobol' sensitivity analysis
 
-Phase 3 asks how micro-scale uncertainty (TD-DFT errors, cell geometry, pigment loading) compares with environmental variability (ice grains, density, cell abundance) in controlling the macro-scale forcing of glacier algae.
+Phase 3 asks how micro-scale uncertainty (calibrated pigment spectrum, cell geometry, pigment loading) compares with environmental variability (ice structure, density, cell abundance, illumination) in controlling the macro-scale forcing of glacier algae.
 
 ## Quick start
 
@@ -30,23 +30,27 @@ python phase3/run_phase3.py --phase1-l2 ... --reuse                 # re-analyse
 
 | Scale | Parameter | PDF |
 |---|---|---|
-| molecular | ΔE, systematic TD-DFT excitation shift | N(0, 0.075 eV), truncated at ±0.15 eV |
-| molecular | f scale, oscillator-strength error | log-normal, median 1, σ_ln 0.20 |
-| molecular | band FWHM | U(0.25, 0.40) eV |
-| molecular | LMCT ε_max (tier D) | U(3000, 5000) M⁻¹ cm⁻¹ per Fe |
-| molecular | LMCT λ_max (tier D) | U(520, 620) nm |
+| molecular | ΔE, band shift of the Phase 1 spectrum | posterior of the fit to the HPLC spectra of the isolated pigment (`tddft_calibration`); placeholder spectrum: N(+0.07, 0.03) eV |
+| molecular | f, scale (oscillator strength × glucoside → phenol-equivalent units) | log-normal posterior of the fit to the measured S6 extract MAC; placeholder: median 38 |
+| molecular | band FWHM | posterior of the HPLC-shape fit; placeholder: N(1.17, 0.02) eV |
+| molecular | φ, Fe-complexed fraction (tier D) | posterior of the fit of the measured Fe-purpurogallin increment to the extract MAC; placeholder: N(0.27, 0.03) on [0, 1] |
 | cellular | cell volume V | N(2320, 542) µm³, truncated at 400: per-sample biovolume per cell, 180 S6 samples (Williamson et al. 2020) |
 | cellular | aspect L/d | U(1.46, 2.37): between the two species' measured means (Procházková et al. 2021) |
 | cellular | intracellular phenolics c_i | N(22.0, 8.8) kg m⁻³, truncated at 0.5: phenolics per cell (53 samples) / S6 biovolume |
-| environmental | bubbly-ice optical radius | log-normal, ln r ~ N(7.39, 0.98), on [300, 20 000] µm: radii retrieved by Phase 4 from the 31 field spectra |
+| cellular | size exponent γ of the concentration (c ∝ V^γ) | N(−0.73, 0.73): maximum-likelihood fit to 64 S6 samples, jackknife SE (γ = 0 is equal concentration) |
+| environmental | ice specific surface area | ln SSA ~ N(−0.97, 0.35) m² kg⁻¹: 19 measurements (Cooper et al. 2021; Dadic et al. 2013), converted to BioSNICAR's bubble radius at 690 kg m⁻³ |
 | environmental | surface density ρ | U(330, 560) kg m⁻³: measured weathering-crust range (Cooper et al. 2018) |
 | environmental | cell abundance | log₁₀ B ~ N(3.56, 0.78): 180 S6 surface-ice counts |
+| environmental | clear-sky transmissivity T | N(0.919, 0.036): 2301 clear-sky hours, PROMICE KAN_M |
 
-**Molecular PDFs are not empirical.** The ΔE, f and FWHM PDFs are user-specified, because no measured spectrum of the glucoside exists to calibrate the TD-DFT errors against. The LMCT PDFs belong to the provisional Tier D surrogate. Every other PDF comes from data (`data/empirical/SOURCES.md`); `parameters.csv` lists each one with its rationale.
+**Every PDF comes from data** (`data/empirical/SOURCES.md`); `parameters.csv` lists each one with its rationale.
+- The molecular PDFs are the marginal posteriors of the empirical calibration of your Phase 1 spectrum, so they change when you rerun with production output. The run writes them to `tables/tddft_calibration.json`.
+- Their correlations are dropped, because Sobol' analysis needs independent inputs; the calibration summary reports them.
 
 Fixed:
-- SZA 45° (about solar noon at S6 in July) and clear-sky SW↓ (Phase 2 parameterization, transmissivity 0.75).
+- SZA 45° (about solar noon at S6 in July).
 - Sub-Arctic-summer spectrum.
+- Cell asymmetry parameter from Mie theory with the measured refractive index (Phase 2).
 - Bubbly ice over 690 kg m⁻³ ice, with a 2 cm algal layer.
 - Chlorophyll a/b and carotenoids at their measured per-cell concentrations in tiers B–D. All inputs are treated as independent, as classical Sobol' analysis requires. If you later find correlated inputs (for example cell size with c_i), switch to Shapley effects.
 
@@ -117,5 +121,5 @@ Each model run then takes about 17 ms. Forked workers inherit the warmed caches.
 
 - **Total forcing.** Abundance spans two orders of magnitude, so it dominates the variance of total forcing. With the empirical PDFs (log₁₀ B SD 0.78), S_T ≈ 0.9–1 in a small development run. That's physically expected, but it isn't the scientifically interesting result.
 - **Per-cell forcing.** The per-cell outputs (`eff_*`) answer the micro-scale question. With abundance factored out, cell geometry and c_i, the parameters that control packaging, carry most of the variance.
-- **Molecular uncertainty.** On the development input, TD-DFT uncertainty (ΔE, f, FWHM) contributes only a few percent. Re-check this with your real Phase 1 spectra: if a strong band sits near 400–500 nm, the energy shift moves it in and out of the solar peak, and the molecular share will rise.
-- **Tier D.** Tier D still uses the provisional Fe(III)-phenolic surrogate from Phase 2, so its LMCT parameters stand in for real Level 3/4 uncertainty.
+- **Molecular uncertainty.** After the empirical calibration, the molecular parameters are pinned by measured spectra. They contribute S_T < 0.003 in the development run, against about 0.3 (cellular) and 0.7 (environmental) for per-cell forcing. The calibration removes most of the TD-DFT error rather than propagating it. Re-check this with your production Phase 1 spectrum.
+- **Tier D.** Tier D adds the measured Fe-purpurogallin absorption at the fitted complexed fraction φ; its uncertainty is the φ posterior.

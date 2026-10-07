@@ -78,23 +78,29 @@ def test_forward_model_matches_phase2():
     import cell_optics as co
     from pigment_packaging import CellGeometry
     from forward_model import ForwardModel
-    fm = ForwardModel(demo=True)                     # defaults: bubbly ice, chl/carotenoids included
+    import tddft_calibration as TC
+    fm = ForwardModel(demo=True)                     # defaults: bubbly ice, chl/carotenoids, calibrated pigment
     V, ar = 2000.0, 2.0
-    p = dict(dE_ev=0.0, f_scale=1.0, fwhm_ev=0.30, cell_volume_um3=V, cell_aspect=ar,
-             c_internal=22.0, grain_um=8000.0, rho_top=450.0, conc_cells_ml=1e4,
-             lmct_eps=4000.0, lmct_center_nm=570.0)
+    c = fm.cal
+    p = dict(dE_ev=c["dE"], f_scale=c["f"], fwhm_ev=c["w"], cell_volume_um3=V, cell_aspect=ar,
+             c_internal=22.0, conc_size_exponent=0.0, ice_ssa=0.38, rho_top=450.0, conc_cells_ml=1e4,
+             fe_fraction=c["phi"], transmissivity=0.92)
     out = fm.evaluate(p)
     d = (4 * V / (np.pi * ar)) ** (1 / 3)
     assert np.isclose(out["cell_diameter_um"], d) and np.isclose(out["cell_length_um"], ar * d)
-    # Phase 2 reference: direct chord Q*, fresh runner
-    mac = co.to_480(co.demo_spectrum(root).mac_at)
+    r_b = 3 * (1 - 690 / 917) / (690 * 0.38) * 1e6                 # SSA -> BioSNICAR bubble radius
+    assert np.isclose(out["ice_radius_um"], r_b)
+    # Phase 2 reference: direct chord Q*, fresh runner, same calibrated MAC
+    root = bb.locate_biosnicar()
+    lig = co.demo_spectrum(root)
+    mac = co.to_480(TC.perturbed_mac(lig, c["dE"], c["f"], c["w"]))
     cell = co.CellModel(CellGeometry("cylinder", d / 2, ar * d), 22.0, extra_pigments=co.empirical_pigments())
     oC = cell.optics(mac, co.water_k_480(root), packaged=True)
     r = bb.BioSNICARRunner(root)
-    spec = bb.IceSpec(8000, 450, rho_bottom=690.0, mode="bubbly")
+    spec = bb.IceSpec(r_b, 450, rho_bottom=690.0, mode="bubbly")
     a0, flx, _ = r.run(spec, 45)
     a1, _, _ = r.run(spec, 45, bb.CustomImpurity("C", oC["ext_xsc"], oC["ss_alb"], oC["asm_prm"]), 1e4)
-    rf = r.forcing(a0, a1, flx, bb.sw_down_clear_sky(45))
+    rf = r.forcing(a0, a1, flx, bb.sw_down_clear_sky(45, 0.92))
     assert abs(out["rf_C"] / rf - 1) < 5e-3, (out["rf_C"], rf)
 
 

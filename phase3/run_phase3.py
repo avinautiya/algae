@@ -50,7 +50,7 @@ def parse_args(argv=None):
     p.add_argument("--n-sobol", type=int, default=1024, help="Saltelli base sample (power of 2)")
     p.add_argument("--no-second-order", action="store_true")
     p.add_argument("--no-groups", action="store_true", help="skip the scale-grouped Sobol' design")
-    p.add_argument("--no-tier-d-params", action="store_true", help="drop the LMCT parameters")
+    p.add_argument("--no-tier-d-params", action="store_true", help="drop the Fe-complexed fraction parameter")
     p.add_argument("--workers", type=int, default=os.cpu_count() or 1)
     p.add_argument("--seed", type=int, default=2024)
     p.add_argument("--sza", type=float, default=45.0, help="deg; ~solar noon at S6 in July")
@@ -89,12 +89,22 @@ def main(argv=None):
     os.makedirs(tab, exist_ok=True)
     os.makedirs(figd, exist_ok=True)
 
-    space = ParameterSpace(default_parameters(include_tier_d=not a.no_tier_d_params))
+    # empirical calibration of the Phase 1 spectrum -> molecular PDFs (phase2/tddft_calibration.py)
+    import biosnicar_bridge as bb
+    import cell_optics as co
+    import tddft_calibration as TC
+    lig = co.demo_spectrum(bb.locate_biosnicar(a.biosnicar)) if a.demo else co.load_phase1(a.phase1_l2, "level2",
+                                                                                          a.functional)
+    cal = TC.calibrate(lig)
+    cal_summary = cal.summary()
+    with open(os.path.join(tab, "tddft_calibration.json"), "w") as fh:
+        json.dump(cal_summary, fh, indent=1)
+    space = ParameterSpace(default_parameters(include_tier_d=not a.no_tier_d_params, calibration=cal_summary))
     space.table().to_csv(os.path.join(tab, "parameters.csv"), index=False)
     print(f"{space.D} uncertain parameters: {', '.join(space.names)}")
     model_kwargs = dict(phase1_l2=None if a.demo else a.phase1_l2, functional=a.functional, demo=a.demo,
                         biosnicar=a.biosnicar, sza=a.sza, sw_down=a.sw_down,
-                        qtable_cache=os.path.join(tab, "qstar_table.npz"))
+                        qtable_cache=os.path.join(tab, "qstar_table.npz"), calibration_point=cal.point())
     second = not a.no_second_order
 
     # ---------------------------------------------------------- 1) Monte Carlo (LHS)

@@ -91,10 +91,9 @@ class MolecularSpectrum:
             de = 0.002
             eg = np.arange(e_src.min(), e_src.max(), de)
             mg = np.interp(eg, e_src, m_src)
+            from scipy.ndimage import gaussian_filter1d
             sig = extra_fwhm_ev * p1spectra.FWHM_TO_SIGMA
-            k = np.arange(-int(4 * sig / de), int(4 * sig / de) + 1) * de
-            ker = np.exp(-0.5 * (k / sig) ** 2)
-            mg = np.convolve(mg, ker / ker.sum(), mode="same")
+            mg = gaussian_filter1d(mg, sig / de, mode="constant", cval=0.0, truncate=4.0)
             e_src, m_src = eg, mg
         return np.interp(e - shift_ev, e_src, m_src, left=0.0, right=0.0)
 
@@ -138,39 +137,7 @@ def demo_spectrum(biosnicar_root: str) -> MolecularSpectrum:
                              mac=v[keep] * 1e6, source="DEMO: BioSNICAR data/pigments/ppg.csv")
 
 
-# --------------------------------------------------------------------------- #
-# Tier D: Fe(III)-phenolic complexation + aggregation                           #
-# --------------------------------------------------------------------------- #
-@dataclass
-class FePhenolicSurrogate:
-    """PROVISIONAL stand-in for the Level 3/4 (Fe-complexed, aggregated) MAC.
-
-    Replace with TD-DFT Level 3/4 output via `load_mac_csv` as soon as it exists.
-    Parameters follow typical literature ranges for Fe(III)-catecholate /
-    Fe(III)-galloyl chromophores (ligand-to-metal charge transfer, LMCT):
-      * LMCT band centred ~500-600 nm (bis-catecholate ~570 nm), molar absorptivity
-        ~3000-5000 M^-1 cm^-1 per Fe (decadic);
-      * aggregation (pi-stacking) modelled as a small red shift and extra
-        inhomogeneous broadening of the ligand pi->pi* bands.
-    All values are configurable and must be justified/varied in the paper.
-    """
-    lmct_center_nm: float = 570.0
-    lmct_fwhm_ev: float = 0.70
-    lmct_eps_per_fe: float = 4000.0      # L mol^-1 cm^-1, decadic, per Fe
-    fe_per_ligand: float = 0.5           # bis-complex: 1 Fe per 2 ligands
-    agg_shift_ev: float = -0.10          # negative = red shift
-    agg_extra_fwhm_ev: float = 0.25
-
-    def mac(self, ligand: MolecularSpectrum, wl_nm):
-        """MAC per kg of LIGAND (same molecule count per cell as tiers B/C)."""
-        wl = np.asarray(wl_nm, dtype=float)
-        base = ligand.mac_at(wl, shift_ev=self.agg_shift_ev, extra_fwhm_ev=self.agg_extra_fwhm_ev)
-        e = HC_EV_NM / wl
-        e0 = HC_EV_NM / self.lmct_center_nm
-        sig = self.lmct_fwhm_ev * p1spectra.FWHM_TO_SIGMA
-        eps = self.lmct_eps_per_fe * self.fe_per_ligand * np.exp(-0.5 * ((e - e0) / sig) ** 2)
-        lmct = np.log(10.0) * 0.1 * eps / ligand.molar_mass * 1000.0     # m^2 kg^-1 (Napierian)
-        return base + lmct
+# Tier D (Fe-complexed pigment) is built from measured spectra in tddft_calibration.complexed_mac.
 
 
 # --------------------------------------------------------------------------- #
@@ -207,9 +174,12 @@ class CellModel:
     c_internal_kg_m3: float = 50.0       # pigment mass / cell volume
     vacuole_fraction: float = 1.0
     water_volume_fraction: float = 0.625  # 0.59 * 1060/1000, as in BioSNICAR's bio-optical model
-    n_real: float = 1.4                   # BioSNICAR default N_ALGAE (only used if g_mode='vd2014')
-    g_mode: str = "fixed"                 # 'fixed' (g_fixed for every tier) or 'vd2014'
-    g_fixed: float = 0.96                 # = BioSNICAR's empirical glacier-algae g (tier A)
+    n_real: float = 1.38                  # measured cell refractive index (Chevrollier et al. 2023, SI Fig. S3)
+    n_medium: float = 1.31                # host medium: ice (BioSNICAR embeds impurities in ice)
+    g_mode: str = "mie"                   # 'mie' (Mie g(lambda) of the equal-volume sphere, relative index
+                                          # n_real/n_medium, k from the cell's own absorption), 'fixed' or
+                                          # 'vd2014' (van Diedenhoven 2014; treats n_real as relative to air)
+    g_fixed: float = 0.96                 # only for g_mode='fixed' (BioSNICAR's undocumented tier-A value)
     q_func: object = None                 # optional fast Q*(a, geom) (e.g. Phase 3 look-up table)
     vd_diagnostic: bool = True            # also compute the vd2014 SSA cross-check (slow, ~10 ms)
     extra_pigments: tuple = ()            # ((MAC480 m^2 kg^-1, intracellular conc kg m^-3), ...) e.g.
@@ -278,31 +248,54 @@ class CellModel:
                                           np.full(WVL_480_UM.size, self.n_real), k_cell, WVL_480_UM)
         else:
             ssa_vd = asym = np.full(WVL_480_UM.size, np.nan)
-        if self.g_mode == "fixed":
-            # Cells embedded in ice/meltwater have a relative refractive index of only
-            # ~1.05-1.10, so they are strongly forward scattering; the vd2014
-            # parameterisation with n = 1.4 (relative to air) underestimates g.
+        if self.g_mode == "mie":
+            r_eq = (3.0 * g.volume_um3 / (4.0 * np.pi)) ** (1.0 / 3.0)
+            asym = mie_g(r_eq, k_cell, self.n_real, self.n_medium)
+        elif self.g_mode == "fixed":
             asym = np.full(WVL_480_UM.size, self.g_fixed)
         elif self.g_mode != "vd2014":
-            raise ValueError("g_mode must be 'fixed' or 'vd2014'")
-        return dict(ext_xsc=ext, ss_alb=np.clip(ssa, 1e-8, 1 - 1e-8), asm_prm=np.clip(asym, 0.0, 0.99),
+            raise ValueError("g_mode must be 'mie', 'fixed' or 'vd2014'")
+        return dict(ext_xsc=ext, ss_alb=np.clip(ssa, 1e-8, 1 - 1e-8), asm_prm=np.clip(asym, 0.0, 0.999),
                     abs_xsc=abs_x, sca_xsc=sca, q_star=q, ssa_vandiedenhoven=ssa_vd,
                     pigment_abs_xsc=(abs_pig_pk if packaged else mac480 * m_pig))
 
 
-def empirical_pigments(include=("chla", "chlb", "carotenoids")):
+def mie_g(r_eq_um: float, k480, n_real: float = 1.38, n_medium: float = 1.31, step: int = 10):
+    """Asymmetry parameter of a homogeneous sphere of radius r_eq (um) and index n_real + i k in a
+    medium of index n_medium (Mie theory, miepython), on every `step`-th band of the 480 grid and
+    linearly interpolated in between (g varies slowly with wavelength). Equal-volume sphere for the
+    cylinder: for cells this large (size parameter ~100) g is set by diffraction and refraction at
+    small relative index, which the equal-volume sphere captures; measured g of green microalgae is
+    > 0.95 and nearly wavelength independent (Kandilian et al. 2013, via Pilon & Kandilian 2016)."""
+    import miepython
+    k480 = np.asarray(k480, float)
+    idx = np.unique(np.r_[np.arange(0, WVL_480_UM.size, step), WVL_480_UM.size - 1])
+    m = n_real + 1j * np.clip(k480[idx], 0.0, None)
+    gs = np.array([miepython.efficiencies(mi, 2.0 * r_eq_um, wl, n_env=n_medium)[3]
+                   for mi, wl in zip(m, WVL_480_UM[idx])], dtype=float).ravel()
+    return np.interp(WVL_480_UM, WVL_480_UM[idx], gs)
+
+
+def empirical_pigments(include=("chla", "chlb", "carotenoids"), species: str | None = None):
     """Chlorophyll a, chlorophyll b and carotenoids of glacier algae as (MAC480, c_i) pairs:
     in vivo MACs and pigment mass per cell from Williamson et al. (2020, S6), divided by the pooled
-    S6 biovolume per cell (same samples). See phase2/empirical_data.py and data/empirical/SOURCES.md."""
+    S6 biovolume per cell (same samples); for a named species scaled by the measured size dependence
+    of intracellular concentration (empirical_data.species_concentrations_kg_m3).
+    See phase2/empirical_data.py and data/empirical/SOURCES.md."""
     import empirical_data as ED
     macs = ED.pigment_macs_480()
-    return tuple((macs[p], ED.intracellular_concentration_kg_m3(p)) for p in include)
+    conc = (lambda p: ED.intracellular_concentration_kg_m3(p)) if species is None else \
+        (lambda p: ED.species_concentrations_kg_m3(p)[species])
+    return tuple((macs[p], conc(p)) for p in include)
 
 
-def empirical_phenolic_concentration():
-    """Phenolic mass per cell / S6 pooled biovolume per cell (Williamson et al. 2020) = ~22 kg m^-3."""
+def empirical_phenolic_concentration(species: str | None = None):
+    """Phenolic mass per cell (phenol equivalents) / S6 pooled biovolume per cell (Williamson et al.
+    2020) = ~22 kg m^-3; per species with the measured size scaling."""
     import empirical_data as ED
-    return ED.intracellular_concentration_kg_m3("phenolics")
+    if species is None:
+        return ED.intracellular_concentration_kg_m3("phenolics")
+    return ED.species_concentrations_kg_m3("phenolics")[species]
 
 
 def model_a_optics(biosnicar_root: str, stem: str = "ice_algae_empirical_Chevrollier2023"):
