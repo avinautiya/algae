@@ -210,6 +210,8 @@ class CellModel:
     n_real: float = 1.4                   # BioSNICAR default N_ALGAE (only used if g_mode='vd2014')
     g_mode: str = "fixed"                 # 'fixed' (g_fixed for every tier) or 'vd2014'
     g_fixed: float = 0.96                 # = BioSNICAR's empirical glacier-algae g (tier A)
+    q_func: object = None                 # optional fast Q*(a, geom) (e.g. Phase 3 look-up table)
+    vd_diagnostic: bool = True            # also compute the vd2014 SSA cross-check (slow, ~10 ms)
 
     @property
     def pigment_mass_per_cell_kg(self) -> float:
@@ -234,14 +236,15 @@ class CellModel:
         a_pig = mac480 * c_comp
         a_wat = 4.0 * np.pi * k_water480 * self.water_volume_fraction / lam
 
+        qf = self.q_func or q_star
         if self.vacuole_fraction >= 1.0:
-            q = q_star(a_pig + a_wat, g)
+            q = qf(a_pig + a_wat, g)
             abs_pig_pk = mac480 * m_pig * q
             abs_wat = a_wat * V * q
         else:
-            q = q_star(a_pig, g.scaled(self.vacuole_fraction))
+            q = qf(a_pig, g.scaled(self.vacuole_fraction))
             abs_pig_pk = mac480 * m_pig * q
-            abs_wat = a_wat * V * q_star(a_wat, g)
+            abs_wat = a_wat * V * qf(a_wat, g)
 
         abs_packaged = abs_pig_pk + abs_wat
         ext_geo = 2.0 * A
@@ -260,8 +263,11 @@ class CellModel:
         a_tot = a_pig + a_wat
         k_cell = a_tot * lam / (4.0 * np.pi)
         ar = 1.0 if g.shape == "sphere" else (2.0 * g.radius) / g.length
-        ssa_vd, asym = calc_ssa_and_g(ar, g.volume_um3, g.projected_area_um2,
-                                      np.full(WVL_480_UM.size, self.n_real), k_cell, WVL_480_UM)
+        if self.vd_diagnostic or self.g_mode == "vd2014":
+            ssa_vd, asym = calc_ssa_and_g(ar, g.volume_um3, g.projected_area_um2,
+                                          np.full(WVL_480_UM.size, self.n_real), k_cell, WVL_480_UM)
+        else:
+            ssa_vd = asym = np.full(WVL_480_UM.size, np.nan)
         if self.g_mode == "fixed":
             # Cells embedded in ice/meltwater have a relative refractive index of only
             # ~1.05-1.10, so they are strongly forward scattering; the vd2014

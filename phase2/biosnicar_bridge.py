@@ -115,24 +115,81 @@ class BioSNICARRunner:
         return copy.deepcopy(imp)
 
     # -- ice column -------------------------------------------------------------
-    def ice(self, spec: IceSpec):
-        from biosnicar.optical_properties.column_OPs import get_layer_OPs
-
-        if spec.key() not in self._ice_cache:
+    def _base_ice(self, mode: str):
+        """Two-layer Ice object for a mode, refractive index computed once."""
+        if ("base", mode) not in self._ice_cache:
             ice = copy.deepcopy(self._ice0)
-            lt = 0 if spec.mode == "grains" else 1
+            lt = 0 if mode == "grains" else 1
             ice.nbr_lyr = 2
             ice.layer_type = [lt, lt]
-            ice.rds = [int(spec.rds_um)] * 2
-            ice.rho = [spec.rho_top, spec.rho_bottom]
-            ice.dz = [spec.dz_top, spec.dz_bottom]
-            for attr in ("cdom", "shp", "water", "hex_side", "hex_length", "shp_fctr", "grain_ar", "lwc"):
+            for attr in ("cdom", "shp", "water", "hex_side", "hex_length", "shp_fctr", "grain_ar", "lwc",
+                         "rds", "rho", "dz"):
                 v = getattr(ice, attr)
                 setattr(ice, attr, (list(v) + [v[-1]] * 2)[:2])
             ice.calculate_refractive_index(self.input_file)
-            ssa, g, mac = get_layer_OPs(ice, self.model_config)
-            self._ice_cache[spec.key()] = (ice, ssa, g, mac)
-        return self._ice_cache[spec.key()]
+            self._ice_cache[("base", mode)] = ice
+        return self._ice_cache[("base", mode)]
+
+    def available_radii(self, mode: str = "grains") -> np.ndarray:
+        """Radii (um) tabulated in BioSNICAR's look-up table for this ice mode."""
+        from biosnicar.optical_properties import column_OPs as cop
+
+        if ("radii", mode) not in self._ice_cache:
+            ice = self._base_ice(mode)
+            path = cop._sphere_lut_path(self.model_config, ice) if mode == "grains" \
+                else cop._bubbly_air_lut_path(self.model_config)
+            self._ice_cache[("radii", mode)] = np.load(path)["radii"].astype(int)
+        return self._ice_cache[("radii", mode)]
+
+    def snap_radius(self, rds_um: float, mode: str = "grains") -> int:
+        """Nearest tabulated radius (BioSNICAR's LUT steps are 20 um between 1 and 5 mm)."""
+        r = self.available_radii(mode)
+        return int(r[np.argmin(np.abs(r - rds_um))])
+
+    def _fast_grain_ops(self, ice, rds: int):
+        """Same numbers as get_layer_OPs for plain spherical grains (shp=0, no water
+        coating), but indexing an in-memory copy of the LUT. BioSNICAR's LUT accessor
+        decompresses the whole array from the .npz on every call (~40 ms each)."""
+        from biosnicar.optical_properties import column_OPs as cop
+
+        if any(s != 0 for s in ice.shp) or any(w > r for w, r in zip(ice.water, ice.rds)):
+            return None
+        key = ("lut", "grains")
+        if key not in self._ice_cache:
+            d = np.load(cop._sphere_lut_path(self.model_config, ice))
+            self._ice_cache[key] = {k: d[k] for k in ("radii", "ss_alb", "ext_cff_mss", "asm_prm")}
+            self._ice_cache[key]["idx"] = {int(r): i for i, r in enumerate(d["radii"])}
+        lut = self._ice_cache[key]
+        i = lut["idx"][int(rds)]
+        n = ice.nbr_lyr
+        return (np.tile(lut["ss_alb"][i], (n, 1)), np.tile(lut["asm_prm"][i], (n, 1)),
+                np.tile(lut["ext_cff_mss"][i], (n, 1)))
+
+    def ice(self, spec: IceSpec):
+        """(ice object, layer SSA, g, mass extinction) for an IceSpec.
+
+        Layer optics of granular ice depend only on grain radius (density enters later
+        through the layer mass rho*dz), so they are cached per radius; bubbly ice also
+        depends on density. The cheap Ice object copy carries this spec's rho/dz.
+        """
+        from biosnicar.optical_properties.column_OPs import get_layer_OPs
+
+        if spec.key() in self._ice_cache:
+            return self._ice_cache[spec.key()]
+        rds = self.snap_radius(spec.rds_um, spec.mode)
+        ice = copy.copy(self._base_ice(spec.mode))
+        ice.rds = [rds, rds]
+        ice.rho = [spec.rho_top, spec.rho_bottom]
+        ice.dz = [spec.dz_top, spec.dz_bottom]
+        op_key = ("ops", spec.mode, rds) + ((spec.rho_top, spec.rho_bottom) if spec.mode != "grains" else ())
+        if op_key not in self._ice_cache:
+            fast = self._fast_grain_ops(ice, rds) if spec.mode == "grains" else None
+            self._ice_cache[op_key] = fast if fast is not None else get_layer_OPs(ice, self.model_config)
+        ssa, g, mac = self._ice_cache[op_key]
+        out = (ice, ssa, g, mac)
+        if len(self._ice_cache) < 20000:        # bounded memo for sweeps; MC samples rarely repeat
+            self._ice_cache[spec.key()] = out
+        return out
 
     def illumination(self, sza_deg: float):
         key = int(round(sza_deg))

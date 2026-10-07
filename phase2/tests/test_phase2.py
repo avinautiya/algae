@@ -108,6 +108,21 @@ def test_bridge_matches_run_model():
     assert np.max(np.abs(o.albedo - alb)) < 1e-12 and abs(o.BBA - bba) < 1e-12
 
 
+def test_fast_lut_matches_biosnicar():
+    root = _biosnicar_root()
+    if root is None:
+        print("BioSNICAR not found - skipping")
+        return
+    import biosnicar_bridge as bb
+    from biosnicar.optical_properties.column_OPs import get_layer_OPs
+    r = bb.BioSNICARRunner(root)
+    for rds in (1000, 1740, 3000):
+        ice, ssa, g, mac = r.ice(bb.IceSpec(rds, 650))
+        ssa0, g0, mac0 = get_layer_OPs(ice, r.model_config)
+        assert np.array_equal(ssa, ssa0) and np.array_equal(g, g0) and np.array_equal(mac, mac0)
+    assert r.snap_radius(1509) == 1500 and r.snap_radius(1511) == 1520
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):
