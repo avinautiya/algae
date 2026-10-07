@@ -161,6 +161,6 @@ def plot_spectrum(arrays, title: str = "", path: str | None = None, ax=None):
     if own:
         fig.tight_layout()
         if path is not None:
-            fig.savefig(path, dpi=200)
+            fig.savefig(path, dpi=600)
             plt.close(fig)
     return ax

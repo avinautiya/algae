@@ -134,10 +134,37 @@ Two samples, 22_7_SB6 and 22_7_SB7, appear in biosnicar-py's metadata with 0 cel
 
 > "low-density (0.43–0.91 g cm−3, µ = 0.69 g cm−3) ice to at least 1.1 m depth"
 
-## What remains assumed (and is stated where it is used)
+## Unit and stoichiometry audit
 
-1. Equal PG amount in the two solutions of Procházková et al. (2025), Fig. 4 (see 2).
-2. The size-scaling exponent γ is applied to chlorophylls and carotenoids as well, because only phenolics have per-sample size data.
-3. The equal-volume sphere for Mie g, and the refractive index of 1.38, which was measured on snow algae and applied to ice algae (as in Chevrollier et al. 2023).
-4. A uniform vertical distribution of algae within the 2 cm layer.
-5. The same bubble radius in both ice layers. The field-spectra prior describes the effective (surface-dominated) radius.
+Every link from a measured quantity to the model's absorption per cell, and from cell counts to cells per m², is checked:
+
+| Link | Units | Status |
+|---|---|---|
+| Williamson extract MAC | Regression slope of absorbance on concentration, in L g⁻¹ cm⁻¹ (decadic, 1 cm path, phenol equivalents). Converted to m² mg⁻¹ as slope × 2.3 × 10⁻⁴ (`phenolic_pigmentation_mac_calculation.R`, lines 71–73): 1 L g⁻¹ cm⁻¹ = 10⁻⁴ m² mg⁻¹ decadic, × ln 10 for Napierian | Exact. Used as m² kg⁻¹ (× 10⁶) |
+| Per-cell phenolics | ng phenol equivalents per cell (same 4-AAP assay, US EPA 420.1) | MAC × mass per cell: the phenol-equivalent unit cancels exactly, so the `williamson2020` path needs no conversion |
+| TD-DFT MAC | m² kg⁻¹ of glucoside (M = 426.33 g mol⁻¹) | The calibrated scale f converts it to per kg phenol equivalent. If the 4-AAP assay counts one glucoside as one phenol, the stoichiometric part of f is 426.33/94.11 = 4.53, and f/4.53 is the TD-DFT intensity error alone (reported as `f_over_stoichiometric` in `tddft_calibration.json`) |
+| Fe complex (tier D) | φ is dimensionless. D is per unit integrated PG absorbance, scaled by the integrated glucoside MAC | The MAC stays per kg phenol equivalent. Fe mass is not added to the pigment mass, consistent with the 4-AAP quantification. The fitted product φ·D is invariant to the unknown concentration ratio in Procházková Fig. 4 |
+| Chl a, chl b, carotenoids | MAC per mg pigment (HPLC-quantified) × ng pigment per cell | Consistent |
+| Intracellular concentration | ng cell⁻¹ / µm³ cell⁻¹ → kg m⁻³ (× 10⁶) | Consistent. Pooled phenolics 0.0432 ng (53 samples) / 1962 µm³ (S6 counts) = 22.0 kg m⁻³. The independent per-sample file gives Σng/Σµm³ = 23.7 kg m⁻³ |
+| **Cell counts** | Field counts are cells per mL of **meltwater** (haemocytometer on melted samples; 1 mL = 1 g). BioSNICAR converts its input to cells kg⁻¹ as conc/917 × 10⁶, i.e. per mL of **solid ice** (`column_OPs.mix_in_impurities`) | **Corrected**: the bridge passes conc × 0.917 (`biosnicar_bridge.MELTWATER_TO_BIOSNICAR`), so the column number of cells is the measured count × ρ·dz. Before this, every model abundance was off by 1000/917 (0.04 dex) |
+| Dust | ppb = ng g⁻¹ ice. Cook et al. (2020) give µg g⁻¹ ice, which they computed from µg mL⁻¹ "assuming 1 mL of ice to weigh 0.917 g" | Consistent (× 10³) |
+
+## Sampling depth of the S6 counts
+
+Cook et al. (2020) state only that "ice from within the viewing area of the spectrometer was removed using a sterile blade". Their archived discussion manuscript (Zenodo 10.5281/zenodo.3564501, `Peer_Review/Round1/Cook_et_al_Algae_Melting_GrIS_Tracked_changes.pdf`) is explicit about the same measurements: "These measurements were followed immediately by the physical removal of the upper 2 cm of the ice surface within the same patches." So the S6 counts, like Williamson et al. (2018) and Halbach et al. (2025), are cells per mL of the top 2 cm.
+
+## Stated assumptions for the methods section (with measured sensitivity)
+
+1. **Equal purpurogallin amounts in the two solutions of Procházková et al. (2025) Fig. 4.**
+   - The paper gives no concentrations. The equal ~315 nm maxima (1.04 vs 1.05) are consistent with equal amounts, but could also mean the curves were normalised.
+   - **Effect:** only the product φ·D is fitted to the S6 extract MAC. A different concentration ratio rescales D and the fitted φ inversely, leaving the tier D MAC unchanged (as long as φ stays within [0, 1]). Only the interpretation of φ as "fraction complexed" depends on the assumption. Verified numerically in `phase2/tests/test_phase2.py::test_fe_scale_invariance`.
+2. **The size-scaling of intracellular concentration (c ∝ V^γ) is applied to chlorophylls and carotenoids.**
+   - Only phenolics have per-sample size data.
+   - **Effect:** using the pooled (γ = 0) concentrations for chl/carotenoids instead changes the forcing at 10⁴ cells mL⁻¹ (60 % A. nordenskioeldii, reference ice) by 0.03 % (35.08 vs 35.09 W m⁻²). Phenolics dominate visible absorption in the packaged cells.
+3. **Spherical (equal-volume) approximation for the asymmetry parameter g**, with the refractive index 1.38 measured on snow algae and applied to ice algae (as in Chevrollier et al. 2023).
+   - **Effect:** Mie g(400–700 nm) is 0.993–0.996 for n = 1.36–1.42 and an ice or water host. Reference forcing changes by < 0.15 % (43.40–43.46 W m⁻²), even with BioSNICAR's fixed 0.96. Cell scattering is negligible next to ice scattering.
+4. **Uniform algae through the 2 cm sampling layer.**
+   - **Test:** the same number of cells per m² placed in the top 2 mm (`IceSpec(film_dz=0.002)`), compared at the same 3-layer discretisation.
+   - **Effect:** darkening is 4–8 % stronger (bubbly or granular ice, 450–650 kg m⁻³), equivalent to a few hundredths of a dex in retrieved abundance. The field-validation effect is in `phase4/bias_study.py`.
+5. **One bubble radius for both ice layers.** The field-spectra prior describes the effective (surface-dominated) radius.
+6. **Albedo spectra (only if Stibal et al. 2017 is ingested by hand):** k ~ N(1, `albedo_k_sd`), where the default 0.02 represents instrument calibration.

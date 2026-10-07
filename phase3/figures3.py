@@ -30,7 +30,7 @@ SHORT = {"dE_ev": r"$\Delta E$", "f_scale": r"$f$ scale", "fwhm_ev": "FWHM",
          "cell_aspect": r"$L/d$", "c_internal": r"$c_i$", "grain_um": r"$r_{ice}$",
          "rho_top": r"$\rho$", "conc_cells_ml": "abundance",
          "fe_fraction": r"$\phi_{Fe}$", "conc_size_exponent": r"$\gamma$", "ice_ssa": "SSA",
-         "transmissivity": r"$T$"}
+         "transmissivity": r"$T$", "dust_ppb": "dust"}
 S2_DEFAULT = ["cell_volume_um3", "cell_aspect", "c_internal", "ice_ssa", "rho_top", "conc_cells_ml"]
 OUTPUT_LABELS = {
     "rf_A": r"$RF_A$", "rf_B": r"$RF_B$", "rf_C": r"$RF_C$", "rf_D": r"$RF_D$",

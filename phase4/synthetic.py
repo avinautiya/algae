@@ -44,7 +44,8 @@ def make_truth(shape, prior_cfg, res_m, seed=7, with_dust=False):
         k=prior_cfg.mu_k + grf(shape, 0.25 * prior_cfg.sd_k, 2 * corr, rng),
     )
     if with_dust:
-        t["dust_ppb"] = np.clip(10 ** (3.5 + grf(shape, 0.4, corr, rng)), 0, 1e5)
+        t["dust_ppb"] = np.exp(np.clip(prior_cfg.mu_lndust + grf(shape, prior_cfg.sd_lndust, corr, rng),
+                                       np.log(3e4), np.log(1.2e6)))
     return t
 
 

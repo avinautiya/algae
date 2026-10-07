@@ -1,0 +1,25 @@
+{
+  "_comment": "Copy to mapping.json and edit every name to match the files you downloaded. Nothing is guessed.",
+  "counts": {
+    "file": "grl56634-sup-0002-2017gl075958_data_si.xlsx",
+    "sheet": "algal cells time series data",
+    "header_row": 0,
+    "sample_col": "SAMPLE ID COLUMN NAME",
+    "cells_col": "CELLS PER ML COLUMN NAME",
+    "cells_scale": 1.0,
+    "datetime_col": "DATE (OR DATE-TIME, UTC) COLUMN NAME",
+    "datetime_format": null,
+    "datetime_has_time": false
+  },
+  "spectra": {
+    "file": "SPECTRA FILE NAME (.csv or .xlsx)",
+    "sheet": 0,
+    "orientation": "wavelength_rows",
+    "wavelength_col": "WAVELENGTH COLUMN NAME",
+    "sample_col": "ONLY FOR orientation = wavelength_columns",
+    "quantity": "albedo",
+    "scale": 1.0
+  },
+  "albedo_k_sd": 0.02,
+  "site": {"lat": 67.08, "lon": -49.40}
+}

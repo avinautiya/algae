@@ -57,7 +57,7 @@ python phase4/run_phase4.py --source s2 ... --phenol williamson2020
 
 ### State and fixed choices
 
-State z = [log₁₀ B, f_n, r (, dust)], plus a nuisance factor k.
+State z = [log₁₀ B, f_n, r, dust], plus a nuisance factor k.
 - **Fractions:** f_a = 1 − f_n, so the requested [B, f_alaskanum, f_nordenskioeldii, grain] lies on the simplex.
 - **Units:** B is in cells mL⁻¹ in the 2 cm surface layer (BioSNICAR's convention).
 - **Species optics:** each species is a Phase 2 packaged cell (tier C, or tier D with `--tier D`).
@@ -90,7 +90,7 @@ R_b = k·F_b(z) + ε_b, with ε_b ~ N(0, σ²).
 | f_n | Beta(17.37, 11.42) | Moment fit to 3 Greenland surveys: 0.65, 0.66, 0.50 |
 | r | Log-normal, estimated from the 64 field spectra by empirical Bayes (ours: median 600 µm, ln-SD 2.0) | Candidates: the measured bubbly-ice SSA prior (Cooper et al. 2021; Dadic et al. 2013; median 2.8 mm at 690 kg m⁻³) and a grid of log-normals. The field data prefer the wide distribution (log evidence 230 vs 183): the SSA measurements are of ice 0.1–1 m deep, not the surface crust |
 | k | N(0.898, 0.175) | 51 field ARF spectra |
-| dust (`--dust` only) | Log-uniform over its nodes | Off by default: S6 dust was found weakly absorbing |
+| dust | Log-normal, median 3.1 × 10⁵ ppb, ln-SD 0.46 (on by default; `--no-dust` removes it) | Moment-matched to the measured S6 loading, 342 µg g⁻¹ mean, relative SD 0.49 (Cook et al. 2020). The field spectra strongly prefer it (field-site bias study below) |
 
 Use `--prior-scale` to test sensitivity to the priors. `--spatial-pooling` adds an empirical-Bayes second pass that pools neighboring pixels.
 
@@ -118,6 +118,7 @@ Use `--prior-scale` to test sensitivity to the priors. `--spatial-pooling` adds 
 |---|---|---|
 | S6, SW Greenland, 13–24 July 2017 (Cook et al. 2020 archive) | 46 (5 with 0 cells) | Counts from the primary workbook, with Poisson errors from the number of cells counted |
 | Southern Greenland ice sheet, 5–6 Aug 2021 (Chevrollier et al. 2023) | 18 | An independent site, year, team and instrument; surface scraped 1–6 cm |
+| S6, 17 June – 11 Aug 2014 (Stibal et al. 2017) | only if added by hand | Wiley/AGU block automated downloads (HTTP 403). Download the supporting information in a browser into `data/empirical/stibal_2017/` and fill in `mapping.json` (see that folder's README and `phase2/stibal2017.py`); the samples then enter the validation as `s6_2014` |
 
 The earlier 31-sample version used biosnicar-py's copy of the S6 metadata. Two of its "0 cells" samples (22_7_SB6/7, the darkest misfits) were never counted: they are absent from the count workbook and are now excluded.
 
@@ -147,6 +148,27 @@ The Cook row covers only the 13 samples that have a published non-zero retrieval
 - **Bias:** a positive bias remains (+0.47 dex at S6). The intervals are still somewhat too narrow (78 % coverage overall). Do not quote S6 abundances as calibrated.
 - **TD-DFT path:** with the placeholder Phase 1 spectrum (`--phenol tddft`), the bias is +0.78 dex. The calibration fixes units and band positions, but a minimal-basis spectrum cannot reproduce the measured band shape (HPLC-shape R² 0.91). Rerun with production Level 2 output.
 
+## Field-site bias study (`bias_study.py`)
+
+Before this study, abundance at S6 was overestimated by +0.47 dex. Each candidate explanation was scored with the same leave-one-out field validation, with σ and the radius prior re-selected per variant (measured phenolic MAC, f_n step 0.2):
+
+| Variant | S6 bias | S6 coverage | All 59: bias / RMSE / coverage | S Greenland: bias / coverage | Log evidence |
+|---|---|---|---|---|---|
+| Baseline (uniform 2 cm, no dust; meltwater-unit fix) | +0.49 | 0.73 | +0.40 / 0.59 / 0.78 | +0.19 / 0.89 | 227 |
+| **+ measured S6 mineral dust** | **+0.17** | **0.81** | **+0.05 / 0.49 / 0.83** | −0.21 / 0.89 | **284** |
+| Algae in the top 2 mm (same cells m⁻²) | +0.56 | 0.81 | +0.47 / 0.61 / 0.83 | +0.26 / 0.89 | 208 |
+| Its control: same 3-layer column, uniform | +0.49 | 0.73 | +0.40 / 0.59 / 0.78 | +0.20 / 0.89 | 227 |
+| Dust + film | +0.20 | 0.85 | +0.09 / 0.46 / 0.86 | −0.16 / 0.89 | 264 |
+
+**Findings**
+- **Unit audit.** Field counts are per mL of meltwater, while BioSNICAR's cells/mL are per mL of solid ice. The correction (× 0.917) is in the bridge and moves abundances by only 0.04 dex. The phenol-equivalent units cancel exactly between the measured MAC and the per-cell content (`data/empirical/SOURCES.md`, unit audit).
+- **Sampling depth.** Cook et al.'s archived manuscript states that the S6 counts are of "the upper 2 cm of the ice surface", so the 2 cm layer matches the measurement. A thin surface film is disfavoured by the data (log evidence 208 vs 227): concentrating the cells changes darkening by only 4–8 %.
+- **Mineral dust.** Without a dust term, all visible darkening is attributed to algae. With the measured S6 dust loading as prior, the S6 bias falls by two-thirds, the overall bias to +0.05 dex, and the evidence rises by 57. **Dust is therefore on by default.**
+  - At southern Greenland the S6 dust prior is a transfer assumption, as no dust was measured there. The bias becomes −0.21 dex, and coverage stays 0.89.
+- **Site calibration factor (rejected).** A multiplicative factor estimated at S6 (leave-one-out) removes the S6 bias by construction. Transferred to the independent site, it drives the bias there to −0.30 to −0.37 dex and coverage to 0.72. That is the test a satellite application faces, so no such factor is applied.
+
+Run `python phase4/bias_study.py --phenol tddft|williamson2020` to reproduce; tables go to `results/bias_study*/`.
+
 ## Results so far: read before quoting
 
 ### 1. Synthetic truth generated with our optics (3 × 3 km, 2.3 × 10⁴ pixels; field-estimated priors, σ = 0.02)
@@ -165,7 +187,7 @@ The posterior SD of f_n is 0.85–1.00 of its prior SD, so the f_n maps show the
 
 ### 3. Real scene (S2A, 23 July 2019, 40 m, `--phenol williamson2020`)
 
-- **Fit:** both models fit every pixel (0 % χ² failures) with bubbly ice and no dust axis.
+- **Fit:** both models fit every pixel (0 % χ² failures) with bubbly ice (numbers below are from the run before dust became the default; they are regenerated by `scripts/reproduce_all.sh`).
 - **Model evidence:** median ln Bayes factor −1.5, weakly favouring Tier A.
 - **Forcing:** median algal forcing is 43 W m⁻² (ours) vs 83 W m⁻² (Tier A). Both are higher than in the previous revision because SW↓ now uses the measured clear-sky transmissivity (0.92 instead of 0.75).
 - **Optics tension:** with the measured phenolic MAC at the measured concentration, modelled cells absorb almost all visible light incident on them, and BioSNICAR's measured in vivo cell absorption (Tier A) is lower towards 700 nm. This disagreement between two empirical sources is reported, not tuned away.

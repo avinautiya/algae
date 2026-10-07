@@ -49,6 +49,7 @@ BOUNDS = dict(dE=(-1.0, 1.0), w=(0.08, 1.2), f=(1e-3, 1e3), phi=(0.0, 1.0), ls_s
               ls_mac=(0.0, 14.0))
 NAMES = list(BOUNDS)
 MAC_RANGE_NM = (260.0, 750.0)
+PHENOL_MOLAR_MASS = 94.11          # g/mol, C6H5OH: the standard of US EPA Method 420.1 (4-AAP)
 
 
 def perturbed_mac(spec, dE: float = 0.0, f_scale: float = 1.0, fwhm: float | None = None):
@@ -231,6 +232,12 @@ def calibrate(spec, n_walkers=24, n_steps=2000, burn=800, n_stage2=200, draws_pe
                           if min(pm[i] - lo6[i], hi6[i] - pm[i]) < 0.02 * (hi6[i] - lo6[i])],
                 fe_share_of_absorption_400_700=float(
                     1 - np.trapezoid(Ec[vis], wl_m[vis]) / np.trapezoid(Em[vis], wl_m[vis])))
+    # stoichiometric reading of f: if the 4-AAP assay counts one glucoside molecule as one phenol, the
+    # mass conversion kg glucoside per kg phenol equivalent is M_spec / M_phenol, and the remaining
+    # factor f / (M_spec / M_phenol) is the TD-DFT oscillator-strength (intensity) error alone.
+    diag["phenol_molar_mass"] = PHENOL_MOLAR_MASS
+    diag["f_stoichiometric_1to1"] = float(spec.molar_mass / PHENOL_MOLAR_MASS)
+    diag["f_over_stoichiometric"] = float(pm[2] / (spec.molar_mass / PHENOL_MOLAR_MASS))
     cal = Calibration(spec, ch, diag)
     if verbose:
         sm = cal.summary()
@@ -238,7 +245,8 @@ def calibrate(spec, n_walkers=24, n_steps=2000, burn=800, n_stage2=200, draws_pe
               f"FWHM = {sm['w']['mean']:.3f} +/- {sm['w']['sd']:.3f} eV, f = {sm['f']['mean']:.3g} "
               f"+/- {sm['f']['sd']:.2g}, complexed fraction phi = {sm['phi']['mean']:.3f} +/- {sm['phi']['sd']:.3f}; "
               f"shape R2 {diag['shape_r2']:.3f}, extract ln-MAC R2 {diag['mac_r2_log']:.3f} "
-              f"(400-700 nm rms rel. error {diag['mac_rms_rel_400_700']:.2f})")
+              f"(400-700 nm rms rel. error {diag['mac_rms_rel_400_700']:.2f}); f / (M/M_phenol) = "
+              f"{diag['f_over_stoichiometric']:.2f}")
         if diag["at_bound"]:
             print(f"  WARNING: posterior mean at a bound for {diag['at_bound']} - the TD-DFT spectrum does not "
                   "resemble the measured pigment spectrum; check the Phase 1 run")

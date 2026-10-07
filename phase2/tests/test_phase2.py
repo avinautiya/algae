@@ -158,6 +158,62 @@ def test_new_empirical_components():
     assert errD <= errC                                          # the Fe term explains the visible tail
 
 
+def test_stibal2017_manual_ingestion():
+    """The manual-ingestion path for Stibal et al. (2017): mapping-driven reading of a counts workbook and
+    a spectra table (FIXTURE values, not data), sample matching, solar zenith, and clear errors."""
+    import json
+    import tempfile
+    import pandas as pd
+    import stibal2017 as SB
+    with tempfile.TemporaryDirectory() as d:
+        pd.DataFrame({"ID": ["A1", "A2", "A3"], "cells": [1000.0, 5000.0, 20000.0],
+                      "date": ["2014-07-10", "2014-07-20", "2014-08-01"]}).to_excel(
+            os.path.join(d, "si.xlsx"), sheet_name="algal cells time series data", index=False)
+        wl = np.arange(350, 2501)
+        sp = pd.DataFrame({"nm": wl, "A1": 0.6, "A2": 0.4, "A9": 0.3})
+        sp.to_csv(os.path.join(d, "spec.csv"), index=False)
+        mp = {"counts": {"file": "si.xlsx", "sheet": "algal cells time series data", "sample_col": "ID",
+                         "cells_col": "cells", "datetime_col": "date"},
+              "spectra": {"file": "spec.csv", "orientation": "wavelength_rows", "wavelength_col": "nm",
+                          "quantity": "albedo"},
+              "albedo_k_sd": 0.02}
+        with open(os.path.join(d, "mapping.json"), "w") as fh:
+            json.dump(mp, fh)
+        tab, spec, meta = SB.load(d)
+        assert list(tab["sample"]) == ["A1", "A2"]                    # A3 has no spectrum, A9 no count
+        assert np.allclose(tab.cells, [1000, 5000]) and (tab.quantity == "albedo").all()
+        assert np.all((tab.sza > 40) & (tab.sza < 50))               # noon at 67 N in July
+        assert meta["albedo_k_sd"] == 0.02 and list(spec.columns) == ["wavelength_nm", "A1", "A2"]
+        mp["counts"]["cells_col"] = "wrong"
+        with open(os.path.join(d, "mapping.json"), "w") as fh:
+            json.dump(mp, fh)
+        try:
+            SB.load(d)
+            raise AssertionError("expected StibalDataError")
+        except SB.StibalDataError as e:
+            assert "wrong" in str(e) and "cells" in str(e)          # names the missing and available columns
+
+
+def test_fe_scale_invariance():
+    """Assumption 1 of SOURCES.md: if the PG and PG-Fe solutions of Prochazkova et al. (2025) Fig. 4
+    did not hold equal amounts, the measured increment D is rescaled by an unknown factor. The fit
+    to the extract MAC then rescales phi inversely and the tier D MAC is unchanged."""
+    root = _biosnicar_root()
+    if root is None:
+        print("BioSNICAR not found - skipping")
+        return
+    import cell_optics as co
+    import tddft_calibration as TC
+    spec = co.demo_spectrum(root)
+    wl_h, S, sS, wl_m, E, sE, D = TC._data()
+    t1, _ = TC._fit_magnitude(spec, 0.0, 0.5, wl_m, E, sE, D)
+    t2, _ = TC._fit_magnitude(spec, 0.0, 0.5, wl_m, E, sE, 2.0 * D)       # D twice as large
+    assert 0 < t1[1] < 1 and abs(t2[1] - t1[1] / 2.0) < 2e-3 * max(1.0, t1[1])
+    m1 = np.exp(t1[0]) * (TC.perturbed_mac(spec, 0.0, 1.0, 0.5)(wl_m) + t1[1] * D * 1.0)
+    m2 = np.exp(t2[0]) * (TC.perturbed_mac(spec, 0.0, 1.0, 0.5)(wl_m) + t2[1] * 2.0 * D)
+    assert np.max(np.abs(m1 / m2 - 1)) < 5e-3
+
+
 def test_bridge_matches_run_model():
     root = _biosnicar_root()
     if root is None:
@@ -168,9 +224,21 @@ def test_bridge_matches_run_model():
     r = bb.BioSNICARRunner(root, incoming=3)
     spec = bb.IceSpec(1500, 650, 850, 0.02, 2.0, "grains")
     alb, _, bba = r.run(spec, 55, r.default_impurity(), 1e4)
+    # the bridge takes counts per mL of meltwater; BioSNICAR's own input is per mL of solid ice
     o = run_model(solzen=55, incoming=3, layer_type=[0, 0], rds=[1500, 1500], rho=[650, 850],
-                  dz=[0.02, 2.0], glacier_algae=1e4)
+                  dz=[0.02, 2.0], glacier_algae=1e4 * bb.MELTWATER_TO_BIOSNICAR)
     assert np.max(np.abs(o.albedo - alb)) < 1e-12 and abs(o.BBA - bba) < 1e-12
+    # film geometry: algae uniform over a split crust differs from the 2-layer column only by the
+    # delta-Eddington discretisation; with the cells in a thin film they are less shaded by the crust,
+    # so the darkening is slightly stronger (a few per cent)
+    a0, f, _ = r.run(spec, 55)
+    u = bb.IceSpec(1500, 650, 850, 0.02, 2.0, "grains", film_dz=0.002, film_only=False)
+    fl = bb.IceSpec(1500, 650, 850, 0.02, 2.0, "grains", film_dz=0.002, film_only=True)
+    au, _, _ = r.run(u, 55, r.default_impurity(), 1e4)
+    af, _, _ = r.run(fl, 55, r.default_impurity(), 1e4)
+    a0u, _, _ = r.run(u, 55)
+    du, df_ = r.broadband(a0u, f) - r.broadband(au, f), r.broadband(a0u, f) - r.broadband(af, f)
+    assert du > 0 and 1.0 <= df_ / du < 1.12
 
 
 def test_fast_lut_matches_biosnicar():

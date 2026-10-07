@@ -42,6 +42,7 @@ python phase3/run_phase3.py --phase1-l2 ... --reuse                 # re-analyse
 | environmental | surface density ρ | U(330, 560) kg m⁻³: measured weathering-crust range (Cooper et al. 2018) |
 | environmental | cell abundance | log₁₀ B ~ N(3.56, 0.78): 180 S6 surface-ice counts |
 | environmental | clear-sky transmissivity T | N(0.919, 0.036): 2301 clear-sky hours, PROMICE KAN_M |
+| environmental | mineral dust (surface layer) | log-normal, median 3.1 × 10⁵ ppb, ln-SD 0.46: measured S6 loading 342 ± 168 µg g⁻¹ (Cook et al. 2020). Algal forcing is computed relative to the same dusty ice, as in Phase 4 |
 
 **Every PDF comes from data** (`data/empirical/SOURCES.md`); `parameters.csv` lists each one with its rationale.
 - The molecular PDFs are the marginal posteriors of the empirical calibration of your Phase 1 spectrum, so they change when you rerun with production output. The run writes them to `tables/tddft_calibration.json`.

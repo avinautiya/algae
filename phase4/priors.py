@@ -15,9 +15,8 @@ citations in data/empirical/SOURCES.md):
              (r = 3 (1 - rho/917) / (rho SSA)); median ~2.8 mm at 690 kg m^-3. Grid support 0.3-20 mm.
   k        ~ Normal(0.90, 0.175) the band-averaged anisotropic reflectance factor HCRF/albedo of 51
              field spectra (biosnicar-py ARF_master.csv), linking directional reflectance to albedo.
-  dust     log-uniform over its nodes, only if the dust axis is enabled. Field studies at S6 found
-             local mineral dust weakly absorbing (Cook et al. 2020; Tedstone et al. 2020), so the
-             default model has no dust axis.
+  dust     log-normal around the measured S6 mineral-dust loading (342 ug/g mean, relative SD 0.49;
+             Cook et al. 2020), only if the dust axis is enabled (--dust).
 
 Elevation, slope and melt stage: no published calibration links them quantitatively to algal
 abundance or ice structure at the pixel scale, so they are NOT used in the prior. Positive degree
@@ -43,7 +42,9 @@ def _defaults(rho_bottom=None):
     fa, fb, _, _ = ED.community_prior()
     mk, sk, _ = ED.anisotropy_prior()
     mr, sr = ED.bubble_radius_prior(rho_bottom)
-    return dict(mu_b=mu_b, sd_b=sd_b, f_alpha=fa, f_beta=fb, mu_k=mk, sd_k=sk, mu_lnr=mr, sd_lnr=sr)
+    md, sdd = ED.dust_prior()
+    return dict(mu_b=mu_b, sd_b=sd_b, f_alpha=fa, f_beta=fb, mu_k=mk, sd_k=sk, mu_lnr=mr, sd_lnr=sr,
+                mu_lndust=md, sd_lndust=sdd)
 
 
 @dataclass
@@ -56,6 +57,8 @@ class PriorConfig:
     sd_k: float = field(default_factory=lambda: _defaults()["sd_k"])
     mu_lnr: float = field(default_factory=lambda: _defaults()["mu_lnr"])
     sd_lnr: float = field(default_factory=lambda: _defaults()["sd_lnr"])
+    mu_lndust: float = field(default_factory=lambda: _defaults()["mu_lndust"])
+    sd_lndust: float = field(default_factory=lambda: _defaults()["sd_lndust"])
     scale: float = 1.0                          # multiply prior SDs (sensitivity test only)
 
     @classmethod
@@ -94,7 +97,11 @@ def prior_logpdfs(emu_axes: dict, n_pixels: int, cfg: PriorConfig):
     out["r_um"] = (np.log(np.maximum(np.diff(edges), 1e-12))
                    + stats.norm.logpdf(lr, cfg.mu_lnr, cfg.sd_lnr * sc))[None, :]
     if "dust_ppb" in emu_axes:
-        out["dust_ppb"] = np.zeros((1, len(emu_axes["dust_ppb"])))
+        # measured S6 dust loading (Cook et al. 2020), log-normal, node weights in ln(dust)
+        ld = np.log(np.maximum(emu_axes["dust_ppb"], 1.0))
+        e = np.concatenate([[ld[0]], 0.5 * (ld[1:] + ld[:-1]), [ld[-1]]]) if len(ld) > 1 else np.array([0, 1])
+        out["dust_ppb"] = (np.log(np.maximum(np.diff(e), 1e-12))
+                           + stats.norm.logpdf(ld, cfg.mu_lndust, cfg.sd_lndust * sc))[None, :]
     for k, v in out.items():
         out[k] = v - np.logaddexp.reduce(v, axis=1, keepdims=True)
     return out, cfg.sd_k * sc, cfg.mu_k, np.full(n_pixels, cfg.mu_b)

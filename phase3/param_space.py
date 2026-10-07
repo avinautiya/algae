@@ -63,6 +63,7 @@ def default_parameters(include_tier_d: bool = True, calibration: dict | None = N
     _SSA = ED.ice_ssa_prior()
     _G = ED.phenolic_size_scaling()
     _TAU = ED.clear_sky_transmissivity()
+    _DUST = ED.dust_prior()
 
     def _tn(lo, hi, m, sd):
         return stats.truncnorm((lo - m) / sd, (hi - m) / sd, loc=m, scale=sd)
@@ -112,6 +113,11 @@ def default_parameters(include_tier_d: bool = True, calibration: dict | None = N
               stats.lognorm(s=_B[1] * np.log(10.0), scale=10.0 ** _B[0]),
               f"Algal abundance, log10 B ~ N({_B[0]:.2f}, {_B[1]:.2f}): {_B[2]} S6 surface-ice samples with "
               "cells > 0 (Williamson et al. 2020 counts)."),
+        Param("dust_ppb", r"Mineral dust", "ppb", "environmental",
+              stats.lognorm(s=_DUST[1], scale=np.exp(_DUST[0])),
+              f"Surface mineral-dust mass mixing ratio, log-normal (median {np.exp(_DUST[0]) / 1e3:.0f} ug/g, "
+              f"sigma_ln {_DUST[1]:.2f}), moment-matched to the measured S6 loading 342 ug/g, relative SD 0.49 "
+              "(Cook et al. 2020)."),
         Param("transmissivity", r"Clear-sky $T$", "-", "environmental",
               _tn(0.5, 1.0, _TAU[0], _TAU[1]),
               f"Bulk clear-sky transmissivity N({_TAU[0]:.3f}, {_TAU[1]:.3f}): {_TAU[2]} clear-sky hours at PROMICE KAN_M "

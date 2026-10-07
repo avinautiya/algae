@@ -32,6 +32,7 @@ Zero counts (below one counted cell) cannot be scored on a log scale and are rep
 from __future__ import annotations
 
 import dataclasses
+import hashlib
 import os
 import sys
 
@@ -48,7 +49,8 @@ SIGMA_GRID = np.array([0.01, 0.015, 0.02, 0.03, 0.04, 0.06, 0.08])
 # empirical-Bayes grid for the population distribution of the (surface) ice radius: ln r ~ N(mu, sd)
 EB_MU_LNR = np.log([600.0, 900.0, 1350.0, 2000.0, 3000.0, 4500.0])
 EB_SD_LNR = np.array([0.35, 0.6, 0.9, 1.2, 1.6, 2.0, 2.5])
-DATASET_LABEL = {"s6_2017": "S6 2017 (Cook et al. 2020)", "sgris_2021": "S Greenland 2021 (Chevrollier et al. 2023)"}
+DATASET_LABEL = {"s6_2017": "S6 2017 (Cook et al. 2020)", "sgris_2021": "S Greenland 2021 (Chevrollier et al. 2023)",
+                 "s6_2014": "S6 2014 (Stibal et al. 2017; manual ingestion)"}
 CACHE_VERSION = "v3"
 
 
@@ -68,8 +70,10 @@ def field_band_reflectance(spacecraft="S2A", bands=("B2", "B3", "B4", "B8")):
             s = srf[f"{spacecraft}_{b}"].reindex(wl).fillna(0).to_numpy()
             vals.append(np.sum(sp[ok] * s[ok]) / s[ok].sum())
         rows.append(dict(dataset=r.dataset, sample=r.sample, cells=r.cells, cells_counted=r.cells_counted,
-                         sza=r.sza, **dict(zip(bands, vals))))
-    return pd.DataFrame(rows)
+                         sza=r.sza, quantity=r.quantity, **dict(zip(bands, vals))))
+    out = pd.DataFrame(rows)
+    out.attrs["albedo_k_sd"] = tab.attrs.get("albedo_k_sd", np.nan)
+    return out
 
 
 def _metrics(t, e, lo=None, hi=None, sd=None, obs_sd=None):
@@ -91,7 +95,10 @@ def _metrics(t, e, lo=None, hi=None, sd=None, obs_sd=None):
 
 
 def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", tier="C",
-        phenol="tddft", photosynthetic=True, spacecraft="S2A", rho_bottom=690.0, verbose=True):
+        phenol="tddft", photosynthetic=True, spacecraft="S2A", rho_bottom=690.0, verbose=True,
+        emu_overrides: dict | None = None, models=("ours", "tierA"), dust: bool = True):
+    """emu_overrides: extra EmulatorConfig fields for both models (e.g. dust_ppb=E.DUST_NODES_PPB,
+    film_dz=0.002, f_n=(0, 1, 0.2)) - used by bias_study.py."""
     import emulator as E
     import inversion as INV
     from priors import PriorConfig, prior_logpdfs
@@ -101,12 +108,15 @@ def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", ti
     pc = PriorConfig.for_density(rho_bottom)
     zs = np.round(df.sza).astype(int).to_numpy()
     res = {}
-    for model in ("ours", "tierA"):
+    ov = dict(dict(dust_ppb=E.DUST_NODES_PPB) if dust else {}, **(emu_overrides or {}))
+    ov_tag = "_".join(f"{k}{v}" for k, v in sorted(ov.items())).replace(" ", "")
+    for model in models:
         ems = {}
         for z in sorted(set(zs)):
             cfg = E.EmulatorConfig(model=model, tier=tier, phenol=phenol, photosynthetic=photosynthetic, sza=z,
-                                   spacecraft=spacecraft, rho_bottom=rho_bottom)
-            tag = f"{CACHE_VERSION}_{model}_{tier}_{phenol}_{int(photosynthetic)}_{spacecraft}_rb{rho_bottom:.0f}_sza{z}"
+                                   spacecraft=spacecraft, rho_bottom=rho_bottom, **ov)
+            tag = (f"{CACHE_VERSION}_{model}_{tier}_{phenol}_{int(photosynthetic)}_{spacecraft}_rb{rho_bottom:.0f}"
+                   f"_sza{z}_{hashlib.md5(ov_tag.encode()).hexdigest()[:8]}")
             ems[z] = E.build_emulator(cfg, phase1_l2=phase1_l2, demo=demo, biosnicar=biosnicar, workers=workers,
                                       cache=os.path.join(cache_dir, f"field_emulator_{tag}.npz"),
                                       verbose=verbose).refine_log_b(0.05)
@@ -121,12 +131,17 @@ def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", ti
         for j, (s_, _, m_, d_) in enumerate(hyp):
             cfg_j = dataclasses.replace(pc, mu_lnr=m_, sd_lnr=d_)
             for z, em in ems.items():
-                idx = np.flatnonzero(zs == z)
-                lp, sk, mk, _ = prior_logpdfs(em.axes, len(idx), cfg_j)
-                r = INV.GridPosterior(em, np.full(4, s_)).run(R[idx], lp, sk, mk=mk)
-                logz[idx, j] = r["log_evidence"]
-                for q in qs:
-                    post.setdefault((j, q), np.full(len(df), np.nan))[idx] = r[q]
+                for qty in sorted(set(df.quantity)):
+                    idx = np.flatnonzero((zs == z) & (df.quantity == qty).to_numpy())
+                    if idx.size == 0:
+                        continue
+                    lp, sk, mk, _ = prior_logpdfs(em.axes, len(idx), cfg_j)
+                    if qty == "albedo":       # albedo spectra: no HCRF/albedo anisotropy, k ~ N(1, sd)
+                        sk, mk = df.attrs["albedo_k_sd"], 1.0
+                    r = INV.GridPosterior(em, np.full(4, s_)).run(R[idx], lp, sk, mk=mk)
+                    logz[idx, j] = r["log_evidence"]
+                    for q in qs:
+                        post.setdefault((j, q), np.full(len(df), np.nan))[idx] = r[q]
         # leave-one-out choice of all hyper-parameters: maximise the evidence of the other samples
         loo = {q: np.full(len(df), np.nan) for q in qs}
         sig_loo = np.empty(len(df))
@@ -159,7 +174,7 @@ def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", ti
         c, *_ = np.linalg.lstsq(X, y[tr], rcond=None)
         emp[i] = c[0] + c[1] * I[i] + c[2] * I[i] ** 2
 
-    for model in ("ours", "tierA"):
+    for model in models:
         for q, v in res[model]["loo"].items():
             df[f"{model}_{q}"] = v
         df[f"{model}_sigma"] = res[model]["sigma_loo"]
@@ -172,12 +187,12 @@ def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", ti
 
     rows = []
     for ds, sel in [("all", pos)] + [(d, pos & (df.dataset == d).to_numpy()) for d in DATASET_LABEL]:
-        for name, est, lo, hi, sd in (
-                ("Physics-informed Bayesian (ours)", df.ours_log_b_mean, df.ours_log_b_q025, df.ours_log_b_q975,
-                 df.ours_log_b_sd),
-                ("Tier A Bayesian", df.tierA_log_b_mean, df.tierA_log_b_q025, df.tierA_log_b_q975, df.tierA_log_b_sd),
+        bayes = [(lab, df[f"{m}_log_b_mean"], df[f"{m}_log_b_q025"], df[f"{m}_log_b_q975"], df[f"{m}_log_b_sd"])
+                 for m, lab in (("ours", "Physics-informed Bayesian (ours)"), ("tierA", "Tier A Bayesian"))
+                 if m in models]
+        for name, est, lo, hi, sd in bayes + [
                 ("Empirical band-ratio (LOO)", df.empirical_log_b, None, None, None),
-                ("Cook et al. 2020 inversion (published)", df.cook2020_log_b, None, None, None)):
+                ("Cook et al. 2020 inversion (published)", df.cook2020_log_b, None, None, None)]:
             e = np.asarray(est)[sel]
             if np.isfinite(e).sum() < 3:
                 continue

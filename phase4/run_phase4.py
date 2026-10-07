@@ -74,8 +74,9 @@ def parse_args(argv=None):
     m.add_argument("--rho-bottom", type=float, default=690.0, help="near-surface ice density (Cooper et al. 2018)")
     m.add_argument("--r-range", type=float, nargs=3, default=[300.0, 20000.0, 28], metavar=("MIN", "MAX", "N"),
                    help="ice optical radius grid (log-spaced, um)")
-    m.add_argument("--dust", action="store_true",
-                   help="add a mineral-dust nuisance axis (off: S6 dust found weakly absorbing, Cook et al. 2020)")
+    m.add_argument("--no-dust", dest="dust", action="store_false",
+                   help="drop the mineral-dust axis. By default dust is a state variable with the measured S6 "
+                        "loading as prior (Cook et al. 2020); the field spectra strongly prefer it (bias_study.py)")
     m.add_argument("--log-b-step", type=float, default=0.1, help="inference grid step in log10 B (dex)")
     m.add_argument("--f-step", type=float, default=0.1, help="grid step of the community fraction")
     m.add_argument("--sigma", type=float, nargs=4, default=None,
@@ -181,7 +182,7 @@ def main(argv=None):
     spacecraft = ED.spacecraft_from_scene(scene.item.get("id", ""))
     common = dict(ice_mode=a.ice_mode, rho=a.rho, rho_bottom=a.rho_bottom, sza=round(scene.sza),
                   r_um=tuple(a.r_range), spacecraft=spacecraft,
-                  dust_ppb=(0.0, 1e3, 3e3, 1e4, 3e4, 1e5) if a.dust else ())
+                  dust_ppb=E.DUST_NODES_PPB if a.dust else ())
     cfg_o = E.EmulatorConfig(model="ours", tier=a.tier, phenol=a.phenol, photosynthetic=not a.no_photosynthetic,
                              f_n=(0.0, 1.0, a.f_step), **common)
     cfg_a = E.EmulatorConfig(model="tierA", **common)
@@ -200,7 +201,7 @@ def main(argv=None):
         field_df, field_metrics, fres = FV.run(phase1_l2=kw["phase1_l2"], demo=a.demo, biosnicar=a.biosnicar,
                                                workers=a.workers, cache_dir=cache, tier=a.tier, phenol=a.phenol,
                                                photosynthetic=not a.no_photosynthetic, spacecraft=spacecraft,
-                                               rho_bottom=a.rho_bottom, verbose=False)
+                                               rho_bottom=a.rho_bottom, dust=a.dust, verbose=False)
         field_df.to_csv(os.path.join(tab, "field_validation_samples.csv"), index=False, float_format="%.5g")
         field_metrics.to_csv(os.path.join(tab, "field_validation_metrics.csv"), index=False, float_format="%.4g")
         print(field_metrics.drop(columns=[c for c in ("note",) if c in field_metrics]).round(3).to_string(index=False))

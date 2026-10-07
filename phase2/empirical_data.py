@@ -315,7 +315,7 @@ FIELD_SITE = dict(lat=67.04, lon=-49.07, year=2017)  # Cook et al. (2020) Sect. 
 COUNT_RESOLUTION_CELLS_ML = 62.5   # Fuchs-Rosenthal, 80 large squares: cells/mL = cells counted x 5000 / 80
 
 
-def field_samples():
+def field_samples(include_stibal: bool = True):
     """Co-located field samples, each with a nadir HCRF spectrum and a haemocytometer count of the
     algae in the ice under the spectrometer. Returns (table, {dataset: spectra DataFrame}).
 
@@ -326,7 +326,8 @@ def field_samples():
               (22_7_SB6, 22_7_SB7) are not in the count workbook and are therefore not used.
     sgris_2021 Chevrollier et al. (2023) Table S4 (counts, solar zenith of each spectrum) with spectra
               from Zenodo 10.5281/zenodo.18826013: 18 counted samples, southern Greenland ice sheet,
-              5-6 Aug 2021, surface scraped 1-6 cm; quintuplicate counts (number counted not given)."""
+              5-6 Aug 2021, surface scraped 1-6 cm; quintuplicate counts (number counted not given).
+    s6_2014   Stibal et al. (2017), only if the files were added by hand (phase2/stibal2017.py)."""
     c = pd.read_csv(path("cook2020_archive_cell_counts.csv"))
     rows = [dict(dataset="s6_2017", sample=r.sample, cells=r.cells_per_ml, cells_counted=r.cells_counted,
                  sza=solar_zenith_noon(pd.Timestamp(year=2017, month=int(r.sample.split("_")[1]),
@@ -338,7 +339,17 @@ def field_samples():
                   sza=float(r.sza_deg)) for r in t.itertuples()]
     spectra = {"s6_2017": pd.read_csv(path("cook2020_archive_hcrf.csv")),
                "sgris_2021": pd.read_csv(path("chevrollier2023_hcrf.csv"))}
-    return pd.DataFrame(rows), spectra
+    tab = pd.DataFrame(rows)
+    tab["quantity"] = "hcrf"
+    tab.attrs["albedo_k_sd"] = np.nan
+    if include_stibal:
+        import stibal2017
+        if stibal2017.available():
+            st, sp, meta = stibal2017.load()          # raises StibalDataError with a precise message
+            tab = pd.concat([tab, st], ignore_index=True)
+            spectra["s6_2014"] = sp
+            tab.attrs["albedo_k_sd"] = meta["albedo_k_sd"]
+    return tab, spectra
 
 
 def cook2020_published_inversion():
@@ -513,3 +524,24 @@ def clear_sky_transmissivity(cc_max: float = 0.1, sza_max: float = 75.0):
     ok = (h.cc.to_numpy() <= cc_max) & (mu > np.cos(np.radians(sza_max))) & (h.dsr_cor.to_numpy() > 0)
     lt = np.log(h.dsr_cor.to_numpy()[ok] / (SOLAR_CONSTANT * e0[ok] * mu[ok])) * mu[ok]
     return float(np.exp(np.median(lt))), float(np.std(np.exp(lt), ddof=1)), int(ok.sum())
+
+
+# --------------------------------------------------------------------------- #
+# Mineral dust at S6                                                            #
+# --------------------------------------------------------------------------- #
+DUST_S6 = dict(
+    lap_ug_per_ml=394.0, lap_sd_ug_per_ml=194.0, inorganic_fraction=0.95, mean_ug_per_g=342.0, max_ug_per_g=519.0,
+    quote="They measured 394 ± 194 µgLAP mLice−1, of which ∼ 95 % was inorganic, giving mean and maximum mineral "
+          "dust loadings of 373 and 567 µgLAP mLice−1. Assuming 1 mL of ice to weigh 0.917 g, this gives mean and "
+          "maximum mass mixing ratios of 342 and 519 µgdust gice−1.",
+    source="Cook et al. (2020) Sect. 2.5, citing McCutcheon et al. (heavy-biomass samples, S6, 2017)")
+
+
+def dust_prior():
+    """Log-normal prior for the mineral-dust mass mixing ratio of the surface layer (ppb = ng g^-1),
+    moment-matched to the measured S6 loading: mean 342 ug/g, relative SD 194/394 (Cook et al. 2020).
+    Returns (mean ln ppb, SD ln ppb)."""
+    m = DUST_S6["mean_ug_per_g"] * 1e3
+    cv = DUST_S6["lap_sd_ug_per_ml"] / DUST_S6["lap_ug_per_ml"]
+    s2 = np.log(1.0 + cv ** 2)
+    return float(np.log(m) - 0.5 * s2), float(np.sqrt(s2))

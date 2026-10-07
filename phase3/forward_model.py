@@ -56,6 +56,13 @@ class ForwardModel:
         self.kw = co.water_k_480(self.root)
         self.qtab = QStarTable(cache=qtable_cache)
         self.tierA = self.runner.default_impurity("glacier_algae")
+        # mineral dust (BioSNICAR's Greenland dust optics, Cook et al. 2020), ppb in the surface layer
+        import copy as _copy
+        d = np.load(os.path.join(self.root, "data", "OP_data", "480band", "lap.npz"))
+        st = "dust_greenland_Cook_CENTRAL_20190911"
+        self.dust = _copy.deepcopy(self.tierA)
+        self.dust.name, self.dust.unit = "dust", 0
+        self.dust.mac, self.dust.ssa, self.dust.g = d[st + "__ext_cff_mss"], d[st + "__ss_alb"], d[st + "__asm_prm"]
         self.sza = sza
         self.sw_fixed = sw_down
         self.tau = ED.clear_sky_transmissivity()[0] if transmissivity is None else transmissivity
@@ -128,10 +135,11 @@ class ForwardModel:
                 "D": bb.CustomImpurity("D", oD["ext_xsc"], oD["ss_alb"], oD["asm_prm"])}
         spec = bb.IceSpec(p["grain_um"], p["rho_top"], **self.ice_kw)
         conc = p["conc_cells_ml"]
-        alb0, flx, _ = self.runner.run(spec, self.sza)
+        dust = [(self.dust, p["dust_ppb"])] if p.get("dust_ppb", 0.0) > 0 else []
+        alb0, flx, _ = self.runner.run_multi(spec, self.sza, dust)        # algal forcing relative to dusty ice
         out = {"bba_clean": self.runner.broadband(alb0, flx)}
         for t, imp in imps.items():
-            alb, _, _ = self.runner.run(spec, self.sza, imp, conc)
+            alb, _, _ = self.runner.run_multi(spec, self.sza, [(imp, conc)] + dust)
             out[f"bba_{t}"] = self.runner.broadband(alb, flx)
             out[f"rf_{t}"] = self.runner.forcing(alb0, alb, flx, p["sw_down"])
             out[f"eff_{t}"] = out[f"rf_{t}"] / (conc / 1e4)

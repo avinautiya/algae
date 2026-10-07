@@ -68,9 +68,19 @@ The full-job estimates below are extrapolations from these numbers:
 
 Recommendations:
 
+- **Memory:** PySCF honours `--max-memory` only loosely. With the default 10 000 MB, a Level 2 B3LYP/6-31G(d)/PCM job reached 13.6 GB resident and was killed on a 16 GB machine. Use `--max-memory 4000` there, which ran at about 4–5 GB.
+
 - **CPU:** run Level 1 first. Run Level 2 as a separate session, resuming with `--start-xyz results/level2/opt_B3LYP_last.xyz` whenever a session ends. Save `--outdir` to Google Drive.
 - **Speed:** `--tda` roughly halves the TD-DFT cost. Oscillator strengths are slightly less reliable with TDA, so use full TD-DFT for final numbers.
 - **GPU:** `--gpu` (gpu4pyscf, any Colab GPU runtime) is expected to be about an order of magnitude faster. The GPU path follows gpu4pyscf's documented construction (`density_fit → to_gpu → PCM`) but was **not executed** in development, because no GPU was available. Check the first run's SCF energy against a CPU single point (`--skip-opt`); they should agree to about 1e-6 Eh.
+
+## Tests (`tests/test_phase1.py`)
+
+These checks run without a production calculation:
+- broadening conserves ∫ε dE = 2.8707×10⁴ Σf;
+- ε → MAC units (Napierian/decadic) and nm ↔ eV;
+- both molecules' formulas, charges and multiplicities;
+- a tiny real PySCF RKS + TD-DFT run.
 
 ## Scientific caveats to keep in view
 

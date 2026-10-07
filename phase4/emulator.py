@@ -41,8 +41,11 @@ sys.path.insert(0, os.path.join(HERE, "..", "phase2"))
 
 S2_BANDS = ("B2", "B3", "B4", "B8")
 # bump when the forward physics changes, so cached emulators are rebuilt (v3: calibrated pigment MAC,
-# Mie g, size-scaled species concentrations, measured clear-sky transmissivity)
-PHYSICS_VERSION = "v3"
+# Mie g, size-scaled species concentrations, measured clear-sky transmissivity; v4: meltwater-unit
+# correction of cell counts, optional surface film)
+PHYSICS_VERSION = "v4"
+# dust nodes spanning the measured S6 loading (342 ug/g mean, 519 max; Cook et al. 2020), ppb
+DUST_NODES_PPB = (3e4, 7e4, 1.5e5, 3e5, 6e5, 1.2e6)
 S2_CENTRES_NM = (490, 560, 665, 842)
 
 
@@ -76,7 +79,9 @@ class EmulatorConfig:
     log_b: tuple = (1.0, 6.0, 0.25)           # start, stop, step (log10 cells/mL)
     f_n: tuple = (0.0, 1.0, 0.1)
     r_um: tuple = (300.0, 20000.0, 28)        # min, max, n (log-spaced; bubbly-ice optical radius)
-    dust_ppb: tuple = ()                      # optional nuisance; () = no dust axis (empirically justified)
+    dust_ppb: tuple = ()                      # optional nuisance axis (ppb); () = no dust axis
+    film_dz: float | None = None              # algae in a surface film of this thickness (m) inside the 2 cm
+    film_only: bool = True                    # (see biosnicar_bridge.IceSpec); None = uniform over 2 cm
     sw_down: float | None = None              # broadband SW (W m^-2); None = clear-sky param.
     species: dict = field(default_factory=empirical_species)
 
@@ -218,7 +223,8 @@ class _Builder:
         self._clean = {}
 
     def spec(self, r_um):
-        return self.bb.IceSpec(r_um, self.cfg.rho, rho_bottom=self.cfg.rho_bottom, mode=self.cfg.ice_mode)
+        return self.bb.IceSpec(r_um, self.cfg.rho, rho_bottom=self.cfg.rho_bottom, mode=self.cfg.ice_mode,
+                               film_dz=self.cfg.film_dz, film_only=self.cfg.film_only)
 
     def _bands(self, alb, flx):
         """Flux-weighted band reflectance with the ESA spectral response functions."""

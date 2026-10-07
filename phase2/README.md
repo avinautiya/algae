@@ -74,6 +74,8 @@ BioSNICAR must be used from a **git checkout**: it locates its `data/` folder re
   - The ice below is 690 kg m⁻³ (Cooper et al. 2018).
   - The bubble-radius sweep is the 2.5/16/50/84/97.5 % quantiles of the **measured specific surface area** of bubbly ice (Cooper et al. 2021; Dadic et al. 2013; ln SSA ~ N(−0.97, 0.35)), converted at 690 kg m⁻³: about 1.45–5.65 mm. The reference is the median, 2.85 mm. (Cooper et al.'s 9.3–10.6 mm are ice-sphere radii, not bubble radii; only their SSA carries over.)
   - Granular ice (`--ice-mode grains`) cannot reproduce the field NIR reflectance (see Phase 4).
+- **Cell counts are per mL of meltwater** (1 mL = 1 g), while BioSNICAR's input is per mL of solid ice (it divides by 917 kg m⁻³). The bridge converts (× 0.917, `biosnicar_bridge.MELTWATER_TO_BIOSNICAR`), so the column number of cells equals the measured count × ρ·dz.
+- `IceSpec(film_dz=…, film_only=…)` puts the same cells per m² into a thin surface film (a 3-layer column), for tests of the vertical distribution. Compare at the same `film_dz`, because splitting a layer changes the delta-Eddington solution by about 0.005 albedo.
 - Algae are in the top 2 cm, in cells mL⁻¹. This is the sampling depth that defines the measured abundances: "the top 2 cm collected" (Williamson et al. 2018); "scraping off the top ~2 cm" (Halbach et al. 2025).
 
 ### 5. Forcing

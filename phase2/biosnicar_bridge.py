@@ -77,9 +77,36 @@ class IceSpec:
     dz_top: float = 0.02
     dz_bottom: float = 2.0
     mode: str = "grains"
+    film_dz: float | None = None       # if set (< dz_top), the top layer is split into [film_dz, dz_top - film_dz]
+                                       # at the same density and radius (a 3-layer column)
+    film_only: bool = True             # with film_dz: True = all algae in the film (same cells per m^2 as
+                                       # uniform over dz_top), False = uniform over both sub-layers. Compare the
+                                       # two at the same film_dz: splitting a layer is not exactly neutral in
+                                       # the delta-Eddington adding-doubling solver (~0.005 albedo).
 
     def key(self):
-        return (self.mode, self.rds_um, self.rho_top, self.rho_bottom, self.dz_top, self.dz_bottom)
+        return (self.mode, self.rds_um, self.rho_top, self.rho_bottom, self.dz_top, self.dz_bottom, self.film_dz,
+                self.film_only)
+
+    @property
+    def split(self) -> bool:
+        return self.film_dz is not None and self.film_dz < self.dz_top - 1e-9
+
+
+# Field counts are cells per mL of MELTWATER (melted surface ice, 1 mL = 1 g). BioSNICAR converts its
+# cells/mL input to cells per kg of ice as conc / 917 * 1e6, i.e. per mL of SOLID ice
+# (column_OPs.mix_in_impurities). Passing conc_field * 0.917 makes the column number of cells equal
+# conc_field [cells/g] * rho * dz [g/m^2], as measured.
+MELTWATER_TO_BIOSNICAR = 917.0 / 1000.0
+
+
+def _layer_concs(spec: IceSpec, conc: float, unit: int):
+    """Impurity concentration per model layer, with the meltwater-unit correction for cell counts and
+    the areal-number-conserving rescaling for a thin algal film."""
+    c = float(conc) * (MELTWATER_TO_BIOSNICAR if unit == 1 else 1.0)
+    if spec.split:
+        return [c * spec.dz_top / spec.film_dz, 0.0, 0.0] if spec.film_only else [c, c, 0.0]
+    return [c, 0.0]
 
 
 def sw_down_clear_sky(sza_deg: float, transmissivity: float = 0.75) -> float:
@@ -115,20 +142,20 @@ class BioSNICARRunner:
         return copy.deepcopy(imp)
 
     # -- ice column -------------------------------------------------------------
-    def _base_ice(self, mode: str):
-        """Two-layer Ice object for a mode, refractive index computed once."""
-        if ("base", mode) not in self._ice_cache:
+    def _base_ice(self, mode: str, n_layers: int = 2):
+        """n-layer Ice object for a mode, refractive index computed once."""
+        if ("base", mode, n_layers) not in self._ice_cache:
             ice = copy.deepcopy(self._ice0)
             lt = 0 if mode == "grains" else 1
-            ice.nbr_lyr = 2
-            ice.layer_type = [lt, lt]
+            ice.nbr_lyr = n_layers
+            ice.layer_type = [lt] * n_layers
             for attr in ("cdom", "shp", "water", "hex_side", "hex_length", "shp_fctr", "grain_ar", "lwc",
                          "rds", "rho", "dz"):
                 v = getattr(ice, attr)
-                setattr(ice, attr, (list(v) + [v[-1]] * 2)[:2])
+                setattr(ice, attr, (list(v) + [v[-1]] * n_layers)[:n_layers])
             ice.calculate_refractive_index(self.input_file)
-            self._ice_cache[("base", mode)] = ice
-        return self._ice_cache[("base", mode)]
+            self._ice_cache[("base", mode, n_layers)] = ice
+        return self._ice_cache[("base", mode, n_layers)]
 
     def available_radii(self, mode: str = "grains") -> np.ndarray:
         """Radii (um) tabulated in BioSNICAR's look-up table for this ice mode."""
@@ -186,6 +213,13 @@ class BioSNICARRunner:
             fast = self._fast_grain_ops(ice, rds) if spec.mode == "grains" else None
             self._ice_cache[op_key] = fast if fast is not None else get_layer_OPs(ice, self.model_config)
         ssa, g, mac = self._ice_cache[op_key]
+        if spec.split:
+            # same optics in the film and in the rest of the crust (same radius and density)
+            ice = copy.copy(self._base_ice(spec.mode, 3))
+            ice.rds = [rds, rds, rds]
+            ice.rho = [spec.rho_top, spec.rho_top, spec.rho_bottom]
+            ice.dz = [spec.film_dz, spec.dz_top - spec.film_dz, spec.dz_bottom]
+            ssa, g, mac = (np.vstack([a[0], a[0], a[1]]) for a in (ssa, g, mac))
         out = (ice, ssa, g, mac)
         if len(self._ice_cache) < 20000:        # bounded memo for sweeps; MC samples rarely repeat
             self._ice_cache[spec.key()] = out
@@ -220,7 +254,7 @@ class BioSNICARRunner:
         ice, ssa_i, g_i, mac_i = self.ice(spec)
         imps = []
         if impurity is not None and conc_cells_ml > 0:
-            impurity.conc = [float(conc_cells_ml), 0.0]       # algae only in the surface layer
+            impurity.conc = _layer_concs(spec, conc_cells_ml, impurity.unit)   # algae only at the surface
             imps = [impurity]
         tau, ssa, g, L = mix_in_impurities(ssa_i, g_i, mac_i, ice, imps, self.model_config)
         ill = self.illumination(sza_deg)
@@ -237,7 +271,7 @@ class BioSNICARRunner:
         imps = []
         for imp, c in impurities_concs:
             if c > 0:
-                imp.conc = [float(c), 0.0]
+                imp.conc = _layer_concs(spec, c, imp.unit)
                 imps.append(imp)
         tau, ssa, g, L = mix_in_impurities(ssa_i, g_i, mac_i, ice, imps, self.model_config)
         ill = self.illumination(sza_deg)
