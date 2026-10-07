@@ -26,10 +26,11 @@ from scipy.stats import gaussian_kde  # noqa: E402
 GROUP_COLORS = {"molecular": "#e87ba4", "cellular": "#008300", "environmental": "#4a3aa7"}
 INK, INK_2 = F.INK, F.INK_2
 SHORT = {"dE_ev": r"$\Delta E$", "f_scale": r"$f$ scale", "fwhm_ev": "FWHM",
-         "cell_length_um": r"$L$", "cell_diameter_um": r"$d$", "c_internal": r"$c_i$",
-         "grain_um": r"$r_{grain}$", "rho_top": r"$\rho$", "conc_cells_ml": "abundance",
+         "cell_length_um": r"$L$", "cell_diameter_um": r"$d$", "cell_volume_um3": r"$V$",
+         "cell_aspect": r"$L/d$", "c_internal": r"$c_i$", "grain_um": r"$r_{ice}$",
+         "rho_top": r"$\rho$", "conc_cells_ml": "abundance",
          "lmct_eps": r"$\varepsilon_{LMCT}$", "lmct_center_nm": r"$\lambda_{LMCT}$"}
-S2_DEFAULT = ["cell_length_um", "cell_diameter_um", "c_internal", "grain_um", "rho_top", "conc_cells_ml"]
+S2_DEFAULT = ["cell_volume_um3", "cell_aspect", "c_internal", "grain_um", "rho_top", "conc_cells_ml"]
 OUTPUT_LABELS = {
     "rf_A": r"$RF_A$", "rf_B": r"$RF_B$", "rf_C": r"$RF_C$", "rf_D": r"$RF_D$",
     "eff_C": r"$RF_C$ per $10^4$ cells mL$^{-1}$", "eff_D": r"$RF_D$ per $10^4$ cells mL$^{-1}$",
@@ -53,7 +54,7 @@ def _tag(ax, t):
 # --------------------------------------------------------------------------- #
 def fig3a(mc: pd.DataFrame, demo=False):
     """(a) PDFs of instantaneous forcing, tiers A-D; (b) PDFs of forcing efficiency
-    (per 10^4 cells mL^-1). Log-x because abundance is log-uniform; KDE in log space.
+    (per 10^4 cells mL^-1). Log-x because abundance is log-normal; KDE in log space.
     Bars under each panel: median (dot) and 95 % interval (P2.5-P97.5)."""
     fig, axes = plt.subplots(1, 2, figsize=(F.DOUBLE_COL, 3.0), constrained_layout=True)
     for ax, prefix, xlabel, tag in [
@@ -157,9 +158,9 @@ def fig3c(tornado: pd.DataFrame, mc: pd.DataFrame, s2: pd.DataFrame | None, spac
           s2_params=None):
     """(a) tornado: output change when one parameter moves from its P5 to P95 with all
     others at their medians; (b) Monte Carlo interaction surface: mean output binned over
-    cell diameter x pigment concentration;
+    cell volume x pigment concentration;
     (c) second-order Sobol' indices S_ij (pairwise interaction shares) among cell size,
-    pigment concentration, ice grain size, density and abundance (full matrix in the CSV)."""
+    pigment concentration, ice radius, density and abundance (full matrix in the CSV)."""
     meta = {p.name: p for p in space.params}
     fig = plt.figure(figsize=(F.DOUBLE_COL, 3.1), constrained_layout=True)
     gs = fig.add_gridspec(1, 3, width_ratios=[1.0, 1.0, 1.0])
@@ -184,18 +185,18 @@ def fig3c(tornado: pd.DataFrame, mc: pd.DataFrame, s2: pd.DataFrame | None, spac
 
     # (b) binned interaction surface from the Monte Carlo sample
     ax = fig.add_subplot(gs[1])
-    xb = np.linspace(5, 15, 9)
-    yb = np.logspace(1, np.log10(200), 9)
+    xcol = "cell_volume_um3" if "cell_volume_um3" in mc else "cell_diameter_um"
+    xb = np.linspace(*np.nanpercentile(mc[xcol], [1, 99]), 9)
+    yb = np.linspace(*np.nanpercentile(mc.c_internal, [1, 99]), 9)
     z = mc[surface_output].to_numpy()
-    H, _, _ = np.histogram2d(mc.cell_diameter_um, mc.c_internal, bins=[xb, yb], weights=z)
-    N, _, _ = np.histogram2d(mc.cell_diameter_um, mc.c_internal, bins=[xb, yb])
+    H, _, _ = np.histogram2d(mc[xcol], mc.c_internal, bins=[xb, yb], weights=z)
+    N, _, _ = np.histogram2d(mc[xcol], mc.c_internal, bins=[xb, yb])
     M = np.where(N > 0, H / np.maximum(N, 1), np.nan)
     pc = ax.pcolormesh(xb, yb, M.T, cmap="Blues", shading="flat",
                        norm=LogNorm(vmin=np.nanmin(M[M > 0]), vmax=np.nanmax(M)))
     cb = fig.colorbar(pc, ax=ax, pad=0.02)
     cb.set_label("mean " + OUTPUT_LABELS.get(surface_output, surface_output), fontsize=7)
-    ax.set_yscale("log")
-    ax.set_xlabel(r"Cell diameter $d$ ($\mu$m)")
+    ax.set_xlabel(r"Cell volume $V$ ($\mu$m$^3$)" if xcol == "cell_volume_um3" else r"Cell diameter $d$ ($\mu$m)")
     ax.set_ylabel(r"Pigment conc. $c_i$ (kg m$^{-3}$)")
     ax.set_title("MC interaction surface", loc="left")
     ax.grid(False)

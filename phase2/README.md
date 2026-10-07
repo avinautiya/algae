@@ -67,7 +67,11 @@ BioSNICAR must be used from a **git checkout**: it locates its `data/` folder re
 ### 4. Radiative transfer
 
 - BioSNICAR v2 adding-doubling solver, direct beam, sub-Arctic-summer spectrum (`--incoming 3`).
-- Two-layer column: a 2 cm algae-bearing granular weathering crust (grain radius 1–3 mm, density 500–800 kg m⁻³) over 2 m of clean granular ice at 850 kg m⁻³.
+- Two-layer column (defaults from measurements; `data/empirical/SOURCES.md`): a 2 cm algae-bearing **bubbly** weathering crust over 2 m of clean ice.
+  - The crust's density is 330/450/560 kg m⁻³: Cooper et al. (2018) range and mean.
+  - The ice below is 690 kg m⁻³ (Cooper et al. 2018).
+  - The optical radius sweep is 1–15 mm; the reference of 10 mm follows Cooper et al. (2021), who measured about 9.3–10.6 mm.
+  - Granular ice (`--ice-mode grains`) cannot reproduce the field NIR reflectance (see Phase 4).
 - Algae are in the top layer, in cells mL⁻¹, using BioSNICAR's convention.
 
 ### 5. Forcing
@@ -114,8 +118,14 @@ Two independent comparisons are printed or plotted on every run:
 
 ## Defaults to justify or replace in the paper
 
-- **Cell size.** The reference cell is a 10 × 20 µm cylinder. The "10–30 µm" sweep (`--sizes`) is interpreted as **cell length**, with diameter = length/2 (`--aspect 2`). Use `--size-is radius` if you meant radius.
-- **Pigment concentration.** The intracellular pigment concentration c_i = 50 kg m⁻³ (78 pg per reference cell) is an assumption. Constrain it from HPLC-quantified phenol per cell, or sweep it with `--c-internal-grid`.
+- **Cell size (empirical).** The reference cell is *A. nordenskioeldii*, 10.75 × 25.44 µm: Greenland mean volume (Chevrollier et al. 2022) with the measured length:width ratio (Procházková et al. 2021). Fig. 2A shows both species; *A. alaskanum* is 8.95 × 13.08 µm. `--sizes` overrides this.
+- **Pigment concentration (empirical).** The phenolic concentration is c_i = 22.0 kg m⁻³: measured phenolics per cell / measured biovolume per cell at S6 (Williamson et al. 2020). The packaging grid uses c_i and c_i × (mean ± 1 SD)/mean.
+  - **Stated assumption:** the concentration is the same in both species.
+- **Photosynthetic pigments.** Chlorophyll a, chlorophyll b and carotenoids are included in tiers B–D at their measured per-cell concentrations, with in vivo MACs (Williamson et al. 2020). They absorb inside the same packaged cell. `--no-photosynthetic` gives the phenolic-only cell.
+- **Not empirical:**
+  - g = 0.96.
+  - Clear-sky transmissivity 0.75.
+  - The Tier D surrogate (provisional until Level 3/4 TD-DFT output exists).
 - **Concentration range.** 10⁷ cells mL⁻¹ is far above observed blooms, which reach about 10⁴–10⁵ cells mL⁻¹.
 - **Tier A cell size.** Tier A's extinction (7.1×10⁻¹⁰ m² per cell) reflects BioSNICAR's empirical cell size, which differs from our reference cell. Fig. S1 shows the per-cell absorption so the difference stays visible.
 - **Forcing scope.** Forcing is instantaneous, clear-sky and direct-beam, with no melt feedbacks.

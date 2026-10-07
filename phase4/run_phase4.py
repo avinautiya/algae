@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Phase 4 driver: physics-informed Bayesian inversion of Sentinel-2 surface reflectance
-(B2, B3, B4, B8) for glacier-algal abundance, community fraction and ice grain size,
+(B2, B3, B4, B8) for glacier-algal abundance, community fraction and bubbly-ice optical radius,
 with posterior-propagated albedo and radiative-forcing maps.
 
 Examples
@@ -13,8 +13,7 @@ python run_phase4.py --source synthetic --phase1-l2 ../phase1/results/level2
 python run_phase4.py --source synthetic --truth-model tierA --phase1-l2 ...
 
 # Real Sentinel-2 L2A scene over the SW Greenland Dark Zone (S6), 6 km x 6 km at 20 m:
-python run_phase4.py --source s2 --scene-id S2A_22WEV_20190723_0_L2A --phase1-l2 ... \
-       --ice-mode bubbly --dust
+python run_phase4.py --source s2 --scene-id S2A_22WEV_20190723_0_L2A --phase1-l2 ...
 
 # Search instead of a fixed scene id (needs the earth-search STAC API):
 python run_phase4.py --source s2 --search 2019-07-01 2019-08-31 --lat 67.08 --lon -49.35 ...
@@ -22,7 +21,8 @@ python run_phase4.py --source s2 --search 2019-07-01 2019-08-31 --lat 67.08 --lo
 # Your own L2A GeoTIFFs (B02.tif, B03.tif, B04.tif, B08.tif, SCL.tif in one folder):
 python run_phase4.py --source local --local-dir path/to/tifs --sza 47 ...
 
-# Field validation (CSV with lon, lat, cells_per_ml):
+# Built-in field validation (Cook et al. 2020 spectra + counts) runs by default; your own
+# satellite-matched counts (CSV with lon, lat, cells_per_ml):
 python run_phase4.py --source s2 ... --field-csv cell_counts.csv
 """
 
@@ -63,32 +63,34 @@ def parse_args(argv=None):
     m.add_argument("--demo", action="store_true", help="BioSNICAR ppg.csv instead of Phase 1 (DEMO)")
     m.add_argument("--biosnicar", default=None)
     m.add_argument("--tier", choices=["C", "D"], default="C")
-    m.add_argument("--ice-mode", choices=["grains", "bubbly"], default="grains")
-    m.add_argument("--rho", type=float, default=650.0)
-    m.add_argument("--r-range", type=float, nargs=3, default=[1000.0, 3000.0, 80.0], metavar=("MIN", "MAX", "STEP"))
-    m.add_argument("--dust", action="store_true", help="add a mineral-dust nuisance dimension")
+    m.add_argument("--phenol", choices=["tddft", "williamson2020"], default="tddft",
+                   help="phenolic MAC: Phase 1 TD-DFT Level 2, or the measured in vivo MAC of Williamson et al. 2020")
+    m.add_argument("--no-photosynthetic", action="store_true", help="omit chl a, chl b and carotenoids")
+    m.add_argument("--ice-mode", choices=["grains", "bubbly"], default="bubbly",
+                   help="bubbly solid ice reproduces the field NIR reflectance (README); grains does not")
+    m.add_argument("--rho", type=float, default=450.0, help="weathering crust density (Cooper et al. 2018 mean)")
+    m.add_argument("--rho-bottom", type=float, default=690.0, help="near-surface ice density (Cooper et al. 2018)")
+    m.add_argument("--r-range", type=float, nargs=3, default=[300.0, 20000.0, 28], metavar=("MIN", "MAX", "N"),
+                   help="ice optical radius grid (log-spaced, um)")
+    m.add_argument("--dust", action="store_true",
+                   help="add a mineral-dust nuisance axis (off: S6 dust found weakly absorbing, Cook et al. 2020)")
     m.add_argument("--log-b-step", type=float, default=0.1, help="inference grid step in log10 B (dex)")
     m.add_argument("--f-step", type=float, default=0.1, help="grid step of the community fraction")
-    m.add_argument("--sigma", type=float, nargs=4, default=[0.02, 0.02, 0.02, 0.025],
-                   help="per-band 1-sigma reflectance uncertainty (sensor + atmosphere + model)")
+    m.add_argument("--sigma", type=float, nargs=4, default=None,
+                   help="per-band 1-sigma reflectance uncertainty; default: chosen by maximum marginal likelihood "
+                        "on the 31 co-located field samples (Cook et al. 2020)")
 
     q = p.add_argument_group("priors")
-    q.add_argument("--mu0", type=float, default=3.8)
-    q.add_argument("--sd-b", type=float, default=0.8)
-    q.add_argument("--f-alpha", type=float, default=2.0)
-    q.add_argument("--f-beta", type=float, default=2.0)
-    q.add_argument("--sd-k", type=float, default=0.10)
-    q.add_argument("--prior-scale", type=float, default=1.0, help="multiply all prior SDs")
-    q.add_argument("--t-peak", type=float, default=3.0, help="peak daily mean air T at z_ref (deg C)")
-    q.add_argument("--z-ref", type=float, default=1000.0)
-    q.add_argument("--tref-csv", default=None, help="station record: columns date, t_air (deg C)")
+    q.add_argument("--prior-scale", type=float, default=1.0, help="multiply all prior SDs (sensitivity test)")
     q.add_argument("--spatial-pooling", type=float, default=0.0,
                    help="empirical-Bayes second pass: Gaussian smoothing (pixels) of the log B prior mean")
 
     v = p.add_argument_group("validation / output")
     v.add_argument("--truth-model", choices=["ours", "tierA"], default="ours")
     v.add_argument("--noise", type=float, nargs=4, default=[0.01, 0.01, 0.01, 0.012])
-    v.add_argument("--field-csv", default=None)
+    v.add_argument("--field-csv", default=None, help="extra field points (lon, lat, cells_per_ml) for map validation")
+    v.add_argument("--no-field-validation", action="store_true",
+                   help="skip the co-located field validation (then --sigma is required)")
     v.add_argument("--empirical-coefs", type=float, nargs=3, default=None)
     v.add_argument("--mcmc-steps", type=int, default=6000, help="per walker; first third discarded as burn-in")
     v.add_argument("--workers", type=int, default=os.cpu_count() or 1)
@@ -131,30 +133,22 @@ def load_grid(a):
 
 
 def environment(a, scene, bounds):
+    """DEM, slope and PROMICE-based positive degree days (diagnostic maps; not used in the prior)."""
     import s2_io as io
-    from priors import PriorConfig, melt_stage, climatological_tref
+    import empirical_data as ED
+    from priors import PriorConfig
     if not a.no_dem:
         try:
             dem, slope = io.read_dem(bounds, scene.crs, scene.shape, scene.transform)
         except Exception as e:
-            print(f"DEM unavailable ({e}); using flat 1050 m")
-            dem = np.full(scene.shape, 1050.0)
-            slope = np.zeros(scene.shape)
+            print(f"DEM unavailable ({e})")
+            dem, slope = np.full(scene.shape, np.nan), np.full(scene.shape, np.nan)
     else:
-        dem, slope = np.full(scene.shape, 1050.0), np.zeros(scene.shape)
-    dem = np.where(np.isfinite(dem), dem, np.nanmedian(dem))
-    slope = np.where(np.isfinite(slope), slope, 0.0)
-    pc = PriorConfig(mu0=a.mu0, sd_b=a.sd_b, f_alpha=a.f_alpha, f_beta=a.f_beta, sd_k=a.sd_k, z_ref=a.z_ref,
-                     scale=a.prior_scale)
-    if a.tref_csv:
-        t = pd.read_csv(a.tref_csv, parse_dates=["date"])
-        end = pd.Timestamp(scene.date) if scene.date != "local" else t.date.max()
-        tser = t[(t.date >= f"{end.year}-05-01") & (t.date <= end)].t_air.to_numpy()
-    else:
-        doy = pd.Timestamp(scene.date).dayofyear if scene.date not in ("", "local") else 205
-        tser = climatological_tref(doy, t_peak=a.t_peak)
-    pdd, s = melt_stage(dem.ravel(), tser, pc)
-    return dem, slope, pdd.reshape(dem.shape), s.reshape(dem.shape), pc
+        dem, slope = np.full(scene.shape, np.nan), np.full(scene.shape, np.nan)
+    pdd = np.full(scene.shape, np.nan)
+    if np.isfinite(dem).any() and scene.date[:4] == "2019":
+        pdd = ED.pdd_at_elevation(np.nan_to_num(dem, nan=np.nanmedian(dem)), end=scene.date).reshape(dem.shape)
+    return dem, slope, pdd, PriorConfig(scale=a.prior_scale)
 
 
 def main(argv=None):
@@ -174,25 +168,51 @@ def main(argv=None):
 
     # ------------------------------------------------------------- scene & priors
     scene, bounds = load_grid(a)
-    dem, slope, pdd, melt, pc = environment(a, scene, bounds)
+    dem, slope, pdd, pc = environment(a, scene, bounds)
     H, W = scene.shape
     print(f"Grid {H}x{W} @ {a.resolution:g} m, SZA {scene.sza:.1f} deg, date {scene.date}, "
-          f"elev {np.nanmin(dem):.0f}-{np.nanmax(dem):.0f} m, melt stage {np.nanmin(melt):.2f}-{np.nanmax(melt):.2f}")
+          f"elev {np.nanmin(dem):.0f}-{np.nanmax(dem):.0f} m, PDD {np.nanmin(pdd):.0f}-{np.nanmax(pdd):.0f} degC d")
+    print("Empirical priors:", pc.describe())
 
     # ------------------------------------------------------------- emulators
-    common = dict(ice_mode=a.ice_mode, rho=a.rho, sza=round(scene.sza), r_um=tuple(a.r_range),
+    import empirical_data as ED
+    spacecraft = ED.spacecraft_from_scene(scene.item.get("id", ""))
+    common = dict(ice_mode=a.ice_mode, rho=a.rho, rho_bottom=a.rho_bottom, sza=round(scene.sza),
+                  r_um=tuple(a.r_range), spacecraft=spacecraft,
                   dust_ppb=(0.0, 1e3, 3e3, 1e4, 3e4, 1e5) if a.dust else ())
-    cfg_o = E.EmulatorConfig(model="ours", tier=a.tier, f_n=(0.0, 1.0, a.f_step), **common)
+    cfg_o = E.EmulatorConfig(model="ours", tier=a.tier, phenol=a.phenol, photosynthetic=not a.no_photosynthetic,
+                             f_n=(0.0, 1.0, a.f_step), **common)
     cfg_a = E.EmulatorConfig(model="tierA", **common)
     kw = dict(phase1_l2=None if a.demo else a.phase1_l2, demo=a.demo, biosnicar=a.biosnicar, workers=a.workers)
     em_o = E.build_emulator(cfg_o, cache=os.path.join(cache, "emulator_ours.npz"), **kw).refine_log_b(a.log_b_step)
     em_a = E.build_emulator(cfg_a, cache=os.path.join(cache, "emulator_tierA.npz"), **kw).refine_log_b(a.log_b_step)
 
+    # ------------------------------------------------------------- field validation / calibration
+    field_df = field_metrics = None
+    sig_model = {}
+    if not a.no_field_validation:
+        import field_validation as FV
+        print("Field validation on 31 co-located samples (Cook et al. 2020, S6, July 2017) ...", flush=True)
+        field_df, field_metrics, fres = FV.run(phase1_l2=kw["phase1_l2"], demo=a.demo, biosnicar=a.biosnicar,
+                                               workers=a.workers, cache_dir=cache, tier=a.tier, phenol=a.phenol,
+                                               photosynthetic=not a.no_photosynthetic, spacecraft=spacecraft,
+                                               verbose=False)
+        field_df.to_csv(os.path.join(tab, "field_validation_samples.csv"), index=False, float_format="%.5g")
+        field_metrics.to_csv(os.path.join(tab, "field_validation_metrics.csv"), index=False, float_format="%.4g")
+        print(field_metrics.drop(columns=[c for c in ("note",) if c in field_metrics]).round(3).to_string(index=False))
+        sig_model = {m: np.full(4, fres[m]["sigma_all"]) for m in ("ours", "tierA")}
+        print(f"Reflectance sigma (max marginal likelihood on field data): ours {fres['ours']['sigma_all']:.3f}, "
+              f"Tier A {fres['tierA']['sigma_all']:.3f}")
+    if a.sigma is not None:
+        sig_model = {m: np.array(a.sigma) for m in ("ours", "tierA")}
+    if not sig_model:
+        raise SystemExit("no field calibration: pass --sigma explicitly")
+
     # ------------------------------------------------------------- observations
     truth = None
     if a.source == "synthetic":
         import synthetic as SYN
-        truth = SYN.make_truth(scene.shape, melt, slope, pc, a.resolution, with_dust=a.dust)
+        truth = SYN.make_truth(scene.shape, pc, a.resolution, with_dust=a.dust)
         tcfg = cfg_o if a.truth_model == "ours" else cfg_a
         print(f"Synthesising {H * W} pixels with direct BioSNICAR ({a.truth_model} optics) ...", flush=True)
         R, extra = SYN.synthesise(truth, tcfg, workers=a.workers, noise=tuple(a.noise), **{
@@ -213,21 +233,27 @@ def main(argv=None):
 
     # ------------------------------------------------------------- empirical baseline
     if a.empirical_coefs:
-        coef, cal_rmse = np.array(a.empirical_coefs), np.nan
+        coef, cal_note = np.array(a.empirical_coefs), "user-supplied coefficients"
+    elif field_df is not None:
+        fd = field_df[field_df.cells > 0]
+        I = (fd.B4 - fd.B2) / (fd.B4 + fd.B2)
+        X = np.column_stack([np.ones(len(fd)), I, I ** 2])
+        coef, *_ = np.linalg.lstsq(X, np.log10(fd.cells), rcond=None)
+        cal_note = f"fitted to {len(fd)} counted field samples (Cook et al. 2020)"
     else:
-        coef, cal_rmse = EMP.calibrate(em_a)
+        coef, rm = EMP.calibrate(em_a)
+        cal_note = f"calibrated on Tier A simulations (no field data), RMSE {rm:.2f} dex"
     logb_emp = EMP.predict(R, coef)
     logb_emp[~mask] = np.nan
-    print(f"Empirical index: log10 B = {coef[0]:.2f} + {coef[1]:.2f} I + {coef[2]:.2f} I^2 "
-          f"(calibration RMSE {cal_rmse:.2f} dex)")
+    print(f"Empirical index: log10 B = {coef[0]:.2f} + {coef[1]:.2f} I + {coef[2]:.2f} I^2 ({cal_note})")
 
     # ------------------------------------------------------------- Bayesian inversions
-    sigma = np.array(a.sigma)
     res = {}
     for name, em in (("ours", em_o), ("tierA", em_a)):
-        lp, sk, mu_b = prior_logpdfs(em.axes, melt.ravel()[valid], slope.ravel()[valid], pc)
+        sigma = sig_model[name]
+        lp, sk, mk, mu_b = prior_logpdfs(em.axes, int(valid.sum()), pc)
         t1 = time.time()
-        r = INV.GridPosterior(em, sigma).run(Rp[valid], lp, sk)
+        r = INV.GridPosterior(em, sigma).run(Rp[valid], lp, sk, mk=mk)
         if a.spatial_pooling > 0 and name == "ours":
             from scipy.ndimage import gaussian_filter
             m1 = to_map(r["log_b_mean"])
@@ -238,13 +264,13 @@ def main(argv=None):
             mu2 = 0.5 * sm.ravel()[valid] + 0.5 * mu_b
             lp["log_b"] = st.norm.logpdf(lb[None, :], mu2[:, None], 0.5 * pc.sd_b)
             lp["log_b"] -= np.logaddexp.reduce(lp["log_b"], axis=1, keepdims=True)
-            r = INV.GridPosterior(em, sigma).run(Rp[valid], lp, sk)
+            r = INV.GridPosterior(em, sigma).run(Rp[valid], lp, sk, mk=mk)
         res[name] = r
         bad = np.mean(r["chi2"] > CHI2_99_DF4)
         print(f"Inversion [{name}]: {time.time() - t1:.0f} s; pixels failing the chi2 test (p<0.01): {100 * bad:.1f} %")
         if bad > 0.2:
             print(f"  WARNING: {100 * bad:.0f} % of pixels are not reproduced by the [{name}] forward model. "
-                  "Try --ice-mode bubbly, --dust, a wider --r-range, or larger --sigma; check the Phase 1 spectrum.")
+                  "Check the Phase 1 spectrum, try --dust or a wider --r-range; inspect the chi2 map.")
     ro, ra = res["ours"], res["tierA"]
     log_bf = to_map(ro["log_evidence"] - ra["log_evidence"])
 
@@ -266,7 +292,7 @@ def main(argv=None):
         "tierA_log_b_mean": to_map(ra["log_b_mean"]), "tierA_rf_algae_mean": to_map(ra["rf_algae_mean"]),
         "tierA_bba_mean": to_map(ra["bba_mean"]), "tierA_chi2": to_map(ra["chi2"]),
         "empirical_log_b": logb_emp, "log_bayes_factor_ours_vs_A": log_bf,
-        "elevation_m": dem, "slope_deg": slope, "melt_stage": melt,
+        "elevation_m": dem, "slope_deg": slope, "pdd_promice": pdd,
     }
     maps["d_rf_ours_minus_A"] = maps["ours_rf_algae_mean"] - maps["tierA_rf_algae_mean"]
     io.write_geotiff(os.path.join(geo, "phase4_maps.tif"), maps, scene.transform, scene.crs)
@@ -317,15 +343,16 @@ def main(argv=None):
     lbm = ro["log_b_mean"]
     picks = [int(np.nanargmin(np.abs(lbm - np.nanpercentile(lbm, q)))) for q in (25, 85)]
     mcmc_rows, corner_figs = [], []
-    lp_all, sk, mu_b_all = prior_logpdfs(em_o.axes, melt.ravel()[valid], slope.ravel()[valid], pc)
+    from priors import mcmc_prior_params
+    lp_all, sk, mk, mu_b_all = prior_logpdfs(em_o.axes, int(valid.sum()), pc)
     for n_pick, i in enumerate(picks):
         pix = vidx[i]
-        pp = dict(mu_b=mu_b_all[i], sd_b=pc.sd_b * pc.scale, f_alpha=pc.f_alpha, f_beta=pc.f_beta,
-                  mu_r=pc.r0 + pc.r_melt * melt.ravel()[pix], sd_r=pc.sd_r * pc.scale)
-        out = INV.mcmc_pixel(em_o, Rp[pix], sigma, pp, sk, n_steps=a.mcmc_steps, burn=a.mcmc_steps // 3,
+        pp = mcmc_prior_params(pc)
+        out = INV.mcmc_pixel(em_o, Rp[pix], sig_model["ours"], pp, sk, n_steps=a.mcmc_steps, burn=a.mcmc_steps // 3,
                              seed=n_pick)
         lp1 = {k: (v[i:i + 1] if v.shape[0] > 1 else v) for k, v in lp_all.items()}
-        g1 = INV.GridPosterior(em_o, sigma).run(Rp[pix][None, :], lp1, sk, keep_full=np.array([0]))
+        g1 = INV.GridPosterior(em_o, sig_model["ours"]).run(Rp[pix][None, :], lp1, sk, keep_full=np.array([0]),
+                                                           mk=mk)
         post = g1["full_posteriors"][0]
         marg = {}
         for ax, n in enumerate(em_o.names):
@@ -384,9 +411,21 @@ def main(argv=None):
                                                     "Physics-informed Bayesian": maps["ours_log_b_mean"]}, metrics),
                figd, "FigS4_validation_scatter")
 
+    if field_df is not None:
+        F_ests = {"Physics-informed Bayesian (ours)": field_df.ours_log_b_mean, "Tier A Bayesian": field_df.tierA_log_b_mean,
+                  "Empirical band-ratio (LOO)": field_df.empirical_log_b}
+        fdc = field_df[field_df.cells > 0]
+        M.save(M.fig_s4_validation(fdc.log_b_obs.to_numpy(), {k: v[field_df.cells > 0].to_numpy() for k, v in F_ests.items()},
+                                   field_metrics, quantity="log_b", label=r"$\log_{10}$ cells mL$^{-1}$",
+                                   title="Field validation: 25 counted samples, S6 2017 (Cook et al. 2020)"),
+               figd, "FigS5_field_validation")
+
     summary = dict(source=a.source, scene=scene.item.get("id", a.local_dir), date=scene.date, sza=scene.sza,
                    shape=[H, W], resolution_m=a.resolution, valid_pixels=int(valid.sum()),
-                   empirical_coefs=list(map(float, coef)), f_n_identifiability_sd_ratio=float(shrink_f),
+                   empirical_coefs=list(map(float, coef)), empirical_calibration=cal_note,
+                   f_n_identifiability_sd_ratio=float(shrink_f), priors=pc.describe(),
+                   sigma={k: float(v[0]) for k, v in sig_model.items()},
+                   field_validation=None if field_metrics is None else field_metrics.to_dict(orient="records"),
                    chi2_fail_frac={k: float(np.mean(v["chi2"] > CHI2_99_DF4)) for k, v in res.items()},
                    median_log_bayes_factor=float(np.nanmedian(log_bf)),
                    median_rf_ours=float(np.nanmedian(maps["ours_rf_algae_mean"])),

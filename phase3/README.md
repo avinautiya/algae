@@ -35,14 +35,20 @@ python phase3/run_phase3.py --phase1-l2 ... --reuse                 # re-analyse
 | molecular | band FWHM | U(0.25, 0.40) eV |
 | molecular | LMCT ε_max (tier D) | U(3000, 5000) M⁻¹ cm⁻¹ per Fe |
 | molecular | LMCT λ_max (tier D) | U(520, 620) nm |
-| cellular | cell length L | U(10, 30) µm |
-| cellular | cell diameter d | U(5, 15) µm |
-| cellular | intracellular pigment c_i | log-uniform 10–200 kg m⁻³ |
-| environmental | ice grain radius | U(1, 3) mm |
-| environmental | surface density ρ | U(500, 800) kg m⁻³ |
-| environmental | cell abundance | log-uniform 10³–10⁵ cells mL⁻¹ |
+| cellular | cell volume V | N(2320, 542) µm³, truncated at 400: per-sample biovolume per cell, 180 S6 samples (Williamson et al. 2020) |
+| cellular | aspect L/d | U(1.46, 2.37): between the two species' measured means (Procházková et al. 2021) |
+| cellular | intracellular phenolics c_i | N(22.0, 8.8) kg m⁻³, truncated at 0.5: phenolics per cell (53 samples) / S6 biovolume |
+| environmental | bubbly-ice optical radius | log-normal, ln r ~ N(7.39, 0.98), on [300, 20 000] µm: radii retrieved by Phase 4 from the 31 field spectra |
+| environmental | surface density ρ | U(330, 560) kg m⁻³: measured weathering-crust range (Cooper et al. 2018) |
+| environmental | cell abundance | log₁₀ B ~ N(3.56, 0.78): 180 S6 surface-ice counts |
 
-Fixed: SZA 55°, clear-sky SW↓ (Phase 2 parameterization), sub-Arctic-summer spectrum, 2 cm algal layer. The PDFs are priors, so state them in the paper and justify them; `parameters.csv` lists each one with its rationale. All inputs are treated as independent, as classical Sobol' analysis requires. If you later find correlated inputs (for example cell size with c_i), switch to Shapley effects.
+**Molecular PDFs are not empirical.** The ΔE, f and FWHM PDFs are user-specified, because no measured spectrum of the glucoside exists to calibrate the TD-DFT errors against. The LMCT PDFs belong to the provisional Tier D surrogate. Every other PDF comes from data (`data/empirical/SOURCES.md`); `parameters.csv` lists each one with its rationale.
+
+Fixed:
+- SZA 45° (about solar noon at S6 in July) and clear-sky SW↓ (Phase 2 parameterization, transmissivity 0.75).
+- Sub-Arctic-summer spectrum.
+- Bubbly ice over 690 kg m⁻³ ice, with a 2 cm algal layer.
+- Chlorophyll a/b and carotenoids at their measured per-cell concentrations in tiers B–D. All inputs are treated as independent, as classical Sobol' analysis requires. If you later find correlated inputs (for example cell size with c_i), switch to Shapley effects.
 
 ## Outputs analysed
 
@@ -82,8 +88,9 @@ Fixed: SZA 55°, clear-sky SW↓ (Phase 2 parameterization), sub-Arctic-summer s
 ## Speed-ups (all validated against the Phase 2 reference)
 
 - **Q\* lookup table:** < 0.3 % from direct chord averaging.
-- **Clean-ice optics:** cached per BioSNICAR lookup-table radius. BioSNICAR only tabulates radii in 20 µm steps between 1 and 5 mm, so sampled grain radii are snapped to the nearest one, at most 10 µm off.
-- **In-memory lookup table:** an in-memory copy of BioSNICAR's grain table, because its accessor decompresses the whole array on every call. Bit-identical results, tested in Phase 2.
+- **Radius snapping:** sampled radii snap to the nearest BioSNICAR lookup-table radius. The bubbly table has 10 µm steps up to 5 mm and 500 µm steps above.
+- **Clean-ice optics:** granular-ice optics are cached per radius.
+- **In-memory lookup tables:** BioSNICAR's tables are read fully into memory before workers fork. Its lazy `.npz` handles are not fork-safe, and its grain-table accessor decompresses the whole array on every call. Results are bit-identical (tested in Phase 2).
 
 Each model run then takes about 17 ms. Forked workers inherit the warmed caches.
 
@@ -103,12 +110,12 @@ Each model run then takes about 17 ms. Forked workers inherit the warmed caches.
 |---|---|
 | Fig. 3A | Kernel-density PDFs of (a) forcing and (b) forcing per 10⁴ cells for tiers A–D, with median and 95 % interval bars |
 | Fig. 3B | (a, b) Parameter-level S₁ (filled) and S_T (outline) with 95 % CIs, colored by scale; (c) scale-grouped indices for total and per-cell forcing |
-| Fig. 3C | (a) Tornado for RF_D; (b) Monte Carlo binned mean per-cell forcing over cell diameter × c_i; (c) pairwise S_ij among cell size, c_i, grain radius, density and abundance (full matrix in `tables/sobol_S2_*.csv`) |
+| Fig. 3C | (a) Tornado for RF_D; (b) Monte Carlo binned mean per-cell forcing over cell volume × c_i; (c) pairwise S_ij among cell volume, aspect, c_i, ice radius, density and abundance (full matrix in `tables/sobol_S2_*.csv`) |
 | Fig. S3 | Convergence of S_T with Saltelli sample size |
 
 ## Interpreting the results
 
-- **Total forcing.** Abundance spans two orders of magnitude, so it dominates the variance of total forcing (S_T ≈ 0.7–0.9 on the development input). That's physically expected, but it isn't the scientifically interesting result.
+- **Total forcing.** Abundance spans two orders of magnitude, so it dominates the variance of total forcing. With the empirical PDFs (log₁₀ B SD 0.78), S_T ≈ 0.9–1 in a small development run. That's physically expected, but it isn't the scientifically interesting result.
 - **Per-cell forcing.** The per-cell outputs (`eff_*`) answer the micro-scale question. With abundance factored out, cell geometry and c_i, the parameters that control packaging, carry most of the variance.
 - **Molecular uncertainty.** On the development input, TD-DFT uncertainty (ΔE, f, FWHM) contributes only a few percent. Re-check this with your real Phase 1 spectra: if a strong band sits near 400–500 nm, the energy shift moves it in and out of the solar peak, and the molecular share will rise.
 - **Tier D.** Tier D still uses the provisional Fe(III)-phenolic surrogate from Phase 2, so its LMCT parameters stand in for real Level 3/4 uncertainty.

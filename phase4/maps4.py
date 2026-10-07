@@ -239,15 +239,22 @@ def corner(samples, names, grid_marginals=None, truth=None, diag=None, title="")
 # --------------------------------------------------------------------------- #
 # Supplementary                                                                 #
 # --------------------------------------------------------------------------- #
-def fig_s4_validation(truth, ests: dict, metrics_df, quantity="log_b", label=r"$\log_{10}B$"):
+def fig_s4_validation(truth, ests: dict, metrics_df, quantity="log_b", label=r"$\log_{10}B$", title=""):
     """Retrieved vs true for each method, with bias/RMSE (and coverage) annotated."""
     fig, axes = plt.subplots(1, len(ests), figsize=(F.DOUBLE_COL, 2.6), constrained_layout=True, sharey=True)
-    lo, hi = np.nanpercentile(truth, [0.5, 99.5])
+    allv = np.concatenate([np.ravel(truth)] + [np.ravel(np.asarray(e, float)) for e in ests.values()])
+    lo, hi = np.nanpercentile(allv, [0.5, 99.5])
+    pad = 0.05 * (hi - lo)
+    lo, hi = lo - pad, hi + pad
     cols = [F.TIERS["A"][0], F.SEQ_BLUE[2], F.TIERS["C"][0], F.TIERS["D"][0]]
     for ax, (name, e), col in zip(np.atleast_1d(axes), ests.items(), cols):
-        ax.hexbin(truth.ravel(), e.ravel(), gridsize=45, cmap="Greys", mincnt=1, extent=(lo, hi, lo, hi))
+        if np.size(truth) > 200:
+            ax.hexbin(np.ravel(truth), np.ravel(e), gridsize=45, cmap="Greys", mincnt=1, extent=(lo, hi, lo, hi))
+        else:
+            ax.scatter(np.ravel(truth), np.ravel(e), s=14, color=col, edgecolor="white", lw=0.4, zorder=3)
         ax.plot([lo, hi], [lo, hi], color=col, lw=1.2)
-        m = metrics_df[(metrics_df.method == name) & (metrics_df.quantity == quantity)]
+        m = metrics_df[(metrics_df.method == name) & ((metrics_df.quantity == quantity)
+                                                      if "quantity" in metrics_df else True)]
         if len(m):
             m = m.iloc[0]
             t = f"bias {m.bias:+.2f}\nRMSE {m.rmse:.2f}\n$R^2$ {m.r2:.2f}"
@@ -259,4 +266,6 @@ def fig_s4_validation(truth, ests: dict, metrics_df, quantity="log_b", label=r"$
         ax.set_xlim(lo, hi)
         ax.set_ylim(lo, hi)
     np.atleast_1d(axes)[0].set_ylabel("retrieved " + label)
+    if title:
+        fig.suptitle(title, fontsize=8)
     return fig

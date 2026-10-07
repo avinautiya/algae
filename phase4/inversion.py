@@ -3,7 +3,7 @@ Bayesian inversion of Sentinel-2 surface reflectance.
 
 Observation model (per pixel, bands b = B2, B3, B4, B8):
 
-    R_b = k * F_b(z) + eps_b,   eps_b ~ N(0, sigma_b^2),   k ~ N(1, s_k^2)
+    R_b = k * F_b(z) + eps_b,   eps_b ~ N(0, sigma_b^2),   k ~ N(m_k, s_k^2)
 
 F(z) is the BioSNICAR emulator, z the state (log10 B, f_n, r[, dust]) and k a
 multiplicative nuisance (illumination / anisotropy / residual atmosphere).
@@ -13,7 +13,7 @@ multiplicative nuisance (illumination / anisotropy / residual atmosphere).
    noise, no convergence issues. k is integrated out analytically: with whitened
    vectors r = R/sigma, f = F/sigma, a = f.f and d = r - f,
 
-       p(R | z) = N(d; 0, I + s_k^2 f f^T)
+       p(R | z) = N(d; 0, I + s_k^2 f f^T),   d = r - m_k f
        -2 log p = d.d - s_k^2 (f.d)^2 / (1 + s_k^2 a) + log(1 + s_k^2 a) + const
 
    (Sherman-Morrison / matrix determinant lemma). For a chunk of pixels this is one
@@ -52,21 +52,23 @@ class GridPosterior:
         self.derived = {k: emulator.data[k].reshape(-1) for k in derived if k in emulator.data}
         self.norm_const = -0.5 * 4 * np.log(2 * np.pi) - np.log(self.sigma).sum()
 
-    def _loglik(self, Rw, sk):
+    def _loglik(self, Rw, sk, mk=1.0):
+        """k ~ N(mk, sk^2) integrated out: d = r - mk f ~ N(0, I + sk^2 f f^T)."""
         G = Rw @ self.Fw.T                                   # (p, N), float32
         rr = (Rw ** 2).sum(axis=1, keepdims=True)
         a = self.a32[None, :]
         s2 = sk * sk
         c = (s2 / (1.0 + s2 * self.a32))[None, :]
-        fd = G - a
-        ll = rr - 2.0 * G
-        ll += a
+        fd = G - mk * a
+        ll = rr - (2.0 * mk) * G
+        ll += (mk * mk) * a
         ll -= c * fd * fd
         ll *= -0.5
         ll -= self.half_logden[None, :]
         return ll, G, rr
 
-    def run(self, R, log_priors: dict, sk: float, chunk: int | None = None, keep_full: np.ndarray | None = None):
+    def run(self, R, log_priors: dict, sk: float, chunk: int | None = None, keep_full: np.ndarray | None = None,
+            mk: float = 1.0):
         """R: (P, 4) reflectance. log_priors: axis -> (P or 1, n_axis). Returns dict of arrays."""
         self.half_logden = (0.5 * np.log(1.0 + sk ** 2 * self.a)).astype(np.float32)
         R = np.asarray(R, dtype=float)
@@ -85,7 +87,7 @@ class GridPosterior:
         for c0 in range(0, idx_all.size, chunk):
             idx = idx_all[c0:c0 + chunk]
             Rw = (R[idx] / self.sigma).astype(np.float32)
-            ll, G, rr = self._loglik(Rw, np.float32(sk))
+            ll, G, rr = self._loglik(Rw, np.float32(sk), np.float32(mk))
             lp = ll.reshape(len(idx), *self.shape)
             for ax, n in enumerate(names):
                 pri = log_priors[n]
@@ -119,7 +121,7 @@ class GridPosterior:
                 res[f"{k}_sd"][idx] = np.sqrt(np.clip(w @ gg ** 2 - m ** 2, 0, None))
             Gm = G[np.arange(len(idx)), imap]
             am = self.a[imap]
-            kh = (1.0 / sk ** 2 + Gm) / (1.0 / sk ** 2 + am)
+            kh = (mk / sk ** 2 + Gm) / (1.0 / sk ** 2 + am)
             res["k_map"][idx] = kh
             res["chi2"][idx] = rr[:, 0] - 2 * kh * Gm + kh ** 2 * am
             if keep_full is not None:
@@ -144,7 +146,8 @@ def mcmc_pixel(emulator, R, sigma, prior_params: dict, sk: float, n_walkers: int
                n_steps: int = 6000, burn: int = 2000, seed: int = 0):
     """emcee sampling of (state..., k) for one pixel on the continuous emulator.
 
-    prior_params: dict with mu_b, sd_b, f_alpha, f_beta, mu_r, sd_r (as used by the grid).
+    prior_params: dict with mu_b, sd_b, f_alpha, f_beta, mu_k and r_prior ("loguniform", as on the grid,
+    or "normal" with mu_r, sd_r).
     Returns dict(samples, names, tau, ess, rhat, acceptance).
     """
     import emcee
@@ -164,8 +167,11 @@ def mcmc_pixel(emulator, R, sigma, prior_params: dict, sk: float, n_walkers: int
         z, k = th[:-1], th[-1]
         if np.any(z < lo) or np.any(z > hi):
             return -np.inf
-        lpr = (stats.norm.logpdf(z[ib], pp["mu_b"], pp["sd_b"]) + stats.norm.logpdf(k, 1.0, sk)
-               + stats.norm.logpdf(z[ir], pp["mu_r"], pp["sd_r"]))
+        lpr = stats.norm.logpdf(z[ib], pp["mu_b"], pp["sd_b"]) + stats.norm.logpdf(k, pp.get("mu_k", 1.0), sk)
+        if pp.get("r_prior", "loguniform") == "loguniform":
+            lpr += -np.log(z[ir])                       # log-uniform density in r
+        else:
+            lpr += stats.norm.logpdf(z[ir], pp["mu_r"], pp["sd_r"])
         if i_f is not None:
             lpr += stats.beta.logpdf(np.clip(z[i_f], 1e-6, 1 - 1e-6), pp["f_alpha"], pp["f_beta"])
         F = I(z[None, :])[0]
@@ -176,7 +182,7 @@ def mcmc_pixel(emulator, R, sigma, prior_params: dict, sk: float, n_walkers: int
     p0 = np.empty((n_walkers, ndim))
     p0[:, :-1] = lo + (hi - lo) * rng.uniform(0.25, 0.75, size=(n_walkers, len(act)))
     p0[:, ib] = np.clip(pp["mu_b"] + 0.1 * rng.normal(size=n_walkers), lo[ib] + 0.01, hi[ib] - 0.01)
-    p0[:, -1] = 1.0 + 0.01 * rng.normal(size=n_walkers)
+    p0[:, -1] = pp.get("mu_k", 1.0) + 0.01 * rng.normal(size=n_walkers)
     sampler = emcee.EnsembleSampler(n_walkers, ndim, logp, moves=[(emcee.moves.DEMove(), 0.8),
                                                                     (emcee.moves.DESnookerMove(), 0.2)])
     sampler.run_mcmc(p0, n_steps, progress=False)

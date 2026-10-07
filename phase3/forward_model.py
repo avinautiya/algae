@@ -37,9 +37,10 @@ TIERS = ("A", "B", "C", "D")
 
 class ForwardModel:
     def __init__(self, phase1_l2: str | None = None, functional: str = "B3LYP", demo: bool = False,
-                 biosnicar: str | None = None, sza: float = 55.0, sw_down: float | None = None,
+                 biosnicar: str | None = None, sza: float = 45.0, sw_down: float | None = None,
                  transmissivity: float = 0.75, incoming: int = 3, window=(350.0, 800.0),
-                 uv_mode: str = "hold", ice_mode: str = "grains", rho_bottom: float = 850.0,
+                 uv_mode: str = "hold", ice_mode: str = "bubbly", rho_bottom: float = 690.0,
+                 photosynthetic: bool = True,
                  dz_top: float = 0.02, dz_bottom: float = 2.0, g_fixed: float = 0.96,
                  qtable_cache: str | None = None):
         import biosnicar_bridge as bb
@@ -60,13 +61,19 @@ class ForwardModel:
         self.window, self.uv_mode = tuple(window), uv_mode
         self.ice_kw = dict(rho_bottom=rho_bottom, dz_top=dz_top, dz_bottom=dz_bottom, mode=ice_mode)
         self.g_fixed = g_fixed
+        # chlorophyll a/b + carotenoids at their measured per-cell concentrations (Williamson et al. 2020)
+        self.extra = co.empirical_pigments() if photosynthetic else ()
 
     def warm(self, grain_min: float, grain_max: float):
         """Pre-compute clean-ice optics for every LUT radius in range (shared by forked workers)."""
         bb = self.bb
-        for r in self.runner.available_radii(self.ice_kw["mode"]):
-            if grain_min - 20 <= r <= grain_max + 20:
-                self.runner.ice(bb.IceSpec(r, 650.0, **self.ice_kw))
+        if self.ice_kw["mode"] == "grains":   # granular optics depend on radius only -> cache them all
+            for r in self.runner.available_radii("grains"):
+                if grain_min - 20 <= r <= grain_max + 20:
+                    self.runner.ice(bb.IceSpec(r, 650.0, **self.ice_kw))
+        else:                                 # bubbly optics also depend on density: just load the tables
+            self.runner.ice(bb.IceSpec(grain_min, 450.0, **self.ice_kw))
+        self.runner.detach_luts()
 
     # ---- molecular -------------------------------------------------------------
     def _ligand(self, p):
@@ -93,9 +100,9 @@ class ForwardModel:
     # ---- cellular --------------------------------------------------------------
     def cell(self, p):
         from pigment_packaging import CellGeometry
-        geom = CellGeometry("cylinder", p["cell_diameter_um"] / 2.0, p["cell_length_um"])
-        return self.co.CellModel(geom, p["c_internal"], q_func=self.qtab, vd_diagnostic=False,
-                                 g_fixed=self.g_fixed)
+        d, L = cell_dimensions(p)
+        return self.co.CellModel(CellGeometry("cylinder", d / 2.0, L), p["c_internal"], q_func=self.qtab,
+                                 vd_diagnostic=False, g_fixed=self.g_fixed, extra_pigments=self.extra)
 
     # ---- full chain ------------------------------------------------------------
     def evaluate(self, p: dict) -> dict:
@@ -123,7 +130,17 @@ class ForwardModel:
         for t in "BCD":
             out[f"d_{t}A"] = out[f"rf_{t}"] - out["rf_A"]
         out["pigment_pg_per_cell"] = cell.pigment_mass_per_cell_kg * 1e15
+        out["cell_diameter_um"], out["cell_length_um"] = cell_dimensions(p)
         return out
+
+
+def cell_dimensions(p: dict):
+    """(diameter, length) in um from either (cell_volume_um3, cell_aspect) or explicit dimensions."""
+    if "cell_volume_um3" in p:
+        ar = p["cell_aspect"]
+        d = (4.0 * p["cell_volume_um3"] / (np.pi * ar)) ** (1.0 / 3.0)
+        return d, ar * d
+    return p["cell_diameter_um"], p["cell_length_um"]
 
 
 class _Scaled:

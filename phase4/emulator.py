@@ -8,14 +8,17 @@ A pixel's state is z = [log10 B, f_n, r, (dust)] where
     r   ice optical radius (granular grain radius, or bubble radius for solid ice), um
     dust optional mineral-dust nuisance (ppb, BioSNICAR's Greenland dust optics)
 
-"Ours" (physics-informed): each species is a Phase 2 packaged cell (tier C, or tier D
-with the Fe-phenolic surrogate) of its own geometry, built from the Phase 1 TD-DFT
-spectrum. Both species are mixed in BioSNICAR as two impurities.
+"Ours" (physics-informed): each species is a Phase 2 packaged cell of its own EMPIRICAL
+geometry (Greenland volumes, Chevrollier et al. 2022; length:width, Prochazkova et al. 2021)
+containing the phenolic pigment (Phase 1 TD-DFT Level 2 MAC, or the measured in vivo MAC of
+Williamson et al. 2020) at the measured mass per cell, plus chlorophyll a/b and carotenoids
+(Williamson et al. 2020). Tier D uses the provisional Fe-phenolic surrogate (not empirical).
+Both species are mixed in BioSNICAR as two impurities.
 "Tier A" (empirical baseline): BioSNICAR's default empirical glacier-algae optics,
 which has no species information (f axis collapsed).
 
 The emulator stores, at every grid node, the four Sentinel-2 band reflectances
-(B2, B3, B4, B8; flux-weighted SRF convolution with BioSNICAR's S2 SRFs), the
+(B2, B3, B4, B8; flux-weighted with the official ESA S2 spectral response functions), the
 broadband albedo (300-2500 nm), the instantaneous forcing of algae and of all
 impurities, and the pigment mass per mL. It is then refined along log B with
 monotone cubic interpolation for inference.
@@ -40,38 +43,43 @@ S2_CENTRES_NM = (490, 560, 665, 842)
 
 @dataclass
 class SpeciesSpec:
-    """Cell geometry and pigment loading of one Ancylonema species. These defaults are
-    placeholders within published size ranges - set them from your own microscopy."""
+    """Cell geometry and phenolic loading of one Ancylonema species (empirical defaults below)."""
     diameter_um: float
     length_um: float
-    c_internal: float = 50.0          # kg m^-3 of cell volume (Phase 2 default)
+    c_internal: float | None = None   # phenolic kg m^-3 of cell volume; None = empirical (Williamson 2020)
 
 
-DEFAULT_SPECIES = {
-    "nordenskioeldii": SpeciesSpec(diameter_um=10.0, length_um=22.0),   # cells of filaments
-    "alaskanum": SpeciesSpec(diameter_um=11.0, length_um=16.0),          # shorter single cells
-}
+def empirical_species():
+    """Greenland cell volumes (Chevrollier et al. 2022) with measured length:width ratios
+    (Prochazkova et al. 2021); see phase2/empirical_data.species_geometry()."""
+    import empirical_data as ED
+    g = ED.species_geometry()
+    return {k: SpeciesSpec(v["diameter_um"], v["length_um"]) for k, v in g.items()}
 
 
 @dataclass
 class EmulatorConfig:
     model: str = "ours"                       # 'ours' or 'tierA'
-    tier: str = "C"                           # optical tier for 'ours': 'C' or 'D'
-    ice_mode: str = "grains"                  # 'grains' (granular) or 'bubbly' (solid ice)
-    rho: float = 650.0                        # surface-layer density, kg m^-3
+    tier: str = "C"                           # optical tier for 'ours': 'C' or 'D' (D = provisional surrogate)
+    phenol: str = "tddft"                     # phenolic MAC: 'tddft' (Phase 1 Level 2) or 'williamson2020'
+    photosynthetic: bool = True               # add chl a, chl b, carotenoids (Williamson et al. 2020)
+    ice_mode: str = "bubbly"                  # empirical: field NIR requires solid bubbly ice (README)
+    rho: float = 450.0                        # weathering crust (Cooper et al. 2018, mean 0.45 g cm-3)
+    rho_bottom: float = 690.0                 # near-surface ice (Cooper et al. 2018, mean 0.69 g cm-3)
     sza: float = 47.0
-    log_b: tuple = (1.0, 6.0, 0.2)            # start, stop, step (log10 cells/mL)
+    spacecraft: str = "S2A"                   # selects the ESA spectral response functions
+    log_b: tuple = (1.0, 6.0, 0.25)           # start, stop, step (log10 cells/mL)
     f_n: tuple = (0.0, 1.0, 0.1)
-    r_um: tuple = (1000.0, 3000.0, 80.0)
-    dust_ppb: tuple = ()                      # e.g. (0, 1e3, 3e3, 1e4, 3e4, 1e5); () = no dust axis
+    r_um: tuple = (300.0, 20000.0, 28)        # min, max, n (log-spaced; bubbly-ice optical radius)
+    dust_ppb: tuple = ()                      # optional nuisance; () = no dust axis (empirically justified)
     sw_down: float | None = None              # broadband SW (W m^-2); None = clear-sky param.
-    species: dict = field(default_factory=lambda: dict(DEFAULT_SPECIES))
+    species: dict = field(default_factory=empirical_species)
 
     def axes(self):
         ax = {"log_b": np.round(np.arange(self.log_b[0], self.log_b[1] + 1e-9, self.log_b[2]), 6)}
         ax["f_n"] = np.round(np.arange(self.f_n[0], self.f_n[1] + 1e-9, self.f_n[2]), 6) \
             if self.model == "ours" else np.array([0.5])
-        ax["r_um"] = np.round(np.arange(self.r_um[0], self.r_um[1] + 1e-9, self.r_um[2]), 3)
+        ax["r_um"] = np.round(np.geomspace(self.r_um[0], self.r_um[1], int(self.r_um[2])), 3)
         if self.dust_ppb:
             ax["dust_ppb"] = np.array(self.dust_ppb, dtype=float)
         return ax
@@ -154,23 +162,33 @@ class _Builder:
 
         self.bb, self.cfg = bb, cfg
         root = bb.locate_biosnicar(biosnicar)
-        from biosnicar.bands._core import load_srf
+        import empirical_data as ED
         self.runner = bb.BioSNICARRunner(root, incoming=3)
-        self.srf = load_srf("sentinel2_msi")
+        self.srf = ED.s2_srf_480(cfg.spacecraft, S2_BANDS)          # official ESA SRFs
         self.sw = cfg.sw_down if cfg.sw_down is not None else bb.sw_down_clear_sky(cfg.sza)
         self.pg_per_cell = {}
         if cfg.model == "ours":
-            ligand = co.demo_spectrum(root) if demo else co.load_phase1(phase1_l2, "level2")
             kw = co.water_k_480(root)
+            if cfg.phenol == "williamson2020":
+                ph = ED.pigment_macs_480()["phenolics_williamson2020"]
+                ligand_mac = lambda wl: np.interp(wl, co.WVL_480_NM, ph)  # noqa: E731
+                ligand = None
+            else:
+                ligand = co.demo_spectrum(root) if demo else co.load_phase1(phase1_l2, "level2")
+                ligand_mac = ligand.mac_at
             if cfg.tier == "D":
+                if ligand is None:
+                    raise ValueError("tier D needs the TD-DFT ligand spectrum (phenol='tddft')")
                 sur = co.FePhenolicSurrogate()
                 mac = co.to_480(lambda wl: sur.mac(ligand, wl))
             else:
-                mac = co.to_480(ligand.mac_at)
+                mac = co.to_480(ligand_mac)
+            extra = co.empirical_pigments() if cfg.photosynthetic else ()
             self.imps = {}
             for name, sp in cfg.species.items():
+                c_i = sp.c_internal if sp.c_internal is not None else co.empirical_phenolic_concentration()
                 cell = co.CellModel(CellGeometry("cylinder", sp.diameter_um / 2.0, sp.length_um),
-                                    sp.c_internal, vd_diagnostic=False)
+                                    c_i, vd_diagnostic=False, extra_pigments=extra)
                 o = cell.optics(mac, kw, packaged=True)
                 self.imps[name] = bb.CustomImpurity(name, o["ext_xsc"], o["ss_alb"], o["asm_prm"])
                 self.pg_per_cell[name] = cell.pigment_mass_per_cell_kg * 1e15
@@ -184,11 +202,15 @@ class _Builder:
         self._clean = {}
 
     def spec(self, r_um):
-        return self.bb.IceSpec(r_um, self.cfg.rho, mode=self.cfg.ice_mode)
+        return self.bb.IceSpec(r_um, self.cfg.rho, rho_bottom=self.cfg.rho_bottom, mode=self.cfg.ice_mode)
 
     def _bands(self, alb, flx):
-        from biosnicar.bands._core import srf_convolve
-        return [srf_convolve(alb, flx, self.srf[b]) for b in S2_BANDS]
+        """Flux-weighted band reflectance with the ESA spectral response functions."""
+        out = []
+        for b in S2_BANDS:
+            w = self.srf[b] * flx
+            out.append(float(np.sum(alb * w) / np.sum(w)))
+        return out
 
     def node(self, log_b, f_n, r_um, dust):
         B = 10.0 ** log_b

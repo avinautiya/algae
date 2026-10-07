@@ -53,7 +53,7 @@ def parse_args(argv=None):
     p.add_argument("--no-tier-d-params", action="store_true", help="drop the LMCT parameters")
     p.add_argument("--workers", type=int, default=os.cpu_count() or 1)
     p.add_argument("--seed", type=int, default=2024)
-    p.add_argument("--sza", type=float, default=55.0)
+    p.add_argument("--sza", type=float, default=45.0, help="deg; ~solar noon at S6 in July")
     p.add_argument("--sw-down", type=float, default=None)
     p.add_argument("--sobol-outputs", nargs="+",
                    default=["rf_A", "rf_B", "rf_C", "rf_D", "eff_C", "eff_D", "d_CB", "d_DC"])

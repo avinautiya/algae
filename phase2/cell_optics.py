@@ -212,6 +212,9 @@ class CellModel:
     g_fixed: float = 0.96                 # = BioSNICAR's empirical glacier-algae g (tier A)
     q_func: object = None                 # optional fast Q*(a, geom) (e.g. Phase 3 look-up table)
     vd_diagnostic: bool = True            # also compute the vd2014 SSA cross-check (slow, ~10 ms)
+    extra_pigments: tuple = ()            # ((MAC480 m^2 kg^-1, intracellular conc kg m^-3), ...) e.g.
+                                          # chlorophylls + carotenoids (see empirical_pigments()); they
+                                          # share the cell's self-shading with the phenolic pigment
 
     @property
     def pigment_mass_per_cell_kg(self) -> float:
@@ -236,17 +239,24 @@ class CellModel:
         a_pig = mac480 * c_comp
         a_wat = 4.0 * np.pi * k_water480 * self.water_volume_fraction / lam
 
+        # photosynthetic pigments (chloroplast) - spread over the whole cell
+        a_ext = np.zeros_like(a_pig)
+        for mac_i, c_i in self.extra_pigments:
+            a_ext = a_ext + np.asarray(mac_i) * c_i
         qf = self.q_func or q_star
         if self.vacuole_fraction >= 1.0:
-            q = qf(a_pig + a_wat, g)
+            q = qf(a_pig + a_ext + a_wat, g)
             abs_pig_pk = mac480 * m_pig * q
+            abs_ext_pk = a_ext * V * q
             abs_wat = a_wat * V * q
         else:
             q = qf(a_pig, g.scaled(self.vacuole_fraction))
+            q_cell = qf(a_ext + a_wat, g)
             abs_pig_pk = mac480 * m_pig * q
-            abs_wat = a_wat * V * qf(a_wat, g)
+            abs_ext_pk = a_ext * V * q_cell
+            abs_wat = a_wat * V * q_cell
 
-        abs_packaged = abs_pig_pk + abs_wat
+        abs_packaged = abs_pig_pk + abs_ext_pk + abs_wat
         ext_geo = 2.0 * A
         if packaged:
             abs_x = abs_packaged
@@ -255,12 +265,12 @@ class CellModel:
             if scatter_from is None:
                 raise ValueError("unpackaged tier needs the packaged optics for its scattering")
             sca = scatter_from["sca_xsc"]
-            abs_x = mac480 * m_pig + abs_wat
+            abs_x = mac480 * m_pig + a_ext * V + abs_wat
         ext = sca + abs_x
         ssa = sca / ext
 
         # asymmetry parameter (van Diedenhoven 2014, as used by BioSNICAR for cells)
-        a_tot = a_pig + a_wat
+        a_tot = a_pig + a_ext + a_wat
         k_cell = a_tot * lam / (4.0 * np.pi)
         ar = 1.0 if g.shape == "sphere" else (2.0 * g.radius) / g.length
         if self.vd_diagnostic or self.g_mode == "vd2014":
@@ -278,6 +288,21 @@ class CellModel:
         return dict(ext_xsc=ext, ss_alb=np.clip(ssa, 1e-8, 1 - 1e-8), asm_prm=np.clip(asym, 0.0, 0.99),
                     abs_xsc=abs_x, sca_xsc=sca, q_star=q, ssa_vandiedenhoven=ssa_vd,
                     pigment_abs_xsc=(abs_pig_pk if packaged else mac480 * m_pig))
+
+
+def empirical_pigments(include=("chla", "chlb", "carotenoids")):
+    """Chlorophyll a, chlorophyll b and carotenoids of glacier algae as (MAC480, c_i) pairs:
+    in vivo MACs and pigment mass per cell from Williamson et al. (2020, S6), divided by the pooled
+    S6 biovolume per cell (same samples). See phase2/empirical_data.py and data/empirical/SOURCES.md."""
+    import empirical_data as ED
+    macs = ED.pigment_macs_480()
+    return tuple((macs[p], ED.intracellular_concentration_kg_m3(p)) for p in include)
+
+
+def empirical_phenolic_concentration():
+    """Phenolic mass per cell / S6 pooled biovolume per cell (Williamson et al. 2020) = ~22 kg m^-3."""
+    import empirical_data as ED
+    return ED.intracellular_concentration_kg_m3("phenolics")
 
 
 def model_a_optics(biosnicar_root: str, stem: str = "ice_algae_empirical_Chevrollier2023"):

@@ -19,7 +19,15 @@ from dataclasses import dataclass
 import numpy as np
 from scipy import stats
 
+import os as _os
+import sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "phase2"))
+
 GROUPS = ("molecular", "cellular", "environmental")
+
+# ln(bubbly-ice radius / um): mean and SD of the posterior-mean radii retrieved from the 31 Cook et al.
+# (2020) field spectra by phase4/field_validation.py (empirical configuration, Williamson MACs).
+FIELD_LN_RADIUS = (7.386, 0.977)
 
 
 @dataclass(frozen=True)
@@ -30,52 +38,78 @@ class Param:
     group: str            # molecular / cellular / environmental
     dist: object          # frozen scipy.stats distribution
     rationale: str
+    transform: object = None  # applied after the inverse CDF (e.g. np.exp for a PDF defined in ln x)
 
     def ppf(self, u):
-        return self.dist.ppf(u)
+        v = self.dist.ppf(u)
+        return v if self.transform is None else self.transform(v)
 
 
 def default_parameters(include_tier_d: bool = True) -> list[Param]:
-    """Default PDFs. Edit here (or pass your own list) to change the uncertainty model."""
+    """Default PDFs. Cellular and environmental PDFs come from published measurements
+    (phase2/empirical_data.py); the molecular PDFs are user-specified TD-DFT error models."""
+    import empirical_data as ED
+    _V = ED.s6_biovolume_um3()                                    # pooled, per-sample mean, SD, n
+    _AR = [g["aspect"] for g in ED.species_geometry().values()]
+    ci = ED.intracellular_concentration_kg_m3("phenolics")
+    m, sd = ED.pigments_per_cell()["phenolics"]
+    _CI = (ci, ci * sd / m)
+    _B = ED.abundance_prior()
+    _RHO = ED.ICE_DENSITY["weathering_crust"]
+    _R_LO, _R_HI = ED.ICE_RADIUS_BOUNDS_UM
+    _LR = FIELD_LN_RADIUS
     p = [
         # ---------------- molecular -------------------------------------------------
         Param("dE_ev", r"$\Delta E$ (TD-DFT shift)", "eV", "molecular",
               stats.truncnorm(-2.0, 2.0, loc=0.0, scale=0.075),
               "Systematic TD-DFT excitation-energy error: N(0, 0.075 eV) truncated at +/-0.15 eV "
-              "(typical B3LYP/CAM-B3LYP error for pi->pi* bands of polyphenols)."),
+              "(USER-SPECIFIED, not measured: no experimental spectrum of the glucoside to calibrate against)."),
         Param("f_scale", r"$f$ scale factor", "-", "molecular",
               stats.lognorm(s=0.20, scale=1.0),
               "Multiplicative oscillator-strength error, log-normal with median 1 and "
-              "sigma_ln = 0.20 (~+/-20 %, 1 sigma)."),
+              "sigma_ln = 0.20 (~+/-20 %, 1 sigma) (USER-SPECIFIED, not measured)."),
         Param("fwhm_ev", r"Band FWHM", "eV", "molecular",
               stats.uniform(0.25, 0.15),
               "Vibronic + inhomogeneous solvent broadening, U(0.25, 0.40) eV around the "
-              "Phase 1 choice of 0.30 eV."),
-        # ---------------- cellular --------------------------------------------------
-        Param("cell_length_um", r"Cell length $L$", r"$\mu$m", "cellular",
-              stats.uniform(10.0, 20.0), "Ancylonema cell length, U(10, 30) um."),
-        Param("cell_diameter_um", r"Cell diameter $d$", r"$\mu$m", "cellular",
-              stats.uniform(5.0, 10.0), "Ancylonema cell diameter, U(5, 15) um."),
+              "Phase 1 choice of 0.30 eV (USER-SPECIFIED, not measured)."),
+        # ---------------- cellular (measured; phase2/empirical_data.py, data/empirical/SOURCES.md) ----
+        Param("cell_volume_um3", r"Cell volume $V$", r"$\mu$m$^3$", "cellular",
+              stats.truncnorm((400.0 - _V[1]) / _V[2], np.inf, loc=_V[1], scale=_V[2]),
+              f"Mean glacier-algal biovolume per cell, N({_V[1]:.0f}, {_V[2]:.0f}) um^3: mean and SD over "
+              f"{_V[3]} S6 surface-ice samples (Williamson et al. 2020 counts), truncated at 400 um^3."),
+        Param("cell_aspect", r"Aspect $L/d$", "-", "cellular",
+              stats.uniform(min(_AR), max(_AR) - min(_AR)),
+              f"Cylinder length/diameter, U({min(_AR):.2f}, {max(_AR):.2f}): between the mean ratios of "
+              "A. alaskanum and A. nordenskioeldii populations (Prochazkova et al. 2021, Table 2)."),
         Param("c_internal", r"Pigment conc. $c_i$", r"kg m$^{-3}$", "cellular",
-              stats.loguniform(10.0, 200.0),
-              "Intracellular phenolic concentration, log-uniform 10-200 kg m^-3 "
-              "(order-of-magnitude prior; replace with HPLC-based per-cell estimates)."),
-        # ---------------- environmental ---------------------------------------------
-        Param("grain_um", r"Ice grain radius", r"$\mu$m", "environmental",
-              stats.uniform(1000.0, 2000.0), "Weathering-crust grain radius, U(1, 3) mm."),
+              stats.truncnorm((0.5 - _CI[0]) / _CI[1], np.inf, loc=_CI[0], scale=_CI[1]),
+              f"Intracellular phenolic concentration N({_CI[0]:.1f}, {_CI[1]:.1f}) kg m^-3: phenolics per cell "
+              "(mean, SD over 53 samples) / pooled S6 biovolume (Williamson et al. 2020); truncated at 0.5."),
+        # ---------------- environmental (measured) ----------------------------------
+        Param("grain_um", r"Bubbly-ice radius", r"$\mu$m", "environmental",
+              stats.truncnorm((np.log(_R_LO) - _LR[0]) / _LR[1], (np.log(_R_HI) - _LR[0]) / _LR[1],
+                              loc=_LR[0], scale=_LR[1]),
+              f"Bubbly-ice optical radius, log-normal (ln r ~ N({_LR[0]:.2f}, {_LR[1]:.2f})) on "
+              f"[{_R_LO:.0f}, {_R_HI:.0f}] um: fitted to the radii retrieved by the Phase 4 inversion from the "
+              "31 Cook et al. (2020) field spectra.", transform=np.exp),
         Param("rho_top", r"Surface density $\rho$", r"kg m$^{-3}$", "environmental",
-              stats.uniform(500.0, 300.0), "Weathering-crust density, U(500, 800) kg m^-3."),
+              stats.uniform(_RHO["lo"], _RHO["hi"] - _RHO["lo"]),
+              f"Weathering-crust density, U({_RHO['lo']:.0f}, {_RHO['hi']:.0f}) kg m^-3: measured range at S6 "
+              "(Cooper et al. 2018)."),
         Param("conc_cells_ml", r"Cell abundance", r"cells mL$^{-1}$", "environmental",
-              stats.loguniform(1e3, 1e5), "Algal abundance, log-uniform 10^3-10^5 cells mL^-1."),
+              stats.lognorm(s=_B[1] * np.log(10.0), scale=10.0 ** _B[0]),
+              f"Algal abundance, log10 B ~ N({_B[0]:.2f}, {_B[1]:.2f}): {_B[2]} S6 surface-ice samples with "
+              "cells > 0 (Williamson et al. 2020 counts)."),
     ]
     if include_tier_d:
         p += [
             Param("lmct_eps", r"LMCT $\varepsilon_{max}$", r"M$^{-1}$cm$^{-1}$", "molecular",
                   stats.uniform(3000.0, 2000.0),
-                  "Fe(III)<-phenolate LMCT molar absorptivity per Fe, U(3000, 5000) (tier D only)."),
+                  "Fe(III)<-phenolate LMCT molar absorptivity per Fe, U(3000, 5000) (tier D only; PROVISIONAL "
+                  "surrogate - no measured spectrum of the algal Fe-phenolic complex is published)."),
             Param("lmct_center_nm", r"LMCT $\lambda_{max}$", "nm", "molecular",
                   stats.uniform(520.0, 100.0),
-                  "LMCT band centre, U(520, 620) nm (tier D only)."),
+                  "LMCT band centre, U(520, 620) nm (tier D only; PROVISIONAL, as above)."),
         ]
     return p
 
@@ -95,10 +129,10 @@ class ParameterSpace:
         return [dict(zip(self.names, row)) for row in X]
 
     def medians(self) -> dict:
-        return {p.name: float(p.dist.median()) for p in self.params}
+        return {p.name: float(p.ppf(0.5)) for p in self.params}
 
     def quantiles(self, q: float) -> dict:
-        return {p.name: float(p.dist.ppf(q)) for p in self.params}
+        return {p.name: float(p.ppf(q)) for p in self.params}
 
     # ---- designs ----------------------------------------------------------------
     def lhs(self, n: int, seed: int = 2024) -> np.ndarray:
@@ -130,7 +164,6 @@ class ParameterSpace:
         import pandas as pd
         rows = []
         for p in self.params:
-            d = p.dist
-            rows.append(dict(parameter=p.name, group=p.group, unit=p.unit, median=d.median(),
-                             p2_5=d.ppf(0.025), p97_5=d.ppf(0.975), rationale=p.rationale))
+            rows.append(dict(parameter=p.name, group=p.group, unit=p.unit, median=float(p.ppf(0.5)),
+                             p2_5=float(p.ppf(0.025)), p97_5=float(p.ppf(0.975)), rationale=p.rationale))
         return pd.DataFrame(rows)

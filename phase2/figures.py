@@ -150,7 +150,7 @@ def fig2b(df: pd.DataFrame, ref: dict, outdir: str, demo=False):
     ax.set_xlabel(r"Algal cell concentration (cells mL$^{-1}$)")
     ax.set_ylabel(r"Broadband albedo $\alpha_{300-2500}$")
     ax.legend(loc="lower left")
-    ax.set_title(rf"$r_{{grain}}={ref['grain_um'] / 1000:g}$ mm, $\rho={ref['rho_top']:g}$ kg m$^{{-3}}$, "
+    ax.set_title(rf"${_r_symbol(ref)}={ref['grain_um'] / 1000:g}$ mm, $\rho={ref['rho_top']:g}$ kg m$^{{-3}}$, "
                  rf"SZA$={ref['sza']:g}^\circ$" + ("  [DEMO]" if demo else ""), loc="left")
     return fig
 
@@ -183,7 +183,7 @@ def fig2c(df: pd.DataFrame, ref: dict, concs, outdir: str, baseline: str = "A", 
             ax.plot(r.grain_um / 1000.0, r.drf, color=col, ls=ls, marker=mk, label=lab)
             _end_label(ax, (r.grain_um / 1000.0).to_numpy(), r.drf.to_numpy(), t)
         ax.axhline(0, color=INK_2, lw=0.8)
-        ax.set_xlabel(r"Ice grain radius $r_{grain}$ (mm)")
+        ax.set_xlabel(_r_label(ref))
         ax.set_ylabel(rf"$\Delta RF = RF_{{X}} - RF_{{{baseline}}}$ (W m$^{{-2}}$)")
         ax.set_title(_conc_title(c) + rf", SZA$={ref['sza']:g}^\circ$", loc="left")
         _panel_tag(ax, tag)
@@ -191,6 +191,16 @@ def fig2c(df: pd.DataFrame, ref: dict, concs, outdir: str, baseline: str = "A", 
     if demo:
         fig.suptitle("DEMO input - not Phase 1 results", color="#b00020")
     return fig
+
+
+def _r_symbol(ref):
+    return "r_{bubble}" if ref.get("ice_mode") == "bubbly" else "r_{grain}"
+
+
+def _r_label(ref):
+    if ref.get("ice_mode") == "bubbly":
+        return r"Bubbly-ice optical radius $r_{bubble}$ (mm)"
+    return r"Ice grain radius $r_{grain}$ (mm)"
 
 
 def _conc_title(c):

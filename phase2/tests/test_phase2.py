@@ -93,6 +93,38 @@ def test_cell_optics_energy_conservation():
             assert np.allclose(o["ext_xsc"], o["abs_xsc"] + o["sca_xsc"])
 
 
+def test_photosynthetic_pigments_and_empirical_inputs():
+    """Chl a/b + carotenoids add absorption within the packaging limit; the empirical inputs
+    reproduce the published numbers they are built from."""
+    import empirical_data as ED
+    # Williamson et al. (2020): 0.04322 ng phenolics per cell; S6 pooled biovolume -> ~22 kg m^-3
+    assert abs(ED.pigments_per_cell()["phenolics"][0] - 0.04322) < 1e-4
+    assert 21.5 < ED.intracellular_concentration_kg_m3("phenolics") < 22.5
+    g = ED.species_geometry()
+    for name, V in (("nordenskioeldii", 2307.0), ("alaskanum", 822.0)):   # Chevrollier et al. (2022)
+        d, L = g[name]["diameter_um"], g[name]["length_um"]
+        assert abs(np.pi * d ** 2 / 4 * L - V) < 1e-6 * V
+    srf = ED.s2_srf_480("S2A")
+    wl = np.arange(205, 4996, 10.0)
+    for b, centre in (("B2", 492), ("B3", 560), ("B4", 665), ("B8", 833)):   # ESA S2A central wavelengths
+        assert abs(np.sum(srf[b] * wl) / srf[b].sum() - centre) < 10
+    root = _biosnicar_root()
+    if root is None:
+        print("BioSNICAR not found - skipping cell part")
+        return
+    import cell_optics as co
+    mac = co.to_480(co.demo_spectrum(root).mac_at)
+    kw = co.water_k_480(root)
+    geom = P.CellGeometry("cylinder", g["nordenskioeldii"]["diameter_um"] / 2, g["nordenskioeldii"]["length_um"])
+    ci = co.empirical_phenolic_concentration()
+    base = co.CellModel(geom, ci).optics(mac, kw, packaged=True)
+    full = co.CellModel(geom, ci, extra_pigments=co.empirical_pigments()).optics(mac, kw, packaged=True)
+    red = (co.WVL_480_NM >= 660) & (co.WVL_480_NM <= 690)                   # chl a red band
+    assert np.all(full["abs_xsc"] >= base["abs_xsc"] * (1 - 1e-9))
+    assert full["abs_xsc"][red].mean() > 1.5 * base["abs_xsc"][red].mean()
+    assert np.all(full["abs_xsc"] <= geom.projected_area_um2 * 1e-12 * (1 + 2e-3))
+
+
 def test_bridge_matches_run_model():
     root = _biosnicar_root()
     if root is None:

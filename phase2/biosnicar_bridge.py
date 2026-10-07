@@ -191,6 +191,15 @@ class BioSNICARRunner:
             self._ice_cache[spec.key()] = out
         return out
 
+    @staticmethod
+    def detach_luts():
+        """Read BioSNICAR's cached look-up tables fully into memory. Its tables are lazy np.load
+        archives sharing one file handle, which breaks when worker processes are forked."""
+        from biosnicar.optical_properties import op_lookup
+        for t in op_lookup._cache.values():
+            if hasattr(t.data, "files"):
+                t.data = {k: t.data[k] for k in t.data.files}
+
     def illumination(self, sza_deg: float):
         key = int(round(sza_deg))
         if key not in self._ill_cache:

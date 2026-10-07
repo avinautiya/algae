@@ -54,13 +54,17 @@ def parse_args(argv=None):
 
     cell = p.add_argument_group("cell / packaging")
     cell.add_argument("--cell-shape", choices=["cylinder", "sphere"], default="cylinder")
-    cell.add_argument("--cell-radius", type=float, default=5.0, help="um (reference cell for BioSNICAR)")
-    cell.add_argument("--cell-length", type=float, default=20.0, help="um (cylinders)")
-    cell.add_argument("--c-internal", type=float, default=50.0,
+    cell.add_argument("--cell-radius", type=float, default=None,
+                      help="um (reference cell for BioSNICAR); default: A. nordenskioeldii, empirical_data")
+    cell.add_argument("--cell-length", type=float, default=None, help="um (cylinders); default as above")
+    cell.add_argument("--no-photosynthetic", action="store_true",
+                      help="omit chlorophyll a/b and carotenoids (Williamson et al. 2020) from tiers B-D")
+    cell.add_argument("--c-internal", type=float, default=None,
                       help="intracellular pigment concentration, kg m^-3 of cell volume")
-    cell.add_argument("--c-internal-grid", type=float, nargs="+", default=[10, 25, 50, 100, 200])
+    cell.add_argument("--c-internal-grid", type=float, nargs="+", default=None,
+                      help="default: empirical c_i and c_i x (mean -/+ 1 SD of phenolics per cell)/mean")
     cell.add_argument("--vacuole-fraction", type=float, default=1.0)
-    cell.add_argument("--sizes", type=float, nargs="+", default=[10, 20, 30],
+    cell.add_argument("--sizes", type=float, nargs="+", default=None,
                       help="cell sizes (um) for the packaging grid / Fig. 2A")
     cell.add_argument("--size-is", choices=["length", "radius"], default="length",
                       help="interpret --sizes as cylinder length (diameter = length/aspect) or as radius")
@@ -70,12 +74,13 @@ def parse_args(argv=None):
     cell.add_argument("--uv-mode", choices=["hold", "molecular", "zero"], default="hold")
 
     ice = p.add_argument_group("ice column / illumination sweep")
-    ice.add_argument("--ice-mode", choices=["grains", "bubbly"], default="grains")
-    ice.add_argument("--grains", type=float, nargs="+", default=[1000, 1500, 2000, 2500, 3000],
+    ice.add_argument("--ice-mode", choices=["grains", "bubbly"], default="bubbly")
+    ice.add_argument("--grains", type=float, nargs="+", default=[1000, 3000, 6000, 10000, 15000],
                      help="grain (or bubble) effective radius, um")
-    ice.add_argument("--densities", type=float, nargs="+", default=[500, 650, 800],
+    ice.add_argument("--densities", type=float, nargs="+", default=[330, 450, 560],
                      help="surface-layer density, kg m^-3")
-    ice.add_argument("--rho-bottom", type=float, default=850.0)
+    ice.add_argument("--rho-bottom", type=float, default=690.0,
+                      help="Cooper et al. (2018) near-surface ice mean, kg/m3")
     ice.add_argument("--dz-top", type=float, default=0.02, help="algae-bearing layer thickness, m")
     ice.add_argument("--dz-bottom", type=float, default=2.0)
     ice.add_argument("--sza", type=float, nargs="+", default=[45, 55, 65, 75])
@@ -89,12 +94,30 @@ def parse_args(argv=None):
     ice.add_argument("--transmissivity", type=float, default=0.75)
 
     ref = p.add_argument_group("reference state for figures")
-    ref.add_argument("--ref-grain", type=float, default=1500)
-    ref.add_argument("--ref-density", type=float, default=650)
-    ref.add_argument("--ref-sza", type=float, default=55)
+    ref.add_argument("--ref-grain", type=float, default=10000,
+                     help="um; Cooper et al. (2021) bubbly-ice optical radius 9.3-10.6 mm at S6")
+    ref.add_argument("--ref-density", type=float, default=450,
+                     help="kg/m3; Cooper et al. (2018) weathering-crust mean")
+    ref.add_argument("--ref-sza", type=float, default=45, help="deg; ~solar noon at S6 in July")
     ref.add_argument("--fig2c-concs", type=float, nargs="+", default=[1e4, 1e5])
     ref.add_argument("--baseline", default="A", choices=list("ABCD"), help="tier subtracted in Fig. 2C")
     return p.parse_args(argv)
+
+
+def _empirical_defaults(a):
+    """Fill unset cell parameters from published measurements (phase2/empirical_data.py)."""
+    import empirical_data as ED
+    g = ED.species_geometry()["nordenskioeldii"]
+    if a.cell_radius is None:
+        a.cell_radius = g["diameter_um"] / 2.0
+    if a.cell_length is None:
+        a.cell_length = g["length_um"]
+    ci = ED.intracellular_concentration_kg_m3("phenolics")
+    if a.c_internal is None:
+        a.c_internal = ci
+    if a.c_internal_grid is None:
+        m, sd = ED.pigments_per_cell()["phenolics"]
+        a.c_internal_grid = [ci * (m - sd) / m, ci, ci * (m + sd) / m]
 
 
 def size_to_geom(size_um, a, CellGeometry):
@@ -109,6 +132,7 @@ def main(argv=None):
     a = parse_args(argv)
     t0 = time.time()
     root = bb.locate_biosnicar(a.biosnicar)
+    _empirical_defaults(a)
 
     import cell_optics as co
     import figures as F
@@ -148,7 +172,12 @@ def main(argv=None):
     # --------------------------------------------- Task 1: packaging (300-800 nm)
     wl = np.arange(300.0, 801.0, 1.0)
     mac_l2 = l2.mac_at(wl)
-    sizes_geom = [size_to_geom(s, a, CellGeometry) for s in a.sizes]
+    if a.sizes is None:      # the two Ancylonema species (Chevrollier 2022 volume, Prochazkova 2021 shape)
+        import empirical_data as ED
+        sizes_geom = [CellGeometry("cylinder", g["diameter_um"] / 2.0, g["length_um"])
+                      for g in ED.species_geometry().values()]
+    else:
+        sizes_geom = [size_to_geom(s, a, CellGeometry) for s in a.sizes]
     grid = np.empty((len(sizes_geom), len(a.c_internal_grid), wl.size))
     qgrid = np.empty_like(grid)
     for i, g in enumerate(sizes_geom):
@@ -183,7 +212,8 @@ def main(argv=None):
     # ------------------------------------------------ cell optics, 480 bands
     kw = co.water_k_480(root)
     ref_geom = CellGeometry(a.cell_shape, a.cell_radius, a.cell_length)
-    cell = co.CellModel(ref_geom, a.c_internal, a.vacuole_fraction, g_mode=a.g_mode)
+    extra = () if a.no_photosynthetic else co.empirical_pigments()
+    cell = co.CellModel(ref_geom, a.c_internal, a.vacuole_fraction, g_mode=a.g_mode, extra_pigments=extra)
     mac480_L2 = co.to_480(l2.mac_at, tuple(a.window), a.uv_mode)
     mac480_D = co.to_480(mac_D_fn, tuple(a.window), a.uv_mode)
     optics = {"A": co.model_a_optics(root)}
@@ -246,14 +276,14 @@ def main(argv=None):
     print(f"BioSNICAR sweep: {len(df)} runs in {time.time() - t0:.0f} s total elapsed")
 
     # ------------------------------------------------ Task 3 summary table
-    ref = dict(grain_um=a.ref_grain, rho_top=a.ref_density, sza=a.ref_sza)
+    ref = dict(grain_um=a.ref_grain, rho_top=a.ref_density, sza=a.ref_sza, ice_mode=a.ice_mode)
     if not (a.ref_grain in a.grains and a.ref_density in a.densities and a.ref_sza in a.sza):
         raise SystemExit("reference state must be one of the swept grains/densities/SZAs")
     r = df[(df.grain_um == a.ref_grain) & (df.rho_top == a.ref_density) & (df.sza == a.ref_sza)]
     summ = (r[r.conc.isin(a.fig2c_concs) | (r.tier == "clean")]
             .pivot_table(index="tier", columns="conc", values=["bba", "rf"]).round(4))
     summ.to_csv(os.path.join(tabdir, "summary_reference_state.csv"))
-    print("\nReference state: grain %.0f um, rho %.0f kg/m3, SZA %.0f deg, SW_down %.0f W/m2"
+    print("\nReference state: radius %.0f um, rho %.0f kg/m3, SZA %.0f deg, SW_down %.0f W/m2"
           % (a.ref_grain, a.ref_density, a.ref_sza, r.sw_down.iloc[0]))
     print(summ.to_string())
 

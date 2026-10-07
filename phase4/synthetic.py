@@ -5,10 +5,10 @@ Truth fields live on a real georeferenced grid (the chosen AOI; real DEM if
 available) and follow the same glaciological structure as the priors, plus
 spatially correlated random variability:
 
-    log10 B  = prior mean (melt stage, slope) + GRF(sd 0.45, ~300 m)   clipped [2, 5.3]
-    f_n      = logistic(GRF(sd 1.2))
-    r        = 1200 + 1400 s + GRF(sd 300 um)                          clipped [1000, 3000]
-    k        = 1 + smooth GRF(sd 0.04)                                 (illumination/anisotropy)
+    log10 B  = empirical prior mean + GRF(empirical SD, ~300 m)       clipped [1.5, 5.5]
+    f_n      = logistic(logit(empirical community mean) + GRF(sd 0.8))
+    r        = log-spaced field inside the empirical radius bounds
+    k        = empirical anisotropy mean + smooth GRF(0.25 x empirical SD)
 
 Observations are computed with DIRECT BioSNICAR runs at the exact (off-grid) states
 (r snapped only to BioSNICAR's own 20 um LUT), multiplied by k, plus Gaussian noise.
@@ -28,15 +28,20 @@ def grf(shape, sd, corr_px, rng):
     return sd * z / z.std()
 
 
-def make_truth(shape, melt, slope, prior_cfg, res_m, seed=7, with_dust=False):
+def make_truth(shape, prior_cfg, res_m, seed=7, with_dust=False):
+    """Spatially correlated truth drawn around the EMPIRICAL priors (priors.PriorConfig):
+    log10 B ~ N(mu_b, sd_b) field, f_n around the community mean, log r uniform-ish field, k ~ N(mu_k, 0.25 sd_k)."""
+    import empirical_data as ED
     rng = np.random.default_rng(seed)
     corr = 300.0 / res_m
-    mu_b = prior_cfg.mu0 + prior_cfg.a_melt * (melt - 0.5) - prior_cfg.a_slope * slope / 10.0
+    m_f = prior_cfg.f_alpha / (prior_cfg.f_alpha + prior_cfg.f_beta)
+    lo, hi = np.log(ED.ICE_RADIUS_BOUNDS_UM[0] * 1.5), np.log(ED.ICE_RADIUS_BOUNDS_UM[1] / 1.5)
+    z = grf(shape, 1.0, corr, rng)
     t = dict(
-        log_b=np.clip(mu_b + grf(shape, 0.45, corr, rng), 2.0, 5.3),
-        f_n=1.0 / (1.0 + np.exp(-grf(shape, 1.2, corr, rng))),
-        r_um=np.clip(1200 + 1400 * melt + grf(shape, 300.0, corr, rng), 1000, 3000),
-        k=1.0 + grf(shape, 0.04, 2 * corr, rng),
+        log_b=np.clip(prior_cfg.mu_b + grf(shape, prior_cfg.sd_b, corr, rng), 1.5, 5.5),
+        f_n=1.0 / (1.0 + np.exp(-(np.log(m_f / (1 - m_f)) + grf(shape, 0.8, corr, rng)))),
+        r_um=np.exp(lo + (hi - lo) * 0.5 * (1 + np.tanh(z))),
+        k=prior_cfg.mu_k + grf(shape, 0.25 * prior_cfg.sd_k, 2 * corr, rng),
     )
     if with_dust:
         t["dust_ppb"] = np.clip(10 ** (3.5 + grf(shape, 0.4, corr, rng)), 0, 1e5)
