@@ -40,6 +40,10 @@ python phase4/run_phase4.py --source s2 ... --phenol williamson2020
 | `validation.py` | Bias, RMSE, MAE, R², 95 % coverage, error-reduction tables, field-point matching |
 | `maps4.py` | Cartopy UTM maps with graticule, scale bar, north arrow; corner plots; validation scatter |
 | `run_phase4.py` | Driver (`-h` for all options) |
+| `bias_study.py` | Field-site bias variants (dust, film geometry, site calibration), scored by the same LOO validation |
+| `dust_sensitivity.py` | Dust prior at the independent site: S6 prior vs broad, 10× cleaner and no dust |
+| `satellite_validation.py` | Sentinel-2 pixels vs counted S6 2017 samples (pixel, 3 × 3, site mean; within-pixel variability) |
+| `multi_scene.py` | Seasonal series of 2019 scenes (six dates); per-scene medians and daily-mean forcing scaled by measured PROMICE SW |
 
 ## Data and preprocessing
 
@@ -192,6 +196,50 @@ The posterior SD of f_n is 0.85–1.00 of its prior SD, so the f_n maps show the
 - **Forcing:** median algal forcing is 43 W m⁻² (ours) vs 83 W m⁻² (Tier A). Both are higher than in the previous revision because SW↓ now uses the measured clear-sky transmissivity (0.92 instead of 0.75).
 - **Optics tension:** with the measured phenolic MAC at the measured concentration, modelled cells absorb almost all visible light incident on them, and BioSNICAR's measured in vivo cell absorption (Tier A) is lower towards 700 nm. This disagreement between two empirical sources is reported, not tuned away.
 
+## Structural model error τ (calibrated intervals)
+
+The posterior is conditional on the forward model, so it is too narrow when the model is wrong. `field_validation.fit_model_error` therefore fits a model-error term τ (dex, Gaussian in log₁₀ B):
+- **Likelihood.** y ~ N(posterior mean, posterior SD² + τ² + Poisson count SD²), maximised over the counted samples, leave-one-out.
+- **Interval.** The calibrated 95 % interval is mean ± 1.96 √(SD² + τ²).
+- **Where it is used.** τ is fitted on the field samples and applied unchanged to the maps (`ours_log_b_q025_cal`/`q975_cal` bands, Fig. 4A panel e) and the satellite check.
+
+With the measured phenolic MAC and dust on, **τ = 0.37 dex**. 95 % coverage:
+
+| | Posterior only | With τ |
+|---|---|---|
+| S6 2017 (41) | 0.80 | 0.98 |
+| S Greenland 2021 (18) | 0.89 | 1.00 |
+
+The calibrated intervals are slightly conservative: the Gaussian τ also absorbs the remaining S6 bias of +0.17 dex.
+
+## Satellite-scale validation (`satellite_validation.py`)
+
+**Question.** The field validation is at plot scale (spectrometer footprint ≈ 0.5 m). Does the same retrieval, applied to Sentinel-2 L2A pixels with the field-calibrated σ, radius prior and τ, agree with the counts?
+
+**Data.**
+- **Samples:** 20 counted S6 samples with GPS positions (15 and 21–23 July 2017). Positions come from Tedstone et al. (2020), UK PDC, in **UTM 23N**; see `data/empirical/SOURCES.md`.
+- **Primary scenes:** the nearest clear scene. That is 11 Jul for the 15 Jul samples (−4 d) and 21 Jul for the 21–23 Jul samples (0 to −2 d).
+- **Sensitivity scenes:** the same-day scenes of 15 Jul (34 % tile cloud) and 23 Jul (thin cirrus nearby, 32 pixels masked).
+- **Grid:** a 300 m window at native 10 m. Every pixel at the site is Sen2Cor class 11.
+
+**Results** (measured phenolic MAC, dust on; `records/satellite_validation_williamson2020/`):
+
+| Comparison (primary scenes) | n | Bias (dex) | RMSE | Spearman ρ | 95 % coverage (with τ) |
+|---|---|---|---|---|---|
+| Pixel containing the sample | 20 | −0.14 | 0.74 | −0.07 | 1.00 |
+| 3 × 3-pixel mean | 20 | −0.19 | 0.75 | −0.17 | – |
+| Same samples, ground spectra (plot scale) | 20 | +0.16 | 0.47 | 0.85 | – |
+| **Site mean per day** (mean of samples vs mean of their pixels) | 4 days | **+0.04, −0.34, −0.38, +0.07** | – | – | count SE 0.24–0.42 |
+
+**What this shows**
+- **Representativeness limit.** Counts of samples that share one 10 m pixel differ with an SD of **0.83 dex** (11 df). No pixel retrieval can match individual 1 m² samples better than that, and the pixel RMSE (0.74) is at that floor. Per-sample rank agreement is therefore not expected at 10 m.
+- **The pixels agree with the site.** The day-mean abundance under the samples is reproduced within 0.04–0.38 dex, comparable to the sampling error of the 5-sample day means (0.24–0.42 dex).
+- **Not a loss of information.** Per-spectrum posterior SD is the same at both scales (pixel 0.55–0.65 dex; plot 0.62 dex). Pixel retrievals span a narrower range (log B 3.3–3.8) because a 10 m pixel averages clean and heavily colonised patches (pixel B2 0.46–0.63; ground plots 0.11–0.73).
+- **Scene choice matters as much as model choice.**
+  - The 23 Jul scene, with thin cirrus nearby, is 0.3–0.4 dex lower than the clear 21 Jul scene.
+  - The same-day 15 Jul scene (cloudy tile) is 0.17 dex lower than the clear 11 Jul scene.
+  - Hence clear-scene selection (tile cloud < 10 %) for the maps.
+
 ## Outputs (`phase4/results/`)
 
 - `geotiff/phase4_maps.tif`: one band per map. Bands include our posterior mean, SD and 2.5/97.5 % quantiles of log B, f_n, r, pigment, albedo (mean, SD) and forcing (mean, SD), plus χ², k, the Tier A and empirical maps, ΔRF, the log Bayes factor, elevation, slope and melt stage.
@@ -203,8 +251,8 @@ The posterior SD of f_n is 0.85–1.00 of its prior SD, so the f_n maps show the
 
 - **Species concentrations.** These use the measured size scaling (γ = −0.73 ± 0.73), which is weakly constrained and consistent with equal concentration.
 - **Radius prior.** The surface ice-radius prior is estimated from the field spectra (empirical Bayes). It is conditional on this forward model, and the measured-SSA alternative is reported alongside it.
-- **Residual bias.** Abundance is overestimated at S6 (+0.47 dex) and intervals cover 73 % there. The independent southern-Greenland site is better (+0.17 dex, 89 %).
-- **Validation scale.** Field validation is at plot scale (spectrometer footprint), not at the 10–20 m pixel scale.
+- **Residual bias.** With dust on (default), abundance is overestimated at S6 by +0.17 dex and underestimated at southern Greenland by −0.21 dex (that site borrows the S6 dust prior: `dust_sensitivity.py`). Calibrated intervals (τ = 0.37 dex) cover 98–100 % of samples.
+- **Validation scale.** At pixel scale, Sentinel-2 retrievals agree with site-mean counts but cannot be checked sample by sample: plot-to-plot variability inside a 10 m pixel is 0.83 dex (`satellite_validation.py`). Satellite products should be read as pixel or area means, not as the abundance of individual patches.
 - **Reflectance geometry.** Satellite HCRF is compared with modeled albedo, with anisotropy absorbed by k.
 - **Pixel independence.** Pixels are independent apart from the optional pooling pass.
 - **Fixed structure.**
