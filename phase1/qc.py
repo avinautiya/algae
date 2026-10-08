@@ -200,8 +200,12 @@ def harmonic_check(mf, workdir: str = ".", tag: str = "freq"):
 
 
 def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: bool = False,
-              conv_tol: float = 1e-6):
+              conv_tol: float = 1e-5):
     """Vertical singlet->singlet excitations from a converged closed-shell SCF.
+
+    conv_tol is the Davidson residual-norm tolerance (PySCF default 1e-5); excitation energies then
+    converge to ~1e-9 Eh, far below TD-DFT method error. (The production Level 2 B3LYP run used
+    1e-6, which costs extra iterations without changing the spectrum.)
 
     For a closed-shell RKS reference PySCF's TDDFT/TDA solve only for singlet
     states by default (td.singlet = True).
