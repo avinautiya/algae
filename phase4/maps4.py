@@ -113,7 +113,8 @@ def _tag(ax, t, title=""):
 # Figure 4A: biomass                                                            #
 # --------------------------------------------------------------------------- #
 def fig4a(g: MapGrid, panels: dict, sd_map, f_map, truth=None, rgb=None, demo_note="", f_info=None):
-    """panels: label -> log10 B map (empirical, Tier A Bayesian, ours). sd_map: ours 95 % CI width."""
+    """panels: label -> log10 B map (empirical, Tier A Bayesian, ours). sd_map: ours 95 % predictive
+    interval width (posterior + structural model error tau)."""
     fig = plt.figure(figsize=(F.DOUBLE_COL, 5.0), constrained_layout=True)
     gs = fig.add_gridspec(2, 3)
     vals = np.concatenate([v[np.isfinite(v)].ravel() for v in panels.values()] +
@@ -135,8 +136,9 @@ def fig4a(g: MapGrid, panels: dict, sd_map, f_map, truth=None, rgb=None, demo_no
         g.show(ax, arr, CMAPS["biomass"], vmin=vmin, vmax=vmax, label=lab, grid_labels=(t == "d", t == "d"))
         _tag(ax, t, name)
     ax = g.axes(fig, gs[1, 1])
-    g.show(ax, sd_map, CMAPS["sd"], label=r"95 % CI width of $\log_{10}B$ (dex)", grid_labels=(True, False))
-    _tag(ax, "e", "ours: 95 % CI width")
+    g.show(ax, sd_map, CMAPS["sd"], label=r"95 % predictive interval width, $\log_{10}B$ (dex)",
+           grid_labels=(True, False))
+    _tag(ax, "e", "ours: 95 % interval (incl. model error)")
     ax = g.axes(fig, gs[1, 2])
     g.show(ax, f_map, "Greens", vmin=0, vmax=1, label=r"posterior mean $f_{nordenskioeldii}$",
            grid_labels=(True, False))
@@ -260,6 +262,8 @@ def fig_s4_validation(truth, ests: dict, metrics_df, quantity="log_b", label=r"$
             t = f"bias {m.bias:+.2f}\nRMSE {m.rmse:.2f}\n$R^2$ {m.r2:.2f}"
             if "coverage95" in m and np.isfinite(m.get("coverage95", np.nan)):
                 t += f"\n95% cov. {100 * m.coverage95:.0f}%"
+            if "coverage95_cal" in m and np.isfinite(m.get("coverage95_cal", np.nan)):
+                t += f" ({100 * m.coverage95_cal:.0f}% with $\\tau$)"
             ax.text(0.04, 0.96, t, transform=ax.transAxes, va="top", fontsize=6.5)
         ax.set_title(name, loc="left", fontsize=7.5)
         ax.set_xlabel("true " + label)

@@ -90,6 +90,7 @@ def main(argv=None):
         for r in mo.itertuples():
             rows.append(dict(variant=v, dataset=r.dataset, n=r.n, bias=r.bias, rmse=r.rmse, spearman=r.spearman,
                              coverage95=r.coverage95, coverage95_obs=r.coverage95_obs,
+                             coverage95_cal=r.coverage95_cal, tau=res["ours"]["tau"],
                              log_evidence=res["ours"]["total_log_evidence"], sigma=res["ours"]["sigma_all"],
                              r_median_um=float(np.exp(res["ours"]["mu_lnr"])), r_lnsd=res["ours"]["sd_lnr"]))
         extra[v] = dict(site_calibration=site_calibration(df), runtime_s=round(time.time() - t0))

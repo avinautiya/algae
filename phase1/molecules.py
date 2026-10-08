@@ -145,6 +145,17 @@ MOLECULES = {
         xyz=LEVEL2_XYZ,
         n_confs=300,             # flexible glycoside: sample more conformers
     ),
+    # Level 3: Fe(III)-purpurogallin model complexes (fe_complex.py); geometry built on demand
+    "level3_catecholate": dict(
+        name="[Fe(III)(purpurogallin-catecholate)(H2O)4]+",
+        smiles=None, formula="C11H14FeO9", molar_mass=380.08, charge=1, multiplicity=6, xyz=None,
+        ligand_molar_mass=220.180, n_confs=1,
+    ),
+    "level3_tropolonate": dict(
+        name="[Fe(III)(purpurogallin-tropolonate)(H2O)4]2+",
+        smiles=None, formula="C11H15FeO9", molar_mass=381.09, charge=2, multiplicity=6, xyz=None,
+        ligand_molar_mass=220.180, n_confs=1,
+    ),
 }
 
 
@@ -191,6 +202,9 @@ def build_xyz(smiles: str, n_confs: int = 100, seed: int = 20240611,
 def get_xyz(key: str, rebuild: bool = False) -> str:
     """Return the starting XYZ block for 'level1' or 'level2'."""
     spec = MOLECULES[key]
+    if key.startswith("level3_"):
+        import fe_complex
+        return fe_complex.build_xyz(key.split("_", 1)[1])
     if rebuild:
         xyz, _ = build_xyz(spec["smiles"], spec["n_confs"], expected_formula=spec["formula"])
         return xyz
@@ -221,7 +235,7 @@ def get_mole(key: str, basis: str = "6-31g*", xyz: str | None = None,
     # Sanity check: elemental composition must match the target formula.
     from collections import Counter
     counts = Counter(mol.atom_pure_symbol(i) for i in range(mol.natm))
-    formula = "".join(f"{el}{counts[el] if counts[el] > 1 else ''}" for el in ("C", "H", "O") if counts[el])
+    formula = "".join(f"{el}{counts[el] if counts[el] > 1 else ''}" for el in ("C", "H", "Fe", "O") if counts[el])
     if formula != spec["formula"]:
         raise ValueError(f"{key}: geometry has formula {formula}, expected {spec['formula']}")
     return mol

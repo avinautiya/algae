@@ -27,6 +27,13 @@ jointly with sigma), and compared with the measured-SSA prior by their marginal 
 Observation error: counts have Poisson error 1/sqrt(N counted) (S6; N is in the count workbook);
 'coverage95_obs' scores the 95 % interval against the observation widened by that error.
 Zero counts (below one counted cell) cannot be scored on a log scale and are reported separately.
+
+Structural model error: the posterior describes the uncertainty GIVEN the forward model, so it is too
+narrow when the model itself is wrong (posterior 95 % intervals covered 83 % of samples). A model-error
+term tau (dex, Gaussian in log10 B) is fitted by maximum likelihood of the counted samples under
+y ~ N(posterior mean, posterior SD^2 + tau^2 + Poisson count SD^2), leave-one-out (tau for sample i is
+fitted on the others), and the calibrated predictive interval is mean +/- 1.96 sqrt(SD^2 + tau^2)
+('coverage95_cal'). The fitted tau is reported and propagated to the maps (run_phase4.py).
 """
 
 from __future__ import annotations
@@ -52,6 +59,27 @@ EB_SD_LNR = np.array([0.35, 0.6, 0.9, 1.2, 1.6, 2.0, 2.5])
 DATASET_LABEL = {"s6_2017": "S6 2017 (Cook et al. 2020)", "sgris_2021": "S Greenland 2021 (Chevrollier et al. 2023)",
                  "s6_2014": "S6 2014 (Stibal et al. 2017; manual ingestion)"}
 CACHE_VERSION = "v3"
+TAU_GRID = np.round(np.arange(0.0, 1.5001, 0.01), 3)      # model-error SD candidates (dex)
+
+
+def _tau_loglik(y, m, s, o):
+    """(n, n_tau) Gaussian log predictive density of each sample for every tau on TAU_GRID."""
+    v = s[:, None] ** 2 + o[:, None] ** 2 + TAU_GRID[None, :] ** 2
+    return -0.5 * (np.log(2 * np.pi * v) + (y[:, None] - m[:, None]) ** 2 / v)
+
+
+def fit_model_error(y, m, s, o=None):
+    """Structural model-error SD tau (dex) by maximum likelihood, all samples and leave-one-out.
+    y observed log10 B, m / s posterior mean / SD, o observation (count) SD; non-finite y are ignored.
+    Returns (tau_all, tau_loo[n]) - tau_loo[i] is fitted without sample i (NaN where y is missing)."""
+    y, m, s = (np.asarray(a, float) for a in (y, m, s))
+    o = np.zeros_like(y) if o is None else np.nan_to_num(np.asarray(o, float), nan=0.0)
+    ok = np.isfinite(y) & np.isfinite(m) & np.isfinite(s)
+    ll = np.zeros((len(y), len(TAU_GRID)))
+    ll[ok] = _tau_loglik(y[ok], m[ok], s[ok], o[ok])
+    tot = ll.sum(axis=0)
+    tau_loo = np.where(ok, TAU_GRID[np.argmax(tot[None, :] - ll, axis=1)], np.nan)
+    return float(TAU_GRID[np.argmax(tot)]), tau_loo
 
 
 def field_band_reflectance(spacecraft="S2A", bands=("B2", "B3", "B4", "B8")):
@@ -76,7 +104,7 @@ def field_band_reflectance(spacecraft="S2A", bands=("B2", "B3", "B4", "B8")):
     return out
 
 
-def _metrics(t, e, lo=None, hi=None, sd=None, obs_sd=None):
+def _metrics(t, e, lo=None, hi=None, sd=None, obs_sd=None, lo_cal=None, hi_cal=None):
     from scipy.stats import spearmanr
     t, e = np.asarray(t, float), np.asarray(e, float)
     ok = np.isfinite(t) & np.isfinite(e)
@@ -87,6 +115,10 @@ def _metrics(t, e, lo=None, hi=None, sd=None, obs_sd=None):
     if lo is not None:
         lo, hi = np.asarray(lo, float)[ok], np.asarray(hi, float)[ok]
         out.update(coverage95=float(np.mean((tt >= lo) & (tt <= hi))), ci_width=float(np.mean(hi - lo)))
+    if lo_cal is not None:
+        lo_cal, hi_cal = np.asarray(lo_cal, float)[ok], np.asarray(hi_cal, float)[ok]
+        out.update(coverage95_cal=float(np.mean((tt >= lo_cal) & (tt <= hi_cal))),
+                   ci_width_cal=float(np.mean(hi_cal - lo_cal)))
     if sd is not None:
         o = np.nan_to_num(np.asarray(obs_sd, float)[ok], nan=0.0)
         z = err / np.sqrt(np.asarray(sd, float)[ok] ** 2 + o ** 2)
@@ -184,21 +216,32 @@ def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", ti
     df["cook2020_log_b"] = np.where(cook > 0, np.log10(np.where(cook > 0, cook, 1.0)), np.nan)
     df["log_b_obs"] = y
     df["log_b_obs_sd"] = np.where(pos, 1.0 / np.log(10) / np.sqrt(df.cells_counted.to_numpy()), np.nan)
+    for model in models:              # structural model error tau and calibrated predictive intervals
+        mean, sd = df[f"{model}_log_b_mean"].to_numpy(), df[f"{model}_log_b_sd"].to_numpy()
+        tau_all, tau_loo = fit_model_error(y, mean, sd, df.log_b_obs_sd.to_numpy())
+        res[model]["tau"] = tau_all
+        df[f"{model}_tau"] = tau_loo
+        half = 1.96 * np.sqrt(sd ** 2 + np.nan_to_num(tau_loo, nan=tau_all) ** 2)
+        df[f"{model}_log_b_q025_cal"], df[f"{model}_log_b_q975_cal"] = mean - half, mean + half
+        if verbose:
+            print(f"[field] {model}: model-error tau {tau_all:.2f} dex (LOO range "
+                  f"{np.nanmin(tau_loo):.2f}-{np.nanmax(tau_loo):.2f})")
 
     rows = []
     for ds, sel in [("all", pos)] + [(d, pos & (df.dataset == d).to_numpy()) for d in DATASET_LABEL]:
-        bayes = [(lab, df[f"{m}_log_b_mean"], df[f"{m}_log_b_q025"], df[f"{m}_log_b_q975"], df[f"{m}_log_b_sd"])
+        bayes = [(lab, df[f"{m}_log_b_mean"], df[f"{m}_log_b_q025"], df[f"{m}_log_b_q975"], df[f"{m}_log_b_sd"],
+                  df[f"{m}_log_b_q025_cal"], df[f"{m}_log_b_q975_cal"])
                  for m, lab in (("ours", "Physics-informed Bayesian (ours)"), ("tierA", "Tier A Bayesian"))
                  if m in models]
-        for name, est, lo, hi, sd in bayes + [
-                ("Empirical band-ratio (LOO)", df.empirical_log_b, None, None, None),
-                ("Cook et al. 2020 inversion (published)", df.cook2020_log_b, None, None, None)]:
+        for name, est, lo, hi, sd, lo_c, hi_c in bayes + [
+                ("Empirical band-ratio (LOO)", df.empirical_log_b, None, None, None, None, None),
+                ("Cook et al. 2020 inversion (published)", df.cook2020_log_b, None, None, None, None, None)]:
             e = np.asarray(est)[sel]
             if np.isfinite(e).sum() < 3:
                 continue
+            arr = lambda a: None if a is None else np.asarray(a)[sel]  # noqa: E731
             rows.append(dict(dataset=ds, method=name, **_metrics(
-                y[sel], e, None if lo is None else np.asarray(lo)[sel], None if hi is None else np.asarray(hi)[sel],
-                None if sd is None else np.asarray(sd)[sel], df.log_b_obs_sd.to_numpy()[sel])))
+                y[sel], e, arr(lo), arr(hi), arr(sd), df.log_b_obs_sd.to_numpy()[sel], arr(lo_c), arr(hi_c))))
     metrics = pd.DataFrame(rows)
     s6 = pos & (df.dataset == "s6_2017").to_numpy()
     n_cook_zero = int(np.sum(s6 & ~np.isfinite(df.cook2020_log_b)))

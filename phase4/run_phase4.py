@@ -194,6 +194,7 @@ def main(argv=None):
     # ------------------------------------------------------------- field validation / calibration
     field_df = field_metrics = None
     sig_model = {}
+    tau_model = {"ours": 0.0, "tierA": 0.0}       # structural model error (dex); 0 without field data
     pc_model = {"ours": pc, "tierA": pc}
     if not a.no_field_validation:
         import field_validation as FV
@@ -207,6 +208,9 @@ def main(argv=None):
         field_metrics.to_csv(os.path.join(tab, "field_validation_metrics.csv"), index=False, float_format="%.4g")
         print(field_metrics.drop(columns=[c for c in ("note",) if c in field_metrics]).round(3).to_string(index=False))
         sig_model = {m: np.full(4, fres[m]["sigma_all"]) for m in ("ours", "tierA")}
+        tau_model = {m: fres[m]["tau"] for m in ("ours", "tierA")}
+        print(f"Structural model error (field LOO max likelihood): tau ours {tau_model['ours']:.2f}, "
+              f"Tier A {tau_model['tierA']:.2f} dex - added to the posterior SD for the calibrated intervals")
         # surface ice-radius population distribution estimated from the field spectra (empirical Bayes)
         pc_model = {m: dataclasses.replace(pc, mu_lnr=fres[m]["mu_lnr"], sd_lnr=fres[m]["sd_lnr"])
                     for m in ("ours", "tierA")}
@@ -297,6 +301,9 @@ def main(argv=None):
     maps = {
         "ours_log_b_mean": to_map(ro["log_b_mean"]), "ours_log_b_sd": to_map(ro["log_b_sd"]),
         "ours_log_b_q025": to_map(ro["log_b_q025"]), "ours_log_b_q975": to_map(ro["log_b_q975"]),
+        # calibrated 95 % predictive interval: posterior SD combined with the field-fitted model error tau
+        "ours_log_b_q025_cal": to_map(ro["log_b_mean"] - 1.96 * np.hypot(ro["log_b_sd"], tau_model["ours"])),
+        "ours_log_b_q975_cal": to_map(ro["log_b_mean"] + 1.96 * np.hypot(ro["log_b_sd"], tau_model["ours"])),
         "ours_f_n_mean": to_map(ro["f_n_mean"]), "ours_f_n_sd": to_map(ro["f_n_sd"]),
         "ours_r_um_mean": to_map(ro["r_um_mean"]), "ours_pigment_ug_l_mean": to_map(ro["pigment_ug_l_mean"]),
         "ours_bba_mean": to_map(ro["bba_mean"]), "ours_bba_sd": to_map(ro["bba_sd"]),
@@ -416,7 +423,7 @@ def main(argv=None):
     fig = M.fig4a(g, {"empirical index": logb_emp,
                       "Tier A Bayesian": maps["tierA_log_b_mean"],
                       "ours (physics-informed)": maps["ours_log_b_mean"]},
-                  maps["ours_log_b_q975"] - maps["ours_log_b_q025"], maps["ours_f_n_mean"],
+                  maps["ours_log_b_q975_cal"] - maps["ours_log_b_q025_cal"], maps["ours_f_n_mean"],
                   truth=None if truth is None else truth["log_b"], rgb=rgb, demo_note=note, f_info=shrink_f)
     M.save(fig, figd, "Fig4A_biomass_maps")
     fig = M.fig4b(g, maps["ours_bba_mean"], maps["ours_rf_algae_mean"], maps["d_rf_ours_minus_A"],
@@ -445,6 +452,7 @@ def main(argv=None):
                    empirical_coefs=list(map(float, coef)), empirical_calibration=cal_note,
                    f_n_identifiability_sd_ratio=float(shrink_f), priors={m: pc_model[m].describe() for m in pc_model},
                    sigma={k: float(v[0]) for k, v in sig_model.items()},
+                   model_error_tau_dex={k: float(v) for k, v in tau_model.items()},
                    field_validation=None if field_metrics is None else field_metrics.to_dict(orient="records"),
                    chi2_fail_frac={k: float(np.mean(v["chi2"] > CHI2_99_DF4)) for k, v in res.items()},
                    median_log_bayes_factor=float(np.nanmedian(log_bf)),

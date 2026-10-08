@@ -64,6 +64,8 @@ def parse_args(argv=None):
     p.add_argument("--rebuild", action="store_true", help="regenerate the start geometry with RDKit")
     p.add_argument("--no-xtb", action="store_true", help="skip the GFN2-xTB/ALPB pre-optimisation")
     p.add_argument("--skip-opt", action="store_true", help="no DFT optimisation (single point + TD-DFT)")
+    p.add_argument("--xtb-geometry", action="store_true",
+                   help="GFN2-xTB/ALPB geometry, then DFT single point + TD-DFT (no DFT optimisation)")
     p.add_argument("--maxsteps", type=int, default=100)
     p.add_argument("--freq", action="store_true", help="harmonic frequencies at the optimised geometry")
     p.add_argument("--gpu", action="store_true", help="run DFT/TD-DFT on GPU via gpu4pyscf")
@@ -108,11 +110,17 @@ def main(argv=None):
     print(f"{spec['name']}: {mol.natm} atoms, {mol.nelectron} electrons, {mol.nao} basis functions, "
           f"charge {mol.charge}, multiplicity {mol.spin + 1}", flush=True)
 
-    if not a.skip_opt and not a.no_xtb and not a.start_xyz:
+    if (not a.skip_opt or a.xtb_geometry) and not a.no_xtb and not a.start_xyz:
         try:
             mol = qc.xtb_preoptimize(mol, solvent="water" if solvent else None)
+            with open(os.path.join(outdir, "xtb_geometry.xyz"), "w") as fh:
+                fh.write(qc._mole_to_xyz(mol, f"{qc.xtb_preoptimize.method}/ALPB(water) geometry"))
+            summary["xtb_method"] = qc.xtb_preoptimize.method
         except ImportError:
             print("tblite not installed -> skipping xTB pre-optimisation (pip install tblite)")
+    if a.xtb_geometry:
+        a.skip_opt = True
+        summary["geometry"] = f"{getattr(qc.xtb_preoptimize, 'method', 'GFN2-xTB')}/ALPB(water)"
 
     # ---------------- ground-state optimisation -------------------------------
     t0 = time.time()

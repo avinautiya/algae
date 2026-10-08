@@ -47,7 +47,8 @@ def make_mf(mol, functional: str = "B3LYP", solvent: str | None = "pcm",
                  error in excitation energies < 0.01 eV.
     """
     xc = FUNCTIONALS.get(functional.upper(), functional)
-    mf = dft.RKS(mol, xc=xc)
+    # closed shell -> restricted KS; open shell (e.g. high-spin Fe(III), Level 3) -> unrestricted KS
+    mf = dft.RKS(mol, xc=xc) if mol.spin == 0 else dft.UKS(mol, xc=xc)
     if density_fit:
         mf = mf.density_fit(auxbasis="def2-universal-jkfit")
     if use_gpu:
@@ -148,22 +149,32 @@ def xtb_preoptimize(mol, solvent: str | None = "water", gtol: float = 2e-4, maxi
 
     numbers = mol.atom_charges()
     x0 = mol.atom_coords(unit="Bohr").ravel()
-    calc = Calculator("GFN2-xTB", numbers, x0.reshape(-1, 3),
-                      charge=float(mol.charge), uhf=mol.spin)
-    calc.set("verbosity", 0)
-    if solvent:
-        calc.add("alpb-solvation", solvent)
 
-    def fun(x):
-        calc.update(x.reshape(-1, 3))
-        res = calc.singlepoint()
-        return res.get("energy"), res.get("gradient").ravel()
+    def relax(method):
+        calc = Calculator(method, numbers, x0.reshape(-1, 3), charge=float(mol.charge), uhf=mol.spin)
+        calc.set("verbosity", 0)
+        calc.set("max-iter", 500)
+        if solvent:
+            calc.add("alpb-solvation", solvent)
+
+        def fun(x):
+            calc.update(x.reshape(-1, 3))
+            res = calc.singlepoint()
+            return res.get("energy"), res.get("gradient").ravel()
+
+        o = minimize(fun, x0, jac=True, method="L-BFGS-B", options=dict(gtol=gtol, maxiter=maxiter, maxcor=50))
+        return o, np.abs(fun(o.x)[1]).max()
 
     t0 = time.time()
-    opt = minimize(fun, x0, jac=True, method="L-BFGS-B",
-                   options=dict(gtol=gtol, maxiter=maxiter, maxcor=50))
-    gmax = np.abs(fun(opt.x)[1]).max()
-    print(f"[xtb] GFN2-xTB/ALPB({solvent}) pre-opt: E = {opt.fun:.6f} Eh, "
+    method = "GFN2-xTB"
+    try:
+        opt, gmax = relax(method)
+    except Exception as e:  # noqa: BLE001 - e.g. high-spin Fe(III) dications: GFN2 SCF may not converge
+        print(f"[xtb] GFN2-xTB failed ({e}); falling back to GFN1-xTB", flush=True)
+        method = "GFN1-xTB"
+        opt, gmax = relax(method)
+    xtb_preoptimize.method = method
+    print(f"[xtb] {method}/ALPB({solvent}) pre-opt: E = {opt.fun:.6f} Eh, "
           f"max|g| = {gmax:.1e}, {opt.nit} iterations, {time.time() - t0:.0f} s", flush=True)
     return mol.set_geom_(opt.x.reshape(-1, 3), unit="Bohr", inplace=False)
 
@@ -206,7 +217,8 @@ def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: b
             mf.TDDFT(equilibrium_solvation=equilibrium_solvation)
     else:
         td = mf.TDA() if tda else mf.TDDFT()
-    td.singlet = True
+    if mol_spin(mf) == 0:
+        td.singlet = True          # closed shell: singlet excitations only
     td.nstates = nstates
     td.conv_tol = conv_tol
     td.max_cycle = 200
@@ -224,9 +236,27 @@ def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: b
                 osc_strengths=f, converged=conv, td=td)
 
 
+def mol_spin(mf):
+    return getattr(getattr(mf, "mol", None), "spin", 0)
+
+
 def dominant_transitions(td, state: int, threshold: float = 0.1):
-    """Leading occupied->virtual contributions (|coefficient|^2 * 2 > threshold)."""
+    """Leading occupied->virtual contributions (|coefficient|^2 * 2 > threshold).
+    For unrestricted (open-shell) references the alpha and beta channels are listed separately
+    (labels a/b) with weights x^2 - y^2, which then sum to ~1 over both spins."""
     x, y = td.xy[state]
+    if isinstance(x, (tuple, list)):                      # UKS: ((xa, xb), (ya, yb))
+        out = []
+        for spin, xs, ys in zip("ab", x, y if isinstance(y, (tuple, list)) else (0.0, 0.0)):
+            xs = _to_numpy(xs)
+            ys = 0.0 if np.isscalar(ys) else _to_numpy(ys)
+            w = xs ** 2 - (ys ** 2 if not np.isscalar(ys) else 0.0)
+            nocc = xs.shape[0]
+            for i, a in zip(*np.where(np.abs(w) > threshold / 2)):
+                hole = f"HOMO{spin}" + (f"-{nocc - 1 - i}" if i != nocc - 1 else "")
+                part = f"LUMO{spin}" + (f"+{a}" if a else "")
+                out.append((hole, part, float(w[i, a])))
+        return sorted(out, key=lambda t: -t[2])
     x = _to_numpy(x)
     y = _to_numpy(y) if not np.isscalar(y) else 0.0
     w = 2.0 * (x ** 2 - (y ** 2 if not np.isscalar(y) else 0.0))   # weights sum to ~1
