@@ -149,6 +149,25 @@ Every link from a measured quantity to the model's absorption per cell, and from
 | **Cell counts** | Field counts are cells per mL of **meltwater** (haemocytometer on melted samples; 1 mL = 1 g). BioSNICAR converts its input to cells kg⁻¹ as conc/917 × 10⁶, i.e. per mL of **solid ice** (`column_OPs.mix_in_impurities`) | **Corrected**: the bridge passes conc × 0.917 (`biosnicar_bridge.MELTWATER_TO_BIOSNICAR`), so the column number of cells is the measured count × ρ·dz. Before this, every model abundance was off by 1000/917 (0.04 dex) |
 | Dust | ppb = ng g⁻¹ ice. Cook et al. (2020) give µg g⁻¹ ice, which they computed from µg mL⁻¹ "assuming 1 mL of ice to weigh 0.917 g" | Consistent (× 10³) |
 
+**Production result (Level 2 TD-B3LYP/6-31G*/IEF-PCM; `records/phase1_production/calibration_level2_B3LYP.json`).**
+
+| Quantity | Value |
+|---|---|
+| Band shift ΔE | +0.060 ± 0.004 eV |
+| FWHM | 0.62 eV |
+| HPLC shape R² | 0.974 |
+| f | 39.5 ± 2.2 |
+| Stoichiometric 1:1 value | 4.53 |
+| f / stoichiometric | **8.7** |
+
+So f is **not** ≈ 1 × stoichiometric. A ninefold factor is far larger than TD-DFT oscillator-strength errors for π→π* bands of organic chromophores (typically tens of percent). Here the raw Σf below 4.13 eV is 0.57, the same order as the measured band.
+
+The likely cause is the assay. US EPA Method 420.1 states that 4-AAP colour response "is not the same for all compounds. Phenol has been selected as a standard and any color produced by the reaction of other phenolic compounds is reported as phenol. This value will represent the minimum concentration of phenolic compounds present in the sample."
+
+Purpurogallin's ring positions are largely substituted, which plausibly weakens the coupling reaction. The factor is therefore read as a 4-AAP response of about 0.11 per glucoside relative to phenol, combined with any TD-DFT intensity error. The two cannot be separated with the available data.
+
+**Consequence for the model:** none. The extract MAC and the per-cell content are both in phenol equivalents, so f cancels in the absorption per cell. That is why the calibration fits f rather than assuming the stoichiometric value.
+
 ## Sampling depth of the S6 counts
 
 Cook et al. (2020) state only that "ice from within the viewing area of the spectrometer was removed using a sterile blade". Their archived discussion manuscript (Zenodo 10.5281/zenodo.3564501, `Peer_Review/Round1/Cook_et_al_Algae_Melting_GrIS_Tracked_changes.pdf`) is explicit about the same measurements: "These measurements were followed immediately by the physical removal of the upper 2 cm of the ice surface within the same patches." So the S6 counts, like Williamson et al. (2018) and Halbach et al. (2025), are cells per mL of the top 2 cm.
