@@ -74,13 +74,24 @@ def search_scenes(lat, lon, start, end, max_cloud=10.0, limit=20):
     return items
 
 
-def item_from_s3(scene_id: str):
-    """Fetch a STAC item JSON directly from the public bucket, e.g. 'S2A_22WEV_20190723_0_L2A'
-    (fallback when the STAC API is unreachable)."""
+def item_from_s3(scene_id: str, retries: int = 3):
+    """Fetch a STAC item JSON directly from the public bucket, e.g. 'S2A_22WEV_20190723_0_L2A'.
+    The bucket intermittently answers 404 for existing items, so each source is retried, and the
+    earth-search STAC API (/collections/sentinel-2-l2a/items/<id>) is the fallback."""
+    import time
     _, tile, date, _, _ = scene_id.split("_")
-    url = f"{S3_BASE}/{tile[:2]}/{tile[2]}/{tile[3:]}/{date[:4]}/{int(date[4:6])}/{scene_id}/{scene_id}.json"
-    with urllib.request.urlopen(url, timeout=60) as r:
-        return json.loads(r.read())
+    urls = [f"{S3_BASE}/{tile[:2]}/{tile[2]}/{tile[3:]}/{date[:4]}/{int(date[4:6])}/{scene_id}/{scene_id}.json",
+            f"{STAC_URL}/collections/sentinel-2-l2a/items/{scene_id}"]
+    last = None
+    for url in urls:
+        for k in range(retries):
+            try:
+                with urllib.request.urlopen(url, timeout=60) as r:
+                    return json.loads(r.read())
+            except Exception as e:  # noqa: BLE001 - HTTP 404/5xx or network
+                last = e
+                time.sleep(2 * (k + 1))
+    raise RuntimeError(f"STAC item {scene_id} not available from S3 or the STAC API: {last}")
 
 
 # --------------------------------------------------------------------------- #
