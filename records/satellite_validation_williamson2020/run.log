@@ -1,0 +1,45 @@
+  df["log_b_obs_sd"] = np.where(pos, 1.0 / np.log(10) / np.sqrt(df.cells_counted.to_numpy()), np.nan)
+Field calibration: sigma 0.015, ice radius median 600 um (ln-SD 1.20), model error tau 0.37 dex
+20 counted samples with GPS positions; days ['15_7', '21_7', '22_7', '23_7']
+Building emulator (ours, tier C, bubbly): 21x11x28x6 = 38808 BioSNICAR runs
+  built in 110 s
+[S2B_22WEV_20170711_0_L2A] SZA 45.1, 900/900 snow/ice pixels, chi2 fail 0 %, 132 s
+Building emulator (ours, tier C, bubbly): 21x11x28x6 = 38808 BioSNICAR runs
+  built in 108 s
+[S2B_22WEV_20170721_0_L2A] SZA 46.8, 900/900 snow/ice pixels, chi2 fail 0 %, 123 s
+Building emulator (ours, tier C, bubbly): 21x11x28x6 = 38808 BioSNICAR runs
+  built in 106 s
+[S2B_22WEV_20170715_0_L2A] SZA 45.8, 900/900 snow/ice pixels, chi2 fail 0 %, 122 s
+Building emulator (ours, tier C, bubbly): 21x11x28x6 = 38808 BioSNICAR runs
+  built in 107 s
+[S2A_22WEV_20170723_0_L2A] SZA 47.2, 868/900 snow/ice pixels, chi2 fail 0 %, 122 s
+                       scenes          estimate  n   bias  rmse  spearman  coverage95  obs_mean  obs_se  sat_mean  n_pixels
+primary (nearest clear scene)    sat_log_b_mean 20 -0.139 0.740    -0.074       1.000       NaN     NaN       NaN       NaN
+primary (nearest clear scene) sat3x3_log_b_mean 20 -0.188 0.747    -0.165         NaN       NaN     NaN       NaN       NaN
+primary (nearest clear scene)   plot_log_b_mean 20  0.158 0.465     0.847         NaN       NaN     NaN       NaN       NaN
+primary (nearest clear scene)   site mean, 15_7  5  0.042   NaN       NaN         NaN     3.620   0.268     3.662       5.0
+primary (nearest clear scene)   site mean, 21_7  5 -0.335   NaN       NaN         NaN     3.935   0.423     3.600       3.0
+primary (nearest clear scene)   site mean, 22_7  5 -0.379   NaN       NaN         NaN     4.093   0.241     3.714       3.0
+primary (nearest clear scene)   site mean, 23_7  5  0.068   NaN       NaN         NaN     3.617   0.400     3.684       4.0
+     S2B_22WEV_20170711_0_L2A    sat_log_b_mean  5  0.042 0.497     0.600       1.000       NaN     NaN       NaN       NaN
+     S2B_22WEV_20170711_0_L2A sat3x3_log_b_mean  5  0.015 0.492     0.800         NaN       NaN     NaN       NaN       NaN
+     S2B_22WEV_20170711_0_L2A   plot_log_b_mean  5  0.057 0.271     0.900         NaN       NaN     NaN       NaN       NaN
+     S2B_22WEV_20170711_0_L2A   site mean, 15_7  5  0.042   NaN       NaN         NaN     3.620   0.268     3.662       5.0
+     S2B_22WEV_20170721_0_L2A    sat_log_b_mean 15 -0.200 0.805    -0.261       1.000       NaN     NaN       NaN       NaN
+     S2B_22WEV_20170721_0_L2A sat3x3_log_b_mean 15 -0.255 0.814    -0.459         NaN       NaN     NaN       NaN       NaN
+     S2B_22WEV_20170721_0_L2A   plot_log_b_mean 15  0.191 0.513     0.832         NaN       NaN     NaN       NaN       NaN
+     S2B_22WEV_20170721_0_L2A   site mean, 21_7  5 -0.335   NaN       NaN         NaN     3.935   0.423     3.600       3.0
+     S2B_22WEV_20170721_0_L2A   site mean, 22_7  5 -0.379   NaN       NaN         NaN     4.093   0.241     3.714       3.0
+     S2B_22WEV_20170721_0_L2A   site mean, 23_7  5  0.068   NaN       NaN         NaN     3.617   0.400     3.684       4.0
+     S2B_22WEV_20170715_0_L2A    sat_log_b_mean  5 -0.123 0.549     0.000       1.000       NaN     NaN       NaN       NaN
+     S2B_22WEV_20170715_0_L2A sat3x3_log_b_mean  5 -0.126 0.553    -0.400         NaN       NaN     NaN       NaN       NaN
+     S2B_22WEV_20170715_0_L2A   plot_log_b_mean  5  0.057 0.271     0.900         NaN       NaN     NaN       NaN       NaN
+     S2B_22WEV_20170715_0_L2A   site mean, 15_7  5 -0.123   NaN       NaN         NaN     3.620   0.268     3.497       5.0
+     S2A_22WEV_20170723_0_L2A    sat_log_b_mean 15 -0.530 0.920     0.067       0.867       NaN     NaN       NaN       NaN
+     S2A_22WEV_20170723_0_L2A sat3x3_log_b_mean 15 -0.530 0.922    -0.005         NaN       NaN     NaN       NaN       NaN
+     S2A_22WEV_20170723_0_L2A   plot_log_b_mean 15  0.191 0.513     0.832         NaN       NaN     NaN       NaN       NaN
+     S2A_22WEV_20170723_0_L2A   site mean, 21_7  5 -0.550   NaN       NaN         NaN     3.935   0.423     3.385       3.0
+     S2A_22WEV_20170723_0_L2A   site mean, 22_7  5 -0.762   NaN       NaN         NaN     4.093   0.241     3.331       3.0
+     S2A_22WEV_20170723_0_L2A   site mean, 23_7  5 -0.286   NaN       NaN         NaN     3.617   0.400     3.331       4.0
+Plot-to-plot SD of log counts within one 10 m pixel: 0.83 dex (11 dof) - the RMSE floor for any pixel-vs-sample comparison
+Done in 1092 s -> /tmp/claude-0/-home-user-algae/32b7214c-bd8e-5e37-94c0-4ae97c3c08dd/scratchpad/satval_w20

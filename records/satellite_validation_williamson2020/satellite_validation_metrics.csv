@@ -1,0 +1,28 @@
+scenes,estimate,n,bias,rmse,spearman,coverage95,obs_mean,obs_se,sat_mean,n_pixels
+primary (nearest clear scene),sat_log_b_mean,20,-0.1394,0.7401,-0.07356,1,,,,
+primary (nearest clear scene),sat3x3_log_b_mean,20,-0.1876,0.7468,-0.1648,,,,,
+primary (nearest clear scene),plot_log_b_mean,20,0.1577,0.4646,0.8469,,,,,
+primary (nearest clear scene),"site mean, 15_7",5,0.04236,,,,3.62,0.2678,3.662,5
+primary (nearest clear scene),"site mean, 21_7",5,-0.335,,,,3.935,0.4226,3.6,3
+primary (nearest clear scene),"site mean, 22_7",5,-0.3795,,,,4.093,0.2406,3.714,3
+primary (nearest clear scene),"site mean, 23_7",5,0.06783,,,,3.617,0.4004,3.684,4
+S2B_22WEV_20170711_0_L2A,sat_log_b_mean,5,0.04236,0.4974,0.6,1,,,,
+S2B_22WEV_20170711_0_L2A,sat3x3_log_b_mean,5,0.01502,0.4922,0.8,,,,,
+S2B_22WEV_20170711_0_L2A,plot_log_b_mean,5,0.05673,0.2709,0.9,,,,,
+S2B_22WEV_20170711_0_L2A,"site mean, 15_7",5,0.04236,,,,3.62,0.2678,3.662,5
+S2B_22WEV_20170721_0_L2A,sat_log_b_mean,15,-0.1999,0.8049,-0.2608,1,,,,
+S2B_22WEV_20170721_0_L2A,sat3x3_log_b_mean,15,-0.2551,0.8141,-0.4586,,,,,
+S2B_22WEV_20170721_0_L2A,plot_log_b_mean,15,0.1914,0.5131,0.8321,,,,,
+S2B_22WEV_20170721_0_L2A,"site mean, 21_7",5,-0.335,,,,3.935,0.4226,3.6,3
+S2B_22WEV_20170721_0_L2A,"site mean, 22_7",5,-0.3795,,,,4.093,0.2406,3.714,3
+S2B_22WEV_20170721_0_L2A,"site mean, 23_7",5,0.06783,,,,3.617,0.4004,3.684,4
+S2B_22WEV_20170715_0_L2A,sat_log_b_mean,5,-0.1228,0.5493,0,1,,,,
+S2B_22WEV_20170715_0_L2A,sat3x3_log_b_mean,5,-0.1263,0.5528,-0.4,,,,,
+S2B_22WEV_20170715_0_L2A,plot_log_b_mean,5,0.05673,0.2709,0.9,,,,,
+S2B_22WEV_20170715_0_L2A,"site mean, 15_7",5,-0.1228,,,,3.62,0.2678,3.497,5
+S2A_22WEV_20170723_0_L2A,sat_log_b_mean,15,-0.5297,0.9199,0.06655,0.8667,,,,
+S2A_22WEV_20170723_0_L2A,sat3x3_log_b_mean,15,-0.5302,0.922,-0.005396,,,,,
+S2A_22WEV_20170723_0_L2A,plot_log_b_mean,15,0.1914,0.5131,0.8321,,,,,
+S2A_22WEV_20170723_0_L2A,"site mean, 21_7",5,-0.5502,,,,3.935,0.4226,3.385,3
+S2A_22WEV_20170723_0_L2A,"site mean, 22_7",5,-0.7619,,,,4.093,0.2406,3.331,3
+S2A_22WEV_20170723_0_L2A,"site mean, 23_7",5,-0.2858,,,,3.617,0.4004,3.331,4
