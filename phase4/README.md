@@ -212,6 +212,23 @@ With the measured phenolic MAC and dust on, **τ = 0.37 dex**. 95 % coverage:
 
 The calibrated intervals are slightly conservative: the Gaussian τ also absorbs the remaining S6 bias of +0.17 dex.
 
+## Dust at the independent site (`dust_sensitivity.py`)
+
+No dust was measured at the southern-Greenland site. Chevrollier et al. (2023) argue from their spectral fits that dust does not lower the albedo significantly above 350 nm; the 2026 data archive (Zenodo 10.5281/zenodo.18826013) contains no dust retrievals. The S6 dust prior is therefore a **transfer assumption**. Its effect is bracketed with four priors (measured phenolic MAC; `records/dust_sensitivity_williamson2020/`):
+
+| Dust prior | S6 bias | S Greenland bias | S Greenland RMSE | Coverage with τ (S6 / S Gr.) | τ (dex) | Log evidence (all) |
+|---|---|---|---|---|---|---|
+| **Measured S6 (default)**: median 3.1 × 10⁵ ppb, ln-SD 0.46 | +0.17 | −0.21 | 0.51 | 0.98 / 1.00 | 0.37 | 284 |
+| Broad: same median, ln-SD 1.5 | +0.12 | −0.28 | 0.56 | 0.98 / 1.00 | 0.37 | 298 |
+| 10× cleaner site: median 3.1 × 10⁴, ln-SD 1.0 | +0.43 | +0.13 | 0.40 | 0.98 / 1.00 | 0.44 | 243 |
+| No dust | +0.49 | +0.19 | 0.42 | 0.95 / 1.00 | 0.51 | 227 |
+
+**What this shows**
+- **Four bands do not constrain dust.** The posterior median dust at both sites simply follows the prior: 2.7 × 10⁵ ppb (S6 prior), 4.7 × 10⁵ (broad), 5.0 × 10⁴ (cleaner).
+- **S6 needs dust.** The evidence ranks broad ≈ S6 prior ≫ cleaner > none, and is dominated by the 41 S6 samples.
+- **Southern-site abundance is uncertain by about ±0.2 dex** because its dust is unknown: the bias ranges from −0.28 to +0.19 dex. This structural uncertainty is smaller than τ (0.37 dex), so the calibrated intervals cover it.
+- **For the paper:** state the borrowing as a limitation, quote this range, and recommend dust measurements with future count/spectrum campaigns.
+
 ## Satellite-scale validation (`satellite_validation.py`)
 
 **Question.** The field validation is at plot scale (spectrometer footprint ≈ 0.5 m). Does the same retrieval, applied to Sentinel-2 L2A pixels with the field-calibrated σ, radius prior and τ, agree with the counts?
