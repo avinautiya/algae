@@ -88,7 +88,8 @@ def main(argv=None):
     p.add_argument("--aggregate-only", action="store_true")
     a = p.parse_args(argv)
     os.makedirs(a.outdir, exist_ok=True)
-    cache = os.path.join(a.outdir, "shared_cache")
+    a.outdir = os.path.abspath(a.outdir)
+    cache = os.path.join(a.outdir, "shared_cache")      # absolute: symlinks below must resolve from any folder
     rows = []
     for sid in a.scenes:
         out = os.path.join(a.outdir, sid)
