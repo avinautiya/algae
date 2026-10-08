@@ -55,6 +55,15 @@ def main(argv=None):
     os.makedirs(a.outdir, exist_ok=True)
     rows, dust_post = [], {}
     for v, cfg in VARIANTS.items():
+        done = os.path.join(a.outdir, f"variant_{v}.json")
+        if os.path.isfile(done):                         # finished before an interruption
+            d = json.load(open(done))
+            rows += d["rows"]
+            if d["dust_post"] is not None:
+                dust_post[v] = d["dust_post"]
+            print(f"[{v}] loaded", flush=True)
+            continue
+        n0 = len(rows)
         df, m, res = FV.run(phase1_l2=a.phase1_l2, biosnicar=a.biosnicar, workers=a.workers, cache_dir=a.outdir,
                             phenol=a.phenol, verbose=False, models=("ours",), dust=cfg["dust"],
                             prior_overrides=cfg["prior"])
@@ -66,6 +75,8 @@ def main(argv=None):
         if "ours_dust_ppb_q50" in df:
             dust_post[v] = {ds: float(np.nanmedian(df.loc[df.dataset == ds, "ours_dust_ppb_q50"]))
                             for ds in ("s6_2017", "sgris_2021")}
+        with open(done, "w") as fh:
+            json.dump(dict(rows=rows[n0:], dust_post=dust_post.get(v)), fh, default=float)
         print(f"[{v}] done", flush=True)
     tab = pd.DataFrame(rows)
     tab.to_csv(os.path.join(a.outdir, "dust_sensitivity_metrics.csv"), index=False, float_format="%.4g")
