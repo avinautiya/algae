@@ -73,6 +73,8 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--phase1-l2", default=os.path.join(HERE, "..", "phase1", "results", "level2"))
     p.add_argument("--phenol", default="williamson2020", choices=["tddft", "williamson2020"])
+    p.add_argument("--tier", default="C", choices=["C", "D"],
+                   help="C: calibrated uncomplexed pigment; D: + measured Fe-complex absorption (phenol=tddft only)")
     p.add_argument("--biosnicar", default=None)
     p.add_argument("--variants", nargs="+", default=list(VARIANTS))
     p.add_argument("--workers", type=int, default=os.cpu_count() or 1)
@@ -84,7 +86,7 @@ def main(argv=None):
         t0 = time.time()
         ov = dict(VARIANTS[v], f_n=(0.0, 1.0, 0.2))
         df, m, res = FV.run(phase1_l2=a.phase1_l2, biosnicar=a.biosnicar, workers=a.workers, cache_dir=a.outdir,
-                            phenol=a.phenol, verbose=False, emu_overrides=ov, models=("ours",), dust=False)
+                            phenol=a.phenol, tier=a.tier, verbose=False, emu_overrides=ov, models=("ours",), dust=False)
         df.to_csv(os.path.join(a.outdir, f"samples_{v}.csv"), index=False, float_format="%.5g")
         mo = m[m.method.str.contains("ours")]
         for r in mo.itertuples():
