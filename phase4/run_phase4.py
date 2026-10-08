@@ -63,7 +63,9 @@ def parse_args(argv=None):
     m.add_argument("--phase1-l2", default=os.path.join(HERE, "..", "phase1", "results", "level2"))
     m.add_argument("--demo", action="store_true", help="BioSNICAR ppg.csv instead of Phase 1 (DEMO)")
     m.add_argument("--biosnicar", default=None)
-    m.add_argument("--tier", choices=["C", "D"], default="C")
+    m.add_argument("--tier", choices=["C", "D"], default=None,
+                   help="pigment optics tier; default D (calibrated TD-DFT + Fe-complexed fraction) with --phenol "
+                        "tddft - favoured by the field spectra (bias_study.py, README) - and C otherwise")
     m.add_argument("--phenol", choices=["tddft", "tddft_raw", "williamson2020"], default="tddft",
                    help="phenolic MAC: Phase 1 TD-DFT Level 2 calibrated to measured pigment spectra (default), "
                         "uncalibrated (tddft_raw), or the measured extract MAC of Williamson et al. 2020")
@@ -99,7 +101,10 @@ def parse_args(argv=None):
     v.add_argument("--workers", type=int, default=os.cpu_count() or 1)
     v.add_argument("--outdir", default=os.path.join(HERE, "results"))
     v.add_argument("--usetex", action="store_true")
-    return p.parse_args(argv)
+    a = p.parse_args(argv)
+    if a.tier is None:
+        a.tier = "D" if a.phenol == "tddft" else "C"
+    return a
 
 
 # --------------------------------------------------------------------------- #

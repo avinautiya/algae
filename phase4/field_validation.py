@@ -54,7 +54,7 @@ import empirical_data as ED  # noqa: E402
 
 SIGMA_GRID = np.array([0.01, 0.015, 0.02, 0.03, 0.04, 0.06, 0.08])
 # empirical-Bayes grid for the population distribution of the (surface) ice radius: ln r ~ N(mu, sd)
-EB_MU_LNR = np.log([600.0, 900.0, 1350.0, 2000.0, 3000.0, 4500.0])
+EB_MU_LNR = np.log([400.0, 480.0, 600.0, 900.0, 1350.0, 2000.0, 3000.0, 4500.0])   # 400 um: emulator radius axis starts at 300 um
 EB_SD_LNR = np.array([0.35, 0.6, 0.9, 1.2, 1.6, 2.0, 2.5])
 DATASET_LABEL = {"s6_2017": "S6 2017 (Cook et al. 2020)", "sgris_2021": "S Greenland 2021 (Chevrollier et al. 2023)",
                  "s6_2014": "S6 2014 (Stibal et al. 2017; manual ingestion)"}

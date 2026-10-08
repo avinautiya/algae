@@ -81,6 +81,7 @@ def main(argv=None):
     p.add_argument("--scenes", nargs="+", default=SCENES)
     p.add_argument("--phenol", default="tddft", choices=["tddft", "williamson2020"])
     p.add_argument("--phase1-l2", default=os.path.join(HERE, "..", "phase1", "results", "level2"))
+    p.add_argument("--tier", default=None, choices=["C", "D"], help="default D for tddft, C otherwise")
     p.add_argument("--resolution", type=float, default=20.0)
     p.add_argument("--workers", type=int, default=os.cpu_count() or 1)
     p.add_argument("--outdir", default=os.path.join(HERE, "results", "multi_scene"))
@@ -99,7 +100,7 @@ def main(argv=None):
                 if f.startswith("field_emulator_") and not os.path.exists(dst):
                     os.symlink(os.path.join(cache, f), dst)
             cmd = [sys.executable, os.path.join(HERE, "run_phase4.py"), "--source", "s2", "--scene-id", sid,
-                   "--phenol", a.phenol, "--phase1-l2", a.phase1_l2, "--resolution", str(a.resolution),
+                   "--phenol", a.phenol, "--tier", a.tier or ("D" if a.phenol == "tddft" else "C"), "--phase1-l2", a.phase1_l2, "--resolution", str(a.resolution),
                    "--workers", str(a.workers), "--no-dem", "--mcmc-steps", "1500", "--outdir", out]
             print(" ".join(cmd), flush=True)
             subprocess.run(cmd, check=True)
