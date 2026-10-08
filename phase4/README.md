@@ -150,7 +150,24 @@ The Cook row covers only the 13 samples that have a published non-zero retrieval
 **What this shows**
 - **Overall:** our model is the most accurate and best calibrated of the methods scored on all samples. At the independent site its bias is +0.17 dex with 89 % coverage. There the empirical regression, fitted mostly to S6, fails (bias −0.49, ρ 0.10), but the physics transfers.
 - **Bias:** a positive bias remains (+0.47 dex at S6). The intervals are still somewhat too narrow (78 % coverage overall). Do not quote S6 abundances as calibrated.
-- **TD-DFT path:** with the placeholder Phase 1 spectrum (`--phenol tddft`), the bias is +0.78 dex. The calibration fixes units and band positions, but a minimal-basis spectrum cannot reproduce the measured band shape (HPLC-shape R² 0.91). Rerun with production Level 2 output.
+- **TD-DFT path:** with the production Level 2 spectrum, see the molecular-to-field test below. Tier D matches or beats the measured MAC; tier C does not. (The placeholder spectrum gave +0.78 dex.)
+
+## Molecular-to-field test: which pigment optics explain the field spectra?
+
+The central test: the same leave-one-out field validation (59 counted samples, two sites), with σ, the ice-radius prior and τ re-selected for each path. The phenolic absorption comes from the production Phase 1 Level 2 TD-B3LYP spectrum, calibrated to the measured pigment spectra (shape R² 0.974, ΔE +0.06 eV), or from the measured extract MAC. Dust is on everywhere. Results are in `records/pigment_path_comparison/`.
+
+| Pigment optics | Log evidence (spectra) | Bias, all 59 | S6 bias | S Greenland bias | RMSE | Spearman ρ | 95 % coverage: posterior / with τ | τ (dex) |
+|---|---|---|---|---|---|---|---|---|
+| **TD-DFT tier D** (calibrated chromophore + Fe-complexed fraction φ = 0.49) | **288.4** | +0.16 | +0.25 | **−0.06** | 0.49 | 0.76 | 0.83 / 0.98 | 0.42 |
+| Measured extract MAC (Williamson et al. 2020) | 284.0 | +0.05 | +0.16 | −0.21 | 0.48 | 0.76 | 0.83 / 0.98 | 0.37 |
+| TD-DFT tier C (calibrated chromophore, no Fe) | 189.8 | −0.31 | −0.11 | −0.78 | 0.71 | 0.64 | 0.83 / 0.97 | 0.53 |
+
+**What this shows**
+- **Uncomplexed chromophore fails.** The calibrated TD-DFT purpurogallin glucoside absorbs too little above 500 nm (Fig. S0b). The field spectra reject it: log evidence −98 relative to tier D, and −0.78 dex at the independent site.
+- **Iron complexation explains the field spectra.** Adding the Fe-complexed fraction fitted to the extract (tier D) reproduces them as well as the measured extract MAC (Bayes factor ≈ e^4.4 in favour of tier D). It also transfers best to the independent site (bias −0.06 dex).
+- **Production default.** The maps, the satellite check and Phase 3 now use the TD-DFT path with tier D (`run_phase4.py --tier`, default D for `--phenol tddft`).
+- **Without dust** the ranking is the same (tier D 233, measured 227, tier C 120).
+- **Radius prior.** The ice-radius hyper-prior grid now starts at 400 µm (the emulator's radius axis starts at 300 µm). With dust, all paths choose a 600 µm median as an interior optimum.
 
 ## Field-site bias study (`bias_study.py`)
 
