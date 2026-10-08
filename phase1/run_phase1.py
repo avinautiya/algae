@@ -125,7 +125,8 @@ def main(argv=None):
     # ---------------- ground-state optimisation -------------------------------
     t0 = time.time()
     if a.skip_opt:
-        mf = qc.make_mf(mol, a.opt_functional, solvent, a.eps, density_fit=not a.no_df, use_gpu=a.gpu, **grid_opts)
+        mf = qc.make_mf(mol, a.opt_functional, solvent, a.eps, density_fit=not a.no_df, use_gpu=a.gpu,
+                        chkfile=os.path.join(outdir, f"scf_{a.opt_functional}.chk"), **grid_opts)
         e_gs = mf.kernel()
         if not mf.converged:
             raise RuntimeError("ground-state SCF did not converge")
@@ -155,7 +156,8 @@ def main(argv=None):
         if func.upper() == a.opt_functional.upper():
             mf_td = mf
         else:
-            mf_td = qc.make_mf(mol, func, solvent, a.eps, density_fit=not a.no_df, use_gpu=a.gpu, **grid_opts)
+            mf_td = qc.make_mf(mol, func, solvent, a.eps, density_fit=not a.no_df, use_gpu=a.gpu,
+                               chkfile=os.path.join(outdir, f"scf_{func}.chk"), **grid_opts)
             mf_td.kernel()
             if not mf_td.converged:
                 raise RuntimeError(f"{func} SCF did not converge")

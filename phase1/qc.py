@@ -60,6 +60,9 @@ def make_mf(mol, functional: str = "B3LYP", solvent: str | None = "pcm",
     mf.max_cycle = 200
     mf.init_guess = "minao"
     mf.chkfile = chkfile
+    if chkfile and os.path.isfile(chkfile):
+        # restart (container restarts): start from the last saved orbitals, projected onto this geometry
+        mf.init_guess = "chkfile"
 
     if solvent is not None:
         solvent = solvent.lower()
