@@ -168,3 +168,41 @@ Cook et al. (2020) state only that "ice from within the viewing area of the spec
    - **Effect:** darkening is 4–8 % stronger (bubbly or granular ice, 450–650 kg m⁻³), equivalent to a few hundredths of a dex in retrieved abundance. The field-validation effect is in `phase4/bias_study.py`.
 5. **One bubble radius for both ice layers.** The field-spectra prior describes the effective (surface-dominated) radius.
 6. **Albedo spectra (only if Stibal et al. 2017 is ingested by hand):** k ~ N(1, `albedo_k_sd`), where the default 0.02 represents instrument calibration.
+
+## Sample positions for the satellite-scale check
+
+`tedstone2020_s6_2017_sample_locations.csv` holds 20 positions of counted S6 samples (15, 21, 22 and 23 July 2017). The source is `uav_sb_locations.csv` in Tedstone A. et al. (2020), *Multi-spectral unmanned aerial system imagery, S6, south-west Greenland, July 2017: Levels 2 (ground reflectance) and 3*, UK Polar Data Centre, doi:10.5285/77ca631f-a3a4-4f26-bc90-57bb17baa6fc, OGL v3.
+
+The coordinates are **UTM zone 23N (EPSG:32623)**, not 22N. Read as 22N they fall 6° west on land, with B8 > B2. As 23N they map to 67.0776 N, 49.348 W, the S6 site, and every Sentinel-2 pixel there is classified as snow/ice. `phase4/satellite_validation.py` reprojects the positions to the tile CRS (22WEV, EPSG:32622).
+
+The file keeps the original `allocation_comment` column. Two 15 July positions may be swapped (SB1 ↔ SB5). They are 18 m apart, i.e. in neighbouring pixels.
+
+## Literature comparison: published forcing and melt (quotes)
+
+**Cook et al. (2020)**, The Cryosphere 14:309, doi:10.5194/tc-14-309-2020 (CC-BY 4.0). S6, 21 July 2017.
+
+Abundance classes:
+> "Hbio = 2.9×10⁴ ± 2.01×10⁴; Lbio = 4.73×10³ ± 2.57×10³; CI = 625 ± 381; and SN = 0 ± 0 (1 SD)"
+
+Daily forcing and melt:
+> "Integrated over the entire day, this indicated a daily mean biological radiative forcing of 116 and 65 W m⁻² for Hbio and Lbio surfaces, respectively … to estimate 1.35 ± 0.01 (standard error, SE) cm w.e. of melting due to algae in Hbio areas on 21 July. For Lbio sites, biological melting on 21 July 2017 was 1.01 ± 0.01 (SE) cm w.e."
+
+Energy-balance cross-check:
+> "1.37 ± 0.48 (SE) cm w.e. attributed to Hbio and 0.95 ± 0.41 (SE) cm w.e. attributed to Lbio … 26.15 ± 3.77 % (SE) of the local melting attributed to algae in the Hbio surfaces and 21.62 ± 5.07 % (SE) for Lbio surfaces."
+
+Regional runoff:
+> "algal growth led to an additional 4.4–6.0 Gt of runoff from bare ice in the south-western sector of the GrIS in summer 2017, representing 10 %–13 % of the total"
+
+Note: read as a 24 h mean, 116 W m⁻² would melt 116 × 86400 / 3.34×10⁶ = 3.0 cm w.e. d⁻¹, not 1.35. The published forcing and melt are not mutually consistent under that reading. Melt is therefore the like-for-like comparison quantity.
+
+**Williamson et al. (2020)**, PNAS 117:5694, doi:10.1073/pnas.1918412117. S6 area, 26 July 2016.
+
+> "Integration over the complete diel cycle revealed the potential for glacier algal assemblages to contribute from 0.03 ± 0.00 cm w.e.⋅d⁻¹ in low-biomass areas (mean ± SE, n = 27) up to 1.86 ± 0.99 cm w.e.⋅d⁻¹ melt production in high-biomass patches of surface ice (mean ± SE, n = 103)"
+
+with the classes
+> "low (186 ± 276 cells⋅mL⁻¹, n = 27), medium (3,711 ± 2,333 cells⋅mL⁻¹, n = 34), or high (8,989 ± 4,773 cells⋅mL⁻¹, n = 103)"
+
+and
+> "glacier algae direct only ∼1 to 2.4% of incident energy to photochemistry versus 48 to 65% to ice surface melting"
+
+**Our comparison** (`phase3/literature_comparison.py`) uses the same classes and days. Abundance is log-normal with the class mean and SD; all other inputs come from the Phase 3 PDFs. Forcing is integrated over the measured hourly PROMICE KAN_M irradiance of that day (21 Jul 2017; 26 Jul 2016). KAN_M (1270 m) is about 20 km from S6 (≈1000 m), so the irradiance is approximate for S6 (a stated assumption).
