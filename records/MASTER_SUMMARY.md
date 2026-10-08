@@ -48,7 +48,7 @@ Source: `records/pigment_path_comparison/path_comparison_metrics.csv`. 59 counte
 | Algal film (top 2 mm) | Disfavoured (log evidence −20) | bias study |
 | Site calibration factor | Rejected: removes S6 bias, but drives the independent site to −0.30 to −0.37 dex | bias study |
 | Satellite scale, S6 2017 (measured MAC) | Pixel RMSE 0.74 dex ≈ within-pixel spread of counts 0.83 dex; site-mean agreement within 0.04–0.38 dex (count SE 0.24–0.42); coverage 1.00 | `records/satellite_validation_williamson2020/` |
-| Satellite scale, tier D | **pending** (rerun after imagery-bucket fix) | |
+| Satellite scale, tier D (production) | Pixel bias −0.03, RMSE 0.73 dex (floor 0.83); site means within 0.09–0.27 dex of the day-mean counts (count SE 0.24–0.42); coverage with τ 1.00 | `records/satellite_validation_tddft_tierD/` |
 
 ## 4. Global uncertainty and sensitivity (Phase 3, production)
 
