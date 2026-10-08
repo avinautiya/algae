@@ -30,7 +30,8 @@ out = F.spin_check(qc.xyz_file_to_atom_block('$g'), '$mode')
 json.dump({str(k): dict(E_Eh=v[0], S2=v[1], converged=v[2]) for k, v in out.items()},
           open('$out/spin_check.json', 'w'), indent=1)" >> "$out/spin_check.log" 2>&1
 }
-run $R/level2 B3LYP --level level2 --tddft-functionals B3LYP
+# Level 2 B3LYP optimisation was stopped at step 16 (results/level2/stop_criterion.json): single point + TD-DFT
+run $R/level2 none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals B3LYP
 echo "LEVEL2 DONE $(date -u)" >> $R/level2/run.log
 run $R/level2_cam none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals CAM-B3LYP
 run $R/level1 B3LYP --level level1 --tddft-functionals B3LYP CAM-B3LYP

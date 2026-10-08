@@ -1,0 +1,20 @@
+{
+ "stopped_at_step": 16,
+ "energy_Eh": -1599.4100923823,
+ "last_energy_change_Eh": -5.45e-06,
+ "grad_rms": 0.0001842,
+ "grad_max": 0.0005482,
+ "disp_rms_last": 0.00545,
+ "disp_max_last": 0.01775,
+ "geometric_default_criteria": {
+  "energy": 1e-06,
+  "grad_rms": 0.0003,
+  "grad_max": 0.00045,
+  "disp_rms": 0.0012,
+  "disp_max": 0.0018
+ },
+ "met": [
+  "grad_rms"
+ ],
+ "reason": "container restarts (~every 30-60 min) discard the BFGS history and the step in progress (~20-25 min per gradient on 4 CPU cores); the last energy change (5.4e-6 Eh = 1.5e-4 eV) is three orders of magnitude below TD-DFT excitation-energy errors (~0.1-0.3 eV), so the geometry is used as final"
+}
