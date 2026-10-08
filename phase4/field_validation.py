@@ -128,16 +128,18 @@ def _metrics(t, e, lo=None, hi=None, sd=None, obs_sd=None, lo_cal=None, hi_cal=N
 
 def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", tier="C",
         phenol="tddft", photosynthetic=True, spacecraft="S2A", rho_bottom=690.0, verbose=True,
-        emu_overrides: dict | None = None, models=("ours", "tierA"), dust: bool = True):
+        emu_overrides: dict | None = None, models=("ours", "tierA"), dust: bool = True,
+        prior_overrides: dict | None = None):
     """emu_overrides: extra EmulatorConfig fields for both models (e.g. dust_ppb=E.DUST_NODES_PPB,
-    film_dz=0.002, f_n=(0, 1, 0.2)) - used by bias_study.py."""
+    film_dz=0.002, f_n=(0, 1, 0.2)) - used by bias_study.py. prior_overrides: PriorConfig fields
+    (e.g. sd_lndust=1.5) - used by dust_sensitivity.py."""
     import emulator as E
     import inversion as INV
     from priors import PriorConfig, prior_logpdfs
 
     df = field_band_reflectance(spacecraft)
     R = df[["B2", "B3", "B4", "B8"]].to_numpy()
-    pc = PriorConfig.for_density(rho_bottom)
+    pc = dataclasses.replace(PriorConfig.for_density(rho_bottom), **(prior_overrides or {}))
     zs = np.round(df.sza).astype(int).to_numpy()
     res = {}
     ov = dict(dict(dust_ppb=E.DUST_NODES_PPB) if dust else {}, **(emu_overrides or {}))
@@ -154,6 +156,8 @@ def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", ti
                                       verbose=verbose).refine_log_b(0.05)
         qs = ("log_b_mean", "log_b_q025", "log_b_q975", "log_b_sd", "f_n_mean", "r_um_mean", "chi2", "k_map",
               "rf_algae_mean", "bba_mean")
+        if dust or "dust_ppb" in ov:
+            qs += ("dust_ppb_q50",)
         # hyper-parameter candidates: reflectance noise sigma x ice-radius prior (measured-SSA prior, or a
         # log-normal population distribution estimated from the field spectra by empirical Bayes)
         hyp = [(s_, "measured_ssa", pc.mu_lnr, pc.sd_lnr) for s_ in SIGMA_GRID]
