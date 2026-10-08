@@ -3,7 +3,8 @@
 # is skipped, and an interrupted optimisation resumes from its last trajectory frame. Re-run this script
 # after any interruption (container restart, OOM); it carries on where it stopped.
 #   setsid nohup scripts/phase1_production.sh > phase1/results/queue.log 2>&1 &
-# Memory: --max-memory 7000 on a 16 GB machine (PySCF overshoots the limit by ~35 %).
+# Memory: --max-memory 6000 on a 16 GB machine (PySCF overshoots the limit by ~35 %; 7000 left too little
+# headroom for side jobs: the VM restarted twice).
 cd "$(dirname "$0")/../phase1" || exit 1
 R=results
 export OMP_NUM_THREADS=${OMP_NUM_THREADS:-4}
@@ -14,7 +15,7 @@ run() {   # run OUTDIR OPT_FUNCTIONAL ARGS...: up to 3 attempts, resuming from t
     local start=()
     [ -s "$out/opt_${f}_last.xyz" ] && start=(--start-xyz "$out/opt_${f}_last.xyz" --no-xtb)
     echo "=== attempt $i $(date -u) $* ${start[*]}" >> "$out/run.log"
-    python3 run_phase1.py "$@" "${start[@]}" --max-memory 7000 --verbose 4 --outdir "$out" >> "$out/run.log" 2>&1
+    python3 run_phase1.py "$@" "${start[@]}" --max-memory 6000 --verbose 4 --outdir "$out" >> "$out/run.log" 2>&1
     echo "exit $? $(date -u)" >> "$out/run.log"
   done
   [ -s "$out/summary.json" ]
