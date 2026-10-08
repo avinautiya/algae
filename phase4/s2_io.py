@@ -34,7 +34,8 @@ BANDS = {"B2": "blue", "B3": "green", "B4": "red", "B8": "nir"}
 S3_BASE = "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs"
 STAC_URL = "https://earth-search.aws.element84.com/v1"
 GDAL_ENV = dict(GDAL_DISABLE_READDIR_ON_OPEN="EMPTY_DIR", CPL_VSIL_CURL_ALLOWED_EXTENSIONS=".tif",
-                GDAL_HTTP_MULTIRANGE="YES", GDAL_HTTP_MERGE_CONSECUTIVE_RANGES="YES")
+                GDAL_HTTP_MULTIRANGE="YES", GDAL_HTTP_MERGE_CONSECUTIVE_RANGES="YES",
+                GDAL_HTTP_MAX_RETRY="5", GDAL_HTTP_RETRY_DELAY="3")
 
 # SW Greenland "Dark Zone" around PROMICE S6 (well-documented glacier-algal blooms)
 DEFAULT_AOI = dict(lat=67.08, lon=-49.35, size_km=6.0)
@@ -113,7 +114,20 @@ def _scale_offset(item, asset):
     return scale, offset
 
 
-def read_scene(item: dict, bounds, resolution: float = 20.0, keep_scl=(11,)) -> Scene:
+def read_scene(item: dict, bounds, resolution: float = 20.0, keep_scl=(11,), retries: int = 4) -> Scene:
+    """Windowed read with retries: the public COG bucket intermittently refuses existing files."""
+    import time
+    for k in range(retries):
+        try:
+            return _read_scene(item, bounds, resolution, keep_scl)
+        except Exception as e:  # noqa: BLE001 - rasterio open/read errors
+            if k == retries - 1:
+                raise
+            print(f"read_scene: {type(e).__name__}; retry {k + 1}/{retries - 1}", flush=True)
+            time.sleep(10 * (k + 1))
+
+
+def _read_scene(item: dict, bounds, resolution: float = 20.0, keep_scl=(11,)) -> Scene:
     import rasterio
     from rasterio.enums import Resampling
     from rasterio.windows import from_bounds
