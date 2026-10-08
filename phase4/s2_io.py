@@ -35,7 +35,9 @@ S3_BASE = "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs
 STAC_URL = "https://earth-search.aws.element84.com/v1"
 GDAL_ENV = dict(GDAL_DISABLE_READDIR_ON_OPEN="EMPTY_DIR", CPL_VSIL_CURL_ALLOWED_EXTENSIONS=".tif",
                 GDAL_HTTP_MULTIRANGE="YES", GDAL_HTTP_MERGE_CONSECUTIVE_RANGES="YES",
-                GDAL_HTTP_MAX_RETRY="5", GDAL_HTTP_RETRY_DELAY="3")
+                GDAL_HTTP_MAX_RETRY="8", GDAL_HTTP_RETRY_DELAY="1",
+                # the bucket (through the session proxy) intermittently answers 404 for existing files
+                GDAL_HTTP_RETRY_CODES="404,429,500,502,503,504")
 
 # SW Greenland "Dark Zone" around PROMICE S6 (well-documented glacier-algal blooms)
 DEFAULT_AOI = dict(lat=67.08, lon=-49.35, size_km=6.0)
