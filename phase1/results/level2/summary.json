@@ -1,0 +1,41 @@
+{
+  "level": "level2",
+  "name": "Purpurogallin carboxylic acid-6-O-beta-D-glucopyranoside",
+  "formula": "C18H18O12",
+  "molar_mass_g_mol": 426.33,
+  "charge": 0,
+  "multiplicity": 1,
+  "basis": "6-31g*",
+  "cartesian_d": true,
+  "solvent": "pcm",
+  "eps": 78.4,
+  "nstates": 30,
+  "tda": false,
+  "fwhm_ev": 0.3,
+  "napierian": true,
+  "gpu": false,
+  "cpu_threads": 4,
+  "grid_level": 3,
+  "pcm_lebedev_order": 29,
+  "tddft": {
+    "B3LYP": {
+      "time_s": 53701.9,
+      "highest_state_eV": 6.260142584045091,
+      "covers_lam_min": true,
+      "lambda_max_in_window_nm": 300.0,
+      "mac_max_m2_kg": 20987.50423587165,
+      "mac_mean_400_700_m2_kg": 615.9378282326031,
+      "brightest_state": {
+        "State": 6,
+        "Wavelength_nm": 296.1118664261319,
+        "Energy_eV": 4.187072942952427,
+        "Oscillator_Strength": 0.2708066316199827,
+        "MAC_estimated": NaN
+      }
+    }
+  },
+  "opt_functional": "B3LYP",
+  "ground_state_energy_Eh": -1599.410092380651,
+  "time_ground_state_s": 1575.4,
+  "total_time_s": 55277.3
+}
