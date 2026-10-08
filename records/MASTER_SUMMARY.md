@@ -93,7 +93,8 @@ Source: `records/literature_comparison/literature_comparison.csv`. Tier D; MC ov
 - The site-differencing estimates attribute all darkening between algal and clean sites to algae. That includes weathering-crust structure, dust and water.
 - They also disagree with each other: Williamson's melt per cell is about 4× Cook's.
 - Cook's 116 W m⁻² cannot be a 24 h mean: it would melt 3.0 cm d⁻¹, not 1.35.
-- Our high-biomass melt brackets Cook's value. At lower abundance we are 2–7× lower, which is a discussion point.
+- Our high-biomass melt brackets Cook's value. At lower abundance we are 2–7× lower.
+- **Optics audit** (`records/optics_audit/AUDIT.md`) found no bug. Our per-cell absorption is 0.93× measured in vivo cells (Chevrollier et al. 2023), and three independent optics give the same darkening to within 5 %. Williamson's 1.86 cm d⁻¹ exceeds the black-cell geometric limit of its own stated cell size and sampling by about 6×. Cook's RF is the full algal-site vs clean-ice albedo difference.
 
 ## 6. Seasonal map series (2019, six clear scenes)
 

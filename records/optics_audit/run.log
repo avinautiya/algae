@@ -1,0 +1,83 @@
+/home/user/algae/phase2/audit_optics.py:198: RuntimeWarning: divide by zero encountered in divide
+  ax[1].plot(wl[m], (comm["abs_xsc_tierD"] / (e * (1 - s_)))[m], color="#1b6ca8", label="ours tier D")
+/home/user/algae/phase2/audit_optics.py:199: RuntimeWarning: divide by zero encountered in divide
+  ax[1].plot(wl[m], (comm["abs_xsc_measuredMAC"] / (e * (1 - s_)))[m], color="#e07b39", label="measured MAC")
+{
+ "1_assay": {
+  "f": 39.506154301495506,
+  "f_stoichiometric": 4.530124322601211,
+  "c_internal_phenol_eq_kg_m3": 22.026930813471107,
+  "macD_over_measured_350_700": {
+   "median": 0.8213969707336481,
+   "min": 0.4994712008459947,
+   "max": 1.5167242215212162
+  },
+  "macC_over_measured_350_700_median": 0.05929727858894536,
+  "a_i_tierD_over_a_i_measured_median": 0.8213969707336481,
+  "a_i_at_400_550_650_per_m": [
+   4872959.34491694,
+   765162.0097235607,
+   612088.1103642117
+  ]
+ },
+ "2_packaging": [
+  {
+   "species": "nordenskioeldii",
+   "volume_um3": 2306.9999999999995,
+   "projected_area_m2": 2.6003674853583186e-10,
+   "q_star_350_700_mean": 0.12322553406993994,
+   "q_star_min": 0.012943599441447967,
+   "q_star_max": 0.9999925029830543,
+   "sigma_abs_packaged_over_area_350_700": 0.9595727083208558,
+   "sigma_abs_unpackaged_over_area_350_700": 15.886980774572615,
+   "emulator_matches_rebuild_max_rel_diff": 0.0
+  },
+  {
+   "species": "alaskanum",
+   "volume_um3": 821.9999999999997,
+   "projected_area_m2": 1.2331045299792536e-10,
+   "q_star_350_700_mean": 0.07840765318407529,
+   "q_star_min": 0.008101254379123825,
+   "q_star_max": 0.9999943776440428,
+   "sigma_abs_packaged_over_area_350_700": 0.9704939854914016,
+   "sigma_abs_unpackaged_over_area_350_700": 25.367962797343264,
+   "emulator_matches_rebuild_max_rel_diff": 0.0
+  }
+ ],
+ "2_packaging_density_dependence": "none: CellModel.optics has no concentration argument; abundance enters only BioSNICAR's conc (emulator.node)",
+ "3_units": {
+  "cells_per_m2_at_1e4_per_mL": 90000000.0,
+  "expected_from_count_x_rho_x_dz": 90000000.0,
+  "tau_algae_500nm_at_1e4": 0.04680661473644973,
+  "ext_xsc_500nm_ours_m2": 5.200734970716637e-10,
+  "area_fraction_covered_at_1e4": 0.023403307368224865
+ },
+ "3_units_reference_ext_xsc_500nm": {
+  "ice_algae_empirical_Chevrollier2023": 6.44976058569307e-10
+ },
+ "4_band_mean_abs_xsc_m2_350_700": {
+  "abs_xsc_tierD": 1.9758332142636924e-10,
+  "abs_xsc_unpackaged": 3.729973288472646e-09,
+  "abs_xsc_measuredMAC": 1.981708129027941e-10,
+  "abs_xsc_ice_algae_empirical_Chevrollier2023": 2.1196459203676352e-10
+ },
+ "4_ratio_to_Chevrollier2023_measured": {
+  "abs_xsc_tierD": 0.9321524860722966,
+  "abs_xsc_unpackaged": 17.59715267833843,
+  "abs_xsc_measuredMAC": 0.9349241351990666,
+  "abs_xsc_ice_algae_empirical_Chevrollier2023": 1.0
+ },
+ "5_published_site_albedo_difference": {
+  "note": "Cook et al. 2020 Table 2 (UAV): Hbio 0.25, Lbio 0.44, clean ice 0.53 -> d_bba 0.28 (Hbio), 0.09 (Lbio)"
+ }
+}
+           case  cells_per_mL                              optics  d_bba  rf_noon_W_m2
+      Cook Hbio       29000.0                       tier D (ours) 0.0929       73.0718
+      Cook Hbio       29000.0      measured extract MAC, packaged 0.0883       69.4839
+      Cook Hbio       29000.0 ice_algae_empirical_Chevrollier2023 0.0907       71.3802
+      Cook Lbio        4730.0                       tier D (ours) 0.0188       14.7959
+      Cook Lbio        4730.0      measured extract MAC, packaged 0.0180       14.1252
+      Cook Lbio        4730.0 ice_algae_empirical_Chevrollier2023 0.0190       14.9480
+Williamson high        8989.0                       tier D (ours) 0.0343       26.9665
+Williamson high        8989.0      measured extract MAC, packaged 0.0327       25.7228
+Williamson high        8989.0 ice_algae_empirical_Chevrollier2023 0.0344       27.0369
