@@ -44,6 +44,8 @@
 - **States:** log B 3–5, r 1000–8000 µm, dust 3×10⁴ / 3×10⁵ ppb.
 - **Uncertainty:** 24 joint calibration draws propagated per TD treatment.
 
+**Plug-in contrasts** (posterior-mean spectra; retained from the original summary, they understate uncertainty):
+
 | Pair | max \|Δ broadband albedo\| | max \|Δ B2\| | max \|Δ absorbed SW\| |
 |---|---|---|---|
 | B3LYP-D − CAM-D (functional, after calibration) | **0.0034** | 0.0074 | **2.5 W m⁻²** |
@@ -53,16 +55,34 @@
 | B3LYP-D − B3LYP-C (Fe/visible term) | 0.080 | 0.010 | 58.5 |
 
 - **Calibration posterior spread** (max SD over states): B3LYP-D 0.021 broadband (15.8 W m⁻²); CAM-D 0.008 (5.6 W m⁻²).
-- **Readings:**
-  - After calibration, the choice of functional and the choice "TD-DFT vs measured MAC" change glacier albedo by ≤ 0.008 and absorbed SW by ≤ 6 W m⁻².
-  - That is below the 0.01 / 10 W m⁻² meaningful thresholds, and smaller than the calibration's own posterior spread.
-  - The only consequential component is the **visible absorber** (tier D vs C: up to 0.08 albedo, 58 W m⁻²), and in the current model it is the **measured** Fe increment scaled by a fitted φ, not a quantum-chemical prediction.
+
+**Posterior contrasts** (correction P8-INF-1; `uncertainty/posterior_contrasts.csv`, `uncertainty/posterior_contrast_summary.csv`, `phase4/molecular_uncertainty.py`). Signed contrast, 95 % interval over states, and the largest P(|Δ| ≥ threshold) over the 24 states:
+
+| Pair (coupling) | Plug-in max \|Δ\| albedo | 95 % range over states, albedo | max P(\|Δ\| ≥ 0.01) | 95 % range, absorbed SW (W m⁻²) | max P(\|Δ\| ≥ 10 W m⁻²) |
+|---|---|---|---|---|---|
+| B3LYP-D − CAM-D (independent posteriors) | 0.0034 | −0.020 to +0.063 | 0.53 | −46 to +15 | 0.42 |
+| B3LYP-D − measured MAC | 0.0051 | −0.015 to +0.054 | 0.54 | −39 to +11 | 0.38 |
+| CAM-D − measured MAC | 0.0080 | −0.016 to +0.011 | 0.29 | −8 to +11 | 0.08 |
+| B3LYP-D − B3LYP-C (paired, same draw) | 0.080 | −0.082 to −0.0004 | 1.0 | +0.3 to +60 | 1.0 |
+| CAM-D − CAM-C (paired) | 0.019 | −0.025 to −0.0001 | 0.92 | +0.1 to +18 | 0.83 |
+
+Couplings:
+- **Within a functional, tier C vs D:** paired by posterior draw (same dE, w, f; D adds φ × the measured Fe increment).
+- **Between the separately calibrated functionals:** independent draws (all 24 × 24 pairs). Equal draw indices carry no joint meaning. A common-cause coupling through the shared calibration data is not represented.
+- **Measured MAC:** in the 24-draw version it is a point value, so its uncertainty is **omitted**, as flagged in the file. The measured-MAC-draw version and the 24-vs-96 Monte Carlo stability check are reported in §3b.
+
+**Readings (corrected):**
+- **Plug-in:** after calibration, the functional and "TD-DFT vs measured MAC" change glacier albedo by ≤ 0.008 and absorbed SW by ≤ 6 W m⁻².
+- **This understated the uncertainty.** With calibration uncertainty propagated, the B3LYP-D contrasts have intervals up to +0.06 albedo, and P(|Δ| ≥ 0.01) reaches about 0.5 at high loading (log B ≥ 4.5). The cause is that the B3LYP-D visible magnitude is poorly constrained (±124 % relative SD).
+- **Conclusion:** whether the molecular treatment changes glacier albedo by a practically important amount is **unresolved**, not "no".
+- **The visible absorber matters** (tier D vs C, paired: 0.02–0.08 albedo). In the current model it is the measured Fe increment scaled by a fitted φ, i.e. empirical, not a quantum-chemical prediction.
+- **Thresholds:** 0.01 albedo and 10 W m⁻² are **practical-importance thresholds** fixed in the protocol. They are not measurement uncertainties or detection limits (see §5).
 
 ## 4. Forward-error diagnosis, abundance slopes (§7)
 
 **Files:** `albedo_vs_abundance_slopes.csv`, `albedo_slope_day_bootstrap.csv`; `records/forward_diagnostics/`.
 
-Observed vs modelled (TD-DFT D, reference nuisance state) change in hemispherical albedo per decade of counted cells. 41 positive-count S6 2017 plots, 8 sampling days, day-block bootstrap:
+Observed vs modelled (TD-DFT D, reference nuisance state) change in hemispherical albedo per decade of counted cells. 41 positive-count S6 2017 plots (**development data**, previously used to fit σ, the radius prior and the k prior), 8 sampling days, day-block bootstrap:
 
 | Band | Observed slope (95 %) | Unexplained by the pigment model (95 %) |
 |---|---|---|
@@ -71,27 +91,37 @@ Observed vs modelled (TD-DFT D, reference nuisance state) change in hemispherica
 | B8 833 nm | −0.095 (−0.143, −0.065) | **−0.087 (−0.138, −0.057)** |
 
 - **Every pigment treatment** (Tier A, measured MAC, TD-DFT C/D) predicts essentially no NIR response.
-- **About 40 % of the broadband abundance response** (observed −0.106 per decade vs modelled −0.060) comes from darkening that co-varies with algae at wavelengths where algal pigments do not absorb.
-- **Consistent with** non-biological surface change co-located with blooms: crust water content, ice micro-structure, cryoconite/dust. It is **not** consistent with an error in the molecular absorption spectrum.
+- **Unexplained abundance-associated darkening relative to the specified reference model** (`unexplained_fraction_day_bootstrap.csv`; 2000 day-block resamples; unexplained = 1 − model slope / observed slope):
+
+  | Band | TD-DFT D | Tier A |
+  |---|---|---|
+  | broadband | 0.44 (0.16–0.67) | 0.42 (0.14–0.66) |
+  | B2 | 0.24 (−0.09–0.59) | 0.16 (−0.21–0.53) |
+  | B4 | 0.47 (0.21–0.68) | 0.57 (0.36–0.75) |
+  | B8 | 0.92 (0.87–0.96) | 1.00 (0.99–1.01) |
+
+  - **Denominator stability:** no bootstrap resample had an observed slope near zero (share 0), so the ratio is stable here.
+  - **Causality:** this is an association with counted abundance under one reference nuisance state, not a causal attribution. Darkening that co-varies with algae may also come from crust water content, ice micro-structure, cryoconite/dust or plot heterogeneity.
+  - **What the band pattern shows:** the unexplained share is largest at B8, where the modelled pigments absorb almost nothing. An error confined to the visible pigment spectrum would not produce that pattern, but this analysis does not identify the cause.
 - **Zero-count plots:** −0.14 bias for every model (model too dark): the reference non-algal state is wrong in the other direction for clean surfaces.
-- **Geometry** (HCRF/albedo nearly flat spectrally, 0.83–0.88) and **illumination** (SZA ± 5°, spectrum) do not explain the deficit (P7-FWD-1).
+- **Geometry and illumination:** the tested adjustments (spectrally flat HCRF/albedo 0.83–0.88; SZA ± 5°; a mid-latitude spectrum) do not explain the full reference-model bias (P7-FWD-1). Other geometry treatments were not tested.
 
 ## 5. Decision gates
 
 | Gate | Classification | Evidence |
 |---|---|---|
 | **A** molecular predictions independently supported | **Unvalidated.** No independent laboratory spectrum of the pigment is available. Raw B3LYP agrees with the (later calibration) isolated-chromophore bands within about 0.1 eV; CAM does not. | §1. Required: Remias et al. 2012 spectrum (FEMS Microbiol Ecol 79:638; publisher 403 here) or a new measurement. |
-| **B** molecular treatment changes glacier optics meaningfully | **No, after calibration** (≤ 0.008 albedo, ≤ 6 W m⁻² between functionals and vs measured MAC). Yes only for the visible-absorber term, which is empirical. | §3 |
-| **C** controlled substitution improves independent observations | **Not supported / underdetermined.** H1 shows no gain. The predicted differences (≤ 0.008) are below the observation floor (0.01), so no glacier dataset can resolve them. | §3, P6-H1-1 |
+| **B** molecular treatment changes glacier optics meaningfully | **Unresolved** (corrected from "no", P8-INF-1). Plug-in contrasts are ≤ 0.008 albedo, but posterior intervals reach +0.06 and P(\|Δ\| ≥ 0.01) up to about 0.5 at high loading. Yes for the visible-absorber term, which is empirical. | §3 |
+| **C** controlled substitution improves independent observations | **Not supported; insufficient evidence, not impossibility.** H1 (S6 2017, development-reused sites, posterior-mean optics) shows no gain. In the evaluated observations (four-band S2 / broadband plot and station albedo) and under the stated assumptions, the plug-in differences fall below the 0.01 practical-importance threshold. That threshold is not a measurement floor: plot-albedo measurement uncertainty and detectability were not quantified separately. Other datasets (hyperspectral, co-located pigments) were not evaluated. | §3, P6-H1-1 |
 | **D** transfer without recalibration | **Untested.** No untouched campaign with co-located biology and albedo. | `docs/new_data_inventory.md` |
 | **E** melt benefit | **Untested** (H3 untested). | P5-H3-1 |
 
 ## 6. Repair decision (§11)
 
 - **No molecular repair is justified.**
-  - The molecular treatment is not the binding error: pigment-level substitution moves albedo by ≤ 0.008, while the model–observation gap is 0.10 broadband and 0.24 in B2.
+  - The molecular treatment is not the dominant error. Pigment-level substitution moves albedo by ≤ 0.008 at the plug-in, and by up to about 0.06 within the calibration posterior at high loading. The model–observation gap is 0.10 broadband and 0.24 in B2 (development data).
   - Expanding calibration freedom would only manufacture fit.
-- **The supported diagnosis is non-molecular:** algae-co-varying red/NIR darkening and a mis-centred non-algal (clean-ice) state.
+- **The diagnosis points away from the molecular spectrum:** there is unexplained abundance-associated red/NIR darkening relative to the reference model, and the non-algal (clean-ice) reference state is mis-centred. Neither cause is identified.
   - A repair would have to be constrained independently: for example, crust water/structure measured at the plots, or fitted on zero/low-algae controls of a development campaign.
   - It would then need testing on an untouched campaign. No such campaign exists in hand, so **no repaired model is frozen**.
 
@@ -102,11 +132,11 @@ Observed vs modelled (TD-DFT D, reference nuisance state) change in hemispherica
   - Absorption of glacier-algal extracts with known pigment mass (absolute, not phenol-equivalent) and known Fe content;
   - the isolated-pigment spectrum (Remias 2012);
   - the computed Fe(III)–purpurogallin complex (`FE_CAT`, now prioritised) vs the measured PG–Fe band (~593 nm, Procházková 2025), after state-character analysis.
-- **Glacier observations.** Four-band S2 and broadband albedo cannot discriminate (differences ≤ 0.008 < 0.01 floor).
+- **Glacier observations.** In the evaluated four-band S2 and broadband data, the plug-in differences (≤ 0.008) are below the 0.01 practical-importance threshold, and the posterior is too wide to discriminate. This is insufficient evidence for those observations, not a proof that no observation could discriminate.
   - Hyperspectral albedo with co-located HPLC-quantified pigments could, by resolving the 450–650 nm shape at known loading. No such labelled dataset is identified.
 
 ## Outcome category
 
-**"Quantum chemistry provides mechanistic explanation (band assignment of the uncomplexed chromophore; B3LYP within about 0.1 eV) while empirical optics predict as well; current data cannot distinguish the molecular treatments in glacier radiation."**
+**"Quantum chemistry provides mechanistic explanation (band assignment of the uncomplexed chromophore; B3LYP within about 0.1 eV) while empirical optics predict as well; the evaluated data cannot distinguish the molecular treatments in glacier radiation, and the posterior leaves a practically important difference possible."**
 
-The forward failure that limits prediction is non-molecular.
+The forward failure that limits prediction is not explained by the tested pigment treatments. Its cause is not identified.

@@ -1043,3 +1043,33 @@ The previous classification, "improvement supported in direction at both sites",
 - **Second reboot** found by the watchdog (uptime 0 min; no runner alive). Disk usage fell from 25 to 21 GB because per-job scratch was cleared. The BioSNICAR checkout, chemistry checkpoints (`td_ckpt`, SCF chk files) and calibration cache survived.
 - **Recovery.** The runner was relaunched and both chemistry jobs resumed from checkpoints. The surrogate re-benchmark and k-free chain were re-queued under the budget.
 - **Consequence.** Each reboot loses chemistry work since the last 2-iteration TD checkpoint, plus the setup, SCF and DF build (`docs/compute_reliability.md`). With reboots at roughly hourly intervals, the Level 2 TD jobs may not finish. No change is possible from inside the container; recorded for the user.
+
+### P8-REL-1: durable chemistry progress and process identity (`docs/chemistry_progress.md`)
+- **Audit.** Neither chemistry job wrote a checkpoint across the 19:52 and 20:57 relaunches. "Runner restarted" had been reported, but there was no durable progress.
+- **Defects fixed (tests added; 24 checkpoint/completion tests pass):**
+  1. L1_FULL re-ran a converged geometry optimisation on every relaunch. It now resumes with `--skip-opt` from its own converged final geometry and acceptance sidecar.
+  2. Re-reading the `.xyz` rounds one coordinate by 1×10⁻⁶ Bohr, which invalidated the 18-cycle TD checkpoint fingerprint. Checkpoints that differ only by rounding (≤ 10⁻⁵ Bohr) now reuse restart vectors without stage credit.
+     - Verified on the real job at 21:53 UTC: "operator identical except coordinate rounding (max |dR| 1.0e-06 Bohr); restart vectors reused; 18 Davidson cycles done".
+  3. Job and reservation adoption used PID existence only. It now requires boot ID, process start time and command hash, so PID reuse after a reboot no longer adopts stale state.
+- **Execution blocker.** L2_CAM_TDA15 needs about 134 min to its next checkpoint, while observed uptimes are 32–64 min, so it cannot complete in this environment.
+  - Portable package: `records/portable_chemistry/manifest.json`, `docs/portable_chemistry_package.md`.
+  - No paid compute was provisioned.
+  - The runner now runs L1_FULL only (`--only L1_FULL`); the other jobs cannot reach a checkpoint here.
+- **Not changed:** root counts, TD/TDA, tolerances, chunk size (one-iteration chunks are not adopted without a matched test).
+
+### P8-INF-1: uncertainty-aware molecular contrasts; claim corrections
+- **Gate B corrected from "no" to "unresolved".** Plug-in contrasts (posterior-mean spectra) were ≤ 0.008 albedo. With calibration draws propagated (`phase4/molecular_uncertainty.py`):
+  - B3LYP-D vs CAM-D (independent posteriors) spans −0.020 to +0.063, with P(|Δ| ≥ 0.01) up to 0.53;
+  - B3LYP-D vs measured MAC spans −0.015 to +0.054, P up to 0.54;
+  - C vs D are paired by draw.
+- **Couplings:** matching draw indices across separately calibrated functionals were NOT treated as joint. Measured-MAC uncertainty is omitted in the 24-draw version (flagged in the files).
+- **Abundance slope:**
+  - restated as unexplained abundance-associated darkening relative to the specified reference model, 0.44 (0.16–0.67) broadband;
+  - day-block bootstrap, denominator stable;
+  - not causal.
+- **Wording:**
+  - "Geometry ruled out" becomes "tested geometry adjustments do not explain the full reference-model bias".
+  - Thresholds are separated from measurement uncertainty.
+  - "No glacier dataset can resolve" is restricted to the evaluated observations and assumptions.
+  - Development data are labelled.
+- **Files:** `records/molecular_contribution/RESULTS.md`, `docs/claims_audit.md`, `docs/evidence_table.md`.

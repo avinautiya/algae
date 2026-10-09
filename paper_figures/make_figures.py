@@ -76,12 +76,19 @@ def save(fig, name, data: pd.DataFrame, caption, status, config=None):
     plt.close(fig)
     data.to_csv(os.path.join(OUT, f"{name}_data.csv"), index=False, float_format="%.6g")
     MANIFEST[name] = dict(caption=caption, validation_status=status, sources=dict(USED), config=config or {},
-                          files=[f"{name}.pdf", f"{name}.png", f"{name}_data.csv"])
+                          files=[f"{name}.pdf", f"{name}.png", f"{name}_data.csv"], build=build_info())
     USED.clear()
 
 
+def build_info():
+    dirty = subprocess.run(["git", "-C", ROOT, "status", "--porcelain", "--", "paper_figures/make_figures.py"],
+                           capture_output=True, text=True).stdout.strip() != ""
+    return dict(code_commit=commit(), script_sha256=hashlib.sha256(open(__file__, "rb").read()).hexdigest(),
+                script_uncommitted_changes=dirty, matplotlib=matplotlib.__version__)
+
+
 def blocked(name, reason):
-    MANIFEST[name] = dict(status="BLOCKED", reason=reason)
+    MANIFEST[name] = dict(status="BLOCKED", reason=reason, build=build_info())
     USED.clear()
 
 
@@ -611,6 +618,7 @@ def main(argv=None):
     mpath = os.path.join(OUT, "manifest.json")
     old = json.load(open(mpath)) if os.path.isfile(mpath) else {}
     for k in a.only:
+        old.pop(k, None)               # drop a stale failure record keyed by function name
         try:
             FIGS[k]()
         except Exception as e:  # noqa: BLE001 - a broken figure is reported, never silently skipped
@@ -618,8 +626,7 @@ def main(argv=None):
             USED.clear()
             print(f"[{k}] FAILED: {e}", flush=True)
     old.update(MANIFEST)
-    old["_build"] = dict(code_commit=commit(), script_sha256=hashlib.sha256(open(__file__, "rb").read()).hexdigest(),
-                         matplotlib=matplotlib.__version__)
+    old["_build"] = dict(build_info(), note="last invocation; each figure entry carries its own build record")
     json.dump(old, open(mpath, "w"), indent=1)
     print(json.dumps({k: v.get("status", "ok") for k, v in MANIFEST.items()}, indent=1))
 

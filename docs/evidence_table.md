@@ -5,7 +5,7 @@ Legend: ✔ yes · ◐ partial or weak · ✘ no · — not applicable.
 | Component | Implemented | Numerically verified | Empirically validated | Transferred | Integrated into a named host | Status / evidence |
 |---|---|---|---|---|---|---|
 | TD-DFT pigment spectrum (Phase 1) | ✔ | ◐ | ✘ (no independent lab spectrum; raw B3LYP within ~0.1 eV of calibration-data chromophore bands, CAM 0.5–0.8 eV off) | — | — | Gate A unvalidated; P7-MOL-1 |
-| Molecular treatment changes glacier optics after calibration (gate B) | ✔ (`phase4/molecular_contribution.py`) | ✔ (24 joint draws, direct RT) | **no**: functional or TD-vs-measured ≤ 0.008 albedo, ≤ 6 W m⁻² | — | — | `records/molecular_contribution/` |
+| Molecular treatment changes glacier optics after calibration (gate B) | ✔ (`phase4/molecular_contribution.py`) | ✔ (24 joint draws, direct RT) | **unresolved** (P8-INF-1): plug-in ≤ 0.008 albedo / ≤ 6 W m⁻², but posterior intervals reach +0.06 and P(\|Δ\| ≥ 0.01) up to about 0.5 | — | — | `records/molecular_contribution/` |
 | Forward-error source | ✔ | ✔ | NIR/red darkening co-varying with algae, unexplained by any pigment (B8 −0.087 per decade, −0.138…−0.057) | — | — | P7-FWD-1, P7-MOL-1 |
 | Spectral calibration to in vivo MAC | ✔ | ✔ (quadrature refinement converged) | ◐ | — | — | AR(1) vs iid structural difference is large; ρ adequacy UNRESOLVED |
 | Cell/packaging optics | ✔ | ✔ (unit tests) | ✘ (packaging and scattering not tested separately) | — | — | — |
