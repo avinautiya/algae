@@ -1,0 +1,12 @@
+name: Evidence-aware effects and data ingestion
+on: [push, pull_request]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.0.2
+      - run: python -m unittest discover -s agency_design/tests -v
