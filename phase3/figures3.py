@@ -25,7 +25,7 @@ from scipy.stats import gaussian_kde  # noqa: E402
 
 GROUP_COLORS = {"molecular": "#e87ba4", "cellular": "#008300", "environmental": "#4a3aa7"}
 INK, INK_2 = F.INK, F.INK_2
-SHORT = {"dE_ev": r"$\Delta E$", "f_scale": r"$f$ scale", "fwhm_ev": "FWHM",
+SHORT = {"cal_draw": "TD-DFT cal.", "dE_ev": r"$\Delta E$", "f_scale": r"$f$ scale", "fwhm_ev": "FWHM",
          "cell_length_um": r"$L$", "cell_diameter_um": r"$d$", "cell_volume_um3": r"$V$",
          "cell_aspect": r"$L/d$", "c_internal": r"$c_i$", "grain_um": r"$r_{ice}$",
          "rho_top": r"$\rho$", "conc_cells_ml": "abundance",

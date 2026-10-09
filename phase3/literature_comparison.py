@@ -132,7 +132,7 @@ def main(argv=None):
     space = ParameterSpace(default_parameters(include_tier_d=True, calibration=cal.summary()))
     kw = dict(phase1_l2=None if a.demo else a.phase1_l2, functional=a.functional, demo=a.demo,
               biosnicar=a.biosnicar, sw_down=1.0, qtable_cache=os.path.join(a.outdir, "qstar_table.npz"),
-              calibration_point=cal.point())
+              calibration_point=cal.point(), calibration_samples=cal.samples)
     _init(kw)                                 # build once (also fills the Q* table cache) before forking
 
     rows, draws = [], []

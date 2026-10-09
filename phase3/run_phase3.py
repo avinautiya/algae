@@ -45,6 +45,12 @@ def parse_args(argv=None):
     p.add_argument("--functional", default="B3LYP")
     p.add_argument("--demo", action="store_true", help="BioSNICAR ppg.csv instead of Phase 1 (labelled DEMO)")
     p.add_argument("--biosnicar", default=None)
+    p.add_argument("--independent-calibration", action="store_true",
+                   help="sample dE, FWHM, f, phi as independent marginals (former behaviour; sensitivity only)")
+    p.add_argument("--cal-residuals", default="ar1", choices=["ar1", "iid"],
+                   help="TD-DFT calibration residual model (structural scenario)")
+    p.add_argument("--lhs-replicates", type=int, default=10,
+                   help="independent LHS replicates; CIs of MC statistics from the replicate spread")
     p.add_argument("--outdir", default=os.path.join(HERE, "results"))
     p.add_argument("--n-mc", type=int, default=1000, help="Latin Hypercube sample size")
     p.add_argument("--n-sobol", type=int, default=1024, help="Saltelli base sample (power of 2)")
@@ -109,23 +115,31 @@ def main(argv=None):
     import tddft_calibration as TC
     lig = co.demo_spectrum(bb.locate_biosnicar(a.biosnicar)) if a.demo else co.load_phase1(a.phase1_l2, "level2",
                                                                                           a.functional)
-    cal = TC.calibrate(lig)
+    cal = TC.calibrate(lig, residuals=a.cal_residuals)
     cal_summary = cal.summary()
     with open(os.path.join(tab, "tddft_calibration.json"), "w") as fh:
         json.dump(cal_summary, fh, indent=1)
-    space = ParameterSpace(default_parameters(include_tier_d=not a.no_tier_d_params, calibration=cal_summary))
+    space = ParameterSpace(default_parameters(include_tier_d=not a.no_tier_d_params, calibration=cal_summary,
+                                              joint_calibration=not a.independent_calibration))
     space.table().to_csv(os.path.join(tab, "parameters.csv"), index=False)
     print(f"{space.D} uncertain parameters: {', '.join(space.names)}")
     model_kwargs = dict(phase1_l2=None if a.demo else a.phase1_l2, functional=a.functional, demo=a.demo,
                         biosnicar=a.biosnicar, sza=a.sza, sw_down=a.sw_down,
-                        qtable_cache=os.path.join(tab, "qstar_table.npz"), calibration_point=cal.point())
+                        qtable_cache=os.path.join(tab, "qstar_table.npz"), calibration_point=cal.point(),
+                        calibration_samples=cal.samples)
     second = not a.no_second_order
 
     # ---------------------------------------------------------- 1) Monte Carlo (LHS)
-    X = space.lhs(a.n_mc, seed=a.seed)
+    # R independent LHS replicates (an LHS is not an iid sample, so its bootstrap is not a valid CI);
+    # CIs of MC statistics come from the spread of the replicate statistics
+    nrep = max(1, a.lhs_replicates)
+    per = int(np.ceil(a.n_mc / nrep))
+    X = np.vstack([space.lhs(per, seed=a.seed + 1000 * r) for r in range(nrep)])
+    rep = np.repeat(np.arange(nrep), per)
     mc = run_or_load(os.path.join(tab, "mc_lhs_runs.csv"), space.as_dicts(X), model_kwargs,
                      a.workers, a.reuse, "Monte Carlo (LHS)")
-    summary = st.describe_frame(mc, [c for c in ALL_OUTPUTS if c in mc])
+    mc["lhs_replicate"] = rep[:len(mc)]
+    summary = st.describe_frame(mc, [c for c in ALL_OUTPUTS if c in mc], replicate=mc.lhs_replicate.to_numpy())
     summary.to_csv(os.path.join(tab, "mc_summary.csv"), float_format="%.6g")
     print("\nMonte Carlo summary (W m^-2 for rf/d/eff; albedo for bba):")
     print(summary.loc[["rf_A", "rf_B", "rf_C", "rf_D", "d_CB", "d_DC"],

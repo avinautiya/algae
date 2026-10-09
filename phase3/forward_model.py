@@ -41,7 +41,8 @@ class ForwardModel:
                  uv_mode: str = "hold", ice_mode: str = "bubbly", rho_bottom: float = 690.0,
                  photosynthetic: bool = True,
                  dz_top: float = 0.02, dz_bottom: float = 2.0, g_fixed: float = 0.96,
-                 qtable_cache: str | None = None, calibration_point: dict | None = None):
+                 qtable_cache: str | None = None, calibration_point: dict | None = None,
+                 calibration_samples=None):
         import biosnicar_bridge as bb
         import cell_optics as co
         import empirical_data as ED
@@ -76,6 +77,8 @@ class ForwardModel:
         if calibration_point is None:
             calibration_point = TC.calibrate(self.ligand, verbose=False).point()
         self.cal = calibration_point          # defaults for absent molecular parameters
+        # joint posterior samples (n, >=4) in tddft_calibration.NAMES order: dE, w, f, phi, ...
+        self.cal_samples = None if calibration_samples is None else np.asarray(calibration_samples, float)
 
     def resolve(self, p: dict) -> dict:
         """Derived inputs of one sample: bubble radius from the ice SSA (at the bottom-layer density),
@@ -105,8 +108,14 @@ class ForwardModel:
         """Calibrated pigment MAC (tier B/C) and with the Fe-complexed fraction (tier D); the
         molecular parameters are the calibration's dE (eV), FWHM (eV), f and phi."""
         c = self.cal
-        dE, w = p.get("dE_ev", c["dE"]), p.get("fwhm_ev", c["w"])
-        f, phi = p.get("f_scale", c["f"]), p.get("fe_fraction", c["phi"])
+        if "cal_draw" in p:                  # joint posterior draw (dE, w, f, phi) of the calibration
+            if self.cal_samples is None:
+                raise ValueError("cal_draw needs calibration_samples")
+            i = min(int(p["cal_draw"] * len(self.cal_samples)), len(self.cal_samples) - 1)
+            dE, w, f, phi = self.cal_samples[i, :4]
+        else:
+            dE, w = p.get("dE_ev", c["dE"]), p.get("fwhm_ev", c["w"])
+            f, phi = p.get("f_scale", c["f"]), p.get("fe_fraction", c["phi"])
         mac_c = self.co.to_480(self.TC.perturbed_mac(self.ligand, dE, f, w), self.window, self.uv_mode)
         mac_d = self.co.to_480(self.TC.complexed_mac(self.ligand, dE, f, w, phi), self.window, self.uv_mode)
         return mac_c, mac_d

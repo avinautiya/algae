@@ -119,3 +119,39 @@ if __name__ == "__main__":
         if name.startswith("test_"):
             fn()
             print(f"PASS {name}")
+
+
+def test_joint_calibration_draw_keeps_correlations_and_replicate_ci():
+    import stats_tools as st
+    from param_space import default_parameters
+    cal = {k: dict(mean=m, sd=s) for k, m, s in (("dE", 0.04, 0.01), ("w", 0.6, 0.01), ("f", 60.0, 20.0),
+                                                 ("phi", 0.12, 0.03))}
+    cal["log_f"] = dict(mean=np.log(60.0), sd=0.3)
+    pj = default_parameters(True, cal, joint_calibration=True)
+    names = [p.name for p in pj]
+    assert "cal_draw" in names and not {"dE_ev", "f_scale", "fwhm_ev", "fe_fraction"} & set(names)
+    pi = [p.name for p in default_parameters(True, cal, joint_calibration=False)]
+    assert {"dE_ev", "f_scale", "fwhm_ev", "fe_fraction"} <= set(pi)
+    # the forward model maps the draw onto ONE joint posterior row
+    from forward_model import ForwardModel
+    rng = np.random.default_rng(0)
+    z = rng.normal(size=1000)
+    samples = np.column_stack([0.04 + 0.01 * rng.normal(size=1000), 0.6 + 0.01 * rng.normal(size=1000),
+                               60 + 20 * z, 0.12 - 0.03 * z])                    # f and phi anti-correlated
+    fm = ForwardModel.__new__(ForwardModel)
+    fm.cal, fm.cal_samples = dict(dE=0, w=0.6, f=1, phi=0), samples
+    seen = []
+    fm.co = type("co", (), {"to_480": staticmethod(lambda f, *a: f)})
+    fm.TC = type("tc", (), {"perturbed_mac": staticmethod(lambda lig, dE, f, w: (dE, w, f)),
+                            "complexed_mac": staticmethod(lambda lig, dE, f, w, phi: seen.append((f, phi)) or 0)})
+    fm.ligand, fm.window, fm.uv_mode = None, None, None
+    for u in rng.random(300):
+        fm.mac480(dict(cal_draw=u))
+    f_, ph = np.array(seen).T
+    assert np.corrcoef(f_, ph)[0, 1] < -0.9
+    # LHS replicate CI covers the true mean, and is computed from replicate spread
+    x = rng.normal(5.0, 1.0, 2000)
+    lo, hi = st.replicate_ci(x, np.repeat(np.arange(10), 200))
+    assert lo < 5.0 < hi and hi - lo < 0.3
+    d = st.describe(x, replicate=np.repeat(np.arange(10), 200))
+    assert d["ci_method"].startswith("10 LHS")

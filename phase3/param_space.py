@@ -43,12 +43,22 @@ class Param:
         return v if self.transform is None else self.transform(v)
 
 
-def default_parameters(include_tier_d: bool = True, calibration: dict | None = None) -> list[Param]:
+class _UnitDraw:
+    """Uniform(0, 1) 'distribution' of a posterior-draw index (ppf is the identity)."""
+    def ppf(self, u):
+        return np.asarray(u, float)
+
+
+def default_parameters(include_tier_d: bool = True, calibration: dict | None = None,
+                       joint_calibration: bool = True) -> list[Param]:
     """Default PDFs, all from data. Molecular: marginal posteriors of the empirical TD-DFT calibration
     (phase2/tddft_calibration.py; pass `calibration` = Calibration.summary()). Cellular and
     environmental: published measurements (phase2/empirical_data.py, data/empirical/SOURCES.md).
-    Correlations between the calibrated molecular parameters (reported in the calibration summary)
-    are dropped, as the Sobol' decomposition needs independent inputs."""
+    Molecular parameters: with joint_calibration (default) ONE input, cal_draw ~ U(0, 1), selects a row
+    of the calibration's joint posterior samples (dE, FWHM, f, phi together), so their correlations
+    (f-phi is strongly correlated) are kept and the Sobol' inputs stay independent; the molecular group
+    index is then that of the joint draw. joint_calibration=False reproduces the former independent
+    marginals (which dropped the correlations) for sensitivity."""
     if calibration is None:
         raise ValueError("default_parameters needs the TD-DFT calibration summary (tddft_calibration)")
     cal = calibration
@@ -67,6 +77,9 @@ def default_parameters(include_tier_d: bool = True, calibration: dict | None = N
 
     def _tn(lo, hi, m, sd):
         return stats.truncnorm((lo - m) / sd, (hi - m) / sd, loc=m, scale=sd)
+    joint = [Param("cal_draw", r"TD-DFT calibration draw", "-", "molecular", _UnitDraw(),
+                   "Index into the joint posterior samples of the TD-DFT calibration (dE, FWHM, f, phi), "
+                   "phase2/tddft_calibration.py; correlations preserved.")]
     p = [
         # ---------------- molecular -------------------------------------------------
         Param("dE_ev", r"$\Delta E$ (TD-DFT shift)", "eV", "molecular",
@@ -123,6 +136,9 @@ def default_parameters(include_tier_d: bool = True, calibration: dict | None = N
               f"Bulk clear-sky transmissivity N({_TAU[0]:.3f}, {_TAU[1]:.3f}): {_TAU[2]} clear-sky hours at PROMICE KAN_M "
               "(June-August, all years)."),
     ]
+    if joint_calibration:
+        p = joint + [q for q in p if q.name not in ("dE_ev", "f_scale", "fwhm_ev")]
+        return p
     if include_tier_d:
         p += [
             Param("fe_fraction", r"Fe-complexed fraction $\phi$", "-", "molecular",

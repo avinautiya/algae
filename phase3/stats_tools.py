@@ -16,9 +16,35 @@ import numpy as np
 import pandas as pd
 
 
-def describe(x, n_boot: int = 2000, seed: int = 0) -> dict:
-    x = np.asarray(x, dtype=float)
-    x = x[np.isfinite(x)]
+def replicate_ci(x, replicate, stat=np.mean, level=0.95):
+    """CI of a Monte Carlo statistic from R independent replicates: stat over all, +/- t * SE where
+    SE = SD(replicate statistics) / sqrt(R). Valid for LHS designs, unlike an iid bootstrap."""
+    from scipy.stats import t as tdist
+    x, rep = np.asarray(x, float), np.asarray(replicate)
+    ok = np.isfinite(x)
+    vals = np.array([stat(x[ok & (rep == r)]) for r in np.unique(rep[ok])])
+    R = vals.size
+    if R < 2:
+        return np.nan, np.nan
+    se = vals.std(ddof=1) / np.sqrt(R)
+    h = tdist.ppf(0.5 + level / 2, R - 1) * se
+    m = stat(x[ok])
+    return m - h, m + h
+
+
+def describe(x, n_boot: int = 2000, seed: int = 0, replicate=None) -> dict:
+    """Summary of a Monte Carlo output. With `replicate` (independent LHS replicate labels) the CIs of the
+    mean and median come from the replicate spread; otherwise from an iid bootstrap (valid only for
+    simple random samples)."""
+    x_all = np.asarray(x, dtype=float)
+    if replicate is not None:
+        rep = np.asarray(replicate)
+        out = describe(x_all, n_boot, seed)
+        out["mean_ci_lo"], out["mean_ci_hi"] = replicate_ci(x_all, rep, np.mean)
+        out["median_ci_lo"], out["median_ci_hi"] = replicate_ci(x_all, rep, np.median)
+        out["ci_method"] = f"{len(np.unique(rep))} LHS replicates"
+        return out
+    x = x_all[np.isfinite(x_all)]
     rng = np.random.default_rng(seed)
     idx = rng.integers(0, x.size, size=(n_boot, x.size))
     boot = x[idx]
