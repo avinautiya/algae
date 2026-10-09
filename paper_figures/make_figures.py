@@ -570,7 +570,7 @@ def figS4():
         ax.barh(y + 0.19, M.max_d_q975, 0.36, color=C["ink2"], label="upper (97.5 %) end")
         ax.set_yticks(y); ax.set_yticklabels([PL.get(q, q) for q in M.pair], fontsize=5.6)
         ax.set_xlabel("max shift of interval end over states,\n24 vs 96 draws (broadband albedo)")
-        ax.legend(fontsize=5.6, loc="lower right")
+        ax.legend(fontsize=5.6, loc="center right", bbox_to_anchor=(1.0, 0.27))
         ax.set_title("Monte Carlo stability", fontsize=7)
         rows = pd.concat([rows, M.assign(panel="b")])
     else:
