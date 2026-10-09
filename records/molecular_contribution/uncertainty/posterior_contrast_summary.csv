@@ -1,0 +1,13 @@
+pair,coupling,quantity,max_abs_plug_in,min_q025,max_q975,max_p_exceeds_threshold,n_draw_pairs,measured_mac_uncertainty
+T-B3-C - T-CAM-C,independent,absorbed_algal_W,46.5,-71.938,-0.26,1,576,n/a
+T-B3-C - T-CAM-C,independent,bba,0.063232,0.000354,0.097822,1,576,n/a
+T-B3-D - T-B3-C,paired,absorbed_algal_W,58.492,0.25912,60.183,1,24,n/a
+T-B3-D - T-B3-C,paired,bba,0.079539,-0.081838,-0.0003526,1,24,n/a
+T-B3-D - T-CAM-D,independent,absorbed_algal_W,2.494,-46.397,14.721,0.42014,576,n/a
+T-B3-D - T-CAM-D,independent,bba,0.003393,-0.020017,0.063091,0.52604,576,n/a
+T-B3-D - T-MEAS,vs_measured,absorbed_algal_W,3.716,-39.369,11.204,0.375,24,OMITTED (point value)
+T-B3-D - T-MEAS,vs_measured,bba,0.005052,-0.015235,0.053535,0.54167,24,OMITTED (point value)
+T-CAM-D - T-CAM-C,paired,absorbed_algal_W,14.18,0.062291,18.027,0.83333,24,n/a
+T-CAM-D - T-CAM-C,paired,bba,0.019283,-0.024514,-8.48e-05,0.91667,24,n/a
+T-CAM-D - T-MEAS,vs_measured,absorbed_algal_W,5.904,-8.2228,11.444,0.083333,24,OMITTED (point value)
+T-CAM-D - T-MEAS,vs_measured,bba,0.008028,-0.015561,0.011181,0.29167,24,OMITTED (point value)

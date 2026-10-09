@@ -1,0 +1,9 @@
+{
+ "n_draws_per_TD_treatment": 24,
+ "thresholds": {
+  "bba": 0.01,
+  "absorbed_algal_W": 10.0
+ },
+ "n_measured_draws": 0,
+ "coupling_note": "\nUncertainty-aware contrasts for the controlled molecular-substitution experiment (Experiment A).\n\nThe original summary (`molecular_contribution.summarise_expA`, files expA_pair_differences.csv /\nexpA_posterior_spread.csv) is RETAINED as plug-in point-estimate contrasts (posterior-mean spectra). This\nmodule adds posterior contrasts:\n\n  * Within one functional (tier C vs tier D): PAIRED by posterior sample (both tiers are evaluated from the\n    same calibration draw: same dE, w, f; D adds phi x the measured Fe increment).\n  * Between separately calibrated functionals (B3LYP vs CAM-B3LYP): the two calibrations are independent\n    posteriors with no shared parameter, so equal draw indices carry no meaning. Contrasts use INDEPENDENT\n    draws (all n_a x n_b combinations = product of the two marginal posteriors). A common-cause coupling\n    (both calibrations fit the same measured spectra) is not represented; this is stated as a limitation.\n  * TD-DFT vs measured MAC: TD draws against measured-MAC draws. Measured-MAC draws (stage `extra`) perturb\n    the Williamson (2020) extract MAC by its regression SE with ONE standard normal per draw applied at all\n    wavelengths (fully correlated amplitude error). Per-wavelength correlation of the SE is unknown;\n    full correlation maximises the broadband effect. Without the `extra` stage the measured MAC is a point\n    value and its uncertainty is reported as omitted.\n\n"
+}
