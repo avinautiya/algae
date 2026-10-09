@@ -517,3 +517,42 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   **Consequence:** at the measured spread, an unbiased pixel retrieval should read about +0.5 dex above the mean log count. The recorded site-level "agreement within 0.09–0.27 dex" against the geometric mean is therefore not evidence of an unbiased retrieval: relative to the mixing expectation it indicates a low bias of roughly 0.2–0.4 dex, or a failure of the linear-mixing assumption. That claim must be withdrawn from the summary (task 7).
 - **Affected outputs:** `records/satellite_validation_tddft_tierD/`, `records/satellite_validation_williamson2020/` (legacy; to be re-run with the repaired code, which needs network reads of the 2017 scenes).
 - **Status:** FIXED_AND_VERIFIED (code and analysis). Re-run: IMPLEMENTED_AWAITING_PRODUCTION_RUN.
+
+## 7. Calibration statistics
+
+### P2-CAL-1: stage-2 Gaussian approximation, φ clipping, covariance fallback, correlated residuals
+- **Source:** `phase2/tddft_calibration.py::_fit_magnitude`, `calibrate`.
+- **Defects:**
+  1. Stage-2 draws of (ln f, φ) came from a Laplace approximation; draws outside [0, 1] were clipped, piling mass on the bounds.
+  2. A non-positive-definite Hessian silently fell back to cov = diag(1e-4).
+  3. Optimizer success was never checked.
+  4. The discrepancy SD ln s was fixed at its MLE, not propagated: its posterior SD was reported as 0.005.
+  5. The residuals at 2 nm spacing were treated as independent, but they are strongly autocorrelated. Lag-1 autocorrelation is 0.99; the effective sample sizes are about 13 of 168 (HPLC shape) and about 5 of 246 (extract MAC), from `records/repair_calibration_residual_acf.json`. All posterior widths were therefore far too narrow.
+- **Repair:**
+  - Stage 2 is now exact grid quadrature over (ln f, φ ∈ [0, 1], ln s ∈ [−8, 3]) with flat priors. Edge-mass diagnostics are recorded and ln s is propagated.
+  - `_fit_magnitude` raises instead of falling back; the MAP optimizer success is recorded.
+  - Residual model `residuals='ar1'` (default): AR(1) correlation between neighbouring wavelengths, ρ by maximum likelihood for each data set. `'iid'` is kept as a structural scenario. The residual model is an emulator setting (`EmulatorConfig.cal_residuals`), so both enter the held-out comparison.
+  - `stride` thins the data for sensitivity tests.
+- **Tests:**
+  - `test_provenance.py::test_calibration_chains_reproducible` (passed) exercises the new stage 2.
+  - The full production calibrations below were executed.
+  - A test that `_fit_magnitude` raises when the Hessian is not positive definite is not written yet (UNRESOLVED, minor).
+- **Before/after on the production spectrum** (`records/repair_calibration_stage2.json`; mean ± SD):
+
+  | variant | ΔE (eV) | f | φ |
+  |---|---|---|---|
+  | old (Laplace + clip, iid) | 0.061 ± 0.004 | 39.5 ± 2.2 | 0.49 ± 0.04 |
+  | grid, iid | 0.061 ± 0.004 | 39.3 ± 2.3 | 0.50 ± 0.04 |
+  | grid, iid, every 5th point | 0.061 ± 0.004 | 38.6 ± 5.1 | 0.52 ± 0.10 |
+  | grid, iid, every 10th point | 0.061 ± 0.004 | 37.3 ± 6.7 | 0.57 ± 0.14 |
+  | grid, AR(1) (ρ_shape 0.95, ρ_mac 0.995) | 0.041 ± 0.008 | 69 ± 27 | 0.11 ± 0.02 |
+  | grid, AR(1), every 5th point (ρ_mac 0.97) | 0.041 ± 0.008 | 61 ± 41 | 0.16 ± 0.06 |
+
+  - The iid posterior is not stable under thinning; the AR(1) posterior is, approximately.
+  - The two residual models disagree on the split between f and φ. The Fe-complexed share of visible absorption is 0.53 (iid) vs 0.19 (AR(1)), while the visible tier-D MAC differs by only +10 % (51k vs 57k m² kg⁻¹; extract 68k).
+  - The intensity factor f and φ are therefore **not uniquely attributable** with these data. That is a stated result, not something to be tuned away.
+- **Remaining:**
+  - ρ_mac sits at the grid edge (0.995); the discrepancy is almost random-walk-like.
+  - The extract's two 2 nm channels are the only constraint on level vs shape.
+  - The choice between residual models is tested on held-out field data (P4-HO-1: tddft_D vs tddft_D_iid), not by preference.
+- **Status:** FIXED_AND_VERIFIED (statistics). Structural ambiguity: DATA_LIMITATION.
