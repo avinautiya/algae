@@ -161,7 +161,8 @@ def main(argv=None):
             mf_td.kernel()
             if not mf_td.converged:
                 raise RuntimeError(f"{func} SCF did not converge")
-        res = qc.run_tddft(mf_td, nstates=a.nstates, tda=a.tda)
+        res = qc.run_tddft(mf_td, nstates=a.nstates, tda=a.tda,
+                           checkpoint=os.path.join(outdir, f"tda_{func}_x0.npz") if a.tda else None)
 
         lines_df, spec_df, arrays = spectra.build_spectrum(
             res["energies_ev"], res["osc_strengths"], spec["molar_mass"],

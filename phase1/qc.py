@@ -200,7 +200,7 @@ def harmonic_check(mf, workdir: str = ".", tag: str = "freq"):
 
 
 def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: bool = False,
-              conv_tol: float = 1e-5):
+              conv_tol: float = 1e-5, checkpoint: str | None = None):
     """Vertical singlet->singlet excitations from a converged closed-shell SCF.
 
     conv_tol is the Davidson residual-norm tolerance (PySCF default 1e-5); excitation energies then
@@ -212,6 +212,10 @@ def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: b
 
     equilibrium_solvation=False (default): non-equilibrium linear-response PCM,
     the correct choice for vertical absorption.
+
+    checkpoint (TDA only): converge in stages (residual 1e-2, 1e-3, 1e-4, conv_tol) and save the
+    eigenvectors after each stage to this .npz; a restarted run resumes from the last saved stage
+    (td.kernel(x0=...)), so an interruption costs at most one stage.
 
     Returns dict with excitation energies (eV), wavelengths (nm), oscillator
     strengths (length gauge) and the TD object.
@@ -230,7 +234,10 @@ def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: b
     td.conv_tol = conv_tol
     td.max_cycle = 200
     t0 = time.time()
-    td.kernel()
+    if tda and checkpoint:
+        _staged_tda(td, conv_tol, checkpoint)
+    else:
+        td.kernel()
     e = _to_numpy(td.e)
     f = _to_numpy(td.oscillator_strength(gauge="length"))
     conv = np.atleast_1d(_to_numpy(td.converged)).astype(bool)
@@ -241,6 +248,37 @@ def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: b
           f"{time.time() - t0:.0f} s", flush=True)
     return dict(energies_ev=e_ev, wavelengths_nm=1239.841984 / e_ev,
                 osc_strengths=f, converged=conv, td=td)
+
+
+def _tda_vectors(td):
+    """TDA eigenvectors as flat arrays (RKS: X; UKS: [Xa, Xb]) - the x0 format of td.kernel."""
+    out = []
+    for x, _ in td.xy:
+        out.append(np.hstack([np.ravel(_to_numpy(v)) for v in x]) if isinstance(x, tuple) else
+                   np.ravel(_to_numpy(x)))
+    return np.array(out)
+
+
+def _staged_tda(td, conv_tol, checkpoint):
+    stages = [t for t in (1e-2, 1e-3, 1e-4) if t > conv_tol] + [conv_tol]
+    done, x0 = -1, None
+    if os.path.isfile(checkpoint):
+        d = np.load(checkpoint)
+        if int(d["nstates"]) == td.nstates and np.allclose(d["stages"], stages):
+            done, x0 = int(d["done"]), list(d["x0"])
+            print(f"TDA restart: stage {done + 1}/{len(stages)} done (residual {stages[done]:g})", flush=True)
+    for k in range(done + 1, len(stages)):
+        td.conv_tol = stages[k]
+        t1 = time.time()
+        td.kernel(x0=x0)
+        x0 = list(_tda_vectors(td))
+        np.savez(checkpoint + ".tmp.npz", x0=np.array(x0), done=k, nstates=td.nstates, stages=stages)
+        os.replace(checkpoint + ".tmp.npz", checkpoint)
+        print(f"TDA stage {k + 1}/{len(stages)} (residual {stages[k]:g}) in {time.time() - t1:.0f} s; "
+              f"checkpoint saved", flush=True)
+    if done == len(stages) - 1:          # everything converged before the restart: one cheap pass
+        td.conv_tol = stages[-1]
+        td.kernel(x0=x0)
 
 
 def mol_spin(mf):
