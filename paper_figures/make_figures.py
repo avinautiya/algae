@@ -563,9 +563,14 @@ def figS4():
     if os.path.isfile(mc):
         M = pd.read_csv(src("records/molecular_contribution/uncertainty/mc_stability_24_vs_all.csv"))
         M = M[M.quantity.isin(["bba"])]
-        ax.barh(np.arange(len(M)), M.max_d_q975, color=C["ink2"])
-        ax.set_yticks(np.arange(len(M))); ax.set_yticklabels(M.pair, fontsize=5.5)
-        ax.set_xlabel("max |Δ 97.5 % quantile|, 24 vs all draws\n(broadband albedo)")
+        PL = {"T-B3-C - T-CAM-C": "B3LYP-C − CAM-C", "T-B3-D - T-B3-C": "B3LYP D − C", "T-B3-D - T-CAM-D": "B3LYP-D − CAM-D",
+              "T-B3-D - T-MEAS": "B3LYP-D − measured*", "T-CAM-D - T-CAM-C": "CAM D − C", "T-CAM-D - T-MEAS": "CAM-D − measured*"}
+        y = np.arange(len(M))
+        ax.barh(y - 0.19, M.max_d_q025, 0.36, color=C["none"], label="lower (2.5 %) end")
+        ax.barh(y + 0.19, M.max_d_q975, 0.36, color=C["ink2"], label="upper (97.5 %) end")
+        ax.set_yticks(y); ax.set_yticklabels([PL.get(q, q) for q in M.pair], fontsize=5.6)
+        ax.set_xlabel("max shift of interval end over states,\n24 vs 96 draws (broadband albedo)")
+        ax.legend(fontsize=5.6, loc="lower right")
         ax.set_title("Monte Carlo stability", fontsize=7)
         rows = pd.concat([rows, M.assign(panel="b")])
     else:
@@ -577,7 +582,9 @@ def figS4():
          "data; reference state as Fig. 4). Ranges: radius and dust at prior 10/90 %, crust density Cooper et al. "
          "(2018) range, crust depth 1/5 cm, species fraction 0/1, algae in a 1 mm film, granular ice, SZA ± 5°, fully "
          "diffuse, mid-latitude spectrum. Only absorber amount per column (crust depth, dust) substantially reduces the "
-         "visible bias; none removes it. (b) Monte Carlo stability of posterior contrast tails (24 vs all draws).",
+         "visible bias; none removes it. (b) Monte Carlo stability of the posterior contrasts: largest shift over the 24 states of each 95 % interval end "
+         "between 24 and 96 draws per treatment. *The 96-draw measured-MAC contrasts also add the measured-MAC "
+         "uncertainty, so their shift combines Monte Carlo error with the added uncertainty source.",
          "development diagnostics / numerical check")
 
 
