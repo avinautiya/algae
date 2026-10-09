@@ -129,10 +129,11 @@ def _metrics(t, e, lo=None, hi=None, sd=None, obs_sd=None, lo_cal=None, hi_cal=N
 def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", tier="C",
         phenol="tddft", photosynthetic=True, spacecraft="S2A", rho_bottom=690.0, verbose=True,
         emu_overrides: dict | None = None, models=("ours", "tierA"), dust: bool = True,
-        prior_overrides: dict | None = None):
+        prior_overrides: dict | None = None, exclude: set | None = None):
     """emu_overrides: extra EmulatorConfig fields for both models (e.g. dust_ppb=E.DUST_NODES_PPB,
     film_dz=0.002, f_n=(0, 1, 0.2)) - used by bias_study.py. prior_overrides: PriorConfig fields
-    (e.g. sd_lndust=1.5) - used by dust_sensitivity.py."""
+    (e.g. sd_lndust=1.5) - used by dust_sensitivity.py. exclude: sample names whose spectra and counts
+    must not enter the all-sample hyper-parameters and tau (held out for another comparison)."""
     import emulator as E
     import inversion as INV
     from priors import PriorConfig, prior_logpdfs
@@ -186,7 +187,8 @@ def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", ti
             sig_loo[i] = hyp[j][0]
             for q in loo:
                 loo[q][i] = post[(j, q)][i]
-        tot = logz.sum(axis=0)
+        use = ~df["sample"].isin(exclude or set()).to_numpy()
+        tot = logz[use].sum(axis=0)
         j_all = int(np.argmax(tot))
         j_meas = int(np.argmax(np.where([h[1] == "measured_ssa" for h in hyp], tot, -np.inf)))
         res[model] = dict(loo=loo, sigma_loo=sig_loo, sigma_all=hyp[j_all][0], r_prior=hyp[j_all][1],
@@ -222,7 +224,9 @@ def run(phase1_l2=None, demo=False, biosnicar=None, workers=1, cache_dir=".", ti
     df["log_b_obs_sd"] = np.where(pos, 1.0 / np.log(10) / np.sqrt(df.cells_counted.to_numpy()), np.nan)
     for model in models:              # structural model error tau and calibrated predictive intervals
         mean, sd = df[f"{model}_log_b_mean"].to_numpy(), df[f"{model}_log_b_sd"].to_numpy()
-        tau_all, tau_loo = fit_model_error(y, mean, sd, df.log_b_obs_sd.to_numpy())
+        use = ~df["sample"].isin(exclude or set()).to_numpy()
+        tau_all, _ = fit_model_error(np.where(use, y, np.nan), mean, sd, df.log_b_obs_sd.to_numpy())
+        _, tau_loo = fit_model_error(y, mean, sd, df.log_b_obs_sd.to_numpy())
         res[model]["tau"] = tau_all
         df[f"{model}_tau"] = tau_loo
         half = 1.96 * np.sqrt(sd ** 2 + np.nan_to_num(tau_loo, nan=tau_all) ** 2)

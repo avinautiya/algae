@@ -84,6 +84,7 @@ class EmulatorConfig:
     film_only: bool = True                    # (see biosnicar_bridge.IceSpec); None = uniform over 2 cm
     sw_down: float | None = None              # broadband SW (W m^-2); None = clear-sky param.
     day_of_year: int = 196                    # for the Earth-Sun distance in the clear-sky SW
+    cal_residuals: str = "ar1"                # TD-DFT calibration residual model: 'ar1' (correlated) or 'iid'
     species: dict = field(default_factory=empirical_species)
 
     def axes(self):
@@ -207,7 +208,7 @@ class _Builder:
                         raise ValueError("tier D needs the calibration (phenol='tddft')")
                     mac = co.to_480(ligand.mac_at)
                 else:
-                    cal = TC.cached_calibration(ligand, verbose=False)
+                    cal = TC.cached_calibration(ligand, verbose=False, residuals=cfg.cal_residuals)
                     mac = co.to_480(cal.mac_D if cfg.tier == "D" else cal.mac_C)
             self.imps = {}
             for name, sp in cfg.species.items():

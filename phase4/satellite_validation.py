@@ -116,9 +116,12 @@ def invert_scene(scene_id, pts, cal, a, cache):
         blk = (slice(max(row - 1, 0), row + 2), slice(max(col - 1, 0), col + 2))
         m, s = maps["log_b_mean"][row, col], maps["log_b_sd"][row, col]
         half = 1.96 * np.hypot(s, cal["tau"])
+        # pixel identity: scene + absolute pixel-centre coordinates (row/col are window-relative and
+        # collide between scenes whose windows differ)
+        xc, yc = sc.transform * (col + 0.5, row + 0.5)
         rows.append(dict(scene=scene_id, scene_date=sc.date, sample=p.sample, day=p.day, cells=p.cells,
                          log_b_obs=p.log_b_obs, log_b_obs_sd=p.log_b_obs_sd, row=row, col=col,
-                         pixel=f"{row}_{col}", B2=maps["B2"][row, col], chi2=maps["chi2"][row, col],
+                         pixel=f"{scene_id}|{xc:.0f}_{yc:.0f}", B2=maps["B2"][row, col], chi2=maps["chi2"][row, col],
                          sat_log_b_mean=m, sat_log_b_sd=s, sat_log_b_q025=maps["log_b_q025"][row, col],
                          sat_log_b_q975=maps["log_b_q975"][row, col], sat_log_b_q025_cal=m - half,
                          sat_log_b_q975_cal=m + half, sat3x3_log_b_mean=np.nanmean(maps["log_b_mean"][blk]),
@@ -142,13 +145,51 @@ def _metrics(t, e, lo=None, hi=None):
 
 def within_pixel_sd(df):
     """Pooled SD of log counts among samples that share a pixel (plot-to-plot variability a pixel
-    cannot resolve), with its degrees of freedom."""
+    cannot resolve), with its degrees of freedom and a 95 % chi-square interval. Pixels are identified
+    by scene AND absolute position (see invert_scene); zero counts have no log value and are excluded
+    (reported by the caller). Pooling assumes one common within-pixel variance."""
+    from scipy.stats import chi2
+    if df.pixel.str.contains("|", regex=False).mean() < 1:
+        raise ValueError("pixel ids must carry the scene and absolute position")
     ss, dof = 0.0, 0
     for _, g in df[np.isfinite(df.log_b_obs)].groupby("pixel"):
         if len(g) > 1:
             ss += float(np.sum((g.log_b_obs - g.log_b_obs.mean()) ** 2))
             dof += len(g) - 1
-    return (np.sqrt(ss / dof) if dof else np.nan), dof
+    if not dof:
+        return np.nan, 0, (np.nan, np.nan)
+    sd = np.sqrt(ss / dof)
+    ci = (float(np.sqrt(ss / chi2.ppf(0.975, dof))), float(np.sqrt(ss / chi2.ppf(0.025, dof))))
+    return float(sd), dof, ci
+
+
+def subpixel_mixing(em, sd_dex, mu=3.5, n=4000, seed=0, r_um=None, f_n=0.5):
+    """What a pixel retrieval of an area-mixed surface estimates: draw log10 B ~ N(mu, sd_dex) for the
+    sub-pixel patches, average their band reflectances (linear areal mixing), and find the log10 B whose
+    reflectance matches the mean (least squares over the emulator's log B axis at fixed radius, f_n and
+    the lowest dust node). Returns the retrieved value next to the geometric (mean log) and arithmetic
+    (log mean) abundance of the patches."""
+    from scipy.interpolate import RegularGridInterpolator
+    rng = np.random.default_rng(seed)
+    lb = em.axes["log_b"]
+    r_um = r_um or float(np.exp(np.mean(np.log(em.axes["r_um"]))))
+    pts = []
+    for v in lb:
+        q = {"log_b": v, "f_n": f_n, "r_um": r_um, "dust_ppb": em.axes.get("dust_ppb", [0])[0]}
+        pts.append([q[nm] if len(em.axes[nm]) > 1 else em.axes[nm][0] for nm in em.names])
+    I = RegularGridInterpolator(tuple(em.coord(nm) for nm in em.names), em.data["bands"], bounds_error=False,
+                                fill_value=None)
+    conv = lambda P: np.array([[em.coord(nm)[0] if len(em.axes[nm]) == 1 else  # noqa: E731
+                                (np.log10(x + 100.0) if nm == "dust_ppb" else x) for nm, x in zip(em.names, p)]
+                               for p in P])
+    curve = I(conv(pts))                                      # (n_lb, 4)
+    x = np.clip(rng.normal(mu, sd_dex, n), lb[0], lb[-1])
+    R = np.array([np.interp(x, lb, curve[:, b]) for b in range(4)]).T.mean(axis=0)
+    fine = np.linspace(lb[0], lb[-1], 2001)
+    cf = np.array([np.interp(fine, lb, curve[:, b]) for b in range(4)]).T
+    retrieved = float(fine[np.argmin(np.sum((cf - R) ** 2, axis=1))])
+    return dict(sd_dex=sd_dex, mu=mu, retrieved=retrieved, geometric=float(x.mean()),
+                arithmetic=float(np.log10(np.mean(10 ** x))))
 
 
 def figure(mapdf, df, maps, sc, pts_xy, plot_scale, path):
@@ -207,8 +248,12 @@ def main(argv=None):
 
     # ---------------------------------------------------------------- field calibration (no counts used)
     import field_validation as FV
+    # the samples compared with pixels below are EXCLUDED from the field calibration (sigma, radius prior,
+    # tau), so the satellite comparison is held out (earlier versions fitted tau on all S6 counts)
+    pts_all = samples()
     fdf, fmet, fres = FV.run(phase1_l2=a.phase1_l2, biosnicar=a.biosnicar, workers=a.workers, cache_dir=cache,
-                             tier=a.tier, phenol=a.phenol, models=("ours",), dust=True, verbose=False)
+                             tier=a.tier, phenol=a.phenol, models=("ours",), dust=True, verbose=False,
+                             exclude=set(pts_all["sample"]))
     r = fres["ours"]
     cal = dict(sigma=r["sigma_all"], mu_lnr=r["mu_lnr"], sd_lnr=r["sd_lnr"], tau=r["tau"])
     print(f"Field calibration: sigma {cal['sigma']:.3f}, ice radius median {np.exp(cal['mu_lnr']):.0f} um "
@@ -242,17 +287,24 @@ def main(argv=None):
             rows.append(dict(scenes=name, estimate=est, **_metrics(
                 t, d[est].to_numpy(), None if lo is None else d[lo].to_numpy(), None if hi is None else d[hi].to_numpy())))
         # site level: mean log count of each day's samples vs mean retrieval over the pixels they occupy
+        # E[log B] (geometric) and log E[B] (arithmetic, zeros included) are both reported: a pixel sees
+        # area-mixed reflectance, which corresponds to neither exactly (see subpixel_mixing)
+        dall = df[sel]
         for day, g in d.groupby("day"):
             px = g.drop_duplicates("pixel")
-            rows.append(dict(scenes=name, estimate=f"site mean, {day}", n=len(g),
+            ga = dall[dall.day == day]
+            arith = float(np.log10(ga.cells.mean()))
+            rows.append(dict(scenes=name, estimate=f"site mean, {day}", n=len(g), n_zero=int((ga.cells <= 0).sum()),
                              bias=float(px.sat_log_b_mean.mean() - g.log_b_obs.mean()),
-                             obs_mean=float(g.log_b_obs.mean()), obs_se=float(g.log_b_obs.std(ddof=1) / np.sqrt(len(g))),
+                             bias_vs_arithmetic=float(px.sat_log_b_mean.mean() - arith),
+                             obs_mean=float(g.log_b_obs.mean()), obs_log_arith_mean=arith,
+                             obs_se=float(g.log_b_obs.std(ddof=1) / np.sqrt(len(g))),
                              sat_mean=float(px.sat_log_b_mean.mean()), n_pixels=len(px)))
     met = pd.DataFrame(rows)
     met.to_csv(os.path.join(a.outdir, "satellite_validation_metrics.csv"), index=False, float_format="%.4g")
     prim = df[df.primary]
-    sd_wp, dof = within_pixel_sd(prim)
-    summary = dict(calibration=cal, within_pixel_sd_log_counts=sd_wp, within_pixel_dof=dof,
+    sd_wp, dof, sd_ci = within_pixel_sd(prim)
+    summary = dict(calibration=cal, within_pixel_sd_log_counts=sd_wp, within_pixel_dof=dof, within_pixel_sd_ci95=sd_ci,
                    n_samples=int(np.isfinite(prim.log_b_obs).sum()), n_pixels=int(prim.pixel.nunique()),
                    scenes={s: dict(sza=keep[s][1].sza, date=keep[s][1].date) for s in keep},
                    phenol=a.phenol, runtime_s=round(time.time() - t0))

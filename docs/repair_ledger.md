@@ -493,3 +493,27 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - test-site evidence cannot change the training-site settings;
   - the vectorised tables equal the reference `GridPosterior.run` (evidence, marginal, forward density).
 - **Status:** IMPLEMENTED_AWAITING_PRODUCTION_RUN (running: `phase4/results/heldout_v1`). Results are recorded below when complete.
+
+### P4-SAT-2: satellite validation: pixel identity, leakage, E[log B] vs log E[B], sub-pixel mixing
+- **Source:** `phase4/satellite_validation.py` (`invert_scene`, `within_pixel_sd`, site metrics, `main`); `phase4/field_validation.py::run`.
+- **Defects:**
+  1. Pixel ids were window-relative "row_col", and the two primary scenes have different windows. `within_pixel_sd` therefore pooled samples from different places as if they shared a pixel. In the recorded tier-D run: 9 merged ids vs 14 true scene-pixels. The SD was 0.835 dex with 11 "dof", against 0.841 dex with 6 dof when corrected.
+  2. The "field calibration" applied to the pixels (σ, radius prior, τ) was fitted on all S6 counts, including the 20 samples then used to score the pixels (label leakage into coverage).
+  3. The site-level comparison used the mean of log counts (geometric mean; zeros dropped). A pixel sees area-mixed reflectance.
+- **Repair:**
+  - Pixel id = scene + absolute pixel-centre coordinates. `within_pixel_sd` refuses ids without them and reports a 95 % χ² interval.
+  - `FV.run(exclude=…)` keeps the satellite-compared samples out of the hyper-parameter and τ fits.
+  - The site metrics now report both the geometric mean and log10 of the arithmetic mean (zeros included), with biases against each.
+  - New `subpixel_mixing` maps a within-pixel abundance spread to the value a pixel retrieval should return.
+- **Tests:** `test_within_pixel_sd_does_not_merge_pixels_across_scenes` and `test_subpixel_mixing_limits` (2 passed).
+- **Measured** (`records/repair_satellite_scale.json`; tier D emulator, 21 Jul 2017; patches log10 B ~ N(3.6, sd); linear areal mixing):
+
+  | within-pixel SD (dex) | retrieved | geometric mean | arithmetic mean |
+  |---|---|---|---|
+  | 0.40 | 3.76 | 3.59 | 3.78 |
+  | 0.83 (measured) | 4.09 | 3.59 | 4.34 |
+  | 1.20 | 4.31 | 3.58 | 4.80 |
+
+  **Consequence:** at the measured spread, an unbiased pixel retrieval should read about +0.5 dex above the mean log count. The recorded site-level "agreement within 0.09–0.27 dex" against the geometric mean is therefore not evidence of an unbiased retrieval: relative to the mixing expectation it indicates a low bias of roughly 0.2–0.4 dex, or a failure of the linear-mixing assumption. That claim must be withdrawn from the summary (task 7).
+- **Affected outputs:** `records/satellite_validation_tddft_tierD/`, `records/satellite_validation_williamson2020/` (legacy; to be re-run with the repaired code, which needs network reads of the 2017 scenes).
+- **Status:** FIXED_AND_VERIFIED (code and analysis). Re-run: IMPLEMENTED_AWAITING_PRODUCTION_RUN.

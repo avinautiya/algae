@@ -68,6 +68,8 @@ OPTICS = {
     "measured_mac_C": dict(model="ours", tier="C", phenol="williamson2020"),
     "tddft_C": dict(model="ours", tier="C", phenol="tddft"),
     "tddft_D": dict(model="ours", tier="D", phenol="tddft"),
+    # calibration structural scenario: independent-residual likelihood (phi 0.49) instead of AR(1) (phi 0.11)
+    "tddft_D_iid": dict(model="ours", tier="D", phenol="tddft", cal_residuals="iid"),
 }
 OBS_SD_SGRIS = 0.10            # dex, assumed (counts in quintuplicate, number counted not published)
 V_ZERO_ML = 0.016              # counted volume assumed for zero counts (largest volume in the S6 workbook)

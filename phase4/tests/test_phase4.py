@@ -365,3 +365,30 @@ def test_multi_scene_completion_requires_marker(tmp_path):
     with open(d2 / "summary.json", "a") as fh:
         fh.write(" ")
     assert MS.run_complete(str(d2))[0] is False                 # changed after completion
+
+
+def test_within_pixel_sd_does_not_merge_pixels_across_scenes():
+    import pandas as pd
+    import satellite_validation as SV
+    # same window-relative row/col in two scenes = different places; old ids "5_5" merged them
+    df = pd.DataFrame(dict(log_b_obs=[3.0, 3.2, 5.0, 5.2], pixel=["A|100_200", "A|100_200", "B|900_900", "B|900_900"]))
+    sd, dof, ci = SV.within_pixel_sd(df)
+    assert dof == 2 and np.isclose(sd, np.sqrt((2 * 0.01 + 2 * 0.01) / 2)) and ci[0] < sd < ci[1]
+    merged = SV.within_pixel_sd(df.assign(pixel=["A|5_5"] * 4))
+    assert merged[0] > 0.9                                         # what the collision produced
+    import pytest
+    with pytest.raises(ValueError):
+        SV.within_pixel_sd(df.assign(pixel=["5_5"] * 4))
+
+
+def test_subpixel_mixing_limits():
+    import emulator as E
+    import satellite_validation as SV
+    axes = {"log_b": np.round(np.arange(0, 7.0001, 0.05), 3), "f_n": np.array([0.5]), "r_um": np.array([3000.0])}
+    lb = axes["log_b"][:, None, None, None]
+    lin = 0.7 - 2e-6 * 10 ** lb                                     # reflectance linear in B
+    em = E.Emulator(axes, {"bands": np.concatenate([lin] * 4, axis=-1)}, {})
+    r0 = SV.subpixel_mixing(em, 0.0, mu=3.5)
+    assert abs(r0["retrieved"] - 3.5) < 0.01
+    r = SV.subpixel_mixing(em, 0.8, mu=3.5)
+    assert abs(r["retrieved"] - r["arithmetic"]) < 0.02 and r["arithmetic"] - r["geometric"] > 0.6
