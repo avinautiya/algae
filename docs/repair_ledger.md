@@ -731,3 +731,44 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - The runner was restarted. The running CAM-TDA15 and FE_CAT jobs were not touched; TDA15 and L2_OPT are marked interrupted and requeued, and L1_FULL is retried (attempt 2).
 - **Test:** `phase1/tests/test_jobs.py::test_scratch_is_per_job_and_cleaned_before_relaunch` (3 passed in total).
 - **Status:** FIXED_AND_VERIFIED (cause and policy). The lost production runs: IMPLEMENTED_AWAITING_PRODUCTION_RUN.
+
+## Held-out result (pre-registered evaluation; `records/heldout_v2/`)
+
+Run: `phase4/heldout.py` at commit d57264e and later, with the frozen primary (`docs/preregistration_heldout.md`) and observation SD 0.10 dex for S Greenland. Tables were computed 12:26–14:29 UTC and scoring finished after the container restart at 15:33 UTC.
+
+### Pre-registered contrast: `tddft_D` − `tierA_empirical`, mean log predictive score of the counts
+| fold | difference | 95 % day-block bootstrap | n samples / days |
+|---|---|---|---|
+| primary (S6 2017 → S Greenland 2021) | **+0.153** | 0.117 to 0.168 | 18 / **2** |
+| secondary (S Greenland → S6) | **+0.537** | 0.360 to 0.725 | 46 / 9 |
+
+**Against the pre-registered rule:**
+- The rule is *formally* met: the primary-fold interval excludes 0 and the secondary fold has the same sign.
+- **The primary-fold interval is not a credible uncertainty.** With only 2 sampling days, the day-block bootstrap can only return the two day means (0.117 and 0.168) and their average, so the "interval" is simply their range. On a per-sample basis, `tddft_D` scores better than Tier A on 17 of 18 S Greenland samples. The secondary fold (9 days) has a usable interval.
+- **Classification:** the pre-registered improvement in held-out abundance prediction over Tier A empirical optics is supported in direction at both sites, and robustly in the secondary fold. The primary fold's site-level uncertainty cannot be quantified with 2 sampling days. This is a modest improvement in log score (0.15–0.54 nats per sample), not a demonstration of better melt prediction.
+
+### Descriptive results (no winner selected; not confirmatory)
+- **Primary fold, log score (higher is better):**
+
+  | model | log score |
+  |---|---|
+  | measured_mac_C | −0.81 |
+  | ridge | −0.83 |
+  | tddft_D_iid | −0.88 |
+  | tddft_D | −0.96 |
+  | tierA | −1.11 |
+  | tddft_C | −1.23 |
+  | climatology | −1.34 |
+  | literature prior | −1.43 |
+  | band ratio | −1.65 |
+
+  RMSE is 0.43–0.45 dex for measured MAC, tddft_D and tddft_D_iid, 0.39 for Tier A and 0.50 for ridge.
+- **Secondary fold:** tddft_C (−6.11), measured_mac_C (−6.23), tddft_D_iid (−6.27), literature prior (−6.30) and tddft_D (−6.38) are close together; Tier A scores −6.91 and ridge −7.83.
+- **The primary is not the best-scoring physics variant in either fold.** Measured in vivo MACs and the independent-residual calibration score slightly better. Per the pre-registration, these are reported, not adopted.
+- **Coverage:** 95 % coverage is 1.00 for the physics models in the primary fold, so the predictive intervals are wide; the training-site discrepancy τ is 0.72 dex for tddft_D and 1.06 for Tier A. They are conservative rather than calibrated.
+- **Forward test (4-band HCRF given the measured abundance):**
+  - Primary fold: tddft_D vs Tier A −0.18 (block range −1.37 to 0.28, i.e. no difference). Secondary: +2.30 (0.87 to 3.83).
+  - The training-site statistical baselines (band climatology, regression on log B) predict the bands far better than any physics model (by about 6 nats).
+  - The physics models' advantage is in inverting reflectance for abundance, not in forward spectral fidelity.
+- **Broadband HCRF:** all physics models over-predict the measured broadband HCRF. The bias is +0.23 (tddft_D), +0.19 (Tier A) and +0.29 (tddft_C) in S Greenland, and +0.10 to +0.26 at S6. This is a systematic broadband/NIR brightness (or k) mismatch that the retrieval absorbs through k and σ. **UNRESOLVED.**
+- **Scope:** no statement about glacier-melt prediction follows from this evaluation.

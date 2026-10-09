@@ -1,0 +1,123 @@
+{
+ "settings": {
+  "primary/tierA_empirical": {
+   "sigma": 0.01,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 1350.0000000000005,
+   "radius_ln_sd": 1.6,
+   "tau_dex": 1.06
+  },
+  "primary/measured_mac_C": {
+   "sigma": 0.02,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 600.0,
+   "radius_ln_sd": 1.2,
+   "tau_dex": 0.52
+  },
+  "primary/tddft_C": {
+   "sigma": 0.02,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 399.9999999999999,
+   "radius_ln_sd": 0.9,
+   "tau_dex": 0.52
+  },
+  "primary/tddft_D": {
+   "sigma": 0.015,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 600.0,
+   "radius_ln_sd": 1.2,
+   "tau_dex": 0.72
+  },
+  "primary/tddft_D_iid": {
+   "sigma": 0.02,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 600.0,
+   "radius_ln_sd": 1.2,
+   "tau_dex": 0.6
+  },
+  "primary/climatology": {
+   "fit_ok": true
+  },
+  "primary/literature_prior": {
+   "fit_ok": true
+  },
+  "primary/band_ratio": {
+   "fit_ok": true
+  },
+  "primary/ridge": {
+   "fit_ok": true,
+   "lam": 30.0
+  },
+  "secondary/tierA_empirical": {
+   "sigma": 0.01,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 4500.000000000001,
+   "radius_ln_sd": 0.9,
+   "tau_dex": 0.52
+  },
+  "secondary/measured_mac_C": {
+   "sigma": 0.015,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 1350.0000000000005,
+   "radius_ln_sd": 1.6,
+   "tau_dex": 0.36
+  },
+  "secondary/tddft_C": {
+   "sigma": 0.015,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 399.9999999999999,
+   "radius_ln_sd": 0.6,
+   "tau_dex": 0.7
+  },
+  "secondary/tddft_D": {
+   "sigma": 0.015,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 1999.9999999999998,
+   "radius_ln_sd": 1.2,
+   "tau_dex": 0.46
+  },
+  "secondary/tddft_D_iid": {
+   "sigma": 0.015,
+   "radius_prior": "empirical_bayes",
+   "radius_median_um": 1350.0000000000005,
+   "radius_ln_sd": 1.2,
+   "tau_dex": 0.4
+  },
+  "secondary/climatology": {
+   "fit_ok": true
+  },
+  "secondary/literature_prior": {
+   "fit_ok": true
+  },
+  "secondary/band_ratio": {
+   "fit_ok": true
+  },
+  "secondary/ridge": {
+   "fit_ok": true,
+   "lam": 100.0
+  }
+ },
+ "obs_sd_sgris": 0.1,
+ "v_zero_ml": 0.016,
+ "environment": {
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.5",
+  "emcee": "3.1.6",
+  "pyscf": "2.14.0",
+  "miepython": "3.3.0",
+  "rasterio": "1.5.2"
+ },
+ "code": {
+  "phase1/spectra.py": "e86a59f43ef0ba88e0ca916dbb90679fc7961294c32ff4f9f39d56541cf367bd",
+  "phase2/biosnicar_bridge.py": "fa24ef597aa3042a0abc0b8c7527c0df0221dd7f5521971904e605fd0b268ff8",
+  "phase2/cell_optics.py": "a6fa4b35ac2c9c7f4f303795db56076ef087cabbfc627143d1fe28d26bf3cf32",
+  "phase2/pigment_packaging.py": "8e3808a33a1c6cb06f8a7fc3295a7a5b1c776c12df71d5a5eab3e855068e829b",
+  "phase2/tddft_calibration.py": "c941d2c29bd56d96c661327ecedf058ce170fd9c3f2f0942183a0ed86c581b45",
+  "phase2/empirical_data.py": "d2bdfed09bb20142c5f85f2e882a03d4c458ea64f36954ff31c1cb8c089a683c",
+  "phase3/forward_model.py": "ba086b23419cd4f310ff5c80088a590372970ce8cc6363a6ff05296a744dd1e6",
+  "phase4/emulator.py": "f7dc9f51fed56cd633bbe2ab45f9183d1d0cf00d0f0621a89307b339f3ba4e6b"
+ },
+ "runtime_s": 2450
+}

@@ -18,9 +18,9 @@ on the same held-out data. The descriptions of other work are limited to what th
 
 | # | Claim | Test on identical held-out data | Status |
 |---|---|---|---|
-| N1 | Pigment optics from first principles (TD-DFT on the glucoside chromophore), calibrated only on laboratory spectra, transfer to field reflectance | Pre-registered contrast `tddft_D` − `tierA_empirical`, log score, decision rule in `docs/preregistration_heldout.md` | pending |
+| N1 | Pigment optics from first principles (TD-DFT on the glucoside chromophore), calibrated only on laboratory spectra, transfer to field reflectance | Pre-registered contrast `tddft_D` − `tierA_empirical`, log score, decision rule in `docs/preregistration_heldout.md` | rule formally met (+0.15 primary, 17/18 samples better; +0.54 secondary, 9-day block CI 0.36–0.73). The primary-fold interval rests on only 2 sampling days; measured MACs score slightly better descriptively; broadband HCRF is over-predicted by about 0.2 (unresolved). |
 | N2 | Role of an Fe-complexed fraction | `tddft_D` vs `tddft_C`, reported descriptively (not a confirmatory test) | f and φ are not separately identified by the calibration data (P2-CAL-1); no claim that Fe is required |
-| N3 | Physics retrieval vs statistical baselines at an unseen site | the primary vs `band_ratio`, `ridge`, `climatology`, `literature_prior`, reported descriptively | pending |
+| N3 | Physics retrieval vs statistical baselines at an unseen site | the primary vs `band_ratio`, `ridge`, `climatology`, `literature_prior`, reported descriptively | the primary beats climatology, literature prior and band ratio in both folds; ridge is comparable on the primary fold (−0.13, interval spans 0) and worse on the secondary fold |
 | N4 | Algal melt increment from an SEB rather than "potential melt" | `phase4/seb.py`: paired on/off runs; SEB checked against PROMICE fluxes, surface temperature and three ablation records | conditional modelled estimates only: the increment/potential ratio is about 0.9 (χ = 0) or about 0.6 (χ = 0.3, subsurface shortwave), with no independent algal-melt observation; the 2019 ablation sensors disagree by 2.5× |
 | N5 | A qualified surrogate with domain flags | `phase4/surrogate_api.py`: refuses use without a passing benchmark of the same emulators; BBA and forcing benchmarked over the supported domain | benchmark running |
 
