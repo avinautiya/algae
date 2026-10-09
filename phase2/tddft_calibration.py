@@ -117,6 +117,25 @@ def complexed_mac(spec, dE, f, w, phi):
     return fn
 
 
+def root_count_sensitivity(spec, dE: float, w: float, drop: int = 5) -> dict | None:
+    """Change of the calibrated-width MAC over the windows this module consumes (260-750 nm fit window,
+    265-600 nm normalisation) when the highest `drop` TD-DFT roots are removed. Evidence, not proof, that
+    roots above the computed set matter little; > 1 % flags a window not converged in the root count."""
+    if not spec.has_sticks or spec.energies_ev.size <= drop:
+        return None
+    o = np.argsort(spec.energies_ev)
+    cut = dataclasses.replace(spec, energies_ev=spec.energies_ev[o][:-drop], osc=spec.osc[o][:-drop])
+    wl = np.arange(MAC_RANGE_NM[0], MAC_RANGE_NM[1] + 0.5, 1.0)
+    a, b = perturbed_mac(spec, dE, 1.0, w)(wl), perturbed_mac(cut, dE, 1.0, w)(wl)
+    k = (wl >= ED.FE_NORM_RANGE_NM[0]) & (wl <= ED.FE_NORM_RANGE_NM[1])
+    ia, ib = np.trapezoid(a[k], wl[k]), np.trapezoid(b[k], wl[k])
+    return dict(n_roots=int(spec.energies_ev.size), dropped=drop, dE=float(dE), w=float(w),
+                window_nm=list(MAC_RANGE_NM), norm_window_nm=list(ED.FE_NORM_RANGE_NM),
+                max_rel_change_in_window=float(np.max(np.abs(a - b)) / a.max()),
+                rel_change_norm_integral=float(abs(ia - ib) / ia),
+                rel_change_at_260nm=float(abs(a[0] - b[0]) / a[0]))
+
+
 def _data():
     wl_h, S, sS = ED.chromophore_hplc_shape()
     wl_m, E, sE = ED.phenolic_extract_mac()
@@ -238,7 +257,12 @@ def calibrate(spec, n_walkers=24, n_steps=2000, burn=800, n_stage2=200, draws_pe
     diag["phenol_molar_mass"] = PHENOL_MOLAR_MASS
     diag["f_stoichiometric_1to1"] = float(spec.molar_mass / PHENOL_MOLAR_MASS)
     diag["f_over_stoichiometric"] = float(pm[2] / (spec.molar_mass / PHENOL_MOLAR_MASS))
+    diag["root_count_sensitivity"] = root_count_sensitivity(spec, pm[0], pm[1])
     cal = Calibration(spec, ch, diag)
+    rcs = diag["root_count_sensitivity"]
+    if rcs and rcs["max_rel_change_in_window"] > 0.01:
+        print(f"  WARNING: removing the top {rcs['dropped']} of {rcs['n_roots']} roots changes the calibrated MAC "
+              f"in {MAC_RANGE_NM} nm by up to {100 * rcs['max_rel_change_in_window']:.1f}% - more roots needed")
     if verbose:
         sm = cal.summary()
         print(f"TD-DFT calibration ({diag['spectrum']}): dE = {sm['dE']['mean']:+.3f} +/- {sm['dE']['sd']:.3f} eV, "

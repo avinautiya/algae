@@ -81,6 +81,38 @@ def fwhm_ev_to_nm(fwhm_ev: float, center_nm: float) -> float:
     return float(ev_to_nm(e0 - fwhm_ev / 2) - ev_to_nm(e0 + fwhm_ev / 2))
 
 
+# Wavelength window consumed downstream: phase2.tddft_calibration fits 260-750 nm extract MAC and
+# normalises the HPLC shape and the Fe increment over 265-600 nm. Root coverage is judged here.
+DOWNSTREAM_WINDOW_NM = (260.0, 750.0)
+CAL_NORM_WINDOW_NM = (265.0, 600.0)
+
+
+def root_count_sensitivity(energies_ev, osc, molar_mass_g_mol: float, fwhm_ev: float,
+                           window_nm=DOWNSTREAM_WINDOW_NM, norm_nm=CAL_NORM_WINDOW_NM, drop: int = 5,
+                           shift_ev: float = 0.0):
+    """How much the broadened MAC in the downstream window changes when the highest `drop` roots are
+    removed. A small change is evidence (not proof) that roots above the computed set would change the
+    window little; a large change shows the window is NOT converged in the root count.
+
+    Returns max relative pointwise change of MAC in window_nm (relative to the window maximum), the
+    relative change of the integral over norm_nm, and the same at the window's short-wavelength edge."""
+    e, f = np.asarray(energies_ev, float) + shift_ev, np.asarray(osc, float)
+    lam = np.arange(window_nm[0], window_nm[1] + 0.5, 1.0)
+    eg = nm_to_ev(lam)
+    full = epsilon_to_mac(gaussian_broaden(eg, e, f, fwhm_ev), molar_mass_g_mol)
+    n = e.size
+    k = max(n - drop, 0)
+    cut = epsilon_to_mac(gaussian_broaden(eg, e[:k], f[:k], fwhm_ev), molar_mass_g_mol) if k else 0 * full
+    w = (lam >= norm_nm[0]) & (lam <= norm_nm[1])
+    i_full, i_cut = np.trapezoid(full[w], lam[w]), np.trapezoid(cut[w], lam[w])
+    return dict(n_roots=int(n), dropped=int(min(drop, n)), fwhm_ev=float(fwhm_ev), shift_ev=float(shift_ev),
+                window_nm=list(window_nm), norm_window_nm=list(norm_nm),
+                highest_root_ev=float(e.max()), edge_ev=float(HC_EV_NM / window_nm[0]),
+                max_rel_change_in_window=float(np.max(np.abs(full - cut)) / max(full.max(), 1e-300)),
+                rel_change_norm_integral=float(abs(i_full - i_cut) / max(i_full, 1e-300)),
+                rel_change_at_short_edge=float(abs(full[0] - cut[0]) / max(full[0], 1e-300)))
+
+
 def build_spectrum(energies_ev, osc_strengths, molar_mass_g_mol: float,
                    lam_min_nm: float = 300.0, lam_max_nm: float = 800.0,
                    step_nm: float = 1.0, fwhm_ev: float = 0.3, napierian: bool = True):

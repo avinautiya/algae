@@ -62,6 +62,8 @@ def test_accepted_geometry_sidecar_gives_production(tiny, tmp_path):
     (tmp_path / "w.xyz.geometry.json").write_text(json.dumps(dict(status="converged")))
     s, out, _ = _run(tmp_path, tiny)
     assert s["completion_status"] == "production" and run_phase1._exit_code(s) == 0
+    rcs = s["tddft"]["B3LYP"]["root_count_sensitivity"]
+    assert [r["window_nm"] for r in rcs] == [[260.0, 750.0]] * 2 and [r["fwhm_ev"] for r in rcs] == [0.3, 0.6]
     ok, st, _ = completion.validate_run(str(out), require=dict(nstates=3, tda=False))
     assert ok and st == "production"
     ok, _, why = completion.validate_run(str(out), require=dict(nstates=30))

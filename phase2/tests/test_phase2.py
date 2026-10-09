@@ -261,3 +261,15 @@ if __name__ == "__main__":
         if name.startswith("test_"):
             fn()
             print(f"PASS {name}")
+
+
+def test_calibration_root_count_sensitivity_flags_truncated_window():
+    import cell_optics as co
+    import tddft_calibration as tc
+    f = np.array([0.1, 0.2, 0.5, 0.4])
+    near = co.MolecularSpectrum("x", 300.0, 0.3, np.array([2.5, 3.0, 3.5, 4.6]), f)
+    far = co.MolecularSpectrum("x", 300.0, 0.3, np.array([2.5, 3.0, 3.5, 9.0]), f)
+    a = tc.root_count_sensitivity(near, 0.0, 0.6, drop=1)
+    b = tc.root_count_sensitivity(far, 0.0, 0.6, drop=1)
+    assert a["max_rel_change_in_window"] > 0.1 and b["max_rel_change_in_window"] < 1e-6
+    assert tc.root_count_sensitivity(near, 0.0, 0.6, drop=4) is None

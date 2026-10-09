@@ -69,7 +69,7 @@ def parse_args(argv=None):
     p.add_argument("--import-guess", default=None,
                    help="legacy .npz with an 'x0' array: used only as an unvalidated initial guess")
     p.add_argument("--fwhm", type=float, default=0.3, help="Gaussian FWHM in eV")
-    p.add_argument("--lam-min", type=float, default=300.0)
+    p.add_argument("--lam-min", type=float, default=250.0)
     p.add_argument("--lam-max", type=float, default=800.0)
     p.add_argument("--decadic", action="store_true", help="report decadic instead of Napierian MAC")
     p.add_argument("--start-xyz", default=None, help="start (or resume) from this .xyz file (last frame)")
@@ -215,11 +215,19 @@ def main(argv=None):
             highest_state_eV=float(res["energies_ev"].max()),
             # NOT a root-count convergence test (that needs a comparison with more roots)
             highest_root_reaches_lam_min_plus_2fwhm=bool(res["energies_ev"].max() + 2 * a.fwhm >= spectra.HC_EV_NM / a.lam_min),
+            # Root-count sensitivity over the window used DOWNSTREAM (260-750 nm; 265-600 nm normalisation),
+            # at the run FWHM and at a 0.6 eV width (calibrated widths are ~0.6 eV)
+            root_count_sensitivity=[spectra.root_count_sensitivity(res["energies_ev"], res["osc_strengths"],
+                                                                   spec["molar_mass"], w) for w in (a.fwhm, 0.6)],
             lambda_max_in_window_nm=float(spec_df.Wavelength_nm.iloc[i_max]),
             mac_max_m2_kg=float(spec_df.MAC_estimated.iloc[i_max]),
             mac_mean_400_700_m2_kg=float(vis.MAC_estimated.mean()),
             brightest_state=lines_df.loc[lines_df.Oscillator_Strength.idxmax()].drop("Transitions").to_dict(),
         )
+        rcs = max(r["rel_change_norm_integral"] for r in summary["tddft"][func]["root_count_sensitivity"])
+        if rcs > 0.01:
+            print(f"WARNING: dropping the top 5 of {a.nstates} roots changes the 265-600 nm integral by "
+                  f"{100 * rcs:.1f}% - the downstream window is not converged in the root count.", flush=True)
         if not summary["tddft"][func]["highest_root_reaches_lam_min_plus_2fwhm"]:
             print(f"WARNING: {a.nstates} states reach only {res['energies_ev'].max():.2f} eV; the MAC near "
                   f"{a.lam_min:.0f} nm is underestimated - increase --nstates.", flush=True)

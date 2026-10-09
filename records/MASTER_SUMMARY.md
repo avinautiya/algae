@@ -10,10 +10,10 @@ Source: `phase1/results/level2/`, `records/phase1_production/calibration_level2_
 
 | Quantity | Value |
 |---|---|
-| Method | TD-B3LYP/6-31G*/IEF-PCM (water, non-equilibrium), 30 singlets, at a B3LYP/PCM geometry (optimisation stopped at ΔE = 5 × 10⁻⁶ Eh; `stop_criterion.json`) |
+| Method | TD-B3LYP/6-31G*/IEF-PCM (water, non-equilibrium), 30 singlets, at a B3LYP/PCM geometry that did **not** meet the optimisation criteria (1 of 5 met; `stop_criterion.json`). Status `provisional_geometry`; spectral effect of relaxation pending (jobs L2_OPT, L2_B3LYP_TDA15_RELAXED) |
 | Lowest bright states | 420 nm (f 0.074), 381 nm (0.147), 333 nm (0.198), 296 nm (0.271) |
 | Fit to HPLC shape of the isolated pigment (R²) | **0.974** (placeholder spectrum: 0.91) |
-| Band shift ΔE | **+0.060 ± 0.004 eV** (B3LYP slightly too red; no charge-transfer error) |
+| Band shift ΔE | **+0.060 ± 0.004 eV** (B3LYP slightly too red; a uniform fitted shift does not establish the absence of charge-transfer error) |
 | Band FWHM | 0.62 ± 0.005 eV |
 | Strength factor f | 39.5 ± 2.2 |
 | f / stoichiometric glucoside→phenol (4.53) | **8.7** (not ≈ 1: mainly the 4-AAP assay's low response to this pigment, which EPA 420.1 reports as a minimum; cancels in the forcing) |
@@ -125,11 +125,12 @@ Source: `records/multi_scene_2019_tddft/` (Fig. S7).
 1. **Dust.** No dust measurement at the independent site: ±0.2 dex on its abundance.
 2. **Pixel scale.** 10 m pixels average 0.83 dex of plot-to-plot variability. Satellite products are area means.
 3. **Strength factor.** f / stoichiometric = 8.7 separates assay response from TD-DFT intensity error only jointly. This doesn't affect the forcing.
-4. **Geometry.** The Level 2 geometry was stopped at ΔE 5 × 10⁻⁶ Eh between steps, far below TD-DFT error.
+4. **Geometry.** The Level 2 geometry is not converged (1 of 5 criteria met). A small ground-state energy change between steps does not bound excitation-energy error; the effect is being measured by relaxing the geometry (job L2_OPT) and recomputing the spectrum (L2_B3LYP_TDA15_RELAXED vs L2_B3LYP_TDA15).
 5. **Irradiance.** PROMICE KAN_M irradiance is used for S6, about 20 km away (literature comparison).
 6. **Stibal et al. 2017.** Not included: the supporting information needs a browser download (`data/empirical/stibal_2017/README.md`).
+7. **Chemical model.** One neutral tautomer and conformer, 6-31G(d), implicit solvent only; protonation, tautomer, basis and explicit-solvent effects are not measured.
 
 ## Status of runs (as of this file's last commit)
 
-- Phase 1: CAM-B3LYP Level 2 TD-DFT running. Queue afterwards: Level 1 (B3LYP + CAM-B3LYP), Fe(III) catecholate, Fe(III) tropolonate + spin checks.
+- Phase 1: see `python phase1/jobs.py status` and `docs/repair_ledger.md`. The repair audit of commit 814295a found defects in checkpoint, completion and provenance handling; results listed in this file that depend on them are being re-verified, and entries are corrected as each repair lands.
 - Downstream: complete (satellite check tier D, 2019 seasonal series, Phase 3 full, literature comparison, optics audit).

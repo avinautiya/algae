@@ -23,7 +23,7 @@
 
 1. **Start geometry:** RDKit ETKDGv3 conformer search (60 conformers for Level 1, 300 for Level 2) with MMFF94s. The lowest conformer is stored in `molecules.py`.
 2. **Pre-optimisation:** GFN2-xTB with ALPB(water) through `tblite`. This takes seconds and cuts the number of DFT steps.
-3. **Ground state:** RKS B3LYP/6-31G(d) with IEF-PCM (ε = 78.4), optimised by geomeTRIC to Gaussian-default thresholds.
+3. **Ground state:** RKS B3LYP/6-31G(d) with IEF-PCM (ε = 78.4), optimised by geomeTRIC to Gaussian-default thresholds. **The Level 2 production geometry did NOT meet them** (1 of 5 criteria; `results/level2/stop_criterion.json`); every Level 2 spectrum is therefore `provisional_geometry` until job `L2_OPT` and the relaxed-geometry comparison bound the spectral effect.
    - `B3LYP` maps to PySCF `B3LYPG` (VWN-RPA), which matches Gaussian's B3LYP.
    - Cartesian 6d functions also match Gaussian's 6-31G(d).
    - Density fitting (def2-universal-jkfit) is on by default; use `--no-df` to turn it off.
@@ -31,15 +31,16 @@
 4. **Excited states:** full TD-DFT (RPA), 30 singlet roots, with **non-equilibrium** linear-response PCM. The electronic response uses the optical dielectric constant ε∞ = 1.78, which is correct for vertical absorption.
    - Pass `--tddft-functionals B3LYP CAM-B3LYP` to get both spectra at the same B3LYP geometry.
    - That gives the CAM-B3LYP benchmark without a second optimisation. If you want a CAM-B3LYP geometry instead, use `--opt-functional CAM-B3LYP`.
-   - **Production runs as executed** (`scripts/phase1_production.sh`):
-     - **Level 2, B3LYP (core result):** full TD-DFT, 30 roots, at the B3LYP/PCM geometry. This spectrum feeds the calibration and all downstream physics (shape R² 0.974, ΔE +0.06 eV).
-     - **Level 2, CAM-B3LYP (functional sensitivity check):** Tamm–Dancoff approximation (TDA), 15 roots, same geometry. Full TD-DFT CAM-B3LYP needs more than a day of uninterrupted Davidson iterations on 4 cores, longer than the cloud container survives.
-     - **Level 2, B3LYP-TDA:** same 15 roots, so the functional effect is measured TDA against TDA and is not mixed with the TDA vs full-TD-DFT difference.
+   - **Production runs** are defined in `jobs.py` (registry; `python jobs.py status`, `python jobs.py run`). Outputs go to `results/v2/<job>/`; a run is usable only when `completion.validate_run` accepts its `COMPLETE.json`.
+     - **Level 2, B3LYP full TD-DFT, 30 roots** (`results/level2/`, audited in place as job `L2_B3LYP_FULL30`; status `provisional_geometry`). This spectrum feeds the calibration and all downstream physics.
+     - **Level 2, CAM-B3LYP TDA, 15 roots** and **B3LYP TDA, 15 and 25 roots**, same geometry, residual tolerance 1e-5. They measure (A) TDA vs full TD at B3LYP, (B) the functional effect TDA vs TDA, and the root-count dependence. Full TD-DFT CAM-B3LYP (> 1 day of Davidson work) is not scheduled on this container (see `docs/repair_ledger.md`, P1-ENV-1).
+     - The excited-state solver tolerance is 1e-5 (residual norm). No claim is made that a looser tolerance gives a fixed energy error; the stage history (`*_stage_history.json`) records energies and f at 1e-2, 1e-3, 1e-4 and 1e-5 so the effect is measured per run.
 5. **Spectrum and MAC:**
    - Each line is broadened with an area-normalised Gaussian in energy: ε(E) = 2.8707×10⁴ Σᵢ fᵢ gᵢ(E) L mol⁻¹ cm⁻¹ (Hilborn 1982).
    - FWHM is 0.3 eV, which is about 41 nm at 413 nm.
    - MAC [m² kg⁻¹] = 1000 · ln(10) · 0.1 · ε / M (Napierian, the BioSNICAR convention; `--decadic` drops the ln 10).
-   - The spectrum is evaluated on a 1 nm grid from 300 to 800 nm.
+   - The spectrum is written on a 1 nm grid from 250 to 800 nm. Downstream code rebuilds it from the sticks.
+   - **Root coverage** is judged over the window used downstream (260–750 nm; 265–600 nm normalisation), by the change when the top 5 roots are removed (`root_count_sensitivity` in `summary.json`). For the 30-root Level 2 B3LYP spectrum at the calibrated width (0.62 eV) the change is < 1e-5 everywhere in the window; removing 10 roots changes the MAC at 260 nm by 1.2 %. This is evidence, not proof: roots above the computed set are not computed. The older flag `highest_root_reaches_lam_min_plus_2fwhm` is kept for information only.
 
 ## Outputs (`results/<level>/`)
 
@@ -75,7 +76,7 @@ Recommendations:
 - **Memory:** PySCF honours `--max-memory` only loosely. With the default 10 000 MB, a Level 2 B3LYP/6-31G(d)/PCM job reached 13.6 GB resident and was killed on a 16 GB machine. Use `--max-memory 4000` there, which ran at about 4–5 GB.
 
 - **CPU:** run Level 1 first. Run Level 2 as a separate session, resuming with `--start-xyz results/level2/opt_B3LYP_last.xyz` whenever a session ends. Save `--outdir` to Google Drive.
-- **Speed:** `--tda` roughly halves the TD-DFT cost. Oscillator strengths are slightly less reliable with TDA, so use full TD-DFT for final numbers.
+- **Speed:** `--tda` roughly halves the TD-DFT cost. Its effect on band positions and oscillator strengths must be measured for this molecule (comparison A), not assumed.
 - **GPU:** `--gpu` (gpu4pyscf, any Colab GPU runtime) is expected to be about an order of magnitude faster. The GPU path follows gpu4pyscf's documented construction (`density_fit → to_gpu → PCM`) but was **not executed** in development, because no GPU was available. Check the first run's SCF energy against a CPU single point (`--skip-opt`); they should agree to about 1e-6 Eh.
 
 ## Tests (`tests/test_phase1.py`)
@@ -86,12 +87,14 @@ These checks run without a production calculation:
 - both molecules' formulas, charges and multiplicities;
 - a tiny real PySCF RKS + TD-DFT run.
 
+Further regression tests: `test_tdcheckpoint.py` (restartable TD/TDA checkpoints), `test_completion.py` (completion markers, diagnostic-only runs), `test_jobs.py` (job runner), `test_xyz_geometry.py` (XYZ parsing, optimiser history), `test_coverage.py` (root coverage over the downstream window).
+
 ## Scientific caveats to keep in view
 
 - **Regiochemistry of the COOH (Level 2)** is set to C8 of the benzo[7]annulene skeleton. If your assignment differs, edit `LEVEL2_SMILES` in `molecules.py` and rerun with `--rebuild`.
-- **Protonation state:** the carboxylic acid (pKa ≈ 3–4) is likely deprotonated at vacuolar pH. Both models are run neutral, as specified. A charge −1 carboxylate run is a recommended sensitivity test: set `charge=-1` in `MOLECULES['level2']`.
+- **Protonation state:** the carboxylic acid (pKa ≈ 3–4) is likely deprotonated at vacuolar pH. Both models are run neutral. **Not audited:** no carboxylate, tautomer, conformer, basis-set (e.g. 6-311+G(d,p)) or explicit-solvent run has been made, so their band-position effect is unknown and is not included in the stated uncertainty. A charge −1 carboxylate run is the first recommended sensitivity test: set `charge=-1` in `MOLECULES['level2']`.
 - **Tautomers and conformers:** benzotropolones have tropolone OH/C=O tautomers and OH rotamers, and the glycoside is flexible. Spectra should ideally be Boltzmann-averaged over the lowest few DFT conformers. The single MMFF-lowest conformer used here is a starting point.
-- **TDA in the functional check:** TDA band positions are close to full TD-DFT (typically within about 0.1 eV for π→π* bands), but its oscillator strengths do not obey the TRK sum rule and are less reliable. The CAM-B3LYP comparison is therefore read for **band-position stability**, against B3LYP-TDA at the same geometry. Its intensities are not used in any downstream calculation; the production optics use only the full TD-DFT B3LYP spectrum, whose overall intensity is calibrated against measured spectra anyway (f).
-- **Functional:** B3LYP tends to red-shift and over-stabilise charge-transfer states. CAM-B3LYP usually blue-shifts π→π* bands of polyphenols by about 0.2–0.4 eV. Compare both with measured HPLC-DAD/UV-vis spectra before trusting absolute λmax.
+- **TDA in the functional check:** the TDA-vs-full difference is not assumed small. It is measured for this molecule at B3LYP (comparison A: `L2_B3LYP_TDA15` vs the 30-root full run, states matched by transition-vector overlaps), and only then is the CAM-B3LYP TDA result compared with B3LYP TDA (comparison B). TDA oscillator strengths do not obey the TRK sum rule. The CAM-B3LYP comparison is therefore read for **band-position stability**. Its intensities are not used in any downstream calculation; the production optics use only the full TD-DFT B3LYP spectrum, whose overall intensity is calibrated against measured spectra anyway (f).
+- **Functional:** B3LYP tends to red-shift and over-stabilise charge-transfer states. The small calibrated shift (ΔE +0.06 eV) does NOT show that charge-transfer error is absent: a uniform shift fitted to a broad band can absorb compensating errors, and the CT character of the bright states has not been analysed. CAM-B3LYP usually blue-shifts π→π* bands of polyphenols by about 0.2–0.4 eV. Compare both with measured HPLC-DAD/UV-vis spectra before trusting absolute λmax.
 - **Vertical TD-DFT gives no vibronic structure.** The 0.3 eV Gaussian width is phenomenological, so test FWHM 0.25–0.40 eV with `spectra.build_spectrum`, which re-broadens saved results in seconds.
 - `--freq` runs an analytic PCM Hessian on CPU to confirm a true minimum. It is expensive, so run it on Level 1 at least once.
