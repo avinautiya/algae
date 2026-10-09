@@ -19,7 +19,7 @@ Source: `phase1/results/level2/`, `records/phase1_production/calibration_level2_
 | f / stoichiometric glucoside→phenol (4.53) | **8.7** (not ≈ 1: mainly the 4-AAP assay's low response to this pigment, which EPA 420.1 reports as a minimum; cancels in the forcing) |
 | Fe-complexed fraction φ (fit to the S6 extract) | 0.49 ± 0.04 |
 | Fe share of 400–700 nm absorption (tier D) | 53 % |
-| CAM-B3LYP at the same geometry | **pending** |
+| CAM-B3LYP at the same geometry (TDA, 15 roots; compared with B3LYP-TDA, 15 roots) | **pending**: band-position sensitivity check only; TDA intensities are not used downstream |
 | Level 1 (purpurogallin core), both functionals | **pending** |
 | Fe(III)–purpurogallin complexes (TD-DFT, spin check) | **pending** |
 

@@ -33,7 +33,12 @@ json.dump({str(k): dict(E_Eh=v[0], S2=v[1], converged=v[2]) for k, v in out.item
 # Level 2 B3LYP optimisation was stopped at step 16 (results/level2/stop_criterion.json): single point + TD-DFT
 run $R/level2 none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals B3LYP
 echo "LEVEL2 DONE $(date -u)" >> $R/level2/run.log
-run $R/level2_cam none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals CAM-B3LYP
+# Functional check (range separation): Tamm-Dancoff approximation, 15 states, at the B3LYP geometry.
+# Full TD-DFT CAM-B3LYP needs > 1 day of uninterrupted Davidson iterations, longer than the cloud
+# container survives; TDA is ~4x cheaper per iteration and converges in fewer. A B3LYP-TDA run with
+# the same settings isolates the functional effect from the TDA-vs-full-TD-DFT shift.
+run $R/level2_cam none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals CAM-B3LYP --tda --nstates 15
+run $R/level2_b3lyp_tda none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals B3LYP --tda --nstates 15
 run $R/level1 B3LYP --level level1 --tddft-functionals B3LYP CAM-B3LYP
 run $R/level3_catecholate B3LYP --level level3_catecholate --tddft-functionals B3LYP --nstates 50
 spin $R/level3_catecholate catecholate
