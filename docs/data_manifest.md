@@ -34,7 +34,7 @@ sha256 prefixes (16 hex) refer to the files as stored in this repository or in t
 | `data/promice_aux/KAN_M_hour_MJJAS_2016_2019_qc.csv` | tilt, sensor heights, QC columns | as above | — | 5462fdd9… | E (sensor audit only) |
 | `data/promice_aux/AWS_data_readme.pdf` | GEUS AWS readme (2024 update) | — | — | dea361c4… | documentation |
 | `data/empirical/promice_KAN_{L,M,U}_day_2019.csv` | daily T, altitude | daily | — | 2426cb0f… / 07dfe514… / e37be365… | F (PDD maps, diagnostic only) |
-| KAN_L hourly (to be added) | KAN_L full record, for H2–H4 | hourly | to be audited per the readme | — | — |
+| `data/promice_raw/KAN_L_hour.csv`, `KAN_M_hour.csv` (untracked, read-only; sha256 in `data/promice_raw/SHA256SUMS`: KAN_L 2a6fee92…, KAN_M 4665d74e…) | PROMICE L3 hourly, GEUS THREDDS `aws/l3sites/csv/hour` (live product; last-modified 2026-10-09 16:19 UTC, downloaded 2026-10-09; Dataverse doi:10.22008/FK2/IW73UU) | KAN_L 67.095 N −49.958 E 651 m; KAN_M 67.068 N −48.844 E 1268 m (median 2016–2023) | hourly means, hour-start; `dsr_cor` coverage JJA: KAN_L 0.82–0.87 (2016–2019), 0.42–0.74 (2020–2022); KAN_M 0 in 2019 and 2021, 0.27–0.43 in 2020/2022 (tilt) | CC-BY 4.0 (GEUS) | see SHA256SUMS | **H2/H4 targets** (SW↑, albedo: targets only, never inputs); SW↓ as forcing |
 
 ## Site transfer assumptions
 
@@ -48,3 +48,6 @@ sha256 prefixes (16 hex) refer to the files as stored in this repository or in t
 
 - Sentinel-2 L2A from the Element 84 earth-search v1 collection `sentinel-2-l2a` (COGs in s3://sentinel-cogs). Per-scene provenance (asset hrefs, processing baseline, offset rule, tilt, sun/view geometry, grid) is written by the scene-interpretation pipeline (`docs/scene_product_schema.md`).
 - Original assets are read remotely and never modified.
+
+- **M2 conversion source.** Naegeli et al. (2017) could not be obtained verbatim on 2026-10-09: mdpi.com returned 403 and the ZORA mirror is behind bot protection. M2 is therefore the protocol's "simple empirical" fallback (`phase4/h2h4_station.py`).
+- **Sentinel-2 L2A availability.** Element 84 earth-search returns 0 acquisitions over KAN_L in June–August 2016; see protocol amendment A1.

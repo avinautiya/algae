@@ -34,6 +34,11 @@ CGROUP_FS = os.environ.get("ALGAE_CGROUP_FS", "/sys/fs/cgroup")
 PROC = os.environ.get("ALGAE_PROC", "/proc")
 MEM_MARGIN_MB = 1200            # kernel, page tables, transient spikes
 DISK_MARGIN_GB = 5.0
+# Background class: analysis admitted beyond the core count, at most BACKGROUND_SLOTS threads in total,
+# run at nice 19 (CFS weight 15 vs 1024: < 2 % of a contended core). It uses idle CPU only; memory
+# admission is unchanged (memory, not CPU, is what can kill chemistry).
+BACKGROUND_SLOTS = 1
+BACKGROUND_NICE = 19
 THREAD_VARS = ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS",
                "VECLIB_MAXIMUM_THREADS", "BLIS_NUM_THREADS")
 _UNLIMITED = 1 << 60
@@ -174,7 +179,7 @@ def _locked():
             fcntl.flock(lk, fcntl.LOCK_UN)
 
 
-def _assess(led, mem_mb, threads, scratch_gb, scratch_dir, cores=None):
+def _assess(led, mem_mb, threads, scratch_gb, scratch_dir, cores=None, background=False):
     ms = memory_status()
     reserved = 0.0
     covered = 0.0
@@ -185,12 +190,16 @@ def _assess(led, mem_mb, threads, scratch_gb, scratch_dir, cores=None):
     other = max(ms["unreclaimable_mb"] - covered, 0.0)        # unregistered processes + kernel-side usage
     projected = other + reserved + mem_mb
     cores = cores or os.cpu_count() or 1
-    threads_used = sum(v.get("threads", 1) for v in led.values())
+    threads_used = sum(v.get("threads", 1) for v in led.values() if not v.get("background"))
+    bg_used = sum(v.get("threads", 1) for v in led.values() if v.get("background"))
     free_gb = shutil.disk_usage(scratch_dir or ROOT).free / 1e9
     reasons = []
     if projected > ms["limit_mb"] - MEM_MARGIN_MB:
         reasons.append(f"memory: projected {projected:.0f} MB > limit {ms['limit_mb']:.0f} - margin {MEM_MARGIN_MB}")
-    if threads_used + threads > cores:
+    if background:
+        if bg_used + threads > BACKGROUND_SLOTS:
+            reasons.append(f"background threads: {bg_used} reserved + {threads} > {BACKGROUND_SLOTS} slot(s)")
+    elif threads_used + threads > cores:
         reasons.append(f"threads: {threads_used} reserved + {threads} > {cores} cores")
     if free_gb < scratch_gb + DISK_MARGIN_GB:
         reasons.append(f"disk: {free_gb:.1f} GB free < {scratch_gb} + {DISK_MARGIN_GB} GB margin")
@@ -198,13 +207,15 @@ def _assess(led, mem_mb, threads, scratch_gb, scratch_dir, cores=None):
                          threads_reserved=threads_used, disk_free_gb=free_gb)
 
 
-def try_reserve(name, pid, mem_mb, threads=1, scratch_gb=0.0, scratch_dir=None, cores=None):
-    """Atomically admit and register a reservation. Returns (admitted, reasons, snapshot)."""
+def try_reserve(name, pid, mem_mb, threads=1, scratch_gb=0.0, scratch_dir=None, cores=None, background=False):
+    """Atomically admit and register a reservation. Returns (admitted, reasons, snapshot).
+    background=True: admitted beyond the core count within BACKGROUND_SLOTS; the caller MUST run it at
+    nice BACKGROUND_NICE (run_budgeted does)."""
     with _locked() as led:
-        reasons, snap = _assess(led, mem_mb, threads, scratch_gb, scratch_dir, cores)
+        reasons, snap = _assess(led, mem_mb, threads, scratch_gb, scratch_dir, cores, background)
         if not reasons:
             led[name] = dict(pid=int(pid), mem_mb=float(mem_mb), threads=int(threads), scratch_gb=float(scratch_gb),
-                             started=time.time())
+                             started=time.time(), background=bool(background))
         return not reasons, reasons, snap
 
 

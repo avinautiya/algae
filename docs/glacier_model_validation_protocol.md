@@ -111,3 +111,10 @@ All datasets, versions, checksums, licences, uses and conflicts: `docs/data_mani
 - **2026-10-09, §2 Data.** "The albedo spectra were never used in any fit" is incorrect. The retrieval's HCRF/albedo anisotropy prior k (`empirical_data.anisotropy_prior`) is built from `ARF_master.csv` = HCRF / albedo of 51 S6 2017 plots (see `docs/preregistration_deviations.md` D3).
   - H1 scoring does not use k, so the H1 predictions, endpoint and decision rule are unchanged.
   - H1 remains "new target quantity, previously seen sites". The albedo spectra of these sites are additionally "previously seen through k".
+
+## Amendment A1 (2026-10-09, before any H2/H4 prediction or score was computed)
+- **Reason.** The public Sentinel-2 L2A COG archive (Element 84 earth-search) has no 2016 acquisitions over KAN_L (search result: 0). With 2019 KAN_M excluded for tilt, the 2016–2018 population yields at most 4 primary station-year blocks, below the 5-block minimum of §6, so H2/H4 would be untestable by construction.
+- **Change.** The H2/H4 population is June–August **2016–2023**.
+  - The primary set is all station-years except 2019 (kept separate as before).
+  - Every other rule is unchanged: the masks, the `dsr_cor`/`usr_cor` requirement (which already excludes hours without a tilt correction), snow_height < 0.02 m, endpoints, minimum improvements and evidence rule.
+- **Disclosure.** Before this amendment, only the extraction smoke test was seen: 4 KAN_L June 2017 station-days with their station albedo (0.51–0.56). No model prediction existed.

@@ -71,7 +71,12 @@ def observations(biosnicar_root, runner):
             continue
         a = np.interp(grid, alb.Wavelength, alb[r.sample].to_numpy(float), left=np.nan, right=np.nan)
         h = np.interp(grid, hc.wavelength_nm, hc[r.sample].to_numpy(float), left=np.nan, right=np.nan)
-        for v in (a, h):                                    # hold the first valid value below 350 nm
+        meas = grid >= 350
+        bad = [n for n, v in (("albedo", a), ("HCRF", h)) if np.isfinite(v[meas]).mean() < 0.95]
+        if bad:
+            excluded.append(dict(sample=r.sample, reason=f">5% missing values in 350-2500 nm ({', '.join(bad)})"))
+            continue
+        for v in (a, h):                                    # hold the first valid value below 350 nm; fill gaps
             ok = np.isfinite(v)
             v[~ok] = np.interp(grid[~ok], grid[ok], v[ok])
         vis = (grid >= 400) & (grid <= 1300)

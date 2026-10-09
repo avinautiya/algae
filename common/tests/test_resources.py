@@ -116,3 +116,30 @@ def test_run_budgeted_refuses_and_runs(tmp_path, monkeypatch):
                         "--scratch-root", str(tmp_path / "s"), "--", sys.executable, "-c",
                         "b = bytearray(2 * 1024**3)"], env=env, capture_output=True)
     assert r.returncode != 0 and b"MemoryError" in r.stderr
+
+
+def test_background_class_beyond_cores_but_memory_strict(tmp_path, monkeypatch):
+    proc, cg = _fixture(tmp_path, limit_mb=10000, rss_mb=3000)
+    R = _load(monkeypatch, tmp_path, proc, cg)
+    monkeypatch.setattr(R, "tree_rss_mb", lambda pid: 0.0)
+    assert R.try_reserve("chem", os.getpid(), 3000, threads=4, cores=4)[0]          # all cores reserved
+    ok, why, _ = R.try_reserve("fg", os.getpid(), 100, threads=1, cores=4)
+    assert not ok and any("threads" in w for w in why)
+    assert R.try_reserve("bg1", os.getpid(), 500, threads=1, cores=4, background=True)[0]
+    ok, why, _ = R.try_reserve("bg2", os.getpid(), 100, threads=1, cores=4, background=True)
+    assert not ok and any("background" in w for w in why)                            # one slot only
+    R.release("bg1")
+    ok, why, _ = R.try_reserve("bg3", os.getpid(), 4000, threads=1, cores=4, background=True)
+    assert not ok and any("memory" in w for w in why)                                # memory unchanged
+
+
+def test_run_budgeted_background_runs_niced(tmp_path):
+    proc, cg = _fixture(tmp_path, limit_mb=10000, rss_mb=3000)
+    env = dict(os.environ, ALGAE_PROC=str(proc), ALGAE_CGROUP_FS=str(cg),
+               ALGAE_BUDGET_LEDGER=str(tmp_path / "ledger" / "budget.json"))
+    rb = os.path.join(HERE, "..", "run_budgeted.py")
+    out = tmp_path / "n.txt"
+    r = subprocess.run([sys.executable, rb, "--name", "b", "--mem-mb", "300", "--background",
+                        "--scratch-root", str(tmp_path / "s"), "--", sys.executable, "-c",
+                        f"import os; open({str(out)!r},'w').write(str(os.nice(0)))"], env=env)
+    assert r.returncode == 0 and out.read_text() == "19"

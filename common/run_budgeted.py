@@ -7,6 +7,8 @@ Run a command only after the shared resource budget admits it (common/resources.
 
   * waits (polling) up to --wait seconds for admission, else exits 75 (EX_TEMPFAIL) without running;
   * sets OMP/OpenBLAS/MKL/NumExpr/VecLib/BLIS thread counts to --threads;
+  * --background: admitted beyond the core count (at most resources.BACKGROUND_SLOTS threads in total) and
+    run at nice 19, so it only uses CPU the reserved jobs leave idle; memory admission is unchanged;
   * applies RLIMIT_AS = --as-factor x mem (hard backstop: the process fails with MemoryError instead of
     pushing the container's cgroup into an OOM kill of other jobs);
   * per-run scratch TMPDIR under --scratch-root/<name>, removed after a successful run, kept on failure
@@ -36,6 +38,8 @@ def main(argv=None):
     p.add_argument("--scratch-root", default=os.path.join(RS.ROOT, "phase1", "results", "resources", "scratch"))
     p.add_argument("--wait", type=float, default=0.0, help="seconds to wait for admission")
     p.add_argument("--as-factor", type=float, default=2.5, help="RLIMIT_AS = factor x mem-mb (virtual > resident)")
+    p.add_argument("--background", action="store_true",
+                   help=f"background class: beyond the core count (max {RS.BACKGROUND_SLOTS} thread), nice {RS.BACKGROUND_NICE}")
     p.add_argument("cmd", nargs=argparse.REMAINDER)
     a = p.parse_args(argv)
     cmd = a.cmd[1:] if a.cmd and a.cmd[0] == "--" else a.cmd
@@ -43,7 +47,7 @@ def main(argv=None):
         p.error("no command")
     deadline = time.time() + a.wait
     while True:
-        ok, reasons, snap = RS.try_reserve(a.name, os.getpid(), a.mem_mb, a.threads, a.scratch_gb)
+        ok, reasons, snap = RS.try_reserve(a.name, os.getpid(), a.mem_mb, a.threads, a.scratch_gb, background=a.background)
         if ok:
             break
         if time.time() >= deadline:
@@ -59,6 +63,8 @@ def main(argv=None):
 
     def pre():
         resource.setrlimit(resource.RLIMIT_AS, (limit, limit))
+        if a.background:
+            os.nice(RS.BACKGROUND_NICE - os.nice(0))
     print(f"[budget] {a.name} admitted: {a.mem_mb:.0f} MB, {a.threads} threads; projected "
           f"{snap['projected_mb']:.0f}/{snap['memory']['limit_mb']:.0f} MB", file=sys.stderr, flush=True)
     try:
