@@ -1,0 +1,29 @@
+{
+ "stations": [
+  "KAN_L",
+  "KAN_M"
+ ],
+ "years": [
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023
+ ],
+ "resolution_m": 20.0,
+ "raw_sha256": "2a6fee92ec7c8bfba813b5217bc43a1e24d5c07ec4d15a22a5964a468948d9f9  KAN_L_hour.csv\n4665d74ead7ad516bf607d95672966c74e915c9fc26089dcc89d3d7020941983  KAN_M_hour.csv\nc3ec5f955298bd58fcf3e0fadc5a7d8e7325bdfe4f8a49e621fd8205916d5512  MIT_hour.csv\n86847f7fa8649a3030ef993c870581359f68284364ddd809e4cf20a466033f23  NUK_L_hour.csv\n0c31523fe18c70ee88d957ce41b7dcc24992f9dbe15ed11e7c4719689df68ce0  NUK_U_hour.csv\n0239fdaf51caf382de5d5158a1304234cd30187a1cdad32564e24b673dd95956  QAS_L_hour.csv\n0013d863deaf3e6d47e5e2957ee9a54ec2df57a16e9b027e64bad1d91679ca48  QAS_M_hour.csv\nb08da5c4aec257c6d7e507dc3b08238fe33be173e11970ef2af3c8be83f2d757  QAS_U_hour.csv\nb3e0cf5f8b9dd1d3d36fae04e3571d21e3d511b4c1582f9c1dab885370f86bfb  TAS_A_hour.csv\nabb18776be0a729e428f14a4791ad5f6cd361149deedd4fc09932877a3cf22dc  TAS_L_hour.csv\n2f3d908ce15049a2216df252f8fa254949f1f82a2e4d3c725782acea026e07cb  UPE_L_hour.csv\nf2a40eb367675b22771e5b9f1f655007a70539f222a83c17e451947b786c0c63  UPE_U_hour.csv\n",
+ "raw_downloaded_utc": "KAN_L,KAN_M: 2026-10-09T16:2xZ (first batch); others: 2026-10-09T16:45:32Z",
+ "environment": {
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.5",
+  "emcee": "3.1.6",
+  "pyscf": "2.14.0",
+  "miepython": "3.3.0",
+  "rasterio": "1.5.2"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "n_valid": 173,
+ "n_excluded": 940,
+ "excluded_reasons": {
+  "station: dsr_cor/usr_cor missing in the 3 overpass hours": 446,
+  "station: snow_height >= 0.02 m or missing": 234,
+  "SCL != 11 within 30 m": 169,
+  "station-day already has an acquisition": 89,
+  "read failed: RasterioIOError: '/vsis3/sentinel-s2-l2a/tiles/": 2
+ },
+ "primary_blocks": 11,
+ "per_block": {
+  "KAN_L_2017": 25,
+  "KAN_L_2018": 4,
+  "KAN_L_2020": 24,
+  "KAN_L_2021": 22,
+  "KAN_L_2022": 9,
+  "KAN_L_2023": 13,
+  "KAN_M_2017": 8,
+  "KAN_M_2018": 6,
+  "KAN_M_2020": 8,
+  "KAN_M_2022": 7,
+  "KAN_M_2023": 10
+ },
+ "checks": {
+  "years_in_A1": true,
+  "months_JJA": true,
+  "one_per_station_day": true,
+  "scl_all_11_3x3": true,
+  "reflectance_finite_positive": true,
+  "station_rules_and_targets": true,
+  "no_station_target_in_inputs": true
+ },
+ "problems": [],
+ "passed": true
+}
