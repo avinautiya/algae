@@ -118,3 +118,25 @@ All datasets, versions, checksums, licences, uses and conflicts: `docs/data_mani
   - The primary set is all station-years except 2019 (kept separate as before).
   - Every other rule is unchanged: the masks, the `dsr_cor`/`usr_cor` requirement (which already excludes hours without a tilt correction), snow_height < 0.02 m, endpoints, minimum improvements and evidence rule.
 - **Disclosure.** Before this amendment, only the extraction smoke test was seen: 4 KAN_L June 2017 station-days with their station albedo (0.51–0.56). No model prediction existed.
+
+## Amendment A2 (2026-10-09): H5, station albedo from the biology under the radiometer (PROMBIO). Frozen before any H5 prediction.
+- **Claim tested.** With the ice-algae count measured UNDER the station radiometer given (optics-only, known abundance), M3 predicts the station's measured broadband albedo better than M1, M1b and M0. Nuisance state comes from priors; no station-day's own albedo is used for it.
+- **Data:**
+  - development: PROMBIO 2021 + 2023 usable "under radiometer" rows;
+  - final test: PROMBIO 2024 "under radiometer" rows (`docs/new_data_inventory.md`).
+- **Inclusion (no albedo-based rule):**
+  - observation state `observed` or `left_censored`; censored counts are integrated over [0, 1000) cells/mL with the abundance prior;
+  - provider QC passed;
+  - ≥ 6 hours of `dsr_cor` and `usr_cor` with SZA < 70° on the sampling day;
+  - PROMICE `snow_height` < 0.02 m for all those hours;
+  - the station SZA at the hour midpoints lies within the emulator domain (nodes required; out-of-domain = excluded, listed).
+- **Target.** Σ usr_cor / Σ dsr_cor over the included hours. Replicate samples under one radiometer on one day are averaged in log space (station-day = one unit).
+- **Prediction.** Mixture over the nuisance prior. The radius-population hyperparameters and the albedo discrepancy SD come by empirical Bayes on DEVELOPMENT station-days only, then frozen for the test.
+- **Endpoint.** MAE of broadband albedo; contrasts M1 − M3, M1b − M3 and M0 − M3; minimum meaningful improvement 0.01.
+  - Station-day blocks; < 5 blocks → "insufficient evidence for a generalisation interval", per-block results only.
+  - Development results are reported as development, never as validation.
+- **Known limitations, stated in advance:**
+  - SZA at these late-season dates often exceeds the emulator nodes (44–56°): exclusions are expected;
+  - one cm-scale scrape vs a 10–100 m² radiometer footprint;
+  - PFA preservation;
+  - Poisson counting error (2 µl).
