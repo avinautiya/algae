@@ -604,3 +604,7 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - Phase 3 uses one population-mean cell, with size and concentration distributions as parameters; Phase 4 uses the two measured species mixed by f_n.
   - The calibration is fitted on 260–750 nm, while the optics use 350–800 nm: the 750–800 nm part is an extrapolation of the calibrated band model (MAC there is < 1 % of its visible mean).
 - **Status:** FIXED_AND_VERIFIED (consistency check; no defect).
+- **Joint vs independent calibration draws** (`records/repair_joint_calibration_draws.json`; visible 400–700 nm tier-D MAC from 3000 draws):
+  - AR(1) calibration (f–φ correlation −0.24): joint SD 21.7k vs independent 22.5k m² kg⁻¹, on a mean of 57.7k. The two are almost the same; the visible MAC uncertainty is about ±38 %.
+  - iid calibration (f–φ correlation −0.81): joint SD 1.73k vs independent 3.63k, on a mean of 52.0k. Independent marginals doubled the spread.
+  - The joint draws therefore matter under the iid scenario. Under AR(1), the posterior width itself dominates.
