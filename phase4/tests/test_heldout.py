@@ -115,3 +115,48 @@ def test_fast_tables_equal_reference_grid_posterior(monkeypatch):
         rf = INV.GridPosterior(em, np.full(4, s_), derived=()).run(R[:1], lpd, sk, mk=mk)
         assert np.isclose(tab["fwd"][0, j], rf["log_evidence"][0])
     assert np.isnan(tab["fwd"][2]).all()                       # zero count: no forward test
+
+
+def test_requested_observation_sd_reaches_all_metrics():
+    df = pd.DataFrame(dict(sample=["210805-S1", "210806-S2"], cells=[1000.0, 3000.0], cells_counted=[np.nan, np.nan],
+                           dataset="sgris_2021"))
+    lp = HO.gaussian_logp([3.0, 3.0], [0.05, 0.05])
+    out = {}
+    for sd in (0.01, 0.5):
+        L = HO.observation_loglik(df, obs_sd_sgris=sd)
+        out[sd] = HO.summary_stats(lp, df, L, obs_sd_sgris=sd)
+    # sample 2 (log 3.48) is outside a narrow predictive but inside once a 0.5 dex observation error is used
+    assert out[0.01]["covered"][1] == 0 and out[0.5]["covered"][1] == 1
+    assert out[0.5]["crps"][1] < out[0.01]["crps"][1]
+    assert not np.allclose(out[0.01]["log_score"], out[0.5]["log_score"])
+
+
+def test_ridge_standardisation_is_fitted_inside_inner_folds(monkeypatch):
+    rng = np.random.default_rng(0)
+    n = 12
+    df = pd.DataFrame(dict(sample=[f"{i}_7_SB{i}" for i in range(n)], cells=10 ** rng.uniform(2, 4, n),
+                           cells_counted=50.0, dataset=["s6_2017"] * 6 + ["sgris_2021"] * 6))
+    for b in HO.BANDS:
+        df[b] = rng.uniform(0.3, 0.7, n)
+    L = HO.observation_loglik(df)
+    seen = []
+    real = HO.fit_gaussian_model
+
+    def spy(X, Lx, l2=0.0):
+        if X.shape[1] > 3:
+            seen.append(X[:, 1:].mean(axis=0))
+        return real(X, Lx, l2)
+    monkeypatch.setattr(HO, "fit_gaussian_model", spy)
+    train = (df.dataset == "s6_2017").to_numpy()
+    HO.baselines(df, train, ~train, L)
+    # every ridge fit sees features standardised on exactly its own fitting rows (column means ~ 0)
+    assert seen and all(np.allclose(m, 0.0, atol=1e-9) for m in seen)
+
+
+def test_block_bootstrap_uses_days_and_flags_few_blocks():
+    a = np.array([1.0, 1.0, 1.0, -1.0, -1.0, -1.0])
+    b = np.zeros(6)
+    r = HO.block_bootstrap(a, b, np.array(["d1"] * 3 + ["d2"] * 3), n=2000)
+    assert r["n_blocks"] == 2 and r["few_blocks"] and r["lo"] <= -0.99 and r["hi"] >= 0.99
+    df = pd.DataFrame(dict(sample=["13_7_SB5", "21_7_SB1", "210805-S1"], dataset=["s6_2017", "s6_2017", "sgris_2021"]))
+    assert list(HO.sampling_block(df)) == ["13_7", "21_7", "210805"]

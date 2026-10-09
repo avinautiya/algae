@@ -674,3 +674,46 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - **No independent observation validates these increments.** They are not "actual algal melt", and the potential-melt gap is not a validated "correction".
   - The pigment-aware column uses the legacy (pre-review) calibration through the legacy 2019 retrievals. It is to be regenerated with the frozen primary calibration.
 - **Status:** SEB code FIXED_AND_VERIFIED (tests, closure, convergence). Melt increments are conditional modelled estimates (DATA_LIMITATION: no independent algal-melt observation; 2019 ablation sensors disagree by 2.5×). Footprint comparison: UNRESOLVED.
+
+### P4-HO-2: held-out scoring repairs after review of 453e751
+- **Source:** `phase4/heldout.py`.
+- **Defects:**
+  1. `summary_stats` used the module default observation SD (0.10 dex) instead of the requested `--obs-sd-sgris`, so sensitivity runs changed the log score but not the coverage, CRPS or point metrics.
+  2. Metrics referred to different targets and sets: the log score covered all samples via the count likelihood; coverage used the observation predictive; CRPS used the latent predictive; RMSE used the latent median on positives.
+  3. Ridge standardisation was fitted on the whole training site and reused inside the inner LOO, so preprocessing leaked into the λ choice.
+  4. The paired bootstrap resampled samples as if independent, although samples from one sampling day are correlated.
+  5. The broadband comparison set measured HCRF over 350–2500 nm against k × BBA over 300–2500 nm, and the columns were labelled as albedo-like.
+- **Repair:**
+  1. The requested SD reaches every metric through `observation_sd`.
+  2. All metrics use the predictive distribution of the observation. The log score is reported on all samples and on the positive subset that the other metrics use.
+  3. Standardisation is fitted inside each inner fold and on the full training set for the final fit.
+  4. `block_bootstrap` resamples sampling days and flags fewer than 5 blocks.
+  5. The measured broadband HCRF is on the same 300–2500 nm support (300–350 nm held at the 350 nm value; its irradiance share is reported per sample). Columns are renamed `bb_hcrf_*` and `logp_hcrf_bands`, and the docstring states HCRF vs albedo and the role of k.
+  - Primary model and primary contrast are taken from the pre-registration; contrasts are labelled `preregistered`.
+  - The expensive tables are fingerprinted by their own code (`table_code_fingerprint`), not by the scoring code.
+- **Tests:** `phase4/tests/test_heldout.py` (8 passed). New ones: the requested observation SD changes coverage, CRPS and log score; every ridge fit sees features standardised on its own rows; the block bootstrap groups by day and flags 2 blocks.
+- **Status:** FIXED_AND_VERIFIED (code). Production run: IMPLEMENTED_AWAITING_PRODUCTION_RUN. The superseded run (pre-review code, old calibration) was stopped before any score was computed; it touched no chemistry job.
+
+### P2-CAL-2: stage-2 sampling without clipping; ρ propagated; refinement verified
+- **Source:** `phase2/tddft_calibration.py::_stage2_grid`, `calibrate`.
+- **Defects:**
+  - φ draws were jittered ±half a cell and then clipped to [0, 1], putting point masses at the bounds. End cells had the weight of full cells.
+  - ρ was fixed at its maximum-likelihood value, which sat on the grid edge (0.995), so the residual-correlation uncertainty was not propagated.
+- **Repair:**
+  - Midpoint-rule cells, with the end cells halved (node mass = density × cell width); draws are uniform within the chosen cell, so they stay in [0, 1] without clipping.
+  - Stage 1 samples ρ_shape jointly with (ΔE, w, ls), with a flat prior on [0, 0.999].
+  - Stage 2 marginalises ρ_mac over the grid nodes (extended to 0.998 and 0.999) that carry non-negligible marginal likelihood.
+- **Tests:**
+  - `test_stage2_no_boundary_pileup_and_quadrature_refinement` (no draws exactly at 0 or 1; the refined grid agrees).
+  - `test_provenance.py` (7 passed before the tolerance edit; the edited test must be re-run, see below).
+- **Refinement on the production spectrum** (`records/repair_stage2_refinement.json`; ΔE 0.041, w 0.61; grid ×1 vs ×2):
+
+  | quantity | grid ×1 | grid ×2 |
+  |---|---|---|
+  | ln f mean (posterior SD 0.76) | 4.121 | 4.130 |
+  | φ mean | 0.1035 | 0.1034 |
+  | φ 95 % interval | 0.0637–0.1520 | 0.0639–0.1506 |
+
+  The quadrature is converged for the quantities used downstream.
+- **Finding:** the ρ_mac posterior mass sits at 0.998–0.999, the top of the grid. The residual process is effectively a random walk: AR(1) is at its limit and the discrepancy is dominated by a smooth level/shape mismatch. The f and φ posteriors are conditional on this discrepancy model; a smoother discrepancy model (e.g. a Gaussian process with fitted length scale) is not implemented (**UNRESOLVED**, stated as a model-structure limitation).
+- **Status:** FIXED_AND_VERIFIED (sampling, propagation, refinement). Discrepancy-model adequacy: UNRESOLVED.
