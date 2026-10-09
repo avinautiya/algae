@@ -218,6 +218,9 @@ def legacy_audit(jid):
 
 # --------------------------------------------------------------------------- runner
 MAX_ATTEMPTS = 3
+# memory kept free for analysis work alongside the chemistry (an L2 CAM-B3LYP job was OOM-killed when two
+# 7 GB jobs left ~1.2 GB for everything else)
+MEM_RESERVE_MB = 3000
 
 
 def runnable(jid, st, tried=()):
@@ -261,7 +264,7 @@ def run(max_jobs=2, only=None, poll=30, retry_failed=False):
             used = sum(JOBS[k]["threads"] for k in own) + external_phase1_threads(pids)
             # memory budget: memory COMMITTED to our jobs (their declared peak) + external PySCF RSS
             committed = sum(JOBS[k]["mem_mb"] for k in own) + external_phase1_rss_mb(pids)
-            if (used + j["threads"] > cpu or committed + j["mem_mb"] > mem_total_mb() - 1500
+            if (used + j["threads"] > cpu or committed + j["mem_mb"] > mem_total_mb() - MEM_RESERVE_MB
                     or mem_available_mb() < j["mem_mb"] * 0.5):
                 if not own:
                     print(f"[jobs] {jid}: waiting for CPU/memory ({used} threads in use, "

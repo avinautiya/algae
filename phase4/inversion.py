@@ -67,7 +67,7 @@ class GridPosterior:
         return ll, G, rr
 
     def run(self, R, log_priors: dict, sk: float, chunk: int | None = None, keep_full: np.ndarray | None = None,
-            mk: float = 1.0):
+            mk: float = 1.0, marginals: tuple = ()):
         """R: (P, 4) reflectance. log_priors: axis -> (P or 1, n_axis). Returns dict of arrays."""
         self.half_logden = 0.5 * np.log(1.0 + sk ** 2 * self.a)
         R = np.asarray(R, dtype=float)
@@ -80,6 +80,8 @@ class GridPosterior:
             res[f"{k}_mean"] = np.full(P, np.nan)
             res[f"{k}_sd"] = np.full(P, np.nan)
             res[f"{k}_nonfinite_mass"] = np.full(P, np.nan)
+        for n in marginals:                                    # full posterior marginal on the axis nodes
+            res[f"marg_{n}"] = np.full((P, len(self.em.axes[n])), np.nan)
         res.update(log_evidence=np.full(P, np.nan), chi2=np.full(P, np.nan), k_map=np.full(P, np.nan),
                    mahal_map=np.full(P, np.nan), ppp=np.full(P, np.nan))
         full = {}
@@ -114,6 +116,8 @@ class GridPosterior:
                 for q, key in ((0.025, "q025"), (0.5, "q50"), (0.975, "q975")):
                     res[f"{n}_{key}"][idx] = _quantile_from_cdf(vals, cdf, q)
                 res[f"{n}_map"][idx] = vals[np.unravel_index(imap, self.shape)[ax]]
+                if n in marginals:
+                    res[f"marg_{n}"][idx] = pm
             for k, g in self.derived.items():
                 # nodes where a derived quantity is undefined are NOT counted as zero: the posterior is
                 # renormalised over finite nodes, the missing mass reported, and > 1e-3 gives NaN

@@ -419,3 +419,77 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
 - **Test:** `phase1/tests/test_fe_increment.py` (1 passed). It checks the 280 nm coverage, a basis mismatch → raise, a missing marker → raise, an exploratory run rejected by default and flagged when allowed, and the neutral column names.
 - **Affected outputs:** none produced yet; the Fe TD-DFT jobs (FE_CAT, FE_TROP_XTB) are queued.
 - **Status:** FIXED_AND_VERIFIED (code). Results: IMPLEMENTED_AWAITING_PRODUCTION_RUN.
+
+### P1-ENV-2: OOM kill of the CAM-B3LYP TDA job by concurrent analysis work (incident)
+- **What happened:** the runner admitted two 7 GB Level 2 jobs (memory budget: total − 1.5 GB), which left about 1.2 GB for everything else. My concurrent analysis processes (calibration comparison, held-out run, SEB validation) pushed the container cgroup over its limit.
+  - The kernel killed `L2_CAM_TDA15` (RSS 7.06 GB; `dmesg`: memory cgroup out of memory).
+  - The job had not reached its first TD checkpoint (it was still in SCF/density-fitting setup). About 50 min of work was lost; no checkpoint or result was corrupted.
+- **Repair:**
+  - `jobs.MEM_RESERVE_MB = 3000` keeps 3 GB free for analysis work. Two 7 GB L2 jobs therefore no longer run together; they run sequentially.
+  - The runner was restarted with `--retry-failed`. The running jobs, which run in their own sessions, were not touched, and `L2_CAM_TDA15` was requeued; it waits for memory.
+  - Analysis jobs now run at `nice 10` with bounded chunk memory.
+- **Test:** `test_jobs.py` still passes (2 passed). The reserve is a configuration value.
+- **Status:** FIXED_AND_VERIFIED (cause and policy). The CAM result: IMPLEMENTED_AWAITING_PRODUCTION_RUN.
+
+## 14/12. Offline surface energy balance (SEB) integration
+
+### P4-SEB-1: actual vs potential melt (new capability)
+- **Source:** new `phase4/seb.py`. Forcing: PROMICE KAN_M hourly data (GEUS Dataverse doi:10.22008/FK2/IW73UU, file `KAN_M_hour.csv`, sha256 bb34825a…, CC BY 4.0), June–August 2016–2019, subset `data/empirical/promice_KAN_M_hour_JJA_2016_2019_seb.csv`.
+- **Model:**
+  - Hourly point SEB: measured SW↓, LW↓, T_a, q_a, U and p; bulk turbulent fluxes with a Richardson-number stability correction, z0 = 1 mm.
+  - A 0.10 m ice slab carries cold content. Melt occurs only at 0 °C with positive net flux.
+- **Tests:** `phase4/tests/test_seb.py` (4 passed):
+  - energy closure at the melting point;
+  - zero net flux and no melt for a cold surface;
+  - a zero-thickness slab equals the instantaneous balance, and the slab delays melt;
+  - paired runs give exactly 0 without algae, and 0 < actual ≤ potential with algae.
+- **Validation against independent observations** (`records/seb_2019/seb_validation_KAN_M.json`; bare-ice days with complete data):
+  - Turbulent fluxes vs GEUS's own estimates (2017): bias +1.5 / +1.3 W m⁻²; r = 0.78 / 0.84.
+  - Modelled surface temperature vs the temperature from measured LW↑ (0.1 m slab): bias −0.05 to +0.04 K, RMSE 0.76–0.87 K. Without the slab: −0.4 to −0.8 K and 2.2–3.3 K, which is why the slab is used.
+  - Melt vs the measured ice-surface lowering (ρ_ice 900): modelled/observed totals are 0.61/0.38 (2016), 0.44/0.27 (2017), 0.60/0.36 (2018) and 1.33/0.43 m w.e. (2019); daily r = 0.49–0.80.
+  - **Closure check:** melt energy from fully MEASURED fluxes (net SW and LW radiometers + GEUS turbulent fluxes) also exceeds the observed lowering, by 1.45–1.58× (2016–2018) and 3.0× (2019; uncorrected `dsr`, no tilt correction). The SEB reproduces the measured-flux melt to within about 10 %. The gap therefore lies in the observations (radiometer tilt, ablation sensor, density) rather than in the SEB physics, but it is not resolved: absolute melt is uncertain by a factor of 1.5–3 (**DATA_LIMITATION**).
+- **Algal coupling without double counting:** paired runs on the retrieved S6 surface (2019 sampled dates, interpolated, 8 Jul–29 Aug).
+  - "On" uses the retrieved bare-ice BBA, which contains the algae; "off" adds back the retrieved algal albedo reduction. Meteorology is identical.
+  - Results (`records/seb_2019/paired_algae_2019.json`):
+
+    | optics | actual algal melt (m w.e.) | potential (m w.e.) | actual / potential |
+    |---|---|---|---|
+    | pigment-aware (tddft_D) | 0.108–0.116 | 0.126 | 0.86–0.92 |
+    | Tier A | 0.143–0.152 | 0.163 | 0.88–0.93 |
+
+    The ranges cover z0 1e-4–1e-2 m and slab 0.05–0.3 m.
+  - The ratio is the robust result: the potential-melt shortcut overstates algal melt by 8–14 %.
+  - The absolute values inherit the 2019 SW limitation and the closure gap above.
+- **Remaining limitations:**
+  - KAN_M (1270 m) meteorology is used for the S6 (~1000 m) surface.
+  - The albedo between sampled dates is interpolated.
+  - Cloudy days are represented by the measured meteorology, but the algal Δα comes from clear-sky retrievals.
+- **Status:** FIXED_AND_VERIFIED (SEB code and tests). The actual-melt numbers are reported with the DATA_LIMITATION above.
+
+## 10. Held-out predictive evaluation
+
+### P4-HO-1: the "out-of-sample" field validation was not held out by site
+- **Source:** `phase4/field_validation.py::run`.
+- **Defects:**
+  - Hyper-parameters (σ, radius prior) were chosen by leave-one-out over BOTH sites pooled.
+  - τ was fitted leave-one-out on pooled samples.
+  - Zero counts were dropped.
+  - Gaussian observation errors were used.
+  - The baseline regression was trained on the pooled data.
+  - The model comparison was by empirical-Bayes evidence, which is not a held-out score.
+- **Repair:** new `phase4/heldout.py`.
+  - Two folds: S6 → S Greenland (primary) and the reverse.
+  - Everything is fitted on the training site only: σ and the radius prior by training-site evidence; τ by maximum likelihood of the training observations using inner leave-one-out posteriors.
+  - Test predictive = posterior marginal ⊗ N(0, τ²).
+  - Poisson count likelihood with zeros kept (S6, known counted volume; zeros at V = 0.016 mL); log-normal observation error with an assumed SD of 0.10 dex for S Greenland (count numbers not published).
+  - Four frozen optical models (Tier A; measured in-vivo MAC tier C; TD-DFT tier C; TD-DFT tier D).
+  - Baselines on the same training data and scoring: climatology, the literature prior, band ratio and ridge (λ by training LOO), plus the published Cook et al. (2020) values on S6 as a reference.
+  - Forward test: log p(4-band HCRF | measured abundance), and the broadband HCRF error against the measured spectrum (350–2500 nm).
+  - Paired bootstrap CIs.
+- **Tests:** `phase4/tests/test_heldout.py` (5 passed):
+  - zero counts and the counted volume in the likelihood;
+  - the score is a normalised density score;
+  - the Gaussian baseline recovers the truth, and dropping zeros biases it (the old behaviour);
+  - test-site evidence cannot change the training-site settings;
+  - the vectorised tables equal the reference `GridPosterior.run` (evidence, marginal, forward density).
+- **Status:** IMPLEMENTED_AWAITING_PRODUCTION_RUN (running: `phase4/results/heldout_v1`). Results are recorded below when complete.

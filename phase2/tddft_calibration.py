@@ -144,7 +144,26 @@ def _data():
     return wl_h, S, sS, wl_m, E, sE, ED.fe_increment(wl_m)
 
 
-def _shape_loglik(spec, wl_h, S, sS):
+RHO_GRID = np.array([0.0, 0.3, 0.6, 0.8, 0.9, 0.95, 0.97, 0.98, 0.99, 0.995])
+
+
+def _ar1_loglik(e, v, rho):
+    """Log density of residuals e (last axis = wavelength, evenly spaced) with variances v and AR(1)
+    correlation rho between neighbouring wavelengths (standardised residuals z = e / sqrt(v) form a
+    stationary unit-variance AR(1) process). rho = 0 is the independent-residual likelihood."""
+    z = e / np.sqrt(v)
+    q = z[..., 0] ** 2
+    n = e.shape[-1]
+    if rho > 0:
+        q = q + np.sum((z[..., 1:] - rho * z[..., :-1]) ** 2, axis=-1) / (1 - rho * rho)
+        ld = (n - 1) * np.log(1 - rho * rho)
+    else:
+        q = q + np.sum(z[..., 1:] ** 2, axis=-1)
+        ld = 0.0
+    return -0.5 * (q + ld + np.sum(np.log(2 * np.pi * v), axis=-1))
+
+
+def _shape_loglik(spec, wl_h, S, sS, rho=0.0):
     def ll(th):
         dE, w, lsh = th
         Mh = perturbed_mac(spec, dE, 1.0, w)(wl_h)
@@ -152,11 +171,11 @@ def _shape_loglik(spec, wl_h, S, sS):
         if not np.isfinite(area) or area <= 0:
             return -np.inf
         vs = sS ** 2 + np.exp(2 * lsh)
-        return -0.5 * np.sum((S - Mh / area) ** 2 / vs + np.log(2 * np.pi * vs))
+        return float(_ar1_loglik(S - Mh / area, vs, rho))
     return ll
 
 
-def _fit_magnitude(spec, dE, w, wl_m, E, sE, D):
+def _fit_magnitude(spec, dE, w, wl_m, E, sE, D, return_status=False):
     """Stage 2 for one (dE, w): maximum likelihood of (ln f, phi, ln s) with log-space residuals
     ln E - ln model, variance (sE/E)^2 + s^2; returns (theta, covariance of (ln f, phi))."""
     from scipy import optimize
@@ -179,26 +198,73 @@ def _fit_magnitude(spec, dE, w, wl_m, E, sE, D):
                               bounds=[(np.log(BOUNDS["f"][0]), np.log(BOUNDS["f"][1])), BOUNDS["phi"], (-8, 3)])
         if best is None or r.fun < best.fun:
             best = r
-    t0, h = best.x, np.array([1e-4, 1e-4, 1e-4])
+    t0 = best.x
+    if return_status:
+        return t0, bool(best.success)
+    h = np.array([1e-4, 1e-4, 1e-4])
     H = np.zeros((3, 3))
     for a in range(3):
         for b in range(3):
             ea, eb = np.eye(3)[a] * h[a], np.eye(3)[b] * h[b]
             H[a, b] = (nll(t0 + ea + eb) - nll(t0 + ea - eb) - nll(t0 - ea + eb) + nll(t0 - ea - eb)) / (4 * h[a] * h[b])
-    try:
-        cov = np.linalg.inv(H)[:2, :2]
-        if not np.all(np.isfinite(cov)) or np.any(np.diag(cov) < 0):
-            raise np.linalg.LinAlgError
-    except np.linalg.LinAlgError:
-        cov = np.diag([1e-4, 1e-4])
+    cov = np.linalg.inv(H)[:2, :2]
+    if not best.success or not np.all(np.isfinite(cov)) or np.any(np.diag(cov) <= 0):
+        raise RuntimeError(f"magnitude fit failed (success={best.success}) or Hessian not positive definite; "
+                           "no covariance fallback is used")
     return t0, cov
 
 
+def _stage2_grid(spec, dE, w, wl_m, E, sE, D, rng, n_draw, n_lf=81, n_phi=101, n_ls=56, stride=1, rho=0.0,
+                 return_max=False):
+    """Exact (grid-quadrature) draws of (ln f, phi, ln s) given (dE, w), flat priors on ln f, on phi in
+    [0, 1] and on ln s in [-8, 3] - the model's stated priors. Replaces the former Gaussian (Laplace)
+    approximation whose phi draws were clipped to [0, 1] (piling mass on the bounds) and whose covariance
+    silently fell back to diag(1e-4) when the Hessian was not positive definite.
+    stride > 1 keeps every stride-th wavelength (residual-correlation sensitivity).
+    Returns (draws (n_draw, 3), diagnostics)."""
+    m1 = perturbed_mac(spec, dE, 1.0, w)
+    sl = slice(None, None, stride)
+    M, lnE, vr, Dd = m1(wl_m)[sl], np.log(E)[sl], ((sE / E) ** 2)[sl], D[sl]
+    i_m = np.trapezoid(m1(_NORM_WL), _NORM_WL)
+    phi = np.linspace(0.0, 1.0, n_phi)
+    ls = np.linspace(-8.0, 3.0, n_ls)
+    mod = M[None, :] + phi[:, None] * i_m * Dd[None, :]                       # (phi, wl)
+    ok_phi = np.all(mod > 0, axis=1)
+    lmod = np.log(np.where(mod > 0, mod, 1.0))
+    c = np.median(lnE[None, :] - lmod[ok_phi], axis=1)
+    lo_f, hi_f = c.min() - 1.0, c.max() + 1.0
+    for _ in range(4):                                                        # widen until edge mass is negligible
+        lf = np.linspace(lo_f, hi_f, n_lf)
+        logp = np.full((n_lf, n_phi, n_ls), -np.inf)
+        r = lnE[None, None, :] - lf[:, None, None] - lmod[None, :, :]         # (lf, phi, wl)
+        for k, l_s in enumerate(ls):
+            logp[:, :, k] = _ar1_loglik(r, vr + np.exp(2 * l_s), rho)
+        logp[:, ~ok_phi, :] = -np.inf
+        if return_max:
+            return float(np.max(logp))
+        pmass = np.exp(logp - logp.max())
+        pmass /= pmass.sum()
+        edge = pmass[[0, -1]].sum()
+        if edge < 1e-4:
+            break
+        span = hi_f - lo_f
+        lo_f, hi_f = lo_f - span, hi_f + span
+    idx = rng.choice(pmass.size, size=n_draw, p=pmass.ravel())
+    i, j, k = np.unravel_index(idx, pmass.shape)
+    dl, dp, ds = lf[1] - lf[0], phi[1] - phi[0], ls[1] - ls[0]
+    draws = np.column_stack([lf[i] + dl * (rng.random(n_draw) - 0.5),
+                             np.clip(phi[j] + dp * (rng.random(n_draw) - 0.5), 0.0, 1.0),
+                             ls[k] + ds * (rng.random(n_draw) - 0.5)])
+    mphi = pmass.sum(axis=(0, 2))
+    return draws, dict(edge_mass_ln_f=float(edge), mass_phi_boundary_cells=float(mphi[0] + mphi[-1]),
+                       mass_ls_upper=float(pmass[:, :, -1].sum()))
+
+
 def calibrate(spec, n_walkers=24, n_steps=2000, burn=800, n_stage2=200, draws_per=20, seed=0,
-              verbose=True) -> Calibration:
+              verbose=True, stride: int = 1, residuals: str = "ar1") -> Calibration:
     """Modular ('cut') posterior. Stage 1: (dE, w) from the isolated-chromophore shape alone (emcee).
-    Stage 2: for draws of stage 1, (f, phi) from the extract MAC (log-space maximum likelihood with a
-    fitted discrepancy SD, Gaussian approximation; phi kept in [0, 1]). Band position and width are
+    Stage 2: for draws of stage 1, (f, phi, discrepancy SD) from the extract MAC by exact grid
+    quadrature of their conditional posterior (flat priors; phi in [0, 1]) - see _stage2_grid. Band position and width are
     properties of the uncomplexed chromophore, so the extract (which also holds Fe complexes and other
     phenolics) is not allowed to move them."""
     import emcee
@@ -206,7 +272,23 @@ def calibrate(spec, n_walkers=24, n_steps=2000, burn=800, n_stage2=200, draws_pe
     logging.getLogger("emcee").setLevel(logging.ERROR)
     from scipy import optimize
     wl_h, S, sS, wl_m, E, sE, D = _data()
-    ll = _shape_loglik(spec, wl_h, S, sS)
+    if residuals not in ("ar1", "iid"):
+        raise ValueError("residuals must be 'ar1' or 'iid'")
+    rho_grid = RHO_GRID if residuals == "ar1" else np.array([0.0])
+    # residual correlation of the shape fit: maximum likelihood over RHO_GRID (each with (dE, w, ls) optimised)
+    best_rho = (-np.inf, 0.0)
+    for rho in rho_grid:
+        llr = _shape_loglik(spec, wl_h, S, sS, rho)
+        lpr = lambda t, f=llr: f(t) if (BOUNDS["dE"][0] < t[0] < BOUNDS["dE"][1] and BOUNDS["w"][0] < t[1] < BOUNDS["w"][1]
+                                         and BOUNDS["ls_shape"][0] < t[2] < BOUNDS["ls_shape"][1]) else -np.inf  # noqa: E731
+        g = max(((lpr(np.array([d, w_, np.log(0.1 * S.max())])), d, w_) for d in np.arange(-0.9, 0.91, 0.05)
+                 for w_ in (0.12, 0.2, 0.3, 0.45, 0.6, 0.8, 1.0)), key=lambda x: x[0])
+        r_ = optimize.minimize(lambda t: -lpr(t) if np.isfinite(lpr(t)) else 1e300,
+                               [g[1], g[2], np.log(0.1 * S.max())], method="Nelder-Mead")
+        if -r_.fun > best_rho[0]:
+            best_rho = (-r_.fun, float(rho))
+    rho_shape = best_rho[1]
+    ll = _shape_loglik(spec, wl_h, S, sS, rho_shape)
     lo = np.array([BOUNDS["dE"][0], BOUNDS["w"][0], BOUNDS["ls_shape"][0]])
     hi = np.array([BOUNDS["dE"][1], BOUNDS["w"][1], BOUNDS["ls_shape"][1]])
     lp = lambda t: ll(t) if np.all(t > lo) and np.all(t < hi) else -np.inf  # noqa: E731
@@ -225,14 +307,16 @@ def calibrate(spec, n_walkers=24, n_steps=2000, burn=800, n_stage2=200, draws_pe
     except Exception:  # noqa: BLE001
         tau = None
     pick = ch1[rng.choice(len(ch1), size=min(n_stage2, len(ch1)), replace=False)]
-    rows, lsm = [], []
+    # residual correlation of the extract-MAC fit: maximum likelihood over RHO_GRID at the stage-1 mean
+    m1 = ch1.mean(axis=0)
+    rho_mac = float(rho_grid[int(np.argmax([_stage2_grid(spec, m1[0], m1[1], wl_m, E, sE, D, rng, 1, stride=stride,
+                                                         rho=r_, return_max=True) for r_ in rho_grid]))])
+    rows, s2diag = [], []
     for dE, w, lsh in pick:
-        t, cov = _fit_magnitude(spec, dE, w, wl_m, E, sE, D)
-        z = rng.multivariate_normal(t[:2], cov, size=draws_per)
-        z[:, 1] = np.clip(z[:, 1], 0.0, 1.0)
-        for lf, ph in z:
-            rows.append([dE, w, np.exp(lf), ph, lsh, t[2]])
-        lsm.append(t[2])
+        z, dg = _stage2_grid(spec, dE, w, wl_m, E, sE, D, rng, draws_per, stride=stride, rho=rho_mac)
+        for lf, ph, lsm_ in z:
+            rows.append([dE, w, np.exp(lf), ph, lsh, lsm_])
+        s2diag.append(dg)
     ch = np.array(rows)
     pm = ch.mean(axis=0)
     Mh = perturbed_mac(spec, pm[0], 1.0, pm[1])(wl_h)
@@ -259,6 +343,15 @@ def calibrate(spec, n_walkers=24, n_steps=2000, burn=800, n_stage2=200, draws_pe
     diag["f_stoichiometric_1to1"] = float(spec.molar_mass / PHENOL_MOLAR_MASS)
     diag["f_over_stoichiometric"] = float(pm[2] / (spec.molar_mass / PHENOL_MOLAR_MASS))
     diag["root_count_sensitivity"] = root_count_sensitivity(spec, pm[0], pm[1])
+    diag["residual_model"] = dict(kind=residuals, rho_shape=rho_shape, rho_mac=rho_mac,
+                                  note="AR(1) between neighbouring wavelengths, rho by maximum likelihood")
+    diag["stage2"] = dict(method="grid quadrature (ln f x phi x ln s)", stride=stride,
+                          max_edge_mass_ln_f=max(d["edge_mass_ln_f"] for d in s2diag),
+                          mean_mass_phi_boundary_cells=float(np.mean([d["mass_phi_boundary_cells"] for d in s2diag])),
+                          max_mass_ls_upper=max(d["mass_ls_upper"] for d in s2diag))
+    # MAP-optimiser diagnostic at the posterior mean (dE, w): success is recorded, not assumed
+    t_map, ok_map = _fit_magnitude(spec, pm[0], pm[1], wl_m, E, sE, D, return_status=True)
+    diag["stage2"]["map_optimizer_success"] = bool(ok_map)
     cal = Calibration(spec, ch, diag)
     rcs = diag["root_count_sensitivity"]
     if rcs and rcs["max_rel_change_in_window"] > 0.01:
