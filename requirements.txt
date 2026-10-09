@@ -1,0 +1,14 @@
+# Versions verified in the development container (2026-10-09). BioSNICAR is an external checkout:
+#   git clone https://github.com/jmcook1186/biosnicar-py.git  (revision used: fe74eee), BIOSNICAR_PATH=...
+numpy==2.5.3
+scipy==1.18.1
+pandas==3.0.5
+pyscf==2.14.0          # Phase 1 chemistry only
+rasterio==1.5.2        # GDAL 3.12 with COG and netCDF drivers
+pyproj==3.8.0
+netCDF4==1.7.4         # scene product NetCDF export
+emcee==3.1.6
+matplotlib==3.11.2
+PyYAML==6.0.1
+numba==0.68.0
+pytest==9.1.1
