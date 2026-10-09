@@ -8,8 +8,8 @@ We ingest Level-2A (Sen2Cor bottom-of-atmosphere reflectance, R_sur) Cloud-Optim
 GeoTIFFs from the public AWS archive (Element 84 earth-search STAC, bucket
 sentinel-cogs). Reflectance = DN * scale + offset; for processing baseline >= 04.00
 (data from 25 Jan 2022) ESA introduced BOA_ADD_OFFSET = -1000 DN, i.e. offset -0.1.
-We use the scale/offset recorded in the STAC item and enforce the -0.1 offset for
-baselines >= 04.00 if the item does not carry it.
+The offset rules are in `_scale_offset` (an explicit recorded value is never silently replaced;
+contradictory metadata raises).
 
 If you start from Level-1C (top of atmosphere), run ESA Sen2Cor
 (https://step.esa.int/main/snap-supported-plugins/sen2cor/) or download L2A instead;
@@ -107,21 +107,50 @@ def aoi_bounds(lat, lon, size_km, crs):
     return (x - h, y - h, x + h, y + h)
 
 
+BOA_OFFSET_PB4 = -0.1                 # ESA BOA_ADD_OFFSET = -1000 DN for processing baseline >= 04.00
+
+
 def _scale_offset(item, asset):
+    """(scale, offset, source) for DN -> reflectance.
+
+    Rules (an explicit value is never silently replaced):
+      * processing baseline < 04.00: the recorded offset (expected 0).
+      * baseline >= 04.00 and the item says the offset is applied in its metadata
+        (earthsearch:boa_offset_applied true): the recorded offset, which must then be -0.1; a recorded
+        0 contradicts the flag and raises (the DNs or the metadata are not what the reader assumes).
+      * baseline >= 04.00 without that flag: Element 84 items made before the flag existed record
+        offset 0 although the DNs carry ESA's -1000 DN offset, so -0.1 is applied once; a recorded
+        nonzero offset is used as given.
+      * baseline unknown (e.g. local files without metadata): raises - pass it explicitly."""
     rb = (asset.get("raster:bands") or [{}])[0]
-    scale, offset = rb.get("scale", 1e-4), rb.get("offset", 0.0)
-    pb = float(item["properties"].get("s2:processing_baseline", "0") or 0)
-    if pb >= 4.0 and offset == 0.0:
-        offset = -0.1                                 # BOA_ADD_OFFSET = -1000 DN
-    return scale, offset
+    scale = float(rb.get("scale", 1e-4))
+    rec = rb.get("offset")
+    p = item["properties"]
+    pb_raw = p.get("s2:processing_baseline")
+    if pb_raw in (None, "", "unknown"):
+        raise ValueError("processing baseline unknown: cannot decide the BOA offset")
+    pb = float(pb_raw)
+    flag = p.get("earthsearch:boa_offset_applied")
+    if pb < 4.0:
+        return scale, float(rec or 0.0), "recorded (baseline < 04.00)"
+    if flag is True:
+        if rec is None or not np.isclose(float(rec), BOA_OFFSET_PB4):
+            raise ValueError(f"boa_offset_applied but recorded offset {rec!r} != {BOA_OFFSET_PB4}")
+        return scale, float(rec), "recorded (boa_offset_applied)"
+    if rec is None or float(rec) == 0.0:
+        return scale, BOA_OFFSET_PB4, "ESA BOA_ADD_OFFSET applied (metadata predates the offset field)"
+    return scale, float(rec), "recorded"
 
 
-def read_scene(item: dict, bounds, resolution: float = 20.0, keep_scl=(11,), retries: int = 4) -> Scene:
+def read_scene(item: dict, bounds, resolution: float = 20.0, keep_scl=(11,), retries: int = 4,
+               dst_crs=None, aoi_lonlat=None, max_sun_mismatch_deg: float = 1.0) -> Scene:
     """Windowed read with retries: the public COG bucket intermittently refuses existing files."""
     import time
     for k in range(retries):
         try:
-            return _read_scene(item, bounds, resolution, keep_scl)
+            return _read_scene(item, bounds, resolution, keep_scl, dst_crs, aoi_lonlat, max_sun_mismatch_deg)
+        except (ValueError, KeyError):
+            raise                                             # metadata errors are not transient
         except Exception as e:  # noqa: BLE001 - rasterio open/read errors
             if k == retries - 1:
                 raise
@@ -129,35 +158,107 @@ def read_scene(item: dict, bounds, resolution: float = 20.0, keep_scl=(11,), ret
             time.sleep(10 * (k + 1))
 
 
-def _read_scene(item: dict, bounds, resolution: float = 20.0, keep_scl=(11,)) -> Scene:
-    import rasterio
-    from rasterio.enums import Resampling
-    from rasterio.windows import from_bounds
+def solar_zenith_deg(lat: float, lon: float, when_utc) -> float:
+    """Solar zenith angle (NOAA / Spencer-series approximation, about 0.1 deg; no refraction)."""
+    import pandas as pd
+    t = pd.Timestamp(when_utc)
+    t = t.tz_convert("UTC") if t.tzinfo else t.tz_localize("UTC")
+    g = 2 * np.pi / 365.0 * (t.dayofyear - 1 + (t.hour - 12 + t.minute / 60 + t.second / 3600) / 24)
+    eqt = 229.18 * (0.000075 + 0.001868 * np.cos(g) - 0.032077 * np.sin(g) - 0.014615 * np.cos(2 * g)
+                    - 0.040849 * np.sin(2 * g))
+    dec = (0.006918 - 0.399912 * np.cos(g) + 0.070257 * np.sin(g) - 0.006758 * np.cos(2 * g)
+           + 0.000907 * np.sin(2 * g) - 0.002697 * np.cos(3 * g) + 0.00148 * np.sin(3 * g))
+    tst = t.hour * 60 + t.minute + t.second / 60 + eqt + 4 * lon
+    ha = np.radians(tst / 4 - 180)
+    la = np.radians(lat)
+    cz = np.sin(la) * np.sin(dec) + np.cos(la) * np.cos(dec) * np.cos(ha)
+    return float(np.degrees(np.arccos(np.clip(cz, -1, 1))))
 
-    out, transform, crs = {}, None, None
+
+def _dst_grid(bounds, resolution):
+    """Output grid: bounds must be whole multiples of the resolution (no silent half-pixel shifts)."""
+    import rasterio
+    W = (bounds[2] - bounds[0]) / resolution
+    H = (bounds[3] - bounds[1]) / resolution
+    if not (np.isclose(W, round(W)) and np.isclose(H, round(H))):
+        raise ValueError(f"bounds {bounds} are not a whole number of {resolution} m pixels")
+    W, H = int(round(W)), int(round(H))
+    return rasterio.transform.from_bounds(*bounds, W, H), H, W
+
+
+def aligned_bounds(bounds, origin_xy, resolution):
+    """Snap bounds outward onto the source pixel grid (origin_xy = tile corner, e.g. (499980, 7500000))
+    so that native pixels are read without resampling shifts."""
+    x0, y0 = origin_xy
+    lo_x = x0 + np.floor((bounds[0] - x0) / resolution) * resolution
+    hi_x = x0 + np.ceil((bounds[2] - x0) / resolution) * resolution
+    lo_y = y0 + np.floor((bounds[1] - y0) / resolution) * resolution
+    hi_y = y0 + np.ceil((bounds[3] - y0) / resolution) * resolution
+    return (float(lo_x), float(lo_y), float(hi_x), float(hi_y))
+
+
+def _read_scene(item: dict, bounds, resolution: float = 20.0, keep_scl=(11,), dst_crs=None, aoi_lonlat=None,
+                max_sun_mismatch_deg: float = 1.0) -> Scene:
+    """Bands are warped (GDAL WarpedVRT) onto ONE output grid defined by `bounds` in `dst_crs` (default:
+    the item's CRS): area-average for reflectance (source nodata 0 excluded), nearest for SCL. The
+    returned transform is that grid's, so every band and the mask share it exactly; a different
+    dst_crs is reprojected rather than assumed."""
+    import rasterio
+    from rasterio.crs import CRS
+    from rasterio.enums import Resampling
+    from rasterio.vrt import WarpedVRT
+
+    p = item["properties"]
+    if dst_crs is None:
+        code = p.get("proj:epsg") or str(p.get("proj:code", "")).split(":")[-1]
+        dst_crs = CRS.from_epsg(int(code)) if code else None
+    transform, H, W = _dst_grid(bounds, resolution)
+    out, provenance = {}, {}
+
+    def warp(href, resampling, dtype):
+        with rasterio.open(href) as src:
+            crs = dst_crs or src.crs
+            with WarpedVRT(src, crs=crs, transform=transform, width=W, height=H, resampling=resampling,
+                           src_nodata=0, nodata=0) as vrt:
+                return vrt.read(1).astype(dtype), crs
+
     with rasterio.Env(**GDAL_ENV):
         for b, key in BANDS.items():
             a = item["assets"][key]
-            with rasterio.open(a["href"]) as src:
-                w = from_bounds(*bounds, transform=src.transform).round_offsets().round_lengths()
-                H = int(round((bounds[3] - bounds[1]) / resolution))
-                W = int(round((bounds[2] - bounds[0]) / resolution))
-                dn = src.read(1, window=w, out_shape=(H, W), resampling=Resampling.average).astype(np.float32)
-                transform = rasterio.transform.from_bounds(*bounds, W, H)
-                crs = src.crs
-            scale, offset = _scale_offset(item, a)
+            dn, crs = warp(a["href"], Resampling.average, np.float32)
+            scale, offset, src = _scale_offset(item, a)
+            provenance[b] = dict(scale=scale, offset=offset, source=src)
             r = dn * scale + offset
             r[dn == 0] = np.nan                           # nodata
             out[b] = r
-        with rasterio.open(item["assets"]["scl"]["href"]) as src:
-            w = from_bounds(*bounds, transform=src.transform).round_offsets().round_lengths()
-            scl = src.read(1, window=w, out_shape=out["B2"].shape, resampling=Resampling.nearest)
+        scl, _ = warp(item["assets"]["scl"]["href"], Resampling.nearest, np.int16)
     mask = np.isin(scl, keep_scl) & np.all([np.isfinite(v) & (v > 0) for v in out.values()], axis=0)
     for b in out:
         out[b] = np.where(mask, out[b], np.nan).astype(np.float32)
-    p = item["properties"]
-    sza = 90.0 - float(p.get("view:sun_elevation", 45.0))
-    return Scene(item, out, mask, transform, crs, sza, p.get("datetime", "")[:10])
+    # illumination: the item's (tile-mean) sun elevation is required and checked against the solar
+    # position at the AOI centre; the AOI value is used (the tile spans ~110 km)
+    if "view:sun_elevation" not in p:
+        raise ValueError("item has no view:sun_elevation; pass the solar zenith explicitly")
+    sza_tile = 90.0 - float(p["view:sun_elevation"])
+    sza = sza_tile
+    sun = dict(sza_tile_mean=sza_tile)
+    if aoi_lonlat is None and crs is not None:
+        from pyproj import Transformer
+        cx, cy = 0.5 * (bounds[0] + bounds[2]), 0.5 * (bounds[1] + bounds[3])
+        aoi_lonlat = Transformer.from_crs(crs, 4326, always_xy=True).transform(cx, cy)
+    dt = p.get("datetime", "")
+    if aoi_lonlat is not None and dt and dt != "local":
+        sza_aoi = solar_zenith_deg(aoi_lonlat[1], aoi_lonlat[0], dt)
+        sun.update(sza_aoi=sza_aoi, aoi_lonlat=list(map(float, aoi_lonlat)), datetime=dt)
+        if abs(sza_aoi - sza_tile) > max_sun_mismatch_deg:
+            raise ValueError(f"solar zenith at the AOI ({sza_aoi:.2f}) differs from the item's tile mean "
+                             f"({sza_tile:.2f}) by more than {max_sun_mismatch_deg} deg - check time/location")
+        sza = sza_aoi
+    item = dict(item)
+    item["_read"] = dict(scaling=provenance, sun=sun, grid=dict(bounds=list(bounds), resolution=resolution,
+                                                                crs=str(crs), shape=[H, W]),
+                         valid_fraction=float(mask.mean()))
+    return Scene(item, out, mask, transform, crs, sza, dt[:10])
 
 
 # --------------------------------------------------------------------------- #

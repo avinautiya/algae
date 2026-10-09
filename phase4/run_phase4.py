@@ -57,6 +57,8 @@ def parse_args(argv=None):
     s.add_argument("--resolution", type=float, default=20.0, help="m (10 = native; 20 = 2x2 average)")
     s.add_argument("--local-dir", default=None)
     s.add_argument("--sza", type=float, default=None, help="solar zenith (deg) for --source local")
+    s.add_argument("--processing-baseline", default=None,
+                   help="Sentinel-2 processing baseline of local files, e.g. 05.09 (sets the BOA offset)")
     s.add_argument("--no-dem", action="store_true", help="skip the Copernicus DEM download")
 
     m = p.add_argument_group("physics")
@@ -114,15 +116,19 @@ def load_grid(a):
     from pyproj import CRS
     if a.source == "local":
         import glob
+        if a.sza is None or a.processing_baseline is None:
+            raise SystemExit("--source local needs --sza and --processing-baseline (no defaults: they set the "
+                             "illumination and the BOA offset)")
         files = {b: glob.glob(os.path.join(a.local_dir, f"*{b}*.tif")) for b in ("B02", "B03", "B04", "B08", "SCL")}
-        item = {"properties": {"view:sun_elevation": 90 - (a.sza or 45.0), "s2:processing_baseline": "0",
+        item = {"properties": {"view:sun_elevation": 90 - a.sza, "s2:processing_baseline": a.processing_baseline,
                                "datetime": "local"},
-                "assets": {k: {"href": files[b][0], "raster:bands": [{"scale": 1e-4, "offset": 0.0}]}
+                "assets": {k: {"href": files[b][0], "raster:bands": [{"scale": 1e-4}]}
                            for k, b in zip(("blue", "green", "red", "nir", "scl"),
                                            ("B02", "B03", "B04", "B08", "SCL"))}}
         import rasterio
         with rasterio.open(files["B02"][0]) as src:
             crs = src.crs
+            origin = (src.transform.c, src.transform.f)
     else:
         if a.search:
             items = io.search_scenes(a.lat, a.lon, a.search[0], a.search[1], a.max_cloud)
@@ -132,11 +138,13 @@ def load_grid(a):
         else:
             item = io.item_from_s3(a.scene_id or io.DEFAULT_SCENE)
         crs = CRS.from_epsg(item["properties"]["proj:epsg"])
+        tr = item["assets"]["blue"].get("proj:transform")
+        origin = (tr[2], tr[5]) if tr else None
     size = a.size_km or (3.0 if a.source == "synthetic" else 6.0)
     bounds = io.aoi_bounds(a.lat, a.lon, size, crs)
-    scene = io.read_scene(item, bounds, a.resolution)
-    if a.source == "local" and a.sza:
-        scene.sza = a.sza
+    if origin is not None:
+        bounds = io.aligned_bounds(bounds, origin, a.resolution)       # native pixels, no half-pixel shift
+    scene = io.read_scene(item, bounds, a.resolution, aoi_lonlat=(a.lon, a.lat))
     return scene, bounds
 
 

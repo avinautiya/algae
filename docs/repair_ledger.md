@@ -210,3 +210,40 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
 
 - **Affected outputs:** the `dust_film` row of `records/bias_study_williamson2020/` (to be regenerated with the corrected bridge under the held-out validation, task 6). Scenarios without dust, or without a film, are unchanged.
 - **Status:** FIXED_AND_VERIFIED. Downstream regeneration: IMPLEMENTED_AWAITING_PRODUCTION_RUN.
+
+## 11. Satellite retrieval
+
+### P4-S2-1: BOA offset rule, grid georeferencing, illumination
+- **Source:** `phase4/s2_io.py::_scale_offset`, `_read_scene`; `phase4/run_phase4.py::load_grid`.
+- **Defects:**
+  1. **BOA offset.** An explicitly recorded offset of 0 and a missing offset were treated the same: −0.1 was imposed whenever the baseline was ≥ 04.00.
+     - Items whose DNs or metadata already account for the offset (`earthsearch:boa_offset_applied`) were not distinguished.
+     - Local files were hard-coded as baseline "0", so baseline ≥ 04.00 local data would have received no offset at all.
+  2. **Grid.** The window was snapped to the source pixel grid (`round_offsets`), but the output transform was built from the unsnapped bounds. Georeferencing was therefore wrong by up to half a source pixel.
+     - Bounds in another CRS were not reprojected.
+     - SCL (20 m) was resampled independently of the reflectance bands.
+  3. **Illumination.**
+     - The tile-mean sun elevation was used without checking it.
+     - A missing value silently became 45°.
+     - The local path defaulted to SZA 45°.
+- **Repair:**
+  - Explicit offset rules: recorded values are never overwritten; contradictory metadata raises; an unknown baseline raises. The local path needs `--processing-baseline` and `--sza`.
+  - All bands and SCL are warped (GDAL WarpedVRT) onto one output grid whose transform is returned. Bounds must be whole pixels, and `aligned_bounds` snaps them outward onto the tile grid. A `dst_crs` different from the tile's is reprojected.
+  - The solar zenith is computed at the AOI centre (NOAA approximation) and checked against the item's tile mean. The read raises above 1°; otherwise the AOI value is used.
+  - Per-read provenance (scaling source, sun, grid, valid fraction) is stored in `scene.item["_read"]`.
+- **Tests:** `phase4/tests/test_phase4.py` (4 passed):
+  - `test_s2_scaling_and_slope`: every offset case, including "never −0.2".
+  - `test_s2_reader_grid_alignment_and_mask`: synthetic COGs with a tile origin not on the 20 m grid; exact 2×2 averages; the SCL cloud columns line up exactly.
+  - `test_s2_reader_reprojects_and_checks_sun`: reprojection to UTM 23N; a wrong acquisition time raises; a missing sun elevation raises.
+  - `test_solar_zenith_matches_sentinel2_metadata`: the NOAA formula is within 0.3° of the Element 84 value at the tile centre.
+- **Before/after on the scenes used:**
+  - All scenes used (2017: baseline 00.01; 2019: 02.13) have recorded offset 0 and baseline < 04.00, so the offset repair changes no existing output (checked against live STAC metadata).
+  - Reader comparison, 6 km S6 AOI at 20 m (`records/repair_s2_reader_comparison.json`):
+    - old georeferencing error 0.53 px (10.7 m) north–south;
+    - band means change by ≤ 3×10⁻⁴ reflectance;
+    - SZA changes by 0.23–0.34° (tile mean → AOI), which does not move the integer SZA node used by the emulator for any of the three scenes tested.
+  - The 10 m satellite validation window was already centred on the 10 m grid, so it is unchanged.
+- **Remaining limitations:**
+  - Atmospheric-correction residuals over bright ice (Sen2Cor), adjacency, and BRDF/topographic illumination are not corrected; they are absorbed by the per-band σ and the k nuisance and need the sensitivity analysis under task 6.
+  - The emulator rounds SZA to whole degrees (≤ 0.5°).
+- **Status:** FIXED_AND_VERIFIED.

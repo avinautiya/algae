@@ -122,15 +122,104 @@ def test_grid_vs_mcmc_and_calibration():
 
 
 def test_s2_scaling_and_slope():
+    import pytest
     import s2_io as io
-    item = {"properties": {"s2:processing_baseline": "05.09"}}
-    assert io._scale_offset(item, {"raster:bands": [{"scale": 1e-4, "offset": 0.0}]}) == (1e-4, -0.1)
-    assert io._scale_offset(item, {"raster:bands": [{"scale": 1e-4, "offset": -0.1}]}) == (1e-4, -0.1)
+    rb = lambda off: {"raster:bands": [{"scale": 1e-4, **({} if off is None else {"offset": off})}]}  # noqa: E731
+    new_flag = {"properties": {"s2:processing_baseline": "05.09", "earthsearch:boa_offset_applied": True}}
+    new_old_meta = {"properties": {"s2:processing_baseline": "04.00", "earthsearch:boa_offset_applied": False}}
     old = {"properties": {"s2:processing_baseline": "02.13"}}
-    assert io._scale_offset(old, {"raster:bands": [{"scale": 1e-4, "offset": 0.0}]}) == (1e-4, 0.0)
+    assert io._scale_offset(new_flag, rb(-0.1))[:2] == (1e-4, -0.1)              # recorded, applied ONCE
+    with pytest.raises(ValueError):
+        io._scale_offset(new_flag, rb(0.0))                                       # contradictory metadata
+    assert io._scale_offset(new_old_meta, rb(0.0))[:2] == (1e-4, -0.1)           # pre-flag items
+    assert io._scale_offset(new_old_meta, rb(None))[:2] == (1e-4, -0.1)
+    assert io._scale_offset(new_old_meta, rb(-0.1))[:2] == (1e-4, -0.1)          # never -0.2
+    assert io._scale_offset(old, rb(0.0))[:2] == (1e-4, 0.0)
+    with pytest.raises(ValueError):
+        io._scale_offset({"properties": {}}, rb(None))                            # unknown baseline
     y, x = np.mgrid[0:50, 0:50] * 20.0
     dem = 1000 + 0.05 * x                                     # 5 % grade
     assert np.allclose(io.slope_deg(dem, 20.0), np.degrees(np.arctan(0.05)))
+
+
+def _fake_tile(tmp_path, origin=(499980.0, 7500000.0), n10=60, epsg=32622):
+    """10 m reflectance bands with a known pattern and a 20 m SCL, on a tile grid whose origin is not a
+    multiple of 20 m (like real tiles)."""
+    import rasterio
+    from rasterio.transform import from_origin
+    yy, xx = np.mgrid[0:n10, 0:n10]
+    assets = {}
+    for i, key in enumerate(("blue", "green", "red", "nir")):
+        dn = (5000 + 10 * xx + 1000 * i).astype(np.uint16)
+        dn[0, 0] = 0                                                   # one nodata pixel
+        p = tmp_path / f"{key}.tif"
+        with rasterio.open(p, "w", driver="GTiff", height=n10, width=n10, count=1, dtype="uint16", nodata=0,
+                           crs=f"EPSG:{epsg}", transform=from_origin(origin[0], origin[1], 10, 10)) as d:
+            d.write(dn, 1)
+        assets[key] = {"href": str(p), "raster:bands": [{"scale": 1e-4, "offset": 0.0}],
+                       "proj:transform": [10, 0, origin[0], 0, -10, origin[1]]}
+    scl = np.full((n10 // 2, n10 // 2), 11, np.uint8)
+    scl[:, :5] = 8                                                     # cloud in the 5 westernmost 20 m columns
+    p = tmp_path / "scl.tif"
+    with rasterio.open(p, "w", driver="GTiff", height=n10 // 2, width=n10 // 2, count=1, dtype="uint8", nodata=0,
+                       crs=f"EPSG:{epsg}", transform=from_origin(origin[0], origin[1], 20, 20)) as d:
+        d.write(scl, 1)
+    assets["scl"] = {"href": str(p)}
+    props = {"s2:processing_baseline": "02.13", "proj:epsg": epsg, "view:sun_elevation": 42.8861289918669,
+             "datetime": "2019-07-23T15:14:03.547000Z"}
+    return {"id": "fake", "properties": props, "assets": assets}
+
+
+def test_s2_reader_grid_alignment_and_mask(tmp_path):
+    import pytest
+    import s2_io as io
+    item = _fake_tile(tmp_path)
+    x0, y0 = 499980.0, 7500000.0
+    # requested 20 m window that is NOT on the 20 m grid; aligned_bounds snaps it outward
+    b = io.aligned_bounds((x0 + 15, y0 - 405, x0 + 395, y0 - 25), (x0, y0), 20.0)
+    assert b == (x0, y0 - 420, x0 + 400, y0 - 20)
+    with pytest.raises(ValueError):
+        io._dst_grid((0, 0, 30, 40), 20.0)                     # not whole pixels
+    sc = io.read_scene(item, b, resolution=20.0, aoi_lonlat=(-49.86, 67.13), max_sun_mismatch_deg=1.0)
+    assert sc.transform.c == b[0] and sc.transform.f == b[3] and sc.shape == (20, 20)
+    # B2 at 20 m = mean of the 2x2 10 m block: DN 5000 + 10*(2j + 0.5)
+    j = np.arange(20)
+    expect = (5000 + 10 * (2 * j + 0.5)) * 1e-4
+    good = sc.mask[5]
+    assert np.allclose(sc.bands["B2"][5][good], expect[good], atol=1e-6)
+    assert not sc.mask[:, :5].any() and sc.mask[:, 5:].all()   # SCL cloud columns line up exactly
+    assert sc.item["_read"]["scaling"]["B2"]["offset"] == 0.0
+    assert abs(sc.sza - sc.item["_read"]["sun"]["sza_tile_mean"]) < 1.0
+
+
+def test_s2_reader_reprojects_and_checks_sun(tmp_path):
+    import pytest
+    import s2_io as io
+    from rasterio.crs import CRS
+    item = _fake_tile(tmp_path)
+    # bounds in a different UTM zone (23N) are reprojected, not assumed to be in the tile CRS
+    from pyproj import Transformer
+    t = Transformer.from_crs(32622, 32623, always_xy=True)
+    cx, cy = t.transform(499980 + 300, 7500000 - 300)
+    cx, cy = round(cx, -1), round(cy, -1)
+    sc = io.read_scene(item, (cx - 100, cy - 100, cx + 100, cy + 100), resolution=20.0,
+                       dst_crs=CRS.from_epsg(32623), max_sun_mismatch_deg=5.0)
+    assert sc.crs == CRS.from_epsg(32623) and sc.shape == (10, 10) and np.isfinite(sc.bands["B3"]).any()
+    bad = dict(item, properties=dict(item["properties"], datetime="2019-07-23T03:14:03Z"))   # wrong time
+    with pytest.raises(ValueError):
+        io.read_scene(bad, io.aligned_bounds((499980, 7499600, 499980 + 400, 7500000), (499980, 7500000), 20.0))
+    nosun = dict(item, properties={k: v for k, v in item["properties"].items() if k != "view:sun_elevation"})
+    with pytest.raises(ValueError):
+        io.read_scene(nosun, (499980, 7499600, 499980 + 400, 7500000))
+
+
+def test_solar_zenith_matches_sentinel2_metadata():
+    """Tile 22WEV centre (UTM 22N 554880 E, 7445100 N), S2A 2019-07-23 15:14:03 UTC: Element 84 records sun
+    elevation 42.886 deg (tile mean)."""
+    import s2_io as io
+    from pyproj import Transformer
+    lon, lat = Transformer.from_crs(32622, 4326, always_xy=True).transform(554880, 7445100)
+    assert abs(io.solar_zenith_deg(lat, lon, "2019-07-23T15:14:03.547Z") - (90 - 42.886)) < 0.3
 
 
 if __name__ == "__main__":
