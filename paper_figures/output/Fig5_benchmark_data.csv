@@ -1,0 +1,14 @@
+test,contrast,estimate,lo,hi,n,blocks,units,model,mae
+H1,MAE(tierA_empirical) - MAE(tddft_D),-0.0019038,-0.0022296,-0.0014065,47,9,albedo MAE,,
+H1,MAE(measured_mac_C) - MAE(tddft_D),-0.0002468,-0.00029452,-0.00018795,47,9,albedo MAE,,
+H1,MAE(no_algae) - MAE(tddft_D),0.031145,0.018088,0.042095,47,9,albedo MAE,,
+H2,abserr_absorbed: M1 - M3,-2.3078,-14.194,7.5254,126,11,W m-2 MAE,,
+H2,abserr_absorbed: M2 - M3,3.1736,-8.3988,12.044,126,11,W m-2 MAE,,
+H2,abserr_absorbed: M0 - M3,8.8271,3.3348,14.663,126,11,W m-2 MAE,,
+H2,abserr_absorbed: M1b - M3,-0.026342,-1.0583,0.95426,126,11,W m-2 MAE,,
+H4,abserr_albedo: M2 - M3,0.0043464,-0.013676,0.018177,126,11,albedo MAE,,
+H5,,,,,2,,albedo MAE,no_algae,0.11813
+H5,,,,,2,,albedo MAE,tierA_empirical,0.11676
+H5,,,,,2,,albedo MAE,measured_mac_C,0.11686
+H5,,,,,2,,albedo MAE,tddft_D,0.11688
+H5,,,,,2,,albedo MAE,tddft_C,0.11726

@@ -86,7 +86,11 @@ def blocked(name, reason):
 
 
 def panel(ax, letter):
-    ax.text(-0.13, 1.04, letter, transform=ax.transAxes, fontsize=9, fontweight="bold", va="bottom")
+    t = ax.get_title()
+    if t:
+        ax.set_title(rf"$\bf{{{letter}}}$  " + t, fontsize=ax.title.get_fontsize())
+    else:
+        ax.text(-0.02, 1.02, letter, transform=ax.transAxes, fontsize=9, fontweight="bold", va="bottom", ha="right")
 
 
 # =========================================================================== Figure 1
@@ -99,28 +103,31 @@ def fig1():
     def box(x, y, w, h, text, kind, lw=0.8):
         fc, ec = style[kind]
         ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.4,rounding_size=1.2", fc=fc, ec=ec, lw=lw))
-        ax.text(x + w / 2, y + h / 2, text, ha="center", va="center", fontsize=6.3, wrap=True)
+        ax.text(x + w / 2, y + h / 2, text, ha="center", va="center", fontsize=5.6)
 
     def arrow(x0, y0, x1, y1, label=None):
         ax.add_patch(FancyArrowPatch((x0, y0), (x1, y1), arrowstyle="-|>", mutation_scale=7, lw=0.7, color=C["ink2"]))
         if label:
-            ax.text((x0 + x1) / 2, (y0 + y1) / 2 + 0.8, label, fontsize=5.5, color=C["ink2"], ha="center")
-    box(1, 50, 18, 9, "TD-DFT states\n(B3LYP, CAM-B3LYP;\nneutral glucoside, PCM)", "computed")
-    box(22, 50, 18, 9, "Broadened MAC\n(Gaussian in energy;\nNapierian, per glucoside)", "computed")
-    box(1, 36, 18, 9, "Isolated chromophore\nHPLC shape (calib. target)", "measured")
-    box(22, 36, 18, 9, "Extract MAC, phenol eq.\n(calib. target) + Fe incr.\n(Procházková 2025)", "measured")
-    box(43, 43, 17, 10, "Calibration (cut posterior)\ndE, w | f, φ\n4000 joint draws", "model")
-    box(63, 50, 17, 9, "Cell optics\n(packaging, chl/carot.,\nMie g)", "model")
-    box(63, 36, 17, 9, "BioSNICAR column\n(bubbly ice, dust,\nclear-sky SZA 50°)", "model")
-    box(83, 43, 16, 10, "Glacier spectral\nalbedo; Δα;\nabsorbed SW", "model")
-    box(63, 21, 17, 10, "Observation operator\nalbedo → HCRF = k·α\n(scalar k, D3)\nS2 SRF bands", "model")
-    box(83, 21, 16, 10, "Host interface\n(reference SEB,\nModes A/B)", "model")
-    box(1, 3, 30, 13, "Validation / development data\nS6 2017 albedo (H1) – development-reused\nKAN_L/M radiation + S2 (H2/H4)\nPROMBIO (H5) – 2 test station-days", "obs")
-    box(35, 3, 28, 13, "Fitted on (never validation)\nWilliamson 2020 MAC, HPLC;\nS6 2017 HCRF (σ, τ, radius prior);\nARF → k prior (overlaps S6, D3)", "obs")
-    box(67, 3, 32, 13, "Outcomes (this study)\nH1/H2/H4 not supported; H5 insufficient\nH3 untested; molecular substitution\nunresolved after calibration", "obs")
-    arrow(19, 54.5, 22, 54.5); arrow(40, 54.5, 43, 50, "raw MAC"); arrow(19, 40.5, 43, 46, "shape")
-    arrow(40, 40.5, 43, 45, "magnitude"); arrow(60, 48, 63, 54.5, "calibrated MAC"); arrow(71.5, 50, 71.5, 45)
-    arrow(80, 40.5, 83, 47); arrow(91, 43, 91, 31); arrow(71.5, 36, 71.5, 31); arrow(80, 26, 83, 26)
+            ax.text((x0 + x1) / 2, (y0 + y1) / 2 + 0.8, label, fontsize=5.2, color=C["ink2"], ha="center")
+    box(1, 50, 16, 9, "TD-DFT states\n(B3LYP, CAM-B3LYP;\nneutral glucoside, PCM)", "computed")
+    box(21, 50, 16, 9, "Broadened MAC\n(Gaussian in energy;\nNapierian, per glucoside)", "computed")
+    box(21, 37, 16, 9, "Isolated chromophore\nHPLC shape\n(calibration target)", "measured")
+    box(21, 23, 16, 10, "Extract MAC, phenol eq.\n(calibration target)\n+ Fe increment\n(Procházková 2025)", "measured")
+    box(44, 37, 14, 11, "Calibration\n(cut posterior)\ndE, w | f, φ\n4000 joint draws", "model")
+    box(65, 50, 14, 9, "Cell optics\n(packaging,\nchl/carot., Mie g)", "model")
+    box(65, 37, 14, 9, "BioSNICAR column\n(bubbly ice, dust,\nclear-sky SZA 50°)", "model")
+    box(84, 37, 15, 9, "Glacier spectral\nalbedo; Δα;\nabsorbed SW", "model")
+    box(65, 22, 14, 10, "Observation operator\nalbedo → HCRF = k·α\n(scalar k, D3)\nS2 SRF bands", "model")
+    box(84, 22, 15, 10, "Host interface\n(reference SEB,\nModes A/B)", "model")
+    box(1, 2, 31, 13, "Validation / development data\nS6 2017 albedo (H1): development-reused\nKAN_L/M radiation + S2 (H2/H4)\nPROMBIO (H5): 2 test station-days", "obs")
+    box(35, 2, 29, 13, "Fitted on (never validation)\nWilliamson 2020 MAC, HPLC;\nS6 2017 HCRF (σ, τ, radius prior);\nARF → k prior (overlaps S6, D3)", "obs")
+    box(67, 2, 32, 13, "Outcomes (this study)\nH1/H2/H4 not supported; H5 insufficient;\nH3 untested; molecular substitution\nunresolved after calibration", "obs")
+    arrow(17.4, 54.5, 20.6, 54.5)
+    arrow(37.4, 54.5, 43.6, 46.5); arrow(37.4, 41.5, 43.6, 42.5); arrow(37.4, 28, 43.6, 38.5)
+    arrow(58.4, 45, 64.6, 54); arrow(72, 49.6, 72, 46.4); arrow(79.4, 41.5, 83.6, 41.5)
+    arrow(72, 36.6, 72, 32.4); arrow(91.5, 36.6, 91.5, 32.4); arrow(79.4, 27, 83.6, 27)
+    for x, y, t in ((42.6, 51.4, "raw\nMAC"), (40.5, 43.2, "shape"), (43.0, 30.8, "magni-\ntude"), (59.6, 51.2, "calibrated\nMAC")):
+        ax.text(x, y, t, fontsize=5.2, color=C["ink2"], ha="center", va="center", linespacing=0.95)
     for kind, lab, x in (("computed", "computed", 2), ("measured", "measured input", 18), ("model", "model step", 38),
                          ("obs", "data role / outcome", 55)):
         ax.add_patch(FancyBboxPatch((x, 60.2), 2.2, 1.4, boxstyle="round,pad=0.1", fc=style[kind][0], ec=style[kind][1], lw=0.6))
@@ -167,18 +174,18 @@ def fig2():
         USED[cpath] = hashlib.sha256(open(os.path.join(ROOT, cpath), "rb").read()).hexdigest()
         raw = TC.perturbed_mac(c.spec, 0.0, 1.0, 0.3)
         mh = raw(wl_h); shape = mh / np.trapezoid(mh, wl_h)
-        ax.fill_between(wl_h, S - 2 * sS, S + 2 * sS, color=C["measured"], alpha=0.25, lw=0, label="HPLC isolated chromophore ±2 SD (peaks 2–4)")
+        ax.fill_between(wl_h, S - 2 * sS, S + 2 * sS, color=C["measured"], alpha=0.25, lw=0, label="HPLC chromophore ±2 SD")
         ax.plot(wl_h, S, color=C["measured"], lw=1.5)
-        ax.plot(wl_h, shape, color=col, lw=1.5, label=f"raw TD-{func}, FWHM 0.3 eV (dE = 0)")
+        ax.plot(wl_h, shape, color=col, lw=1.5, label=f"raw TD-{func}\n(FWHM 0.3 eV, dE = 0)")
         ax2 = ax.twinx(); ax2.grid(False); ax2.spines["right"].set_visible(True)
         lam = st["Wavelength_nm"].to_numpy(); f = st["Oscillator_Strength"].to_numpy()
         ax2.vlines(lam, 0, f, color=col, lw=0.8, alpha=0.8); ax2.set_ylabel("oscillator strength (sticks)", color=C["ink2"])
         ax2.set_ylim(0, max(0.7, f.max() * 1.1))
         dE = c.mean("dE")
         ax.axvspan(250, 350, color=C["grid"], alpha=0.6, lw=0)
-        ax.text(255, ax.get_ylim()[1] * 0.92 if ax.get_ylim()[1] > 0 else 0.009, "held at 350 nm\nin glacier model", fontsize=5.5, color=C["ink2"])
+        ax.text(300, -0.13, "grey: held at\n350 nm in model", transform=ax.get_xaxis_transform(), fontsize=5.2, color=C["ink2"], ha="center", va="top")
         ax.set_xlim(250, 650); ax.set_xlabel("wavelength (nm)"); ax.set_ylabel("unit-area absorbance (nm⁻¹)")
-        ax.set_title(f"{func}: raw vs isolated chromophore (calibration-shape target)\n"
+        ax.set_title(f"{func}: raw spectrum vs HPLC shape (calibration target)\n"
                      f"calibrated shift dE = {dE:+.3f} ± {c.sd('dE'):.3f} eV", fontsize=7)
         ax.legend(loc="upper right", fontsize=5.8); panel(ax, lab)
         for x, y in zip(wl_h, shape):
@@ -198,16 +205,16 @@ def fig2():
         Cc = np.array([TC.perturbed_mac(c.spec, c.samples[i, 0], c.samples[i, 2], c.samples[i, 1])(wl) for i in idx])
         q = np.quantile(D, [0.025, 0.5, 0.975], axis=0)
         ax.fill_between(wl, q[0], q[2], color=col, alpha=0.18, lw=0)
-        ax.plot(wl, q[1], color=col, lw=1.5, label=f"{func} tier D (median, 95 % of 200 draws)")
-        ax.plot(wl, np.median(Cc, axis=0), color=col, lw=1.2, ls="--", label=f"{func} tier C (no Fe term)")
+        ax.plot(wl, q[1], color=col, lw=1.5, label=f"{func} D (median, 95 % of draws)")
+        ax.plot(wl, np.median(Cc, axis=0), color=col, lw=1.2, ls="--", label=f"{func} C (no Fe term)")
         for x, a, b, m in zip(wl[::5], q[0][::5], q[2][::5], q[1][::5]):
             rows.append(dict(panel="c", series=f"{func} D", wavelength_nm=x, value=m, lo=a, hi=b))
     ax.fill_between(wl_m, E - 2 * sE, E + 2 * sE, color=C["measured"], alpha=0.25, lw=0)
-    ax.plot(wl_m, E, color=C["measured"], lw=1.5, label="measured extract MAC ±2 SE (calib. target)")
+    ax.plot(wl_m, E, color=C["measured"], lw=1.5, label="extract MAC ±2 SE (target)")
     ax.set_yscale("log"); ax.set_xlim(260, 750); ax.set_ylim(1e2, 2e6)
     ax.set_xlabel("wavelength (nm)"); ax.set_ylabel("MAC (m² kg⁻¹ phenol eq., log scale)")
     ax.set_title("Calibrated MAC vs extract (both fitted to it; not validation)", fontsize=7)
-    ax.legend(fontsize=5.6, loc="upper right"); panel(ax, "c")
+    ax.legend(fontsize=5.3, loc="lower left", frameon=True, facecolor="white", edgecolor="none", framealpha=0.92); panel(ax, "c")
     ax = axs[1, 1]
     for func, col in (("B3LYP", C["tddft_D"]), ("CAM-B3LYP", C["cam"])):
         c, _ = cals[(func, "ar1")]
@@ -260,9 +267,9 @@ def fig3():
         ax.axhspan(-thr, thr, color=C["grid"], alpha=0.7, lw=0)
         ax.axhline(0, color=C["ink2"], lw=0.6)
         ax.set_ylabel(unit)
-        ax.text(len(states) - 0.5, thr, f"practical threshold ±{thr:g}", fontsize=5.8, ha="right", va="bottom", color=C["ink2"])
+        ax.text(-0.6, thr, f"practical threshold ±{thr:g}", fontsize=5.8, ha="left", va="bottom", color=C["ink2"])
     axs[0].plot([], [], "o", ms=3.2, mfc="white", mec=C["ink2"], label="plug-in (posterior-mean spectra)")
-    axs[0].legend(fontsize=5.6, ncol=2, loc="upper left")
+    axs[0].legend(fontsize=5.6, ncol=2, loc="lower center", bbox_to_anchor=(0.5, 1.01), frameon=False)
     axs[1].set_xticks(states.x)
     axs[1].set_xticklabels([f"{b:g}|{r / 1000:g}|{d / 1e5:g}" for b, r, d in states[["log_b", "r_um", "dust_ppb"]].to_numpy()],
                            rotation=90, fontsize=5.5)
@@ -320,8 +327,9 @@ def fig4():
             rows.append(dict(panel="d", optics=m, wavelength_nm=x, residual_median=y))
     ax.axhline(0, color=C["ink2"], lw=0.6)
     for b, w in (("B2", 490), ("B4", 665), ("B8", 833)):
-        ax.axvline(w, color=C["grid"], lw=1.0); ax.text(w + 8, ax.get_ylim()[1] * 0.85 if ax.get_ylim()[1] > 0 else 0.3, b, fontsize=6, color=C["ink2"])
-    ax.set_xlim(350, 1300); ax.set_xlabel("wavelength (nm)"); ax.set_ylabel("model − observed albedo\n(median, IQR over 46 plots)")
+        ax.axvline(w, color=C["grid"], lw=1.0); ax.text(w + 8, 0.54, b, fontsize=6, color=C["ink2"])
+    ax.set_xlim(350, 1300); ax.set_ylim(-0.3, 0.6)
+    ax.set_xlabel("wavelength (nm)"); ax.set_ylabel("model − observed albedo\n(median, IQR over 46 plots)")
     ax.set_title("Spectral residual at known abundance (reference nuisance state)", fontsize=7)
     ax.legend(fontsize=5.8, ncol=2); panel(ax, "d")
     ax = fig.add_subplot(gs[1, 2])
@@ -333,9 +341,10 @@ def fig4():
     ax.bar(x + 0.18, mod, 0.34, color=C["tddft_D"], label="TD-DFT D model")
     ax.set_xticks(x); ax.set_xticklabels(["B2 490", "B4 665", "B8 833"]); ax.set_ylabel("Δ albedo per decade of cells")
     uf = UF[(UF.optics == "tddft_D") & (UF.band == "broadband")].iloc[0]
-    ax.set_title(f"Abundance slopes (41 plots, 8 day-blocks)\nunexplained broadband fraction {uf.unexplained_fraction:.2f} "
+    ax.set_ylim(min(so.obs_lo.min(), mod.min()) * 1.12, 0)
+    ax.set_title(f"Slope vs abundance (41 plots)\nunexplained broadband\nfraction {uf.unexplained_fraction:.2f} "
                  f"({uf.frac_q025:.2f}–{uf.frac_q975:.2f})", fontsize=6.5)
-    ax.legend(fontsize=5.8, loc="lower left"); panel(ax, "e")
+    ax.legend(fontsize=5.8, loc="lower right"); panel(ax, "e")
     for b in ("B2", "B4", "B8"):
         rows.append(dict(panel="e", band=b, slope_obs=so.loc[b, "slope_obs"], obs_lo=so.loc[b, "obs_lo"], obs_hi=so.loc[b, "obs_hi"],
                          slope_model=mod.loc[b], unexplained=so.loc[b, "unexplained"], unexpl_lo=so.loc[b, "unexpl_lo"],
@@ -348,7 +357,7 @@ def fig4():
          f"{rs['dust_ppb']:.3g} ppb, f_n {rs['f_n']:.2f}, crust 2 cm at 450 kg m⁻³. (a–c) Predicted vs observed "
          f"hemispherical broadband albedo (46 plots; 1 excluded for > 5 % missing HCRF; 5 zero-count plots as squares). "
          f"(d) Spectral residual (median and IQR). (e) Albedo change per decade of counted cells: observed (95 % "
-         f"day-block bootstrap, 8 days) vs the TD-DFT D model at the reference state. The red/NIR shortfall is "
+         f"day-block bootstrap, 8 days) vs the TD-DFT D model at the reference state (posterior-mean optics, so the model slope carries no interval; the unexplained-fraction interval in the title is the day-block bootstrap). Panel d y-range is limited to −0.3…0.6; no data in 350–1300 nm fall outside it. The red/NIR shortfall is "
          f"darkening associated with abundance that the reference model does not reproduce; it is not attributed to a "
          f"specific cause here (crust water, ice structure, co-located impurities and plot heterogeneity remain "
          f"candidates). Tested geometry adjustments (spectrally flat HCRF/albedo, 0.83–0.88) do not explain the full "
@@ -360,7 +369,7 @@ def fig4():
 def fig5():
     H1 = pd.read_csv(src("records/h1_albedo/h1_contrasts.csv"))
     H24 = pd.read_csv(src("records/h2h4/h2h4_contrasts.csv"))
-    H5 = pd.read_csv(src("records/h5/h5_summary_test.csv"))
+    H5 = pd.read_csv(src("records/h5/h5_summary_test.csv")).query("split == 'final_test'")
     src("records/h1_albedo/h1_summary.csv"); src("records/h2h4/h2h4_summary.csv")
     fig, axs = plt.subplots(1, 3, figsize=(7.2, 3.3), gridspec_kw=dict(width_ratios=[1, 1.15, 0.8]))
     rows = []
@@ -368,7 +377,8 @@ def fig5():
     lab = {"MAE(tierA_empirical) - MAE(tddft_D)": "M1 Tier A − M3", "MAE(measured_mac_C) - MAE(tddft_D)": "M1b measured − M3",
            "MAE(no_algae) - MAE(tddft_D)": "M0 no algae − M3"}
     for i, r in enumerate(H1.itertuples()):
-        ax.errorbar(r.mean, i, xerr=[[r.mean - r.lo], [r.hi - r.mean]], fmt="o", ms=4, color=C["tddft_D"], ecolor=C["tddft_D"], capsize=2, lw=1.2)
+        cm = COL[r.contrast.split("(")[1].split(")")[0]]
+        ax.errorbar(r.mean, i, xerr=[[r.mean - r.lo], [r.hi - r.mean]], fmt="o", ms=4, color=cm, ecolor=cm, capsize=2, lw=1.2)
         rows.append(dict(test="H1", contrast=r.contrast, estimate=r.mean, lo=r.lo, hi=r.hi, n=r.n, blocks=r.n_blocks, units="albedo MAE"))
     ax.set_yticks(range(len(H1))); ax.set_yticklabels([lab.get(c, c) for c in H1.contrast], fontsize=6)
     ax.axvline(0, color=C["ink2"], lw=0.6); ax.axvline(0.01, color=C["ink2"], lw=0.8, ls="--")
@@ -381,26 +391,27 @@ def fig5():
     for i, r in enumerate(P.itertuples()):
         thr = 10.0 if r.hypothesis == "H2" else 0.01
         scale = 1.0 if r.hypothesis == "H2" else 1000.0
-        col = C["m2"] if "M2" in r.contrast else (C["tierA"] if "M1 " in r.contrast or "M1 -" in r.contrast else C["ink2"])
+        cmp = r.contrast.split(": ")[1].split(" ")[0]
+        col = {"M0": C["none"], "M1": C["tierA"], "M1b": C["measured"], "M2": C["m2"]}.get(cmp, C["ink2"])
         ax.errorbar(r.mean * scale, i, xerr=[[(r.mean - r.lo) * scale], [(r.hi - r.mean) * scale]], fmt="o", ms=4, color=col, capsize=2, lw=1.2)
         labs.append(f"{r.hypothesis}: {r.contrast.split(': ')[1]}" + (" (×10⁻³ albedo)" if r.hypothesis == "H4" else " (W m⁻²)"))
         rows.append(dict(test=r.hypothesis, contrast=r.contrast, estimate=r.mean, lo=r.lo, hi=r.hi, n=r.n, blocks=r.n_blocks,
                          units="W m-2 MAE" if r.hypothesis == "H2" else "albedo MAE"))
     ax.set_yticks(range(len(P))); ax.set_yticklabels(labs, fontsize=5.6)
     ax.axvline(0, color=C["ink2"], lw=0.6); ax.axvline(10, color=C["ink2"], lw=0.8, ls="--")
-    ax.set_xlabel("MAE difference (> 0: M3 better); dashed = 10 W m⁻² / 0.01 albedo")
+    ax.set_xlabel("MAE difference, > 0: M3 better\n(dashed: 10 W m⁻² or 10×10⁻³ albedo)")
     ax.set_title(f"H2/H4 KAN_L/KAN_M overpass windows\nn = {int(P.n.iloc[0])} station-days, {int(P.n_blocks.iloc[0])} station-years", fontsize=7)
     panel(ax, "b")
     ax = axs[2]
     H5 = H5.set_index("model")
     order = ["no_algae", "tierA_empirical", "measured_mac_C", "tddft_D", "tddft_C"]
     for i, m in enumerate(order):
-        ax.barh(i, H5.loc[m, "mae"], color=COL[m], height=0.6)
+        ax.barh(i, H5.loc[m, "mae"], color=COL[m], height=0.6, hatch="////" if m == "tddft_C" else None, edgecolor="white", lw=0)
         ax.text(H5.loc[m, "mae"] + 0.002, i, f"{H5.loc[m, 'mae']:.3f}", va="center", fontsize=5.8)
         rows.append(dict(test="H5", model=m, mae=H5.loc[m, "mae"], n=int(H5.loc[m, "n"]), units="albedo MAE"))
     ax.set_yticks(range(len(order))); ax.set_yticklabels([NAMES[m] for m in order], fontsize=5.8)
     ax.set_xlabel("albedo MAE"); ax.set_xlim(0, 0.16)
-    ax.set_title("H5 PROMBIO under radiometer\n2 test station-days: insufficient evidence", fontsize=7)
+    ax.set_title("H5 (PROMBIO)\n2 test days:\ninsufficient", fontsize=7)
     panel(ax, "c")
     fig.tight_layout()
     save(fig, "Fig5_benchmark", pd.DataFrame(rows),
@@ -411,7 +422,7 @@ def fig5():
          "a simple four-band irradiance-weighted conversion (protocol fallback), NOT a published method. (c) H5: station "
          "albedo from PROMBIO biology under the radiometer (2 test station-days; no interval). Error bars: 95 % "
          "cluster-bootstrap intervals over the stated blocks. Dashed: prespecified minimum meaningful improvements. "
-         "Every M3 superiority hypothesis is NOT SUPPORTED. Deviations: posterior-mean optics (D1); k-prior overlap "
+         "Point colour = the comparator model (M0 grey, M1 blue, M1b green, M2 pink). H1 intervals for M1 and M1b are narrower than the markers (≤ ±0.0004). Hatched bar: tier C (no Fe term). Every M3 superiority hypothesis is NOT SUPPORTED. Deviations: posterior-mean optics (D1); k-prior overlap "
          "with S6 plots (D3, H1 does not use k).", "independent tests per protocol (H1 on previously seen sites)")
 
 
@@ -473,7 +484,8 @@ def figS2():
     T = pd.DataFrame(rows)
     ax = axs[2]
     x = np.arange(len(T))
-    ax.bar(x, T.mac_r2_log_400_700, color=[C["cam"] if f == "CAM-B3LYP" else C["tddft_D"] for f in T.functional])
+    ax.bar(x, T.mac_r2_log_400_700, color=[C["cam"] if f == "CAM-B3LYP" else C["tddft_D"] for f in T.functional],
+           hatch=["////" if k == "iid" else None for k in T.residuals], edgecolor="white", lw=0)
     ax.set_xticks(x); ax.set_xticklabels([f"{f}\n{k}" for f, k in zip(T.functional, T.residuals)], fontsize=5.6)
     ax.axhline(0, color=C["ink2"], lw=0.6); ax.set_ylabel("log-R² of extract MAC, 400–700 nm")
     ax.set_title("visible fit depends on residual model", fontsize=7); panel(ax, "c")
@@ -496,13 +508,13 @@ def figS3():
     ax = axs[0]
     ms = ["no_algae", "tierA_empirical", "measured_mac_C", "tddft_D", "tddft_C"]
     for k, m in enumerate(ms):
-        ax.plot(H1.loc[m, "width90"], H1.loc[m, "coverage90"], "o", ms=5, color=COL[m], mfc=COL[m] if m != "tddft_C" else "white")
-        ax.annotate(NAMES[m] + " (H1, EB)", (H1.loc[m, "width90"], H1.loc[m, "coverage90"]), fontsize=5.3, xytext=(3, -2), textcoords="offset points")
+        ax.plot(H1.loc[m, "width90"], H1.loc[m, "coverage90"], "o", ms=5, color=COL[m], mfc=COL[m] if m != "tddft_C" else "white",
+                alpha=0.85, label=NAMES[m])
         ax.plot(EN.loc[m, "width90"], EN.loc[m, "coverage90"], "s", ms=4.5, color=COL[m], mfc="white")
     ax.axhline(0.9, color=C["ink2"], ls="--", lw=0.7)
     ax.set_xlabel("mean 90 % interval width (albedo)"); ax.set_ylabel("empirical 90 % coverage")
     ax.set_title("Coverage vs sharpness: H1 (●, discrepancy SD by EB)\nvs nuisance prior only (□)", fontsize=7)
-    ax.set_ylim(0, 1); panel(ax, "a")
+    ax.set_ylim(0, 1); ax.legend(fontsize=5.6, loc="center", title="optics (colour)", title_fontsize=5.6); panel(ax, "a")
     ax = axs[1]
     rows = []
     for fold, off in (("primary", -0.2), ("secondary", 0.2)):
@@ -511,7 +523,7 @@ def figS3():
         ax.barh(np.arange(len(d)) + off, d.rmse_pooled, height=0.38, color=cols, alpha=0.9 if fold == "primary" else 0.5)
         for r in d.itertuples():
             rows.append(dict(fold=fold, model=r.model, rmse_pooled=r.rmse_pooled))
-    ax.set_yticks(np.arange(len(d))); ax.set_yticklabels([m.replace("physics_", "phys: ").replace("ml_", "ML: ") for m in d.model], fontsize=5.6)
+    ax.set_yticks(np.arange(len(d))); ax.set_yticklabels([("physics: " + NAMES.get(m.replace("physics_", ""), m)) if m.startswith("physics_") else m.replace("ml_", "ML: ").replace("_", " ") for m in d.model], fontsize=5.6)
     ax.set_xlabel("pooled 4-band HCRF RMSE"); ax.set_title("Forward: physics vs ML, same rows\n(solid primary fold, faded secondary)", fontsize=7)
     panel(ax, "b")
     fig.tight_layout()
@@ -522,7 +534,9 @@ def figS3():
          "discrepancy SD chosen by empirical Bayes on training days) reach about 0.9 coverage only with wide intervals, "
          "while the nuisance-prior-only ensemble (open squares) covers 22–24 % (biased and too narrow). (b) Forward 4-band "
          "HCRF RMSE on identical positive-count rows: physics point predictions (colour) vs ML baselines (grey) from "
-         "records/ml_comparison (retrospective, development data). Different endpoints from (a).",
+         "records/ml_comparison (retrospective, development data). Different endpoints from (a). In (a) Measured MAC "
+         "(M1b) and TD-DFT D (M3) coincide (coverage 0.894, width 0.366) and their markers overlap; Tier A, M1b and M3 "
+         "squares also overlap. Exact values are in the data CSV.",
          "development diagnostics")
 
 
@@ -566,20 +580,20 @@ def figS5():
     num = json.load(open(src("records/host_coupling/numerics.json")))
     fig, axs = plt.subplots(1, 2, figsize=(7.2, 2.6))
     d = pd.to_datetime(S.day)
-    axs[0].plot(d, S.dalpha_tierA_empirical, "o-", color=C["tierA"], ms=3.5, label="Tier A Δα")
-    axs[0].plot(d, S.dalpha_tddft_D, "o-", color=C["tddft_D"], ms=3.5, label="TD-DFT D Δα")
+    axs[0].plot(d, S.dalpha_tierA_empirical, "o--", color=C["tierA"], ms=3.5, lw=0.8, label="Tier A Δα")
+    axs[0].plot(d, S.dalpha_tddft_D, "o--", color=C["tddft_D"], ms=3.5, lw=0.8, label="TD-DFT D Δα")
     axs[0].set_ylabel("algal albedo reduction Δα"); axs[0].legend(fontsize=6); axs[0].tick_params(axis="x", labelsize=5.5, rotation=30)
     panel(axs[0], "a")
     x = np.arange(len(R))
     axs[1].bar(x, R.modelled_increment_mwe * 1000, color=[C["tierA"] if "tierA" in r else C["tddft_D"] for r in R.run])
-    axs[1].set_xticks(x); axs[1].set_xticklabels(R.run, fontsize=5.6, rotation=20)
-    axs[1].set_ylabel("MODELLED algal melt increment (mm w.e.)\n34 days, conditional on reference SEB")
+    axs[1].set_xticks(x); axs[1].set_xticklabels([r.replace("modeA_", "Mode A\n").replace("modeB_", "Mode B\n").replace("tierA_empirical", "Tier A").replace("tddft_D", "TD-DFT D") for r in R.run], fontsize=5.8)
+    axs[1].set_ylabel("modelled algal melt increment\n(mm w.e., 34 days)")
     panel(axs[1], "b")
     fig.tight_layout()
     save(fig, "FigS5_host_seb", pd.concat([S.assign(panel="a"), R.assign(panel="b")]),
          f"Conditional host response (reference point SEB, KAN_L 2022-07-24 to 08-26, identical forcing). (a) Algal "
          f"albedo reduction from the satellite-retrieved state (8 S2 station-days, interpolated), Tier A vs TD-DFT D at "
-         f"identical state. (b) Modelled melt increments (Modes A and B). These are MODELLED quantities conditional on "
+         f"identical state; markers are retrieval dates, dashed lines the linear interpolation used by the host run. (b) Modelled melt increments (Modes A and B). These are MODELLED quantities conditional on "
          f"the SEB, forcing and retrieved state; they are NOT validated melt (H3 untested; KAN_L 2022 prerequisites are "
          f"rule-dependent). Numerics: n_sub 1 vs 4 seasonal melt {num['numerics']['melt_n_sub1_mwe']:.4f} vs "
          f"{num['numerics']['melt_n_sub4_mwe']:.4f} m w.e.", "conditional model scenario (not melt validation)")
