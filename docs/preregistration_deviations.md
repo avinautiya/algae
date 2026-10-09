@@ -1,0 +1,23 @@
+# Deviations between the held-out pre-registration and its implementation
+
+The pre-registration (`docs/preregistration_heldout.md`, frozen before any score existed) is not edited.
+Deviations found afterwards are recorded here, and the frozen results are interpreted with them in view.
+
+## D1 — molecular uncertainty was NOT integrated over joint calibration draws (P5-PREREG-1)
+
+- **Pre-registered text:** "Optics: molecular parameters from joint posterior draws".
+- **Implementation:**
+  - `phase4/emulator.py:211–212` builds the pigment MAC as `cal.mac_D` (tier D) or `cal.mac_C` (tier C).
+  - `Calibration.mac_D/mac_C` (`phase2/tddft_calibration.py`), called without arguments, evaluate the posterior MEAN of (ΔE, w, f, φ). That is one fixed optical model.
+  - The joint draws exist only in Phase 3 (`cal_draw`), which the held-out experiment does not use.
+- **Consequence:**
+  - The held-out predictive distributions of `tddft_C`, `tddft_D` and `tddft_D_iid` contain no molecular-calibration uncertainty. Their spread comes from the retrieval posterior (abundance, community fraction, radius, dust, k) and from the fitted discrepancy τ.
+  - The fitted τ (0.72 dex for tddft_D on the primary fold) absorbs whatever the omitted calibration uncertainty would have contributed, together with all other structural error. It cannot be read as calibration uncertainty.
+  - The frozen results (`records/heldout_v2/`) must be described as **"posterior-mean optics plus fitted discrepancy"**, not "integrated over joint molecular uncertainty".
+- **Not done retrospectively:** the frozen experiment is not re-run under a changed specification. A follow-up that carries joint draws through the whole chain is specified in `docs/glacier_model_validation_protocol.md` (§ Uncertainty).
+
+## D2 — the primary-fold block interval is degenerate
+
+- The rule asked for a day-block bootstrap interval. The primary test site has 2 sampling days, so the bootstrap can only return the two day means; the reported interval (0.117–0.168) is their range.
+- The pre-registration anticipated the interval being too wide, not degenerate.
+- The frozen result is therefore reported as: "direction consistent; generalisation uncertainty at the primary site not estimable".

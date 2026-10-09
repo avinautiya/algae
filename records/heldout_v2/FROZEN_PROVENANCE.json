@@ -1,0 +1,67 @@
+{
+ "frozen_at": "2026-10-09 (Phase 5 start)",
+ "run": "phase4/heldout.py --workers 2 --outdir phase4/results/heldout_v2 (process started 2026-10-09T12:26:05Z; scoring re-run after container restart 14:52-15:33Z reusing cached tables)",
+ "preregistration": {
+  "path": "docs/preregistration_heldout.md",
+  "sha256": "53c662cb62640ce8480722416c6fc70afa7f98016eda48c9bb964f76047277ed",
+  "commit": "0deb0f7 2026-10-09 12:06:47 +0000"
+ },
+ "code_last_commit_per_module": {
+  "phase4/heldout.py": "d57264e 2026-10-09 12:24:54 +0000",
+  "phase4/emulator.py": "a336aae 2026-10-09 11:45:08 +0000",
+  "phase4/inversion.py": "0e6e592 2026-10-09 11:42:34 +0000",
+  "phase4/priors.py": "d35c332 2026-10-09 11:23:24 +0000",
+  "phase4/field_validation.py": "a336aae 2026-10-09 11:45:08 +0000",
+  "phase2/tddft_calibration.py": "0c8a038 2026-10-09 12:19:52 +0000",
+  "phase2/cell_optics.py": "d35c332 2026-10-09 11:23:24 +0000",
+  "phase2/pigment_packaging.py": "d35c332 2026-10-09 11:23:24 +0000",
+  "phase2/biosnicar_bridge.py": "822ac04 2026-10-09 11:11:30 +0000",
+  "phase2/empirical_data.py": "2c46dd0 2026-10-07 18:33:13 +0000",
+  "phase2/provenance.py": "7c528cd 2026-10-09 11:28:35 +0000",
+  "phase1/spectra.py": "eca0d23 2026-10-09 11:08:27 +0000"
+ },
+ "code_sha256": {
+  "phase4/heldout.py": "4124f142d0c5c89e786eda667e0927b69369fd1b43e03cc5a3939e0f00d21ddc",
+  "phase4/emulator.py": "f7dc9f51fed56cd633bbe2ab45f9183d1d0cf00d0f0621a89307b339f3ba4e6b",
+  "phase4/inversion.py": "7f51e7b6770ba7719abbf6942c015986f98127cfb935e1d239a8b29d71c88839",
+  "phase4/priors.py": "5a706a9cc4dd3f21012cea3e147ad2ff5a1ecc9ef3d22c31b31c540c3a95831b",
+  "phase4/field_validation.py": "866d67cbf21ea7fd0940a6d31dc5b6b9c3e90c1fb112a547eaeceb2c5eb6365e",
+  "phase2/tddft_calibration.py": "c941d2c29bd56d96c661327ecedf058ce170fd9c3f2f0942183a0ed86c581b45",
+  "phase2/cell_optics.py": "a6fa4b35ac2c9c7f4f303795db56076ef087cabbfc627143d1fe28d26bf3cf32",
+  "phase2/pigment_packaging.py": "8e3808a33a1c6cb06f8a7fc3295a7a5b1c776c12df71d5a5eab3e855068e829b",
+  "phase2/biosnicar_bridge.py": "fa24ef597aa3042a0abc0b8c7527c0df0221dd7f5521971904e605fd0b268ff8",
+  "phase2/empirical_data.py": "d2bdfed09bb20142c5f85f2e882a03d4c458ea64f36954ff31c1cb8c089a683c",
+  "phase2/provenance.py": "562e0632ef8202f88d8d26fe4327bf28956656b0fd54f1a3ff4a692c1bfe72ff",
+  "phase1/spectra.py": "e86a59f43ef0ba88e0ca916dbb90679fc7961294c32ff4f9f39d56541cf367bd"
+ },
+ "note": "No listed module was modified between the start of the run and this freeze (git log). The run used commit d57264e or later for heldout.py; physics modules are unchanged since 0c8a038/a336aae.",
+ "phase1_input": {
+  "dir": "phase1/results/level2",
+  "files": {
+   "level2_B3LYP_states.csv": "6b8d39887e81a0ba803fd804c44deec1d3e5f8436f2e8cac0b9e8152011e7e4e",
+   "summary.json": "95cddb4a292e0a81538becfceb6832c6bcd2b4ead521fe93c38ae2eac2659af3",
+   "COMPLETE.json": "8dace7c587110615a3ab86173d22027a16765a2ceaa0e8a6cb2ae06291227538"
+  }
+ },
+ "empirical_data_fingerprint": "e5d6b904c2991b5d6ba0dbef84cb2d5db34d98a7174841efb4f7f7de0e805eca",
+ "biosnicar_revision": "fe74eeef2999fd285f3dc06c47b0f0e1a36a17a6",
+ "cached_tables": {
+  "tables_measured_mac_C.npz": "567195f2a32bcfc471a4f2eea09cf8d1e5a282fa83a4bfc559383c87e96ed70c",
+  "tables_tddft_C.npz": "e39367e51b6746760133578fcea3df68768a1b7f38312874303830b9485d8a30",
+  "tables_tddft_D.npz": "03cf244010306fee5429863489c4bb3f2f21fb499dcc861ee41989bee26052a6",
+  "tables_tddft_D_iid.npz": "e016b42188efdeb65d3e57099a683690b86a6eff752dc9f66bc3ba130617ffc8",
+  "tables_tierA_empirical.npz": "c33bbf5d86b3633e89b0d8ebb9041e6ef6fa3872fcb77b172b77bbea803ccf71"
+ },
+ "outputs": {
+  "heldout_forward_per_sample.csv": "4da226618c4897b6af6a4644d5541c7bc4f343ba5b7693cc8907561c7a6063fd",
+  "heldout_forward_summary.csv": "a3ccfb3b128db92c6e98db48a5a6a1d21b2fd0fbed57a2105fe893099b7c88ae",
+  "heldout_paired.csv": "4f54663c9c2e67efe82d37937a0137e7950bdb0092218b78db9e1cd22b6b4d0d",
+  "heldout_per_sample.csv": "7dd4f2e8d488e9e3b5b0cc964c441c99f37a8e5d692fced7c1f6dd50f51cc3e9",
+  "heldout_settings.json": "ccacfe0f4ae43e788ff8b8dc2d87ed1d36106f8444815ddf5de92e42c491ef4d",
+  "heldout_summary.csv": "f6ff5360484b463f73d834221255c596b2dce277986bbb8c12cb48599313d971"
+ },
+ "calibration_as_used": {
+  "residuals_primary": "ar1 (rho_shape sampled, rho_mac marginalised; stage-2 grid without clipping)",
+  "optics_parameters": "POSTERIOR MEAN (Calibration.mac_D/mac_C called with default arguments in phase4/emulator.py:212) - NOT joint posterior draws; see P5-PREREG-1"
+ }
+}

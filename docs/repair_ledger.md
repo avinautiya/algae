@@ -772,3 +772,12 @@ Run: `phase4/heldout.py` at commit d57264e and later, with the frozen primary (`
   - The physics models' advantage is in inverting reflectance for abundance, not in forward spectral fidelity.
 - **Broadband HCRF:** all physics models over-predict the measured broadband HCRF. The bias is +0.23 (tddft_D), +0.19 (Tier A) and +0.29 (tddft_C) in S Greenland, and +0.10 to +0.26 at S6. This is a systematic broadband/NIR brightness (or k) mismatch that the retrieval absorbs through k and σ. **UNRESOLVED.**
 - **Scope:** no statement about glacier-melt prediction follows from this evaluation.
+
+### P5-CORR-1: corrected interpretation of the frozen held-out result (`records/heldout_v2/`, now read-only with `FROZEN_PROVENANCE.json`)
+The previous classification, "improvement supported in direction at both sites", overstated the evidence. Corrected:
+- **Log score vs RMSE.** On the primary fold, `tddft_D` has a better log predictive score than Tier A (+0.153 per sample) but a WORSE abundance RMSE: 0.447 vs 0.394 dex. CRPS is −0.012 better for the primary, with a 2-day block range spanning 0. The log-score gain comes from a better-calibrated predictive spread (smaller τ: 0.72 vs 1.06 dex), not from more accurate point retrievals.
+- **Literature prior.** On the reverse fold, `tddft_D` does NOT beat the literature prior (N(3.56, 0.78) from S6 2016) in log score: −6.376 vs −6.302, difference −0.074, 9-day block interval −0.385 to +0.050. On that fold a fixed prior from independent S6 data is as good as the retrieval.
+- **Interval.** Two primary sampling days cannot support a generalisation confidence interval. See `docs/preregistration_deviations.md` D2.
+- **Optics.** The experiment used posterior-mean optics, not joint calibration draws (`docs/preregistration_deviations.md` D1).
+- **Scope.** The experiment tests abundance retrieval and forward reflectance at field-plot scale. It does not test albedo, absorbed shortwave or melt prediction.
+- **Status:** classification corrected to **"formal rule met; evidence of improved abundance prediction is weak (log-score only, not RMSE; not better than an independent prior on the reverse fold; primary uncertainty not estimable)"**.
