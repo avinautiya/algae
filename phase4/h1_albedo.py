@@ -4,7 +4,7 @@ H1 (docs/glacier_model_validation_protocol.md): does a pigment/cell representati
 plot-scale broadband ALBEDO better than established algae optics, with abundance GIVEN (measured counts)?
 
 Target: S6 2017 hemispherical spectral albedo (Cook et al. 2020 archive, biosnicar-py Albedo_master.csv,
-never used in any fit before this script) integrated over 300-2500 nm with the BioSNICAR clear-sky
+not used in any ALBEDO fit; NB it entered the HCRF/albedo k prior via ARF_master, which H1 does not use - deviation D3) integrated over 300-2500 nm with the BioSNICAR clear-sky
 irradiance at the plot's solar zenith (300-350 nm held at the 350 nm value) - the same weighting as the
 model's broadband albedo (BBA).
 

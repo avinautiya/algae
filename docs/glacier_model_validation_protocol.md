@@ -106,3 +106,8 @@
 ## 7. Data manifest
 
 All datasets, versions, checksums, licences, uses and conflicts: `docs/data_manifest.md`. Every use of a dataset in fitting, selection or evaluation is recorded there.
+
+## Erratum (appended after freezing; the frozen text above is unchanged)
+- **2026-10-09, §2 Data.** "The albedo spectra were never used in any fit" is incorrect. The retrieval's HCRF/albedo anisotropy prior k (`empirical_data.anisotropy_prior`) is built from `ARF_master.csv` = HCRF / albedo of 51 S6 2017 plots (see `docs/preregistration_deviations.md` D3).
+  - H1 scoring does not use k, so the H1 predictions, endpoint and decision rule are unchanged.
+  - H1 remains "new target quantity, previously seen sites". The albedo spectra of these sites are additionally "previously seen through k".

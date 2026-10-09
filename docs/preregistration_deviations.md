@@ -21,3 +21,14 @@ Deviations found afterwards are recorded here, and the frozen results are interp
 - The rule asked for a day-block bootstrap interval. The primary test site has 2 sampling days, so the bootstrap can only return the two day means; the reported interval (0.117–0.168) is their range.
 - The pre-registration anticipated the interval being too wide, not degenerate.
 - The frozen result is therefore reported as: "direction consistent; generalisation uncertainty at the primary site not estimable".
+
+## D3: the HCRF/albedo anisotropy prior k was derived partly from scored plots (found 2026-10-09, after scoring)
+- **What the code does.** `empirical_data.anisotropy_prior()` builds the k prior N(0.90, 0.175) from all 51 spectra in biosnicar-py's `ARF_master.csv` (`data/empirical/biosnicar_field_ARF.csv`).
+  - Those ARFs are exactly HCRF / hemispherical albedo of S6 2017 plots. Checked numerically: ARF = HCRF(`cook2020_archive_hcrf.csv`) / albedo(`Albedo_master.csv`) to 4 decimals for shared plots.
+  - 29 of the 51 are counted plots in the `s6_2017` held-out set.
+- **Consequence for `records/heldout_v2`:**
+  - In the reverse fold (test = S6 2017), the prior on the nuisance k includes the anisotropy of 29 of the 47 scored plots. This is pooled (one mean and SD over 51 spectra) and applies to all models equally, so it is a mild, model-symmetric leakage.
+  - It does not favour any optics variant. It can make every physics model's reverse-fold score slightly optimistic relative to a true transfer.
+  - The primary fold (test = S Greenland 2021) is unaffected.
+- **Consequence for H1.** H1 predicts albedo directly and does not use k, so H1 predictions are unaffected. But the statement in the H1 protocol that the albedo spectra "were never used in any fit" is wrong: they entered the k prior. See the erratum in `docs/glacier_model_validation_protocol.md`.
+- **Frozen results are not re-scored.** A leakage-free k prior (leave-one-day-out ARF) is a recorded follow-up.
