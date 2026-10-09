@@ -10,7 +10,7 @@ Legend: ✔ yes · ◐ partial or weak · ✘ no · — not applicable.
 | Emulator / surrogate | ✔ | ◐ | — | — | — | Direct-BioSNICAR benchmark running; qualification gate refuses unbenchmarked use |
 | Abundance retrieval (plot scale) | ✔ | ✔ | ◐ | ◐ (S6 → S Greenland) | — | `records/heldout_v2`: log-score gain only; RMSE worse; no gain over prior on reverse fold (P5-CORR-1, D1–D3) |
 | Forward plot reflectance | ✔ | ✔ | ✘ | ✘ | — | Physics over-predicts broadband HCRF; climatology wins. Diagnosis: `docs/forward_diagnostics.md` |
-| **H1** independent albedo (pigment/cell vs established optics) | ✔ (`phase4/h1_albedo.py`) | ✔ | pending | ✘ | — | Queued under budget; decision rule frozen |
+| **H1** independent albedo (pigment/cell vs established optics) | ✔ (`phase4/h1_albedo.py`) | ✔ | **NOT SUPPORTED**: tierA − tddft_D MAE −0.0019 (−0.0022…−0.0014, 9 blocks); algae vs none +0.031 (0.018–0.042) | ✘ (previously seen sites) | — | `records/h1_albedo/`, P6-H1-1 |
 | **H5** station albedo from biology under the radiometer (PROMBIO) | ✔ (`phase4/h5_station_biology.py`) | ✔ | ✘ (2 test station-days: all models MAE ≈ 0.117, optics indistinguishable) | (new sites) | — | **insufficient evidence** (P6-H5-1) |
 | **H2** absorbed SW at stations | ✘ | — | ✘ | ✘ | — | Not yet tested: needs KAN_L/KAN_M hourly radiation and station pixels |
 | **H3** observed ablation | ◐ (SEB) | ✔ (closure, convergence, gaps) | ✘ | ✘ | reference SEB only | Prerequisites met only at KAN_L 2016 and 2022, and 2016 has no S2 L2A, so ≤ 1 block; **UNTESTED** (P5-H3-1) |

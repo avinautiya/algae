@@ -1,0 +1,25 @@
+stratum,model,n,mae,bias,crps
+high tercile,measured_mac_C,14,0.08764,0.08764,0.05536
+high tercile,no_algae,14,0.1708,0.1708,0.113
+high tercile,tddft_C,14,0.1123,0.1123,0.06951
+high tercile,tddft_D,14,0.08818,0.08818,0.05567
+high tercile,tddft_D_iid,14,0.08526,0.08526,0.05421
+high tercile,tierA_empirical,14,0.08356,0.08356,0.05323
+low tercile,measured_mac_C,14,0.07318,0.01143,0.04652
+low tercile,no_algae,14,0.0754,0.01957,0.0486
+low tercile,tddft_C,14,0.07388,0.01287,0.04693
+low tercile,tddft_D,14,0.07321,0.01149,0.04654
+low tercile,tddft_D_iid,14,0.07312,0.0113,0.04648
+low tercile,tierA_empirical,14,0.07299,0.01102,0.04641
+mid tercile,measured_mac_C,14,0.08739,0.07722,0.06413
+mid tercile,no_algae,14,0.1079,0.105,0.07693
+mid tercile,tddft_C,14,0.09358,0.0857,0.06764
+mid tercile,tddft_D,14,0.08765,0.07758,0.06427
+mid tercile,tddft_D_iid,14,0.08693,0.07649,0.06384
+mid tercile,tierA_empirical,14,0.0861,0.07514,0.06332
+zero count,measured_mac_C,5,0.2195,-0.2195,0.167
+zero count,no_algae,5,0.2179,-0.2179,0.164
+zero count,tddft_C,5,0.2195,-0.2195,0.167
+zero count,tddft_D,5,0.2195,-0.2195,0.167
+zero count,tddft_D_iid,5,0.2195,-0.2195,0.167
+zero count,tierA_empirical,5,0.2195,-0.2195,0.167

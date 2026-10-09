@@ -879,3 +879,29 @@ The previous classification, "improvement supported in direction at both sites",
   - The optics models are indistinguishable there: the error is dominated by the nuisance ice/dust state, not by the algal optics.
 - **Status: INSUFFICIENT EVIDENCE** (2 test blocks; protocol requires 5). Reported as a case study.
   - The case study gives no sign that pigment/cell optics improve station albedo prediction over established optics or no algae.
+
+### P6-H1-1: H1 result (frozen protocol §2; `phase4/h1_albedo.py`; records in `records/h1_albedo/`)
+- **Run:** budget background class, 700 MB, 1 thread. 47 S6 2017 plots, 9 day-blocks, leave-one-day-out empirical Bayes on training days.
+- **Primary contrast** MAE(M1 tierA) − MAE(M3 tddft_D): **−0.0019** (day-block 95 % interval −0.0022 to −0.0014). The established optics are marginally better.
+- **M1b** measured_mac_C − M3: −0.0002, equivalent.
+- **M0 (no algae) − M3:** **+0.031** (0.018 to 0.042). Representing algae at all improves broadband albedo prediction on these plots.
+- **MAE:** tierA 0.096, tddft_D 0.098, measured MAC 0.097, tddft_C 0.107, no-algae 0.129. Bias is +0.03 (too bright) for every algae model. M3 90 % coverage is 0.89, within 80–98 %.
+- **Strata (secondary):**
+  - zero-count plots (n = 5): every model is −0.22 (far too dark): an ice/surface-state error;
+  - high-count tercile (> 16 000 cells/mL): +0.08 to +0.17 (too bright): every optics model under-darkens, Tier A least;
+  - low tercile: about +0.011.
+- **Verdict: H1 NOT SUPPORTED.** The pigment/cell-informed optics do not improve independent plot-scale albedo over established empirical optics (the point estimate is the wrong sign and ≪ 0.01).
+  - Data-lineage qualification: `docs/data_use_register.md` (campaign-informed ice structure and dust prior, identical across models).
+- **Preferred predictive baseline for albedo:** established empirical optics (`tierA_empirical`), or measured MACs, which are equivalent.
+- **Not yet produced** (protocol secondaries): spectral RMSE 400–700 / 700–1300 nm and residual spectra. These come from the direct-BioSNICAR forward diagnostics (P5-DIAG-1), now queued.
+
+### P6-SW-1: audit of the low-sun SW replacement (`phase4/audit_low_sun.py`; `records/low_sun_audit/`)
+- **The rule replaces low DAYLIGHT, not just night.**
+  - KAN_L JJA replaces 224–357 h per year (except 2022: 60). Of those, only 29–52 h have the sun below the horizon; 103–166 h are at 0–2° and 86–141 h at 2–5°. Longest runs are 6 h.
+  - KAN_M replaces 0–98 h per year.
+- **Energy.** Upper bound on the replaced energy, clear-sky SW at each hour's elevation: 1.4–9.4 MJ m⁻² per KAN_L season, i.e. ≤ 0.5 % of the measured seasonal SW energy (1.7–2.2 GJ m⁻²). The earlier justification ("values are 0–3 W m⁻²") was too weak: clear-sky SW at 5° is about 45 W m⁻². The energy bound is what makes the rule tolerable.
+- **Remaining unreplaced daylight gaps:** 2–150 h per year at KAN_L.
+- **Sensitivity of the H3 prerequisites to the strict night-only rule:**
+  - with the strict rule, KAN_L 2016 and 2022 lose most of their complete days. Both become UNTESTED (2016: 0 complete days; 2022: 27 days, model 1.19 m w.e. on a different day set);
+  - the 2016/2022 "prerequisites met" verdicts therefore **depend on the replacement rule**.
+- **Status.** Replaced hours remain tagged `low_sun_zero` (modelled, not measured). Combined with P5-H3-1, **H3 stays UNTESTED**, and the "prerequisites met" verdicts are reported as rule-dependent.
