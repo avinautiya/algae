@@ -21,7 +21,7 @@ on the same held-out data. The descriptions of other work are limited to what th
 | N1 | Pigment optics from first principles (TD-DFT on the glucoside chromophore), calibrated only on laboratory spectra, transfer to field reflectance | `phase4/heldout.py`: `tddft_C`, `tddft_D` vs `measured_mac_C` and `tierA_empirical`, both folds, log score + forward reflectance score | see results below |
 | N2 | An Fe-complexed fraction is needed to reproduce visible absorption | `tddft_D` vs `tddft_C` (ablation of the Fe term) | see results below |
 | N3 | The physics retrieval beats statistical reflectance baselines at an unseen site | the physics models vs `band_ratio`, `ridge`, `climatology`, `literature_prior` | see results below |
-| N4 | Algal melt from a tested SEB rather than "potential melt" | `phase4/seb.py`: paired on/off runs; validated against PROMICE fluxes, surface temperature and ablation | done: actual/potential 0.86–0.92; absolute melt limited by a 1.5–3× observational closure gap |
+| N4 | Algal melt increment from an SEB rather than "potential melt" | `phase4/seb.py`: paired on/off runs; SEB checked against PROMICE fluxes, surface temperature and three ablation records | conditional modelled estimates only: the increment/potential ratio is about 0.9 (χ = 0) or about 0.6 (χ = 0.3, subsurface shortwave), with no independent algal-melt observation; the 2019 ablation sensors disagree by 2.5× |
 | N5 | A reusable surrogate with domain flags | `phase4/surrogate_api.py` + benchmark against direct BioSNICAR | code and unit test done; benchmark pending |
 
 Results of N1–N3 are filled in from `phase4/results/heldout_v1/` once the run completes. If pigment-aware optics do

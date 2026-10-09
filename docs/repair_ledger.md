@@ -433,7 +433,7 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
 
 ## 14/12. Offline surface energy balance (SEB) integration
 
-### P4-SEB-1: actual vs potential melt (new capability)
+### P4-SEB-1: modelled vs potential melt (new capability) — SUPERSEDED by P4-SEB-2 (numbers below withdrawn)
 - **Source:** new `phase4/seb.py`. Forcing: PROMICE KAN_M hourly data (GEUS Dataverse doi:10.22008/FK2/IW73UU, file `KAN_M_hour.csv`, sha256 bb34825a…, CC BY 4.0), June–August 2016–2019, subset `data/empirical/promice_KAN_M_hour_JJA_2016_2019_seb.csv`.
 - **Model:**
   - Hourly point SEB: measured SW↓, LW↓, T_a, q_a, U and p; bulk turbulent fluxes with a Richardson-number stability correction, z0 = 1 mm.
@@ -442,7 +442,7 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - energy closure at the melting point;
   - zero net flux and no melt for a cold surface;
   - a zero-thickness slab equals the instantaneous balance, and the slab delays melt;
-  - paired runs give exactly 0 without algae, and 0 < actual ≤ potential with algae.
+  - paired runs give exactly 0 without algae, and 0 < modelled increment ≤ potential with algae.
 - **Validation against independent observations** (`records/seb_2019/seb_validation_KAN_M.json`; bare-ice days with complete data):
   - Turbulent fluxes vs GEUS's own estimates (2017): bias +1.5 / +1.3 W m⁻²; r = 0.78 / 0.84.
   - Modelled surface temperature vs the temperature from measured LW↑ (0.1 m slab): bias −0.05 to +0.04 K, RMSE 0.76–0.87 K. Without the slab: −0.4 to −0.8 K and 2.2–3.3 K, which is why the slab is used.
@@ -452,19 +452,19 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - "On" uses the retrieved bare-ice BBA, which contains the algae; "off" adds back the retrieved algal albedo reduction. Meteorology is identical.
   - Results (`records/seb_2019/paired_algae_2019.json`):
 
-    | optics | actual algal melt (m w.e.) | potential (m w.e.) | actual / potential |
+    | optics | modelled algal melt increment (m w.e.) [withdrawn] | potential (m w.e.) | increment / potential [withdrawn] |
     |---|---|---|---|
     | pigment-aware (tddft_D) | 0.108–0.116 | 0.126 | 0.86–0.92 |
     | Tier A | 0.143–0.152 | 0.163 | 0.88–0.93 |
 
     The ranges cover z0 1e-4–1e-2 m and slab 0.05–0.3 m.
-  - The ratio is the robust result: the potential-melt shortcut overstates algal melt by 8–14 %.
+  - [Withdrawn wording: an earlier version called this ratio robust and called the 8–14 % gap a correction. It was neither. The calculation had the longwave error, silent gap filling and shared-surface Tier A described in P4-SEB-2, and the ratio depends strongly on the untested subsurface-shortwave assumption.]
   - The absolute values inherit the 2019 SW limitation and the closure gap above.
 - **Remaining limitations:**
   - KAN_M (1270 m) meteorology is used for the S6 (~1000 m) surface.
   - The albedo between sampled dates is interpolated.
   - Cloudy days are represented by the measured meteorology, but the algal Δα comes from clear-sky retrievals.
-- **Status:** FIXED_AND_VERIFIED (SEB code and tests). The actual-melt numbers are reported with the DATA_LIMITATION above.
+- **Status:** superseded by P4-SEB-2.
 
 ## 10. Held-out predictive evaluation
 
@@ -608,3 +608,69 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - AR(1) calibration (f–φ correlation −0.24): joint SD 21.7k vs independent 22.5k m² kg⁻¹, on a mean of 57.7k. The two are almost the same; the visible MAC uncertainty is about ±38 %.
   - iid calibration (f–φ correlation −0.81): joint SD 1.73k vs independent 3.63k, on a mean of 52.0k. Independent marginals doubled the spread.
   - The joint draws therefore matter under the iid scenario. Under AR(1), the posterior width itself dominates.
+
+
+### P4-SEB-2: SEB corrections after review of 453e751; investigation of the 2019 ablation discrepancy; Tier A on its own albedos
+- **Source:** `phase4/seb.py`, `phase4/multi_scene.py`.
+- **Defects found in P4-SEB-1:**
+  1. **Longwave.** All of LW↓ was absorbed. The correct term is ε(LW↓ − σT⁴); the error was +(1 − ε)LW↓ ≈ +5–6 W m⁻².
+  2. **Time axis.** Gaps up to 6 h were interpolated, including shortwave. Remaining missing SW was set to 0. `paired_algae` dropped incomplete rows, so the time axis collapsed across gaps and the slab was stepped across them.
+  3. **Albedo.** It was clipped to [0.05, 0.95] and missing daily albedo was filled with 0.6, both silently.
+  4. **Convergence and closure.** Neither timestep convergence nor energy closure had been demonstrated.
+  5. **Tier A pairing.** The "on" albedo for Tier A was the pigment-aware retrieval's albedo (a shared surface). Tier A was therefore an attribution of a different Δα to the same surface, not a Tier A forecast.
+- **Repair:**
+  1. LW_net = ε(LW↓ − σT_s⁴).
+  2. Gaps and timestamps:
+     - The forcing is placed on its own complete hourly axis (missing hours are kept as rows).
+     - Only whole gaps of ≤ 2 h are interpolated, and never for shortwave; any missing shortwave makes the hour missing.
+     - The slab restarts after a gap.
+     - Counts of filled hours, missing hours and restarts are reported.
+  3. Albedo must lie in [0, 1] wherever forcing exists (otherwise it raises). Days without measured albedo are excluded explicitly.
+  4. Explicit sub-stepping (`n_sub`) and an energy budget (Σ net flux·dt = melt energy + Δ slab heat content + restart adjustments).
+  5. Each optical model uses its own retrieved bare-ice BBA ("on") and its own Δα ("off" = on + Δα). `multi_scene` now aggregates `tierA_bba_mean`.
+- **Tests:** `phase4/tests/test_seb.py` (7 passed):
+  - LW closure, including the size of the former error;
+  - cold-surface zero flux;
+  - energy closure to 1e-6 and sub-step convergence (< 0.2 % at 16 sub-steps);
+  - slab limits;
+  - actual time axis with gaps; missing SW not zeroed; only whole short gaps filled;
+  - albedo bounds;
+  - paired runs give 0 for equal albedo and are ≤ potential.
+- **Real-data checks** (2019, 8 Jul–29 Aug):
+  - Energy closure residual relative to the energy input: 1e-15.
+  - The algal increment changes by 0.4 % from 1 to 16 sub-steps (pigment-aware 0.1127 → 0.1122 m w.e.; Tier A 0.1485 → 0.1479), so hourly stepping is adequate.
+- **Validation against each ablation record** (`records/seb_2019/seb_validation_by_sensor.json`). Daily sums on complete bare-ice days; model total / observed total (n days):
+
+  | year | z_ice_surf (combined) | z_pt_cor (pressure transducer) | z_stake_cor (sonic on stake) |
+  |---|---|---|---|
+  | 2016 | 1.66 (17) | 1.54 (17) | 1.56 (11) |
+  | 2017 | 1.67 (25) | 1.72 (25) | no data |
+  | 2018 | 1.59 (38) | 1.49 (40) | insufficient (2) |
+  | 2019 | 3.03 (50) | 3.07 (50) | **1.23** (50) |
+
+  Surface-temperature bias is −0.13 to −0.02 K.
+- **2019 investigation** (PROMICE readme `data/promice_aux/AWS_data_readme.pdf`, sha256 dea361c4…; sensor/QC extract `data/promice_aux/KAN_M_hour_MJJAS_2016_2019_qc.csv`):
+  - **Radiation.** `tilt_y` is missing for all of 2019, so no `dsr_cor`/`usr_cor` exist. The 2019 albedo is uncorrected usr/dsr (r = 0.9999 with usr/dsr). The 2019 radiation is therefore not tilt-corrected (tilt_x −2.3 ± 1.9°).
+  - **Surface height.** Per the readme, `z_ice_surf` follows the pressure transducer (`z_pt_cor`) during the ablation season, is adjusted manually at maintenance jumps, and is not a direct observation across gaps.
+  - **Sensors disagree in 2019.** Over June–August the pressure transducer gives 0.57 m of lowering, z_ice_surf 0.75 m and the independent stake sonic ranger 2.12 m. The SEB matches the stake record (1.23) much better than the transducer (3.07). The 3× discrepancy is therefore specific to the transducer-based record, not a general SEB failure; which 2019 sensor is right is not determined here.
+  - **Omitted process tested:** shortwave deposited below the surface (penetration into bubbly ice / weathering crust), which melts ice internally without lowering the surface (`sw_subsurface_frac` χ; `records/seb_2019/seb_subsurface_sw_test.json`).
+    - χ = 0.3 brings the 2016, 2017 and 2018 ratios to 1.06, 0.94 and 0.98 (all records consistent).
+    - With the same χ, 2019 lies between the two sensors (1.94 against the transducer, 0.79 against the stake).
+    - χ is estimated from these same 2016–2018 ablation data. It is consistent with, but does not prove, subsurface absorption: a radiometer bias of similar size, or ablation-sensor footprint/representativeness, cannot be separated with these data. The measured-flux closure (P4-SEB-1) shows the same 1.5× gap.
+  - **Footprint:**
+    - The downward radiometers (2.5–3 m height) see a footprint of tens of m², the pressure transducer a single borehole, the stake sonic another point.
+    - A comparison of station albedo with the Sentinel-2 pixel containing KAN_M is not done here (it needs the 2019 scene reads): **UNRESOLVED**.
+- **Modelled algal melt increment, 2019 sampled period** (`records/seb_2019/paired_algae_2019_v2.json`; each model on its own albedos; ranges over z0 1e-4–1e-2 m and slab 0.05–0.3 m):
+
+  | optics | χ | increment (m w.e.) | increment / potential | surface melt with algae (m w.e.) |
+  |---|---|---|---|---|
+  | pigment-aware (tddft_D, legacy calibration) | 0 | 0.108–0.116 | 0.85–0.92 | 1.02–1.27 |
+  | pigment-aware (tddft_D, legacy calibration) | 0.3 | 0.071–0.076 | 0.57–0.60 | 0.58–0.83 |
+  | Tier A (own albedos) | 0 | 0.143–0.151 | 0.88–0.93 | 1.11–1.36 |
+  | Tier A (own albedos) | 0.3 | 0.096–0.101 | 0.59–0.62 | 0.64–0.89 |
+
+  - These are **conditional modelled estimates of surface melt**. They depend on the SEB, KAN_M meteorology used for the S6 surface, uncorrected 2019 radiation, clear-sky retrievals interpolated between dates, and χ.
+  - The subsurface-energy assumption alone changes the increment/potential ratio from about 0.9 to about 0.6. With χ > 0, part of the withheld energy may still melt ice internally; that internal melt is not included in the "surface melt" increment.
+  - **No independent observation validates these increments.** They are not "actual algal melt", and the potential-melt gap is not a validated "correction".
+  - The pigment-aware column uses the legacy (pre-review) calibration through the legacy 2019 retrievals. It is to be regenerated with the frozen primary calibration.
+- **Status:** SEB code FIXED_AND_VERIFIED (tests, closure, convergence). Melt increments are conditional modelled estimates (DATA_LIMITATION: no independent algal-melt observation; 2019 ablation sensors disagree by 2.5×). Footprint comparison: UNRESOLVED.

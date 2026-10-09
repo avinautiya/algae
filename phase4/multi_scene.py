@@ -115,7 +115,10 @@ def summarise(run_dir, overpass_fallback="15:12"):
                clearness_overpass=sw_ov / sw_mod if sw_mod else np.nan,
                tau=s.get("model_error_tau_dex", {}).get("ours", np.nan))
     for k, lab in (("ours_log_b_mean", "log_b"), ("ours_bba_mean", "bba"), ("ours_rf_algae_mean", "rf_ours"),
-                   ("tierA_rf_algae_mean", "rf_tierA"), ("tierA_log_b_mean", "log_b_tierA")):
+                   ("tierA_rf_algae_mean", "rf_tierA"), ("tierA_log_b_mean", "log_b_tierA"),
+                   ("tierA_bba_mean", "bba_tierA")):
+        if k not in m:
+            continue
         v = m[k][ice]
         row.update({f"{lab}_median": float(np.nanmedian(v)), f"{lab}_p5": float(np.nanpercentile(v, 5)),
                     f"{lab}_p95": float(np.nanpercentile(v, 95)), f"{lab}_mean": float(np.nanmean(v))})

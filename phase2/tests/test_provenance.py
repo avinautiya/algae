@@ -108,3 +108,24 @@ def test_fit_magnitude_has_no_silent_covariance_fallback(monkeypatch):
         TC._fit_magnitude(s, 0.0, 0.5, wl_m, E, sE, D)
     _, ok = TC._fit_magnitude(s, 0.0, 0.5, wl_m, E, sE, D, return_status=True)
     assert ok is False
+
+
+def test_stage2_no_boundary_pileup_and_quadrature_refinement():
+    import cell_optics as co
+    import tddft_calibration as TC
+    s = co.MolecularSpectrum("x", 474.4, 0.3, np.array([2.95, 3.25, 3.72, 4.19, 4.6, 5.1]),
+                             np.array([0.07, 0.15, 0.2, 0.27, 0.1, 0.3]))
+    wl_h, S, sS, wl_m, E, sE, D = TC._data()
+    rng = np.random.default_rng(0)
+    out = {}
+    for n in (1, 2):
+        z, dg = TC._stage2_grid(s, 0.05, 0.6, wl_m, E, sE, D, rng, 40000, n_lf=81 * n, n_phi=101 * n - (n - 1),
+                                n_ls=56 * n, stride=2, rho=(0.9, 0.99))
+        assert np.all((z[:, 1] >= 0) & (z[:, 1] <= 1))
+        assert np.mean(z[:, 1] == 0.0) == 0 and np.mean(z[:, 1] == 1.0) == 0      # no clipping pile-up
+        out[n] = z.mean(0), z.std(0), dg["rho_draws"]
+    # ln f and phi (which enter the optics) converge to < 0.01; the discrepancy ln s (not used downstream)
+    # to < 0.05 at the default resolution (records/repair_stage2_refinement.json has the full study)
+    assert np.allclose(out[1][0][:2], out[2][0][:2], atol=0.01) and abs(out[1][0][2] - out[2][0][2]) < 0.05
+    assert np.allclose(out[1][1][:2], out[2][1][:2], rtol=0.1, atol=0.005)
+    assert set(np.unique(out[1][2])) <= {0.9, 0.99}
