@@ -168,3 +168,53 @@ def test_run_budgeted_short_is_killed_at_limit(tmp_path, monkeypatch):
                         str(tmp_path / "s"), "--", sys.executable, "-c", "import time; time.sleep(30)"],
                        env=dict(env, PYTHONPATH=os.path.join(HERE, "..")), timeout=60)
     assert r.returncode == 124
+
+
+def _idproc(tmp_path, pid, start_ticks, boot="boot-A", cmd="python3 run_phase1.py --outdir /x/JOB", btime=1000):
+    d = tmp_path / "idproc"
+    (d / "sys" / "kernel" / "random").mkdir(parents=True, exist_ok=True)
+    (d / "sys" / "kernel" / "random" / "boot_id").write_text(boot + "\n")
+    (d / "stat").write_text(f"cpu 1 2 3\nbtime {btime}\n")
+    (d / str(pid)).mkdir(exist_ok=True)
+    fields = ["S"] + ["0"] * 18 + [str(start_ticks)] + ["0"] * 10
+    (d / str(pid) / "stat").write_text(f"{pid} (python3) " + " ".join(fields) + "\n")
+    (d / str(pid) / "cmdline").write_bytes(cmd.replace(" ", "\0").encode())
+    return d
+
+
+def test_identity_rejects_reboot_and_pid_reuse(tmp_path, monkeypatch):
+    pid = os.getpid()                                  # alive, so only identity can reject it
+    d = _idproc(tmp_path, pid, start_ticks=500)
+    monkeypatch.setenv("ALGAE_PROC_IDENTITY", str(d))
+    import resources
+    R = importlib.reload(resources)
+    ident = R.process_identity(pid)
+    assert ident["boot_id"] == "boot-A" and ident["start_epoch"] == 1000 + 500 / os.sysconf("SC_CLK_TCK")
+    assert R.identity_ok(ident)
+    # reboot: same pid alive, different boot id
+    _idproc(tmp_path, pid, start_ticks=500, boot="boot-B")
+    assert not R.identity_ok(ident)
+    # pid reuse in the same boot: same pid, later start time
+    _idproc(tmp_path, pid, start_ticks=90000)
+    assert not R.identity_ok(ident)
+    # same start time, different command line
+    _idproc(tmp_path, pid, start_ticks=500, cmd="python3 other.py")
+    assert not R.identity_ok(ident)
+    # legacy record (no identity): accepted only if the process started before the recorded launch
+    _idproc(tmp_path, pid, start_ticks=500)
+    assert R.identity_ok(dict(pid=pid), started=1000 + 600, must_contain="/x/JOB")
+    assert not R.identity_ok(dict(pid=pid), started=1000 - 100, must_contain="/x/JOB")   # process younger than the record -> reused
+    assert not R.identity_ok(dict(pid=pid), started=1000 + 600, must_contain="/x/OTHER")
+
+
+def test_ledger_prunes_reservation_of_reused_pid(tmp_path, monkeypatch):
+    proc, cg = _fixture(tmp_path, limit_mb=10000, rss_mb=3000)
+    pid = os.getpid()
+    d = _idproc(tmp_path, pid, start_ticks=500)
+    monkeypatch.setenv("ALGAE_PROC_IDENTITY", str(d))
+    R = _load(monkeypatch, tmp_path, proc, cg)
+    monkeypatch.setattr(R, "tree_rss_mb", lambda p: 0.0)
+    assert R.try_reserve("chem", pid, 4000, threads=2, cores=4)[0]
+    assert "chem" in R.snapshot()["reservations"]
+    _idproc(tmp_path, pid, start_ticks=500, boot="boot-B")          # container rebooted, pid reused
+    assert "chem" not in R.snapshot()["reservations"]

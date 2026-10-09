@@ -32,6 +32,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 LEDGER = os.environ.get("ALGAE_BUDGET_LEDGER", os.path.join(ROOT, "phase1", "results", "resources", "budget.json"))
 CGROUP_FS = os.environ.get("ALGAE_CGROUP_FS", "/sys/fs/cgroup")
 PROC = os.environ.get("ALGAE_PROC", "/proc")
+IDPROC = os.environ.get("ALGAE_PROC_IDENTITY", "/proc")      # process identity always concerns real processes
 MEM_MARGIN_MB = 1200            # kernel, page tables, transient spikes
 DISK_MARGIN_GB = 5.0
 # Background class: analysis admitted beyond the core count, at most BACKGROUND_SLOTS threads in total,
@@ -155,11 +156,70 @@ def tree_rss_mb(pid: int) -> float:
 
 
 def pid_alive(pid) -> bool:
+    """Existence only. Never sufficient on its own after a reboot (PIDs are reused): use identity_ok."""
     try:
         os.kill(int(pid), 0)
         return True
     except (OSError, TypeError, ValueError):
         return False
+
+
+# --------------------------------------------------------------------------- process identity
+def boot_id() -> str | None:
+    try:
+        return open(os.path.join(IDPROC, "sys", "kernel", "random", "boot_id")).read().strip()
+    except OSError:
+        return None
+
+
+def proc_start_epoch(pid) -> float | None:
+    """Process start time (Unix epoch) from /proc/<pid>/stat field 22 and the boot time (btime)."""
+    try:
+        stat = open(os.path.join(IDPROC, str(int(pid)), "stat")).read()
+        ticks = int(stat.rsplit(")", 1)[1].split()[19])
+        btime = next(int(ln.split()[1]) for ln in open(os.path.join(IDPROC, "stat")) if ln.startswith("btime"))
+        return btime + ticks / os.sysconf("SC_CLK_TCK")
+    except (OSError, ValueError, IndexError, StopIteration, TypeError):
+        return None
+
+
+def proc_cmdline(pid) -> str | None:
+    try:
+        return open(os.path.join(IDPROC, str(int(pid)), "cmdline"), "rb").read().replace(b"\0", b" ").decode(errors="replace").strip()
+    except (OSError, ValueError, TypeError):
+        return None
+
+
+def process_identity(pid) -> dict | None:
+    """Identity of a live process: boot id, start time and command-line hash. None if not running."""
+    if not pid_alive(pid):
+        return None
+    import hashlib
+    cmd = proc_cmdline(pid) or ""
+    return dict(pid=int(pid), boot_id=boot_id(), start_epoch=proc_start_epoch(pid),
+                cmd_sha=hashlib.sha256(cmd.encode()).hexdigest())
+
+
+START_TOL_S = 2.0
+
+
+def identity_ok(ident: dict | None, *, started: float | None = None, must_contain: str | None = None) -> bool:
+    """True only if the recorded process is still the SAME process: same boot, same start time (within
+    START_TOL_S) and same command line. Legacy records without an identity are accepted only if the live
+    process started no later than the recorded launch time (+30 s) and its command line contains
+    `must_contain` (e.g. the job's output directory) when given."""
+    if not ident or not pid_alive(ident.get("pid")):
+        return False
+    pid = ident["pid"]
+    if must_contain is not None and must_contain not in (proc_cmdline(pid) or ""):
+        return False
+    if ident.get("start_epoch") is not None:
+        now = process_identity(pid)
+        return (now is not None and now["boot_id"] == ident.get("boot_id")
+                and now["start_epoch"] is not None and abs(now["start_epoch"] - ident["start_epoch"]) <= START_TOL_S
+                and now["cmd_sha"] == ident.get("cmd_sha"))
+    se = proc_start_epoch(pid)
+    return started is not None and se is not None and se <= float(started) + 30.0
 
 
 # --------------------------------------------------------------------------- ledger
@@ -173,8 +233,9 @@ def _locked():
                 led = json.load(open(LEDGER))
             except (OSError, ValueError):
                 led = {}
-            # prune reservations of dead processes
-            led = {k: v for k, v in led.items() if pid_alive(v.get("pid"))}
+            # prune reservations whose process is gone OR is a different process with a reused pid
+            led = {k: v for k, v in led.items()
+                   if identity_ok(v.get("ident") or dict(pid=v.get("pid")), started=v.get("started"))}
             yield led
             tmp = LEDGER + f".tmp{os.getpid()}"
             with open(tmp, "w") as fh:
@@ -227,7 +288,8 @@ def try_reserve(name, pid, mem_mb, threads=1, scratch_gb=0.0, scratch_dir=None, 
         reasons, snap = _assess(led, mem_mb, threads, scratch_gb, scratch_dir, cores, background, short)
         if not reasons:
             led[name] = dict(pid=int(pid), mem_mb=float(mem_mb), threads=int(threads), scratch_gb=float(scratch_gb),
-                             started=time.time(), background=bool(background), short=bool(short))
+                             started=time.time(), background=bool(background), short=bool(short),
+                             ident=process_identity(pid))
         return not reasons, reasons, snap
 
 
@@ -235,6 +297,7 @@ def update_pid(name, pid):
     with _locked() as led:
         if name in led:
             led[name]["pid"] = int(pid)
+            led[name]["ident"] = process_identity(pid)
 
 
 def release(name):

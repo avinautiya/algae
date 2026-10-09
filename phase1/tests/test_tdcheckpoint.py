@@ -176,3 +176,32 @@ def test_concurrent_writer_is_refused(mf, tmp_path):
         with pytest.raises(TC.CheckpointError):
             with TC.CheckpointStore(str(tmp_path)):
                 pass
+
+
+def test_rounding_only_geometry_difference_reuses_vectors_without_stage_credit(mf, tmp_path, reference):
+    """A geometry re-read from an .xyz rounds differently from the in-memory optimised one; a difference
+    within GEOM_TOL_BOHR must not discard the checkpoint, but converged-stage credit is not inherited."""
+    r1, _, _ = _solve(mf, tmp_path, tol=1e-3)
+    assert r1["status"] == "converged"
+    shifted = "C 0 0 0; O 0 0 1.210004; H 0 0.94 -0.59; H 0 -0.94 -0.59"        # 4e-6 A = 7.6e-6 Bohr
+    r2, td, f = _solve(_mf(geom=shifted), tmp_path, tol=1e-5)
+    assert r2["resumed"] and r2["rounding_match_bohr"] is not None
+    assert 1e-6 < r2["rounding_match_bohr"] <= TC.GEOM_TOL_BOHR
+    assert r2["status"] == "converged"
+    assert np.allclose(r2["energies_au"], reference[0], atol=1e-4)     # same physics to the TD tolerance
+
+
+def test_geometry_difference_beyond_tolerance_is_not_reused(mf, tmp_path):
+    _solve(mf, tmp_path, tol=1e-3)
+    shifted = "C 0 0 0; O 0 0 1.2101; H 0 0.94 -0.59; H 0 -0.94 -0.59"          # 1e-4 A = 1.9e-4 Bohr
+    r, _, _ = _solve(_mf(geom=shifted), tmp_path, tol=1e-3)
+    assert not r["resumed"]
+
+
+def test_equivalent_except_rounding_unit():
+    a = dict(xc="B3LYP", coords_bohr=[[0, 0, 0], [0, 0, 2.0]], nstates=4)
+    assert TC.equivalent_except_rounding(a, dict(a, coords_bohr=[[0, 0, 0], [0, 0, 2.000001]]))[0]
+    assert not TC.equivalent_except_rounding(a, dict(a, coords_bohr=[[0, 0, 0], [0, 0, 2.001]]))[0]
+    assert not TC.equivalent_except_rounding(a, dict(a, xc="CAM-B3LYP"))[0]
+    assert not TC.equivalent_except_rounding(a, dict(a, nstates=5))[0]
+    assert not TC.equivalent_except_rounding(None, a)[0]

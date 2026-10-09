@@ -1,0 +1,414 @@
+{
+ "jobs": {
+  "L2_CAM_TDA15": {
+   "command": [
+    "../../../usr/bin/python3",
+    "phase1/run_phase1.py",
+    "--level",
+    "level2",
+    "--skip-opt",
+    "--start-xyz",
+    "phase1/results/level2/opt_B3LYP_final.xyz",
+    "--tddft-functionals",
+    "CAM-B3LYP",
+    "--nstates",
+    "15",
+    "--td-conv-tol",
+    "1e-5",
+    "--tda",
+    "--import-guess",
+    "phase1/results/legacy_2026-10-09/level2_cam/tda_CAM-B3LYP_x0.npz",
+    "--td-chunk",
+    "2",
+    "--outdir",
+    "phase1/results/v2/L2_CAM_TDA15",
+    "--max-memory",
+    "4900",
+    "--verbose",
+    "4"
+   ],
+   "deps": [],
+   "threads": 2,
+   "declared_peak_mem_mb": 7000,
+   "scratch_gb": 8.0,
+   "inputs": {
+    "phase1/results/level2/opt_B3LYP_final.xyz": "cbd3b939f9fac7056511dc486fee061577e1687434d00664622c860c70e50e22",
+    "phase1/results/legacy_2026-10-09/level2_cam/tda_CAM-B3LYP_x0.npz": "fee5bf3f0cfb1b11c288844c6e73c13e144fdd6209fbfaf25707457608e01586"
+   },
+   "resume_files": {
+    "phase1/results/v2/L2_CAM_TDA15/scf_B3LYP.chk": {
+     "sha256": "21667107b4b26744d6f00e47f699f0731c0ebc7ef95dd9d7cf32c156db836d1b",
+     "bytes": 22074816
+    },
+    "phase1/results/v2/L2_CAM_TDA15/scf_CAM-B3LYP.chk": {
+     "sha256": "415c30ea0560e7fbe03e5beb43445b46c0f095d3873f864e798c1f6b2af2139f",
+     "bytes": 7419064
+    },
+    "phase1/results/v2/L2_CAM_TDA15/td_ckpt/CAM-B3LYP_TDA_15/fingerprint.json": {
+     "sha256": "33c7e2f615f61b69dd199ae7f667d5ddcbc696803276b6baa2c94a19415a3195",
+     "bytes": 3603
+    },
+    "phase1/results/v2/L2_CAM_TDA15/td_ckpt/CAM-B3LYP_TDA_15/latest.npz": {
+     "sha256": "1b383f9b6236a557e29a14a03e857dc0e640249ee11cfb5d6d616420bb0449f2",
+     "bytes": 6895283
+    }
+   },
+   "exploratory": null,
+   "allow_provisional": true
+  },
+  "L1_FULL": {
+   "command": [
+    "../../../usr/bin/python3",
+    "phase1/run_phase1.py",
+    "--level",
+    "level1",
+    "--tddft-functionals",
+    "B3LYP",
+    "CAM-B3LYP",
+    "--nstates",
+    "30",
+    "--td-conv-tol",
+    "1e-5",
+    "--start-xyz",
+    "phase1/results/v2/L1_FULL/opt_B3LYP_final.xyz",
+    "--skip-opt",
+    "--td-chunk",
+    "2",
+    "--outdir",
+    "phase1/results/v2/L1_FULL",
+    "--max-memory",
+    "2100",
+    "--verbose",
+    "4"
+   ],
+   "deps": [],
+   "threads": 2,
+   "declared_peak_mem_mb": 3000,
+   "scratch_gb": 2.0,
+   "inputs": {
+    "phase1/results/v2/L1_FULL/opt_B3LYP_final.xyz": "10d75cab3d86f9dde16d8210ffd57d92e5f042e3ff79faf4a33351320df52bba",
+    "phase1/results/v2/L1_FULL/opt_B3LYP_final.xyz.geometry.json": "4ab06e8b1926746aeda6e26905e6911228d291cdf57d38dc8fc453d5e13edf9f"
+   },
+   "resume_files": {
+    "phase1/results/v2/L1_FULL/opt_B3LYP_final.xyz": {
+     "sha256": "10d75cab3d86f9dde16d8210ffd57d92e5f042e3ff79faf4a33351320df52bba",
+     "bytes": 1210
+    },
+    "phase1/results/v2/L1_FULL/opt_B3LYP_final.xyz.geometry.json": {
+     "sha256": "4ab06e8b1926746aeda6e26905e6911228d291cdf57d38dc8fc453d5e13edf9f",
+     "bytes": 594
+    },
+    "phase1/results/v2/L1_FULL/opt_B3LYP_last.xyz": {
+     "sha256": "9a73fcba1c8483ffed0363d34e9a6fc6003b5b0038619b8cead87550e2c54d0b",
+     "bytes": 1196
+    },
+    "phase1/results/v2/L1_FULL/opt_B3LYP_opt_record.json": {
+     "sha256": "b4fb4a29d76387d92f5d47fab2b6df8f50066ff57dcefdc0f1977dbffca5284f",
+     "bytes": 1074
+    },
+    "phase1/results/v2/L1_FULL/opt_B3LYP_steps.jsonl": {
+     "sha256": "dd3cfcd2dbb3d35e426a790e36fb245a54cca30ae2a99af1799da9d46128b201",
+     "bytes": 4074
+    },
+    "phase1/results/v2/L1_FULL/opt_B3LYP_traj.xyz": {
+     "sha256": "11bf737f0b6984c800f86349a55a8f9a0cd16b7539cfd886da6281050e6b114a",
+     "bytes": 21535
+    },
+    "phase1/results/v2/L1_FULL/td_ckpt/B3LYP_RPA_30/fingerprint.json": {
+     "sha256": "862fbb94cc04cf26552809dfe6c8d28a5d9954db5445c6ece387fa87167a5f2e",
+     "bytes": 2114
+    },
+    "phase1/results/v2/L1_FULL/td_ckpt/B3LYP_RPA_30/latest.npz": {
+     "sha256": "36aaed4a089663eabbf19c56cfd8720e698765ca00de130cdb04861634517b4b",
+     "bytes": 5976102
+    },
+    "phase1/results/v2/L1_FULL/td_ckpt/B3LYP_RPA_30/latest.prev.npz": {
+     "sha256": "2f67c27074a456c11b7a52a3e04fa1b76ae9e12981f61d7392ff8001b52a9247",
+     "bytes": 5976098
+    }
+   },
+   "exploratory": null,
+   "allow_provisional": false
+  },
+  "FE_CAT": {
+   "command": [
+    "../../../usr/bin/python3",
+    "phase1/run_phase1.py",
+    "--level",
+    "level3_catecholate",
+    "--tddft-functionals",
+    "B3LYP",
+    "--tda",
+    "--nstates",
+    "40",
+    "--td-conv-tol",
+    "1e-5",
+    "--td-chunk",
+    "2",
+    "--outdir",
+    "phase1/results/v2/FE_CAT",
+    "--max-memory",
+    "4200",
+    "--verbose",
+    "4"
+   ],
+   "deps": [],
+   "threads": 2,
+   "declared_peak_mem_mb": 6000,
+   "scratch_gb": 8.0,
+   "inputs": {},
+   "resume_files": {},
+   "exploratory": null,
+   "allow_provisional": false
+  },
+  "L2_COO_OPT_TDA15": {
+   "command": [
+    "../../../usr/bin/python3",
+    "phase1/run_phase1.py",
+    "--level",
+    "level2_carboxylate",
+    "--start-xyz",
+    "phase1/results/v2/inputs/level2_carboxylate_start.xyz",
+    "--opt-functional",
+    "B3LYP",
+    "--maxsteps",
+    "60",
+    "--tddft-functionals",
+    "B3LYP",
+    "--tda",
+    "--nstates",
+    "15",
+    "--td-conv-tol",
+    "1e-5",
+    "--td-chunk",
+    "2",
+    "--outdir",
+    "/home/user/algae/phase1/results/v2/L2_COO_OPT_TDA15",
+    "--max-memory",
+    "4900",
+    "--verbose",
+    "4"
+   ],
+   "deps": [],
+   "threads": 2,
+   "declared_peak_mem_mb": 7000,
+   "scratch_gb": 8.0,
+   "inputs": {
+    "phase1/results/v2/inputs/level2_carboxylate_start.xyz": "fb90047332ebf0b3ce871ba553851b6c6c311e53c65d6304e0cea68fe3e25aca"
+   },
+   "resume_files": {},
+   "exploratory": "protonation sensitivity; geometry may stop unconverged at 60 steps",
+   "allow_provisional": true
+  },
+  "FE_TROP_XTB": {
+   "command": [
+    "../../../usr/bin/python3",
+    "phase1/run_phase1.py",
+    "--level",
+    "level3_tropolonate",
+    "--xtb-geometry",
+    "--tddft-functionals",
+    "B3LYP",
+    "--tda",
+    "--nstates",
+    "40",
+    "--td-conv-tol",
+    "1e-5",
+    "--td-chunk",
+    "2",
+    "--outdir",
+    "/home/user/algae/phase1/results/v2/FE_TROP_XTB",
+    "--max-memory",
+    "4200",
+    "--verbose",
+    "4"
+   ],
+   "deps": [],
+   "threads": 2,
+   "declared_peak_mem_mb": 6000,
+   "scratch_gb": 8.0,
+   "inputs": {},
+   "resume_files": {},
+   "exploratory": "xTB geometry only",
+   "allow_provisional": true
+  },
+  "L2_OPT": {
+   "command": [
+    "../../../usr/bin/python3",
+    "phase1/run_phase1.py",
+    "--level",
+    "level2",
+    "--start-xyz",
+    "phase1/results/level2/opt_B3LYP_final.xyz",
+    "--opt-functional",
+    "B3LYP",
+    "--no-td",
+    "--maxsteps",
+    "60",
+    "--outdir",
+    "phase1/results/v2/L2_OPT",
+    "--max-memory",
+    "4900",
+    "--verbose",
+    "4"
+   ],
+   "deps": [],
+   "threads": 2,
+   "declared_peak_mem_mb": 7000,
+   "scratch_gb": 8.0,
+   "inputs": {
+    "phase1/results/level2/opt_B3LYP_final.xyz": "cbd3b939f9fac7056511dc486fee061577e1687434d00664622c860c70e50e22"
+   },
+   "resume_files": {},
+   "exploratory": null,
+   "allow_provisional": false
+  },
+  "L2_B3LYP_TDA15_RELAXED": {
+   "command": [
+    "../../../usr/bin/python3",
+    "phase1/run_phase1.py",
+    "--level",
+    "level2",
+    "--skip-opt",
+    "--start-xyz",
+    "/home/user/algae/phase1/results/v2/L2_OPT/opt_B3LYP_final.xyz",
+    "--tddft-functionals",
+    "B3LYP",
+    "--nstates",
+    "15",
+    "--td-conv-tol",
+    "1e-5",
+    "--tda",
+    "--td-chunk",
+    "2",
+    "--outdir",
+    "/home/user/algae/phase1/results/v2/L2_B3LYP_TDA15_RELAXED",
+    "--max-memory",
+    "4900",
+    "--verbose",
+    "4"
+   ],
+   "deps": [
+    "L2_OPT"
+   ],
+   "threads": 2,
+   "declared_peak_mem_mb": 7000,
+   "scratch_gb": 8.0,
+   "inputs": {},
+   "resume_files": {},
+   "exploratory": null,
+   "allow_provisional": false
+  },
+  "L2_B3LYP_TDA15": {
+   "command": [
+    "../../../usr/bin/python3",
+    "phase1/run_phase1.py",
+    "--level",
+    "level2",
+    "--skip-opt",
+    "--start-xyz",
+    "phase1/results/level2/opt_B3LYP_final.xyz",
+    "--tddft-functionals",
+    "B3LYP",
+    "--nstates",
+    "15",
+    "--td-conv-tol",
+    "1e-5",
+    "--tda",
+    "--td-chunk",
+    "2",
+    "--outdir",
+    "phase1/results/v2/L2_B3LYP_TDA15",
+    "--max-memory",
+    "4900",
+    "--verbose",
+    "4"
+   ],
+   "deps": [],
+   "threads": 2,
+   "declared_peak_mem_mb": 7000,
+   "scratch_gb": 8.0,
+   "inputs": {
+    "phase1/results/level2/opt_B3LYP_final.xyz": "cbd3b939f9fac7056511dc486fee061577e1687434d00664622c860c70e50e22"
+   },
+   "resume_files": {
+    "phase1/results/v2/L2_B3LYP_TDA15/scf_B3LYP.chk": {
+     "sha256": "31b6c16df9e34cecacb978f71c94a744869ddd1b8a94c98550a8ce8886b0821c",
+     "bytes": 22017960
+    },
+    "phase1/results/v2/L2_B3LYP_TDA15/td_ckpt/B3LYP_TDA_15/fingerprint.json": {
+     "sha256": "03e6297096c217398e0e82abf9559844cd48a44321ad10a5e54704fffea5c3c8",
+     "bytes": 3601
+    }
+   },
+   "exploratory": null,
+   "allow_provisional": true
+  },
+  "L2_B3LYP_TDA25": {
+   "command": [
+    "../../../usr/bin/python3",
+    "phase1/run_phase1.py",
+    "--level",
+    "level2",
+    "--skip-opt",
+    "--start-xyz",
+    "phase1/results/level2/opt_B3LYP_final.xyz",
+    "--tddft-functionals",
+    "B3LYP",
+    "--nstates",
+    "25",
+    "--td-conv-tol",
+    "1e-5",
+    "--tda",
+    "--td-chunk",
+    "2",
+    "--outdir",
+    "/home/user/algae/phase1/results/v2/L2_B3LYP_TDA25",
+    "--max-memory",
+    "4900",
+    "--verbose",
+    "4"
+   ],
+   "deps": [
+    "L2_B3LYP_TDA15"
+   ],
+   "threads": 2,
+   "declared_peak_mem_mb": 7000,
+   "scratch_gb": 8.0,
+   "inputs": {
+    "phase1/results/level2/opt_B3LYP_final.xyz": "cbd3b939f9fac7056511dc486fee061577e1687434d00664622c860c70e50e22"
+   },
+   "resume_files": {},
+   "exploratory": null,
+   "allow_provisional": true
+  }
+ },
+ "code": {
+  "phase1/compare_states.py": "4229caed31656fd52a4e4c240629a434070572aab5b1e4de5f6b754df9bfa8c6",
+  "phase1/completion.py": "655c9cea41042be0d333cb290c041b1caa41717f0914f514555c8fd288e4184e",
+  "phase1/fe_complex.py": "a92217e65f1ea7291c99612cf1b1b087449355e0a99180ca7b63781ee8b52711",
+  "phase1/fe_increment.py": "4a6134bfa25b57bf5e1d33acab4ce7f01ef38c74f2c07ac1d305b5fe007b7d04",
+  "phase1/jobs.py": "6a16fab42e3b98d0c9886d8f1c8198fb832cee339f0b35a5f8d20ee0398aa87f",
+  "phase1/molecules.py": "fa21c1a9ddbf33c4273b5c00b5796368d5d200f71b843230fbe7f95221ae784d",
+  "phase1/portable_package.py": "effca3e5d7714c257d585eeb7def47ca2cfc85652c76257ec54ac2c1dfa6c3ae",
+  "phase1/qc.py": "b4f8e0a04191e2f848433fb391ea8d6f7165fa42804515907d27fbc34c95b7b5",
+  "phase1/run_phase1.py": "a91118eaa85577fffb49eb1e8cab48e5ef63c4bec62ab2c2e72eacf69d3860e4",
+  "phase1/spectra.py": "e86a59f43ef0ba88e0ca916dbb90679fc7961294c32ff4f9f39d56541cf367bd",
+  "phase1/tdcheckpoint.py": "3e4c12d429aec170cfda307fdd9de504a1e3b55bb647771469f372a771a013b6"
+ },
+ "requirements": "# Versions verified in the development container (2026-10-09). BioSNICAR is an external checkout:\n#   git clone https://github.com/jmcook1186/biosnicar-py.git  (revision used: fe74eee), BIOSNICAR_PATH=...\nnumpy==2.5.3\nscipy==1.18.1\npandas==3.0.5\npyscf==2.14.0          # Phase 1 chemistry only\nrasterio==1.5.2        # GDAL 3.12 with COG and netCDF drivers\npyproj==3.8.0\nnetCDF4==1.7.4         # scene product NetCDF export\nemcee==3.1.6\nmatplotlib==3.11.2\nPyYAML==6.0.1\nnumba==0.68.0\npytest==9.1.1\nscikit-learn==1.9.1    # comparison_study (study pinned 1.6.1 on its original macOS run; re-run here records the version)\n",
+ "python": "3.13.16",
+ "launch_order": [
+  "L2_B3LYP_FULL30",
+  "L2_CAM_TDA15",
+  "L1_FULL",
+  "FE_CAT",
+  "L2_COO_OPT_TDA15",
+  "FE_TROP_XTB",
+  "L2_OPT",
+  "L2_B3LYP_TDA15_RELAXED",
+  "L2_B3LYP_TDA15",
+  "L2_B3LYP_TDA25"
+ ],
+ "note": "Copy the repository including phase1/results/v2/<job>/ (td_ckpt, *.chk, opt_*) and phase1/results/level2/; verify sha256; run `python3 phase1/jobs.py run --max-jobs N`."
+}

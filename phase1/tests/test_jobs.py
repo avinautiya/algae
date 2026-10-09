@@ -95,3 +95,42 @@ def test_runner_waits_when_budget_refuses(tmp_path, monkeypatch):
     with pytest.raises(KeyboardInterrupt):
         jobs.run(max_jobs=1, poll=0)
     assert calls == ["A", "A", "A"] and not os.path.exists(tmp_path / "A" / "job.log")   # never launched
+
+
+def test_stale_running_record_with_reused_pid_is_relaunched(reg):
+    """After a reboot the recorded pid can belong to an unrelated live process: it must not be adopted."""
+    import time
+    me = os.getpid()                              # alive, but not the job (cmdline lacks the job's outdir)
+    jobs.save_state({"ok": dict(state="running", pid=me, started=time.time() - 1e5)})
+    rc = jobs.run(max_jobs=1, only="ok", poll=0.2)
+    assert rc == 0 and json.load(open(reg / "state.json"))["ok"]["state"] == "complete"
+
+
+def test_identity_mismatch_marks_interrupted(reg, monkeypatch):
+    ident = jobs.RS.process_identity(os.getpid())
+    ident = dict(ident, boot_id="a-previous-boot")
+    rec = dict(state="running", pid=os.getpid(), started=0.0, ident=ident)
+    assert not jobs.job_alive("ok", rec)
+    rec["ident"] = jobs.RS.process_identity(os.getpid())
+    monkeypatch.setattr(jobs, "outdir", lambda jid: "")        # identity matches; outdir check trivially true
+    assert jobs.job_alive("ok", rec)
+
+
+def test_converged_optimisation_is_not_repeated(tmp_path, monkeypatch):
+    od = tmp_path / "OPTJOB"
+    od.mkdir()
+    (od / "opt_B3LYP_final.xyz").write_text("1\nH\nH 0 0 0\n")
+    (od / "opt_B3LYP_opt_record.json").write_text(json.dumps(dict(converged=True, optimizer="geomeTRIC",
+                                                                  thresholds={"convergence_grms": 3e-4})))
+    monkeypatch.setattr(jobs, "outdir", lambda jid: str(od))
+    monkeypatch.setattr(jobs, "JOBS", {"OPTJOB": dict(args=["--level", "level1", "--nstates", "30"], deps=[],
+                                                      threads=1, mem_mb=10)})
+    cmd = jobs.command("OPTJOB")
+    assert "--skip-opt" in cmd and cmd[cmd.index("--start-xyz") + 1] == str(od / "opt_B3LYP_final.xyz")
+    side = json.load(open(od / "opt_B3LYP_final.xyz.geometry.json"))
+    assert side["status"] == "converged" and len(side["xyz_sha256"]) == 64
+    # an unconverged optimisation keeps resuming from its last geometry
+    (od / "opt_B3LYP_opt_record.json").write_text(json.dumps(dict(converged=False)))
+    (od / "opt_B3LYP_last.xyz").write_text("1\nH\nH 0 0 0.1\n")
+    cmd = jobs.command("OPTJOB")
+    assert "--skip-opt" not in cmd and cmd[cmd.index("--start-xyz") + 1] == str(od / "opt_B3LYP_last.xyz")

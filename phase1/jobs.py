@@ -103,7 +103,17 @@ def command(jid):
         src = outdir(j["geometry_from"])
         args = _l2_td("B3LYP", 15, geom=os.path.join(src, "opt_B3LYP_final.xyz"))
     args = list(args)
-    if "--skip-opt" not in args and "--xtb-geometry" not in args:
+    conv = converged_geometry(jid, args)
+    if conv:
+        # the job's own optimisation already converged (record + final geometry): do not repeat it on
+        # every relaunch (each repeat cost an SCF + gradient + geomeTRIC check, longer than the time
+        # between container reboots). The geometry is accepted through its sidecar (completion.py).
+        if "--start-xyz" in args:
+            args[args.index("--start-xyz") + 1] = conv
+        else:
+            args += ["--start-xyz", conv]
+        args.append("--skip-opt")
+    elif "--skip-opt" not in args and "--xtb-geometry" not in args:
         # optimisation jobs resume from their own latest geometry (history is appended, not truncated)
         func = args[args.index("--opt-functional") + 1] if "--opt-functional" in args else "B3LYP"
         last = os.path.join(outdir(jid), f"opt_{func}_last.xyz")
@@ -121,6 +131,35 @@ def command(jid):
 
 
 TD_CHUNK = 2
+
+
+def converged_geometry(jid, args):
+    """Path of the job's converged final geometry if its optimisation record says geomeTRIC converged,
+    writing the acceptance sidecar <xyz>.geometry.json from that record (status, thresholds, energy and the
+    xyz checksum). None for jobs without an optimisation or with an unconverged one."""
+    if "--skip-opt" in args or "--xtb-geometry" in args or "--no-td" in args:
+        return None
+    func = args[args.index("--opt-functional") + 1] if "--opt-functional" in args else "B3LYP"
+    od = outdir(jid)
+    rec_p, final = os.path.join(od, f"opt_{func}_opt_record.json"), os.path.join(od, f"opt_{func}_final.xyz")
+    if not (os.path.isfile(rec_p) and os.path.isfile(final)):
+        return None
+    rec = json.load(open(rec_p))
+    if not rec.get("converged"):
+        return None
+    import hashlib
+    side = final + ".geometry.json"
+    sha = hashlib.sha256(open(final, "rb").read()).hexdigest()
+    if not os.path.isfile(side) or json.load(open(side)).get("xyz_sha256") != sha:
+        tmp = side + ".tmp"
+        with open(tmp, "w") as fh:
+            json.dump(dict(status="converged", source=rec_p, optimizer=rec.get("optimizer"),
+                           thresholds=rec.get("thresholds"), final_energy_Eh=rec.get("final_energy_Eh"),
+                           functional=rec.get("functional"), basis=rec.get("basis"), solvent=rec.get("solvent"),
+                           xyz_sha256=sha, note="written by jobs.py from the job's own converged optimisation record"),
+                      fh, indent=1)
+        os.replace(tmp, side)
+    return final
 
 
 def scratch_dir(jid):
@@ -278,13 +317,24 @@ def admit(jid, j):
     return ok, why
 
 
+def job_alive(jid, rec):
+    """The recorded job process is still THIS job's process: same boot, same start time and command line
+    (identity recorded at launch), and its command line names the job's output directory. PID existence
+    alone is never accepted: after a reboot PIDs are reused by unrelated processes."""
+    if jid not in JOBS:
+        return False
+    return RS.identity_ok(rec.get("ident") or dict(pid=rec.get("pid")), started=rec.get("started"),
+                          must_contain=outdir(jid))
+
+
 def register_running(st):
     """Jobs still running from an earlier runner keep a reservation (declared peak) under their own pid."""
     for jid, rec in st.items():
-        if rec.get("state") == "running" and pid_alive(rec.get("pid")) and jid in JOBS:
+        if rec.get("state") == "running" and job_alive(jid, rec):
             with RS._locked() as led:
                 led[f"job:{jid}"] = dict(pid=int(rec["pid"]), mem_mb=float(JOBS[jid]["mem_mb"]),
-                                         threads=int(JOBS[jid]["threads"]), scratch_gb=8.0, started=time.time())
+                                         threads=int(JOBS[jid]["threads"]), scratch_gb=8.0, started=time.time(),
+                                         ident=rec.get("ident") or RS.process_identity(rec["pid"]))
 
 
 def run(max_jobs=2, only=None, poll=30, retry_failed=False):
@@ -296,8 +346,8 @@ def run(max_jobs=2, only=None, poll=30, retry_failed=False):
             if rec.get("state") == "failed":
                 rec["attempts"] = 0
     for jid, rec in st.items():                       # interrupted jobs from a previous runner
-        if rec.get("state") == "running" and not pid_alive(rec.get("pid")):
-            rec["state"] = "interrupted"
+        if rec.get("state") == "running" and not job_alive(jid, rec):
+            rec["state"] = "interrupted"           # dead, or its pid now belongs to another process
     for jid in JOBS:                                   # already valid outputs count as complete
         if validated(jid)[0]:
             st.setdefault(jid, {})["state"] = "complete"
@@ -337,7 +387,8 @@ def run(max_jobs=2, only=None, poll=30, retry_failed=False):
             RS.update_pid(f"job:{jid}", pr.pid)
             tried.add(jid)
             attempts = st.get(jid, {}).get("attempts", 0) + 1
-            st[jid] = dict(state="running", pid=pr.pid, started=time.time(), cmd=command(jid), attempts=attempts)
+            st[jid] = dict(state="running", pid=pr.pid, started=time.time(), cmd=command(jid), attempts=attempts,
+                           ident=RS.process_identity(pr.pid), outdir=od)
             save_state(st)
         done = [k for k, q in own.items() if q.poll() is not None]
         for k in done:

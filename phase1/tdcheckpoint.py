@@ -34,6 +34,7 @@ import time
 import numpy as np
 
 SCHEMA = 2
+GEOM_TOL_BOHR = 1e-5          # a re-read .xyz can flip the 6th decimal of the rounded fingerprint geometry
 MO_SUBSPACE_TOL = 1e-6
 MO_ENERGY_TOL = 1e-6          # Eh: stored and current canonical orbital energies must agree
 DEGENERATE_TOL = 1e-5         # Eh: orbitals closer than this may mix (degenerate rotations)
@@ -81,6 +82,22 @@ def fingerprint_hash(fp: dict) -> str:
 
 
 # --------------------------------------------------------------------------- orbitals and vectors
+def equivalent_except_rounding(stored: dict, current: dict):
+    """(True, max |dR| in Bohr) if two operator fingerprints differ ONLY through coordinate rounding:
+    every non-geometry field identical, same atoms, max coordinate difference <= GEOM_TOL_BOHR. A geometry
+    re-read from an .xyz file rounds differently from the in-memory optimised geometry (observed: one
+    coordinate differing by 1e-6 Bohr), which would otherwise discard a valid checkpoint."""
+    if not stored or set(stored) != set(current):
+        return False, None
+    if any(stored[k] != current[k] for k in stored if k != "coords_bohr"):
+        return False, None
+    a, b = np.asarray(stored["coords_bohr"], float), np.asarray(current["coords_bohr"], float)
+    if a.shape != b.shape:
+        return False, None
+    dev = float(np.max(np.abs(a - b))) if a.size else 0.0
+    return dev <= GEOM_TOL_BOHR, dev
+
+
 def _spin_blocks(mf):
     """List of (C, occ, e) per spin channel."""
     occ = mf.mo_occ
@@ -252,24 +269,53 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
     fph = fingerprint_hash(fp)
     stages = default_stages(conv_tol)
     with CheckpointStore(ckpt_dir) as store:
-        with open(os.path.join(ckpt_dir, "fingerprint.json"), "w") as fh:
-            json.dump(dict(fp=fp, fp_hash=fph), fh, indent=1, default=str)
+        # the stored fingerprint is read BEFORE it is overwritten, so a checkpoint whose operator differs only
+        # by coordinate rounding can be recognised (restart vectors reused; stage credit is not)
+        fpath = os.path.join(ckpt_dir, "fingerprint.json")
+        stored = None
+        if os.path.isfile(fpath):
+            try:
+                stored = json.load(open(fpath))
+            except (OSError, ValueError):
+                stored = None
         d, meta = store.load(fph, log)
+        rounding_match = None
+        if d is None and stored and stored.get("fp_hash") != fph:
+            ok, dev = equivalent_except_rounding(stored.get("fp"), json.loads(json.dumps(fp, default=str)))
+            if ok:
+                d, meta = store.load(stored["fp_hash"], log)
+                if d is not None:
+                    rounding_match = dev
+                    log(f"[ckpt] operator identical except coordinate rounding (max |dR| {dev:.1e} Bohr <= "
+                        f"{GEOM_TOL_BOHR:g}); restart vectors reused, converged-stage credit NOT inherited")
+        with open(fpath, "w") as fh:
+            json.dump(dict(fp=fp, fp_hash=fph), fh, indent=1, default=str)
         x0, history, total, conv_done = None, [], 0, -1.0
-        info = dict(resumed=False, invalidated=None, guess_imported=False)
+        info = dict(resumed=False, invalidated=None, guess_imported=False, rounding_match_bohr=rounding_match,
+                    resumed_as_guess=False)
         if d is not None:
             saved = dict(nspin=d["nspin"], **{k: d[k] for k in d if k.startswith("mo_")})
             try:
                 x0 = list(map_vectors(saved, mf, d["vectors"], tda))
                 history = meta.get("stage_history", [])
                 total = int(meta.get("total_cycles", 0))
-                conv_done = float(meta.get("converged_tol", -1.0))
+                conv_done = float(meta.get("converged_tol", -1.0)) if rounding_match is None else -1.0
                 info["resumed"] = True
                 log(f"[ckpt] resumed: {total} Davidson cycles done; all roots converged down to residual "
                     f"{conv_done if conv_done > 0 else 'none'}")
             except CheckpointError as e:
-                log(f"[ckpt] stored orbitals incompatible with the current SCF ({e}); checkpoint invalidated")
-                x0, info["invalidated"] = None, str(e)
+                if rounding_match is not None and np.asarray(d["vectors"]).shape[0] == nstates:
+                    # operator identical except coordinate rounding, orbitals marginally different: the stored
+                    # vectors are used ONLY as an unvalidated initial guess (as for import_guess) - the solve
+                    # reconverges on the current operator to the full tolerance and earns no stage credit
+                    x0 = list(np.asarray(d["vectors"], float))
+                    history, total, conv_done = meta.get("stage_history", []), int(meta.get("total_cycles", 0)), -1.0
+                    info.update(resumed=True, resumed_as_guess=True, invalidated=str(e))
+                    log(f"[ckpt] orbitals differ marginally after coordinate rounding ({e}); stored vectors used as an "
+                        f"UNVALIDATED initial guess only (no stage credit)")
+                else:
+                    log(f"[ckpt] stored orbitals incompatible with the current SCF ({e}); checkpoint invalidated")
+                    x0, info["invalidated"] = None, str(e)
         if x0 is None and import_guess and os.path.isfile(import_guess):
             try:
                 with np.load(import_guess) as z:
