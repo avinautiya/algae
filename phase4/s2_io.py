@@ -53,6 +53,7 @@ class Scene:
     crs: object
     sza: float
     date: str
+    scl: np.ndarray | None = None      # raw Sen2Cor scene classification on the same grid (0 = nodata)
 
     @property
     def shape(self):
@@ -258,7 +259,7 @@ def _read_scene(item: dict, bounds, resolution: float = 20.0, keep_scl=(11,), ds
     item["_read"] = dict(scaling=provenance, sun=sun, grid=dict(bounds=list(bounds), resolution=resolution,
                                                                 crs=str(crs), shape=[H, W]),
                          valid_fraction=float(mask.mean()))
-    return Scene(item, out, mask, transform, crs, sza, dt[:10])
+    return Scene(item, out, mask, transform, crs, sza, dt[:10], scl)
 
 
 # --------------------------------------------------------------------------- #

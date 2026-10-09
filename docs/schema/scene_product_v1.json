@@ -1,0 +1,212 @@
+{
+ "schema": "algae-scene-product/1.0.0",
+ "grid": "projected UTM of the source tile; cell-centre x/y coordinates; north-up",
+ "nodata": {
+  "float32": "NaN",
+  "class_value": 0
+ },
+ "variables": {
+  "interpretation_class": {
+   "units": "1",
+   "long_name": "interpretation class (see flag_meanings)",
+   "dtype": "uint8",
+   "valid_range": [
+    0,
+    9
+   ]
+  },
+  "quality_flags": {
+   "units": "1",
+   "long_name": "quality bit flags (see flag_meanings)",
+   "dtype": "uint16",
+   "valid_range": [
+    0,
+    1023
+   ]
+  },
+  "log10_cells_mean": {
+   "units": "log10(cells mL-1 meltwater)",
+   "long_name": "posterior mean algal abundance",
+   "dtype": "float32",
+   "valid_range": [
+    0.5,
+    6.5
+   ]
+  },
+  "log10_cells_sd_posterior": {
+   "units": "log10(cells mL-1 meltwater)",
+   "long_name": "posterior SD of abundance",
+   "dtype": "float32",
+   "valid_range": [
+    0,
+    3
+   ]
+  },
+  "log10_cells_q025_total": {
+   "units": "log10(cells mL-1 meltwater)",
+   "long_name": "2.5 % (posterior SD (+) tau)",
+   "dtype": "float32",
+   "valid_range": [
+    -5,
+    8
+   ]
+  },
+  "log10_cells_q975_total": {
+   "units": "log10(cells mL-1 meltwater)",
+   "long_name": "97.5 % (posterior SD (+) tau)",
+   "dtype": "float32",
+   "valid_range": [
+    -5,
+    12
+   ]
+  },
+  "dalpha_algae_mean": {
+   "units": "1",
+   "long_name": "algal broadband albedo reduction (signed; >0 darkening)",
+   "dtype": "float32",
+   "valid_range": [
+    -0.2,
+    0.6
+   ]
+  },
+  "dalpha_algae_sd": {
+   "units": "1",
+   "long_name": "posterior SD of the algal albedo reduction",
+   "dtype": "float32",
+   "valid_range": [
+    0,
+    0.6
+   ]
+  },
+  "p_dalpha_ge_min": {
+   "units": "1",
+   "long_name": "posterior probability that the algal albedo reduction >= 0.01",
+   "dtype": "float32",
+   "valid_range": [
+    0,
+    1
+   ]
+  },
+  "log_bayes_factor_algae": {
+   "units": "1",
+   "long_name": "ln evidence(full) - ln evidence(no algae)",
+   "dtype": "float32",
+   "valid_range": [
+    -10000.0,
+    10000.0
+   ]
+  },
+  "rf_algae_mean": {
+   "units": "W m-2",
+   "long_name": "instantaneous clear-sky algal SW forcing at overpass SZA (modelled SW)",
+   "dtype": "float32",
+   "valid_range": [
+    -200,
+    600
+   ]
+  },
+  "bba_mean": {
+   "units": "1",
+   "long_name": "modelled broadband (300-2500 nm) albedo",
+   "dtype": "float32",
+   "valid_range": [
+    0,
+    1
+   ]
+  },
+  "bba_sd": {
+   "units": "1",
+   "long_name": "posterior SD of modelled broadband albedo",
+   "dtype": "float32",
+   "valid_range": [
+    0,
+    1
+   ]
+  },
+  "ppp": {
+   "units": "1",
+   "long_name": "posterior predictive p-value (k-marginal, 4 bands)",
+   "dtype": "float32",
+   "valid_range": [
+    0,
+    1
+   ]
+  },
+  "prior_sd_ratio_log10_cells": {
+   "units": "1",
+   "long_name": "posterior SD / prior SD of abundance",
+   "dtype": "float32",
+   "valid_range": [
+    0,
+    5
+   ]
+  },
+  "dalpha_algae_alt_optics": {
+   "units": "1",
+   "long_name": "algal albedo reduction with Tier A optics (structural alternative)",
+   "dtype": "float32",
+   "valid_range": [
+    -0.2,
+    0.6
+   ]
+  }
+ },
+ "classes": {
+  "0": "nodata",
+  "1": "cloud_or_shadow",
+  "2": "water_or_pond",
+  "3": "snow_or_bright_surface",
+  "4": "bare_ice_no_meaningful_algal_darkening",
+  "5": "biologically_consistent_darkening_supported",
+  "6": "ambiguous_algae_vs_dust_or_ice",
+  "7": "prior_dominated",
+  "8": "forward_model_inconsistent",
+  "9": "non_ice_surface"
+ },
+ "flags": {
+  "1": "nodata",
+  "2": "scl_cloud_or_shadow",
+  "4": "water_test",
+  "8": "snow_test",
+  "16": "scl_dark_or_unclassified",
+  "32": "ppp_below_0.01",
+  "64": "prior_dominated",
+  "128": "algae_dust_ambiguous",
+  "256": "posterior_at_grid_edge",
+  "512": "scl_non_ice"
+ },
+ "validity_rules": [
+  "physical variables are NaN on classes 0-3 and 9",
+  "classes 7 and 8 carry values but must not be used for abundance or forcing",
+  "quality bit 8: posterior mass at a radius/dust grid edge (extrapolation risk)",
+  "dalpha and forcing are SIGNED (negative = brightening); never clipped",
+  "rf_algae_mean is instantaneous clear-sky at the overpass SZA with modelled SW, not daily/seasonal",
+  "no species fractions are reported (f_n prior-dominated)"
+ ],
+ "thresholds": {
+  "dalpha_min": 0.01,
+  "bayes_factor_min": 10.0,
+  "p_support": 0.9,
+  "p_none": 0.1,
+  "ppp_min": 0.01,
+  "ndwi_ice_water": 0.25,
+  "snow_b3": 0.8,
+  "snow_b8": 0.7,
+  "prior_dominated_sd_ratio": 0.8,
+  "prior_dominated_shift_prior_sd": 0.5
+ },
+ "uncertainty": {
+  "calibration_draw_ids": [
+   "posterior_mean"
+  ],
+  "structural_tau": "added in quadrature to abundance interval",
+  "optics_alternative": "dalpha_algae_alt_optics (Tier A)"
+ },
+ "files": [
+  "<scene>_continuous.tif (COG float32)",
+  "<scene>_class_flags.tif (COG uint16)",
+  "<scene>.nc (NetCDF4 CF-1.8)",
+  "<scene>_provenance.json",
+  "<scene>_report.md"
+ ]
+}
