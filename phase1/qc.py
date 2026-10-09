@@ -79,65 +79,102 @@ def make_mf(mol, functional: str = "B3LYP", solvent: str | None = "pcm",
     return mf
 
 
+GAUSSIAN_CRITERIA = dict(convergence_energy=1e-6, convergence_grms=3.0e-4, convergence_gmax=4.5e-4,
+                         convergence_drms=1.2e-3, convergence_dmax=1.8e-3)
+CRITERIA_UNITS = dict(convergence_energy="Eh (energy change)", convergence_grms="Eh/Bohr",
+                      convergence_gmax="Eh/Bohr", convergence_drms="Angstrom", convergence_dmax="Angstrom")
+
+
 def optimize_geometry(mol, functional: str = "B3LYP", solvent: str | None = "pcm",
                       eps: float = WATER_EPS_STATIC, maxsteps: int = 100,
                       workdir: str = ".", tag: str = "opt", use_gpu: bool = False,
                       density_fit: bool = True, convergence: str = "gaussian", **mf_kwargs):
     """Ground-state geometry optimisation with geomeTRIC (TRIC internal coordinates).
 
-    Every accepted step is appended to <workdir>/<tag>_traj.xyz and the latest
-    geometry is written to <workdir>/<tag>_last.xyz, so a disconnected Colab
-    session can be resumed by passing that file back in as the start geometry.
+    History is preserved across restarts: every gradient evaluation is APPENDED to
+    <tag>_traj.xyz and to <tag>_steps.jsonl (energy, energy change, RMS/max Cartesian gradient in
+    Eh/Bohr, RMS/max displacement from the previous evaluation in Angstrom, segment id). The latest
+    geometry is <tag>_last.xyz. The optimiser's own convergence decision and every criterion are
+    written to <tag>_opt_record.json.
 
-    convergence='gaussian' uses Gaussian's default thresholds
-    (max force 4.5e-4, RMS force 3.0e-4, max step 1.8e-3, RMS step 1.2e-3 a.u.).
-    Returns (optimised Mole, converged SCF object at that geometry, energy in Hartree,
-             optimisation-converged flag).
+    <tag>_final.xyz (the validated optimised geometry) is written ONLY if geomeTRIC reports
+    convergence; otherwise the endpoint is written to <tag>_unconverged_endpoint.xyz and the record
+    says so. (geomeTRIC's internal Hessian is not restorable through PySCF, so a restart begins a new
+    segment with a fresh Hessian; the segments are recorded.)
+
+    convergence='gaussian' uses Gaussian's default thresholds (GAUSSIAN_CRITERIA).
+    Returns (Mole at the final/endpoint geometry, converged SCF there, energy in Eh, converged flag).
     """
+    import json
     from pyscf.geomopt.geometric_solver import kernel as geometric_kernel
 
     os.makedirs(workdir, exist_ok=True)
     traj = os.path.join(workdir, f"{tag}_traj.xyz")
     last = os.path.join(workdir, f"{tag}_last.xyz")
-    open(traj, "w").close()
+    steps = os.path.join(workdir, f"{tag}_steps.jsonl")
+    record_path = os.path.join(workdir, f"{tag}_opt_record.json")
+    segment = 1
+    if os.path.isfile(steps):
+        with open(steps) as fh:
+            segment = 1 + max((json.loads(l).get("segment", 0) for l in fh if l.strip()), default=0)
     t0 = time.time()
-
     mf = make_mf(mol, functional, solvent, eps, density_fit=density_fit, use_gpu=use_gpu, **mf_kwargs)
+    state = dict(n=0, prev_xyz=None, prev_e=None, rows=[])
 
     def callback(envs):
-        # geomeTRIC passes its local namespace; 'mol' is the current PySCF geometry.
         cur = envs["mol"]
-        e = envs.get("energy", float("nan"))
-        step = callback.n = getattr(callback, "n", 0) + 1
-        xyz = _mole_to_xyz(cur, comment=f"step {step}  E = {e:.10f} Eh  "
-                                         f"t = {time.time() - t0:.0f} s")
+        e = float(envs.get("energy", float("nan")))
+        g = np.asarray(envs.get("gradients", np.full((cur.natm, 3), np.nan)), float)
+        xyz_a = cur.atom_coords(unit="Angstrom")
+        state["n"] += 1
+        row = dict(segment=segment, step=state["n"], energy_Eh=e,
+                   dE_Eh=None if state["prev_e"] is None else e - state["prev_e"],
+                   grms=float(np.sqrt(np.mean(g ** 2))), gmax=float(np.max(np.abs(g))),
+                   drms=None if state["prev_xyz"] is None else float(np.sqrt(np.mean((xyz_a - state["prev_xyz"]) ** 2))),
+                   dmax=None if state["prev_xyz"] is None else float(np.max(np.abs(xyz_a - state["prev_xyz"]))),
+                   elapsed_s=round(time.time() - t0, 1))
+        state["prev_xyz"], state["prev_e"] = xyz_a, e
+        state["rows"].append(row)
+        frame = _mole_to_xyz(cur, comment=f"segment {segment} step {state['n']}  E = {e:.10f} Eh")
         with open(traj, "a") as fh:
-            fh.write(xyz)
-        with open(last, "w") as fh:
-            fh.write(xyz)
-        print(f"[{tag}] step {step:3d}  E = {e:.8f} Eh  elapsed {time.time() - t0:7.0f} s", flush=True)
+            fh.write(frame)
+        with open(steps, "a") as fh:
+            fh.write(json.dumps(row) + "\n")
+        _atomic_write(last, frame)
+        print(f"[{tag}] seg {segment} step {state['n']:3d}  E = {e:.8f}  grms {row['grms']:.2e} "
+              f"gmax {row['gmax']:.2e}  elapsed {time.time() - t0:7.0f} s", flush=True)
 
-    conv = {}
-    if convergence == "gaussian":
-        # gradients in Eh/Bohr, displacements in Angstrom (geomeTRIC units)
-        conv = dict(convergence_energy=1e-6, convergence_grms=3.0e-4, convergence_gmax=4.5e-4,
-                    convergence_drms=1.2e-3, convergence_dmax=1.8e-3)
-
+    conv = dict(GAUSSIAN_CRITERIA) if convergence == "gaussian" else {}
     converged, mol_eq = geometric_kernel(mf, maxsteps=maxsteps, callback=callback, **conv)
-    if not converged:
-        print(f"WARNING [{tag}]: optimisation NOT converged in {maxsteps} steps; resume with "
-              f"--start-xyz {last}", flush=True)
-
-    # Final single point at the converged geometry (also gives MOs for TD-DFT).
-    mf_eq = make_mf(mol_eq, functional, solvent, eps, density_fit=density_fit, use_gpu=use_gpu,
-                    **mf_kwargs)
+    mf_eq = make_mf(mol_eq, functional, solvent, eps, density_fit=density_fit, use_gpu=use_gpu, **mf_kwargs)
     e_eq = mf_eq.kernel()
     if not mf_eq.converged:
         raise RuntimeError("SCF at the optimised geometry did not converge")
-    with open(os.path.join(workdir, f"{tag}_final.xyz"), "w") as fh:
-        fh.write(_mole_to_xyz(mol_eq, comment=f"{functional}/{mol.basis} {solvent} E = {e_eq:.10f} Eh"))
-    print(f"[{tag}] optimisation finished in {time.time() - t0:.0f} s, E = {e_eq:.10f} Eh", flush=True)
+    last_row = state["rows"][-1] if state["rows"] else {}
+    rec = dict(tag=tag, functional=functional, basis=str(mol.basis), solvent=solvent, segment=segment,
+               optimizer="geomeTRIC (via pyscf.geomopt)", converged=bool(converged), maxsteps=maxsteps,
+               thresholds=conv, units=CRITERIA_UNITS, evaluations_this_segment=state["n"],
+               last_evaluation=last_row, final_energy_Eh=float(e_eq),
+               note="geomeTRIC's convergence flag is authoritative; the per-step values are recorded "
+                    "for audit (displacements here are between successive gradient evaluations).")
+    _atomic_write(record_path, json.dumps(rec, indent=1, default=float))
+    xyz_out = os.path.join(workdir, f"{tag}_final.xyz" if converged else f"{tag}_unconverged_endpoint.xyz")
+    _atomic_write(xyz_out, _mole_to_xyz(mol_eq, comment=f"{functional}/{mol.basis} {solvent} E = {e_eq:.10f} Eh "
+                                                         f"converged={bool(converged)}"))
+    if not converged:
+        print(f"WARNING [{tag}]: optimisation NOT converged in {maxsteps} steps; endpoint -> {xyz_out}; "
+              f"resume with --start-xyz {last}", flush=True)
+    print(f"[{tag}] optimisation segment finished in {time.time() - t0:.0f} s, E = {e_eq:.10f} Eh", flush=True)
     return mol_eq, mf_eq, e_eq, converged
+
+
+def _atomic_write(path: str, text: str):
+    tmp = f"{path}.tmp.{os.getpid()}"
+    with open(tmp, "w") as fh:
+        fh.write(text)
+        fh.flush()
+        os.fsync(fh.fileno())
+    os.replace(tmp, path)
 
 
 def xtb_preoptimize(mol, solvent: str | None = "water", gtol: float = 2e-4, maxiter: int = 2000):
@@ -200,25 +237,21 @@ def harmonic_check(mf, workdir: str = ".", tag: str = "freq"):
 
 
 def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: bool = False,
-              conv_tol: float = 1e-5, checkpoint: str | None = None):
-    """Vertical singlet->singlet excitations from a converged closed-shell SCF.
+              conv_tol: float = 1e-5, ckpt_dir: str | None = None, chunk: int = 5,
+              max_total_cycles: int = 400, import_guess: str | None = None):
+    """Vertical excitations from a converged SCF (closed shell: singlets only).
 
-    conv_tol is the Davidson residual-norm tolerance (PySCF default 1e-5); excitation energies then
-    converge to ~1e-9 Eh, far below TD-DFT method error. (The production Level 2 B3LYP run used
-    1e-6, which costs extra iterations without changing the spectrum.)
+    conv_tol is the Davidson residual-norm tolerance. It does not by itself guarantee a stated
+    excitation-energy accuracy; the stage history (energies and oscillator strengths at each converged
+    residual level) is returned so the effect of the tolerance can be measured.
 
-    For a closed-shell RKS reference PySCF's TDDFT/TDA solve only for singlet
-    states by default (td.singlet = True).
+    With ckpt_dir the solve is restartable and validated (phase1/tdcheckpoint.py); status is
+    'converged' only if every root converged at conv_tol. Without ckpt_dir a single plain solve is run.
 
-    equilibrium_solvation=False (default): non-equilibrium linear-response PCM,
-    the correct choice for vertical absorption.
+    equilibrium_solvation=False (default): non-equilibrium linear-response PCM (vertical absorption).
 
-    checkpoint (TDA only): converge in stages (residual 1e-2, 1e-3, 1e-4, conv_tol) and save the
-    eigenvectors after each stage to this .npz; a restarted run resumes from the last saved stage
-    (td.kernel(x0=...)), so an interruption costs at most one stage.
-
-    Returns dict with excitation energies (eV), wavelengths (nm), oscillator
-    strengths (length gauge) and the TD object.
+    Returns dict(energies_ev, wavelengths_nm, osc_strengths, converged, status, td, ...). Callers must
+    check `status`/`converged` (see completion.td_problems) before using the numbers in production.
     """
     if not mf.converged:
         raise RuntimeError("SCF not converged; refusing to run TD-DFT on it")
@@ -228,61 +261,36 @@ def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: b
             mf.TDDFT(equilibrium_solvation=equilibrium_solvation)
     else:
         td = mf.TDA() if tda else mf.TDDFT()
+    singlet = None
     if mol_spin(mf) == 0:
-        td.singlet = True          # closed shell: singlet excitations only
+        td.singlet = singlet = True          # closed shell: singlet excitations only
     td.nstates = nstates
     td.conv_tol = conv_tol
     td.max_cycle = 200
     t0 = time.time()
-    if tda and checkpoint:
-        _staged_tda(td, conv_tol, checkpoint)
+    extra = {}
+    if ckpt_dir:
+        import tdcheckpoint
+        r = tdcheckpoint.solve(td, mf, tda=tda, nstates=nstates, conv_tol=conv_tol, ckpt_dir=ckpt_dir,
+                               singlet=singlet, equilibrium_solvation=equilibrium_solvation, chunk=chunk,
+                               max_total_cycles=max_total_cycles, import_guess=import_guess)
+        status = r["status"]
+        extra = dict(fingerprint=r["fp"], fp_hash=r["fp_hash"], stage_history=r["stage_history"],
+                     total_cycles=r["total_cycles"], resumed=r["resumed"], invalidated=r["invalidated"])
     else:
         td.kernel()
+        status = "converged" if np.all(np.atleast_1d(_to_numpy(td.converged))) else "unconverged"
     e = _to_numpy(td.e)
     f = _to_numpy(td.oscillator_strength(gauge="length"))
     conv = np.atleast_1d(_to_numpy(td.converged)).astype(bool)
     if not conv.all():
-        print(f"WARNING: {np.sum(~conv)} of {len(conv)} TD-DFT roots not converged", flush=True)
+        print(f"WARNING: {np.sum(~conv)} of {len(conv)} TD-DFT roots not converged - results are "
+              f"diagnostic only", flush=True)
     e_ev = e * HARTREE_TO_EV
-    print(f"TD-DFT: {len(e_ev)} states, {e_ev.min():.3f}-{e_ev.max():.3f} eV, "
-          f"{time.time() - t0:.0f} s", flush=True)
+    print(f"TD-DFT ({'TDA' if tda else 'RPA'}): {len(e_ev)} states, {e_ev.min():.3f}-{e_ev.max():.3f} eV, "
+          f"status {status}, {time.time() - t0:.0f} s", flush=True)
     return dict(energies_ev=e_ev, wavelengths_nm=1239.841984 / e_ev,
-                osc_strengths=f, converged=conv, td=td)
-
-
-def _tda_vectors(td):
-    """TDA eigenvectors as flat arrays (RKS: X; UKS: [Xa, Xb]) - the x0 format of td.kernel."""
-    out = []
-    for x, _ in td.xy:
-        out.append(np.hstack([np.ravel(_to_numpy(v)) for v in x]) if isinstance(x, tuple) else
-                   np.ravel(_to_numpy(x)))
-    return np.array(out)
-
-
-def _staged_tda(td, conv_tol, checkpoint):
-    stages = [t for t in (1e-2, 1e-3, 1e-4) if t > conv_tol] + [conv_tol]
-    done, x0 = -1, None
-    if os.path.isfile(checkpoint):
-        d = np.load(checkpoint)
-        if int(d["nstates"]) == td.nstates:
-            # resume from the tightest residual already reached (works if conv_tol changed in between)
-            reached = float(np.asarray(d["stages"])[int(d["done"])])
-            done = max([k for k, t in enumerate(stages) if t >= reached * (1 - 1e-9)], default=-1)
-            x0 = list(d["x0"])
-            print(f"TDA restart: residual {reached:g} already reached; resuming at stage {done + 2}/{len(stages)}",
-                  flush=True)
-    for k in range(done + 1, len(stages)):
-        td.conv_tol = stages[k]
-        t1 = time.time()
-        td.kernel(x0=x0)
-        x0 = list(_tda_vectors(td))
-        np.savez(checkpoint + ".tmp.npz", x0=np.array(x0), done=k, nstates=td.nstates, stages=stages)
-        os.replace(checkpoint + ".tmp.npz", checkpoint)
-        print(f"TDA stage {k + 1}/{len(stages)} (residual {stages[k]:g}) in {time.time() - t1:.0f} s; "
-              f"checkpoint saved", flush=True)
-    if done == len(stages) - 1:          # everything converged before the restart: one cheap pass
-        td.conv_tol = stages[-1]
-        td.kernel(x0=x0)
+                osc_strengths=f, converged=conv, status=status, td=td, **extra)
 
 
 def mol_spin(mf):
@@ -331,16 +339,63 @@ def _mole_to_xyz(mol, comment: str = "") -> str:
     return "\n".join(lines) + "\n"
 
 
-def xyz_file_to_atom_block(path: str) -> str:
-    """Read a (single- or multi-frame) .xyz file and return the LAST frame as an atom block."""
+class XYZError(ValueError):
+    pass
+
+
+def read_xyz_frames(path: str, recover: bool = True):
+    """Parse a single- or multi-frame XYZ file. Each frame: atom count, ONE comment line (which may be
+    blank), then that many 'symbol x y z' lines. Returns (frames, warnings) with frames a list of
+    (comment, [(symbol, x, y, z), ...]). A malformed or truncated frame after at least one valid frame
+    is dropped with a warning if recover=True (last-valid-frame recovery); otherwise XYZError."""
     with open(path) as fh:
-        lines = [l.rstrip() for l in fh if l.strip()]
-    frames, i = [], 0
+        lines = fh.read().split("\n")
+    frames, warnings, i = [], [], 0
     while i < len(lines):
-        n = int(lines[i].split()[0])
-        frames.append("\n".join(lines[i + 2:i + 2 + n]))
+        if not lines[i].strip():
+            i += 1                       # blank separator lines between frames / trailing newline
+            continue
+        try:
+            n = int(lines[i].split()[0])
+            if n <= 0:
+                raise ValueError
+        except (ValueError, IndexError):
+            msg = f"line {i + 1}: expected an atom count, got {lines[i]!r}"
+            if frames and recover:
+                warnings.append(msg + "; trailing content ignored")
+                break
+            raise XYZError(msg) from None
+        body = lines[i + 2:i + 2 + n]
+        atoms = []
+        try:
+            if i + 1 >= len(lines) or len(body) < n:
+                raise XYZError(f"frame at line {i + 1} truncated ({len(body)} of {n} atom lines)")
+            for k, l in enumerate(body):
+                parts = l.split()
+                if len(parts) < 4:
+                    raise XYZError(f"line {i + 3 + k}: malformed coordinate line {l!r}")
+                x, y, z = (float(v) for v in parts[1:4])
+                if not all(np.isfinite([x, y, z])):
+                    raise XYZError(f"line {i + 3 + k}: non-finite coordinate")
+                atoms.append((parts[0], x, y, z))
+        except (XYZError, ValueError) as e:
+            if frames and recover:
+                warnings.append(f"{e}; recovered the last valid frame")
+                break
+            raise XYZError(str(e)) from None
+        frames.append((lines[i + 1], atoms))
         i += 2 + n
-    return frames[-1]
+    if not frames:
+        raise XYZError(f"{path}: no frames")
+    return frames, warnings
+
+
+def xyz_file_to_atom_block(path: str, frame: int = -1) -> str:
+    """Atom block of one frame (default: the last valid frame) of a .xyz file."""
+    frames, warnings = read_xyz_frames(path)
+    for w in warnings:
+        print(f"WARNING [{path}]: {w}", flush=True)
+    return "\n".join(f"{s} {x:.10f} {y:.10f} {z:.10f}" for s, x, y, z in frames[frame][1])
 
 
 def set_threads(n: int | None = None):

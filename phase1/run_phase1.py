@@ -39,6 +39,8 @@ import numpy as np
 
 import molecules
 import qc
+import completion
+import tdcheckpoint
 import spectra
 
 
@@ -57,7 +59,15 @@ def parse_args(argv=None):
     p.add_argument("--nstates", type=int, default=30)
     p.add_argument("--tda", action="store_true", help="Tamm-Dancoff approximation (faster, f less reliable)")
     p.add_argument("--td-conv-tol", type=float, default=1e-5,
-                   help="Davidson residual tolerance (1e-3 suffices for band positions: energy error ~1e-6 Eh)")
+                   help="Davidson residual-norm tolerance. A residual tolerance does not by itself guarantee "
+                        "any particular excitation-energy accuracy; the effect of the chosen value is measured "
+                        "by the stage history (1e-2 -> ... -> target) recorded in <level>_<F>_stage_history.json")
+    p.add_argument("--no-td", action="store_true", help="ground state / optimisation only")
+    p.add_argument("--td-chunk", type=int, default=5,
+                   help="Davidson iterations per checkpoint chunk (restartable solve, phase1/tdcheckpoint.py)")
+    p.add_argument("--td-max-cycles", type=int, default=400, help="total Davidson-iteration budget per solve")
+    p.add_argument("--import-guess", default=None,
+                   help="legacy .npz with an 'x0' array: used only as an unvalidated initial guess")
     p.add_argument("--fwhm", type=float, default=0.3, help="Gaussian FWHM in eV")
     p.add_argument("--lam-min", type=float, default=300.0)
     p.add_argument("--lam-max", type=float, default=800.0)
@@ -153,7 +163,9 @@ def main(argv=None):
         summary["n_imaginary_frequencies"] = n_imag
 
     # ---------------- TD-DFT + spectra for each functional --------------------
-    for func in a.tddft_functionals:
+    artifacts, all_ok = [], True
+    summary["td_conv_tol"] = a.td_conv_tol
+    for func in ([] if a.no_td else a.tddft_functionals):
         t0 = time.time()
         if func.upper() == a.opt_functional.upper():
             mf_td = mf
@@ -164,7 +176,15 @@ def main(argv=None):
             if not mf_td.converged:
                 raise RuntimeError(f"{func} SCF did not converge")
         res = qc.run_tddft(mf_td, nstates=a.nstates, tda=a.tda, conv_tol=a.td_conv_tol,
-                           checkpoint=os.path.join(outdir, f"tda_{func}_x0.npz") if a.tda else None)
+                           ckpt_dir=os.path.join(outdir, "td_ckpt", f"{func}_{'TDA' if a.tda else 'RPA'}_{a.nstates}"),
+                           chunk=a.td_chunk, max_total_cycles=a.td_max_cycles, import_guess=a.import_guess)
+        td_status = res["status"]
+        problems = completion.td_problems(res["energies_ev"], res["osc_strengths"], res["converged"], a.nstates)
+        if td_status != "converged":
+            problems.insert(0, f"solver status {td_status}")
+        with open(os.path.join(outdir, f"{a.level}_{func}_stage_history.json"), "w") as fh:
+            json.dump(dict(fingerprint=res.get("fingerprint"), stages=res.get("stage_history", [])), fh,
+                      indent=1, default=float)
 
         lines_df, spec_df, arrays = spectra.build_spectrum(
             res["energies_ev"], res["osc_strengths"], spec["molar_mass"],
@@ -185,16 +205,22 @@ def main(argv=None):
 
         vis = spec_df[(spec_df.Wavelength_nm >= 400) & (spec_df.Wavelength_nm <= 700)]
         i_max = int(spec_df.MAC_estimated.values.argmax())
+        artifacts += [stem + "_states.csv", stem + "_spectrum.csv", stem + "_spectrum.npz",
+                      os.path.join(outdir, f"{a.level}_{func}_stage_history.json")]
+        all_ok = all_ok and not problems
         summary["tddft"][func] = dict(
+            status="ok" if not problems else "diagnostic_only", problems=problems,
+            td_fingerprint_sha256=res.get("fp_hash"),
             time_s=round(time.time() - t0, 1),
             highest_state_eV=float(res["energies_ev"].max()),
-            covers_lam_min=bool(res["energies_ev"].max() + 2 * a.fwhm >= spectra.HC_EV_NM / a.lam_min),
+            # NOT a root-count convergence test (that needs a comparison with more roots)
+            highest_root_reaches_lam_min_plus_2fwhm=bool(res["energies_ev"].max() + 2 * a.fwhm >= spectra.HC_EV_NM / a.lam_min),
             lambda_max_in_window_nm=float(spec_df.Wavelength_nm.iloc[i_max]),
             mac_max_m2_kg=float(spec_df.MAC_estimated.iloc[i_max]),
             mac_mean_400_700_m2_kg=float(vis.MAC_estimated.mean()),
             brightest_state=lines_df.loc[lines_df.Oscillator_Strength.idxmax()].drop("Transitions").to_dict(),
         )
-        if not summary["tddft"][func]["covers_lam_min"]:
+        if not summary["tddft"][func]["highest_root_reaches_lam_min_plus_2fwhm"]:
             print(f"WARNING: {a.nstates} states reach only {res['energies_ev'].max():.2f} eV; the MAC near "
                   f"{a.lam_min:.0f} nm is underestimated - increase --nstates.", flush=True)
         print(f"\n=== {func}: lowest 10 singlet states ===")
@@ -203,11 +229,22 @@ def main(argv=None):
               f"{summary['tddft'][func]['lambda_max_in_window_nm']:.0f} nm\n", flush=True)
 
     summary["total_time_s"] = round(time.time() - t_start, 1)
+    geom = completion.geometry_status(a.start_xyz, optimised=not a.skip_opt,
+                                      opt_converged=summary.get("optimisation_converged"))
+    summary["geometry_status"] = geom
     with open(os.path.join(outdir, "summary.json"), "w") as fh:
         json.dump(summary, fh, indent=2, default=float)
+    artifacts.append(os.path.join(outdir, "summary.json"))
+    summary["completion_status"] = completion.write_marker(outdir, summary, artifacts, all_ok, geom)
+    print(f"Completion status: {summary['completion_status']} (geometry: {geom['status']})", flush=True)
     print(f"Done in {summary['total_time_s']:.0f} s -> {outdir}")
     return summary
 
 
+def _exit_code(summary):
+    """0 production, 3 provisional geometry, 4 diagnostic only (unconverged roots etc.)."""
+    return {"production": 0, "provisional_geometry": 3}.get(summary.get("completion_status"), 4)
+
+
 if __name__ == "__main__":
-    main()
+    sys.exit(_exit_code(main()))

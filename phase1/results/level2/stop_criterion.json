@@ -16,5 +16,13 @@
  "met": [
   "grad_rms"
  ],
- "reason": "container restarts (~every 30-60 min) discard the BFGS history and the step in progress (~20-25 min per gradient on 4 CPU cores); the last energy change (5.4e-6 Eh = 1.5e-4 eV) is three orders of magnitude below TD-DFT excitation-energy errors (~0.1-0.3 eV), so the geometry is used as final"
+ "reason": "Optimisation stopped at step 16 because container restarts repeatedly discarded the optimiser state. Only 1 of 5 geomeTRIC/Gaussian criteria was met. The ground-state energy change does NOT bound the excitation-energy error; the spectral effect of further relaxation must be measured (job L2_OPT_CONTINUE + L2_B3LYP_TDA_RELAXED vs L2_B3LYP_TDA, docs/repair_ledger.md P1-GEOM-1).",
+ "not_met": [
+  "energy",
+  "grad_max",
+  "disp_rms",
+  "disp_max"
+ ],
+ "geometry_status": "not_converged",
+ "superseded_claim": "Earlier text claimed the 5.4e-6 Eh energy change made the geometry adequate; that justification was withdrawn (repair ledger P1-GEOM-1)."
 }
