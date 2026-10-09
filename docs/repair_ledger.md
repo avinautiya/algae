@@ -854,3 +854,19 @@ The previous classification, "improvement supported in direction at both sites",
   - missing records (KAN_M 2017, 2020, 2023), or too few common days.
 - **Consequence.** KAN_L 2016 has no Sentinel-2 L2A acquisitions (amendment A1), so at most ONE station-year (KAN_L 2022) can host an H3 algae comparison. With one block (< 5) no generalisation is possible. **H3 = UNTESTED**, and KAN_M remains unvalidated for ablation.
 - **Output:** `phase4/results/h3_prerequisites/` (gitignored results; table reproduced here).
+
+### P6-IMPORT-1: codex branches reconciled (additive; no workflow files)
+- **Imported from** `origin/codex/uncertainty-aware-effects` (e12b76e, which contains `codex/ml-comparison` 108dece): `agency_design/`, `comparison_study/`, `records/ml_comparison/`.
+  - The `.github/workflows/ml-comparison.yml` file was NOT imported (project decision: no GitHub Actions).
+  - No existing file was modified by the import.
+- **Tests, run under the budget's short class:**
+  - `python -m unittest discover -s agency_design/tests`: 12 OK;
+  - `pytest comparison_study/tests`: 9 passed (scikit-learn 1.9.1 here vs 1.6.1 pinned by the study).
+  - `python -m agency_design.prombio`: 118 records; provider MD5 verified; sha256 1084406e….
+
+### P6-RES-1: budget classes completed
+- **Background slots: 2.** Measured chemistry CPU is about 2.75 of 4 cores; the extraction process is network-bound.
+- **New "short" class:** at most 1 concurrent, ≤ 500 MB, 1 thread, hard kill at 180 s, memory admission unchanged.
+- **Every process is now budgeted**, including tests, audits and extraction. The station-pixel extraction (started outside the budget at nice 19) was registered retroactively (600 MB, background).
+- **Tests:** `common/tests/test_resources.py`: 11 passed.
+- **Incident.** A `pkill -f` pattern matched its own shell (exit 144); no job was affected. PIDs only from now on.

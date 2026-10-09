@@ -40,6 +40,8 @@ def main(argv=None):
     p.add_argument("--as-factor", type=float, default=2.5, help="RLIMIT_AS = factor x mem-mb (virtual > resident)")
     p.add_argument("--background", action="store_true",
                    help=f"background class: beyond the core count (max {RS.BACKGROUND_SLOTS} thread), nice {RS.BACKGROUND_NICE}")
+    p.add_argument("--short", action="store_true",
+                   help=f"short class: <= {RS.SHORT_MAX_MB} MB, 1 thread, killed after {RS.SHORT_MAX_S} s, one at a time")
     p.add_argument("cmd", nargs=argparse.REMAINDER)
     a = p.parse_args(argv)
     cmd = a.cmd[1:] if a.cmd and a.cmd[0] == "--" else a.cmd
@@ -47,7 +49,8 @@ def main(argv=None):
         p.error("no command")
     deadline = time.time() + a.wait
     while True:
-        ok, reasons, snap = RS.try_reserve(a.name, os.getpid(), a.mem_mb, a.threads, a.scratch_gb, background=a.background)
+        ok, reasons, snap = RS.try_reserve(a.name, os.getpid(), a.mem_mb, a.threads, a.scratch_gb, background=a.background,
+                                         short=a.short)
         if ok:
             break
         if time.time() >= deadline:
@@ -63,14 +66,20 @@ def main(argv=None):
 
     def pre():
         resource.setrlimit(resource.RLIMIT_AS, (limit, limit))
-        if a.background:
+        if a.background or a.short:
             os.nice(RS.BACKGROUND_NICE - os.nice(0))
     print(f"[budget] {a.name} admitted: {a.mem_mb:.0f} MB, {a.threads} threads; projected "
           f"{snap['projected_mb']:.0f}/{snap['memory']['limit_mb']:.0f} MB", file=sys.stderr, flush=True)
     try:
         proc = subprocess.Popen(cmd, env=env, preexec_fn=pre)
         RS.update_pid(a.name, proc.pid)
-        rc = proc.wait()
+        try:
+            rc = proc.wait(timeout=RS.SHORT_MAX_S if a.short else None)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            proc.wait()
+            print(f"[budget] {a.name} exceeded the short-class limit of {RS.SHORT_MAX_S} s: killed", file=sys.stderr)
+            rc = 124
     finally:
         RS.release(a.name)
     if rc == 0:
