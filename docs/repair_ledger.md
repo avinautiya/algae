@@ -705,7 +705,7 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - Stage 2 marginalises ρ_mac over the grid nodes (extended to 0.998 and 0.999) that carry non-negligible marginal likelihood.
 - **Tests:**
   - `test_stage2_no_boundary_pileup_and_quadrature_refinement` (no draws exactly at 0 or 1; the refined grid agrees).
-  - `test_provenance.py` (7 passed before the tolerance edit; the edited test must be re-run, see below).
+  - `test_provenance.py`: all 8 passed after the edit (335 s).
 - **Refinement on the production spectrum** (`records/repair_stage2_refinement.json`; ΔE 0.041, w 0.61; grid ×1 vs ×2):
 
   | quantity | grid ×1 | grid ×2 |
