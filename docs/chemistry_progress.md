@@ -13,11 +13,11 @@
 | TD chunk wall time (2 cycles) | 5431 s (90.5 min), under CPU contention | 491–790 s (8–13 min) |
 | Time from a relaunch to the next durable checkpoint | about 134 min | before the fix: SCF + gradient + geomeTRIC re-check of an already-converged geometry, then about 10 min of TD. **Neither relaunch reached TD.** After the fix (`--skip-opt` from the converged geometry): SCF (minutes) + one chunk (about 10 min). |
 | Advancement across the 19:52 and 20:57 relaunches | **none** (no checkpoint written) | **none** (no checkpoint written) |
-| After the fixes (21:53 relaunch) | not launched (cannot reach a checkpoint here) | SCF, then the 18-cycle checkpoint was reused via the rounding-tolerant match (no stage credit). **New durable checkpoint 22:01:14 UTC: 20 cycles, 25/30 roots at the current stage; fingerprint 32a898f0c632 (now the reference for further restarts).** Further checkpoints followed; latest 22:18 UTC: 26 cycles, 24/30 roots at the current stage (the count fluctuates as Davidson refines). No stage is completed yet. |
+| After the fixes (21:53 relaunch) | not launched (cannot reach a checkpoint here) | SCF, then the 18-cycle checkpoint was reused via the rounding-tolerant match (no stage credit). **New durable checkpoint 22:01:14 UTC: 20 cycles, 25/30 roots at the current stage; fingerprint 32a898f0c632 (now the reference for further restarts).** Further checkpoints followed; latest 22:25 UTC: 28 cycles, 25/30 roots at the current stage (the count fluctuates as Davidson refines). No stage is completed yet. The container rebooted at about 23:02 (uptime about 92 min); at 23:03 the runner detected the stale record through the identity check and relaunched from the 22:25 checkpoint. |
 
 ## Environment
 
-- **Observed uptimes between reboots:** 19:52 → about 20:56 (about 64 min); 20:57 → about 21:29 (about 32 min).
+- **Observed uptimes between reboots:** 19:52 → about 20:56 (about 64 min); 20:57 → about 21:29 (about 32 min); 21:30 → about 23:02 (about 92 min).
 - **L2_CAM_TDA15 cannot complete here.** Time to its next checkpoint (about 134 min) exceeds the runtime between reboots. At about 90 min per 2-cycle chunk, the remaining stages (residual 0.01 → 10⁻⁵, 15 roots) are estimated at 15–30 chunks, i.e. **22–45 h of uninterrupted compute** (rough; the cycle count is not known in advance).
 - **L1_FULL can advance** once re-optimisation is skipped: about 10 min to the first checkpoint after SCF.
   - Remaining: B3LYP 30 roots to 10⁻⁵ (estimated 20–40 more chunks, i.e. 3–8 h), then CAM-B3LYP 30 roots from scratch (similar).
