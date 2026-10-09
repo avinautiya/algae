@@ -955,3 +955,18 @@ The previous classification, "improvement supported in direction at both sites",
 - **Caveats:**
   - the secondary fold's k prior overlaps its test plots (D3);
   - the ML day key for S Greenland reads "2005-08-21" for samples of 2021-08-05 (a parse quirk in `comparison_study.sampling_day`; grouping is consistent, labels wrong; frozen records left unchanged).
+
+### P6-HOST-1: host-coupling demonstration (`model_integration/example_reference_seb.py`; `records/host_coupling/`)
+- **Host.** The reference point SEB, with identical KAN_L 2022 hourly forcing (24 Jul–26 Aug). This station-year's SEB "prerequisites met" verdict is rule-dependent (P6-SW-1).
+- **State.** Taken from the TD-DFT D retrieval of 8 valid S2 station-days: log B 3.22–3.56, r 2100–6000 µm, dust 3.3–4.0×10⁵ ppb.
+  - Tier A and TD-DFT D Δα are evaluated at the IDENTICAL state: algae-free albedo agrees to 1×10⁻⁵ between emulators.
+- **Results** (modelled, conditional; H3 UNTESTED):
+  - Δα: Tier A 0.006–0.011, TD-DFT D 0.005–0.010;
+  - modelled algal melt increment over 34 days: Mode A Tier A 0.0110, TD-DFT D 0.0101 m w.e.; Mode B identical to ±0.00003;
+  - potential melt (SW × Δα / L_f): 0.0111 / 0.0102 m w.e.;
+  - seasonal modelled melt about 1.01 m w.e.;
+  - the algal increment is about 1 %: low abundance at KAN_L.
+- **Numerics.** n_sub 1 vs 4: 1.0111 vs 1.0095 m w.e. (0.16 %). Runtime 4.3 s.
+- **Limits.**
+  - Optics come from unqualified emulator lookup (benchmark binding pending), a single posterior-mean draw, and abundance retrieved with the k prior (D3).
+  - The increment is a modelled quantity, not observed ablation.

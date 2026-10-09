@@ -91,3 +91,25 @@ Run separate reports for albedo, absorbed SW and independently measured melt. Sc
 Starting commit: `e87a6d14124e1653072a0d7c61a1d593fa16a3fc`. This branch adds only `model_integration/` and a dedicated CI workflow; it does not alter Claude's active jobs, production tolerances or existing result files. Review/cherry-pick after reconciling concurrent changes. Existing `phase4/multi_scene.py` remains legacy and its overpass-ratio/seasonal-summary outputs are **not endorsed** by this component.
 
 Required before paper claims: real BioSNICAR parity test against Phase 4 RF on validated inputs; wavelength/dust/illumination checks; numerical sensitivity at large SZA; independent benchmark outputs with audited source manifests; complete uncertainty propagation; host-specific SEB validation. Also resolve existing calibration, inversion and satellite QC issues identified in the project audit. The analytic tests and mock adapter tests are software checks, not scientific evidence of improved predictions. Do not say this project is perfect, award-guaranteed, first-ever algae modeling, or integrated into E3SM/MAR on this branch.
+
+## Coupling interface v1 (`model_integration/host_modes.py`, interface version "algae-coupling/1")
+
+| Field | Units / range | Notes |
+|---|---|---|
+| abundance | log10 cells mL⁻¹ meltwater, 1–6 | prescribed (Mode A) or retrieved (Mode B); no bloom-growth model |
+| f_n | 0–1 | fixed at the prior mean (not identifiable) |
+| r_um (bubble optical radius) | 300–20 000 µm | host or retrieval state |
+| dust | 3×10⁴–1.2×10⁶ ppb, uniform in the 2 cm crust | host or retrieval state |
+| SZA | frozen emulator nodes 44–56° (±1°); otherwise refused | no extrapolation |
+| spectral support | 300–2500 nm, BioSNICAR sub-Arctic summer clear-sky, direct beam | broadband albedo / Δα |
+| outputs | albedo (1), Δα (1, signed), modelled increment (m w.e.), potential melt (m w.e.) | observed ablation is never produced; runoff is not modelled |
+| flags | `validation_status`, out-of-range counterfactual flag, host contract | Mode B always "not an independent validation" |
+| provenance | emulator file sha256 (in scene/station records), calibration draw IDs (`posterior_mean` only, D1) | joint draws pending |
+
+**Runnable example:** `python3 -m model_integration.example_reference_seb` (KAN_L 2022; outputs in `records/host_coupling/`). Runtime 4 s.
+
+Numerical checks recorded in `numerics.json`:
+- n_sub 1 vs 4 seasonal melt differs by 0.16 %;
+- algae-free albedo identical across optics to 1×10⁻⁵.
+
+**What was changed in a host:** nothing in E3SM, MAR or any external host. The tested interface is the offline reference point SEB in this repository.

@@ -1,0 +1,20 @@
+{
+ "numerics": {
+  "melt_n_sub1_mwe": 1.0110649997916092,
+  "melt_n_sub4_mwe": 1.0094628083285655,
+  "max_abs_alpha0_tierA_vs_tddftD": 1.032033609998928e-05,
+  "closure_residual": 0.0,
+  "runtime_s": 4.3
+ },
+ "window": [
+  "2022-07-24",
+  "2022-08-26"
+ ],
+ "station": "KAN_L",
+ "calibration_draw_ids": [
+  "posterior_mean"
+ ],
+ "optics_lookup": "frozen held-out emulators, multilinear; unqualified surrogate use (benchmark qualification pending)",
+ "h3_status": "UNTESTED",
+ "quantities": "modelled increments and potential melt; not observed ablation; runoff not modelled"
+}
