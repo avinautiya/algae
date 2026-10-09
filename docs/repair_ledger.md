@@ -936,3 +936,22 @@ The previous classification, "improvement supported in direction at both sites",
 - **Interpretation.** At station scale the pigment/cell model is biased bright (+0.024 albedo, −15 W m⁻² absorbed). The established Tier A optics are nearly unbiased and give the best absorbed-SW prediction.
   - The footprint caveat applies: radiometer footprint vs 20 m pixel.
   - These are retrieval-plus-forward predictions (satellite inversion → albedo), not optics-only.
+
+### P6-FWD-1: matched four-band forward comparison, physics vs ML (`phase4/physics_forward_bands.py`; `records/ml_comparison_physics/`)
+- **Same rows and outputs as `records/ml_comparison`** (positive counts; primary fold test = S Greenland 18, secondary = S6 41). Observed targets were verified identical to the ML study's.
+- **Physics point prediction** = k-prior mean × prior-mean bands at the observed abundance, with the fold-trained radius prior. ML = squared-error point predictors. Both are point estimates on the same endpoint.
+- **Pooled four-band HCRF RMSE:**
+
+  | Fold | Physics | ML | Training-mean baseline |
+  |---|---|---|---|
+  | primary | 0.238 (tierA) to 0.354 (tddft_C); tddft_D 0.280 | 0.064–0.072 | 0.126 |
+  | secondary | 0.199 (tierA) to 0.336; tddft_D 0.230 | 0.115–0.137 | 0.178 |
+
+- **Every physics variant is worse than predicting the training mean.**
+- **Error structure.** B2 bias is +0.21 to +0.31 (far too bright in the visible). B8 bias is −0.01 to +0.31: small for Tier A on S6.
+  - The error is spectral: the visible is not dark enough for the measured abundance, so a scalar anisotropy factor k cannot explain it.
+- **Implication.** The forward observation operator (and/or the ice/impurity state) is the binding problem. Pigment-model choice is secondary: Tier A is the least wrong in every fold.
+  - Diagnosis continues in the controlled forward-optics run (P5-DIAG-1, running).
+- **Caveats:**
+  - the secondary fold's k prior overlaps its test plots (D3);
+  - the ML day key for S Greenland reads "2005-08-21" for samples of 2021-08-05 (a parse quirk in `comparison_study.sampling_day`; grouping is consistent, labels wrong; frozen records left unchanged).

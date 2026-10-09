@@ -1,0 +1,41 @@
+fold,a,b,rmse_improvement,n_samples,n_days,ci95,interpretation
+primary,physics_tierA_empirical,ml_mean,-0.112,72,2,,insufficient days
+primary,physics_tierA_empirical,ml_ridge,-0.1659,72,2,,insufficient days
+primary,physics_tierA_empirical,ml_random_forest,-0.1746,72,2,,insufficient days
+primary,physics_tierA_empirical,ml_gaussian_process,-0.1691,72,2,,insufficient days
+primary,physics_measured_mac_C,ml_mean,-0.1523,72,2,,insufficient days
+primary,physics_measured_mac_C,ml_ridge,-0.2062,72,2,,insufficient days
+primary,physics_measured_mac_C,ml_random_forest,-0.2149,72,2,,insufficient days
+primary,physics_measured_mac_C,ml_gaussian_process,-0.2094,72,2,,insufficient days
+primary,physics_tddft_C,ml_mean,-0.2281,72,2,,insufficient days
+primary,physics_tddft_C,ml_ridge,-0.282,72,2,,insufficient days
+primary,physics_tddft_C,ml_random_forest,-0.2907,72,2,,insufficient days
+primary,physics_tddft_C,ml_gaussian_process,-0.2852,72,2,,insufficient days
+primary,physics_tddft_D,ml_mean,-0.1537,72,2,,insufficient days
+primary,physics_tddft_D,ml_ridge,-0.2076,72,2,,insufficient days
+primary,physics_tddft_D,ml_random_forest,-0.2164,72,2,,insufficient days
+primary,physics_tddft_D,ml_gaussian_process,-0.2109,72,2,,insufficient days
+primary,physics_tddft_D_iid,ml_mean,-0.149,72,2,,insufficient days
+primary,physics_tddft_D_iid,ml_ridge,-0.2029,72,2,,insufficient days
+primary,physics_tddft_D_iid,ml_random_forest,-0.2116,72,2,,insufficient days
+primary,physics_tddft_D_iid,ml_gaussian_process,-0.2061,72,2,,insufficient days
+secondary,physics_tierA_empirical,ml_mean,-0.02092,164,8,"[-0.07129081037183173, 0.021092516456804877]",conditional day-block sampling uncertainty
+secondary,physics_tierA_empirical,ml_ridge,-0.0845,164,8,"[-0.11339252814450329, -0.057755981212831306]",conditional day-block sampling uncertainty
+secondary,physics_tierA_empirical,ml_random_forest,-0.06996,164,8,"[-0.10283380198757895, -0.04506629721038748]",conditional day-block sampling uncertainty
+secondary,physics_tierA_empirical,ml_gaussian_process,-0.06185,164,8,"[-0.10333374736199312, -0.03444224473015114]",conditional day-block sampling uncertainty
+secondary,physics_measured_mac_C,ml_mean,-0.05622,164,8,"[-0.11303232666858769, -0.008361788460459384]",conditional day-block sampling uncertainty
+secondary,physics_measured_mac_C,ml_ridge,-0.1198,164,8,"[-0.15475108255665987, -0.08668950984182477]",conditional day-block sampling uncertainty
+secondary,physics_measured_mac_C,ml_random_forest,-0.1053,164,8,"[-0.14475092983993276, -0.07443604506857215]",conditional day-block sampling uncertainty
+secondary,physics_measured_mac_C,ml_gaussian_process,-0.09715,164,8,"[-0.14443062866010933, -0.06433162394442468]",conditional day-block sampling uncertainty
+secondary,physics_tddft_C,ml_mean,-0.1571,164,8,"[-0.22227840090488324, -0.10156516688306173]",conditional day-block sampling uncertainty
+secondary,physics_tddft_C,ml_ridge,-0.2207,164,8,"[-0.2627952969074537, -0.18034039496874815]",conditional day-block sampling uncertainty
+secondary,physics_tddft_C,ml_random_forest,-0.2062,164,8,"[-0.252389229972344, -0.16678067316959058]",conditional day-block sampling uncertainty
+secondary,physics_tddft_C,ml_gaussian_process,-0.1981,164,8,"[-0.25198504431265045, -0.1575074068154617]",conditional day-block sampling uncertainty
+secondary,physics_tddft_D,ml_mean,-0.05188,164,8,"[-0.10843936271790552, -0.004487461631193567]",conditional day-block sampling uncertainty
+secondary,physics_tddft_D,ml_ridge,-0.1155,164,8,"[-0.15000550996569254, -0.08289117488047465]",conditional day-block sampling uncertainty
+secondary,physics_tddft_D,ml_random_forest,-0.1009,164,8,"[-0.13974862800933202, -0.0702688568100715]",conditional day-block sampling uncertainty
+secondary,physics_tddft_D,ml_gaussian_process,-0.09282,164,8,"[-0.13959532420926124, -0.06059497094353523]",conditional day-block sampling uncertainty
+secondary,physics_tddft_D_iid,ml_mean,-0.06306,164,8,"[-0.12053605546711052, -0.014518356799039652]",conditional day-block sampling uncertainty
+secondary,physics_tddft_D_iid,ml_ridge,-0.1266,164,8,"[-0.16232373054952912, -0.09300353557114177]",conditional day-block sampling uncertainty
+secondary,physics_tddft_D_iid,ml_random_forest,-0.1121,164,8,"[-0.15244806040591638, -0.08104359214279099]",conditional day-block sampling uncertainty
+secondary,physics_tddft_D_iid,ml_gaussian_process,-0.104,164,8,"[-0.15191537939206973, -0.07035970009062623]",conditional day-block sampling uncertainty

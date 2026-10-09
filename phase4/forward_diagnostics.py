@@ -112,6 +112,33 @@ class State:
     sza_offset: float = 0.0
 
 
+CAL_CACHE = os.path.join(HERE, "results", "cache", "calibrations")
+
+
+def _with_disk_calibration_cache(fn):
+    """Persist tddft_calibration's in-process cache across runs. Entries are keyed by that module's own
+    content fingerprint (spectrum, data, code), so a stale entry can never be reused; physics code is
+    not modified."""
+    import pickle
+    import tddft_calibration as TC
+    os.makedirs(CAL_CACHE, exist_ok=True)
+    for f in os.listdir(CAL_CACHE):
+        k = f[:-4]
+        if f.endswith(".pkl") and k not in TC._CACHE:
+            try:
+                TC._CACHE[k] = pickle.load(open(os.path.join(CAL_CACHE, f), "rb"))
+            except Exception:  # noqa: BLE001 - unreadable cache entry: recompute
+                pass
+    out = fn()
+    for k, v in TC._CACHE.items():
+        dst = os.path.join(CAL_CACHE, f"{k}.pkl")
+        if not os.path.exists(dst):
+            tmp = dst + f".tmp{os.getpid()}"
+            pickle.dump(v, open(tmp, "wb"))
+            os.replace(tmp, dst)
+    return out
+
+
 class Forward:
     """Direct BioSNICAR (no emulator) for one optics model; illumination variants via separate runners."""
 
@@ -121,7 +148,7 @@ class Forward:
         self.optics = optics
         key = "tierA_empirical" if optics == "no_algae" else optics
         cfg = E.EmulatorConfig(sza=47, spacecraft="S2A", photosynthetic=True, **HO.OPTICS[key])
-        self.b = E._Builder(cfg, phase1_l2, False, biosnicar)
+        self.b = _with_disk_calibration_cache(lambda: E._Builder(cfg, phase1_l2, False, biosnicar))
         self.bb = self.b.bb
         self.runners = {}
         self.root = self.bb.locate_biosnicar(biosnicar)
