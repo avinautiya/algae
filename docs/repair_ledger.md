@@ -131,3 +131,82 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
 - **Repair:** `read_xyz_frames` parses frame by frame (count, one comment line, atom lines), validates coordinates, and recovers the last valid frame on truncation or malformation (with a warning), or raises in strict mode.
 - **Tests:** 7 tests in `test_xyz_geometry.py` (passed): blank comment, multiple frames, malformed coordinates, truncated last frame, truncated only frame, malformed after valid, strict mode.
 - **Status:** FIXED_AND_VERIFIED.
+
+### P1-COV-1: root coverage judged at the wrong wavelength
+- **Source:** `phase1/run_phase1.py` (coverage flag at `--lam-min` 300 nm) vs `phase2/tddft_calibration.py` (fits 260–750 nm; normalises the HPLC shape and the Fe increment over 265–600 nm).
+- **Defect:**
+  - Coverage was checked at 300 nm, but the calibration consumes 260–750 nm.
+  - The check itself (highest root + 2·FWHM reaches λ_min) is not a convergence test.
+- **Repair:**
+  - `spectra.root_count_sensitivity` and `tddft_calibration.root_count_sensitivity` measure how much the broadened MAC in the downstream window changes when the top 5 roots are removed.
+  - Phase 1 records it in `summary.json` at the run FWHM and at 0.6 eV.
+  - The calibration records it at the posterior-mean (ΔE, w) and warns above 1 %.
+  - The old flag is kept for information only, and `--lam-min` now defaults to 250 nm.
+- **Tests:**
+  - `phase1/tests/test_coverage.py` (2 passed): windows agree with the calibration constants; a root inside the window is flagged although the old criterion passes it.
+  - `phase2/tests/test_phase2.py::test_calibration_root_count_sensitivity_flags_truncated_window` (passed).
+  - `test_completion.py` checks the record (passed).
+- **Measured on the production spectrum** (`results/level2`, 30 roots, ΔE +0.06 eV, w 0.62 eV), removing the top k roots:
+
+  | k removed | max change in 260–750 nm (rel. to max) | 265–600 nm integral | at 260 nm |
+  |---|---|---|---|
+  | 5 | < 1e-5 | < 1e-7 | 1e-5 |
+  | 10 | 0.4 % | 6e-5 | 1.2 % |
+  | 15 | 0.6 % | 1.5e-4 | 1.9 % |
+  | 20 | 10 % | 2.6 % | 28 % |
+
+- **Remaining limitation:** roots above the 30 computed are not computed. Their effect is bounded only by this trend (evidence, not proof). The 15-root TDA runs are adequate for band positions above about 300 nm, but not for the MAC at 260 nm (about 2 %).
+- **Status:** FIXED_AND_VERIFIED.
+
+### P1-DOC-1: unsupported statements in documentation
+- **Source:** `phase1/README.md`, `records/MASTER_SUMMARY.md`.
+- **Defects:**
+  - Geometry was justified by a 5e-6 Eh energy change.
+  - "TDA within about 0.1 eV", "slightly less reliable" and "1e-3 suffices" were stated as facts for this molecule.
+  - "No charge-transfer error" was inferred from the small fitted shift.
+  - The runs were described as executed by the superseded queue script.
+- **Repair:**
+  - These statements are replaced by what was measured, or marked pending with the job that measures them.
+  - The unaudited chemical-model choices (carboxylate, tautomers, conformers, basis set, explicit solvent) are now listed as limitations.
+- **Status:** FIXED_AND_VERIFIED (text). The measurements it points to are tracked under P1-CMP-1 and P1-GEOM-1.
+
+### P1-CMP-1: approximation checks with state matching by overlaps
+- **Source:** new `phase1/compare_states.py`.
+- **Implementation:**
+  - Comparisons:
+    - A: B3LYP full vs TDA.
+    - B: B3LYP TDA vs CAM-B3LYP TDA.
+    - R: 15 vs 25 roots.
+    - G: start vs relaxed geometry.
+    - T: per-run tolerance stages, 1e-3 → 1e-4 → 1e-5.
+  - States are matched by AO-basis transition-density overlaps with Hungarian assignment; overlaps below 0.5 are reported as unmatched.
+  - The legacy full-TD run kept no vectors, so it falls back to a cosine of the dominant-transition labels, which is coarser and labelled as such.
+  - Acceptance (R, T): bright states (f ≥ 0.05) change by < 0.01 eV and the peak by < 2 nm. A, B and G are reported as measurements.
+- **Comparison C** (CAM full vs TDA): not run. The CAM full-TD calculation is a compute DATA_LIMITATION (P1-ENV-1).
+- **Tests:** `phase1/tests/test_compare_states.py` (3 passed, real formaldehyde runs):
+  - self-overlap is the identity;
+  - TDA ≥ RPA energies for matched states;
+  - a permuted state order is recovered;
+  - the label fallback works;
+  - the tolerance-stage table is consistent.
+- **Status:** IMPLEMENTED_AWAITING_PRODUCTION_RUN (needs L2_B3LYP_TDA15, L2_CAM_TDA15, L2_B3LYP_TDA25, L2_B3LYP_TDA15_RELAXED). Command: `python phase1/compare_states.py`.
+
+## 8. Cell and ice physics
+
+### P2-FILM-1: `film_only` also placed mineral dust in the algal film
+- **Source:** `phase2/biosnicar_bridge.py::_layer_concs` (used by `run`/`run_multi`; reached via `phase4/emulator.py` and the `dust_film` scenario of `phase4/bias_study.py`).
+- **Defect:**
+  - With a split crust and `film_only=True`, every impurity, dust included, was concentrated into the 2 mm film.
+  - Dust concentrations are bulk values for the surface-ice sample, so they belong uniformly in the 2 cm crust.
+- **Repair:** `_layer_concs(..., in_film=None)`: cell counts (unit 1) follow `film_only`, other impurities stay uniform unless a caller places them explicitly.
+- **Test:** `phase2/tests/test_phase2.py::test_film_only_places_algae_not_dust_in_film` (passed). It checks layer placement, column-amount conservation, and that BioSNICAR dust-only albedo is independent of `film_only`.
+- **Before/after** (BioSNICAR, rds 1500 µm, SZA 47°; `records/repair_film_dust_sensitivity.json`):
+
+  | dust | dusty-ice broadband albedo, before → after | algal Δα at 4×10⁴ cells mL⁻¹, before → after |
+  |---|---|---|
+  | 2×10⁵ ppb | 0.6453 → 0.6462 | 0.1444 → 0.1446 |
+  | 5×10⁵ ppb | 0.5819 → 0.5874 | 0.1260 → 0.1276 |
+  | 10⁶ ppb | 0.4936 → 0.5114 | 0.1006 → 0.1059 (+5 %) |
+
+- **Affected outputs:** the `dust_film` row of `records/bias_study_williamson2020/` (to be regenerated with the corrected bridge under the held-out validation, task 6). Scenarios without dust, or without a film, are unchanged.
+- **Status:** FIXED_AND_VERIFIED. Downstream regeneration: IMPLEMENTED_AWAITING_PRODUCTION_RUN.

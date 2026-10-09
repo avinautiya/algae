@@ -273,3 +273,33 @@ def test_calibration_root_count_sensitivity_flags_truncated_window():
     b = tc.root_count_sensitivity(far, 0.0, 0.6, drop=1)
     assert a["max_rel_change_in_window"] > 0.1 and b["max_rel_change_in_window"] < 1e-6
     assert tc.root_count_sensitivity(near, 0.0, 0.6, drop=4) is None
+
+
+def test_film_only_places_algae_not_dust_in_film():
+    import biosnicar_bridge as bb
+    split = bb.IceSpec(1500, 650, 850, 0.02, 2.0, "grains", film_dz=0.002, film_only=True)
+    uni = bb.IceSpec(1500, 650, 850, 0.02, 2.0, "grains", film_dz=0.002, film_only=False)
+    c_alg = 1e4 * bb.MELTWATER_TO_BIOSNICAR
+    assert np.allclose(bb._layer_concs(split, 1e4, 1), [c_alg * 10, 0, 0])
+    assert np.allclose(bb._layer_concs(uni, 1e4, 1), [c_alg, c_alg, 0])
+    assert bb._layer_concs(split, 5e5, 0) == [5e5, 5e5, 0.0]          # dust: bulk sample, uniform over crust
+    assert bb._layer_concs(split, 5e5, 0, in_film=True) == [5e5 * 10, 0.0, 0.0]
+    # column amount is conserved by the film rescaling: sum(c_i dz_i)
+    dz = [0.002, 0.018]
+    for u in (0, 1):
+        for sp in (split, uni):
+            assert np.isclose(np.dot(bb._layer_concs(sp, 7.0, u)[:2], dz), np.dot(bb._layer_concs(uni, 7.0, u)[:2], dz))
+    root = _biosnicar_root()
+    if root is None:
+        return
+    r = bb.BioSNICARRunner(root, incoming=3)
+    import copy
+    d = np.load(os.path.join(root, "data", "OP_data", "480band", "lap.npz"))
+    st = "dust_greenland_Cook_CENTRAL_20190911"
+    dust = copy.deepcopy(r.default_impurity())
+    dust.name, dust.unit = "dust", 0
+    dust.mac, dust.ssa, dust.g = d[st + "__ext_cff_mss"], d[st + "__ss_alb"], d[st + "__asm_prm"]
+    # dust-only albedo must not depend on where the ALGAE are assumed to sit
+    a1, _, _ = r.run_multi(split, 55, [(dust, 5e5)])
+    a2, _, _ = r.run_multi(uni, 55, [(dust, 5e5)])
+    assert np.max(np.abs(a1 - a2)) < 1e-12

@@ -101,12 +101,19 @@ class IceSpec:
 MELTWATER_TO_BIOSNICAR = 917.0 / 1000.0
 
 
-def _layer_concs(spec: IceSpec, conc: float, unit: int):
+def _layer_concs(spec: IceSpec, conc: float, unit: int, in_film: bool | None = None):
     """Impurity concentration per model layer, with the meltwater-unit correction for cell counts and
-    the areal-number-conserving rescaling for a thin algal film."""
+    the areal-number-conserving rescaling for a thin algal film.
+
+    `film_only` describes where the ALGAE sit. Other impurities (mineral dust, unit 0 = ppb) are
+    measured as bulk concentrations of the surface-ice sample and stay uniform over the crust
+    (in_film=False) unless a caller places them in the film explicitly. in_film=None: cell counts
+    (unit 1) follow spec.film_only, everything else is uniform."""
     c = float(conc) * (MELTWATER_TO_BIOSNICAR if unit == 1 else 1.0)
+    if in_film is None:
+        in_film = unit == 1 and spec.film_only
     if spec.split:
-        return [c * spec.dz_top / spec.film_dz, 0.0, 0.0] if spec.film_only else [c, c, 0.0]
+        return [c * spec.dz_top / spec.film_dz, 0.0, 0.0] if in_film else [c, c, 0.0]
     return [c, 0.0]
 
 
