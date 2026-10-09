@@ -796,3 +796,45 @@ The previous classification, "improvement supported in direction at both sites",
   - All use fixtures; none pushes the container to its limit.
 - **Recovery guarantees** per phase are in `docs/compute_reliability.md`.
 - **Limitation.** Thread reservations made before the runner restart (on-going jobs registered after the fact) can temporarily exceed the core count. New work is held back until that clears; nothing is killed.
+
+### P5-DIAG-0: deviation D3 found while preparing the forward diagnostics
+- **Finding.** The k prior (`ARF_master`) equals HCRF / albedo of 51 S6 2017 plots, 29 of them counted held-out plots. Verified to 4 decimals.
+- **Recorded as:** `docs/preregistration_deviations.md` D3; a protocol erratum (appended, frozen text unchanged); the data manifest; and the `h1_albedo.py` docstring.
+- **Impact.** H1 does not use k. The reverse fold of `records/heldout_v2` is mildly optimistic for all physics models alike. Frozen results are not re-scored.
+
+### P5-DIAG-1: controlled forward-optics diagnostic (`phase4/forward_diagnostics.py`)
+- **Design.** Direct BioSNICAR on the S6 2017 plots with measured counts. Nuisances are fixed a priori at the literature-prior centre and varied one at a time across groups A–D.
+  - Exact split of the HCRF error into a geometry term (k_prior − k_obs)·A_model and an albedo term k_obs·(A_model − A_obs).
+  - Residual spectra.
+  - A prior ensemble (40 common random draws) gives bias, z, PIT and coverage.
+- **Not representable**, listed in the output: water films, roughness, snow patches, dust profiles, non-diffuse cloud spectra, separate packaging/Fe ablations.
+- **Run.** Queued under the budget (smoke test first). Results go to `docs/forward_diagnostics.md` when complete.
+
+### P5-COUPLE-1: host coupling (`model_integration/`)
+- **Reconciled from** `codex/glacier-model-integration` (0fc0096). The CI workflow file was deliberately excluded.
+- **Fix.** The adapter's film+dust refusal was stale: on this branch dust stays uniform. The README was updated.
+- **New `host_modes.py`:**
+  - `HostContract` requires the host's algae treatment.
+  - Mode A (forward, prescribed abundance) refuses observed-albedo hosts, and explicit-algae hosts unless their scheme is switched off and `replace` is used.
+  - Mode B (state estimation) keeps the observation, gives a signed counterfactual, and flags every output "not an independent validation".
+  - `reference_seb_paired` runs `phase4/seb.py` with distinct output labels.
+- **Tests:** `python -m unittest discover -s model_integration/tests`: 23 passed.
+
+### P5-SCENE-1: scene interpretation product (`phase4/scene_product.py`, schema `algae-scene-product/1.0.0`)
+- **Classes:** cloud/shadow, water, snow, non-ice, model-inconsistent, prior-dominated, supported, no meaningful darkening, ambiguous.
+  - "Supported" = P(Δα ≥ 0.01) ≥ 0.9 AND Bayes factor ≥ 10 against no-algae. Thresholds fixed before any scene output.
+  - Dark/unclassified SCL pixels are kept and flagged. No species fractions are reported.
+- **Exports:** COG ×2, NetCDF4 CF-1.8, provenance sidecar and report.
+- **Validation every run:** checksums, COG layout, georeference, exact value round trip, coordinates, masks and ranges.
+- **Tests:** `phase4/tests/test_scene_product.py`: 4 passed (synthetic emulator, tamper detection, immutability, out-of-domain SZA refusal).
+- **Scene run:** queued under the budget (S2A_22WEV_20190723, 3 km).
+- **Docs:** `docs/scene_product.md`, `docs/schema/scene_product_v1.json`, `docs/limitations_appropriate_use.md`, `docs/evidence_table.md`. Dependencies are in `requirements.txt` (netCDF4 added).
+
+### P5-SURR-1: surrogate qualification binding and domain rejection (`phase4/surrogate_api.py`)
+- **Binding.** Benchmark records are bound to `benchmark_fingerprint()` (surrogate code, tolerances, design version) in addition to the emulator content tags. Stale or unbound records are rejected (tested).
+- **Domain.** Out-of-domain requests raise `DomainError` by default; `strict=False` clips and flags. Zero algae is not a domain point.
+- **Tolerances.** Δα tolerance 0.005 added, and the tolerances documented as error-budget based (half of 0.01). Set before any benchmark result.
+- **Contract.** Units, concentration convention, illumination, 300–2500 nm support and ranges are in the module docstring.
+- **Tests:** `phase4/tests/test_surrogate.py`: 3 passed.
+- **Re-benchmark.** The benchmark started earlier (old code) cannot qualify by design. A re-benchmark on the cached emulators is queued after it.
+- **Not yet benchmarked:** SZA > 60° (hourly coupling at low sun needs nodes at 70 and 80°). Such requests are refused.

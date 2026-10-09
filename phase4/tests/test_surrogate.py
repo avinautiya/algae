@@ -34,8 +34,12 @@ def test_qualification_required():
     bad = dict(passed=True, emulator_tags={"40.0": "other", "60.0": "t60"})
     with pytest.raises(SA.QualificationError):
         SA.Surrogate(_ems(), "test", benchmark=bad)                  # benchmark of different emulators
-    good = dict(passed=True, emulator_tags=SA._tags(_ems()))
+    good = dict(passed=True, emulator_tags=SA._tags(_ems()), benchmark_fingerprint=SA.benchmark_fingerprint())
     assert SA.Surrogate(_ems(), "test", benchmark=good)(3.0, 50)["qualified"]
+    with pytest.raises(SA.QualificationError):                       # stale: other code/tolerances
+        SA.Surrogate(_ems(), "test", benchmark=dict(good, benchmark_fingerprint="old"))
+    with pytest.raises(SA.QualificationError):                       # record without a binding
+        SA.Surrogate(_ems(), "test", benchmark={k: v for k, v in good.items() if k != "benchmark_fingerprint"})
     assert not SA.Surrogate(_ems(), "test", benchmark=dict(good, passed=False), allow_unqualified=True)(3.0, 50)["qualified"]
 
 
@@ -46,7 +50,11 @@ def test_interpolation_zero_algae_reference_and_flags():
     assert np.isclose(r["bba"], 0.65 - 0.03 * 3.25 - 0.005 - 1e-6 * 2500 - 0.05)
     # d_alpha from the forcing relative to the algae-free run, per node irradiance: 0.03 x log B exactly
     assert np.isclose(r["dalpha_algae"], 0.03 * 3.25)
-    out = s(7.5, 70.0)
+    with pytest.raises(SA.DomainError):                              # rejected by default
+        s(7.5, 70.0)
+    with pytest.raises(SA.DomainError):
+        s(0.0, 50.0)                                                 # zero algae is not a domain point
+    out = s(7.5, 70.0, strict=False)
     assert not out["in_domain"] and len(out["flags"]) == 2          # log_b and sza; default dust is in range
     assert np.isclose(out["rf_algae"], (800 - 60) * 0.03 * 6.0)
 

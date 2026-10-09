@@ -16,8 +16,25 @@ Qualification: a surrogate is usable only with a benchmark record (benchmark()) 
   * was computed for exactly these emulators (their content tags),
   * samples the whole supported domain (all axes incl. their ends, SZA at and between nodes),
   * meets the tolerances BBA max |error| <= TOL_BBA and rf_algae max |error| <= TOL_RF_ABS + TOL_RF_REL x |rf|.
+  * is bound to the surrogate's own code, tolerances and benchmark design (`benchmark_fingerprint()`); a
+    record made by other code or tolerances is STALE and rejected (the emulator tags already bind the
+    configuration, Phase 1 content, measured data, physics code and BioSNICAR revision).
 Surrogate(...) raises without such a record unless allow_unqualified=True, and every call reports
-`qualified`. Inputs outside the tabulated ranges are clipped AND flagged (`in_domain`, `flags`).
+`qualified`. Requests outside the tabulated ranges RAISE `DomainError` by default; strict=False clips AND
+flags them (`in_domain`, `flags`) for exploratory use only.
+
+Contract (units and conventions):
+  * abundance: log10 cells per mL of MELTWATER, 1.0-6.0 (10 to 1e6); zero algae is NOT a domain point:
+    the algae-free reference enters only through dalpha/rf (relative to a run without algae);
+  * f_n: fraction A. nordenskioeldii (0-1); r_um: bubble optical radius (um) of bubbly ice, crust
+    450 kg m-3 over 690 kg m-3, 2 cm crust; dust_ppb: mineral dust (ng g-1) uniform in the crust;
+  * illumination: BioSNICAR clear-sky sub-Arctic summer spectrum (incoming=3), direct beam, SZA between
+    the emulator nodes (linear in SZA; no extrapolation);
+  * spectral support: 300-2500 nm; bba = irradiance-weighted broadband albedo on that band;
+    rf_algae = instantaneous algal forcing (W m-2) with the clear-sky model SW at that SZA, SIGNED;
+    dalpha_algae = rf_algae / SW_model (signed, > 0 darkening).
+Tolerances (set from the error budget BEFORE any benchmark result: half the protocol's minimum meaningful
+albedo change 0.01): |bba error| <= 0.005, |dalpha error| <= 0.005, |rf error| <= 0.5 W m-2 + 5 %.
 
     python phase4/surrogate_api.py --optics tddft_D --sza 40 50 60 --outdir phase4/results/surrogate
 """
@@ -38,10 +55,23 @@ sys.path.insert(0, os.path.join(HERE, "..", "phase2"))
 OUTPUTS = ("bba", "rf_algae")
 TOL_BBA = 0.005
 TOL_RF_ABS, TOL_RF_REL = 0.5, 0.05          # W m^-2, fraction
+TOL_DALPHA = 0.005
+DESIGN_VERSION = "lhs+corners+mid-sza/2"
 
 
 class QualificationError(RuntimeError):
     pass
+
+
+class DomainError(ValueError):
+    pass
+
+
+def benchmark_fingerprint() -> str:
+    """Binds a benchmark record to this module's code, the tolerances and the design version."""
+    import provenance as PV
+    return PV.fingerprint(dict(code=PV.file_sha256(os.path.abspath(__file__)),
+                               tol=[TOL_BBA, TOL_DALPHA, TOL_RF_ABS, TOL_RF_REL], design=DESIGN_VERSION))
 
 
 def _tags(ems):
@@ -68,7 +98,7 @@ class Surrogate:
     def _coords(self, em, state):
         return np.array([[(np.log10(state[n] + 100.0) if n == "dust_ppb" else state[n]) for n in em.active]])
 
-    def __call__(self, log_b, sza, r_um=3000.0, f_n=0.5, dust_ppb=None):
+    def __call__(self, log_b, sza, r_um=3000.0, f_n=0.5, dust_ppb=None, strict=True):
         state = dict(log_b=float(log_b), r_um=float(r_um), f_n=float(f_n), sza=float(sza),
                      dust_ppb=float(self.ranges["dust_ppb"][0] if dust_ppb is None and "dust_ppb" in self.ranges
                                     else (dust_ppb or 0.0)))
@@ -77,6 +107,8 @@ class Surrogate:
             if n in state and not lo - 1e-9 <= state[n] <= hi + 1e-9:
                 flags.append(f"{n}={state[n]:g} outside [{lo:g}, {hi:g}] (clipped)")
                 state[n] = float(np.clip(state[n], lo, hi))
+        if flags and strict:
+            raise DomainError("; ".join(f.replace(" (clipped)", "") for f in flags) + " - out of the supported domain")
         if len(self.sza) == 1:
             ws = [(0, 1.0)]
         else:
@@ -99,7 +131,8 @@ class Surrogate:
 def qualifies(benchmark, emulators) -> bool:
     if not benchmark:
         return False
-    return bool(benchmark.get("passed")) and benchmark.get("emulator_tags") == _tags(emulators)
+    return (bool(benchmark.get("passed")) and benchmark.get("emulator_tags") == _tags(emulators)
+            and benchmark.get("benchmark_fingerprint") == benchmark_fingerprint())
 
 
 def build(optics, sza_nodes, phase1_l2=None, biosnicar=None, workers=2, cache_dir=".", rho_bottom=690.0):
@@ -161,19 +194,25 @@ def benchmark(emulators, optics, n_per_sza=24, seed=0, phase1_l2=None, biosnicar
         d = E.direct_forward(cfg, sub, phase1_l2=phase1_l2, biosnicar=biosnicar)
         for s, dv in zip(sub, d):
             p = sur(s["log_b"], z, s["r_um"], s["f_n"], s["dust_ppb"])
+            sw = bb.sw_down_clear_sky(z, None, cfg.day_of_year)
             rows.append(dict(**s, at_node=bool(np.any(np.isclose(z, sur.sza))), bba_direct=float(dv[4]),
-                             bba_sur=p["bba"], rf_direct=float(dv[5]), rf_sur=p["rf_algae"]))
+                             bba_sur=p["bba"], rf_direct=float(dv[5]), rf_sur=p["rf_algae"],
+                             dalpha_direct=float(dv[5]) / sw, dalpha_sur=p["dalpha_algae"]))
     import pandas as pd
     t = pd.DataFrame(rows)
-    eb, er = t.bba_sur - t.bba_direct, t.rf_sur - t.rf_direct
+    eb, er, ed = t.bba_sur - t.bba_direct, t.rf_sur - t.rf_direct, t.dalpha_sur - t.dalpha_direct
     ok_rf = np.abs(er) <= TOL_RF_ABS + TOL_RF_REL * np.abs(t.rf_direct)
     rec = dict(optics=optics, sza_nodes=sur.sza.tolist(), n=int(len(t)), emulator_tags=_tags(emulators),
-               tolerances=dict(bba_max_abs=TOL_BBA, rf_abs=TOL_RF_ABS, rf_rel=TOL_RF_REL),
+               tolerances=dict(bba_max_abs=TOL_BBA, dalpha_max_abs=TOL_DALPHA, rf_abs=TOL_RF_ABS, rf_rel=TOL_RF_REL),
                bba_max_abs=float(np.abs(eb).max()), bba_mae=float(np.abs(eb).mean()),
                bba_max_abs_off_node=float(np.abs(eb[~t.at_node]).max()) if (~t.at_node).any() else None,
                rf_max_abs=float(np.abs(er).max()), rf_mae=float(np.abs(er).mean()),
                rf_fraction_within_tol=float(ok_rf.mean()),
-               passed=bool(np.abs(eb).max() <= TOL_BBA and ok_rf.all()))
+               dalpha_max_abs=float(np.abs(ed).max()),
+               dalpha_max_abs_lowest_abundance=float(np.abs(ed[t.log_b == t.log_b.min()]).max()),
+               bba_max_abs_by_sza={str(z): float(np.abs(eb[t.sza == z]).max()) for z in sorted(t.sza.unique())},
+               benchmark_fingerprint=benchmark_fingerprint(), design_version=DESIGN_VERSION,
+               passed=bool(np.abs(eb).max() <= TOL_BBA and ok_rf.all() and np.abs(ed).max() <= TOL_DALPHA))
     return rec, t
 
 
