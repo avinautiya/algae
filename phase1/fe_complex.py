@@ -11,7 +11,7 @@ octahedral sites filled by water, in IEF-PCM water:
 
 Which mode the algal pigment adopts is not known (Prochazkova et al. 2025 show complexation by Raman,
 not the binding site), so the catecholate model is the main (DFT-optimised) structure and the
-tropolonate model a sensitivity case. The ground spin state is checked by single points at
+tropolonate model a sensitivity case. The ground spin state is checked only VERTICALLY, by single points at
 multiplicity 6, 4 and 2 (spin_check).
 
 Starting structures are built here (RDKit purpurogallin + idealised octahedral Fe-O 2.0 A, Fe-OH2
@@ -108,7 +108,10 @@ def build_xyz(mode: str = "catecholate") -> str:
 
 
 def spin_check(xyz: str, mode: str = "catecholate", functional="B3LYP", basis="6-31g*", max_memory=7000):
-    """UKS/PCM single points at multiplicity 6, 4 and 2 on one geometry. Returns {mult: (E_Eh, <S^2>)}."""
+    """UKS/PCM single points at multiplicity 6, 4 and 2 on ONE geometry (optimised for the sextet).
+    These are VERTICAL energy differences: each spin state is not relaxed, so a sextet ground state found
+    here is supported only at this geometry (adiabatic ordering needs separate optimisations).
+    Returns {mult: (E_Eh, <S^2>, converged)}."""
     from pyscf import gto
     import qc
     out = {}

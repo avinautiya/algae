@@ -13,7 +13,22 @@ complex reproduces that increment, i.e. whether the computed photophysics suppor
 Concentration-free metrics (the measured absorbances are in arbitrary path length x concentration):
   vis_ratio   mean increment over 500-750 nm / ligand peak in 280-400 nm   (computed vs measured)
   shape_r     Pearson r of the increments over 400-750 nm
-  lmct_nm     wavelength of the strongest computed excitation above 450 nm with f > 0.005, with its f
+  strongest_vis_state_nm / _f   wavelength and f of the strongest computed excitation above 450 nm
+              (f > 0.005). Its character (LMCT, d-d, ligand pi-pi*) is NOT assigned here - that needs a
+              transition-density / NTO analysis - so the old name 'lmct_nm' was withdrawn.
+
+Spectra are rebuilt from the stick lists (states.csv) with ONE broadening on ONE shared grid (not
+interpolated from each run's own pre-broadened spectrum, whose grid may not cover 280 nm). The runs must
+share functional, basis, solvent, eps, TDA/RPA and width (checked; mismatch raises), and must carry a
+valid completion marker (provisional geometry allowed only with --allow-provisional; xTB geometries are
+labelled exploratory).
+
+Caveats:
+  * concentration: the measured increment is per mole of purpurogallin at the measured Fe:PG ratio; if
+    complexation was incomplete the measured dA is a fraction of the full-complex increment, so vis_ratio
+    compares a lower bound with the computed full-complex value. shape_r is concentration-free.
+  * this is a mechanistic investigation; tier D of the forcing model uses the MEASURED increment only, and
+    nothing here feeds tier D.
 
     python phase1/fe_increment.py --ligand results/level1 --complex results/level3_catecholate \
         results/level3_tropolonate --outdir results/fe_increment
@@ -33,14 +48,34 @@ MEASURED = os.path.join(HERE, "..", "data", "empirical", "prochazkova2025_fig4_P
 GRID = np.arange(280.0, 800.0 + 0.1, 1.0)
 
 
-def eps_of(folder, functional):
-    """Molar absorptivity (L mol^-1 cm^-1) on GRID, the excited states, and the run summary."""
-    level = json.load(open(os.path.join(folder, "summary.json"))).get("level") or os.path.basename(folder.rstrip("/"))
-    stem = next(os.path.join(folder, f[:-len("_spectrum.csv")]) for f in sorted(os.listdir(folder))
-                if f.endswith(f"_{functional}_spectrum.csv"))
-    sp = pd.read_csv(stem + "_spectrum.csv").sort_values("Wavelength_nm")
-    st = pd.read_csv(stem + "_states.csv")
-    return np.interp(GRID, sp.Wavelength_nm, sp["Epsilon_L_mol-1_cm-1"], left=np.nan, right=np.nan), st, level
+SETTINGS = ("basis", "solvent", "eps", "tda", "cartesian_d")
+
+
+def eps_of(folder, functional, fwhm_ev=0.3, allow_provisional=False, reference=None):
+    """Molar absorptivity (L mol^-1 cm^-1) on GRID rebuilt from the sticks, the states, the level and the
+    run settings. Validates the completion marker and, if `reference` settings are given, that this run
+    used the same electronic-structure settings."""
+    import completion
+    import spectra
+    ok, status, why = completion.validate_run(folder, allow_provisional=allow_provisional)
+    if not ok:
+        raise ValueError(f"{folder}: not a valid run ({status}: {'; '.join(why)})")
+    summ = json.load(open(os.path.join(folder, "summary.json")))
+    if functional not in summ.get("tddft", {}):
+        raise ValueError(f"{folder}: no {functional} result (have {sorted(summ.get('tddft', {}))})")
+    settings = {k: summ.get(k) for k in SETTINGS}
+    if reference is not None:
+        diff = {k: (settings[k], reference[k]) for k in SETTINGS if settings[k] != reference[k]}
+        if diff:
+            raise ValueError(f"{folder}: settings differ from the ligand run: {diff}")
+    level = summ.get("level") or os.path.basename(folder.rstrip("/"))
+    st = pd.read_csv(os.path.join(folder, f"{level}_{functional}_states.csv"))
+    eps = spectra.gaussian_broaden(spectra.nm_to_ev(GRID), st.Energy_eV.to_numpy(float),
+                                   st.Oscillator_Strength.to_numpy(float), fwhm_ev)
+    cov = spectra.root_count_sensitivity(st.Energy_eV.to_numpy(float), st.Oscillator_Strength.to_numpy(float),
+                                         1.0, fwhm_ev, window_nm=(GRID[0], GRID[-1]), norm_nm=(400.0, 750.0))
+    return eps, st, level, dict(settings=settings, status=status, root_coverage=cov,
+                                geometry=summ.get("geometry_status", {}).get("status"))
 
 
 def metrics(inc, lig, band=(500, 750), peak=(280, 400), shape=(400, 750)):
@@ -55,6 +90,9 @@ def main(argv=None):
     p.add_argument("--complex", nargs="+", default=[os.path.join(HERE, "results", "level3_catecholate"),
                                                     os.path.join(HERE, "results", "level3_tropolonate")])
     p.add_argument("--functional", default="B3LYP")
+    p.add_argument("--fwhm", type=float, default=0.3, help="one Gaussian FWHM (eV) for ligand and complexes")
+    p.add_argument("--allow-provisional", action="store_true",
+                   help="accept runs whose geometry is provisional/exploratory (reported per row)")
     p.add_argument("--outdir", default=os.path.join(HERE, "results", "fe_increment"))
     a = p.parse_args(argv)
     os.makedirs(a.outdir, exist_ok=True)
@@ -64,23 +102,26 @@ def main(argv=None):
     dA = np.interp(GRID, m.wavelength_nm, m.A_PG_Fe, left=np.nan) - A_pg
     shape = (GRID >= 400) & (GRID <= 750)
     rows = [dict(model="measured (Prochazkova et al. 2025, Fig. 4)", **metrics(dA, A_pg), shape_r=1.0,
-                 lmct_nm=np.nan, lmct_f=np.nan)]
-    lig, _, _ = eps_of(a.ligand, a.functional)
+                 strongest_vis_state_nm=np.nan, strongest_vis_state_f=np.nan)]
+    lig, _, _, lig_meta = eps_of(a.ligand, a.functional, a.fwhm, a.allow_provisional)
     curves = {"measured dA (scaled)": dA / np.nanmax(A_pg[(GRID >= 280) & (GRID <= 400)])}
     for c in a.complex:
-        if not os.path.isfile(os.path.join(c, "summary.json")):
-            print(f"skip {c}: no summary.json (run not finished)")
+        try:
+            eps_c, st, level, meta = eps_of(c, a.functional, a.fwhm, a.allow_provisional, lig_meta["settings"])
+        except (OSError, ValueError, StopIteration) as e:
+            print(f"skip {c}: {e}")
             continue
-        eps_c, st, level = eps_of(c, a.functional)
         inc = eps_c - lig
         ok = shape & np.isfinite(inc) & np.isfinite(dA)
         vis = st[(st.Wavelength_nm > 450) & (st.Oscillator_Strength > 0.005)]
         top = vis.loc[vis.Oscillator_Strength.idxmax()] if len(vis) else None
         rows.append(dict(model=f"TD-{a.functional} {level}", **metrics(inc, lig),
                          shape_r=float(np.corrcoef(inc[ok], dA[ok])[0, 1]),
-                         lmct_nm=np.nan if top is None else float(top.Wavelength_nm),
-                         lmct_f=np.nan if top is None else float(top.Oscillator_Strength),
-                         n_states_vis=int(len(vis))))
+                         strongest_vis_state_nm=np.nan if top is None else float(top.Wavelength_nm),
+                         strongest_vis_state_f=np.nan if top is None else float(top.Oscillator_Strength),
+                         n_states_vis=int(len(vis)), run_status=meta["status"], geometry=meta["geometry"],
+                         root_cov_max_rel_change=meta["root_coverage"]["max_rel_change_in_window"],
+                         exploratory=meta["geometry"] == "exploratory_xtb"))
         curves[f"computed {level}"] = inc / np.nanmax(lig[(GRID >= 280) & (GRID <= 400)])
     tab = pd.DataFrame(rows)
     tab.to_csv(os.path.join(a.outdir, "fe_increment_metrics.csv"), index=False, float_format="%.4g")

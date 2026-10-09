@@ -398,3 +398,24 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - The diurnal SZA dependence of Δα is approximated by its overpass value. It is quantified as < 10 % in literature_comparison and is to be replaced by the hourly SEB integration (task 7).
   - Actual melt needs the SEB (task 7).
 - **Status:** FIXED_AND_VERIFIED (formula, completion, labels). Actual melt: IMPLEMENTED_AWAITING_PRODUCTION_RUN, pending task 7.
+
+## 5. Fe(III) investigation
+
+### P1-FE-1: Fe increment analysis inputs, naming and scope
+- **Sources:** `phase1/fe_increment.py`, `phase1/fe_complex.py::spin_check`, `phase1/run_phase1.py` (xTB geometry status).
+- **Defects:**
+  - `eps_of` interpolated each run's own pre-broadened spectrum (written from 300 nm, while the analysis grid starts at 280 nm, so values below 300 nm were NaN). It did not check that ligand and complex shared functional, basis, solvent, TDA and width, and it accepted any folder with a `summary.json`.
+  - `lmct_nm` named a state "LMCT" without any character analysis.
+  - `spin_check` (vertical single points at the sextet geometry) was described as a ground-state check.
+  - xTB-only geometries were not marked as exploratory.
+  - The concentration assumption of the vis_ratio metric was not stated.
+- **Repair:**
+  - Spectra are rebuilt from the sticks with one FWHM on one shared 280–800 nm grid, with root-coverage diagnostics.
+  - `completion.validate_run` is required (provisional or exploratory runs only with `--allow-provisional`, reported per row), and the settings must match the ligand run (otherwise it raises).
+  - `lmct_nm` is renamed `strongest_vis_state_nm/_f`.
+  - `spin_check` is documented as vertical only.
+  - `--xtb-geometry` runs get geometry status `exploratory_xtb`, which is never production.
+  - The docstring states the concentration caveat (the measured dA is a lower bound if complexation was incomplete; `shape_r` is concentration-free), and that nothing here feeds tier D, which uses the measured increment only.
+- **Test:** `phase1/tests/test_fe_increment.py` (1 passed). It checks the 280 nm coverage, a basis mismatch → raise, a missing marker → raise, an exploratory run rejected by default and flagged when allowed, and the neutral column names.
+- **Affected outputs:** none produced yet; the Fe TD-DFT jobs (FE_CAT, FE_TROP_XTB) are queued.
+- **Status:** FIXED_AND_VERIFIED (code). Results: IMPLEMENTED_AWAITING_PRODUCTION_RUN.

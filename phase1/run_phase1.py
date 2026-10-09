@@ -237,7 +237,9 @@ def main(argv=None):
               f"{summary['tddft'][func]['lambda_max_in_window_nm']:.0f} nm\n", flush=True)
 
     summary["total_time_s"] = round(time.time() - t_start, 1)
-    geom = completion.geometry_status(a.start_xyz, optimised=not a.skip_opt,
+    geom = dict(status="exploratory_xtb", source=summary.get("geometry", "xTB"),
+                note="semi-empirical geometry; never accepted as production") if a.xtb_geometry else \
+        completion.geometry_status(a.start_xyz, optimised=not a.skip_opt,
                                       opt_converged=summary.get("optimisation_converged"))
     summary["geometry_status"] = geom
     with open(os.path.join(outdir, "summary.json"), "w") as fh:
