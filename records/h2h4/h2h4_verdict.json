@@ -1,0 +1,19 @@
+{
+ "verdict": {
+  "H2_vs_M1": "NOT SUPPORTED (point -2.308, interval -14.19..7.525, minimum 10.0)",
+  "H2_vs_M2": "NOT SUPPORTED (point 3.174, interval -8.399..12.04, minimum 10.0)",
+  "H4": "NOT SUPPORTED (point 0.004346, interval -0.01368..0.01818, minimum 0.01)"
+ },
+ "pixels_sha256": "a22feaef5a874f6bef171858fdfe90da3743225106dc65da3b3d731f7978a62b",
+ "m2": "simple empirical (protocol fallback)",
+ "environment": {
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.5",
+  "emcee": "3.1.6",
+  "pyscf": "2.14.0",
+  "miepython": "3.3.0",
+  "rasterio": "1.5.2"
+ }
+}

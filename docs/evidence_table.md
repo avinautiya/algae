@@ -12,9 +12,9 @@ Legend: ✔ yes · ◐ partial or weak · ✘ no · — not applicable.
 | Forward plot reflectance | ✔ | ✔ | ✘ | ✘ | — | Physics over-predicts broadband HCRF; climatology wins. Diagnosis: `docs/forward_diagnostics.md` |
 | **H1** independent albedo (pigment/cell vs established optics) | ✔ (`phase4/h1_albedo.py`) | ✔ | **NOT SUPPORTED**: tierA − tddft_D MAE −0.0019 (−0.0022…−0.0014, 9 blocks); algae vs none +0.031 (0.018–0.042) | ✘ (previously seen sites) | — | `records/h1_albedo/`, P6-H1-1 |
 | **H5** station albedo from biology under the radiometer (PROMBIO) | ✔ (`phase4/h5_station_biology.py`) | ✔ | ✘ (2 test station-days: all models MAE ≈ 0.117, optics indistinguishable) | (new sites) | — | **insufficient evidence** (P6-H5-1) |
-| **H2** absorbed SW at stations | ✘ | — | ✘ | ✘ | — | Not yet tested: needs KAN_L/KAN_M hourly radiation and station pixels |
+| **H2** absorbed SW at stations | ✔ (`phase4/h2h4_station.py`) | ✔ (audit) | **NOT SUPPORTED**: M1 − M3 −2.3 W m⁻² (−14.2…7.5); M0 − M3 +8.8 (3.3…14.7) < 10 minimum; best model Tier A (MAE 33.3) | KAN_L/KAN_M, 11 blocks | — | `records/h2h4/`, P6-H2H4-1 |
 | **H3** observed ablation | ◐ (SEB) | ✔ (closure, convergence, gaps) | ✘ | ✘ | reference SEB only | Prerequisites met only at KAN_L 2016 and 2022, and 2016 has no S2 L2A, so ≤ 1 block; **UNTESTED** (P5-H3-1) |
-| **H4** vs empirical satellite albedo | ✘ | — | ✘ | ✘ | — | Not yet tested |
+| **H4** vs empirical satellite albedo | ✔ | ✔ | **NOT SUPPORTED**: M2 − M3 +0.004 (−0.014…0.018); M2 = simple four-band fallback, not a published method | KAN_L/KAN_M | — | `records/h2h4/`, P6-H2H4-1 |
 | Reference point SEB (`phase4/seb.py`) | ✔ | ✔ | ◐ (1.5–1.7× over-prediction) | ✘ | is the host | χ = 0.3 is fitted, not validated |
 | Host coupling Modes A/B | ✔ (`model_integration/host_modes.py`) | ✔ (unit tests) | ✘ | — | reference SEB (offline) | No E3SM/MAR integration |
 | Scene interpretation product | ✔ (`phase4/scene_product.py`) | ✔ (synthetic tests, round trip) | ✘ | ✘ | — | Research-grade; pixel scale not validated |

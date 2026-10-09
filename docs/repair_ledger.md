@@ -905,3 +905,34 @@ The previous classification, "improvement supported in direction at both sites",
   - with the strict rule, KAN_L 2016 and 2022 lose most of their complete days. Both become UNTESTED (2016: 0 complete days; 2022: 27 days, model 1.19 m w.e. on a different day set);
   - the 2016/2022 "prerequisites met" verdicts therefore **depend on the replacement rule**.
 - **Status.** Replaced hours remain tagged `low_sun_zero` (modelled, not measured). Combined with P5-H3-1, **H3 stays UNTESTED**, and the "prerequisites met" verdicts are reported as rule-dependent.
+
+### P6-H2H4-1: H2 and H4 results (protocol §3, §5, amendment A1; `phase4/h2h4_station.py`; `records/h2h4/`)
+- **Population.** 173 valid station-days passed the automated audit (`records/h2h4/audit.json`). 126 primary station-days (11 station-year blocks: KAN_L 2017–2018 and 2020–2023, KAN_M 2017, 2018, 2020, 2022, 2023) after the ≤ 1° emulator-node rule; 2019 is reported separately (34 days, 1 block).
+- **Identical for every model:** pixel, mask, hours, measured SW↓. Predictions use the frozen primary-fold calibration; nothing was fitted to station data. Station SW↑/albedo were never inputs (audited).
+- **Absorbed SW over ±1 h of overpass (primary), bias / MAE / RMSE in W m⁻²:**
+
+  | Model | Bias | MAE | RMSE |
+  |---|---|---|---|
+  | M0 no algae | −30.8 | 44.5 | 57.5 |
+  | **M1 tierA** | **+2.1** | **33.3** | **43.6** |
+  | M1b measured MAC | −16.6 | 35.6 | 47.5 |
+  | M2 simple empirical | −15.4 | 38.8 | 48.5 |
+  | M3 tddft_D | −15.2 | 35.7 | 47.7 |
+  | M3alt tddft_C | −28.3 | 41.9 | 54.5 |
+  | M3alt iid | −16.0 | 35.5 | 47.3 |
+
+- **Integrated energy over the matched 3-hour windows (126 windows):** total absolute error 45 MJ m⁻² (M1) vs 49 (M3), 53 (M2), 61 (M0). Largest block error 6.7 (M1) vs 11.9 MJ m⁻² (M3).
+- **H2:** MAE contrasts in W m⁻², block 95 % intervals:
+  - M1 − M3 = −2.3 (−14.2 to 7.5);
+  - M2 − M3 = +3.2 (−8.4 to 12.0);
+  - M0 − M3 = +8.8 (3.3 to 14.7): algae help, but below the 10 W m⁻² minimum;
+  - M1b − M3 = 0.0.
+  - **Verdict: NOT SUPPORTED.**
+- **H4:** albedo MAE, M2 − M3 = +0.0043 (−0.014 to 0.018). **Verdict: NOT SUPPORTED.** The satellite algae interpretation adds no albedo-predictive information over the simple four-band empirical conversion at these stations.
+- **M2 caveat.** M2 is the protocol's "simple empirical" four-band irradiance-weighted fallback. It is **not** Naegeli et al. (2017) or any published method. A published-coefficient M2 would be a separately frozen benchmark version.
+- **Sensitivities:**
+  - exact-node subset (114 days): same ordering;
+  - 2019 (1 block, insufficient evidence for an interval): M3 has the lowest MAE (23.4 vs 28.0 M1, 45.8 M2), reported as a case result only.
+- **Interpretation.** At station scale the pigment/cell model is biased bright (+0.024 albedo, −15 W m⁻² absorbed). The established Tier A optics are nearly unbiased and give the best absorbed-SW prediction.
+  - The footprint caveat applies: radiometer footprint vs 20 m pixel.
+  - These are retrieval-plus-forward predictions (satellite inversion → albedo), not optics-only.
