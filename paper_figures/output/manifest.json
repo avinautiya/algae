@@ -8,7 +8,13 @@
    "Fig1_workflow.pdf",
    "Fig1_workflow.png",
    "Fig1_workflow_data.csv"
-  ]
+  ],
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
  },
  "Fig2_spectra": {
   "caption": "Raw and calibrated pigment spectra. (a, b) Raw TD-B3LYP and TD-CAM-B3LYP spectra (sticks: oscillator strengths, right axis; curve: unit-area broadened absorbance, FWHM 0.3 eV, no shift) against the isolated-chromophore HPLC shape (mean \u00b1 2 SD over HPLC peaks 2\u20134, Williamson et al. 2020). Grey: < 350 nm, where the glacier model holds the MAC at its 350 nm value. (c) Calibrated MACs: median and 95 % range of 200 joint posterior draws (AR(1) residual model), tier D solid, tier C dashed, against the measured whole-extract MAC \u00b1 2 SE (53 S6 samples). Log axis: the MAC spans 4 orders of magnitude. Both the HPLC shape and the extract MAC are calibration targets; agreement with them is NOT validation. (d) Posterior of the band shift dE: B3LYP +0.04 eV, CAM-B3LYP \u22120.79 eV.",
@@ -29,17 +35,30 @@
    "Fig2_spectra.pdf",
    "Fig2_spectra.png",
    "Fig2_spectra_data.csv"
-  ]
+  ],
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
+ },
+ "_build": {
+  "code_commit": "9cebfab00e0e5a38da343d2393945fe6183db0a0",
+  "script_sha256": "19f86848bf20b161aceacdbdd5dd832380182b9d5e9b3412f7eb7c28a0df5f58",
+  "script_uncommitted_changes": false,
+  "matplotlib": "3.11.2",
+  "note": "last invocation; each figure entry carries its own build record"
  },
  "Fig3_substitution": {
-  "caption": "Controlled pigment-level substitution (Experiment A). Only the phenolic absorption spectrum changes; cells, packaging, photosynthetic pigments, column, bubbly ice, dust and illumination (SZA 50\u00b0, clear sky) are identical. Bars: 95 % posterior intervals of the signed contrast (TD-DFT: 24 joint calibration draws per treatment; B3LYP vs CAM-B3LYP: independent posterior draws, all pairs; C vs D: paired by posterior sample; measured-MAC uncertainty: OMITTED (point value)). Open circles: plug-in contrasts from posterior-mean spectra. Grey band: practical-importance thresholds (0.01 albedo, 10 W m\u207b\u00b2), which are not measurement uncertainties. The Fe/visible-absorber term (orange, D \u2212 C) is an empirical ablation (the Fe increment is measured, not computed). 24 states.",
+  "caption": "Controlled pigment-level substitution (Experiment A). Only the phenolic absorption spectrum changes; cells, packaging, photosynthetic pigments, column, bubbly ice, dust and illumination (SZA 50\u00b0, clear sky) are identical. Bars: 95 % posterior intervals of the signed contrast (TD-DFT: 96 joint calibration draws per treatment; B3LYP vs CAM-B3LYP: independent posterior draws, all pairs; C vs D: paired by posterior sample; measured-MAC uncertainty: included (regression SE, fully correlated amplitude)). Open circles: plug-in contrasts from posterior-mean spectra. Grey band: practical-importance thresholds (0.01 albedo, 10 W m\u207b\u00b2), which are not measurement uncertainties. The Fe/visible-absorber term (orange, D \u2212 C) is an empirical ablation (the Fe increment is measured, not computed). 24 states.",
   "validation_status": "model experiment (no observations)",
   "sources": {
-   "records/molecular_contribution/uncertainty/posterior_contrasts.csv": "36c943252a70eebd1993a7ae38a96ecf6514cab68298d18f4c6e0d313e050eea",
-   "records/molecular_contribution/uncertainty/settings.json": "3e4b73c45ab5b0edb5e336c7a96de5015042b1cfa380ccd099f19a17e54239f5"
+   "records/molecular_contribution/uncertainty/posterior_contrasts.csv": "18696877112e97317d12f266ed46161557baf95fd7a00df96c9cfedfb177dbde",
+   "records/molecular_contribution/uncertainty/settings.json": "8c91a0d7c141f650344d56ddaadc05c2b8669a05fe69cf318e15fe8c7f3e4d73"
   },
   "config": {
-   "n_draws": 24,
+   "n_draws": 96,
    "thresholds": {
     "bba": 0.01,
     "absorbed_algal_W": 10.0
@@ -49,7 +68,13 @@
    "Fig3_substitution.pdf",
    "Fig3_substitution.png",
    "Fig3_substitution_data.csv"
-  ]
+  ],
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
  },
  "Fig4_forward_diagnosis": {
   "caption": "Forward-error diagnosis at known abundance, S6 2017 (development data, previously used for \u03c3, radius prior and the k prior). Reference nuisance state fixed a priori: bubble radius 2846 \u00b5m, dust 3.07e+05 ppb, f_n 0.60, crust 2 cm at 450 kg m\u207b\u00b3. (a\u2013c) Predicted vs observed hemispherical broadband albedo (46 plots; 1 excluded for > 5 % missing HCRF; 5 zero-count plots as squares). (d) Spectral residual (median and IQR). (e) Albedo change per decade of counted cells: observed (95 % day-block bootstrap, 8 days) vs the TD-DFT D model at the reference state (posterior-mean optics, so the model slope carries no interval; the unexplained-fraction interval in the title is the day-block bootstrap). Panel d y-range is limited to \u22120.3\u20260.6; no data in 350\u20131300 nm fall outside it. The red/NIR shortfall is darkening associated with abundance that the reference model does not reproduce; it is not attributed to a specific cause here (crust water, ice structure, co-located impurities and plot heterogeneity remain candidates). Tested geometry adjustments (spectrally flat HCRF/albedo, 0.83\u20130.88) do not explain the full reference-model bias.",
@@ -79,92 +104,13 @@
    "Fig4_forward_diagnosis.pdf",
    "Fig4_forward_diagnosis.png",
    "Fig4_forward_diagnosis_data.csv"
-  ]
- },
- "fig5": {
-  "status": "FAILED",
-  "error": "TypeError: unsupported format string passed to Series.__format__"
- },
- "Fig6_satellite": {
-  "status": "BLOCKED",
-  "reason": "no completed, validated scene product exists (scene_product.py never ran to completion; repeated container reboots). A scene figure from legacy maps (phase4/maps4.py, pre-repair) would be stale and is not produced."
- },
- "FigS1_chemistry_progress": {
-  "caption": "Chemistry convergence progress from durable checkpoints (job logs). Only the first stage (residual 0.01) has been reached by either job; neither has completed a stage. L1_FULL: 18 cycles, 24/30 roots; L2_CAM_TDA15: 2 cycles, 6/15 roots (one 90-min chunk). No checkpoint advanced across the 19:52 and 20:57 UTC relaunches. Matched TD vs TDA and root-count checks are not yet available (jobs queued).",
-  "validation_status": "progress record (no scientific result)",
-  "sources": {
-   "phase1/results/v2/L1_FULL/job.log": "8aee7f5152af50a1c326d96592cceeac11856f87d42e162f613fa17c710f0b14",
-   "phase1/results/v2/L2_CAM_TDA15/job.log": "b9bbbf6ce37ab14028c768a4a2737c19e5ec8e4c59eb3557192e2dd8b06fd91c"
-  },
-  "config": {},
-  "files": [
-   "FigS1_chemistry_progress.pdf",
-   "FigS1_chemistry_progress.png",
-   "FigS1_chemistry_progress_data.csv"
-  ]
- },
- "FigS2_calibration": {
-  "caption": "Calibration posterior dependence and adequacy. (a) Shift\u2013width and (b) scale\u2013Fe-fraction joint posteriors (every 8th of 4000 samples; circles AR(1), triangles independent residuals). \u03c6 is an effective mixture coefficient, not a measured complexed fraction. (c) Visible-region (400\u2013700 nm) log-R\u00b2 of the calibrated tier-D MAC against the extract it was fitted to: \u22120.07 (B3LYP, AR(1); shape-residual \u03c1 \u2248 0.94), 0.67 (B3LYP, iid), 0.19 (CAM-B3LYP, AR(1)). The visible fit, which carries the glacier-relevant absorption, is poor and residual-model dependent; a refined quadrature does not make the residual model adequate.",
-  "validation_status": "calibration diagnostics",
-  "sources": {
-   "phase4/results/cache/calibrations/435b4fa926cec41f9a7d07d73ee256b117dcfb0cd977edfb5df191680ea536f0.pkl": "9e402ce6c13ec3c6ca875014efca62a8b85bed7a1c9a61b4994ff32d145eb6bc",
-   "phase4/results/cache/calibrations/41661c2617adb9173b9a2a70239063ded5abaf24da908707d33d896df2832d61.pkl": "71b57ea5095cbf14b0668601850d155ec195ec759a2f90d3ee78eaf1cf7cd7cd",
-   "phase4/results/cache/calibrations/28700b5dd81d49cb4a910208a87da977dc02ffaebd06b9a195b3a8738b8eeef2.pkl": "5402eb679b83b8a13cb7cd2c040482886c1db5308b35468143beb4920e47a707"
-  },
-  "config": {},
-  "files": [
-   "FigS2_calibration.pdf",
-   "FigS2_calibration.png",
-   "FigS2_calibration_data.csv"
-  ]
- },
- "FigS3_coverage_ml": {
-  "caption": "(a) Predictive coverage vs sharpness for broadband albedo at S6 2017: H1 predictive distributions (filled; discrepancy SD chosen by empirical Bayes on training days) reach about 0.9 coverage only with wide intervals, while the nuisance-prior-only ensemble (open squares) covers 22\u201324 % (biased and too narrow). (b) Forward 4-band HCRF RMSE on identical positive-count rows: physics point predictions (colour) vs ML baselines (grey) from records/ml_comparison (retrospective, development data). Different endpoints from (a). In (a) Measured MAC (M1b) and TD-DFT D (M3) coincide (coverage 0.894, width 0.366) and their markers overlap; Tier A, M1b and M3 squares also overlap. Exact values are in the data CSV.",
-  "validation_status": "development diagnostics",
-  "sources": {
-   "records/ml_comparison_physics/summary.csv": "4fcd29479057b47b55c666030320aa3eb04379c7ba9b89057e20c5eb81caa4ee",
-   "records/h1_albedo/h1_summary.csv": "260bfbd1fad19941e1719a82c4f09ba0ec91cb5514b9c118d300810d0633b14c",
-   "records/forward_diagnostics/ensemble_summary.csv": "52eb779954721668e8c13ee6c0f0910839122e72039640a68c6ff97313b4dfd9"
-  },
-  "config": {},
-  "files": [
-   "FigS3_coverage_ml.pdf",
-   "FigS3_coverage_ml.png",
-   "FigS3_coverage_ml_data.csv"
-  ]
- },
- "FigS4_sensitivity": {
-  "caption": "(a) One-factor-at-a-time sensitivity of the TD-DFT D forward bias at known abundance (S6 2017, development data; reference state as Fig. 4). Ranges: radius and dust at prior 10/90 %, crust density Cooper et al. (2018) range, crust depth 1/5 cm, species fraction 0/1, algae in a 1 mm film, granular ice, SZA \u00b1 5\u00b0, fully diffuse, mid-latitude spectrum. Only absorber amount per column (crust depth, dust) substantially reduces the visible bias; none removes it. (b) Monte Carlo stability of posterior contrast tails (24 vs all draws).",
-  "validation_status": "development diagnostics / numerical check",
-  "sources": {
-   "records/forward_diagnostics/summary.csv": "41d94b047e5ec7fddee23b82906302a06afa6ae721df8f031ffb8361ec006e48"
-  },
-  "config": {},
-  "files": [
-   "FigS4_sensitivity.pdf",
-   "FigS4_sensitivity.png",
-   "FigS4_sensitivity_data.csv"
-  ]
- },
- "FigS5_host_seb": {
-  "caption": "Conditional host response (reference point SEB, KAN_L 2022-07-24 to 08-26, identical forcing). (a) Algal albedo reduction from the satellite-retrieved state (8 S2 station-days, interpolated), Tier A vs TD-DFT D at identical state; markers are retrieval dates, dashed lines the linear interpolation used by the host run. (b) Modelled melt increments (Modes A and B). These are MODELLED quantities conditional on the SEB, forcing and retrieved state; they are NOT validated melt (H3 untested; KAN_L 2022 prerequisites are rule-dependent). Numerics: n_sub 1 vs 4 seasonal melt 1.0111 vs 1.0095 m w.e.",
-  "validation_status": "conditional model scenario (not melt validation)",
-  "sources": {
-   "records/host_coupling/states_and_optics.csv": "81477ce869b8b13e2bcb2d5afc69bc8c5b44ca44f835460a2dd15e8decd88321",
-   "records/host_coupling/coupling_runs.csv": "e30556bb08569859fec0bbdcbd0dcf3ede6ee005a82d3f9c38c31af4a38b2fc9",
-   "records/host_coupling/numerics.json": "6d14b778ed52fe7277bf15fbe8fefe4aa8c087e563906815eb3708d6c5954ad0"
-  },
-  "config": {},
-  "files": [
-   "FigS5_host_seb.pdf",
-   "FigS5_host_seb.png",
-   "FigS5_host_seb_data.csv"
-  ]
- },
- "_build": {
-  "code_commit": "f2603056d4a03d838e21820ccac0efba26c0004b",
-  "script_sha256": "d894e0e6eaabce35a9059e29a71f0a020e93212f14f84c676c1b42e27db708d5",
-  "matplotlib": "3.11.2"
+  ],
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
  },
  "Fig5_benchmark": {
   "caption": "Glacier-model benchmark against all prespecified baselines (frozen protocol, amendments A1, A2/A2.1). (a) H1: plot-scale broadband albedo, S6 2017 (47 plots, 9 sampling-day blocks; leave-one-day-out empirical Bayes; development-reused sites). (b) H2 (absorbed SW, W m\u207b\u00b2) and H4 (albedo, \u00d710\u207b\u00b3) at KAN_L/KAN_M over \u00b11 h of the Sentinel-2 overpass (126 station-days, 11 station-year blocks; 2019 reported separately). M2 is a simple four-band irradiance-weighted conversion (protocol fallback), NOT a published method. (c) H5: station albedo from PROMBIO biology under the radiometer (2 test station-days; no interval). Error bars: 95 % cluster-bootstrap intervals over the stated blocks. Dashed: prespecified minimum meaningful improvements. Point colour = the comparator model (M0 grey, M1 blue, M1b green, M2 pink). H1 intervals for M1 and M1b are narrower than the markers (\u2264 \u00b10.0004). Hatched bar: tier C (no Fe term). Every M3 superiority hypothesis is NOT SUPPORTED. Deviations: posterior-mean optics (D1); k-prior overlap with S6 plots (D3, H1 does not use k).",
@@ -181,6 +127,125 @@
    "Fig5_benchmark.pdf",
    "Fig5_benchmark.png",
    "Fig5_benchmark_data.csv"
-  ]
+  ],
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
+ },
+ "Fig6_satellite": {
+  "status": "BLOCKED",
+  "reason": "no completed, validated scene product exists (scene_product.py never ran to completion; repeated container reboots). A scene figure from legacy maps (phase4/maps4.py, pre-repair) would be stale and is not produced.",
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
+ },
+ "FigS1_chemistry_progress": {
+  "caption": "Chemistry convergence progress from durable checkpoints (job logs). Only the first stage (residual 0.01) has been reached by either job; neither has completed a stage. L1_FULL: 18 cycles, 24/30 roots; L2_CAM_TDA15: 2 cycles, 6/15 roots (one 90-min chunk). No checkpoint advanced across the 19:52 and 20:57 UTC relaunches. Matched TD vs TDA and root-count checks are not yet available (jobs queued).",
+  "validation_status": "progress record (no scientific result)",
+  "sources": {
+   "phase1/results/v2/L1_FULL/job.log": "8e205420a7437620c1a954d2896f93ea35edd62c04f350b7db1a50871e6fc606",
+   "phase1/results/v2/L2_CAM_TDA15/job.log": "b9bbbf6ce37ab14028c768a4a2737c19e5ec8e4c59eb3557192e2dd8b06fd91c"
+  },
+  "config": {},
+  "files": [
+   "FigS1_chemistry_progress.pdf",
+   "FigS1_chemistry_progress.png",
+   "FigS1_chemistry_progress_data.csv"
+  ],
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
+ },
+ "FigS2_calibration": {
+  "caption": "Calibration posterior dependence and adequacy. (a) Shift\u2013width and (b) scale\u2013Fe-fraction joint posteriors (every 8th of 4000 samples; circles AR(1), triangles independent residuals). \u03c6 is an effective mixture coefficient, not a measured complexed fraction. (c) Visible-region (400\u2013700 nm) log-R\u00b2 of the calibrated tier-D MAC against the extract it was fitted to: \u22120.07 (B3LYP, AR(1); shape-residual \u03c1 \u2248 0.94), 0.67 (B3LYP, iid), 0.19 (CAM-B3LYP, AR(1)). The visible fit, which carries the glacier-relevant absorption, is poor and residual-model dependent; a refined quadrature does not make the residual model adequate.",
+  "validation_status": "calibration diagnostics",
+  "sources": {
+   "phase4/results/cache/calibrations/435b4fa926cec41f9a7d07d73ee256b117dcfb0cd977edfb5df191680ea536f0.pkl": "9e402ce6c13ec3c6ca875014efca62a8b85bed7a1c9a61b4994ff32d145eb6bc",
+   "phase4/results/cache/calibrations/41661c2617adb9173b9a2a70239063ded5abaf24da908707d33d896df2832d61.pkl": "71b57ea5095cbf14b0668601850d155ec195ec759a2f90d3ee78eaf1cf7cd7cd",
+   "phase4/results/cache/calibrations/28700b5dd81d49cb4a910208a87da977dc02ffaebd06b9a195b3a8738b8eeef2.pkl": "5402eb679b83b8a13cb7cd2c040482886c1db5308b35468143beb4920e47a707"
+  },
+  "config": {},
+  "files": [
+   "FigS2_calibration.pdf",
+   "FigS2_calibration.png",
+   "FigS2_calibration_data.csv"
+  ],
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
+ },
+ "FigS3_coverage_ml": {
+  "caption": "(a) Predictive coverage vs sharpness for broadband albedo at S6 2017: H1 predictive distributions (filled; discrepancy SD chosen by empirical Bayes on training days) reach about 0.9 coverage only with wide intervals, while the nuisance-prior-only ensemble (open squares) covers 22\u201324 % (biased and too narrow). (b) Forward 4-band HCRF RMSE on identical positive-count rows: physics point predictions (colour) vs ML baselines (grey) from records/ml_comparison (retrospective, development data). Different endpoints from (a). In (a) Measured MAC (M1b) and TD-DFT D (M3) coincide (coverage 0.894, width 0.366) and their markers overlap; Tier A, M1b and M3 squares also overlap. Exact values are in the data CSV.",
+  "validation_status": "development diagnostics",
+  "sources": {
+   "records/ml_comparison_physics/summary.csv": "4fcd29479057b47b55c666030320aa3eb04379c7ba9b89057e20c5eb81caa4ee",
+   "records/h1_albedo/h1_summary.csv": "260bfbd1fad19941e1719a82c4f09ba0ec91cb5514b9c118d300810d0633b14c",
+   "records/forward_diagnostics/ensemble_summary.csv": "52eb779954721668e8c13ee6c0f0910839122e72039640a68c6ff97313b4dfd9"
+  },
+  "config": {},
+  "files": [
+   "FigS3_coverage_ml.pdf",
+   "FigS3_coverage_ml.png",
+   "FigS3_coverage_ml_data.csv"
+  ],
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
+ },
+ "FigS4_sensitivity": {
+  "caption": "(a) One-factor-at-a-time sensitivity of the TD-DFT D forward bias at known abundance (S6 2017, development data; reference state as Fig. 4). Ranges: radius and dust at prior 10/90 %, crust density Cooper et al. (2018) range, crust depth 1/5 cm, species fraction 0/1, algae in a 1 mm film, granular ice, SZA \u00b1 5\u00b0, fully diffuse, mid-latitude spectrum. Only absorber amount per column (crust depth, dust) substantially reduces the visible bias; none removes it. (b) Monte Carlo stability of the posterior contrasts: largest shift over the 24 states of each 95 % interval end between 24 and 96 draws per treatment. *The 96-draw measured-MAC contrasts also add the measured-MAC uncertainty, so their shift combines Monte Carlo error with the added uncertainty source.",
+  "validation_status": "development diagnostics / numerical check",
+  "sources": {
+   "records/forward_diagnostics/summary.csv": "41d94b047e5ec7fddee23b82906302a06afa6ae721df8f031ffb8361ec006e48",
+   "records/molecular_contribution/uncertainty/mc_stability_24_vs_all.csv": "a76be02424e97e35bee0e33441b96bedad2a35165495a6540194b89b1519aa92"
+  },
+  "config": {},
+  "files": [
+   "FigS4_sensitivity.pdf",
+   "FigS4_sensitivity.png",
+   "FigS4_sensitivity_data.csv"
+  ],
+  "build": {
+   "code_commit": "9cebfab00e0e5a38da343d2393945fe6183db0a0",
+   "script_sha256": "19f86848bf20b161aceacdbdd5dd832380182b9d5e9b3412f7eb7c28a0df5f58",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
+ },
+ "FigS5_host_seb": {
+  "caption": "Conditional host response (reference point SEB, KAN_L 2022-07-24 to 08-26, identical forcing). (a) Algal albedo reduction from the satellite-retrieved state (8 S2 station-days, interpolated), Tier A vs TD-DFT D at identical state; markers are retrieval dates, dashed lines the linear interpolation used by the host run. (b) Modelled melt increments (Modes A and B). These are MODELLED quantities conditional on the SEB, forcing and retrieved state; they are NOT validated melt (H3 untested; KAN_L 2022 prerequisites are rule-dependent). Numerics: n_sub 1 vs 4 seasonal melt 1.0111 vs 1.0095 m w.e.",
+  "validation_status": "conditional model scenario (not melt validation)",
+  "sources": {
+   "records/host_coupling/states_and_optics.csv": "81477ce869b8b13e2bcb2d5afc69bc8c5b44ca44f835460a2dd15e8decd88321",
+   "records/host_coupling/coupling_runs.csv": "e30556bb08569859fec0bbdcbd0dcf3ede6ee005a82d3f9c38c31af4a38b2fc9",
+   "records/host_coupling/numerics.json": "6d14b778ed52fe7277bf15fbe8fefe4aa8c087e563906815eb3708d6c5954ad0"
+  },
+  "config": {},
+  "files": [
+   "FigS5_host_seb.pdf",
+   "FigS5_host_seb.png",
+   "FigS5_host_seb_data.csv"
+  ],
+  "build": {
+   "code_commit": "77656b4252ed5102be0edecab7cb67fa9adce470",
+   "script_sha256": "2488d0f9365c60588d5895528b49dc1826ebbf231dde58e283f50b93c260cd78",
+   "script_uncommitted_changes": false,
+   "matplotlib": "3.11.2"
+  }
  }
 }
