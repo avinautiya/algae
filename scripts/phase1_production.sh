@@ -37,8 +37,8 @@ echo "LEVEL2 DONE $(date -u)" >> $R/level2/run.log
 # Full TD-DFT CAM-B3LYP needs > 1 day of uninterrupted Davidson iterations, longer than the cloud
 # container survives; TDA is ~4x cheaper per iteration and converges in fewer. A B3LYP-TDA run with
 # the same settings isolates the functional effect from the TDA-vs-full-TD-DFT shift.
-run $R/level2_cam none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals CAM-B3LYP --tda --nstates 15
-run $R/level2_b3lyp_tda none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals B3LYP --tda --nstates 15
+run $R/level2_cam none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals CAM-B3LYP --tda --nstates 15 --td-conv-tol 1e-3
+run $R/level2_b3lyp_tda none --level level2 --skip-opt --start-xyz $R/level2/opt_B3LYP_final.xyz --tddft-functionals B3LYP --tda --nstates 15 --td-conv-tol 1e-3
 run $R/level1 B3LYP --level level1 --tddft-functionals B3LYP CAM-B3LYP
 run $R/level3_catecholate B3LYP --level level3_catecholate --tddft-functionals B3LYP --nstates 50
 spin $R/level3_catecholate catecholate
