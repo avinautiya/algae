@@ -970,3 +970,12 @@ The previous classification, "improvement supported in direction at both sites",
 - **Limits.**
   - Optics come from unqualified emulator lookup (benchmark binding pending), a single posterior-mean draw, and abundance retrieved with the k prior (D3).
   - The increment is a modelled quantity, not observed ablation.
+
+### P6-SURR-2: surrogate benchmark result (old binding), recorded per watchdog
+- **File:** `phase4/results/surrogate/benchmark_tddft_D.json`.
+  - Run before the qualification binding (P5-SURR-1), so it lacks `benchmark_fingerprint` and the Δα check and therefore does **not** qualify the surrogate under current code.
+- **Result** (140 direct-BioSNICAR states, SZA nodes 40/50/60 plus mid-points):
+  - BBA max |error| 0.0040 (tolerance 0.005), MAE 0.0012, off-node max 0.0033;
+  - rf_algae max |error| 3.35 W m⁻², MAE 0.37; all points within 0.5 W m⁻² + 5 %;
+  - `passed: true` under the old binding.
+- **Re-benchmark** under the current binding is queued (budget: waits for memory headroom).
