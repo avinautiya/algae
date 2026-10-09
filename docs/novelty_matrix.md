@@ -18,11 +18,11 @@ on the same held-out data. The descriptions of other work are limited to what th
 
 | # | Claim | Test on identical held-out data | Status |
 |---|---|---|---|
-| N1 | Pigment optics from first principles (TD-DFT on the glucoside chromophore), calibrated only on laboratory spectra, transfer to field reflectance | `phase4/heldout.py`: `tddft_C`, `tddft_D` vs `measured_mac_C` and `tierA_empirical`, both folds, log score + forward reflectance score | see results below |
-| N2 | An Fe-complexed fraction is needed to reproduce visible absorption | `tddft_D` vs `tddft_C` (ablation of the Fe term) | see results below |
-| N3 | The physics retrieval beats statistical reflectance baselines at an unseen site | the physics models vs `band_ratio`, `ridge`, `climatology`, `literature_prior` | see results below |
+| N1 | Pigment optics from first principles (TD-DFT on the glucoside chromophore), calibrated only on laboratory spectra, transfer to field reflectance | Pre-registered contrast `tddft_D` − `tierA_empirical`, log score, decision rule in `docs/preregistration_heldout.md` | pending |
+| N2 | Role of an Fe-complexed fraction | `tddft_D` vs `tddft_C`, reported descriptively (not a confirmatory test) | f and φ are not separately identified by the calibration data (P2-CAL-1); no claim that Fe is required |
+| N3 | Physics retrieval vs statistical baselines at an unseen site | the primary vs `band_ratio`, `ridge`, `climatology`, `literature_prior`, reported descriptively | pending |
 | N4 | Algal melt increment from an SEB rather than "potential melt" | `phase4/seb.py`: paired on/off runs; SEB checked against PROMICE fluxes, surface temperature and three ablation records | conditional modelled estimates only: the increment/potential ratio is about 0.9 (χ = 0) or about 0.6 (χ = 0.3, subsurface shortwave), with no independent algal-melt observation; the 2019 ablation sensors disagree by 2.5× |
-| N5 | A reusable surrogate with domain flags | `phase4/surrogate_api.py` + benchmark against direct BioSNICAR | code and unit test done; benchmark pending |
+| N5 | A qualified surrogate with domain flags | `phase4/surrogate_api.py`: refuses use without a passing benchmark of the same emulators; BBA and forcing benchmarked over the supported domain | benchmark running |
 
-Results of N1–N3 are filled in from `phase4/results/heldout_v1/` once the run completes. If pigment-aware optics do
-not improve held-out scores, that is reported as the result.
+Results come from `phase4/results/heldout_v2/`. Only the pre-registered contrast is confirmatory: no alternative is
+selected as a winner, and a failure to show improvement is reported as such. None of this tests melt prediction.
