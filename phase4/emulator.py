@@ -125,9 +125,13 @@ class Emulator:
 
     # ---- persistence -------------------------------------------------------------
     def save(self, path):
-        np.savez_compressed(path, **{f"axis__{k}": v for k, v in self.axes.items()},
+        """Atomic: written to a temporary file and renamed, so an interrupted save never leaves a
+        truncated cache that a later run could load."""
+        tmp = f"{path}.tmp{os.getpid()}.npz"
+        np.savez_compressed(tmp, **{f"axis__{k}": v for k, v in self.axes.items()},
                             **{f"data__{k}": v for k, v in self.data.items()},
                             meta=np.array(repr(_plain(self.meta))))
+        os.replace(tmp, path)
 
     @classmethod
     def load(cls, path):
@@ -276,12 +280,22 @@ def build_emulator(cfg: EmulatorConfig, phase1_l2: str | None = None, demo: bool
                    biosnicar: str | None = None, workers: int = 1, cache: str | None = None,
                    verbose: bool = True) -> Emulator:
     global _BUILDER
-    tag = (repr({k: v for k, v in asdict(cfg).items() if k != "species"}) + repr(cfg.species) + str(demo)
-           + f"|{PHYSICS_VERSION}|{phase1_l2}")
+    import biosnicar_bridge as bb
+    import provenance as PV
+    try:
+        bsn = PV.biosnicar_revision(bb.locate_biosnicar(biosnicar))
+    except ImportError:
+        bsn = None
+    # content fingerprint: configuration, Phase 1 result CONTENT (not its path), measured data, physics
+    # code and BioSNICAR revision; PHYSICS_VERSION is kept as a human-readable label only
+    tag = PV.fingerprint(dict(cfg={k: v for k, v in asdict(cfg).items() if k != "species"}, species=repr(cfg.species),
+                              demo=demo, physics_version=PHYSICS_VERSION, phase1=PV.phase1_fingerprint(phase1_l2),
+                              empirical=PV.empirical_data_fingerprint(), code=PV.code_fingerprint(),
+                              biosnicar=bsn))
     if cache and os.path.isfile(cache):
         try:
             em = Emulator.load(cache)
-        except (ValueError, SyntaxError, KeyError):        # unreadable or older cache format: rebuild
+        except (ValueError, SyntaxError, KeyError, OSError, EOFError, __import__("zipfile").BadZipFile):  # unreadable: rebuild
             em = None
         if em is not None and em.meta.get("tag") == tag:
             if verbose:

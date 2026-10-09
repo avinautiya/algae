@@ -68,16 +68,30 @@ def parse_args(argv=None):
 
 
 def run_or_load(path, design, model_kwargs, workers, reuse, label):
+    """Reuse a cached run table only if its provenance sidecar matches the content fingerprint of the
+    design, the model settings, the physics code, the Phase 1 input, the empirical data and BioSNICAR
+    (a matching row count is not enough)."""
+    import biosnicar_bridge as bb
+    import provenance as PV
     from forward_model import evaluate_many
-    if reuse and os.path.isfile(path):
-        df = pd.read_csv(path)
-        if len(df) == len(design):
-            print(f"{label}: reusing {path}")
-            return df
-        print(f"{label}: cached file has {len(df)} rows, need {len(design)} -> recomputing")
+    try:
+        bsn = bb.locate_biosnicar(model_kwargs.get("biosnicar"))
+    except ImportError:
+        bsn = None
+    fp = PV.fingerprint(dict(design=list(design), model_kwargs={k: v for k, v in model_kwargs.items()
+                                                                if k != "qtable_cache"},
+                             code=PV.code_fingerprint(), phase1=PV.phase1_fingerprint(model_kwargs.get("phase1_l2")),
+                             empirical=PV.empirical_data_fingerprint(), biosnicar=PV.biosnicar_revision(bsn)))
+    if reuse:
+        ok, why = PV.cached_ok(path, fp)
+        if ok:
+            print(f"{label}: reusing {path} (provenance matches)")
+            return pd.read_csv(path)
+        print(f"{label}: not reusing {path}: {why}")
     print(f"{label}: {len(design)} model runs")
     df = evaluate_many(model_kwargs, design, workers=workers)
-    df.to_csv(path, index=False, float_format="%.8g")
+    PV.atomic_to_csv(df, path, index=False, float_format="%.8g")
+    PV.write_meta(path, fp, dict(label=label, n=len(design)))
     return df
 
 

@@ -252,6 +252,7 @@ def mcmc_pixel(emulator, R, sigma, prior_params: dict, sk: float, n_walkers: int
             p0 = prior_draws(rng)
         sampler = emcee.EnsembleSampler(n_walkers, ndim, logp, moves=[(emcee.moves.DEMove(), 0.8),
                                                                         (emcee.moves.DESnookerMove(), 0.2)])
+        sampler.random_state = np.random.RandomState(seed + e).get_state()     # reproducible moves
         sampler.run_mcmc(p0, n_steps, progress=False, skip_initial_state_check=True)
         chains.append(sampler.get_chain(discard=burn))          # (steps, walkers, ndim)
         taus.append(sampler.get_autocorr_time(discard=burn, quiet=True))

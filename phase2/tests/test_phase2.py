@@ -324,3 +324,29 @@ def test_vacuole_joint_absorption_bounded_and_consistent():
         # the former independent treatment exceeded that bound (regression of the defect)
         old = PP.q_star(np.full(1, 1e7), g.scaled(0.5)) * 1e7 * 0.5 * V + PP.q_star(np.full(1, 1e7), g) * 1e7 * V
         assert old[0] > 1.3 * A
+
+
+def test_column_cell_number_is_count_times_1000_rho_dz():
+    """Field counts B [cells per mL meltwater = per g ice] -> BioSNICAR column number
+    N = B * 1000 * rho * dz [cells m^-2] per layer (via the 0.917 meltwater correction)."""
+    root = _biosnicar_root()
+    if root is None:
+        return
+    import biosnicar_bridge as bb
+    from biosnicar.optical_properties.column_OPs import mix_in_impurities
+    r = bb.BioSNICARRunner(root)
+    for spec in (bb.IceSpec(1500, 650, 850, 0.02, 2.0, "grains"),
+                 bb.IceSpec(1500, 650, 850, 0.02, 2.0, "grains", film_dz=0.002, film_only=True)):
+        ice, ssa, g, mac = r.ice(spec)
+        tau0, *_ = mix_in_impurities(ssa, g, mac, ice, [], r.model_config)
+        imp = r.default_impurity()
+        imp.mac = np.full(480, 1e-10)                                  # m^2 per cell
+        B = 1e4
+        imp.conc = bb._layer_concs(spec, B, 1)
+        tau1, *_ = mix_in_impurities(ssa, g, mac, ice, [imp], r.model_config)
+        # BioSNICAR also removes the cells' mass (1 ng each) from the ice: dtau = N (mac_cell - 1e-12 mac_ice)
+        n_col = (tau1 - tau0)[:, 100] / (1e-10 - 1e-12 * np.asarray(mac)[:, 100])   # cells m^-2 per layer
+        # algae only in the crust (top 2 cm); with a film, the crust's cells all sit in the film
+        expect = np.array([B * 1000 * ice.rho[0] * spec.dz_top] + [0.0] * (len(ice.dz) - 1))
+        assert np.allclose(n_col[:1], expect[:1], rtol=1e-3) and np.allclose(n_col[1:], expect[1:], atol=1.0)
+        assert np.isclose(B * 1000 * 650 * 0.02, 1.3e8)

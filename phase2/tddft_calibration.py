@@ -217,6 +217,7 @@ def calibrate(spec, n_walkers=24, n_steps=2000, burn=800, n_stage2=200, draws_pe
     rng = np.random.default_rng(seed)
     p0 = np.clip(x0 + np.array([0.01, 0.01, 0.05]) * rng.normal(size=(n_walkers, 3)), lo + 1e-6, hi - 1e-6)
     smp = emcee.EnsembleSampler(n_walkers, 3, lp)
+    smp.random_state = np.random.RandomState(seed).get_state()       # moves seeded: reproducible chains
     smp.run_mcmc(p0, n_steps, progress=False)
     ch1 = smp.get_chain(discard=burn, flat=True)
     try:
@@ -336,10 +337,14 @@ _CACHE = {}
 
 
 def cached_calibration(spec, **kw) -> Calibration:
-    """calibrate() once per spectrum per process (keyed by source and stick data)."""
-    key = (getattr(spec, "source", ""), spec.name,
-           None if spec.energies_ev is None else tuple(np.round(spec.energies_ev, 6)),
-           None if spec.osc is None else tuple(np.round(spec.osc, 8)))
+    """calibrate() once per process per content fingerprint of (spectrum sticks or curve, molar mass,
+    width, calibration settings, measured data files, this module's code). Different keyword
+    arguments (seed, chain length, ...) or different data never share an entry."""
+    import provenance as PV
+    key = PV.fingerprint(dict(name=spec.name, source=getattr(spec, "source", ""), molar_mass=spec.molar_mass,
+                              fwhm=spec.fwhm_ev, e=spec.energies_ev, f=spec.osc, wl=spec.wl_nm, mac=spec.mac,
+                              kw=kw, data=PV.empirical_data_fingerprint(),
+                              code=PV.code_fingerprint(("phase2/tddft_calibration.py", "phase2/empirical_data.py"))))
     if key not in _CACHE:
         _CACHE[key] = calibrate(spec, **kw)
     return _CACHE[key]

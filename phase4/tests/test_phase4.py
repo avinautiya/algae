@@ -20,6 +20,7 @@ from scipy import stats
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "phase2"))
 
 import inversion as INV  # noqa: E402
 
@@ -317,3 +318,50 @@ if __name__ == "__main__":
         if name.startswith("test_"):
             fn()
             print(f"PASS {name}")
+
+
+def _fake_run(tmp_path, rf=20.0, bba=0.5, sza=47.0, date="2019-07-23", sw_model=800.0, complete=True):
+    import json
+    import provenance as PV
+    import s2_io as io
+    from rasterio.transform import from_origin
+    d = tmp_path / "run"
+    (d / "geotiff").mkdir(parents=True)
+    names = ("ours_log_b_mean", "ours_bba_mean", "ours_rf_algae_mean", "tierA_rf_algae_mean", "tierA_log_b_mean")
+    vals = (3.5, bba, rf, 2 * rf, 3.4)
+    io.write_geotiff(str(d / "geotiff" / "phase4_maps.tif"), {n: np.full((4, 4), v, np.float32) for n, v in zip(names, vals)},
+                     from_origin(0, 0, 20, 20), "EPSG:32622")
+    s = dict(scene="S2A_22WEV_20190723_0_L2A", date=date, sza=sza, overpass_datetime=f"{date}T15:14:03Z",
+             sw_down_model_w_m2=sw_model)
+    (d / "summary.json").write_text(json.dumps(s))
+    if complete:
+        (d / "COMPLETE.json").write_text(json.dumps(dict(artifacts={
+            "summary.json": PV.file_sha256(str(d / "summary.json")),
+            "geotiff/phase4_maps.tif": PV.file_sha256(str(d / "geotiff" / "phase4_maps.tif"))})))
+    return d
+
+
+def test_multi_scene_daily_forcing_uses_model_sw_and_overpass_time(tmp_path):
+    import multi_scene as MS
+    d = _fake_run(tmp_path)
+    row = MS.summarise(str(d))
+    sw_mean, sw_ov = MS.sw_at("2019-07-23", "2019-07-23T15:14:03Z")
+    assert np.isclose(row["dalpha_rf_ours"], 20.0 / 800.0)
+    assert np.isclose(row["rf_ours_daily_mean"], 20.0 / 800.0 * sw_mean)        # model SW, not measured
+    assert np.isclose(row["rf_ours_daily_mean_legacy_formula"], 20.0 * sw_mean / sw_ov)
+    # the overpass SW is interpolated at the actual time (hour-centre convention), not read at hour 15
+    sw = MS._promice_day("2019-07-23")
+    h = 15 + 14 / 60 + 3 / 3600
+    assert np.isclose(sw_ov, np.interp(h, np.arange(24) + 0.5, sw)) and not np.isclose(sw_ov, sw[15])
+    assert np.isclose(row["melt_potential_rf_ours_cm_we_d"], row["rf_ours_daily_mean"] * 86400 / 3.34e6)
+
+
+def test_multi_scene_completion_requires_marker(tmp_path):
+    import multi_scene as MS
+    d = _fake_run(tmp_path, complete=False)
+    assert MS.run_complete(str(d))[0] is False                  # summary.json alone is not completion
+    d2 = _fake_run(tmp_path / "b")
+    assert MS.run_complete(str(d2))[0] is True
+    with open(d2 / "summary.json", "a") as fh:
+        fh.write(" ")
+    assert MS.run_complete(str(d2))[0] is False                 # changed after completion

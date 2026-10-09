@@ -339,3 +339,62 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
 - **Defect:** the smoothed first-pass map that sets each pixel's prior included that pixel (double counting).
 - **Repair:** leave-one-out Gaussian smoothing (the kernel centre weight is removed).
 - **Test:** none automated (an option not used in any output). Status: IMPLEMENTED_AWAITING_PRODUCTION_RUN (no production run uses it).
+
+## 6. Provenance
+
+### P0-PROV-1: cache reuse by row count, path or manual version
+- **Sources:**
+  - `phase3/run_phase3.py::run_or_load` (reused a CSV whenever the row count matched).
+  - `phase2/tddft_calibration.py::cached_calibration` (keyed by source label and sticks; ignored settings such as seed and chain length, the molar mass, the width and the measured data).
+  - `phase4/emulator.py::build_emulator` (tag held the Phase 1 *path* and a hand-bumped PHYSICS_VERSION; non-atomic `np.savez`).
+- **Repair:** `phase2/provenance.py`.
+  - Canonical content fingerprints (arrays by bytes, dataclasses, frames).
+  - Code fingerprints of the physics modules, Phase 1 content fingerprints, the empirical-data fingerprint, the BioSNICAR git revision, and an environment record.
+  - Atomic writes, and a `<file>.meta.json` sidecar with fingerprint + result checksum.
+  - `run_or_load` reuses only on a matching sidecar.
+  - `cached_calibration` keys on content + kwargs + data + code.
+  - The emulator tag is a content fingerprint; `Emulator.save` is atomic; a corrupt cache (BadZipFile/EOF/OSError) triggers a rebuild.
+  - emcee move RNGs are seeded (`sampler.random_state`) in the calibration and in `mcmc_pixel`.
+- **Tests:** `phase2/tests/test_provenance.py` (6 passed):
+  - same row count with a different design → recomputed (the old code reused it);
+  - a settings change → recomputed;
+  - a result edited after writing → recomputed;
+  - different kwargs and molar mass → separate calibration entries;
+  - the Phase 1 fingerprint follows content;
+  - calibration chains are bit-identical for the same seed whatever the global NumPy state;
+  - the emulator save leaves no temporary file.
+- **Consequence:** existing caches (emulators, run tables) carry no new-style fingerprint and will be rebuilt by the next production run. This is intended: the physics code also changed in this repair.
+- **Environment pin:** `python phase2/provenance.py` prints versions and code hashes. It is written into every sidecar.
+- **Status:** FIXED_AND_VERIFIED.
+
+## 12. Daily energy
+
+### P4-DAY-1: daily-mean forcing formula, hard-coded overpass hour, completion, seasonal label
+- **Source:** `phase4/multi_scene.py::summarise`, `main`.
+- **Defects:**
+  1. RF_daily = RF_overpass × mean₂₄(SW_meas) / SW_meas(15 UTC). But RF_overpass was computed with the emulator's *clear-sky model* SW, so the measured overpass SW in the denominator mixed two irradiances. The albedo reduction is RF / SW_model.
+  2. The overpass was hard-coded as hour 15 (the actual times are 15:04–15:14 UTC), and the hourly-label convention was ignored.
+  3. A scene counted as complete if `summary.json` existed.
+  4. The mean over 6 clear-sky dates was labelled a "season" value.
+  5. "Melt" was all extra energy into melt, without an SEB.
+- **Repair:**
+  - Δα = RF_overpass / SW_model(overpass), where SW_model is recorded by run_phase4 (`sw_down_model_w_m2`) or recomputed exactly as the emulator does. Then RF_daily = Δα × mean₂₄(SW_meas).
+  - The measured overpass SW is interpolated at the STAC datetime (hour-centre convention) and used only as a clearness diagnostic.
+  - run_phase4 writes `COMPLETE.json` last, with output checksums; multi_scene aggregates only marked runs. Legacy runs are accepted only with `--aggregate-only --accept-legacy` and are labelled per scene.
+  - The output is labelled as the sampled-dates mean, and the melt column is renamed `melt_potential_*`.
+- **Tests:** `test_multi_scene_daily_forcing_uses_model_sw_and_overpass_time` and `test_multi_scene_completion_requires_marker` (2 passed).
+- **Before/after** (same six 2019 runs re-aggregated; `records/repair_multi_scene_daily/` vs `records/multi_scene_2019_tddft/`):
+
+  | quantity | before | after |
+  |---|---|---|
+  | sampled-dates mean daily algal RF (ours) | 11.17 W m⁻² | 10.38 W m⁻² (−7 %) |
+  | range | 6.23–13.61 | 6.26–12.54 |
+  | Tier A | 14.58 | 13.49 |
+  | potential melt (ours) | 0.289 cm w.e. d⁻¹ | 0.268 cm w.e. d⁻¹ |
+
+  - The measured/model clearness at overpass was 0.90–0.98.
+  - The 2019 KAN_M SW is the tilt-uncorrected `dsr`. That affects the daily mean directly: a DATA_LIMITATION to be bounded in the SEB task.
+- **Remaining:**
+  - The diurnal SZA dependence of Δα is approximated by its overpass value. It is quantified as < 10 % in literature_comparison and is to be replaced by the hourly SEB integration (task 7).
+  - Actual melt needs the SEB (task 7).
+- **Status:** FIXED_AND_VERIFIED (formula, completion, labels). Actual melt: IMPLEMENTED_AWAITING_PRODUCTION_RUN, pending task 7.

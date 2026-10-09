@@ -478,9 +478,20 @@ def main(argv=None):
                    median_log_bayes_factor=float(np.nanmedian(log_bf)),
                    median_rf_ours=float(np.nanmedian(maps["ours_rf_algae_mean"])),
                    median_rf_tierA=float(np.nanmedian(maps["tierA_rf_algae_mean"])),
-                   args=vars(a), runtime_s=round(time.time() - t0, 1))
-    with open(os.path.join(a.outdir, "summary.json"), "w") as fh:
-        json.dump(summary, fh, indent=2, default=str)
+                   args=vars(a), runtime_s=round(time.time() - t0, 1),
+                   overpass_datetime=scene.item.get("properties", {}).get("datetime"),
+                   # the irradiance the emulator's forcing was computed with (needed to turn RF into an
+                   # albedo reduction before any rescaling to other irradiance)
+                   sw_down_model_w_m2=float(em_o.meta.get("sw_down", np.nan)) if hasattr(em_o, "meta") else None,
+                   scene_read=scene.item.get("_read"))
+    import provenance as PV
+    PV.atomic_write_text(os.path.join(a.outdir, "summary.json"), json.dumps(summary, indent=2, default=str))
+    # completion marker: written last, with checksums of the outputs consumers read
+    outs = [os.path.join(a.outdir, "summary.json"), os.path.join(geo, "phase4_maps.tif")]
+    PV.atomic_write_text(os.path.join(a.outdir, "COMPLETE.json"), json.dumps(dict(
+        args_fingerprint=PV.fingerprint({k: v for k, v in vars(a).items() if k not in ("workers", "outdir")}),
+        phase1=PV.phase1_fingerprint(a.phase1_l2), code=PV.code_fingerprint(),
+        artifacts={os.path.relpath(o, a.outdir): PV.file_sha256(o) for o in outs if os.path.isfile(o)}), indent=1))
     print(f"\nMedian ln Bayes factor (ours vs Tier A): {summary['median_log_bayes_factor']:.2f}")
     print(f"Median RF_algae: ours {summary['median_rf_ours']:.1f}, Tier A {summary['median_rf_tierA']:.1f} W m^-2")
     print(f"Done in {time.time() - t0:.0f} s -> {a.outdir}")
