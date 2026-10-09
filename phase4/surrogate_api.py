@@ -1,19 +1,23 @@
 #!/usr/bin/env python
 """
 Surrogate (look-up table) interface for coupling the pigment-aware optics to other models (e.g. an SEB or
-land-ice model): broadband albedo, algal albedo reduction and instantaneous forcing as functions of
+land-ice model): broadband albedo, algal albedo reduction and instantaneous algal forcing as functions of
 
     log10 abundance (cells mL^-1), community fraction f_n, bubble radius r (um), dust (ppb), solar zenith
 
 for a frozen optical model ('tddft_D', 'tddft_C', 'measured_mac_C' or 'tierA_empirical', as in heldout.py).
 Interpolation: multilinear within each SZA node's emulator, linear in SZA between nodes.
 
-Every call returns domain flags; values are NOT extrapolated silently:
-    in_domain      all inputs inside the tabulated ranges
-    flags          which inputs were outside (and clipped to the boundary)
-Accuracy against direct BioSNICAR runs is measured by `benchmark()` (off-grid states, off-node SZA) and
-recorded in records/surrogate_benchmark.json; the API refuses to load a table without that record unless
-allow_unbenchmarked=True.
+Zero-algae reference: the emulator's rf_algae is the forcing relative to a run WITHOUT algae (same ice,
+dust and SZA), so the algal albedo reduction is d_alpha = rf_algae / SW_model, with SW_model the irradiance
+the emulator used - a genuine algae-free reference, not the lowest-abundance node.
+
+Qualification: a surrogate is usable only with a benchmark record (benchmark()) that
+  * was computed for exactly these emulators (their content tags),
+  * samples the whole supported domain (all axes incl. their ends, SZA at and between nodes),
+  * meets the tolerances BBA max |error| <= TOL_BBA and rf_algae max |error| <= TOL_RF_ABS + TOL_RF_REL x |rf|.
+Surrogate(...) raises without such a record unless allow_unqualified=True, and every call reports
+`qualified`. Inputs outside the tabulated ranges are clipped AND flagged (`in_domain`, `flags`).
 
     python phase4/surrogate_api.py --optics tddft_D --sza 40 50 60 --outdir phase4/results/surrogate
 """
@@ -32,54 +36,70 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(HERE, "..", "phase2"))
 
 OUTPUTS = ("bba", "rf_algae")
+TOL_BBA = 0.005
+TOL_RF_ABS, TOL_RF_REL = 0.5, 0.05          # W m^-2, fraction
+
+
+class QualificationError(RuntimeError):
+    pass
+
+
+def _tags(ems):
+    return {str(float(z)): str(em.meta.get("tag", "")) for z, em in sorted(ems.items())}
 
 
 class Surrogate:
-    def __init__(self, emulators: dict, optics: str, benchmark: dict | None = None):
+    def __init__(self, emulators: dict, optics: str, benchmark: dict | None = None, allow_unqualified=False):
         self.optics = optics
         self.sza = np.array(sorted(emulators), float)
         self.ems = [emulators[z] for z in sorted(emulators)]
         self.benchmark = benchmark
+        self.qualified = qualifies(benchmark, emulators)
+        if not self.qualified and not allow_unqualified:
+            raise QualificationError("no passing benchmark record for these emulators (run benchmark()); "
+                                     "pass allow_unqualified=True only for benchmarking itself")
         e0 = self.ems[0]
         self.names = e0.names
         self.ranges = {n: (float(e0.axes[n][0]), float(e0.axes[n][-1])) for n in e0.names}
         self.ranges["sza"] = (float(self.sza[0]), float(self.sza[-1]))
         self._I = [{k: em.interpolator(k) for k in OUTPUTS} for em in self.ems]
-        clean = {}
-        for k, em in enumerate(self.ems):           # clean-ice reference: lowest abundance node
-            clean[k] = em
-        self._clean = clean
+        self._sw = [float(em.meta.get("sw_down", np.nan)) for em in self.ems]
 
     def _coords(self, em, state):
-        return np.array([[em.coord(n)[0] if len(em.axes[n]) == 1 else
-                          (np.log10(state[n] + 100.0) if n == "dust_ppb" else state[n]) for n in em.active]])
+        return np.array([[(np.log10(state[n] + 100.0) if n == "dust_ppb" else state[n]) for n in em.active]])
 
-    def __call__(self, log_b, sza, r_um=3000.0, f_n=0.5, dust_ppb=0.0):
-        state = dict(log_b=float(log_b), r_um=float(r_um), f_n=float(f_n), dust_ppb=float(dust_ppb), sza=float(sza))
+    def __call__(self, log_b, sza, r_um=3000.0, f_n=0.5, dust_ppb=None):
+        state = dict(log_b=float(log_b), r_um=float(r_um), f_n=float(f_n), sza=float(sza),
+                     dust_ppb=float(self.ranges["dust_ppb"][0] if dust_ppb is None and "dust_ppb" in self.ranges
+                                    else (dust_ppb or 0.0)))
         flags = []
         for n, (lo, hi) in self.ranges.items():
             if n in state and not lo - 1e-9 <= state[n] <= hi + 1e-9:
                 flags.append(f"{n}={state[n]:g} outside [{lo:g}, {hi:g}] (clipped)")
                 state[n] = float(np.clip(state[n], lo, hi))
-        j = int(np.clip(np.searchsorted(self.sza, state["sza"]) - 1, 0, len(self.sza) - 2)) if len(self.sza) > 1 else 0
         if len(self.sza) == 1:
             ws = [(0, 1.0)]
         else:
+            j = int(np.clip(np.searchsorted(self.sza, state["sza"]) - 1, 0, len(self.sza) - 2))
             t = (state["sza"] - self.sza[j]) / (self.sza[j + 1] - self.sza[j])
             ws = [(j, 1 - t), (j + 1, t)]
         out = {k: 0.0 for k in OUTPUTS}
-        clean_bba = 0.0
+        dalpha = 0.0
         for k, w in ws:
-            em = self.ems[k]
-            x = self._coords(em, state)
+            x = self._coords(self.ems[k], state)
+            vals = {o: float(self._I[k][o](x)[0]) for o in OUTPUTS}
             for o in OUTPUTS:
-                out[o] += w * float(self._I[k][o](x)[0])
-            xc = self._coords(em, dict(state, log_b=self.ranges["log_b"][0]))
-            clean_bba += w * float(self._I[k]["bba"](xc)[0])
-        out["dalpha_algae_vs_lowest_abundance"] = clean_bba - out["bba"]
-        out.update(in_domain=not flags, flags=flags, optics=self.optics,
-                   benchmarked=self.benchmark is not None)
+                out[o] += w * vals[o]
+            dalpha += w * vals["rf_algae"] / self._sw[k]          # relative to the algae-free run
+        out["dalpha_algae"] = dalpha
+        out.update(in_domain=not flags, flags=flags, optics=self.optics, qualified=self.qualified)
         return out
+
+
+def qualifies(benchmark, emulators) -> bool:
+    if not benchmark:
+        return False
+    return bool(benchmark.get("passed")) and benchmark.get("emulator_tags") == _tags(emulators)
 
 
 def build(optics, sza_nodes, phase1_l2=None, biosnicar=None, workers=2, cache_dir=".", rho_bottom=690.0):
@@ -94,28 +114,67 @@ def build(optics, sza_nodes, phase1_l2=None, biosnicar=None, workers=2, cache_di
     return ems
 
 
-def benchmark(sur: Surrogate, optics, n=40, seed=0, phase1_l2=None, biosnicar=None, rho_bottom=690.0):
-    """Surrogate vs direct BioSNICAR at random off-grid states and an off-node SZA (mid-way between
-    nodes). Direct runs use the SZA by itself (BioSNICAR illumination at the integer SZA)."""
-    import emulator as E
-    from heldout import OPTICS
+def domain_design(ranges, sza_nodes, n_per_sza=24, seed=0, radii=None):
+    """States covering the supported domain: a Latin hypercube over (log B, f_n, ln r, ln dust) plus all
+    corner values of log B and dust, at every SZA node and mid-way between neighbouring nodes."""
+    from scipy.stats import qmc
     rng = np.random.default_rng(seed)
-    z = float(np.round(0.5 * (sur.sza[0] + sur.sza[1]))) if len(sur.sza) > 1 else float(sur.sza[0])
-    cfg = E.EmulatorConfig(sza=int(z), spacecraft="S2A", rho_bottom=rho_bottom, dust_ppb=E.DUST_NODES_PPB,
-                           photosynthetic=True, **OPTICS[optics])
-    lo = sur.ranges
-    st = [dict(log_b=rng.uniform(lo["log_b"][0] + 0.5, lo["log_b"][1] - 0.5),
-               f_n=rng.uniform(0, 1) if lo["f_n"][1] > lo["f_n"][0] else lo["f_n"][0],
-               r_um=float(np.exp(rng.uniform(np.log(800), np.log(12000)))),
-               dust_ppb=float(np.exp(rng.uniform(np.log(5e4), np.log(1e6))))) for _ in range(n)]
-    d = E.direct_forward(cfg, st, phase1_l2=phase1_l2, biosnicar=biosnicar)
+    zs = list(sza_nodes) + [0.5 * (a + b) for a, b in zip(sza_nodes[:-1], sza_nodes[1:])]
+    U = qmc.LatinHypercube(d=4, seed=seed).random(n_per_sza)
+    lo = {k: v[0] for k, v in ranges.items()}
+    hi = {k: v[1] for k, v in ranges.items()}
+    st = []
+    for z in zs:
+        rows = [dict(log_b=lo["log_b"] + u[0] * (hi["log_b"] - lo["log_b"]),
+                     f_n=lo["f_n"] + u[1] * (hi["f_n"] - lo["f_n"]),
+                     r_um=float(np.exp(np.log(lo["r_um"]) + u[2] * (np.log(hi["r_um"]) - np.log(lo["r_um"])))),
+                     dust_ppb=float(np.exp(np.log(lo["dust_ppb"]) + u[3] * (np.log(hi["dust_ppb"]) - np.log(lo["dust_ppb"])))))
+                for u in U]
+        for lb in (lo["log_b"], hi["log_b"]):
+            for d in (lo["dust_ppb"], hi["dust_ppb"]):
+                rows.append(dict(log_b=lb, f_n=float(rng.uniform(lo["f_n"], hi["f_n"])), dust_ppb=d,
+                                 r_um=float(np.exp(rng.uniform(np.log(lo["r_um"]), np.log(hi["r_um"]))))))
+        for r in rows:
+            r["sza"] = float(round(z))
+            if radii is not None:                       # direct BioSNICAR runs use its look-up-table radii
+                r["r_um"] = float(radii[np.argmin(np.abs(np.log(radii) - np.log(r["r_um"])))])
+        st += rows
+    return st
+
+
+def benchmark(emulators, optics, n_per_sza=24, seed=0, phase1_l2=None, biosnicar=None, rho_bottom=690.0):
+    """Surrogate vs direct BioSNICAR (BBA and algal forcing) over domain_design(); returns the record
+    used for qualification."""
+    import emulator as E
     import biosnicar_bridge as bb
+    from heldout import OPTICS
+    sur = Surrogate(emulators, optics, allow_unqualified=True)
     runner = bb.BioSNICARRunner(bb.locate_biosnicar(biosnicar))
-    s = np.array([sur(x["log_b"], z, runner.snap_radius(x["r_um"], cfg.ice_mode), x["f_n"], x["dust_ppb"])["bba"]
-                  for x in st])
-    err = s - d[:, 4]
-    return dict(optics=optics, sza_test=z, sza_nodes=sur.sza.tolist(), n=n, bba_mae=float(np.mean(np.abs(err))),
-                bba_max_abs=float(np.max(np.abs(err))), bba_bias=float(err.mean()))
+    e0 = next(iter(emulators.values()))
+    radii = np.asarray(e0.axes["r_um"], float)
+    states = domain_design(sur.ranges, list(sur.sza), n_per_sza, seed, radii=radii)
+    rows = []
+    for z in sorted({s["sza"] for s in states}):
+        cfg = E.EmulatorConfig(sza=int(z), spacecraft="S2A", rho_bottom=rho_bottom, dust_ppb=E.DUST_NODES_PPB,
+                               photosynthetic=True, **OPTICS[optics])
+        sub = [s for s in states if s["sza"] == z]
+        d = E.direct_forward(cfg, sub, phase1_l2=phase1_l2, biosnicar=biosnicar)
+        for s, dv in zip(sub, d):
+            p = sur(s["log_b"], z, s["r_um"], s["f_n"], s["dust_ppb"])
+            rows.append(dict(**s, at_node=bool(np.any(np.isclose(z, sur.sza))), bba_direct=float(dv[4]),
+                             bba_sur=p["bba"], rf_direct=float(dv[5]), rf_sur=p["rf_algae"]))
+    import pandas as pd
+    t = pd.DataFrame(rows)
+    eb, er = t.bba_sur - t.bba_direct, t.rf_sur - t.rf_direct
+    ok_rf = np.abs(er) <= TOL_RF_ABS + TOL_RF_REL * np.abs(t.rf_direct)
+    rec = dict(optics=optics, sza_nodes=sur.sza.tolist(), n=int(len(t)), emulator_tags=_tags(emulators),
+               tolerances=dict(bba_max_abs=TOL_BBA, rf_abs=TOL_RF_ABS, rf_rel=TOL_RF_REL),
+               bba_max_abs=float(np.abs(eb).max()), bba_mae=float(np.abs(eb).mean()),
+               bba_max_abs_off_node=float(np.abs(eb[~t.at_node]).max()) if (~t.at_node).any() else None,
+               rf_max_abs=float(np.abs(er).max()), rf_mae=float(np.abs(er).mean()),
+               rf_fraction_within_tol=float(ok_rf.mean()),
+               passed=bool(np.abs(eb).max() <= TOL_BBA and ok_rf.all()))
+    return rec, t
 
 
 def main(argv=None):
@@ -125,15 +184,16 @@ def main(argv=None):
     p.add_argument("--phase1-l2", default=os.path.join(HERE, "..", "phase1", "results", "level2"))
     p.add_argument("--biosnicar", default=None)
     p.add_argument("--workers", type=int, default=2)
+    p.add_argument("--n-per-sza", type=int, default=24)
     p.add_argument("--outdir", default=os.path.join(HERE, "results", "surrogate"))
     a = p.parse_args(argv)
     os.makedirs(a.outdir, exist_ok=True)
     ems = build(a.optics, a.sza, a.phase1_l2, a.biosnicar, a.workers, a.outdir)
-    sur = Surrogate(ems, a.optics)
-    bm = benchmark(sur, a.optics, phase1_l2=a.phase1_l2, biosnicar=a.biosnicar)
-    print(json.dumps(bm, indent=1))
+    rec, tab = benchmark(ems, a.optics, a.n_per_sza, phase1_l2=a.phase1_l2, biosnicar=a.biosnicar)
+    print(json.dumps(rec, indent=1))
     import provenance as PV
-    PV.atomic_write_text(os.path.join(a.outdir, f"benchmark_{a.optics}.json"), json.dumps(bm, indent=1))
+    PV.atomic_write_text(os.path.join(a.outdir, f"benchmark_{a.optics}.json"), json.dumps(rec, indent=1))
+    PV.atomic_to_csv(tab, os.path.join(a.outdir, f"benchmark_{a.optics}_points.csv"), index=False)
 
 
 if __name__ == "__main__":
