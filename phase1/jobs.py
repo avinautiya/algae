@@ -31,6 +31,8 @@ import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "common"))
+import resources as RS  # noqa: E402
 import completion  # noqa: E402
 
 R = os.path.join(HERE, "results")
@@ -262,9 +264,27 @@ def runnable(jid, st, tried=()):
     return all(validated(d)[0] for d in JOBS[jid]["deps"])
 
 
+def admit(jid, j):
+    """Reserve the job's declared peak memory, threads and scratch (8 GB at Level 2) in the shared budget."""
+    scratch_gb = 8.0 if j["mem_mb"] >= 5000 else 2.0
+    ok, why, _ = RS.try_reserve(f"job:{jid}", os.getpid(), j["mem_mb"], j["threads"], scratch_gb, outdir(jid)
+                                if os.path.isdir(outdir(jid)) else HERE)
+    return ok, why
+
+
+def register_running(st):
+    """Jobs still running from an earlier runner keep a reservation (declared peak) under their own pid."""
+    for jid, rec in st.items():
+        if rec.get("state") == "running" and pid_alive(rec.get("pid")) and jid in JOBS:
+            with RS._locked() as led:
+                led[f"job:{jid}"] = dict(pid=int(rec["pid"]), mem_mb=float(JOBS[jid]["mem_mb"]),
+                                         threads=int(JOBS[jid]["threads"]), scratch_gb=8.0, started=time.time())
+
+
 def run(max_jobs=2, only=None, poll=30, retry_failed=False):
     st = load_state()
-    own, tried = {}, set()
+    own, tried, waiting_logged = {}, set(), {}
+    register_running(st)
     if retry_failed:
         for rec in st.values():
             if rec.get("state") == "failed":
@@ -290,26 +310,25 @@ def run(max_jobs=2, only=None, poll=30, retry_failed=False):
                 st[jid] = dict(state="complete" if ok else "failed", status=s, reasons=why, rc=rc, t=time.time())
                 save_state(st)
                 continue
-            pids = {q.pid for q in own.values()}
-            used = sum(JOBS[k]["threads"] for k in own) + external_phase1_threads(pids)
-            # memory budget: memory COMMITTED to our jobs (their declared peak) + external PySCF RSS
-            committed = sum(JOBS[k]["mem_mb"] for k in own) + external_phase1_rss_mb(pids)
-            if (used + j["threads"] > cpu or committed + j["mem_mb"] > mem_total_mb() - MEM_RESERVE_MB
-                    or mem_available_mb() < j["mem_mb"] * 0.5):
-                if not own:
-                    print(f"[jobs] {jid}: waiting for CPU/memory ({used} threads in use, "
-                          f"{mem_available_mb():.0f} MB available)", flush=True)
+            # shared, cgroup-aware budget (common/resources.py): the reservation is made atomically for
+            # this runner's pid and moved to the job's pid once it is started
+            ok_b, why_b = admit(jid, j)
+            if not ok_b:
+                if waiting_logged.get(jid) != why_b:
+                    print(f"[jobs] {jid}: waiting for resources ({'; '.join(why_b)})", flush=True)
+                    waiting_logged[jid] = why_b
                 continue
             od = outdir(jid)
             os.makedirs(od, exist_ok=True)
-            env = dict(os.environ, OMP_NUM_THREADS=str(j["threads"]), TMPDIR=clean_scratch(jid),
-                       PYSCF_TMPDIR=scratch_dir(jid))
+            env = RS.thread_env(j["threads"])
+            env.update(TMPDIR=clean_scratch(jid), PYSCF_TMPDIR=scratch_dir(jid))
             logf = open(os.path.join(od, "job.log"), "a")
             logf.write(f"\n=== {time.strftime('%Y-%m-%d %H:%M:%S')} {' '.join(command(jid))}\n")
             logf.flush()
             pr = subprocess.Popen(command(jid), stdout=logf, stderr=subprocess.STDOUT, env=env,
                                   cwd=HERE, start_new_session=True)
             own[jid] = pr
+            RS.update_pid(f"job:{jid}", pr.pid)
             tried.add(jid)
             attempts = st.get(jid, {}).get("attempts", 0) + 1
             st[jid] = dict(state="running", pid=pr.pid, started=time.time(), cmd=command(jid), attempts=attempts)
@@ -317,6 +336,7 @@ def run(max_jobs=2, only=None, poll=30, retry_failed=False):
         done = [k for k, q in own.items() if q.poll() is not None]
         for k in done:
             rc = own.pop(k).returncode
+            RS.release(f"job:{k}")
             ok, s, why = validated(k)
             st[k] = dict(state="complete" if ok else "failed", status=s, reasons=why, rc=rc, ended=time.time(),
                          attempts=st.get(k, {}).get("attempts", 1))

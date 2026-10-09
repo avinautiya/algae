@@ -25,6 +25,10 @@ def reg(tmp_path, monkeypatch):
     monkeypatch.setattr(jobs, "mem_available_mb", lambda: 1e6)
     monkeypatch.setattr(jobs, "mem_total_mb", lambda: 1e6)
     monkeypatch.setattr(jobs, "external_phase1_rss_mb", lambda own: 0)
+    monkeypatch.setattr(jobs, "admit", lambda jid, j: (True, []))       # isolate from the real shared budget
+    monkeypatch.setattr(jobs, "register_running", lambda st: None)
+    monkeypatch.setattr(jobs.RS, "update_pid", lambda name, pid: None)
+    monkeypatch.setattr(jobs.RS, "release", lambda name: None)
     py = sys.executable
 
     def job(code, deps=()):
@@ -70,3 +74,24 @@ def test_scratch_is_per_job_and_cleaned_before_relaunch(tmp_path, monkeypatch):
     monkeypatch.setitem(jobs.JOBS, "Y", dict(args=["--level", "level2", "--skip-opt"], threads=1, mem_mb=1000, deps=[]))
     cmd = jobs.command("Y")
     assert cmd[cmd.index("--td-chunk") + 1] == str(jobs.TD_CHUNK)
+
+
+def test_runner_waits_when_budget_refuses(tmp_path, monkeypatch):
+    import jobs
+    monkeypatch.setattr(jobs, "V2", str(tmp_path))
+    monkeypatch.setattr(jobs, "STATE", str(tmp_path / "state.json"))
+    monkeypatch.setattr(jobs, "JOBS", {"A": dict(cmd=[sys.executable, "-c", "pass"], deps=[], threads=1, mem_mb=100)})
+    monkeypatch.setattr(jobs, "outdir", lambda jid: str(tmp_path / jid))
+    monkeypatch.setattr(jobs, "validated", lambda jid: (False, "missing", ["no marker"]))
+    monkeypatch.setattr(jobs, "register_running", lambda st: None)
+    calls = []
+
+    def refuse(jid, j):
+        calls.append(jid)
+        if len(calls) > 2:                     # stop the loop: pretend the job was tried
+            raise KeyboardInterrupt
+        return False, ["memory: projected over limit"]
+    monkeypatch.setattr(jobs, "admit", refuse)
+    with pytest.raises(KeyboardInterrupt):
+        jobs.run(max_jobs=1, poll=0)
+    assert calls == ["A", "A", "A"] and not os.path.exists(tmp_path / "A" / "job.log")   # never launched
