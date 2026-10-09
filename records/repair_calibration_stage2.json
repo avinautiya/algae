@@ -210,5 +210,52 @@
    "note": "AR(1) between neighbouring wavelengths, rho by maximum likelihood"
   },
   "time_s": 378.28926944732666
+ },
+ "ar1_stride5": {
+  "dE": {
+   "mean": 0.04135650009324959,
+   "sd": 0.008427259224742032,
+   "q025": 0.025408707076010846,
+   "q975": 0.05887086214228332
+  },
+  "w": {
+   "mean": 0.6095120800699975,
+   "sd": 0.009020135535997027,
+   "q025": 0.5923572088568929,
+   "q975": 0.6262874730648317
+  },
+  "f": {
+   "mean": 61.36180217273655,
+   "sd": 40.735063887199054,
+   "q025": 16.724200687110358,
+   "q975": 164.4395513220477
+  },
+  "phi": {
+   "mean": 0.15586059137668407,
+   "sd": 0.05697137279831468,
+   "q025": 0.0654860593926593,
+   "q975": 0.28325531418397043
+  },
+  "ls_mac": {
+   "mean": -0.3342094290032454,
+   "sd": 0.11970211322711082,
+   "q025": -0.4982021233183804,
+   "q975": -0.10810333418411294
+  },
+  "stage2": {
+   "method": "grid quadrature (ln f x phi x ln s)",
+   "stride": 5,
+   "max_edge_mass_ln_f": 2.901762222431496e-14,
+   "mean_mass_phi_boundary_cells": 2.2055846061802136e-11,
+   "max_mass_ls_upper": 1.2695624122704293e-60,
+   "map_optimizer_success": true
+  },
+  "residual_model": {
+   "kind": "ar1",
+   "rho_shape": 0.95,
+   "rho_mac": 0.97,
+   "note": "AR(1) between neighbouring wavelengths, rho by maximum likelihood"
+  },
+  "time_s": 76.0597631931305
  }
 }
