@@ -183,9 +183,10 @@ def main(argv=None):
                          ("TDA15", os.path.join(V2, "L2_B3LYP_TDA15"), "B3LYP"),
                          ("TDA25", os.path.join(V2, "L2_B3LYP_TDA25"), "B3LYP"),
                          ("CAM15", os.path.join(V2, "L2_CAM_TDA15"), "CAM-B3LYP"),
-                         ("RELAX15", os.path.join(V2, "L2_B3LYP_TDA15_RELAXED"), "B3LYP")]:
+                         ("RELAX15", os.path.join(V2, "L2_B3LYP_TDA15_RELAXED"), "B3LYP"),
+                         ("COO15", os.path.join(V2, "L2_COO_OPT_TDA15"), "B3LYP")]:
         try:
-            r = Run(d, func)
+            r = Run(d, func, level="level2_carboxylate" if key == "COO15" else "level2")
         except (OSError, KeyError) as e:
             print(f"{key}: not available ({e.__class__.__name__})")
             continue
@@ -198,7 +199,8 @@ def main(argv=None):
     for name, x, y, kind in [("A: B3LYP full vs TDA", "FULL30", "TDA15", "model"),
                              ("B: B3LYP TDA vs CAM-B3LYP TDA", "TDA15", "CAM15", "model"),
                              ("R: B3LYP TDA 15 vs 25 roots", "TDA15", "TDA25", "numerical"),
-                             ("G: start vs relaxed geometry (B3LYP TDA 15)", "TDA15", "RELAX15", "model")]:
+                             ("G: start vs relaxed geometry (B3LYP TDA 15)", "TDA15", "RELAX15", "model"),
+                             ("P: neutral acid vs carboxylate (B3LYP TDA 15)", "TDA15", "COO15", "model")]:
         if x in runs and y in runs:
             c = compare(runs[x], runs[y], name, kind, n_compare=15)
             res["comparisons"].append(c)

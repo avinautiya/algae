@@ -69,6 +69,13 @@ JOBS = {
     # Fe(III)-purpurogallin (exploratory mechanistic investigation; see docs/repair_ledger.md P1-FE-*)
     "FE_CAT": dict(args=["--level", "level3_catecholate", "--tddft-functionals", "B3LYP", "--tda", "--nstates", "40",
                          "--td-conv-tol", "1e-5"], deps=[], threads=2, mem_mb=6000, allow_provisional=False),
+    # protonation-state sensitivity (carboxylate anion), compared with L2_B3LYP_TDA15 by compare_states.py
+    "L2_COO_OPT_TDA15": dict(args=["--level", "level2_carboxylate", "--start-xyz",
+                                   os.path.join(HERE, "results", "v2", "inputs", "level2_carboxylate_start.xyz"),
+                                   "--opt-functional", "B3LYP", "--maxsteps", "60", "--tddft-functionals", "B3LYP",
+                                   "--tda", "--nstates", "15", "--td-conv-tol", "1e-5"],
+                             deps=[], threads=2, mem_mb=7000, allow_provisional=True,
+                             exploratory="protonation sensitivity; geometry may stop unconverged at 60 steps"),
     "FE_TROP_XTB": dict(args=["--level", "level3_tropolonate", "--xtb-geometry", "--tddft-functionals", "B3LYP",
                               "--tda", "--nstates", "40", "--td-conv-tol", "1e-5"], deps=[], threads=2, mem_mb=6000,
                         allow_provisional=True, exploratory="xTB geometry only"),

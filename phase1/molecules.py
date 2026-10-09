@@ -145,6 +145,18 @@ MOLECULES = {
         xyz=LEVEL2_XYZ,
         n_confs=300,             # flexible glycoside: sample more conformers
     ),
+    # protonation sensitivity: carboxylate (pKa ~3-4, deprotonated at vacuolar pH); geometry from the
+    # neutral Level 2 endpoint with the carboxylic H removed (results/v2/inputs), then re-optimised
+    "level2_carboxylate": dict(
+        name="Purpurogallin carboxylate-6-O-beta-D-glucopyranoside (anion)",
+        smiles=LEVEL2_SMILES.replace("OC(=O)", "[O-]C(=O)", 1),
+        formula="C18H17O12",
+        molar_mass=425.322,      # g/mol (neutral acid minus H)
+        charge=-1,
+        multiplicity=1,
+        xyz=None,
+        n_confs=300,
+    ),
     # Level 3: Fe(III)-purpurogallin model complexes (fe_complex.py); geometry built on demand
     "level3_catecholate": dict(
         name="[Fe(III)(purpurogallin-catecholate)(H2O)4]+",

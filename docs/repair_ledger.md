@@ -569,3 +569,38 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
 - **Targets set here:** posterior mean < 0.01 dex and interval bounds < 0.03 dex. Only 0.05 meets them, so the map default is changed from 0.1 to 0.05. The field validation and the held-out experiment already use 0.05.
 - **Affected outputs:** the legacy maps (0.1 dex) have interval-bound discretisation errors of up to 0.07 dex. They are to be regenerated.
 - **Status:** FIXED_AND_VERIFIED (default). Map regeneration: IMPLEMENTED_AWAITING_PRODUCTION_RUN.
+
+### P1-PROT-1: protonation-state sensitivity (previously unaudited)
+- **Finding:** the Level 2 pigment was computed only as the neutral acid. The carboxylic acid (pKa ≈ 3–4) is probably deprotonated at vacuolar pH. Tautomers, conformers, a larger basis set and explicit solvent are also unaudited.
+- **Action:**
+  - New molecule `level2_carboxylate` (C18H17O12, charge −1). Its start geometry is the neutral L2 endpoint with the carboxylic H removed (`phase1/results/v2/inputs/level2_carboxylate_start.xyz`; atom count and charge checked).
+  - New job `L2_COO_OPT_TDA15`: B3LYP/PCM optimisation (60 steps) followed by TDA, 15 roots, tolerance 1e-5.
+  - Comparison P in `compare_states.py`: neutral vs carboxylate, states matched by overlaps.
+- **Queue note:** the running runner process loaded the job table before this job existed. It is picked up when the runner is next started (`python phase1/jobs.py run`).
+- **Tautomers, conformers, basis set, explicit solvent:** not scheduled. They need several Level 2 optimisations (days of CPU on this container). This is a **DATA_LIMITATION (compute)**, listed as such in the summary.
+- **Status:** IMPLEMENTED_AWAITING_PRODUCTION_RUN.
+
+## 13. Uncertainty propagation
+
+### P3-UNC-1: independent calibration marginals, iid bootstrap of an LHS, structural scenarios
+- **Source:** `phase3/param_space.py::default_parameters`, `phase3/stats_tools.py::describe`, `phase3/run_phase3.py`.
+- **Defects:**
+  - The four calibration parameters (ΔE, FWHM, f, φ) were sampled as independent marginals, which dropped their strong posterior correlation (f–φ).
+  - The CIs of Monte Carlo statistics came from an iid bootstrap of a Latin-hypercube sample, which is not an iid sample.
+  - The calibration's residual model (a structural choice) was not represented.
+- **Repair:**
+  - A single input `cal_draw ~ U(0, 1)` indexes a joint posterior row (ΔE, w, f, φ together). The Sobol inputs stay independent, and the molecular index is that of the joint draw. `--independent-calibration` keeps the old behaviour for sensitivity runs.
+  - The MC design is R = 10 independent LHS replicates by default; CIs of the mean and median use the replicate spread (Student t), labelled `ci_method`.
+  - `--cal-residuals {ar1, iid}` runs the structural scenario as a separate set, not mixed into the probabilistic spread.
+- **Tests:** `phase3/tests/test_phase3.py::test_joint_calibration_draw_keeps_correlations_and_replicate_ci` (passed). It checks the parameter sets, that a draw maps to one joint row (correlation −0.9 preserved), and that the replicate CI covers the truth.
+- **Double counting:** the field-fitted model error τ is applied only to retrievals (Phase 4), not to the Phase 3 forward forcing distribution, so it is not counted twice. Abundance enters Phase 3 as the measured S6 distribution, not as retrieval output.
+- **Status:** FIXED_AND_VERIFIED (code). Phase 3 production re-run: IMPLEMENTED_AWAITING_PRODUCTION_RUN.
+
+### P2-HARM-1: harmonisation of model settings across phases (verified)
+- **Checked:**
+  - Phase 2 (`run_phase2`), Phase 3 (`forward_model`) and Phase 4 (`emulator`) use the same MAC window (350–800 nm), UV rule ("hold"), cell asymmetry mode (Mie), cell refractive indices, water absorption, chlorophyll/carotenoid set, and the BioSNICAR revision fe74eeef.
+  - Phase 3 and Phase 4 use bubbly ice with the same density defaults (450/690 kg m⁻³).
+- **Stated differences:**
+  - Phase 3 uses one population-mean cell, with size and concentration distributions as parameters; Phase 4 uses the two measured species mixed by f_n.
+  - The calibration is fitted on 260–750 nm, while the optics use 350–800 nm: the 750–800 nm part is an extrapolation of the calibrated band model (MAC there is < 1 % of its visible mean).
+- **Status:** FIXED_AND_VERIFIED (consistency check; no defect).
