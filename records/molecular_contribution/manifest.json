@@ -1,0 +1,25 @@
+{
+ "spec_files": {
+  "T-B3": {
+   "states": "6b8d39887e81a0ba803fd804c44deec1d3e5f8436f2e8cac0b9e8152011e7e4e",
+   "spectrum": "e666f23c88f2aa26c57cd69230520b69177cc03934b5f60c4e1b7d5f4d54649e"
+  },
+  "T-CAM": {
+   "states": "d6c5fb7eb53542a2772e1531e2b0c7bf972f7ec867165b8b48b9ef53b0f26222",
+   "spectrum": "b2b2d7cf1c04d34cfcbe717b431a4bc7e071ba7b8e0c97ce65c18aa377d4a861"
+  }
+ },
+ "data": "e5d6b904c2991b5d6ba0dbef84cb2d5db34d98a7174841efb4f7f7de0e805eca",
+ "code": "64252327db3aeef0315998638964524118b27b12e5bf631fb8930c282c1fb521",
+ "calibration_code": "c941d2c29bd56d96c661327ecedf058ce170fd9c3f2f0942183a0ed86c581b45",
+ "environment": {
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.5",
+  "emcee": "3.1.6",
+  "pyscf": "2.14.0",
+  "miepython": "3.3.0",
+  "rasterio": "1.5.2"
+ }
+}
