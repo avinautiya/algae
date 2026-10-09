@@ -175,6 +175,40 @@ def load_forcing(year=None):
     return d.reset_index(drop=True)
 
 
+def load_station_forcing(station, year, months=(5, 6, 7, 8, 9)):
+    """Forcing from the raw PROMICE L3 hourly file (data/promice_raw/<station>_hour.csv, checksums in
+    SHA256SUMS), same conventions as load_forcing: tilt-corrected SW where available."""
+    raw = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "promice_raw", f"{station}_hour.csv")
+    cols = ["time", "dsr", "dsr_cor", "usr", "usr_cor", "albedo", "dlr", "t_u", "qh_u", "wspd_u", "p_u", "z_boom_u",
+            "z_ice_surf", "z_pt_cor", "z_stake_cor", "snow_height", "t_surf"]
+    d = pd.read_csv(raw, usecols=cols, parse_dates=["time"])
+    d = d[(d.time.dt.year == year) & d.time.dt.month.isin(months)].copy()
+    d["sw_down"] = d.dsr_cor.where(d.dsr_cor.notna(), d.dsr)
+    d["sw_source"] = np.where(d.dsr_cor.notna(), "dsr_cor", np.where(d.dsr.notna(), "dsr", "missing"))
+    # L3 leaves SW missing at very low sun (present values at those hours are 0-3 W m-2). Only there, and
+    # only when the sun is < LOW_SUN_ELEV_DEG above the horizon at the hour's midpoint, SW is set to 0 and
+    # tagged; every other missing SW hour stays missing (never filled).
+    elev = 90.0 - solar_zenith_hourly(d.time, *STATION_LATLON[station])
+    low = d.sw_down.isna() & (elev < LOW_SUN_ELEV_DEG)
+    d.loc[low, "sw_down"] = 0.0
+    d.loc[low, "sw_source"] = "low_sun_zero"
+    d["T_a"] = d.t_u + T0
+    d["q_a"] = d.qh_u / 1000.0
+    d["z_meas"] = d.z_boom_u.clip(1.0, 4.0).fillna(2.5)
+    return d.reset_index(drop=True)
+
+
+LOW_SUN_ELEV_DEG = 5.0
+STATION_LATLON = {"KAN_L": (67.095, -49.958), "KAN_M": (67.068, -48.844)}     # median 2016-2023 (L3 lat/lon)
+
+
+def solar_zenith_hourly(times, lat, lon):
+    """SZA (deg) at the midpoint of each hour-start-stamped hour."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from s2_io import solar_zenith_deg
+    return np.array([solar_zenith_deg(lat, lon, t + pd.Timedelta(minutes=30)) for t in pd.to_datetime(times)])
+
+
 REQUIRED = ("sw_down", "dlr", "T_a", "q_a", "wspd_u", "p_u", "z_meas")
 SHORT_GAP_H = 2          # gaps up to this length are interpolated for the non-shortwave forcing only
 
@@ -257,13 +291,14 @@ def observed_ablation(forcing, rho_ice=900.0, record="z_ice_surf"):
     return dz * rho_ice / RHO_W
 
 
-def validate(year, z0=1e-3, rho_ice=900.0, slab_m=0.1, n_sub=1, ablation="z_ice_surf", sw_subsurface_frac=0.0):
+def validate(year, z0=1e-3, rho_ice=900.0, slab_m=0.1, n_sub=1, ablation="z_ice_surf", sw_subsurface_frac=0.0,
+             forcing=None):
     """Modelled melt with the MEASURED albedo vs measured ablation, daily sums over bare-ice days with
     complete forcing, albedo and height (days with snow or any missing hour excluded). PROMICE albedo is
     reported only for high sun: each hour gets that day's mean measured albedo; days without any albedo
     are excluded explicitly (their shortwave is set missing, never filled). `ablation` selects the height
     record (z_ice_surf, or the separate sensors z_pt_cor / z_stake_cor / z_boom_u for cross-checks)."""
-    f = load_forcing(year)
+    f = (load_forcing(year) if forcing is None else forcing).copy()
     day = f.time.dt.floor("D")
     alb_day = f.albedo.groupby(day).transform("mean")
     f.loc[alb_day.isna(), "sw_down"] = np.nan

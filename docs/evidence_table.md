@@ -12,7 +12,7 @@ Legend: ✔ yes · ◐ partial or weak · ✘ no · — not applicable.
 | Forward plot reflectance | ✔ | ✔ | ✘ | ✘ | — | Physics over-predicts broadband HCRF; climatology wins. Diagnosis: `docs/forward_diagnostics.md` |
 | **H1** independent albedo (pigment/cell vs established optics) | ✔ (`phase4/h1_albedo.py`) | ✔ | pending | ✘ | — | Queued under budget; decision rule frozen |
 | **H2** absorbed SW at stations | ✘ | — | ✘ | ✘ | — | Not yet tested: needs KAN_L/KAN_M hourly radiation and station pixels |
-| **H3** observed ablation | ◐ (SEB) | ✔ (closure, convergence, gaps) | ✘ | ✘ | reference SEB only | Prerequisite unmet (SEB over-predicts with measured albedo); **UNTESTED** |
+| **H3** observed ablation | ◐ (SEB) | ✔ (closure, convergence, gaps) | ✘ | ✘ | reference SEB only | Prerequisites met only at KAN_L 2016 and 2022, and 2016 has no S2 L2A, so ≤ 1 block; **UNTESTED** (P5-H3-1) |
 | **H4** vs empirical satellite albedo | ✘ | — | ✘ | ✘ | — | Not yet tested |
 | Reference point SEB (`phase4/seb.py`) | ✔ | ✔ | ◐ (1.5–1.7× over-prediction) | ✘ | is the host | χ = 0.3 is fitted, not validated |
 | Host coupling Modes A/B | ✔ (`model_integration/host_modes.py`) | ✔ (unit tests) | ✘ | — | reference SEB (offline) | No E3SM/MAR integration |

@@ -838,3 +838,19 @@ The previous classification, "improvement supported in direction at both sites",
 - **Tests:** `phase4/tests/test_surrogate.py`: 3 passed.
 - **Re-benchmark.** The benchmark started earlier (old code) cannot qualify by design. A re-benchmark on the cached emulators is queued after it.
 - **Not yet benchmarked:** SZA > 60° (hourly coupling at low sun needs nodes at 70 and 80°). Such requests are refused.
+
+### P5-H3-1: H3 prerequisites at KAN_L and KAN_M, 2016–2023 (`phase4/h3_prerequisites.py`)
+- **Change: `seb.load_station_forcing`.** It reads the checksummed raw PROMICE L3 files.
+  - L3 leaves SW missing at very low sun; the values present at those hours are 0–3 W m⁻².
+  - Rule: missing SW is set to 0 ONLY when the sun elevation at the hour midpoint is < 5°, and tagged `low_sun_zero`. Every other missing SW stays missing.
+  - Test: `phase4/tests/test_seb.py::test_low_sun_rule_fills_only_below_5_degrees` (8 passed).
+  - `seb.validate` accepts any station forcing.
+- **Checks, on common bare-ice days:**
+  - P1: pressure transducer and stake agree within 25 %;
+  - P2: the measured-albedo SEB (χ = 0) total lies between the two sensor totals.
+- **Result.** Prerequisites MET only for KAN_L 2016 (58 days; model/pt 0.93, model/stake 1.10) and KAN_L 2022 (63 days; 0.91 / 1.11). All other station-years fail:
+  - sensor disagreement 1.5–2.3× (KAN_L 2019–2021, 2023; KAN_M 2019);
+  - model outside the sensor range (KAN_M 2016: 1.6–1.9×);
+  - missing records (KAN_M 2017, 2020, 2023), or too few common days.
+- **Consequence.** KAN_L 2016 has no Sentinel-2 L2A acquisitions (amendment A1), so at most ONE station-year (KAN_L 2022) can host an H3 algae comparison. With one block (< 5) no generalisation is possible. **H3 = UNTESTED**, and KAN_M remains unvalidated for ablation.
+- **Output:** `phase4/results/h3_prerequisites/` (gitignored results; table reproduced here).

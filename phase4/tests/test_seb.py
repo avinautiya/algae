@@ -93,3 +93,16 @@ def test_paired_runs_zero_without_difference_and_bounded_by_potential():
     assert r0["modelled_algal_melt_increment_mwe"] == 0.0
     r1 = seb.paired_algae(2019, 0.47, 0.5, forcing=f)
     assert 0 < r1["modelled_algal_melt_increment_mwe"] <= 1.0001 * r1["potential_algal_melt_mwe"]
+
+
+def test_low_sun_rule_fills_only_below_5_degrees(monkeypatch):
+    import seb as S
+    t = pd.date_range("2017-07-01", periods=24, freq="h")
+    raw = pd.DataFrame(dict(time=t, dsr=np.nan, dsr_cor=np.nan, usr=np.nan, usr_cor=np.nan, albedo=np.nan, dlr=270.0,
+                            t_u=0.0, qh_u=4.0, wspd_u=4.0, p_u=870.0, z_boom_u=2.5, z_ice_surf=0.0, z_pt_cor=0.0,
+                            z_stake_cor=0.0, snow_height=0.0, t_surf=0.0))
+    monkeypatch.setattr(pd, "read_csv", lambda *a, **k: raw.copy())
+    f = S.load_station_forcing("KAN_L", 2017)
+    elev = 90 - S.solar_zenith_hourly(f.time, *S.STATION_LATLON["KAN_L"])
+    assert (f.sw_down[elev < 5] == 0).all() and f.sw_down[elev >= 5].isna().all()
+    assert set(f.sw_source[elev >= 5]) == {"missing"}
