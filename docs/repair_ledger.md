@@ -717,3 +717,17 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   The quadrature is converged for the quantities used downstream.
 - **Finding:** the ρ_mac posterior mass sits at 0.998–0.999, the top of the grid. The residual process is effectively a random walk: AR(1) is at its limit and the discrepancy is dominated by a smooth level/shape mismatch. The f and φ posteriors are conditional on this discrepancy model; a smoother discrepancy model (e.g. a Gaussian process with fitted length scale) is not implemented (**UNRESOLVED**, stated as a model-structure limitation).
 - **Status:** FIXED_AND_VERIFIED (sampling, propagation, refinement). Discrepancy-model adequacy: UNRESOLVED.
+
+### P1-ENV-3: second OOM kill and a full disk (incident, 12:18–12:37 UTC)
+- **What happened:**
+  - At about 12:18 UTC the kernel OOM-killed `L2_B3LYP_TDA15` (7.0 GB) and `L2_OPT` (5.5 GB). Two of my analysis processes were running at the same time: the calibration refinement grids, peaking at about 1.5 GB, and the superseded held-out run. The 3 GB runner reserve was not enough with two Level 2 jobs plus that load.
+  - `L2_B3LYP_TDA15` had not reached its first TD checkpoint after 2 h: under CPU contention one 5-iteration chunk took longer than that. All of its work was lost.
+  - At 12:36 UTC `L1_FULL` failed with "No space left on device". PySCF writes about 3.8 GB of density-fitting tensors per Level 2 run to `/tmp`, and the killed runs had left five orphaned files (19 GB).
+- **Repair:**
+  - The orphans (verified not open by any process) were deleted; 19 GB is free again.
+  - Each job now gets its own scratch directory (`TMPDIR`/`PYSCF_TMPDIR` = `<job>/scratch`), which is emptied before every (re)launch.
+  - TD solves checkpoint every 2 Davidson iterations (`TD_CHUNK = 2`).
+  - My analysis processes run under an address-space limit (`prlimit --as` 3.5 GB on the held-out run) at `nice` 15.
+  - The runner was restarted. The running CAM-TDA15 and FE_CAT jobs were not touched; TDA15 and L2_OPT are marked interrupted and requeued, and L1_FULL is retried (attempt 2).
+- **Test:** `phase1/tests/test_jobs.py::test_scratch_is_per_job_and_cleaned_before_relaunch` (3 passed in total).
+- **Status:** FIXED_AND_VERIFIED (cause and policy). The lost production runs: IMPLEMENTED_AWAITING_PRODUCTION_RUN.

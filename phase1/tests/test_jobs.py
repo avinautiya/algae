@@ -56,3 +56,17 @@ def test_interrupted_job_is_relaunched(reg):
     jobs.save_state({"ok": dict(state="running", pid=999999)})
     rc = jobs.run(max_jobs=1, only="ok", poll=0.2)
     assert rc == 0 and json.load(open(reg / "state.json"))["ok"]["state"] == "complete"
+
+
+def test_scratch_is_per_job_and_cleaned_before_relaunch(tmp_path, monkeypatch):
+    import jobs
+    monkeypatch.setattr(jobs, "outdir", lambda jid: str(tmp_path / jid))
+    d = jobs.clean_scratch("X")
+    stale = os.path.join(d, "orphan_cderi.h5")
+    open(stale, "w").write("x" * 100)
+    assert os.path.isfile(stale)
+    d2 = jobs.clean_scratch("X")                       # relaunch: orphaned DF tensors of a killed run go
+    assert d2 == d and os.listdir(d2) == []
+    monkeypatch.setitem(jobs.JOBS, "Y", dict(args=["--level", "level2", "--skip-opt"], threads=1, mem_mb=1000, deps=[]))
+    cmd = jobs.command("Y")
+    assert cmd[cmd.index("--td-chunk") + 1] == str(jobs.TD_CHUNK)

@@ -104,8 +104,31 @@ def command(jid):
                 args[args.index("--start-xyz") + 1] = last
             else:
                 args += ["--start-xyz", last]
+    if "--no-td" not in args and "--td-chunk" not in args:
+        # checkpoint every 2 Davidson iterations: under CPU contention a 5-iteration chunk of a Level 2
+        # solve took > 2 h, so a killed job lost all of it (P1-ENV-3)
+        args += ["--td-chunk", str(TD_CHUNK)]
     return [sys.executable, os.path.join(HERE, "run_phase1.py"), *args, "--outdir", outdir(jid),
             "--max-memory", str(int(j["mem_mb"] * 0.7)), "--verbose", "4"]
+
+
+TD_CHUNK = 2
+
+
+def scratch_dir(jid):
+    """Per-job scratch (TMPDIR) for PySCF's density-fitting tensors (~4 GB at Level 2). Kept inside the job
+    folder so that files of a killed job are found and removed before it is relaunched, instead of piling
+    up in /tmp (orphaned files filled the disk once; P1-ENV-3)."""
+    return os.path.join(outdir(jid), "scratch")
+
+
+def clean_scratch(jid):
+    import shutil
+    d = scratch_dir(jid)
+    if os.path.isdir(d):
+        shutil.rmtree(d, ignore_errors=True)
+    os.makedirs(d, exist_ok=True)
+    return d
 
 
 # --------------------------------------------------------------------------- state
@@ -279,7 +302,8 @@ def run(max_jobs=2, only=None, poll=30, retry_failed=False):
                 continue
             od = outdir(jid)
             os.makedirs(od, exist_ok=True)
-            env = dict(os.environ, OMP_NUM_THREADS=str(j["threads"]))
+            env = dict(os.environ, OMP_NUM_THREADS=str(j["threads"]), TMPDIR=clean_scratch(jid),
+                       PYSCF_TMPDIR=scratch_dir(jid))
             logf = open(os.path.join(od, "job.log"), "a")
             logf.write(f"\n=== {time.strftime('%Y-%m-%d %H:%M:%S')} {' '.join(command(jid))}\n")
             logf.flush()
