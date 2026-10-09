@@ -23,6 +23,24 @@ Source: `phase1/results/level2/`, `records/phase1_production/calibration_level2_
 | Level 1 (purpurogallin core), both functionals | **pending** |
 | Fe(III)–purpurogallin complexes (TD-DFT, spin check) | **pending** |
 
+> **Repair status (2026-10-09; supersedes conflicting statements below).** The repair after commit 814295a
+> and the review of 453e751 (`docs/repair_ledger.md`) withdrew or qualified several results in this file:
+>
+> - **§2 (pooled leave-one-out and Bayes factors) is not a held-out test.** The pre-registered
+>   leave-site-out evaluation (`docs/preregistration_heldout.md`) replaces it; its result is pending.
+>   "Iron complexation is required" is withdrawn: with correlated calibration residuals the Fe fraction
+>   φ falls from 0.49 to 0.11, and f and φ are not separately identified (P2-CAL-1/2).
+> - **§3 satellite site-mean "agreement" is withdrawn.** It was compared with the geometric mean of the
+>   counts. Linear sub-pixel mixing at the measured 0.83 dex spread predicts about +0.5 dex above it
+>   (P4-SAT-2).
+> - **§4 used independent calibration marginals and the independent-residual calibration.** "Molecular
+>   uncertainty no longer matters" is withdrawn: under the correlated-residual calibration the visible
+>   tier-D MAC is uncertain by about ±38 % (P3-UNC-1). Phase 3 must be re-run.
+> - **§5 and §6 "melt" is POTENTIAL melt** (all extra absorbed energy to melt, no energy balance).
+>   Modelled SEB increments are conditional estimates without independent validation (P4-SEB-2).
+> - **§6 daily RF** is corrected to 10.4 W m⁻² (Tier A 13.5) as a mean over six sampled clear-sky dates,
+>   not a season (P4-DAY-1). The χ² statement is withdrawn (that test has no power with 4 bands; P4-INV-3).
+
 ## 2. Molecular-to-field test: which pigment optics explain the field spectra? (central result)
 
 Source: `records/pigment_path_comparison/path_comparison_metrics.csv`. 59 counted samples (41 at S6 2017, 18 in southern Greenland 2021), leave-one-out, measured S6 dust prior, σ / radius prior / τ re-selected per path.
@@ -35,7 +53,7 @@ Source: `records/pigment_path_comparison/path_comparison_metrics.csv`. 59 counte
 | (Tier D without dust) | 233.1 | +0.42 | +0.52 | +0.20 | 0.60 | 0.78 | 0.75 / 0.97 |
 
 - **Tier D vs measured MAC:** Bayes factor e^4.4 ≈ 80 in favour of tier D.
-- **Tier D vs tier C:** e^98 in favour of tier D. Iron complexation is required to explain the field spectra.
+- **Tier D vs tier C:** e^98 in favour of tier D (pooled evidence, independent-residual calibration). [The conclusion "iron complexation is required" is withdrawn; see the banner.]
 - **Caveat (BioSNICAR's empirical measured-cell optics, Tier A).** Tier A fits the field spectra better still (log evidence 391.9, σ = 0.010), but recovers the counted abundance worst: bias +0.56 dex, RMSE 0.71, against +0.16 and 0.49 for tier D.
   - Spectral evidence alone therefore does not rank abundance accuracy. Tier D is the best optics for abundance among those tested.
   - Its residual misfit is consistent with its red tail. Above 620 nm tier D cells stay dark, whereas measured cells become transparent (optics audit, ratio 1.6 at 650–700 nm).
@@ -78,13 +96,13 @@ Source: `records/phase3_full/`. 1000 Latin-hypercube samples; Saltelli design N 
 | Packaging effect | abundance 0.88 | intracellular concentration 0.11 | cell volume 0.03 | – |
 | Fe effect | abundance 0.97 | cell volume 0.02 | surface density 0.01 | – |
 
-**Interpretation.** After calibration to measured spectra, the molecular (TD-DFT) uncertainty no longer matters for the forcing: S_T < 0.001. Abundance controls absolute forcing. The per-cell efficiency is set by cell size, surface density and dust.
+**Interpretation [superseded].** Under the former independent-residual calibration with independent marginals, the molecular S_T was < 0.001. This does not hold under the repaired calibration (banner). Abundance controls absolute forcing. The per-cell efficiency is set by cell size, surface density and dust.
 
 ## 5. Daily forcing and melt vs published estimates
 
 Source: `records/literature_comparison/literature_comparison.csv`. Tier D; MC over the class abundance spread and all Phase 3 PDFs; measured PROMICE KAN_M hourly irradiance on the published day.
 
-| Case | Our daily RF (W m⁻²) | Our melt (cm w.e. d⁻¹) | Published melt |
+| Case | Our daily RF (W m⁻²) | Our POTENTIAL melt (cm w.e. d⁻¹; no SEB) | Published melt |
 |---|---|---|---|
 | Cook 2020, Hbio (2.9 × 10⁴), 21 Jul 2017 | 29 (8–74) | 0.76 (0.22–1.92) | 1.35 ± 0.01 (RF), 1.37 ± 0.48 (EB); RF 116 |
 | Cook 2020, Lbio (4.7 × 10³) | 5.9 (2.1–17) | 0.15 (0.06–0.44) | 1.01 ± 0.01, 0.95 ± 0.41; RF 65 |
@@ -106,7 +124,7 @@ Source: `records/multi_scene_2019_tddft/` (Fig. S7).
 - Optics: tier D with dust; τ = 0.42 dex.
 - Daily mean = overpass RF × (daily mean / overpass-hour SW), using PROMICE KAN_M hourly SW of that day. 2019 has only the uncorrected `dsr`; the ratio is insensitive to a tilt calibration.
 
-| Date | Median log₁₀ B | Median BBA | RF at overpass, ours / Tier A (W m⁻²) | Daily-mean RF, ours | Melt, ours / Tier A (cm w.e. d⁻¹) |
+| Date | Median log₁₀ B | Median BBA | RF at overpass, ours / Tier A (W m⁻²) | Daily-mean RF, ours [legacy formula] | POTENTIAL melt, ours / Tier A (cm w.e. d⁻¹) [legacy] |
 |---|---|---|---|---|---|
 | 8 Jul | 3.53 | 0.52 | 22.6 / 35.8 | 11.9 | 0.31 / 0.45 |
 | 15 Jul | 3.56 | 0.53 | 24.0 / 29.3 | 13.0 | 0.34 / 0.38 |
@@ -114,11 +132,11 @@ Source: `records/multi_scene_2019_tddft/` (Fig. S7).
 | 2 Aug | 3.66 | 0.49 | 27.3 / 43.3 | 11.7 | 0.30 / 0.45 |
 | 12 Aug | 3.62 | 0.54 | 23.7 / 32.0 | 10.7 | 0.28 / 0.35 |
 | 29 Aug | 3.61 | 0.62 | 16.0 / 13.0 | 6.2 | 0.16 / 0.13 |
-| **Season (6 dates)** | | | | **11.2 (6.2–13.6)** | **0.29** (Tier A daily RF 14.6) |
+| **Mean of 6 sampled dates [legacy]** | | | | 11.2 → corrected **10.4** | 0.29 → corrected 0.27 (Tier A daily RF 14.6 → 13.5) |
 
 - **Abundance and albedo.** Abundance rises to an early-August peak (median 4.6 × 10³ cells mL⁻¹). Albedo is lowest on 2 Aug.
 - **Forcing timing.** Forcing peaks in late July. By late August it falls with the lower sun (SZA 58°) and the brighter surface.
-- **Fit.** 0 % of pixels fail the χ² test with either optics. The per-pixel Bayes factors mildly favour Tier A (median ln BF −0.4 to −1.4), so 4-band 20 m pixels cannot discriminate the optics.
+- **Fit [withdrawn as evidence].** 0 % of pixels fail the χ² test with either optics; that test has no power with 4 bands. The per-pixel Bayes factors mildly favour Tier A (median ln BF −0.4 to −1.4), so 4-band 20 m pixels cannot discriminate the optics.
 
 ## 7. Stated limitations (each quantified)
 
