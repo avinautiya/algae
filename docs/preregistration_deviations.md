@@ -32,3 +32,8 @@ Deviations found afterwards are recorded here, and the frozen results are interp
   - The primary fold (test = S Greenland 2021) is unaffected.
 - **Consequence for H1.** H1 predicts albedo directly and does not use k, so H1 predictions are unaffected. But the statement in the H1 protocol that the albedo spectra "were never used in any fit" is wrong: they entered the k prior. See the erratum in `docs/glacier_model_validation_protocol.md`.
 - **Frozen results are not re-scored.** A leakage-free k prior (leave-one-day-out ARF) is a recorded follow-up.
+
+### D3 correction (2026-10-09, later the same day)
+- **Wrong statement.** D3 called the k-prior leakage "model-symmetric ... does not favour any optics variant". That is wrong.
+- **Why.** k multiplies each model's own forward reflectance, and the physics models' brightness biases differ (+0.10 to +0.26 broadband HCRF at S6). The benefit of a test-informed k prior therefore differs by model and need not cancel in a contrast.
+- **Analysis and planned sensitivity:** `docs/data_use_register.md`.
