@@ -1,0 +1,51 @@
+{
+ "settings": {
+  "no_algae": {
+   "radius_median_um": 6999.999999999999,
+   "radius_ln_sd": 0.9,
+   "disc_sd": 0.1,
+   "n_dev": 3
+  },
+  "tierA_empirical": {
+   "radius_median_um": 6999.999999999999,
+   "radius_ln_sd": 0.35,
+   "disc_sd": 0.1,
+   "n_dev": 3
+  },
+  "measured_mac_C": {
+   "radius_median_um": 6999.999999999999,
+   "radius_ln_sd": 0.35,
+   "disc_sd": 0.1,
+   "n_dev": 3
+  },
+  "tddft_D": {
+   "radius_median_um": 6999.999999999999,
+   "radius_ln_sd": 0.35,
+   "disc_sd": 0.1,
+   "n_dev": 3
+  },
+  "tddft_C": {
+   "radius_median_um": 6999.999999999999,
+   "radius_ln_sd": 0.6,
+   "disc_sd": 0.1,
+   "n_dev": 3
+  },
+  "tddft_D_iid": {
+   "radius_median_um": 6999.999999999999,
+   "radius_ln_sd": 0.35,
+   "disc_sd": 0.1,
+   "n_dev": 3
+  }
+ },
+ "manifest_sha256": "76350424b494f351a0a47600483c1bae3a5c3cdc59e16a6c242baaf1b02e66ce",
+ "environment": {
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.5",
+  "emcee": "3.1.6",
+  "pyscf": "2.14.0",
+  "miepython": "3.3.0",
+  "rasterio": "1.5.2"
+ }
+}

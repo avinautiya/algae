@@ -140,3 +140,7 @@ All datasets, versions, checksums, licences, uses and conflicts: `docs/data_mani
   - one cm-scale scrape vs a 10–100 m² radiometer footprint;
   - PFA preservation;
   - Poisson counting error (2 µl).
+- **A2.1 (same day, before any H5 prediction).** Feasibility check without outcomes: late-season hours with SZA up to 70° lie mostly outside the frozen emulator nodes (44–56°).
+  - **Target changed:** Σ usr_cor / Σ dsr_cor over the 3 hours whose midpoints are nearest local solar noon; at least 2 of the 3 hours valid.
+  - **Domain rule:** noon SZA within 1° of a frozen node, as for H2/H4.
+  - Nothing else changes.
