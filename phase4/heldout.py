@@ -327,6 +327,31 @@ def baselines(df, train, test, L):
     return out
 
 
+def cached_baselines(df, train, test, L, fold, stage_dir):
+    """baselines() with a per-fold stage file, so a restart resumes at the fold boundary instead of
+    refitting completed folds. The stage is reused only if its fingerprint (data, likelihood, code) matches."""
+    import hashlib
+    import inspect
+    import pickle
+    import provenance as PV
+    os.makedirs(stage_dir, exist_ok=True)
+    fp = PV.fingerprint(dict(fold=fold, R=df[BANDS].to_numpy(), cells=df.cells.to_numpy(), train=train, test=test,
+                             L=hashlib.sha256(np.ascontiguousarray(L).tobytes()).hexdigest(),
+                             code=hashlib.sha256((inspect.getsource(baselines) + inspect.getsource(fit_gaussian_model)
+                                                  ).encode()).hexdigest()))
+    path = os.path.join(stage_dir, f"baselines_{fold}.pkl")
+    ok, _ = PV.cached_ok(path, fp)
+    if ok:
+        return pickle.load(open(path, "rb"))
+    out = baselines(df, train, test, L)
+    tmp = path + f".tmp{os.getpid()}"
+    with open(tmp, "wb") as fh:
+        pickle.dump(out, fh)
+    os.replace(tmp, path)
+    PV.write_meta(path, fp)
+    return out
+
+
 def forward_baselines(df, train, test):
     """Gaussian log density of the 4-band HCRF: training climatology and training regression on log10 B."""
     from scipy.stats import multivariate_normal as mvn
@@ -448,7 +473,7 @@ def main(argv=None):
                                      logp_hcrf_bands=r["fwd"][jj], bb_hcrf_pred=r["bb"][jj, 0],
                                      bb_hcrf_pred_sd=r["bb"][jj, 1], bb_hcrf_meas=bb_meas[i],
                                      irradiance_share_300_350=bb_share[i]))
-        for k, v in baselines(df, train, test, L).items():
+        for k, v in cached_baselines(df, train, test, L, fold, os.path.join(a.outdir, "stages")).items():
             methods[k] = v["logp"]
             settings[f"{fold}/{k}"] = {kk: vv for kk, vv in v.items() if kk != "logp"}
         for k, v in forward_baselines(df, train, test).items():

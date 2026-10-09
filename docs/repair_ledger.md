@@ -781,3 +781,18 @@ The previous classification, "improvement supported in direction at both sites",
 - **Optics.** The experiment used posterior-mean optics, not joint calibration draws (`docs/preregistration_deviations.md` D1).
 - **Scope.** The experiment tests abundance retrieval and forward reflectance at field-plot scale. It does not test albedo, absorbed shortwave or melt prediction.
 - **Status:** classification corrected to **"formal rule met; evidence of improved abundance prediction is weak (log-score only, not RMSE; not better than an independent prior on the reverse fold; primary uncertainty not estimable)"**.
+
+### P5-RES-1: shared cgroup-aware resource budget and resumable scoring
+- **Problem.** Admission used host `MemTotal` (16 GB) instead of the container's memory cgroup limit (14.35 GB). Analysis processes were not budgeted at all, and that caused the OOM kills P1-ENV-2/3.
+- **Fix.**
+  - `common/resources.py` reads the cgroup v1/v2 limit and unreclaimable usage, and keeps a file-locked reservation ledger (`phase1/results/resources/budget.json`). It admits on memory, threads and disk.
+  - `common/run_budgeted.py` provides budgeted launches with thread-pool caps, an `RLIMIT_AS` backstop and per-run scratch.
+  - The `phase1/jobs.py` runner now admits every job through the same ledger.
+  - `phase4/heldout.py::cached_baselines` stages baseline fits per fold, so scoring resumes at fold boundaries.
+- **Tests:**
+  - `python -m pytest common/tests/test_resources.py`: 7 passed.
+  - `phase1/tests/test_jobs.py`: 4 passed.
+  - `phase4/tests/test_heldout.py::test_baseline_scoring_resumes_from_fold_stage`: passed.
+  - All use fixtures; none pushes the container to its limit.
+- **Recovery guarantees** per phase are in `docs/compute_reliability.md`.
+- **Limitation.** Thread reservations made before the runner restart (on-going jobs registered after the fact) can temporarily exceed the core count. New work is held back until that clears; nothing is killed.

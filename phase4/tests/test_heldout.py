@@ -160,3 +160,22 @@ def test_block_bootstrap_uses_days_and_flags_few_blocks():
     assert r["n_blocks"] == 2 and r["few_blocks"] and r["lo"] <= -0.99 and r["hi"] >= 0.99
     df = pd.DataFrame(dict(sample=["13_7_SB5", "21_7_SB1", "210805-S1"], dataset=["s6_2017", "s6_2017", "sgris_2021"]))
     assert list(HO.sampling_block(df)) == ["13_7", "21_7", "210805"]
+
+
+def test_baseline_scoring_resumes_from_fold_stage(tmp_path, monkeypatch):
+    rng = np.random.default_rng(1)
+    n = 10
+    df = pd.DataFrame(dict(sample=[f"{i}_7_SB{i}" for i in range(n)], cells=10 ** rng.uniform(2, 4, n),
+                           cells_counted=50.0, dataset=["s6_2017"] * 5 + ["sgris_2021"] * 5))
+    for b in HO.BANDS:
+        df[b] = rng.uniform(0.3, 0.7, n)
+    L = HO.observation_loglik(df)
+    train = (df.dataset == "s6_2017").to_numpy()
+    calls = []
+    real = HO.baselines
+    monkeypatch.setattr(HO, "baselines", lambda *a: calls.append(1) or real(*a))
+    r1 = HO.cached_baselines(df, train, ~train, L, "primary", str(tmp_path))
+    r2 = HO.cached_baselines(df, train, ~train, L, "primary", str(tmp_path))      # "restart"
+    assert len(calls) == 1 and np.allclose(r1["ridge"]["logp"], r2["ridge"]["logp"])
+    HO.cached_baselines(df, ~train, train, L, "secondary", str(tmp_path))         # other fold: computed
+    assert len(calls) == 2
