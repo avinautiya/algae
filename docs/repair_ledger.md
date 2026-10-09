@@ -979,3 +979,38 @@ The previous classification, "improvement supported in direction at both sites",
   - rf_algae max |error| 3.35 W m⁻², MAE 0.37; all points within 0.5 W m⁻² + 5 %;
   - `passed: true` under the old binding.
 - **Re-benchmark** under the current binding is queued (budget: waits for memory headroom).
+
+### P7-FWD-1: controlled forward-optics diagnostics complete (`phase4/forward_diagnostics.py`; `records/forward_diagnostics/`)
+- **Setup.** 46 S6 2017 plots with counts, HCRF and hemispherical albedo; 1 excluded (20_7_SB4: HCRF > 5 % missing).
+  - Known abundance; nuisances at the a-priori reference state (r 2846 µm, dust 3.07×10⁵ ppb, f_n 0.60, crust 2 cm at 450 kg m⁻³).
+  - One factor varied at a time; direct BioSNICAR (no emulator).
+- **A. Geometry.** Observed HCRF/albedo is nearly spectrally flat: B2 0.88, B3 0.87, B4 0.87, B8 0.83, broadband 0.85 (prior 0.90 ± 0.18).
+  - It correlates with abundance (r = −0.51): k is state-dependent, which a scalar fixed k cannot represent.
+  - In the HCRF error split, geometry contributes +0.02 and the albedo term +0.08 of the +0.10 broadband bias.
+  - **The visible over-brightness is in the albedo itself, not the observation geometry.**
+- **Albedo bias at the reference state** (broadband / B2 / B8):
+
+  | Optics | Broadband | B2 | B8 |
+  |---|---|---|---|
+  | no algae | +0.143 | +0.32 | −0.02 |
+  | Tier A | +0.101 | +0.24 | −0.02 |
+  | measured MAC | +0.103 | +0.25 | −0.02 |
+  | TD-DFT D | +0.103 | +0.25 | −0.03 |
+  | TD-DFT C | +0.116 | +0.25 | −0.02 |
+
+  - **Pigment-model substitution changes B2 by ≤ 0.01 against a 0.24 deficit.**
+- **One-factor effects** (TD-DFT D, broadband / B2 bias):
+  - crust depth 5 cm (2.5× cells per m² at the measured concentration): 0.037 / 0.10;
+  - crust density 560: 0.073 / 0.21;
+  - dust at the prior 90 %: 0.068 / 0.19;
+  - radius at the prior 90 %: 0.068 / 0.23;
+  - species f_n = 1: 0.095 / 0.23;
+  - 1 mm film: no change;
+  - SZA ± 5°: ≤ 0.006;
+  - mid-latitude spectrum: +0.004;
+  - fully diffuse: +0.09 (worse);
+  - granular ice: +0.25 (worse).
+  - The deficit responds to the **amount of absorber in the column** (cell loading per area, or co-varying impurities), not to pigment spectra, illumination or geometry.
+- **Density (prior ensemble, 40 common draws).** Bias +0.09, RMSE 0.15, mean predictive SD 0.033, z mean about 3, z SD about 3.4, 90 % coverage 0.22–0.24.
+  - The predictive is biased AND too narrow. The H1 empirical-Bayes discrepancy SD (which restored coverage 0.89) absorbs this systematic error.
+- **Status:** diagnosis of the visible deficit continues with the abundance-slope test.

@@ -1,0 +1,79 @@
+{
+ "geometry": {
+  "n": 46,
+  "k_prior_mean": 0.898362860507411,
+  "k_prior_sd": 0.1752970261832424,
+  "k_obs_bb_mean": 0.8481405399184547,
+  "k_obs_bb_sd": 0.19838460858611165,
+  "k_obs_bb_q": [
+   0.5579353146615339,
+   0.8530761137056864,
+   1.1980228950201413
+  ],
+  "k_obs_B2_mean": 0.8801311659539175,
+  "k_obs_B3_mean": 0.8738067519215292,
+  "k_obs_B4_mean": 0.8676648114902509,
+  "k_obs_B8_mean": 0.8317850744193684,
+  "corr_k_vs_logcells": -0.5126684161739886,
+  "alb_obs_bb_mean": 0.35955377779314757,
+  "hcrf_obs_bb_mean": 0.31646491656103,
+  "note": "k_prior is built from ARF_master = HCRF/albedo of S6 2017 plots incl. 29 of these (deviation D3)"
+ },
+ "reference_state": {
+  "r_um": 2846.231583379543,
+  "rho_top": 450.0,
+  "rho_bottom": 690.0,
+  "dz_top": 0.02,
+  "dust_ppb": 306822.87560088286,
+  "f_n": 0.6033333333333334,
+  "film_dz": null,
+  "mode": "bubbly",
+  "sza_offset": 0.0
+ },
+ "n_ensemble": 40,
+ "optics": [
+  "no_algae",
+  "tierA_empirical",
+  "measured_mac_C",
+  "tddft_C",
+  "tddft_D",
+  "tddft_D_iid"
+ ],
+ "focus": [
+  "tierA_empirical",
+  "tddft_D",
+  "measured_mac_C"
+ ],
+ "prior": {
+  "mu_b": 3.5592900047448652,
+  "sd_b": 0.7778005742108555,
+  "f_alpha": 17.370659289995388,
+  "f_beta": 11.420488704472103,
+  "mu_k": 0.898362860507411,
+  "sd_k": 0.1752970261832424,
+  "mu_lnr": 7.953751146871128,
+  "sd_lnr": 0.3482352775090056,
+  "mu_lndust": 12.634025907628109,
+  "sd_lndust": 0.46591868049399787,
+  "scale": 1.0
+ },
+ "environment": {
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.5",
+  "emcee": "3.1.6",
+  "pyscf": "2.14.0",
+  "miepython": "3.3.0",
+  "rasterio": "1.5.2"
+ },
+ "not_tested": [
+  "liquid water films/ponds",
+  "surface roughness",
+  "snow patches",
+  "vertical dust profile",
+  "cloud spectra other than fully diffuse",
+  "packaging/scattering variants of the cell model",
+  "Fe increment separately from tier D"
+ ]
+}
