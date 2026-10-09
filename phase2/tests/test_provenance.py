@@ -88,3 +88,23 @@ def test_emulator_save_is_atomic(tmp_path):
     p = str(tmp_path / "e.npz")
     em.save(p)
     assert os.listdir(tmp_path) == ["e.npz"] and E.Emulator.load(p).meta["tag"] == "t"
+
+
+def test_fit_magnitude_has_no_silent_covariance_fallback(monkeypatch):
+    import pytest
+    import cell_optics as co
+    import tddft_calibration as TC
+    from scipy import optimize
+    s = co.MolecularSpectrum("x", 474.4, 0.3, np.array([2.95, 3.25, 3.72, 4.19]), np.array([0.07, 0.15, 0.2, 0.27]))
+    wl_h, S, sS, wl_m, E, sE, D = TC._data()
+    real = optimize.minimize
+
+    def failing(*a, **k):
+        r = real(*a, **k)
+        r.success = False
+        return r
+    monkeypatch.setattr(optimize, "minimize", failing)
+    with pytest.raises(RuntimeError):
+        TC._fit_magnitude(s, 0.0, 0.5, wl_m, E, sE, D)
+    _, ok = TC._fit_magnitude(s, 0.0, 0.5, wl_m, E, sE, D, return_status=True)
+    assert ok is False

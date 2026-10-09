@@ -536,7 +536,7 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
 - **Tests:**
   - `test_provenance.py::test_calibration_chains_reproducible` (passed) exercises the new stage 2.
   - The full production calibrations below were executed.
-  - A test that `_fit_magnitude` raises when the Hessian is not positive definite is not written yet (UNRESOLVED, minor).
+  - `test_fit_magnitude_has_no_silent_covariance_fallback` (passed): a failed optimizer raises, and its status is reported.
 - **Before/after on the production spectrum** (`records/repair_calibration_stage2.json`; mean ± SD):
 
   | variant | ΔE (eV) | f | φ |
