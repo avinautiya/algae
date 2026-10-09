@@ -303,3 +303,24 @@ def test_film_only_places_algae_not_dust_in_film():
     a1, _, _ = r.run_multi(split, 55, [(dust, 5e5)])
     a2, _, _ = r.run_multi(uni, 55, [(dust, 5e5)])
     assert np.max(np.abs(a1 - a2)) < 1e-12
+
+
+def test_vacuole_joint_absorption_bounded_and_consistent():
+    import pigment_packaging as PP
+    for shape, r, L in (("sphere", 6.0, 0.0), ("cylinder", 5.0, 20.0)):
+        g = PP.CellGeometry(shape, r, L)
+        A = g.projected_area_um2 * 1e-12
+        V = g.volume_um3 * 1e-18
+        a = np.array([1e2, 1e4, 1e5, 1e7])                       # dilute ... opaque (m^-1)
+        # f = 1: joint calculation with all absorption in the "vacuole" equals Q* x a V
+        sv, sc = PP.joint_absorption(g, 1.0, a, 0 * a, n=200_000)
+        assert np.allclose(sv, PP.q_star(a, g) * a * V, rtol=0.01)
+        # dilute limit: no shading, sigma = a_vac V_vac + a_cell V
+        sv, sc = PP.joint_absorption(g, 0.3, np.array([1.0]), np.array([2.0]), n=200_000)
+        assert np.isclose(sv[0], 0.3 * V, rtol=0.02) and np.isclose(sc[0], 2.0 * V, rtol=0.02)
+        # opaque vacuole and opaque cytoplasm: total bounded by the geometric cross-section
+        sv, sc = PP.joint_absorption(g, 0.5, np.full(1, 1e7), np.full(1, 1e7), n=200_000)
+        assert sv[0] + sc[0] <= A * 1.01
+        # the former independent treatment exceeded that bound (regression of the defect)
+        old = PP.q_star(np.full(1, 1e7), g.scaled(0.5)) * 1e7 * 0.5 * V + PP.q_star(np.full(1, 1e7), g) * 1e7 * V
+        assert old[0] > 1.3 * A

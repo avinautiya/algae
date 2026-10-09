@@ -287,8 +287,13 @@ def main(argv=None):
         if a.spatial_pooling > 0 and name == "ours":
             from scipy.ndimage import gaussian_filter
             m1 = to_map(r["log_b_mean"])
-            w = gaussian_filter(np.where(np.isfinite(m1), 1.0, 0.0), a.spatial_pooling)
-            sm = gaussian_filter(np.nan_to_num(m1), a.spatial_pooling) / np.maximum(w, 1e-6)
+            # leave-one-out smoothing: a pixel's prior must not contain its own data (double counting)
+            fin = np.isfinite(m1).astype(float)
+            delta = np.zeros((2 * int(4 * a.spatial_pooling) + 1,) * 2)
+            delta[delta.shape[0] // 2, delta.shape[1] // 2] = 1.0
+            g0 = gaussian_filter(delta, a.spatial_pooling)[delta.shape[0] // 2, delta.shape[1] // 2]
+            w = gaussian_filter(fin, a.spatial_pooling) - g0 * fin
+            sm = (gaussian_filter(np.nan_to_num(m1), a.spatial_pooling) - g0 * np.nan_to_num(m1)) / np.maximum(w, 1e-6)
             from scipy import stats as st
             lb = em.axes["log_b"]
             mu2 = 0.5 * sm.ravel()[valid] + 0.5 * mu_b
@@ -296,8 +301,9 @@ def main(argv=None):
             lp["log_b"] -= np.logaddexp.reduce(lp["log_b"], axis=1, keepdims=True)
             r = INV.GridPosterior(em, sigma).run(Rp[valid], lp, sk, mk=mk)
         res[name] = r
-        bad = np.mean(r["chi2"] > CHI2_99_DF4)
-        print(f"Inversion [{name}]: {time.time() - t1:.0f} s; pixels failing the chi2 test (p<0.01): {100 * bad:.1f} %")
+        bad = np.mean(r["ppp"] < 0.01)
+        print(f"Inversion [{name}]: {time.time() - t1:.0f} s; pixels with posterior predictive p < 0.01: "
+              f"{100 * bad:.1f} % (low-power check: 4 bands, 3-4 states + k)")
         if bad > 0.2:
             print(f"  WARNING: {100 * bad:.0f} % of pixels are not reproduced by the [{name}] forward model. "
                   "Check the Phase 1 spectrum, try --dust or a wider --r-range; inspect the chi2 map.")
@@ -468,6 +474,7 @@ def main(argv=None):
                    model_error_tau_dex={k: float(v) for k, v in tau_model.items()},
                    field_validation=None if field_metrics is None else field_metrics.to_dict(orient="records"),
                    chi2_fail_frac={k: float(np.mean(v["chi2"] > CHI2_99_DF4)) for k, v in res.items()},
+                   ppp_below_001_frac={k: float(np.mean(v["ppp"] < 0.01)) for k, v in res.items()},
                    median_log_bayes_factor=float(np.nanmedian(log_bf)),
                    median_rf_ours=float(np.nanmedian(maps["ours_rf_algae_mean"])),
                    median_rf_tierA=float(np.nanmedian(maps["tierA_rf_algae_mean"])),

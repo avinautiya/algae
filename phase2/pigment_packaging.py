@@ -154,6 +154,64 @@ def chords_cylinder(radius, length, n=200_000, seed=1, max_iter=50):
     return np.concatenate(chords)[:n]
 
 
+def _cyl_chord(p, u, radius, h):
+    """Chord length of lines p + t u through the cylinder x^2 + y^2 <= radius^2, |z| <= h (0 if missed)."""
+    A = u[:, 0] ** 2 + u[:, 1] ** 2
+    B = 2.0 * (p[:, 0] * u[:, 0] + p[:, 1] * u[:, 1])
+    C = p[:, 0] ** 2 + p[:, 1] ** 2 - radius**2
+    disc = B**2 - 4.0 * A * C
+    with np.errstate(divide="ignore", invalid="ignore"):
+        sq = np.sqrt(np.maximum(disc, 0.0))
+        t1c = np.where(A > 1e-14, (-B - sq) / (2.0 * A), -np.inf)
+        t2c = np.where(A > 1e-14, (-B + sq) / (2.0 * A), np.inf)
+        ta = (-h - p[:, 2]) / u[:, 2]
+        tb = (h - p[:, 2]) / u[:, 2]
+    side_hit = np.where(A > 1e-14, disc > 0, C <= 0)
+    par = np.abs(u[:, 2]) < 1e-14
+    t1s = np.where(par, -np.inf, np.minimum(ta, tb))
+    t2s = np.where(par, np.inf, np.maximum(ta, tb))
+    slab_ok = np.where(par, np.abs(p[:, 2]) <= h, True)
+    l = np.minimum(t2c, t2s) - np.maximum(t1c, t1s)
+    return np.where(side_hit & slab_ok & (l > 0), l, 0.0)
+
+
+def joint_absorption(geom: "CellGeometry", vacuole_fraction: float, a_vac, a_cell, n: int = 40_000, seed: int = 7):
+    """Absorption cross-sections [m^2] of a cell with pigment confined to a concentric vacuole (same
+    shape, volume fraction f) plus absorbers spread over the whole cell (water, chloroplast pigments),
+    with MUTUAL shading: along each ray tau = a_cell l + a_vac l_vac, absorbed fraction 1 - exp(-tau),
+    shared between the compartments in proportion to their optical depth on that ray (exact for
+    homogeneous compartments in ray optics). Isotropic mu-random lines through the bounding sphere:
+    sigma = pi R_b^2 E[1 - exp(-tau)] (misses contribute 0).
+
+    a_vac, a_cell: (n_wvl,) absorption coefficients [m^-1]. Returns (sigma_vac, sigma_cell)."""
+    rng = np.random.default_rng(seed)
+    s = vacuole_fraction ** (1.0 / 3.0)
+    if geom.shape == "sphere":
+        Rb = geom.radius
+        b = Rb * np.sqrt(rng.random(n))                      # uniform over the disc
+        l = 2.0 * np.sqrt(np.maximum(Rb**2 - b**2, 0.0))
+        lv = 2.0 * np.sqrt(np.maximum((s * Rb) ** 2 - b**2, 0.0))
+    else:
+        h = 0.5 * geom.length
+        Rb = np.sqrt(geom.radius**2 + h**2)
+        p, u = _random_lines(n, Rb, rng)
+        l = _cyl_chord(p, u, geom.radius, h)
+        lv = _cyl_chord(p, u, s * geom.radius, s * h)
+    l, lv = l * 1e-6, lv * 1e-6
+    av, ac = np.asarray(a_vac, float), np.asarray(a_cell, float)
+    area = np.pi * (Rb * 1e-6) ** 2
+    sv, sc = np.zeros(av.shape), np.zeros(ac.shape)
+    for i0 in range(0, av.size, 32):                           # wavelength blocks (memory)
+        tv = av[i0:i0 + 32, None] * lv[None, :]
+        tc = ac[i0:i0 + 32, None] * l[None, :]
+        tau = tv + tc
+        with np.errstate(invalid="ignore", divide="ignore"):
+            frac = np.where(tau > 0, -np.expm1(-tau) / tau, 1.0)    # (1 - e^-tau)/tau, -> 1 as tau -> 0
+        sv[i0:i0 + 32] = area * np.mean(tv * frac, axis=1)
+        sc[i0:i0 + 32] = area * np.mean(tc * frac, axis=1)
+    return sv, sc
+
+
 @dataclass
 class CellGeometry:
     """Pigment-bearing cell (or vacuole) geometry in micrometres.

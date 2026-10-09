@@ -108,5 +108,11 @@ def prior_logpdfs(emu_axes: dict, n_pixels: int, cfg: PriorConfig):
 
 
 def mcmc_prior_params(cfg: PriorConfig):
-    return dict(mu_b=cfg.mu_b, sd_b=cfg.sd_b * cfg.scale, f_alpha=cfg.f_alpha, f_beta=cfg.f_beta,
-                mu_k=cfg.mu_k, r_prior="lognormal", mu_lnr=cfg.mu_lnr, sd_lnr=cfg.sd_lnr * cfg.scale)
+    """The grid priors (prior_logpdfs) in the form inversion.mcmc_pixel takes, including the f_n
+    widening by `scale` and the dust prior."""
+    sc = cfg.scale
+    conc = (cfg.f_alpha + cfg.f_beta) / sc ** 2
+    m = cfg.f_alpha / (cfg.f_alpha + cfg.f_beta)
+    return dict(mu_b=cfg.mu_b, sd_b=cfg.sd_b * sc, f_alpha=m * conc, f_beta=(1 - m) * conc,
+                mu_k=cfg.mu_k, r_prior="lognormal", mu_lnr=cfg.mu_lnr, sd_lnr=cfg.sd_lnr * sc,
+                mu_lndust=cfg.mu_lndust, sd_lndust=cfg.sd_lndust * sc)

@@ -221,11 +221,17 @@ class CellModel:
             abs_ext_pk = a_ext * V * q
             abs_wat = a_wat * V * q
         else:
-            q = qf(a_pig, g.scaled(self.vacuole_fraction))
-            q_cell = qf(a_ext + a_wat, g)
-            abs_pig_pk = mac480 * m_pig * q
-            abs_ext_pk = a_ext * V * q_cell
-            abs_wat = a_wat * V * q_cell
+            # pigment in a concentric vacuole, water and chloroplast pigments in the whole cell: one joint
+            # ray-chord calculation, so each compartment shades the other (the former independent
+            # self-shading of the two let the summed absorption exceed the cell's geometric cross-section)
+            from pigment_packaging import joint_absorption
+            s_vac, s_cell = joint_absorption(g, self.vacuole_fraction, a_pig, a_ext + a_wat)
+            q = s_vac / np.maximum(mac480 * m_pig, 1e-300)
+            q = np.where(mac480 * m_pig > 0, q, 1.0)
+            frac_ext = np.where(a_ext + a_wat > 0, a_ext / np.maximum(a_ext + a_wat, 1e-300), 0.0)
+            abs_pig_pk = s_vac
+            abs_ext_pk = s_cell * frac_ext
+            abs_wat = s_cell * (1.0 - frac_ext)
 
         abs_packaged = abs_pig_pk + abs_ext_pk + abs_wat
         ext_geo = 2.0 * A

@@ -247,3 +247,95 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - Atmospheric-correction residuals over bright ice (Sen2Cor), adjacency, and BRDF/topographic illumination are not corrected; they are absorbed by the per-band σ and the k nuisance and need the sensitivity analysis under task 6.
   - The emulator rounds SZA to whole degrees (≤ 0.5°).
 - **Status:** FIXED_AND_VERIFIED.
+
+### P2-PACK-1: is in-vivo packaging applied twice? (verified: no)
+- **Source:** `phase2/cell_optics.py::CellModel.optics`, `phase2/empirical_data.py::pigment_macs_480`; the callers are `run_phase2`, `audit_optics` and `phase3/forward_model`.
+- **Finding:**
+  - The pigment spectra used are the *in vivo-form, unpackaged* specific absorption spectra (Williamson et al. 2020, after Dauchet et al. 2015, whose model applies cell packaging on top of them). The phenolic MAC is from solution extracts.
+  - The packaging factor Q* is applied in exactly one place (`CellModel.optics`) per call. Tier A (Chevrollier 2023) uses measured cell optics with no further packaging.
+  - No code path applies Q* to an already packaged spectrum.
+- **Status:** FIXED_AND_VERIFIED (no defect).
+
+### P2-VAC-1: `vacuole_fraction < 1`: compartments shaded independently
+- **Source:** `phase2/cell_optics.py::CellModel.optics`.
+- **Defect:** the vacuole pigment and the whole-cell absorbers (water, chloroplast pigments) each got their own self-shading factor, as if the other compartment were absent. The summed absorption could exceed the geometric cross-section: up to 1.27 × S/4 in the visible for f = 0.5.
+- **Repair:** `pigment_packaging.joint_absorption` uses μ-random rays through the cell and a concentric vacuole of the same shape. Along each ray, τ = a_cell·l + a_vac·l_vac; the absorbed fraction 1 − e^−τ is shared in proportion to each compartment's optical depth. This is exact in ray optics for homogeneous compartments.
+- **Test:** `test_vacuole_joint_absorption_bounded_and_consistent` (passed). It covers the f = 1 limit (equal to Q*·aV within 1 %), the dilute limit, the opaque bound ≤ S/4, and that the old treatment exceeds that bound.
+- **Before/after** (cylinder 10 × 20 µm, calibrated tier C phenolics + chlorophylls/carotenoids; `records/repair_vacuole_joint_absorption.json`), mean 400–700 nm absorption:
+
+  | vacuole fraction | change |
+  |---|---|
+  | f = 1 | unchanged (production setting) |
+  | f = 0.5 | −29 % |
+  | f = 0.25 | −23 % |
+
+- **Affected outputs:** none in production (vacuole_fraction = 1 everywhere). Only `run_phase2 --vacuole-fraction` sensitivity runs.
+- **Remaining limitation:** a concentric, same-shape vacuole is assumed; refraction at compartment boundaries is ignored.
+- **Status:** FIXED_AND_VERIFIED.
+
+## 9. Inference
+
+### P4-INV-1: float32 likelihood
+- **Source:** `phase4/inversion.py::GridPosterior`.
+- **Finding:**
+  - The quadratic form rr − 2G + a was evaluated in float32. Each term is about 10⁴ for bright ice at σ ≈ 0.01, so the O(1) result loses about 3 digits.
+  - Measured on a production emulator (21×11×28×6, refined to 0.1 dex; 400 synthetic pixels, σ = 0.01–0.015; `records/repair_inversion_float64.json`), float32 vs float64:
+
+    | quantity | max change |
+    |---|---|
+    | posterior mean log B | 4.5e-5 dex |
+    | SD | 1.9e-4 |
+    | q025/q975 | ≤ 1.1e-4 |
+    | radius mean | 0.14 µm |
+    | RF_algae | 0.003 W m⁻² |
+    | log evidence | 1.2e-3 |
+
+  - So the approximation was harmless at this σ, but not guaranteed for smaller σ.
+- **Repair:** float64 throughout (runtime 8.9 → 12.6 s for 400 pixels).
+- **Test:** `test_loglik_equals_multivariate_normal_and_is_float64_accurate`. It checks against scipy's multivariate normal with Σ = diag σ² + s_k² F Fᵀ and mean m_k F to 1e-8 (passed). This also verifies the k-covariance algebra.
+- **Status:** FIXED_AND_VERIFIED.
+
+### P4-INV-2: undefined derived quantities averaged as zero
+- **Source:** `GridPosterior.run` (derived: pigment, bba, rf).
+- **Defect:** NaN nodes were replaced by 0 and still carried posterior weight, which biased the means towards 0.
+- **Repair:** renormalise over finite nodes, report `<q>_nonfinite_mass`, and return NaN if that mass exceeds 1e-3.
+- **Test:** `test_derived_quantities_not_zero_filled` (passed).
+- **Affected outputs:** maps of derived quantities wherever the emulator had NaN nodes. The production emulators checked have finite derived arrays (the float32/float64 comparison shows max bba change 6e-6).
+- **Status:** FIXED_AND_VERIFIED.
+
+### P4-INV-3: χ² at the MAP as a goodness-of-fit test
+- **Source:** `GridPosterior.run` (`chi2`), `run_phase4.py`, `satellite_validation.py` ("0 % of pixels fail the χ² test").
+- **Defect:**
+  - χ² was evaluated at the MAP with k at its conditional mode and compared with χ²(4).
+  - With 4 bands and 3–4 fitted states plus k, the residual has ≤ 0 degrees of freedom, so the test has almost no power.
+  - "0 % fail" is therefore not evidence that the model fits.
+- **Repair:**
+  - New outputs: `mahal_map` (the k-marginal Mahalanobis distance) and `ppp`, a posterior predictive p-value Σ_z w(z) P(χ²₄ ≥ D(z)). The ppp is conservative and its low power is stated where it is printed.
+  - `chi2` is kept for comparison.
+  - The MASTER_SUMMARY statement is to be corrected in the final summary rewrite (task 7).
+- **Test:** `ppp` is checked to lie in [0, 1] in `test_derived_quantities_not_zero_filled`. The power limitation is documented, not testable.
+- **Status:** FIXED_AND_VERIFIED (code); the summary text is pending (UNRESOLVED until task 7).
+
+### P4-INV-4: MCMC cross-check priors and convergence diagnostic
+- **Source:** `inversion.mcmc_pixel`, `priors.mcmc_prior_params`.
+- **Defects:**
+  1. With the dust axis active, the MCMC had no dust prior: it was uniform in log10(dust + 100), the interpolation coordinate. The grid uses the measured log-normal.
+  2. With prior `scale` ≠ 1, the MCMC f_n prior was not widened as it is on the grid.
+  3. Split R-hat was computed across walkers of ONE ensemble. Walkers are coupled by the moves, so this is not a test of independent chains.
+  4. Walkers were started from grid-posterior draws, so the "cross-check" was not independent of the grid.
+- **Repair:**
+  - ln dust is sampled with the grid's log-normal prior, and ln r likewise; both are mapped to the emulator coordinates explicitly.
+  - `mcmc_prior_params` reproduces the grid priors, including the scale and dust prior.
+  - `n_ensembles` (default 4) independent ensembles, each started from prior draws.
+  - `rhat` is now across ensembles; `rhat_walkers` is kept for reference.
+- **Tests (passed):**
+  - `test_mcmc_prior_params_match_grid_priors`: moments agree at scale 1 and 1.5.
+  - `test_mcmc_uses_dust_prior_and_independent_ensembles`: with uninformative data, the ln-dust posterior equals the truncated prior, and R-hat < 1.05 across 3 ensembles.
+  - `test_split_rhat_detects_disagreeing_chains`.
+- **Status:** FIXED_AND_VERIFIED. The slow end-to-end test `test_grid_vs_mcmc_and_calibration` (BioSNICAR emulator, now with 4 prior-started ensembles) was running at the time of writing; its result is recorded below when complete.
+
+### P4-INV-5: spatial pooling reused a pixel's own data in its prior
+- **Source:** `run_phase4.py` (`--spatial-pooling`, off by default and off in every recorded run).
+- **Defect:** the smoothed first-pass map that sets each pixel's prior included that pixel (double counting).
+- **Repair:** leave-one-out Gaussian smoothing (the kernel centre weight is removed).
+- **Test:** none automated (an option not used in any output). Status: IMPLEMENTED_AWAITING_PRODUCTION_RUN (no production run uses it).

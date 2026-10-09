@@ -45,14 +45,104 @@ def test_k_marginalisation():
     ks = np.linspace(-1.0, 3.0, 800001)
     dk = ks[1] - ks[0]
     for sk, mk in ((0.1, 1.0), (0.175, 0.898)):          # unit-mean and the empirical HCRF/albedo prior
-        gp.half_logden = (0.5 * np.log(1.0 + sk ** 2 * gp.a)).astype(np.float32)
-        ll, _, _ = gp._loglik((R / sig)[None, :].astype(np.float32), np.float32(sk), mk=np.float32(mk))
+        gp.half_logden = 0.5 * np.log(1.0 + sk ** 2 * gp.a)
+        ll, _, _ = gp._loglik((R / sig)[None, :], sk, mk=mk)
         for n in range(5):
             logf = (-0.5 * np.sum(((R[None, :] - ks[:, None] * F[n]) / sig) ** 2, axis=1)
                     - 0.5 * 4 * np.log(2 * np.pi) - np.log(sig).sum() + stats.norm.logpdf(ks, mk, sk))
             num = logsumexp(logf) + np.log(dk)
             assert abs((ll[0, n] + gp.norm_const) - num) < 1e-2 * max(1.0, abs(num) * 1e-3), \
                 (sk, mk, n, ll[0, n] + gp.norm_const, num)
+
+
+def test_loglik_equals_multivariate_normal_and_is_float64_accurate():
+    """Sigma = diag(sigma^2) + s_k^2 F F^T with mean m_k F, checked against scipy at bright-ice
+    reflectance with small sigma (where float32 cancellation in rr - 2G + a was ~1e-3-1e-2)."""
+    rng = np.random.default_rng(1)
+    F = rng.uniform(0.55, 0.75, size=(50, 4))
+    sig = np.array([0.004, 0.004, 0.005, 0.006])
+    R = 0.9 * F[7] + rng.normal(0, sig)
+    gp = INV.GridPosterior(_FakeEm(F), sig, derived=())
+    sk, mk = 0.175, 0.9
+    gp.half_logden = 0.5 * np.log(1.0 + sk ** 2 * gp.a)
+    ll, _, _ = gp._loglik((R / sig)[None, :], sk, mk)
+    ref = np.array([stats.multivariate_normal(mk * f, np.diag(sig ** 2) + sk ** 2 * np.outer(f, f)).logpdf(R)
+                    for f in F])
+    assert np.max(np.abs(ll[0] + gp.norm_const - ref)) < 1e-8
+
+
+def test_derived_quantities_not_zero_filled():
+    """A derived quantity undefined (NaN) on part of the grid must not be averaged as 0."""
+    F = np.tile(np.array([0.6, 0.58, 0.55, 0.45]), (4, 1)) * np.array([1.0, 0.99, 0.98, 0.97])[:, None]
+    em = _FakeEm(F)
+    em.data["bba"] = np.array([0.5, 0.5, np.nan, np.nan])[None, None, :]
+    sig = np.full(4, 0.05)
+    lp = {"log_b": np.zeros((1, 1)), "f_n": np.zeros((1, 1)), "r_um": np.full((1, 4), -np.log(4))}
+    res = INV.GridPosterior(em, sig, derived=("bba",)).run(F[0][None, :], lp, 0.1)
+    assert np.isnan(res["bba_mean"][0]) and res["bba_nonfinite_mass"][0] > 0.3      # was 0.5 x (1 - mass)
+    em.data["bba"] = np.array([0.5, 0.5, 0.5, np.nan])[None, None, :]
+    lp["r_um"] = np.log(np.array([[0.5, 0.5, 1e-12, 1e-12]]))
+    res = INV.GridPosterior(em, sig, derived=("bba",)).run(F[0][None, :], lp, 0.1)
+    assert abs(res["bba_mean"][0] - 0.5) < 1e-9 and 0 <= res["ppp"][0] <= 1
+
+
+def test_mcmc_prior_params_match_grid_priors():
+    from priors import PriorConfig, mcmc_prior_params, prior_logpdfs
+    for sc in (1.0, 1.5):
+        pc = PriorConfig(scale=sc)
+        pp = mcmc_prior_params(pc)
+        f = np.linspace(0.0005, 0.9995, 2000)
+        lp, _, _, _ = prior_logpdfs({"log_b": np.array([3.0]), "f_n": f, "r_um": np.array([3000.0]),
+                                     "dust_ppb": np.geomspace(1e3, 1e7, 400)}, 1, pc)
+        wf = np.exp(lp["f_n"][0])
+        assert abs(wf @ f - pp["f_alpha"] / (pp["f_alpha"] + pp["f_beta"])) < 2e-3
+        assert abs(np.sqrt(wf @ f ** 2 - (wf @ f) ** 2) - stats.beta(pp["f_alpha"], pp["f_beta"]).std()) < 2e-3
+        ld = np.log(np.geomspace(1e3, 1e7, 400))
+        wd = np.exp(lp["dust_ppb"][0])
+        assert abs(wd @ ld - pp["mu_lndust"]) < 0.05 and abs(np.sqrt(wd @ ld ** 2 - (wd @ ld) ** 2) - pp["sd_lndust"]) < 0.05
+
+
+class _LinEm:
+    """Continuous fake emulator with a dust axis: reflectance falls linearly with log B and log dust."""
+    def __init__(self):
+        self.axes = {"log_b": np.linspace(1, 6, 11), "f_n": np.linspace(0, 1, 5), "r_um": np.geomspace(500, 20000, 6),
+                     "dust_ppb": np.geomspace(3e4, 1.2e6, 6)}
+        self.names = list(self.axes)
+        self.active = self.names
+        g = np.meshgrid(*[self.coord(n) for n in self.names], indexing="ij")
+        base = 0.8 - 0.05 * g[0] - 0.01 * g[1] - 0.02 * np.log(g[2] / 1000) - 0.03 * (g[3] - 4.5)
+        self.data = {"bands": np.stack([base * c for c in (1.0, 0.98, 0.95, 0.8)], axis=-1)}
+
+    def coord(self, n):
+        v = self.axes[n]
+        return np.log10(v + 100.0) if n == "dust_ppb" else v
+
+    def interpolator(self, key="bands"):
+        from scipy.interpolate import RegularGridInterpolator
+        return RegularGridInterpolator(tuple(self.coord(n) for n in self.active), self.data[key],
+                                       bounds_error=False, fill_value=None)
+
+
+def test_mcmc_uses_dust_prior_and_independent_ensembles():
+    from priors import PriorConfig, mcmc_prior_params
+    em = _LinEm()
+    pp = mcmc_prior_params(PriorConfig())
+    R = np.array([0.5, 0.49, 0.47, 0.4])
+    m = INV.mcmc_pixel(em, R, np.full(4, 10.0), pp, 0.175, n_walkers=24, n_steps=3000, burn=1000, n_ensembles=3)
+    j = m["names"].index("dust_ppb")
+    ld = np.log(m["samples"][:, j])
+    lo, hi = np.log(em.axes["dust_ppb"][[0, -1]])
+    tn = stats.truncnorm((lo - pp["mu_lndust"]) / pp["sd_lndust"], (hi - pp["mu_lndust"]) / pp["sd_lndust"],
+                         pp["mu_lndust"], pp["sd_lndust"])
+    assert abs(ld.mean() - tn.mean()) < 0.1 and abs(ld.std() - tn.std()) < 0.1     # uninformative data -> prior
+    assert m["n_ensembles"] == 3 and np.all(m["rhat"] < 1.05) and "rhat_walkers" in m
+
+
+def test_split_rhat_detects_disagreeing_chains():
+    rng = np.random.default_rng(0)
+    same = rng.normal(size=(1000, 4, 1))
+    apart = same + np.array([0.0, 0.0, 3.0, 3.0])[None, :, None]
+    assert INV._split_rhat(same)[0] < 1.01 and INV._split_rhat(apart)[0] > 1.5
 
 
 def _root():
