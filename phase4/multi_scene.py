@@ -50,7 +50,10 @@ def sw_ratio(date, hour_utc):
     if len(d) < 20:
         return np.nan, np.nan
     full = pd.date_range(pd.Timestamp(date), periods=24, freq="h")
-    sw = d.dsr_cor.reindex(full).interpolate(limit_direction="both").clip(lower=0).to_numpy()
+    # tilt-corrected SW where available; 2019 has only the uncorrected 'dsr' (the ratio below is
+    # insensitive to a tilt calibration that scales the whole day)
+    col = d.dsr_cor if d.dsr_cor.notna().sum() >= 20 else d.dsr
+    sw = col.reindex(full).interpolate(limit_direction="both").clip(lower=0).to_numpy()
     return float(sw.mean() / sw[int(hour_utc)]), float(sw.mean())
 
 

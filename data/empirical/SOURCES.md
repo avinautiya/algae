@@ -22,7 +22,7 @@ Every model input is read at run time from a file in this folder, or computed fr
 | `biosnicar_field_ARF.csv` | Anisotropic reflectance factor (HCRF/albedo) spectra, 51 field sites | biosnicar-py `data/additional_data/ARF_master.csv` | MIT |
 | `esa_s2_srf_TN-15-0007_v4.0.csv` | Official Sentinel-2A/B/C spectral response functions, 1 nm | ESA COPE-GSEG-EOPG-TN-15-0007 v4.0 (SentiWiki) | Copernicus open licence |
 | `promice_KAN_{L,M,U}_day_2019.csv` | Daily air temperature and altitude, 2019 | PROMICE, GEUS Dataverse doi:10.22008/FK2/IW73UU | CC BY 4.0 |
-| `promice_KAN_M_hour_JJA_radiation.csv` | Hourly downwelling shortwave (`dsr`, `dsr_cor`), cloud cover `cc`, air temperature, June–August of all years (24 736 h) | Same dataverse, `KAN_M_hour.csv` (columns and months subset) | CC BY 4.0 |
+| `promice_KAN_M_hour_JJA_radiation.csv` | Hourly downwelling shortwave (`dsr`, `dsr_cor`), cloud cover `cc`, air temperature, June–August of all years. 2019 has only the uncorrected `dsr` (no tilt-corrected values in the source) | Same dataverse, `KAN_M_hour.csv` (columns and months subset) | CC BY 4.0 |
 
 ## The former gaps, and what replaced them
 

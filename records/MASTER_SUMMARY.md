@@ -36,6 +36,9 @@ Source: `records/pigment_path_comparison/path_comparison_metrics.csv`. 59 counte
 
 - **Tier D vs measured MAC:** Bayes factor e^4.4 ≈ 80 in favour of tier D.
 - **Tier D vs tier C:** e^98 in favour of tier D. Iron complexation is required to explain the field spectra.
+- **Caveat (BioSNICAR's empirical measured-cell optics, Tier A).** Tier A fits the field spectra better still (log evidence 391.9, σ = 0.010), but recovers the counted abundance worst: bias +0.56 dex, RMSE 0.71, against +0.16 and 0.49 for tier D.
+  - Spectral evidence alone therefore does not rank abundance accuracy. Tier D is the best optics for abundance among those tested.
+  - Its residual misfit is consistent with its red tail. Above 620 nm tier D cells stay dark, whereas measured cells become transparent (optics audit, ratio 1.6 at 650–700 nm).
 
 ## 3. Field validation, calibration and site effects (Phase 4)
 
@@ -98,7 +101,24 @@ Source: `records/literature_comparison/literature_comparison.csv`. Tier D; MC ov
 
 ## 6. Seasonal map series (2019, six clear scenes)
 
-**Pending** (`phase4/multi_scene.py`; rerun after imagery-bucket fix).
+Source: `records/multi_scene_2019_tddft/` (Fig. S7).
+- Area: 6 × 6 km around S6, 20 m pixels, about 90 000 bare-ice pixels per date.
+- Optics: tier D with dust; τ = 0.42 dex.
+- Daily mean = overpass RF × (daily mean / overpass-hour SW), using PROMICE KAN_M hourly SW of that day. 2019 has only the uncorrected `dsr`; the ratio is insensitive to a tilt calibration.
+
+| Date | Median log₁₀ B | Median BBA | RF at overpass, ours / Tier A (W m⁻²) | Daily-mean RF, ours | Melt, ours / Tier A (cm w.e. d⁻¹) |
+|---|---|---|---|---|---|
+| 8 Jul | 3.53 | 0.52 | 22.6 / 35.8 | 11.9 | 0.31 / 0.45 |
+| 15 Jul | 3.56 | 0.53 | 24.0 / 29.3 | 13.0 | 0.34 / 0.38 |
+| 23 Jul | 3.61 | 0.51 | 26.1 / 41.1 | 13.6 | 0.35 / 0.51 |
+| 2 Aug | 3.66 | 0.49 | 27.3 / 43.3 | 11.7 | 0.30 / 0.45 |
+| 12 Aug | 3.62 | 0.54 | 23.7 / 32.0 | 10.7 | 0.28 / 0.35 |
+| 29 Aug | 3.61 | 0.62 | 16.0 / 13.0 | 6.2 | 0.16 / 0.13 |
+| **Season (6 dates)** | | | | **11.2 (6.2–13.6)** | **0.29** (Tier A daily RF 14.6) |
+
+- **Abundance and albedo.** Abundance rises to an early-August peak (median 4.6 × 10³ cells mL⁻¹). Albedo is lowest on 2 Aug.
+- **Forcing timing.** Forcing peaks in late July. By late August it falls with the lower sun (SZA 58°) and the brighter surface.
+- **Fit.** 0 % of pixels fail the χ² test with either optics. The per-pixel Bayes factors mildly favour Tier A (median ln BF −0.4 to −1.4), so 4-band 20 m pixels cannot discriminate the optics.
 
 ## 7. Stated limitations (each quantified)
 
@@ -112,4 +132,4 @@ Source: `records/literature_comparison/literature_comparison.csv`. Tier D; MC ov
 ## Status of runs (as of this file's last commit)
 
 - Phase 1: CAM-B3LYP Level 2 TD-DFT running. Queue afterwards: Level 1 (B3LYP + CAM-B3LYP), Fe(III) catecholate, Fe(III) tropolonate + spin checks.
-- Downstream: satellite check (tier D) and 2019 seasonal series queued (`scripts/production_downstream.sh`).
+- Downstream: complete (satellite check tier D, 2019 seasonal series, Phase 3 full, literature comparison, optics audit).
