@@ -1,0 +1,1124 @@
+[
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.25678343077043575,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.2706165946819971,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.24889284452270133,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "band_ratio",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.34784825365565986,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "band_ratio",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.6046316844260956,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "band_ratio",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.6184648483376569,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "band_ratio",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.5967410981783612,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "climatology",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.2176257990269862,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "climatology",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.47440922979742195,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "climatology",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.4882423937089833,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "climatology",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.46651864354968753,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "literature_prior",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.2544677117305222,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "literature_prior",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.5112511425009579,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "literature_prior",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.5250843064125192,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "literature_prior",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.5033605562532235,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "measured_mac_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.2797529923335069,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "measured_mac_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.022969561563071172,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "measured_mac_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.009136397651509809,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "measured_mac_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.030860147810805594,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "ridge",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.20878291168643137,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "ridge",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.04800051908400438,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "ridge",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.06183368299556574,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "ridge",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.04010993283626996,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "tddft_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.13481231226964818,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "tddft_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.39159574304008393,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "tddft_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.4054289069516453,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "tddft_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.3837051567923495,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "tddft_D",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.26035488723181854,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "tddft_D",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.0035714564613827937,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "tddft_D",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.01026170745017857,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "tddft_D",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.011462042709117215,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "tddft_D_iid",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.27587823611470613,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "tddft_D_iid",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.019094805344270382,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "tddft_D_iid",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.005261641432709019,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "tddft_D_iid",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.026985391592004804,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "tierA_empirical",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.3138664707605359,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "tierA_empirical",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.05708303999010017,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "tierA_empirical",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.04324987607853881,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "tierA_empirical",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.06497362623783459,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "forward",
+    "model": "ridge",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.05387078329103752,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "forward",
+    "model": "random_forest",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.06262070344133831,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "primary",
+    "task": "forward",
+    "model": "gaussian_process",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.05711604136566564,
+    "n_samples": 18,
+    "n_days": 2,
+    "ci95": null,
+    "interpretation": "insufficient days"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.3068449971329501,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.18910311907963767,
+      0.3977286758831663
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.23869641634506844,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.1531756383700988,
+      0.3155168499957457
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.07948104315102134,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.015107241861130272,
+      0.16873708292197365
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "band_ratio",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.0038214849963332798,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.03738141954468022,
+      0.06630362302814821
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "band_ratio",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.3030235121366168,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.2068045620527292,
+      0.3821608880431699
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "band_ratio",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.23487493134873516,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.147103159327705,
+      0.3199232142958742
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "band_ratio",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.07565955815468806,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.013650872943524716,
+      0.2000971174326493
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "climatology",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.0005561198841131931,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.0004919548152078956,
+      0.0006498407096904857
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "climatology",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.3074011170170633,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.18970727100251103,
+      0.39834600130802916
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "climatology",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.23925253622918163,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.1537559784619808,
+      0.31616252642086423
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "climatology",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.08003716303513453,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.015647073718115904,
+      0.16939896931887702
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "literature_prior",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.18061613204091564,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.36303719130375206,
+      0.020271946043590398
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "literature_prior",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.12622886509203446,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.01701492768037071,
+      0.23618391059312374
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "literature_prior",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.058080284304152796,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.08310971902179873,
+      0.21034741619647157
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "literature_prior",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.10113508888989431,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.27418563359578385,
+      0.1302627925038623
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "measured_mac_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.34325319689213407,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.4993277781047229,
+      -0.1479170173885991
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "measured_mac_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.03640819975918397,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.1308103924663274,
+      0.0628469293236682
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "measured_mac_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.10455678054706563,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.2025669367646144,
+      0.04577469567998904
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "measured_mac_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.26377215374111274,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.4100570490041115,
+      -0.03311138943887275
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "ridge",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.2929960274023703,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.3753597589769957,
+      -0.1815117206268049
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "ridge",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.013848969730579808,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.002903690096167026,
+      0.02611425570425968
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "ridge",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.054299611057301855,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.08987261935693724,
+      0.0071846503726315505
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "ridge",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.21351498425134896,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.304577433901112,
+      -0.07570260410571385
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "tddft_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.3167735124394385,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.48611805561487687,
+      -0.06690538531739475
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "tddft_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.009928515306488417,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.1490502211672829,
+      0.15263073935299679
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "tddft_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.07807709609437008,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.22730919223024393,
+      0.1435455102529523
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "tddft_C",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.23729246928841718,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.4348447578490853,
+      0.05368129139951194
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "tddft_D",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.2299664121295193,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.40111765751096956,
+      -0.040985038586752225
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "tddft_D",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.07687858500343081,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.03259564972414419,
+      0.17015030651774712
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "tddft_D",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.008730004215549148,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.10066901340970749,
+      0.1474048752892565
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "tddft_D",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.15048536897849796,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.29351211913105557,
+      0.06318404369859204
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "tddft_D_iid",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.31550037984139834,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.48812754762698396,
+      -0.10927108683444635
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "tddft_D_iid",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.008655382708448234,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.12506045977454722,
+      0.10329039043029564
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "tddft_D_iid",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.0768039634963299,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.19411563153525266,
+      0.08737017730005242
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "tddft_D_iid",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": -0.236019336690377,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.3917394113739566,
+      0.007626488554613231
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "mean",
+    "comparator": "tierA_empirical",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.05852217722109565,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      -0.056326441855978814,
+      0.1816225466855305
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "ridge",
+    "comparator": "tierA_empirical",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.36536717435404575,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.32193064369387236,
+      0.4069406278326284
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "random_forest",
+    "comparator": "tierA_empirical",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.2972185935661641,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.2454573245078046,
+      0.3644496684207959
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "inverse",
+    "model": "gaussian_process",
+    "comparator": "tierA_empirical",
+    "comparator_prediction": "reported physics/baseline median, not mean",
+    "rmse_improvement": 0.13800322037211699,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.056236808380779824,
+      0.29179112285580167
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "forward",
+    "model": "ridge",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.06357886415205034,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.038769342758719794,
+      0.08158318301324444
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "forward",
+    "model": "random_forest",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.04904324651987535,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.02722192645237114,
+      0.07093010275536892
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  },
+  {
+    "fold": "secondary",
+    "task": "forward",
+    "model": "gaussian_process",
+    "comparator": "training_mean",
+    "rmse_improvement": 0.0409316020430166,
+    "n_samples": 41,
+    "n_days": 8,
+    "ci95": [
+      0.02194717251452001,
+      0.06692569672576454
+    ],
+    "interpretation": "conditional day-block sampling uncertainty"
+  }
+]

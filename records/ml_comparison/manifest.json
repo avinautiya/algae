@@ -1,0 +1,50 @@
+{
+  "status": "retrospective supplementary positive-count field comparison; not melt/satellite validation",
+  "signature": "b4b82eb79f057d4f4a0e45c0034dbe6843354d062225aaf84a481f2182b77266",
+  "source_commit": "aaff7ca2e275d054dae902e6655eb0fcee0899a9",
+  "code_sha256": "623d94a6e2ac6e0199ecd15655b64e81c12051a772625553119bcfef2fef718d",
+  "protocol_sha256": "7e14cced1028f55b52f7c83ab70ed4aa4d2ed9e8ce68e5b2479e54a0b2948356",
+  "data_sha256": "f7faea64fe027b5869c35293295dd417dcac9bfecade8a08e21cfff84b33cd19",
+  "empirical_csv_sha256": {
+    "biosnicar_field_ARF.csv": "1878bf6cbe0542dc4f7f6fd1b0877d70bde5188730fe35268fb089aca2d79ba8",
+    "chevrollier2023_hcrf.csv": "9f933e520106fc6d1733c8d1117e23a57000481ae6ffb506bc5684c53fd1d4a0",
+    "chevrollier2023_tableS4.csv": "3f8c04d42ecb36947c53f9eeb0808e4d1395e0790518646452494ee5b8c41d10",
+    "cook2020_archive_cell_counts.csv": "41128a219bc9084e254f75d4f00e2ec8f1a509a3e06648fc83af97da27dfab90",
+    "cook2020_archive_hcrf.csv": "521da52fba98ccb9009b3a2cabbbccf305c7b0e3953c26281f3db78aeac0d43c",
+    "cook2020_field_metadata.csv": "bbe18a468e29131ff1908665ca171b16767fe08552c0c438779b271a8422e747",
+    "esa_s2_srf_TN-15-0007_v4.0.csv": "175e0123242cd54e45e13c83608c6af3638619d7686384779bb9310a9bf30eaa",
+    "ice_ssa_measurements.csv": "efdd290e0cc664c196eedcdefc3f73ad09f2b7fb1e50c33cde95405dc110a34a",
+    "prochazkova2025_fig4_PG_PGFe_absorbance_digitized.csv": "650d62e22dedb6df82f2f101e5fc105ba4e818488edf3e92e7a123dc08fda19c",
+    "promice_KAN_L_day_2019.csv": "2426cb0f74a522bed4144afc6ce4b0556ac500b43dace04daa172392df333ef4",
+    "promice_KAN_M_day_2019.csv": "07dfe514ef5b3a1e363a8b5efaba97f4c89064840357447dad4e9b927eabc62e",
+    "promice_KAN_M_hour_JJA_2016_2019_seb.csv": "e6300835567b451af40b0da8e6e4cdd43b32b57a9cc939dcc3e14f60c5a0db17",
+    "promice_KAN_M_hour_JJA_radiation.csv": "4a814a7a9633087d6eb6a1d250e970fc2dc98bb6a00898527a4d61164d982fd6",
+    "promice_KAN_U_day_2019.csv": "e37be3650a461886f7a1b44a3860302a931812d287832183d446204fbb9a7005",
+    "tedstone2020_s6_2017_sample_locations.csv": "67d94ae7de72f007299c5c115e0fb30822c702b8b406011d5625b4c35c41697d",
+    "williamson2020_count_biomass_S6_2016.csv": "2a519435991b3a7f60f73733e8066aa5415537d8e06bdb81eb140a64d747b267",
+    "williamson2020_mass_absorption_coefficients.csv": "f48a2432275101749563d8fcf1ba4736210da03105f68211478d272ffa052e08",
+    "williamson2020_phenolics_hplc_abs_spec.csv": "b915733feadfbb23ca6ed57123d27d4b717e00f3fe4b4d9a5f30a9bb5a58a3c5",
+    "williamson2020_phenolics_mac_with_error.csv": "97bdbb411f340b6f6af054742b414b78c8192e030e627a37bc6aab7d2b71fd54",
+    "williamson2020_phenolics_per_sample.csv": "0af71e52fec18e0beafd8e3d5cb36423b788cd892c3bcd0a6cae96b8baa6abcf",
+    "williamson2020_pigments_per_cell.csv": "bb0c47a62a9a4bcf37c322422e78a8faba16ef55566dbf1fc37a31111a7e4764"
+  },
+  "versions": {
+    "python": "3.9.6",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "scipy": "1.13.1",
+    "sklearn": "1.6.1"
+  },
+  "excluded_zero_sample_ids": [
+    "s6_2017:13_7_SB5",
+    "s6_2017:14_7_SB6",
+    "s6_2017:14_7_SB8",
+    "s6_2017:17_7_SB1",
+    "s6_2017:17_7_SB2"
+  ],
+  "physics_comparator_sha256": "7dd4f2e8d488e9e3b5b0cc964c441c99f37a8e5d692fced7c1f6dd50f51cc3e9",
+  "runtime_seconds": 4.688520908355713,
+  "max_rss_raw": 170590208,
+  "max_rss_units": "bytes on macOS; KiB on Linux",
+  "no_winner_selected": true
+}
