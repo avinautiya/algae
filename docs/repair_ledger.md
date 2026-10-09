@@ -1038,3 +1038,8 @@ The previous classification, "improvement supported in direction at both sites",
   - Chemistry resumed from checkpoints (runner relaunched).
   - Background jobs were re-queued under the budget.
   - The molecular job had already saved all Experiment A states; only its summary step (pandas dtype bug, fixed) was re-run from the saved file.
+
+### P7-ENV-1: repeated container reboots (about 19:50 and about 20:56 UTC)
+- **Second reboot** found by the watchdog (uptime 0 min; no runner alive). Disk usage fell from 25 to 21 GB because per-job scratch was cleared. The BioSNICAR checkout, chemistry checkpoints (`td_ckpt`, SCF chk files) and calibration cache survived.
+- **Recovery.** The runner was relaunched and both chemistry jobs resumed from checkpoints. The surrogate re-benchmark and k-free chain were re-queued under the budget.
+- **Consequence.** Each reboot loses chemistry work since the last 2-iteration TD checkpoint, plus the setup, SCF and DF build (`docs/compute_reliability.md`). With reboots at roughly hourly intervals, the Level 2 TD jobs may not finish. No change is possible from inside the container; recorded for the user.
