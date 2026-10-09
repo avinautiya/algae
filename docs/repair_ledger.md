@@ -1014,3 +1014,27 @@ The previous classification, "improvement supported in direction at both sites",
 - **Density (prior ensemble, 40 common draws).** Bias +0.09, RMSE 0.15, mean predictive SD 0.033, z mean about 3, z SD about 3.4, 90 % coverage 0.22–0.24.
   - The predictive is biased AND too narrow. The H1 empirical-Bayes discrepancy SD (which restored coverage 0.89) absorbs this systematic error.
 - **Status:** diagnosis of the visible deficit continues with the abundance-slope test.
+
+### P7-MOL-1: molecular-contribution study (protocol `docs/molecular_contribution_protocol.md`; results `records/molecular_contribution/RESULTS.md`)
+- **Raw TD-DFT** (not independent: the measured data were later calibration targets):
+  - B3LYP reproduces the uncomplexed chromophore bands (296/382 vs 303/393 nm);
+  - CAM-B3LYP is 0.5–0.8 eV blue;
+  - neither represents the extract's visible absorption (share 0.30 vs chromophore 0.137).
+- **Identical calibration** absorbs the functional error (dE +0.04 vs −0.79 eV). Visible magnitude is poorly constrained: tier-D posterior visible relative SD 124 %.
+- **Experiment A** (only the pigment spectrum changes; 24 joint draws):
+  - B3LYP-D vs CAM-D: max |Δα| 0.0034, |ΔSW| 2.5 W m⁻²;
+  - B3LYP-D vs measured MAC: 0.0051 / 3.7 W m⁻²;
+  - both below the 0.01 / 10 W m⁻² floors and below the calibration posterior spread (0.021).
+  - Only the empirical visible-absorber term is consequential (D vs C: 0.08 / 58 W m⁻²).
+- **Abundance slopes** (41 plots, 8 day-blocks), unexplained by pigment physics per decade:
+  - B2 −0.037 (−0.107, 0.011): not significant;
+  - B4 −0.063 (−0.124, −0.023);
+  - B8 −0.087 (−0.138, −0.057).
+  - About 40 % of the broadband albedo–abundance response is non-pigment darkening co-varying with algae.
+- **Gates:** A unvalidated; B no (after calibration); C not supported / underdetermined; D, E untested.
+- **No molecular repair is justified.** No repaired model is frozen.
+- **Missing requirement:** an independent pigment spectrum (Remias et al. 2012), and an untouched campaign with co-located biology, albedo and crust-state measurements.
+- **Incident.** A container reboot at about 19:50 UTC killed all processes.
+  - Chemistry resumed from checkpoints (runner relaunched).
+  - Background jobs were re-queued under the budget.
+  - The molecular job had already saved all Experiment A states; only its summary step (pandas dtype bug, fixed) was re-run from the saved file.

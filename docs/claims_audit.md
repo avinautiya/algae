@@ -20,6 +20,13 @@
 | N5 | Physics forward reflectance matches field HCRF: **no**. Four-band RMSE 0.20–0.35 is worse than a training-mean baseline; the visible is too bright by 0.2–0.3. | P6-FWD-1 |
 | N6 | Station albedo from biology under the radiometer at new sites: **insufficient evidence** (2 test station-days). | P6-H5-1 |
 
+| N7 | Quantum-chemical absorption changes glacier albedo/absorbed SW after calibration: **no** (≤ 0.008 / ≤ 6 W m⁻² vs measured MAC or across functionals). | `records/molecular_contribution/expA_pair_differences.csv` |
+| N8 | The forward-model visible/NIR deficit is a pigment-spectrum problem: **no**. About 40 % of the observed albedo–abundance slope is non-pigment darkening (B8 −0.087 per decade unexplained). | `records/molecular_contribution/albedo_slope_day_bootstrap.csv` |
+
+## Supported mechanistic statement
+
+- **M1.** TD-B3LYP (6-31G*, PCM) reproduces the two-band structure of the isolated glacier-algal chromophore within about 0.1 eV without calibration; CAM-B3LYP is 0.5–0.8 eV blue. Agreement is with data later used for calibration, not independent validation. (`records/molecular_contribution/raw_vs_measured.csv`)
+
 ## Words and claims to avoid
 
 "first", "novel", "agency-ready", "operational", "NASA-endorsed", "improved melt prediction", "better climate prediction", "validated biological detection" (the scene classes are model-consistent interpretations, not validated detections), species maps, and causal effect rankings.

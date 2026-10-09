@@ -216,7 +216,8 @@ def stage_expA(cals, macs):
 
 
 def summarise_expA(R):
-    m = R[R.draw == "mean"].set_index(["treatment", "log_b", "r_um", "dust_ppb"])
+    num = ["bba", "bba_clean", "absorbed_algal_W", "B2", "B3", "B4", "B8"]
+    m = R[R.draw.astype(str) == "mean"].set_index(["treatment", "log_b", "r_um", "dust_ppb"])[num]
     pairs = [("T-B3-D", "T-CAM-D"), ("T-B3-C", "T-CAM-C"), ("T-B3-D", "T-MEAS"), ("T-CAM-D", "T-MEAS"), ("T-B3-D", "T-B3-C")]
     out = []
     for a, b in pairs:
@@ -224,7 +225,7 @@ def summarise_expA(R):
         out.append(dict(pair=f"{a} - {b}", max_abs_dbba=float(d.bba.abs().max()), mean_abs_dbba=float(d.bba.abs().mean()),
                         max_abs_dB2=float(d.B2.abs().max()), max_abs_dabsorbed_W=float(d.absorbed_algal_W.abs().max()),
                         state_of_max=str(d.bba.abs().idxmax())))
-    dr = R[R.draw != "mean"]
+    dr = R[R.draw.astype(str) != "mean"]
     spread = (dr.groupby(["treatment", "log_b", "r_um", "dust_ppb"]).agg(bba_sd=("bba", "std"), W_sd=("absorbed_algal_W", "std"))
               .reset_index().groupby("treatment").agg(max_bba_sd=("bba_sd", "max"), max_W_sd=("W_sd", "max")).reset_index())
     return pd.DataFrame(out), spread
@@ -247,6 +248,13 @@ def main(argv=None):
         R.to_csv(os.path.join(OUT, "raw_vs_measured.csv"), index=False, float_format="%.5g")
         json.dump(meas, open(os.path.join(OUT, "measured_features.json"), "w"), indent=1)
         print(R.to_string(index=False)); print(json.dumps(meas, indent=1))
+    if a.stages == ["summarise"]:
+        R = pd.read_csv(os.path.join(OUT, "expA_states.csv"))
+        S, spread = summarise_expA(R)
+        S.to_csv(os.path.join(OUT, "expA_pair_differences.csv"), index=False, float_format="%.5g")
+        spread.to_csv(os.path.join(OUT, "expA_posterior_spread.csv"), index=False, float_format="%.5g")
+        print(S.to_string(index=False)); print(spread.to_string(index=False))
+        return
     if not ({"calibrate", "compare", "expA"} & set(a.stages)):
         return
     # CAM first: the B3LYP calibration is being written to the shared disk cache by the forward diagnostics
@@ -260,9 +268,12 @@ def main(argv=None):
         pd.DataFrame({"wl_nm": WL, "extract_mac": meas, **{f"{k}_{t}_mean": macs[k][f"{t}_mean"] for k in macs for t in "CD"}}) \
             .to_csv(os.path.join(OUT, "calibrated_macs.csv"), index=False, float_format="%.5g")
         print(C.to_string(index=False)); print(json.dumps(diff, indent=1))
-    if "expA" in a.stages:
-        R = stage_expA(cals, macs)
-        R.to_csv(os.path.join(OUT, "expA_states.csv"), index=False, float_format="%.6g")
+    if "expA" in a.stages or "summarise" in a.stages:
+        if "expA" in a.stages:
+            R = stage_expA(cals, macs)
+            R.to_csv(os.path.join(OUT, "expA_states.csv"), index=False, float_format="%.6g")
+        else:
+            R = pd.read_csv(os.path.join(OUT, "expA_states.csv"))
         S, spread = summarise_expA(R)
         S.to_csv(os.path.join(OUT, "expA_pair_differences.csv"), index=False, float_format="%.5g")
         spread.to_csv(os.path.join(OUT, "expA_posterior_spread.csv"), index=False, float_format="%.5g")

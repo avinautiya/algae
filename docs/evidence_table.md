@@ -4,7 +4,9 @@ Legend: ✔ yes · ◐ partial or weak · ✘ no · — not applicable.
 
 | Component | Implemented | Numerically verified | Empirically validated | Transferred | Integrated into a named host | Status / evidence |
 |---|---|---|---|---|---|---|
-| TD-DFT pigment spectrum (Phase 1) | ✔ | ◐ | ✘ | — | — | Level 2 CAM/B3LYP TDA jobs still running; convergence checks in `phase1/` |
+| TD-DFT pigment spectrum (Phase 1) | ✔ | ◐ | ✘ (no independent lab spectrum; raw B3LYP within ~0.1 eV of calibration-data chromophore bands, CAM 0.5–0.8 eV off) | — | — | Gate A unvalidated; P7-MOL-1 |
+| Molecular treatment changes glacier optics after calibration (gate B) | ✔ (`phase4/molecular_contribution.py`) | ✔ (24 joint draws, direct RT) | **no**: functional or TD-vs-measured ≤ 0.008 albedo, ≤ 6 W m⁻² | — | — | `records/molecular_contribution/` |
+| Forward-error source | ✔ | ✔ | NIR/red darkening co-varying with algae, unexplained by any pigment (B8 −0.087 per decade, −0.138…−0.057) | — | — | P7-FWD-1, P7-MOL-1 |
 | Spectral calibration to in vivo MAC | ✔ | ✔ (quadrature refinement converged) | ◐ | — | — | AR(1) vs iid structural difference is large; ρ adequacy UNRESOLVED |
 | Cell/packaging optics | ✔ | ✔ (unit tests) | ✘ (packaging and scattering not tested separately) | — | — | — |
 | Emulator / surrogate | ✔ | ◐ | — | — | — | Direct-BioSNICAR benchmark running; qualification gate refuses unbenchmarked use |
