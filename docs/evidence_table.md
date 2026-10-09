@@ -11,6 +11,7 @@ Legend: ✔ yes · ◐ partial or weak · ✘ no · — not applicable.
 | Abundance retrieval (plot scale) | ✔ | ✔ | ◐ | ◐ (S6 → S Greenland) | — | `records/heldout_v2`: log-score gain only; RMSE worse; no gain over prior on reverse fold (P5-CORR-1, D1–D3) |
 | Forward plot reflectance | ✔ | ✔ | ✘ | ✘ | — | Physics over-predicts broadband HCRF; climatology wins. Diagnosis: `docs/forward_diagnostics.md` |
 | **H1** independent albedo (pigment/cell vs established optics) | ✔ (`phase4/h1_albedo.py`) | ✔ | pending | ✘ | — | Queued under budget; decision rule frozen |
+| **H5** station albedo from biology under the radiometer (PROMBIO) | ✔ (`phase4/h5_station_biology.py`) | ✔ | ✘ (2 test station-days: all models MAE ≈ 0.117, optics indistinguishable) | (new sites) | — | **insufficient evidence** (P6-H5-1) |
 | **H2** absorbed SW at stations | ✘ | — | ✘ | ✘ | — | Not yet tested: needs KAN_L/KAN_M hourly radiation and station pixels |
 | **H3** observed ablation | ◐ (SEB) | ✔ (closure, convergence, gaps) | ✘ | ✘ | reference SEB only | Prerequisites met only at KAN_L 2016 and 2022, and 2016 has no S2 L2A, so ≤ 1 block; **UNTESTED** (P5-H3-1) |
 | **H4** vs empirical satellite albedo | ✘ | — | ✘ | ✘ | — | Not yet tested |

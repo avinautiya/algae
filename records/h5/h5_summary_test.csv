@@ -1,0 +1,13 @@
+split,model,n,mae,bias,crps,coverage90,width90
+development_LOO,measured_mac_C,3,0.12639,0.0412,0.078831,1,0.33433
+development_LOO,no_algae,3,0.18512,0.10538,0.12888,0.66667,0.3905
+development_LOO,tddft_C,3,0.13658,0.052313,0.085573,1,0.3725
+development_LOO,tddft_D,3,0.12588,0.040737,0.078535,1,0.333
+development_LOO,tddft_D_iid,3,0.12361,0.038344,0.076759,1,0.3325
+development_LOO,tierA_empirical,3,0.13046,0.04502,0.084387,0.66667,0.31467
+final_test,measured_mac_C,2,0.11686,-0.044379,0.075547,1,0.3515
+final_test,no_algae,2,0.11813,-0.026834,0.072426,1,0.3985
+final_test,tddft_C,2,0.11726,-0.040127,0.07435,1,0.373
+final_test,tddft_D,2,0.11688,-0.044359,0.075556,1,0.3515
+final_test,tddft_D_iid,2,0.11683,-0.044412,0.075531,1,0.3515
+final_test,tierA_empirical,2,0.11676,-0.044491,0.075492,1,0.3515

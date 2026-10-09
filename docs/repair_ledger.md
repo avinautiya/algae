@@ -870,3 +870,12 @@ The previous classification, "improvement supported in direction at both sites",
 - **Every process is now budgeted**, including tests, audits and extraction. The station-pixel extraction (started outside the budget at nice 19) was registered retroactively (600 MB, background).
 - **Tests:** `common/tests/test_resources.py`: 11 passed.
 - **Incident.** A `pkill -f` pattern matched its own shell (exit 144); no job was affected. PIDs only from now on.
+
+### P6-H5-1: H5, station albedo from the biology under the radiometer (PROMBIO; amendment A2/A2.1)
+- **Command:** `python common/run_budgeted.py --short ... -- python3 phase4/h5_station_biology.py --split development|test`. Records in `records/h5/`.
+- **Inclusion.** Of 14 development and 5 test under-radiometer station-days, **3 development and 2 test** pass the frozen rules. Exclusions are listed in `h5_excluded_*.csv`: PROMICE snow_height ≥ 0.02 m at noon (8), < 2 valid noon hours (4), provider QC (1), no station data (1).
+- **Development (leave-one-station-day-out, 3 days).** MAE: tddft_D 0.126, measured_mac_C 0.126, tierA 0.131, no-algae 0.185. All are biased bright (+0.04 to +0.11).
+- **Final test (2 days: KAN_L 2024-08-23, QAS_M 2024-09-01).** MAE ≈ 0.117 for every model, including no-algae; bias −0.03 to −0.04.
+  - The optics models are indistinguishable there: the error is dominated by the nuisance ice/dust state, not by the algal optics.
+- **Status: INSUFFICIENT EVIDENCE** (2 test blocks; protocol requires 5). Reported as a case study.
+  - The case study gives no sign that pigment/cell optics improve station albedo prediction over established optics or no algae.
