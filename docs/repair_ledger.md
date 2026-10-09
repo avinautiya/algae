@@ -556,3 +556,16 @@ Test commands are given per entry. Outcomes are the actual pytest results on thi
   - The extract's two 2 nm channels are the only constraint on level vs shape.
   - The choice between residual models is tested on held-out field data (P4-HO-1: tddft_D vs tddft_D_iid), not by preference.
 - **Status:** FIXED_AND_VERIFIED (statistics). Structural ambiguity: DATA_LIMITATION.
+
+### P4-INV-6: grid refinement targets
+- **Source:** `run_phase4.py --log-b-step` (default 0.1 dex), the grid posterior.
+- **Measurement** (`records/repair_grid_refinement.json`; 150 synthetic pixels, tier-D emulator; reference step 0.025 dex), max |difference|:
+
+  | step | log B mean | 95 % bounds | RF_algae | radius mean |
+  |---|---|---|---|---|
+  | 0.1 | 0.012 dex | 0.07 dex | 0.80 W m⁻² | 33 µm |
+  | 0.05 | 0.003 dex | 0.021 dex | 0.007 W m⁻² | 7 µm |
+
+- **Targets set here:** posterior mean < 0.01 dex and interval bounds < 0.03 dex. Only 0.05 meets them, so the map default is changed from 0.1 to 0.05. The field validation and the held-out experiment already use 0.05.
+- **Affected outputs:** the legacy maps (0.1 dex) have interval-bound discretisation errors of up to 0.07 dex. They are to be regenerated.
+- **Status:** FIXED_AND_VERIFIED (default). Map regeneration: IMPLEMENTED_AWAITING_PRODUCTION_RUN.

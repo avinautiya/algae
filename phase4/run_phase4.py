@@ -81,7 +81,8 @@ def parse_args(argv=None):
     m.add_argument("--no-dust", dest="dust", action="store_false",
                    help="drop the mineral-dust axis. By default dust is a state variable with the measured S6 "
                         "loading as prior (Cook et al. 2020); the field spectra strongly prefer it (bias_study.py)")
-    m.add_argument("--log-b-step", type=float, default=0.1, help="inference grid step in log10 B (dex)")
+    m.add_argument("--log-b-step", type=float, default=0.05,
+                   help="inference grid step in log10 B (dex); 0.05 meets the refinement targets (records/repair_grid_refinement.json)")
     m.add_argument("--f-step", type=float, default=0.1, help="grid step of the community fraction")
     m.add_argument("--sigma", type=float, nargs=4, default=None,
                    help="per-band 1-sigma reflectance uncertainty; default: chosen by maximum marginal likelihood "
