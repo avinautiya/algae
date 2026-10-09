@@ -264,9 +264,13 @@ def _staged_tda(td, conv_tol, checkpoint):
     done, x0 = -1, None
     if os.path.isfile(checkpoint):
         d = np.load(checkpoint)
-        if int(d["nstates"]) == td.nstates and np.allclose(d["stages"], stages):
-            done, x0 = int(d["done"]), list(d["x0"])
-            print(f"TDA restart: stage {done + 1}/{len(stages)} done (residual {stages[done]:g})", flush=True)
+        if int(d["nstates"]) == td.nstates:
+            # resume from the tightest residual already reached (works if conv_tol changed in between)
+            reached = float(np.asarray(d["stages"])[int(d["done"])])
+            done = max([k for k, t in enumerate(stages) if t >= reached * (1 - 1e-9)], default=-1)
+            x0 = list(d["x0"])
+            print(f"TDA restart: residual {reached:g} already reached; resuming at stage {done + 2}/{len(stages)}",
+                  flush=True)
     for k in range(done + 1, len(stages)):
         td.conv_tol = stages[k]
         t1 = time.time()

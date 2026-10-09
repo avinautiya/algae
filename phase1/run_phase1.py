@@ -56,6 +56,8 @@ def parse_args(argv=None):
     p.add_argument("--eps", type=float, default=qc.WATER_EPS_STATIC, help="static dielectric for IEF-PCM")
     p.add_argument("--nstates", type=int, default=30)
     p.add_argument("--tda", action="store_true", help="Tamm-Dancoff approximation (faster, f less reliable)")
+    p.add_argument("--td-conv-tol", type=float, default=1e-5,
+                   help="Davidson residual tolerance (1e-3 suffices for band positions: energy error ~1e-6 Eh)")
     p.add_argument("--fwhm", type=float, default=0.3, help="Gaussian FWHM in eV")
     p.add_argument("--lam-min", type=float, default=300.0)
     p.add_argument("--lam-max", type=float, default=800.0)
@@ -161,7 +163,7 @@ def main(argv=None):
             mf_td.kernel()
             if not mf_td.converged:
                 raise RuntimeError(f"{func} SCF did not converge")
-        res = qc.run_tddft(mf_td, nstates=a.nstates, tda=a.tda,
+        res = qc.run_tddft(mf_td, nstates=a.nstates, tda=a.tda, conv_tol=a.td_conv_tol,
                            checkpoint=os.path.join(outdir, f"tda_{func}_x0.npz") if a.tda else None)
 
         lines_df, spec_df, arrays = spectra.build_spectrum(
