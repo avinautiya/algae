@@ -84,6 +84,12 @@ JOBS = {
 }
 
 
+# Launch order (docs/chemistry_sensitivity_priorities.md): sensitivities the calibration cannot absorb (Fe complex,
+# protonation) before checks it absorbs (TDA, root count, geometry). Definitions are unchanged.
+PRIORITY = ["L2_B3LYP_FULL30", "L2_CAM_TDA15", "L1_FULL", "FE_CAT", "L2_COO_OPT_TDA15", "FE_TROP_XTB",
+            "L2_OPT", "L2_B3LYP_TDA15_RELAXED", "L2_B3LYP_TDA15", "L2_B3LYP_TDA25"]
+JOBS = {k: JOBS[k] for k in PRIORITY + [k for k in JOBS if k not in PRIORITY]}
+
 def outdir(jid):
     return JOBS[jid].get("outdir") or os.path.join(V2, jid)
 
