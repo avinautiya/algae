@@ -1,13 +1,13 @@
 pair,coupling,quantity,max_abs_plug_in,min_q025,max_q975,max_p_exceeds_threshold,n_draw_pairs,measured_mac_uncertainty
-T-B3-C - T-CAM-C,independent,absorbed_algal_W,46.5,-71.938,-0.26,1,576,n/a
-T-B3-C - T-CAM-C,independent,bba,0.063232,0.000354,0.097822,1,576,n/a
-T-B3-D - T-B3-C,paired,absorbed_algal_W,58.492,0.25912,60.183,1,24,n/a
-T-B3-D - T-B3-C,paired,bba,0.079539,-0.081838,-0.0003526,1,24,n/a
-T-B3-D - T-CAM-D,independent,absorbed_algal_W,2.494,-46.397,14.721,0.42014,576,n/a
-T-B3-D - T-CAM-D,independent,bba,0.003393,-0.020017,0.063091,0.52604,576,n/a
-T-B3-D - T-MEAS,vs_measured,absorbed_algal_W,3.716,-39.369,11.204,0.375,24,OMITTED (point value)
-T-B3-D - T-MEAS,vs_measured,bba,0.005052,-0.015235,0.053535,0.54167,24,OMITTED (point value)
-T-CAM-D - T-CAM-C,paired,absorbed_algal_W,14.18,0.062291,18.027,0.83333,24,n/a
-T-CAM-D - T-CAM-C,paired,bba,0.019283,-0.024514,-8.48e-05,0.91667,24,n/a
-T-CAM-D - T-MEAS,vs_measured,absorbed_algal_W,5.904,-8.2228,11.444,0.083333,24,OMITTED (point value)
-T-CAM-D - T-MEAS,vs_measured,bba,0.008028,-0.015561,0.011181,0.29167,24,OMITTED (point value)
+T-B3-C - T-CAM-C,independent,absorbed_algal_W,46.5,-69.051,-0.2302,0.99902,9216,n/a
+T-B3-C - T-CAM-C,independent,bba,0.063232,0.000313,0.093897,0.99957,9216,n/a
+T-B3-D - T-B3-C,paired,absorbed_algal_W,58.492,0.26589,60.257,1,96,n/a
+T-B3-D - T-B3-C,paired,bba,0.079539,-0.081939,-0.000362,1,96,n/a
+T-B3-D - T-CAM-D,independent,absorbed_algal_W,2.494,-43.205,19.384,0.4401,9216,n/a
+T-B3-D - T-CAM-D,independent,bba,0.003393,-0.02636,0.05875,0.55263,9216,n/a
+T-B3-D - T-MEAS,vs_measured,absorbed_algal_W,3.716,-39.027,11.775,0.36046,9216,"included (regression SE, fully correlated amplitude)"
+T-B3-D - T-MEAS,vs_measured,bba,0.005052,-0.016012,0.05307,0.48242,9216,"included (regression SE, fully correlated amplitude)"
+T-CAM-D - T-CAM-C,paired,absorbed_algal_W,14.18,0.053126,18.097,0.85417,96,n/a
+T-CAM-D - T-CAM-C,paired,bba,0.019283,-0.024608,-7.2375e-05,0.9375,96,n/a
+T-CAM-D - T-MEAS,vs_measured,absorbed_algal_W,5.904,-14.992,11.866,0.17654,9216,"included (regression SE, fully correlated amplitude)"
+T-CAM-D - T-MEAS,vs_measured,bba,0.008028,-0.016135,0.020386,0.3674,9216,"included (regression SE, fully correlated amplitude)"

@@ -1059,10 +1059,10 @@ The previous classification, "improvement supported in direction at both sites",
 
 ### P8-INF-1: uncertainty-aware molecular contrasts; claim corrections
 - **Gate B corrected from "no" to "unresolved".** Plug-in contrasts (posterior-mean spectra) were ≤ 0.008 albedo. With calibration draws propagated (`phase4/molecular_uncertainty.py`):
-  - B3LYP-D vs CAM-D (independent posteriors) spans −0.020 to +0.063, with P(|Δ| ≥ 0.01) up to 0.53;
-  - B3LYP-D vs measured MAC spans −0.015 to +0.054, P up to 0.54;
+  - B3LYP-D vs CAM-D (independent posteriors; 96 draws) spans −0.026 to +0.059, with P(|Δ| ≥ 0.01) up to 0.55;
+  - B3LYP-D vs measured MAC (measured uncertainty included) spans −0.016 to +0.053, P up to 0.48;
   - C vs D are paired by draw.
-- **Couplings:** matching draw indices across separately calibrated functionals were NOT treated as joint. Measured-MAC uncertainty is omitted in the 24-draw version (flagged in the files).
+- **Couplings:** matching draw indices across separately calibrated functionals were NOT treated as joint. Measured-MAC uncertainty is included via 96 regression-SE draws. MC stability, 24 vs 96 draws: interval ends ≤ 0.006, P ≤ 0.16; the conclusion is unchanged.
 - **Abundance slope:**
   - restated as unexplained abundance-associated darkening relative to the specified reference model, 0.44 (0.16–0.67) broadband;
   - day-block bootstrap, denominator stable;

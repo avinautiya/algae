@@ -56,24 +56,35 @@
 
 - **Calibration posterior spread** (max SD over states): B3LYP-D 0.021 broadband (15.8 W m⁻²); CAM-D 0.008 (5.6 W m⁻²).
 
-**Posterior contrasts** (correction P8-INF-1; `uncertainty/posterior_contrasts.csv`, `uncertainty/posterior_contrast_summary.csv`, `phase4/molecular_uncertainty.py`). Signed contrast, 95 % interval over states, and the largest P(|Δ| ≥ threshold) over the 24 states:
+**Posterior contrasts** (correction P8-INF-1; `uncertainty/posterior_contrasts.csv`, `uncertainty/posterior_contrast_summary.csv`, `phase4/molecular_uncertainty.py`). Final version: 96 joint calibration draws per TD treatment and 96 measured-MAC draws. Shown: signed contrast, 95 % interval over states, and the largest P(|Δ| ≥ threshold) over the 24 states:
 
 | Pair (coupling) | Plug-in max \|Δ\| albedo | 95 % range over states, albedo | max P(\|Δ\| ≥ 0.01) | 95 % range, absorbed SW (W m⁻²) | max P(\|Δ\| ≥ 10 W m⁻²) |
 |---|---|---|---|---|---|
-| B3LYP-D − CAM-D (independent posteriors) | 0.0034 | −0.020 to +0.063 | 0.53 | −46 to +15 | 0.42 |
-| B3LYP-D − measured MAC | 0.0051 | −0.015 to +0.054 | 0.54 | −39 to +11 | 0.38 |
-| CAM-D − measured MAC | 0.0080 | −0.016 to +0.011 | 0.29 | −8 to +11 | 0.08 |
+| B3LYP-D − CAM-D (independent posteriors) | 0.0034 | −0.026 to +0.059 | 0.55 | −43 to +19 | 0.44 |
+| B3LYP-D − measured MAC (incl. measured uncertainty) | 0.0051 | −0.016 to +0.053 | 0.48 | −39 to +12 | 0.36 |
+| CAM-D − measured MAC (incl. measured uncertainty) | 0.0080 | −0.016 to +0.020 | 0.37 | −15 to +12 | 0.18 |
 | B3LYP-D − B3LYP-C (paired, same draw) | 0.080 | −0.082 to −0.0004 | 1.0 | +0.3 to +60 | 1.0 |
-| CAM-D − CAM-C (paired) | 0.019 | −0.025 to −0.0001 | 0.92 | +0.1 to +18 | 0.83 |
+| CAM-D − CAM-C (paired) | 0.019 | −0.025 to −0.0001 | 0.94 | +0.1 to +18 | 0.85 |
 
 Couplings:
 - **Within a functional, tier C vs D:** paired by posterior draw (same dE, w, f; D adds φ × the measured Fe increment).
-- **Between the separately calibrated functionals:** independent draws (all 24 × 24 pairs). Equal draw indices carry no joint meaning. A common-cause coupling through the shared calibration data is not represented.
-- **Measured MAC:** in the 24-draw version it is a point value, so its uncertainty is **omitted**, as flagged in the file. The measured-MAC-draw version and the 24-vs-96 Monte Carlo stability check are reported in §3b.
+- **Between the separately calibrated functionals:** independent draws (all 96 × 96 pairs). Equal draw indices carry no joint meaning. A common-cause coupling through the shared calibration data is not represented (limitation).
+- **Measured MAC:**
+  - The Williamson (2020) extract MAC is perturbed by its regression SE, with one standard normal per draw applied at all wavelengths. This fully correlated amplitude maximises the broadband effect; the per-wavelength correlation is unknown.
+  - Each measured draw is paired independently with TD draws (96 × 96).
+  - Including the measured-MAC uncertainty widens the CAM-D contrast; the B3LYP-D contrasts are dominated by the B3LYP-D posterior.
+
+### 3b. Monte Carlo stability (`uncertainty/mc_stability_24_vs_all.csv`)
+- **What was compared:** 24 vs 96 draws per treatment (measured-MAC uncertainty omitted vs included).
+- **Largest changes over states:**
+  - broadband interval ends ≤ 0.006 albedo;
+  - absorbed SW ≤ 5.4 W m⁻²;
+  - P(|Δ| ≥ threshold) ≤ 0.16 (CAM-D − CAM-C) and ≤ 0.08 for the functional and measured-MAC contrasts.
+- **Conclusion:** 24 draws gave the correct qualitative answer (intervals cross the threshold) but not stable exceedance probabilities. The values above use 96 draws. The probabilities are uncertain to about ±0.05 (binomial SE at 96 draws); their direction is stable.
 
 **Readings (corrected):**
 - **Plug-in:** after calibration, the functional and "TD-DFT vs measured MAC" change glacier albedo by ≤ 0.008 and absorbed SW by ≤ 6 W m⁻².
-- **This understated the uncertainty.** With calibration uncertainty propagated, the B3LYP-D contrasts have intervals up to +0.06 albedo, and P(|Δ| ≥ 0.01) reaches about 0.5 at high loading (log B ≥ 4.5). The cause is that the B3LYP-D visible magnitude is poorly constrained (±124 % relative SD).
+- **This understated the uncertainty.** With calibration (and measured-MAC) uncertainty propagated, the B3LYP-D contrasts have intervals up to +0.06 albedo, and P(|Δ| ≥ 0.01) reaches about 0.5 at high loading (log B ≥ 4.5). The cause is that the B3LYP-D visible magnitude is poorly constrained (±124 % relative SD).
 - **Conclusion:** whether the molecular treatment changes glacier albedo by a practically important amount is **unresolved**, not "no".
 - **The visible absorber matters** (tier D vs C, paired: 0.02–0.08 albedo). In the current model it is the measured Fe increment scaled by a fitted φ, i.e. empirical, not a quantum-chemical prediction.
 - **Thresholds:** 0.01 albedo and 10 W m⁻² are **practical-importance thresholds** fixed in the protocol. They are not measurement uncertainties or detection limits (see §5).
