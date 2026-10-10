@@ -1,0 +1,38 @@
+{
+ "optics": "tddft_D",
+ "sza_nodes": [
+  40.0,
+  50.0,
+  60.0
+ ],
+ "n": 140,
+ "emulator_tags": {
+  "40.0": "41b21547a0f3a0e9aa9dbcf5947c331cada232e365cff9f7d773d60d858a85c9",
+  "50.0": "d14cf39814790fda95849f8f089acb2c3c827db60c9e2e8c0caf935ec8d8d882",
+  "60.0": "7845599ac4e0b25bbef60215b11f6ac92cf488c019287960ed3b08df99e62ec9"
+ },
+ "tolerances": {
+  "bba_max_abs": 0.005,
+  "dalpha_max_abs": 0.005,
+  "rf_abs": 0.5,
+  "rf_rel": 0.05
+ },
+ "bba_max_abs": 0.004008245914853881,
+ "bba_mae": 0.0011757533795407138,
+ "bba_max_abs_off_node": 0.0032843514856539247,
+ "rf_max_abs": 3.345005399043316,
+ "rf_mae": 0.367241002862727,
+ "rf_fraction_within_tol": 1.0,
+ "dalpha_max_abs": 0.003522976773433828,
+ "dalpha_max_abs_lowest_abundance": 1.035241050031294e-07,
+ "bba_max_abs_by_sza": {
+  "40.0": 0.004008245914853881,
+  "45.0": 0.0032202147389555624,
+  "50.0": 0.00396222359718712,
+  "55.0": 0.0032843514856539247,
+  "60.0": 0.0038344006946763876
+ },
+ "benchmark_fingerprint": "fc4db319db87c3478052da89bf1eda62caa435347858bf5f17385a0dd57152d1",
+ "design_version": "lhs+corners+mid-sza/2",
+ "passed": true
+}

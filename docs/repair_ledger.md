@@ -1086,3 +1086,11 @@ The previous classification, "improvement supported in direction at both sites",
   - tests `test_same_operator_marginally_different_orbitals_resumes_as_guess` and `test_unusable_checkpoint_is_archived_before_fresh_start` (9 targeted tests pass);
   - on the real job at 00:09, "stored vectors used as an UNVALIDATED initial guess only (no stage credit)".
   - Whether the guess saves cycles on L1_FULL is not yet measured.
+
+### P8-SURR-3: surrogate re-benchmark under the current qualification binding (watchdog, 2026-10-10 01:08)
+- **Run:** `phase4/surrogate_api.py --optics tddft_D`, re-queued after the reboots and completed at 01:03 UTC.
+- **Result: passed.** Broadband max |error| 0.0040 (tolerance 0.005; off-node max 0.0033); MAE 0.0012; Δα max |error| 0.0035 (tolerance 0.005); RF within tolerance at all 140 points.
+- **Provenance:** benchmark fingerprint fc4db319…; emulators at SZA 40/50/60.
+- **Supersedes P6-SURR-2** (the old run that lacked the binding).
+- **Copies:** `records/surrogate_qualification/benchmark_tddft_D.json` and `_points.csv`.
+- **Qualifies:** the TD-DFT D emulator for SZA 40–60° within the stated tolerances only.

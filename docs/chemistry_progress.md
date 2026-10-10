@@ -13,7 +13,7 @@
 | TD chunk wall time (2 cycles) | 5431 s (90.5 min), under CPU contention | 491–790 s (8–13 min) |
 | Time from a relaunch to the next durable checkpoint | about 134 min | before the fix: SCF + gradient + geomeTRIC re-check of an already-converged geometry, then about 10 min of TD. **Neither relaunch reached TD.** After the fix (`--skip-opt` from the converged geometry): SCF (minutes) + one chunk (about 10 min). |
 | Advancement across the 19:52 and 20:57 relaunches | **none** (no checkpoint written) | **none** (no checkpoint written) |
-| After the fixes (21:53 relaunch) | not launched (cannot reach a checkpoint here) | SCF, then the 18-cycle checkpoint was reused via the rounding-tolerant match (no stage credit). **New durable checkpoint 22:01:14 UTC: 20 cycles, 25/30 roots at the current stage; fingerprint 32a898f0c632 (now the reference for further restarts).** Further checkpoints followed; latest 22:25 UTC: 28 cycles, 25/30 roots at the current stage (the count fluctuates as Davidson refines). No stage is completed yet. The container rebooted at about 23:02 (uptime about 92 min); at 23:03 the runner detected the stale record through the identity check and relaunched. **That 23:05 relaunch discarded the 28-cycle checkpoint** (defect 4 below); the reboot at about 00:05 struck before a fresh run could overwrite the file. After the fix, the 00:09 relaunch reused the 28-cycle vectors as an unvalidated initial guess (no stage credit). |
+| After the fixes (21:53 relaunch) | not launched (cannot reach a checkpoint here) | SCF, then the 18-cycle checkpoint was reused via the rounding-tolerant match (no stage credit). **New durable checkpoint 22:01:14 UTC: 20 cycles, 25/30 roots at the current stage; fingerprint 32a898f0c632 (now the reference for further restarts).** Further checkpoints followed; latest 22:25 UTC: 28 cycles, 25/30 roots at the current stage (the count fluctuates as Davidson refines). No stage is completed yet. The container rebooted at about 23:02 (uptime about 92 min); at 23:03 the runner detected the stale record through the identity check and relaunched. **That 23:05 relaunch discarded the 28-cycle checkpoint** (defect 4 below); the reboot at about 00:05 struck before a fresh run could overwrite the file. After the fix, the 00:09 relaunch reused the 28-cycle vectors as an unvalidated initial guess (no stage credit). **The guess saved work:** the first chunk after it stood at 25/30 roots (cycle 30), whereas a fresh start reached only 19/30 after 8 cycles (about 90 min). Checkpoints then came every about 7 min; by 01:01 the job was at 42 cycles, 26/30 roots. |
 
 ## Environment
 
@@ -38,6 +38,13 @@
    - A checkpoint that is truly unusable is copied to `invalidated_<time>_latest.npz` before any fresh start.
    - The validation tolerance itself was not relaxed. Tests cover both paths.
    - The 28-cycle checkpoint is also backed up in `phase1/results/ckpt_backup_2310_L1_28cyc/`.
+
+## Convergence observation (01:08 UTC, not acted on)
+
+- **The residual-0.01 stage of L1_FULL (B3LYP, full TD, 30 roots) has stagnated.** After cycle 10 the converged-root count oscillates between 21 and 27 of 30 over 32 cycles (24/30 at cycle 18, 26/30 at cycle 42). No stage has completed.
+- **A plausible cause is the 2-cycle chunking itself:** each chunk restarts Davidson from the 30 Ritz vectors only, discarding the rest of the subspace (`docs/compute_reliability.md`). The higher roots of a dense manifold may then not converge.
+- **Not changed:** chunk size, root count, tolerance and TD/TDA are held fixed, as required. A larger chunk lowers restart overhead but raises the work lost per reboot.
+- **Decision needed:** whether to test a larger chunk (e.g. 6–10 cycles) in a matched comparison, or to accept the current rate. With 30 roots, two functionals and three stages remaining, the time to completion cannot be estimated while the first stage is not converging.
 
 ## Not changed
 
