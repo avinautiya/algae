@@ -1114,3 +1114,12 @@ The previous classification, "improvement supported in direction at both sites",
 - **Secondary fold.** The gain stays positive under 5 of 6 priors, but its size varies five-fold (0.05–0.59) and it spans 0 under the widest prior.
 - **Interpretation (corrects P5-CORR-1):** "formal rule met" holds only under the frozen k prior. The held-out abundance-retrieval advantage of TD-DFT D over Tier A depends on an observation-operator prior that overlaps the S6 plots (D3). It is therefore **not established**.
 - **Validity:** the k priors were chosen as a sensitivity grid, not fitted; no threshold was changed.
+
+### P8-CHEM-1: L1_FULL B3LYP solve ended unconverged (budget), 2026-10-10 about 16:10 UTC
+- **Outcome:** the full-TD B3LYP solve (30 roots, PCM, staged residual 0.01 → 10⁻⁵, 2-cycle chunks) used its 400-cycle budget without completing the first stage.
+  - 29/30 roots converged to 0.01; root 30 (about 7.67 eV) stalled from about cycle 86 to 400.
+  - Status `max_cycles_unconverged`; the outputs are written but flagged "diagnostic only".
+- **Why the run was long enough to show this:** the container was kept active with background waits (about 12 h continuous, 04:16–16:12 UTC).
+- **Interpretation:** this is a convergence failure of the highest requested root, not of the visible-band states. Even so, the B3LYP Level 1 results are not production-grade and are not used in any claim.
+- **Settings:** unchanged as instructed. Options awaiting a decision (extra roots judged on the lowest 30, a larger chunk, a larger budget) are in `docs/chemistry_progress.md`.
+- **Next:** the CAM-B3LYP solve now runs from scratch and is expected to face the same risk.
