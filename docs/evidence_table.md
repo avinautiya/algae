@@ -10,7 +10,7 @@ Legend: ✔ yes · ◐ partial or weak · ✘ no · — not applicable.
 | Spectral calibration to in vivo MAC | ✔ | ✔ (quadrature refinement converged) | ◐ | — | — | AR(1) vs iid structural difference is large; ρ adequacy UNRESOLVED |
 | Cell/packaging optics | ✔ | ✔ (unit tests) | ✘ (packaging and scattering not tested separately) | — | — | — |
 | Emulator / surrogate | ✔ | ◐ | — | — | — | Direct-BioSNICAR benchmark running; qualification gate refuses unbenchmarked use |
-| Abundance retrieval (plot scale) | ✔ | ✔ | ◐ | ◐ (S6 → S Greenland) | — | `records/heldout_v2`: log-score gain only; RMSE worse; no gain over prior on reverse fold (P5-CORR-1, D1–D3) |
+| Abundance retrieval (plot scale) | ✔ | ✔ | ◐ | ◐ (S6 → S Greenland) | — | `records/heldout_v2`: log-score gain only; RMSE worse; no gain over prior on reverse fold (P5-CORR-1, D1–D3). Primary gain not robust to the k prior: spans 0 or reverses under 4 of 5 alternatives (P8-KFREE-1, `records/heldout_v2_kfree_sensitivity/`) |
 | Forward plot reflectance | ✔ | ✔ | ✘ | ✘ | — | Physics over-predicts broadband HCRF; climatology wins. Diagnosis: `docs/forward_diagnostics.md` |
 | **H1** independent albedo (pigment/cell vs established optics) | ✔ (`phase4/h1_albedo.py`) | ✔ | **NOT SUPPORTED**: tierA − tddft_D MAE −0.0019 (−0.0022…−0.0014, 9 blocks); algae vs none +0.031 (0.018–0.042) | ✘ (previously seen sites) | — | `records/h1_albedo/`, P6-H1-1 |
 | **H5** station albedo from biology under the radiometer (PROMBIO) | ✔ (`phase4/h5_station_biology.py`) | ✔ | ✘ (2 test station-days: all models MAE ≈ 0.117, optics indistinguishable) | (new sites) | — | **insufficient evidence** (P6-H5-1) |

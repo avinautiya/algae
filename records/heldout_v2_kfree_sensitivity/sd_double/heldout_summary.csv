@@ -1,0 +1,16 @@
+fold,train,test,method,primary,n,n_zero,n_blocks,mean_log_score_all,mean_log_score_positive,rmse_dex,bias_dex,spearman,coverage95,mean_crps_dex,obs_sd_sgris
+primary,s6_2017,sgris_2021,tierA_empirical,False,18,0,2,-1.052,-1.052,0.67718,-0.35364,0.18679,1,0.38752,0.1
+primary,s6_2017,sgris_2021,tddft_D,True,18,0,2,-1.1001,-1.1001,0.78868,-0.5253,0.30031,1,0.45684,0.1
+primary,s6_2017,sgris_2021,measured_mac_C,False,18,0,2,-1.1328,-1.1328,0.81333,-0.58586,0.31612,0.83333,0.47681,0.1
+primary,s6_2017,sgris_2021,climatology,False,18,0,2,-1.342,-1.342,0.92528,-0.84919,,1,0.55,0.1
+primary,s6_2017,sgris_2021,literature_prior,False,18,0,2,-1.4295,-1.4295,0.96212,-0.88919,,1,0.59119,0.1
+primary,s6_2017,sgris_2021,band_ratio,False,18,0,2,-1.6543,-1.6543,1.0555,-0.93808,0.10836,0.83333,0.66391,0.1
+primary,s6_2017,sgris_2021,ridge,False,18,0,2,-0.82701,-0.82701,0.49887,-0.34419,0.52322,0.83333,0.29292,0.1
+secondary,sgris_2021,s6_2017,tierA_empirical,False,46,5,9,-6.2119,-6.3741,0.57395,0.14925,0.61776,0.97561,0.32639,0.1
+secondary,sgris_2021,s6_2017,tddft_D,True,46,5,9,-6.1651,-6.4107,0.59113,-0.025143,0.66463,1,0.34479,0.1
+secondary,sgris_2021,s6_2017,measured_mac_C,False,46,5,9,-6.1175,-6.4128,0.58382,-0.11953,0.67838,1,0.34121,0.1
+secondary,sgris_2021,s6_2017,climatology,False,46,5,9,-9.5829,-8.2063,0.87947,0.60559,,0.63415,0.53574,0.1
+secondary,sgris_2021,s6_2017,literature_prior,False,46,5,9,-6.3019,-6.5439,0.6983,-0.28441,,1,0.40699,0.1
+secondary,sgris_2021,s6_2017,band_ratio,False,46,5,9,-9.8273,-8.4052,0.87509,0.66022,0.57902,0.58537,0.54243,0.1
+secondary,sgris_2021,s6_2017,ridge,False,46,5,9,-7.8299,-7.355,0.58592,0.39071,0.75699,0.63415,0.34763,0.1
+secondary,(published),s6_2017,cook2020_published,,13,,,,,0.24394,-0.13438,,,,

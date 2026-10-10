@@ -1095,3 +1095,22 @@ The previous classification, "improvement supported in direction at both sites",
 - **Copies:** `records/surrogate_qualification/benchmark_tddft_D.json` and `_points.csv`.
 - **Qualifies:** the TD-DFT D emulator for SZA 40–60° within the stated tolerances only.
 - **Full regression run (2026-10-10 01:30 UTC):** `pytest phase1/tests/test_tdcheckpoint.py phase1/tests/test_jobs.py common/tests/test_resources.py`: 41 passed (10.6 min, under the shared budget).
+
+### P8-KFREE-1: k-prior sensitivity of the frozen held-out retrieval result (deviation D3 quantified)
+- **Runs:** `phase4/heldout_kfree.py`, five alternative priors for the scalar HCRF/albedo factor k; everything else is identical to the frozen `records/heldout_v2`, which is unchanged.
+- **Files:** `records/heldout_v2_kfree_sensitivity/` (per-variant summaries and `paired_contrasts_by_k_prior.csv`).
+- **Preregistered contrast** (TD-DFT D − Tier A, mean log score per sample, block-bootstrap interval):
+
+  | k prior | primary fold (S6 2017 → SGRIS 2021, 18 plots, 2 blocks) | secondary fold (46 plots, 9 blocks) |
+  |---|---|---|
+  | frozen N(0.9, 0.175) | +0.153 (0.117, 0.168) | +0.537 (0.360, 0.725) |
+  | N(1.0, 0.175) | +0.105 (0.094, 0.135) | +0.196 (0.042, 0.327) |
+  | N(1.0, 0.25) | +0.096 (−0.058, 0.155) | +0.592 (0.427, 0.734) |
+  | N(0.8, 0.175) | +0.024 (−0.094, 0.069) | +0.546 (0.392, 0.709) |
+  | N(0.9, 0.0875) | +0.005 (−0.0003, 0.018) | +0.119 (0.036, 0.212) |
+  | N(0.9, 0.35) | **−0.048 (−0.105, −0.026)** | +0.047 (−0.061, 0.123) |
+
+- **Primary fold.** The gain is not robust to the k prior: its interval spans 0 under three alternatives and reverses sign under one. Retrieval bias moves from −0.01 dex (frozen) to between −0.40 and +0.38 dex. With 2 blocks the intervals are not generalisation intervals (D2).
+- **Secondary fold.** The gain stays positive under 5 of 6 priors, but its size varies five-fold (0.05–0.59) and it spans 0 under the widest prior.
+- **Interpretation (corrects P5-CORR-1):** "formal rule met" holds only under the frozen k prior. The held-out abundance-retrieval advantage of TD-DFT D over Tier A depends on an observation-operator prior that overlaps the S6 plots (D3). It is therefore **not established**.
+- **Validity:** the k priors were chosen as a sensitivity grid, not fitted; no threshold was changed.

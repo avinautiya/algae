@@ -39,7 +39,7 @@
 ## Standing limitations
 
 - **Posterior-mean optics** (D1) in H1–H5: no joint calibration draws propagated there. They are propagated only in the controlled substitution experiment (24 draws per treatment), where they widen the contrasts substantially.
-- **k-prior overlap with S6 plots** (D3, not model-symmetric).
+- **k-prior overlap with S6 plots** (D3, not model-symmetric). Quantified in P8-KFREE-1: the held-out TD-DFT D vs Tier A log-score gain on the primary fold spans 0 or reverses under 4 of 5 alternative k priors. The held-out abundance-retrieval advantage is therefore not established.
 - **Campaign-informed ice structure and dust prior** for H1.
 - **M2 is a simple fallback.**
 - **Footprint mismatch** between radiometer and pixel.
