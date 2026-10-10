@@ -205,3 +205,38 @@ def test_equivalent_except_rounding_unit():
     assert not TC.equivalent_except_rounding(a, dict(a, xc="CAM-B3LYP"))[0]
     assert not TC.equivalent_except_rounding(a, dict(a, nstates=5))[0]
     assert not TC.equivalent_except_rounding(None, a)[0]
+
+
+def _perturb_saved_orbital_energies(d, delta):
+    p = os.path.join(d, "latest.npz")
+    z = dict(np.load(p, allow_pickle=True))
+    z["mo_energy_0"] = np.asarray(z["mo_energy_0"]) + delta
+    with open(p, "wb") as fh:
+        np.savez(fh, **z)
+
+
+def test_same_operator_marginally_different_orbitals_resumes_as_guess(mf, tmp_path, reference):
+    """A restarted SCF can converge to orbital energies that differ beyond MO_ENERGY_TOL although the operator
+    fingerprint is identical (seen on L1_FULL, 2026-10-09 23:05). The checkpoint must not be discarded: its
+    vectors serve as an unvalidated initial guess, with no stage credit, and the solve reconverges fully."""
+    r1, _, _ = _solve(mf, tmp_path, tol=1e-3)
+    assert r1["status"] == "converged"
+    _perturb_saved_orbital_energies(tmp_path, 1e-5)                     # > MO_ENERGY_TOL = 1e-6 Eh
+    r2, td, f = _solve(_mf(), tmp_path, tol=1e-5)
+    assert r2["resumed"] and r2["resumed_as_guess"] and r2["invalidated"]
+    assert r2["status"] == "converged"
+    assert np.allclose(td.e, reference[0], atol=1e-7)
+    assert np.allclose(f, reference[1], atol=1e-5)
+
+
+def test_unusable_checkpoint_is_archived_before_fresh_start(mf, tmp_path, monkeypatch):
+    _solve(mf, tmp_path, tol=1e-3)
+    before = np.load(os.path.join(tmp_path, "latest.npz"), allow_pickle=True)["vectors"].copy()
+    _perturb_saved_orbital_energies(tmp_path, 1e-5)
+    monkeypatch.setattr(TC, "_same_shape_orbitals", lambda saved, mf: False)
+    r, _, _ = _solve(_mf(), tmp_path, tol=1e-3)
+    assert not r["resumed"] and r["invalidated"]
+    kept = [n for n in os.listdir(tmp_path) if n.startswith("invalidated_") and n.endswith("_latest.npz")]
+    assert len(kept) == 1
+    z = np.load(os.path.join(tmp_path, kept[0]), allow_pickle=True)
+    assert np.array_equal(z["vectors"], before)                         # the old work is preserved byte-for-byte

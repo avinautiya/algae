@@ -1073,3 +1073,16 @@ The previous classification, "improvement supported in direction at both sites",
   - "No glacier dataset can resolve" is restricted to the evaluated observations and assumptions.
   - Development data are labelled.
 - **Files:** `records/molecular_contribution/RESULTS.md`, `docs/claims_audit.md`, `docs/evidence_table.md`.
+
+### P8-REL-2: checkpoint discarded on marginal SCF orbital differences (found 2026-10-10 00:06)
+- **What happened.** At 23:05 the L1_FULL relaunch matched the operator fingerprint exactly, but the restarted SCF converged to orbital energies that differed by more than `MO_ENERGY_TOL` (10⁻⁶ Eh). The total energy agreed to 10⁻¹¹ Eh.
+  - The 28-cycle checkpoint was declared invalid and the TD solve restarted from scratch.
+  - A reboot at about 00:05 prevented the overwrite; the file is intact and backed up.
+- **Fix** (`phase1/tdcheckpoint.py`):
+  - When the operator matches, stored vectors of the right shape are reused as an unvalidated initial guess with no stage credit.
+  - Truly unusable checkpoints are archived before any fresh start.
+  - Tolerances are unchanged.
+- **Verification:**
+  - tests `test_same_operator_marginally_different_orbitals_resumes_as_guess` and `test_unusable_checkpoint_is_archived_before_fresh_start` (9 targeted tests pass);
+  - on the real job at 00:09, "stored vectors used as an UNVALIDATED initial guess only (no stage credit)".
+  - Whether the guess saves cycles on L1_FULL is not yet measured.

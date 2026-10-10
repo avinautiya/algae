@@ -13,11 +13,11 @@
 | TD chunk wall time (2 cycles) | 5431 s (90.5 min), under CPU contention | 491–790 s (8–13 min) |
 | Time from a relaunch to the next durable checkpoint | about 134 min | before the fix: SCF + gradient + geomeTRIC re-check of an already-converged geometry, then about 10 min of TD. **Neither relaunch reached TD.** After the fix (`--skip-opt` from the converged geometry): SCF (minutes) + one chunk (about 10 min). |
 | Advancement across the 19:52 and 20:57 relaunches | **none** (no checkpoint written) | **none** (no checkpoint written) |
-| After the fixes (21:53 relaunch) | not launched (cannot reach a checkpoint here) | SCF, then the 18-cycle checkpoint was reused via the rounding-tolerant match (no stage credit). **New durable checkpoint 22:01:14 UTC: 20 cycles, 25/30 roots at the current stage; fingerprint 32a898f0c632 (now the reference for further restarts).** Further checkpoints followed; latest 22:25 UTC: 28 cycles, 25/30 roots at the current stage (the count fluctuates as Davidson refines). No stage is completed yet. The container rebooted at about 23:02 (uptime about 92 min); at 23:03 the runner detected the stale record through the identity check and relaunched from the 22:25 checkpoint. |
+| After the fixes (21:53 relaunch) | not launched (cannot reach a checkpoint here) | SCF, then the 18-cycle checkpoint was reused via the rounding-tolerant match (no stage credit). **New durable checkpoint 22:01:14 UTC: 20 cycles, 25/30 roots at the current stage; fingerprint 32a898f0c632 (now the reference for further restarts).** Further checkpoints followed; latest 22:25 UTC: 28 cycles, 25/30 roots at the current stage (the count fluctuates as Davidson refines). No stage is completed yet. The container rebooted at about 23:02 (uptime about 92 min); at 23:03 the runner detected the stale record through the identity check and relaunched. **That 23:05 relaunch discarded the 28-cycle checkpoint** (defect 4 below); the reboot at about 00:05 struck before a fresh run could overwrite the file. After the fix, the 00:09 relaunch reused the 28-cycle vectors as an unvalidated initial guess (no stage credit). |
 
 ## Environment
 
-- **Observed uptimes between reboots:** 19:52 → about 20:56 (about 64 min); 20:57 → about 21:29 (about 32 min); 21:30 → about 23:02 (about 92 min).
+- **Observed uptimes between reboots:** 19:52 → about 20:56 (about 64 min); 20:57 → about 21:29 (about 32 min); 21:30 → about 23:02 (about 92 min); 23:03 → about 00:05 (about 62 min).
 - **L2_CAM_TDA15 cannot complete here.** Time to its next checkpoint (about 134 min) exceeds the runtime between reboots. At about 90 min per 2-cycle chunk, the remaining stages (residual 0.01 → 10⁻⁵, 15 roots) are estimated at 15–30 chunks, i.e. **22–45 h of uninterrupted compute** (rough; the cycle count is not known in advance).
 - **L1_FULL can advance** once re-optimisation is skipped: about 10 min to the first checkpoint after SCF.
   - Remaining: B3LYP 30 roots to 10⁻⁵ (estimated 20–40 more chunks, i.e. 3–8 h), then CAM-B3LYP 30 roots from scratch (similar).
@@ -32,6 +32,12 @@
 3. **Process adoption used PID existence only.** After a reboot, PIDs are reused, so a stale "running" record could block a relaunch forever.
    - **Now:** jobs and reservations record boot ID, process start time and command-line hash. Adoption requires all to match, and the command line must name the job's output directory.
    - **Legacy records** without identity are accepted only if the live process started before the recorded launch.
+
+4. **A checkpoint with an exactly matching operator was discarded when the restarted SCF converged to marginally different orbitals** (orbital energies beyond the 10⁻⁶ Eh validation tolerance, with the total energy identical to 10⁻¹¹ Eh). At 23:05 this discarded the 28-cycle L1_FULL checkpoint, and the next fresh save would have overwritten it.
+   - **Now:** whenever the operator matches (exactly, or up to coordinate rounding) and the stored vectors have the right shape, they are used as an unvalidated initial guess, with no stage credit; the solve still converges to the full tolerance on the current operator.
+   - A checkpoint that is truly unusable is copied to `invalidated_<time>_latest.npz` before any fresh start.
+   - The validation tolerance itself was not relaxed. Tests cover both paths.
+   - The 28-cycle checkpoint is also backed up in `phase1/results/ckpt_backup_2310_L1_28cyc/`.
 
 ## Not changed
 

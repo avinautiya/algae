@@ -124,6 +124,27 @@ def _block_shapes(mf):
     return [(int((occ > 0).sum()), int((occ == 0).sum())) for _, occ, _ in _spin_blocks(mf)]
 
 
+def _same_shape_orbitals(saved, mf):
+    """True when the stored orbitals have the current basis size, spin channels and occupations (so the stored
+    response vectors have the right length to serve as a guess)."""
+    cur = _spin_blocks(mf)
+    if int(saved["nspin"]) != len(cur):
+        return False
+    return all(saved[f"mo_coeff_{s}"].shape == C.shape and np.array_equal(saved[f"mo_occ_{s}"] > 0, occ > 0)
+               for s, (C, occ, _e) in enumerate(cur))
+
+
+def _archive_invalidated(ckpt_dir, log):
+    """Never let a fresh start overwrite an invalidated checkpoint: copy it aside first."""
+    import shutil
+    for name in ("latest.npz", "latest.prev.npz"):
+        src = os.path.join(ckpt_dir, name)
+        if os.path.isfile(src):
+            dst = os.path.join(ckpt_dir, f"invalidated_{time.strftime('%Y%m%dT%H%M%S')}_{name}")
+            shutil.copy2(src, dst)
+            log(f"[ckpt] invalidated checkpoint preserved as {dst}")
+
+
 def map_vectors(saved, mf, vecs, tda: bool):
     """Rotate MO-basis vectors from the saved orbitals into the current orbitals, or raise
     CheckpointError if the occupied/virtual subspaces differ."""
@@ -304,16 +325,19 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
                 log(f"[ckpt] resumed: {total} Davidson cycles done; all roots converged down to residual "
                     f"{conv_done if conv_done > 0 else 'none'}")
             except CheckpointError as e:
-                if rounding_match is not None and np.asarray(d["vectors"]).shape[0] == nstates:
-                    # operator identical except coordinate rounding, orbitals marginally different: the stored
-                    # vectors are used ONLY as an unvalidated initial guess (as for import_guess) - the solve
-                    # reconverges on the current operator to the full tolerance and earns no stage credit
-                    x0 = list(np.asarray(d["vectors"], float))
+                vec = np.asarray(d["vectors"], float)
+                if vec.shape[0] == nstates and np.all(np.isfinite(vec)) and _same_shape_orbitals(saved, mf):
+                    # same operator (exact fingerprint, or identical except coordinate rounding) but the restarted
+                    # SCF converged to marginally different canonical orbitals: the stored vectors are used ONLY
+                    # as an unvalidated initial guess (as for import_guess) - the solve reconverges on the current
+                    # operator to the full tolerance and earns no stage credit
+                    x0 = list(vec)
                     history, total, conv_done = meta.get("stage_history", []), int(meta.get("total_cycles", 0)), -1.0
                     info.update(resumed=True, resumed_as_guess=True, invalidated=str(e))
-                    log(f"[ckpt] orbitals differ marginally after coordinate rounding ({e}); stored vectors used as an "
-                        f"UNVALIDATED initial guess only (no stage credit)")
+                    log(f"[ckpt] stored orbitals differ marginally from the current SCF ({e}); stored vectors used as "
+                        f"an UNVALIDATED initial guess only (no stage credit)")
                 else:
+                    _archive_invalidated(ckpt_dir, log)
                     log(f"[ckpt] stored orbitals incompatible with the current SCF ({e}); checkpoint invalidated")
                     x0, info["invalidated"] = None, str(e)
         if x0 is None and import_guess and os.path.isfile(import_guess):
