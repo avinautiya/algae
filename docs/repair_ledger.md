@@ -1094,3 +1094,4 @@ The previous classification, "improvement supported in direction at both sites",
 - **Supersedes P6-SURR-2** (the old run that lacked the binding).
 - **Copies:** `records/surrogate_qualification/benchmark_tddft_D.json` and `_points.csv`.
 - **Qualifies:** the TD-DFT D emulator for SZA 40–60° within the stated tolerances only.
+- **Full regression run (2026-10-10 01:30 UTC):** `pytest phase1/tests/test_tdcheckpoint.py phase1/tests/test_jobs.py common/tests/test_resources.py`: 41 passed (10.6 min, under the shared budget).
