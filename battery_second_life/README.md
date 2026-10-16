@@ -31,22 +31,7 @@ Scenes 2 and 4 are full-screen animation with your voice over them. Scale and cr
 
 ## Presenter script
 
-The lines are written to be spoken. None of them uses a comma.
-
-**Scene 1 · on camera holding your phone**
-> This phone holds more than thirty minerals that took the Earth millions of years to make. We carry a whole piece of geology in our pockets every single day. So what really happens to all of it when the battery dies?
-
-**Scene 2 · voice over the animation**
-> It all starts deep in the crust. In some places lithium is locked inside hard pegmatite rock that has to be blasted out and crushed and baked. In others it hides in salty water under the desert and we leave it in giant ponds for months while the sun does the work. Every charge we take for granted begins with tonnes of rock and a lot of water and energy.
-
-**Scene 3 · split screen beside the map**
-> Then the journey gets long. Rock mined in Chile or Australia is shipped across the ocean to be refined and most of that refining happens in just one country. That makes the whole chain fragile. And after all that effort a worn-out battery often ends up buried in a landfill.
-
-**Scene 4 · voice over the animation**
-> But it doesn't have to end there. Recycling plants can shred old batteries and dissolve them so the lithium and cobalt and nickel come back out. About ninety percent of that metal can go straight into new batteries and it can take up to eighty percent less energy than digging up fresh rock. We can mine our past instead of the planet.
-
-**Scene 5 · full screen to camera**
-> When we understand the whole life of a mineral we stop seeing waste and start seeing a resource. Closing the loop isn't only about saving money or energy. It's how we build a future that's sustainable and resilient for the planet we all share.
+Timed to the rendered animation, at about 160 words a minute. The full cue table with delivery notes is in `SCRIPT.md`.
 
 ## Scene storyboard
 
