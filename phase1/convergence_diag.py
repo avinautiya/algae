@@ -223,13 +223,21 @@ ROOT_RE = re.compile(r"root (\d+)\s+(?:converged\s+)?\|r\|=\s*([0-9.eE+-]+)\s+e=
 
 
 class CountingVind:
+    """Counts vectors passed through the response operator; each call is also appended to calls.jsonl at once,
+    so a segment stopped early (bounded compute) still has its operator-application record."""
+    stream = None
+
     def __init__(self, vind):
         self.vind, self.calls = vind, []
 
     def __call__(self, x):
         t0 = time.time()
         out = self.vind(x)
-        self.calls.append(dict(nvec=int(np.asarray(x).shape[0]), seconds=time.time() - t0, t_end=time.time()))
+        rec = dict(nvec=int(np.asarray(x).shape[0]), seconds=time.time() - t0, t_end=time.time())
+        self.calls.append(rec)
+        if CountingVind.stream is not None:
+            CountingVind.stream.write(json.dumps(rec) + "\n")
+            CountingVind.stream.flush()
         return out
 
 
@@ -261,6 +269,7 @@ def cmd_segment(a):
     td.max_memory = a.max_memory or td.max_memory
     log_path = os.path.join(work, "solver.log")
     td.stdout = open(log_path, "w")
+    CountingVind.stream = open(os.path.join(work, "calls.jsonl"), "w")
     td.verbose = 6
     counters = []
     orig = td.gen_vind
