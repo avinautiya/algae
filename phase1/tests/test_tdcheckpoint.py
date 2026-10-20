@@ -348,3 +348,15 @@ def test_eigensolver_failure_is_recorded(mf, tmp_path):
                  log=lambda *a: None)
     st = _state(tmp_path)
     assert st["status"] == "failed" and "every start set" in st["reason"]
+
+
+def test_cycle_budget_counts_actual_iterations_not_nominal_chunks(mf, tmp_path, reference):
+    """A long chunk that converges early must not be charged the full chunk length (a 200-cycle chunk that
+    converged in 148 iterations was booked as 200 per stage before the fix)."""
+    r, td, _ = _solve(mf, tmp_path, chunk=60)
+    assert r["status"] == "converged"
+    m = _meta(tmp_path)
+    assert m["cycle_count"] == "actual"
+    assert 0 < r["total_cycles"] < 60 * len(r["stages"])               # nominal count would be 60 per stage
+    assert m["operator_vectors"] >= r["total_cycles"] * 1
+    assert np.allclose(td.e, reference[0], atol=1e-7)

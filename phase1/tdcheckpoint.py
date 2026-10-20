@@ -431,7 +431,8 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
                             conv=np.asarray(conv, bool), **mo),
                        dict(schema=SCHEMA, fp_hash=fph, nstates=nstates, total_cycles=total,
                             converged_tol=conv_done, stage_history=history, updated=time.time(),
-                            status=status, max_total_cycles=max_total_cycles))
+                            status=status, max_total_cycles=max_total_cycles, cycle_count="actual",
+                            operator_vectors=ops_total))
             if status != "running":
                 write_state(ckpt_dir, status, total_cycles=total, max_total_cycles=max_total_cycles,
                             converged_tol=conv_done, n_converged=int(np.asarray(conv, bool).sum()), nstates=nstates)
@@ -465,6 +466,23 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
                 except (RuntimeError, np.linalg.LinAlgError) as e:
                     log(f"[ckpt] eigensolver failed with the {label} start set ({e}); falling back")
             raise RuntimeError("eigensolver failed with every start set")
+
+        # count ACTUAL eigensolver iterations: real_eig/davidson apply the response operator exactly once per
+        # iteration (fresh starts included). Previously `total` advanced by the nominal chunk length even when
+        # the solver stopped earlier, so budgets and reports counted cycles that never ran.
+        work = dict(iterations=0, vectors=0)
+        _gen = td.gen_vind
+
+        def counted_gen_vind(*ga, **gk):
+            vind, hdiag = _gen(*ga, **gk)
+
+            def v(x):
+                work["iterations"] += 1
+                work["vectors"] += int(np.asarray(x).reshape(-1, np.asarray(x).shape[-1]).shape[0])
+                return vind(x)
+            return v, hdiag
+        td.gen_vind = counted_gen_vind
+        ops_total = int(meta.get("operator_vectors", 0)) if meta else 0
 
         status = "converged"
         complete = conv_done > 0 and conv_done <= conv_tol * (1 + 1e-9)
@@ -516,13 +534,16 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
             while True:
                 td.conv_tol, td.max_cycle = tol, chunk
                 t0 = time.time()
+                work.update(iterations=0, vectors=0)
                 try:
                     run_chunk()
                 except RuntimeError as e:
                     write_state(ckpt_dir, "failed", total_cycles=total, max_total_cycles=max_total_cycles,
                                 reason=str(e), nstates=nstates)
                     raise
-                total += chunk
+                total += work["iterations"]
+                ops_total += work["vectors"]
+                work.update(iterations=0, vectors=0)
                 conv = np.atleast_1d(np.asarray(td.converged, bool))
                 x0 = list(vectors_from_td(td, tda))
                 energies = np.asarray(td.e, float)
