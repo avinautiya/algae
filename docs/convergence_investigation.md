@@ -98,7 +98,34 @@ So every chunk performs **one subspace expansion** at the cost of about 60 + n_u
 
 ## 4. Restart vs uninterrupted segments
 
-(pending)
+**Design.**
+- **Code path:** both arms run the production code path (`tdcheckpoint.solve`) on COPIES of the same checkpoint, with the same physics (full TD-DFT, PCM, functional, basis, 30 roots), the same staged tolerances (10⁻² → 10⁻⁵) and the same start set (Ritz vectors + standard guess).
+- **The only difference is the chunk length:**
+  - "restart": 2 cycles per `td.kernel` call, as in production;
+  - "uninterrupted": up to 60 (small system: 200) cycles per call.
+- **Resources:** 2 threads each, run concurrently on the 4-core container so the wall-clock comparison is fair.
+- **Measures:** operator applications (vectors passed through the response operator), operator time and wall time; residuals from the solver's per-root DEBUG1 log.
+- **Records:** `phase1/results/convergence_diag/{small,cam,b3}_*/` (`solver.log`, `calls.jsonl`, `segment.json`), summaries in `records/convergence_investigation/`.
+
+**Small representative system** (same molecule and settings, 3-21G basis; fresh start; B3LYP):
+
+| | Cycles | Operator vectors | Wall/operator time | Result |
+|---|---|---|---|---|
+| Uninterrupted | 148 | 945 | 3800 s | all 30 roots < 10⁻⁵ (status converged). All < 10⁻² after 207 vectors (864 s), < 10⁻³ after 459 (1884 s). |
+| 2-cycle restart (stopped at equal wall time) | 30 | about 1060 | about 3830 s | 5 roots still > 10⁻² (max 1.4×10⁻²); first stage not reached |
+
+**Stalled system: L1 CAM-B3LYP, 6-31G*, from the production cycle-60 checkpoint** (12 roots > 10⁻², max 3.9×10⁻²). Both arms ran 2 h wall:
+
+| | Cycles | Operator vectors | Operator time | Roots > 10⁻² | Roots > 10⁻³ | Max residual |
+|---|---|---|---|---|---|---|
+| 2-cycle restart (production scheme) | 16 | 583 | 6870 s | 12 | 30 | 3.85×10⁻² (unchanged) |
+| Uninterrupted | 77 | 514 | 6491 s | **0** (stage 10⁻² done at cycle 39, 220 vectors) | **0** (stage 10⁻³ done) | 9.1×10⁻⁴ (in stage 10⁻⁴) |
+
+**Conclusion (restart-induced stagnation, confirmed on the stalled system):**
+- At equal or lower operator cost, the uninterrupted solve converges where the 2-cycle scheme makes no net progress.
+- The cause is the restart length. Each 2-cycle call spends about 61 operator applications re-applying the operator to its start set for a single expansion, and discards every search direction.
+- The physics, tolerance and root count are not the cause: the same solver on the same operator converges once it is allowed to keep its subspace.
+- **Correction to an interim remark:** an early look at maxima over every other cycle suggested that each restart actively increases residuals. A per-root check of the small-system run found no root whose residual rose by more than 5 % across any restart boundary. The scheme mainly loses progress; it does not degrade the solution.
 
 ## 5. Remedies
 
