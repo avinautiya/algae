@@ -1,0 +1,16 @@
+{
+ "system": "L1",
+ "func": "B3LYP",
+ "scf": {
+  "energy": -800.1029465210029,
+  "seconds": 118.1648223400116,
+  "conv_tol": 1e-09,
+  "conv_tol_grad": null,
+  "grad_norm": 2.572027960552653e-07
+ },
+ "internal_stable": true,
+ "seconds": 2831.4960107803345,
+ "log": [
+  "<class 'pyscf.solvent._attach_solvent.PCMDFRKS'> wavefunction is stable in the internal stability analysis"
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "system": "L1",
+ "func": "CAM-B3LYP",
+ "scf": {
+  "energy": -799.7439885205388,
+  "seconds": 113.87993884086609,
+  "conv_tol": 1e-09,
+  "conv_tol_grad": null,
+  "grad_norm": 3.996757906960277e-06
+ },
+ "internal_stable": true,
+ "seconds": 1533.1426813602448,
+ "log": [
+  "<class 'pyscf.solvent._attach_solvent.PCMDFRKS'> wavefunction is stable in the internal stability analysis"
+ ]
+}

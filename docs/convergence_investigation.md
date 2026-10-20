@@ -69,7 +69,8 @@ So every chunk performs **one subspace expansion** at the cost of about 60 + n_u
 **Ground state.**
 - Orbital gradients with the solvated Fock matrix: B3LYP 2.6×10⁻⁷, CAM-B3LYP 4.0×10⁻⁶.
 - The saved Ritz values agree with the Rayleigh quotients on the current operator to ≤ 9×10⁻⁵ eV.
-- So the stored states belong to the operator they are tested against. Internal stability: see the end of this section.
+- So the stored states belong to the operator they are tested against.
+- **Internal (real, singlet) stability:** both SCF solutions are stable; the lowest orbital-Hessian eigenvalues are 0.464 (B3LYP) and 0.449 (CAM-B3LYP), with no instability that could corrupt the RPA problem (`records/convergence_investigation/stability_*.json`).
 
 **B3LYP (exhausted at 400 cycles), true residuals:**
 
