@@ -1140,3 +1140,4 @@ The previous classification, "improvement supported in direction at both sites",
 - **Not changed:** functional, basis, solvent, TD vs TDA, root count, tolerances.
 - **Proposal awaiting approval:** chunk 60; seed from the diagnostic 10⁻³ checkpoints; B3LYP cap +300 actual iterations; stopping rule on.
 - **Status of the L1 spectra:** they remain unconverged and excluded from production conclusions.
+- **Regression (2026-10-20):** `pytest phase1/tests/test_tdcheckpoint.py phase1/tests/test_jobs.py common/tests/test_resources.py`: 52 passed.
