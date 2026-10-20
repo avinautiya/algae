@@ -308,6 +308,27 @@ def cmd_segment(a):
                           max_resid_last=max(last) if last else None), indent=1))
 
 
+def cmd_stability(a):
+    """Internal (real, singlet) stability of the SCF solution used by the response calculation. An internal
+    instability (negative lowest eigenvalue of the orbital Hessian) would invalidate RPA and could cause
+    erratic response convergence."""
+    from pyscf.scf import stability
+    work = os.path.join(DIAG, f"stab_{a.system}_{a.func}")
+    mol, mf, scf = build(a.system, a.func, work)
+    t0 = time.time()
+    lines = []
+    mf.verbose, mf.stdout = 4, open(os.path.join(work, "stability.log"), "w")
+    mo_i, mo_e, stable_i, stable_e = mf.stability(internal=True, external=False, return_status=True)
+    mf.stdout.close()
+    for ln in open(os.path.join(work, "stability.log")):
+        if "stability" in ln.lower() or "lowest eigenvalue" in ln.lower():
+            lines.append(ln.strip())
+    out = dict(system=a.system, func=a.func, scf=scf, internal_stable=bool(stable_i), seconds=time.time() - t0,
+               log=lines)
+    json.dump(out, open(os.path.join(work, "stability.json"), "w"), indent=1)
+    print(json.dumps(out, indent=1))
+
+
 def cmd_config(a):
     work = os.path.join(DIAG, f"scf_{a.system}_{a.func}")
     mol, mf, scf = build(a.system, a.func, work)
@@ -359,9 +380,12 @@ def main(argv=None):
     s.add_argument("--conv-tol-stage", type=float, default=1e-2, help="for the printed summary only")
     s.add_argument("--max-memory", type=int, default=None, help="td.max_memory (sets the real_eig max_space)")
     s.add_argument("--tag", required=True)
+    st = sub.add_parser("stability")
+    st.add_argument("--system", default="L1")
+    st.add_argument("--func", required=True)
     a = p.parse_args(argv)
     qc.set_threads()
-    dict(config=cmd_config, residuals=cmd_residuals, segment=cmd_segment)[a.cmd](a)
+    dict(config=cmd_config, residuals=cmd_residuals, segment=cmd_segment, stability=cmd_stability)[a.cmd](a)
 
 
 if __name__ == "__main__":
