@@ -66,6 +66,9 @@ def parse_args(argv=None):
     p.add_argument("--td-chunk", type=int, default=5,
                    help="Davidson iterations per checkpoint chunk (restartable solve, phase1/tdcheckpoint.py)")
     p.add_argument("--td-max-cycles", type=int, default=400, help="total Davidson-iteration budget per solve")
+    p.add_argument("--verify-terminal", action="store_true",
+                   help="for a solve whose cycle budget is already exhausted: add a separately labelled residual "
+                        "verification (one operator application) to the reconstructed diagnostic outputs")
     p.add_argument("--import-guess", default=None,
                    help="legacy .npz with an 'x0' array: used only as an unvalidated initial guess")
     p.add_argument("--fwhm", type=float, default=0.3, help="Gaussian FWHM in eV")
@@ -177,13 +180,17 @@ def main(argv=None):
                 raise RuntimeError(f"{func} SCF did not converge")
         res = qc.run_tddft(mf_td, nstates=a.nstates, tda=a.tda, conv_tol=a.td_conv_tol,
                            ckpt_dir=os.path.join(outdir, "td_ckpt", f"{func}_{'TDA' if a.tda else 'RPA'}_{a.nstates}"),
-                           chunk=a.td_chunk, max_total_cycles=a.td_max_cycles, import_guess=a.import_guess)
+                           chunk=a.td_chunk, max_total_cycles=a.td_max_cycles, import_guess=a.import_guess,
+                           verify_terminal=a.verify_terminal)
         td_status = res["status"]
         problems = completion.td_problems(res["energies_ev"], res["osc_strengths"], res["converged"], a.nstates)
         if td_status != "converged":
             problems.insert(0, f"solver status {td_status}")
         with open(os.path.join(outdir, f"{a.level}_{func}_stage_history.json"), "w") as fh:
-            json.dump(dict(fingerprint=res.get("fingerprint"), stages=res.get("stage_history", [])), fh,
+            json.dump(dict(fingerprint=res.get("fingerprint"), stages=res.get("stage_history", []),
+                           solver_status=td_status, total_cycles=res.get("total_cycles"),
+                           reconstructed_from_checkpoint=res.get("reconstructed", False),
+                           verification=res.get("verification"), resumed_as_guess=res.get("resumed_as_guess")), fh,
                       indent=1, default=float)
 
         lines_df, spec_df, arrays = spectra.build_spectrum(

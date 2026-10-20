@@ -240,3 +240,111 @@ def test_unusable_checkpoint_is_archived_before_fresh_start(mf, tmp_path, monkey
     assert len(kept) == 1
     z = np.load(os.path.join(tmp_path, kept[0]), allow_pickle=True)
     assert np.array_equal(z["vectors"], before)                         # the old work is preserved byte-for-byte
+
+
+# ----------------------------------------------------------------- explicit terminal states (P9-CONV, D6)
+def _counting_td(mf, tda=True):
+    td = _td(mf, tda)
+    calls = []
+    orig = td.kernel
+
+    def kernel(*a, **k):
+        calls.append(1)
+        return orig(*a, **k)
+    td.kernel = kernel
+    return td, calls
+
+
+def _state(d):
+    import json
+    return json.load(open(os.path.join(d, "state.json")))
+
+
+def _meta(d):
+    import json
+    return json.loads(str(np.load(os.path.join(d, "latest.npz"))["meta"]))
+
+
+@pytest.mark.parametrize("tda", [True, False])
+def test_exhausted_solve_is_not_reoptimised_on_restart(mf, tmp_path, tda):
+    r1, _, _ = _solve(mf, tmp_path, tol=1e-9, tda=tda, chunk=1, max_total_cycles=2)
+    assert r1["status"] == "max_cycles_unconverged"
+    assert _state(tmp_path)["status"] == "exhausted" and _meta(tmp_path)["status"] == "exhausted"
+    before = open(os.path.join(tmp_path, "latest.npz"), "rb").read()
+    td, calls = _counting_td(_mf(), tda)
+    r2 = TC.solve(td, td._scf, tda=tda, nstates=NST, conv_tol=1e-9, ckpt_dir=str(tmp_path), singlet=True,
+                  chunk=1, max_total_cycles=2, log=lambda *a: None)
+    assert calls == []                                                   # no optimisation chunk
+    assert r2["status"] == "max_cycles_unconverged" and r2["reconstructed"] and r2["verification"] is None
+    assert r2["total_cycles"] == r1["total_cycles"]
+    assert np.allclose(r2["energies_au"], r1["energies_au"])
+    assert np.allclose(td.e, r1["energies_au"])
+    f = np.asarray(td.oscillator_strength(gauge="length"))               # outputs reconstructable
+    assert f.shape == (NST,) and np.all(np.isfinite(f))
+    assert open(os.path.join(tmp_path, "latest.npz"), "rb").read() == before   # checkpoint untouched
+
+
+def test_exhausted_solve_optional_verification_is_labelled_and_changes_nothing(mf, tmp_path):
+    _solve(mf, tmp_path, tol=1e-9, chunk=1, max_total_cycles=2)
+    before = open(os.path.join(tmp_path, "latest.npz"), "rb").read()
+    td, calls = _counting_td(_mf())
+    r = TC.solve(td, td._scf, tda=True, nstates=NST, conv_tol=1e-9, ckpt_dir=str(tmp_path), singlet=True,
+                 chunk=1, max_total_cycles=2, log=lambda *a: None, verify_terminal=True)
+    assert calls == []
+    v = r["verification"]
+    assert v["kind"] == "verification" and v["operator_vectors"] == NST and len(v["residuals"]) == NST
+    assert not v["all_within_tol"]                                       # 1e-9 was never reached
+    assert open(os.path.join(tmp_path, "latest.npz"), "rb").read() == before
+    assert _state(tmp_path)["verification"]["max_residual"] == pytest.approx(v["max_residual"])
+
+
+def test_larger_budget_resumes_optimisation_explicitly(mf, tmp_path, reference):
+    _solve(mf, tmp_path, chunk=1, max_total_cycles=2)
+    td, calls = _counting_td(_mf())
+    r = TC.solve(td, td._scf, tda=True, nstates=NST, conv_tol=1e-5, ckpt_dir=str(tmp_path), singlet=True,
+                 chunk=3, max_total_cycles=300, log=lambda *a: None)
+    assert calls and r["status"] == "converged" and not r["reconstructed"]
+    assert np.allclose(td.e, reference[0], atol=1e-7)
+    assert _state(tmp_path)["status"] == "converged"
+
+
+@pytest.mark.parametrize("tda", [True, False])
+def test_converged_restart_verifies_without_optimisation(mf, tmp_path, tda):
+    r1, td1, f1 = _solve(mf, tmp_path, tda=tda)
+    td, calls = _counting_td(_mf(), tda)
+    r = TC.solve(td, td._scf, tda=tda, nstates=NST, conv_tol=1e-5, ckpt_dir=str(tmp_path), singlet=True,
+                 log=lambda *a: None)
+    assert calls == [] and r["status"] == "converged" and r["reconstructed"]
+    assert r["verification"]["all_within_tol"] and r["verification"]["max_residual"] <= 1e-5
+    assert np.allclose(td.e, td1.e, atol=1e-10)
+    assert np.allclose(td.oscillator_strength(gauge="length"), f1, atol=1e-8)
+
+
+def test_failed_verification_runs_labelled_additional_optimisation(mf, tmp_path, reference):
+    _solve(mf, tmp_path)
+    p = os.path.join(tmp_path, "latest.npz")
+    z = dict(np.load(p, allow_pickle=True))
+    rng = np.random.default_rng(0)
+    z["vectors"] = z["vectors"] + 1e-2 * rng.standard_normal(z["vectors"].shape)   # corrupt the converged vectors
+    with open(p, "wb") as fh:
+        np.savez(fh, **z)
+    msgs = []
+    td, calls = _counting_td(_mf())
+    r = TC.solve(td, td._scf, tda=True, nstates=NST, conv_tol=1e-5, ckpt_dir=str(tmp_path), singlet=True,
+                 log=lambda *a: msgs.append(" ".join(map(str, a))))
+    assert any("verification of the converged checkpoint FAILED" in m and "ADDITIONAL OPTIMISATION" in m for m in msgs)
+    assert calls and r["status"] == "converged" and r["verification_failed_then_optimised"]
+    assert np.allclose(td.e, reference[0], atol=1e-7)
+
+
+def test_eigensolver_failure_is_recorded(mf, tmp_path):
+    td = _td(_mf())
+
+    def boom(*a, **k):
+        raise RuntimeError("synthetic eigensolver failure")
+    td.kernel = boom
+    with pytest.raises(RuntimeError):
+        TC.solve(td, td._scf, tda=True, nstates=NST, conv_tol=1e-5, ckpt_dir=str(tmp_path), singlet=True,
+                 log=lambda *a: None)
+    st = _state(tmp_path)
+    assert st["status"] == "failed" and "every start set" in st["reason"]

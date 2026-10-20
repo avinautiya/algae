@@ -238,7 +238,7 @@ def harmonic_check(mf, workdir: str = ".", tag: str = "freq"):
 
 def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: bool = False,
               conv_tol: float = 1e-5, ckpt_dir: str | None = None, chunk: int = 5,
-              max_total_cycles: int = 400, import_guess: str | None = None):
+              max_total_cycles: int = 400, import_guess: str | None = None, verify_terminal: bool = False):
     """Vertical excitations from a converged SCF (closed shell: singlets only).
 
     conv_tol is the Davidson residual-norm tolerance. It does not by itself guarantee a stated
@@ -273,10 +273,13 @@ def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: b
         import tdcheckpoint
         r = tdcheckpoint.solve(td, mf, tda=tda, nstates=nstates, conv_tol=conv_tol, ckpt_dir=ckpt_dir,
                                singlet=singlet, equilibrium_solvation=equilibrium_solvation, chunk=chunk,
-                               max_total_cycles=max_total_cycles, import_guess=import_guess)
+                               max_total_cycles=max_total_cycles, import_guess=import_guess,
+                               verify_terminal=verify_terminal)
         status = r["status"]
         extra = dict(fingerprint=r["fp"], fp_hash=r["fp_hash"], stage_history=r["stage_history"],
-                     total_cycles=r["total_cycles"], resumed=r["resumed"], invalidated=r["invalidated"])
+                     total_cycles=r["total_cycles"], resumed=r["resumed"], invalidated=r["invalidated"],
+                     reconstructed=r.get("reconstructed", False), verification=r.get("verification"),
+                     resumed_as_guess=r.get("resumed_as_guess", False))
     else:
         td.kernel()
         status = "converged" if np.all(np.atleast_1d(_to_numpy(td.converged))) else "unconverged"
@@ -400,6 +403,8 @@ def xyz_file_to_atom_block(path: str, frame: int = -1) -> str:
 
 def set_threads(n: int | None = None):
     """Use all available cores (Colab: 2 vCPU on the free tier, 8 on High-RAM)."""
-    n = n or os.cpu_count()
+    # respect a thread cap set by the shared budget (common/run_budgeted.py, jobs.py set OMP_NUM_THREADS);
+    # previously os.cpu_count() overrode it, so admitted 2-thread jobs ran on all 4 cores
+    n = n or int(os.environ.get("OMP_NUM_THREADS") or 0) or os.cpu_count()
     lib.num_threads(n)
     return n

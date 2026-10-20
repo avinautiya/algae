@@ -274,17 +274,88 @@ class CheckpointStore:
 
 
 # --------------------------------------------------------------------------- solver
+def write_state(ckpt_dir, status, **kw):
+    """Explicit terminal/progress state next to the checkpoint (for runners and reports)."""
+    path = os.path.join(ckpt_dir, "state.json")
+    tmp = path + f".tmp.{os.getpid()}"
+    with open(tmp, "w") as fh:
+        json.dump(dict(status=status, updated=time.time(), **kw), fh, indent=1, default=str)
+    os.replace(tmp, path)
+
+
+def reconstruct_td(td, mf, d, tda: bool):
+    """Repopulate td (e, xy, converged) from saved Ritz pairs WITHOUT any solve. The amplitudes are attached
+    to a shallow copy of mf carrying the orbitals they were computed in, so oscillator strengths and any
+    verification use a consistent operator."""
+    import copy
+    mfs = copy.copy(mf)
+    mfs.mo_coeff = np.asarray(d["mo_coeff_0"])
+    mfs.mo_occ = np.asarray(d["mo_occ_0"])
+    mfs.mo_energy = np.asarray(d["mo_energy_0"])
+    td._scf = mfs
+    nocc = int((mfs.mo_occ > 0).sum())
+    nvir = int(mfs.mo_occ.size - nocc)
+    n = nocc * nvir
+    xy = []
+    for v in np.asarray(d["vectors"], float):
+        x = v[:n].reshape(nocc, nvir)
+        xy.append((x, 0) if tda else (x, v[n:2 * n].reshape(nocc, nvir)))
+    td.xy = xy
+    td.e = np.asarray(d["energies"], float)
+    td.converged = np.atleast_1d(np.asarray(d["conv"], bool))
+    return td
+
+
+def verify_residuals(td, tda: bool, conv_tol: float):
+    """Residual norms of the Ritz pairs currently in td, with the convention of the installed eigensolver
+    (pyscf.tdscf._lr_eig: vectors normalised to X.X - Y.Y = 1). One operator application; nothing is updated.
+    This is VERIFICATION, not optimisation."""
+    t0 = time.time()
+    vind, _ = td.gen_vind(td._scf)
+    Z = []
+    for x, y in td.xy:
+        xf = np.ravel(np.asarray(x))
+        yf = np.zeros_like(xf) if tda else np.ravel(np.asarray(y))
+        nrm = xf @ xf - (0.0 if tda else yf @ yf)
+        Z.append(np.hstack([xf, yf] if not tda else [xf]) / np.sqrt(abs(nrm)))
+    Z = np.array(Z)
+    om = np.asarray(td.e, float)
+    ax = np.asarray(vind(Z))
+    n = Z.shape[1] if tda else Z.shape[1] // 2
+    if tda:
+        r = np.linalg.norm(ax - om[:, None] * Z, axis=1)
+    else:
+        X, Y = Z[:, :n], Z[:, n:]
+        rx = ax[:, :n] - om[:, None] * X
+        ry = -ax[:, n:] + om[:, None] * Y
+        r = np.sqrt((rx ** 2).sum(1) + (ry ** 2).sum(1))
+    return dict(kind="verification", residuals=[float(v) for v in r], max_residual=float(r.max()),
+                all_within_tol=bool(np.all(r <= conv_tol)), conv_tol=conv_tol, operator_vectors=int(len(Z)),
+                seconds=time.time() - t0)
+
+
 def default_stages(conv_tol):
     return [t for t in (1e-2, 1e-3, 1e-4) if t > conv_tol * (1 + 1e-9)] + [conv_tol]
 
 
 def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, singlet=None,
           equilibrium_solvation=False, chunk: int = 5, max_total_cycles: int = 300,
-          import_guess: str | None = None, log=print):
+          import_guess: str | None = None, log=print, verify_terminal: bool = False):
     """Run td to `conv_tol` in stages and chunks with checkpoints. Returns dict(status, energies_au,
     conv, stage_history, ...). status is 'converged' only if every root converged at conv_tol.
     import_guess: optional legacy .npz with an 'x0' array, used ONLY as an unvalidated initial guess
-    (no stage credit) when no valid checkpoint exists."""
+    (no stage credit) when no valid checkpoint exists.
+
+    Terminal states are explicit (checkpoint meta "status" and <ckpt_dir>/state.json):
+      converged  - every root at conv_tol. On resume the saved Ritz pairs are reconstructed (no optimisation);
+                   a residual VERIFICATION (one operator application, nothing updated) confirms them; only if
+                   that verification fails is further optimisation run, and it is logged as such.
+      exhausted  - the cycle budget max_total_cycles was used without convergence. On resume with the same (or a
+                   smaller) budget NO optimisation chunk is run: the diagnostic outputs are reconstructed from the
+                   saved energies and amplitudes in the orbitals they were computed in. verify_terminal=True adds
+                   a separately labelled residual verification. A larger budget resumes optimisation explicitly.
+      failed     - the eigensolver failed with every start set (re-raised; retried on the next call).
+    """
     fp = operator_fingerprint(mf, tda=tda, nstates=nstates, singlet=singlet,
                               equilibrium_solvation=equilibrium_solvation, frozen=getattr(td, "frozen", None))
     fph = fingerprint_hash(fp)
@@ -313,7 +384,7 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
             json.dump(dict(fp=fp, fp_hash=fph), fh, indent=1, default=str)
         x0, history, total, conv_done = None, [], 0, -1.0
         info = dict(resumed=False, invalidated=None, guess_imported=False, rounding_match_bohr=rounding_match,
-                    resumed_as_guess=False)
+                    resumed_as_guess=False, reconstructed=False, verification=None)
         if d is not None:
             saved = dict(nspin=d["nspin"], **{k: d[k] for k in d if k.startswith("mo_")})
             try:
@@ -355,11 +426,15 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
             mo.update({f"mo_coeff_{s}": C, f"mo_occ_{s}": occ, f"mo_energy_{s}": e})
         mo["nspin"] = np.array(len(_spin_blocks(mf)))
 
-        def save(conv, energies):
+        def save(conv, energies, status="running"):
             store.save(dict(vectors=np.asarray(x0), energies=np.asarray(energies, float),
                             conv=np.asarray(conv, bool), **mo),
                        dict(schema=SCHEMA, fp_hash=fph, nstates=nstates, total_cycles=total,
-                            converged_tol=conv_done, stage_history=history, updated=time.time()))
+                            converged_tol=conv_done, stage_history=history, updated=time.time(),
+                            status=status, max_total_cycles=max_total_cycles))
+            if status != "running":
+                write_state(ckpt_dir, status, total_cycles=total, max_total_cycles=max_total_cycles,
+                            converged_tol=conv_done, n_converged=int(np.asarray(conv, bool).sum()), nstates=nstates)
 
         def start_vectors():
             """Restart vectors augmented with the solver's standard initial guess, so that a restart
@@ -392,12 +467,45 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
             raise RuntimeError("eigensolver failed with every start set")
 
         status = "converged"
-        if conv_done > 0 and conv_done <= conv_tol * (1 + 1e-9):
-            # already complete: one verification pass on the current operator (also repopulates td)
+        complete = conv_done > 0 and conv_done <= conv_tol * (1 + 1e-9)
+        exhausted = (d is not None and x0 is not None and not complete and total >= max_total_cycles)
+        if (complete or exhausted) and d is not None and int(d["nspin"]) == 1:
+            reconstruct_td(td, mf, d, tda)
+            ver = verify_residuals(td, tda, conv_tol) if (complete or verify_terminal) else None
+            info.update(reconstructed=True, verification=ver)
+            conv = np.atleast_1d(np.asarray(d["conv"], bool))
+            if exhausted:
+                log(f"[ckpt] budget exhausted ({total} >= {max_total_cycles} cycles, {int(conv.sum())}/{conv.size} roots "
+                    f"converged at the current stage): NO further optimisation; outputs reconstructed from the saved "
+                    f"Ritz pairs (diagnostic only)" + ("" if ver is None else
+                                                       f"; verification max |r| = {ver['max_residual']:.3g}"))
+                write_state(ckpt_dir, "exhausted", total_cycles=total, max_total_cycles=max_total_cycles,
+                            converged_tol=conv_done, n_converged=int(conv.sum()), nstates=nstates,
+                            verification=ver)
+                return dict(status="max_cycles_unconverged", fp=fp, fp_hash=fph, conv=conv,
+                            energies_au=np.asarray(d["energies"], float), stage_history=history, total_cycles=total,
+                            stages=stages, **info)
+            if ver["all_within_tol"]:
+                log(f"[ckpt] already converged at {conv_done:g}: reconstructed from the checkpoint; verification "
+                    f"(no optimisation) max |r| = {ver['max_residual']:.3g} <= {conv_tol:g}")
+                write_state(ckpt_dir, "converged", total_cycles=total, max_total_cycles=max_total_cycles,
+                            converged_tol=conv_done, n_converged=int(conv.sum()), nstates=nstates, verification=ver)
+                return dict(status="converged", fp=fp, fp_hash=fph, conv=conv,
+                            energies_au=np.asarray(d["energies"], float), stage_history=history, total_cycles=total,
+                            stages=stages, **info)
+            log(f"[ckpt] verification of the converged checkpoint FAILED (max |r| = {ver['max_residual']:.3g} > "
+                f"{conv_tol:g}); running ADDITIONAL OPTIMISATION at the final tolerance")
+            td._scf = mf
+            conv_done = -1.0
+            stages = [conv_tol]
+            info["verification_failed_then_optimised"] = True
+        elif complete:
+            # open-shell (or legacy) case: one verification chunk on the current operator (also repopulates td)
             td.conv_tol, td.max_cycle = conv_tol, chunk
             run_chunk()
             conv = np.atleast_1d(np.asarray(td.converged, bool))
-            log(f"[ckpt] verification pass: {conv.sum()}/{conv.size} roots converged at {conv_tol:g}")
+            log(f"[ckpt] verification chunk (optimiser, open shell): {conv.sum()}/{conv.size} roots converged at "
+                f"{conv_tol:g}")
             if not (conv.size == nstates and conv.all()):
                 status = "verification_failed"
             return dict(status=status, fp=fp, fp_hash=fph, conv=conv, energies_au=np.asarray(td.e, float),
@@ -408,7 +516,12 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
             while True:
                 td.conv_tol, td.max_cycle = tol, chunk
                 t0 = time.time()
-                run_chunk()
+                try:
+                    run_chunk()
+                except RuntimeError as e:
+                    write_state(ckpt_dir, "failed", total_cycles=total, max_total_cycles=max_total_cycles,
+                                reason=str(e), nstates=nstates)
+                    raise
                 total += chunk
                 conv = np.atleast_1d(np.asarray(td.converged, bool))
                 x0 = list(vectors_from_td(td, tda))
@@ -420,12 +533,13 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
                     f = np.asarray(td.oscillator_strength(gauge="length"), float)
                     history.append(dict(tol=tol, total_cycles=total, energies_au=energies.tolist(),
                                         osc=f.tolist()))
-                    save(conv, energies)
+                    save(conv, energies, status="converged" if tol == stages[-1] else "running")
                     break
-                save(conv, energies)
                 if total >= max_total_cycles:
+                    save(conv, energies, status="exhausted")
                     status = "max_cycles_unconverged"
                     break
+                save(conv, energies)
             if status != "converged":
                 break
         return dict(status=status, fp=fp, fp_hash=fph, conv=conv, energies_au=np.asarray(td.e, float),
