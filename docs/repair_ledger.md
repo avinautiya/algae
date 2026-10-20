@@ -1123,3 +1123,20 @@ The previous classification, "improvement supported in direction at both sites",
 - **Interpretation:** this is a convergence failure of the highest requested root, not of the visible-band states. Even so, the B3LYP Level 1 results are not production-grade and are not used in any claim.
 - **Settings:** unchanged as instructed. Options awaiting a decision (extra roots judged on the lowest 30, a larger chunk, a larger budget) are in `docs/chemistry_progress.md`.
 - **Next:** the CAM-B3LYP solve now runs from scratch and is expected to face the same risk.
+
+### P9-CONV: bounded convergence investigation of the restartable TD-DFT solves (2026-10-20)
+- **Report:** `docs/convergence_investigation.md`; evidence in `records/convergence_investigation/`. Production L1_FULL paused at 14:45 UTC; all checkpoints preserved (`phase1/results/ckpt_backup_20261020_L1_before_diag/`).
+- **Finding:**
+  - The 2-cycle checkpoint chunking changed the solver's behaviour. Each `td.kernel` call is a fresh `real_eig` start from 30 Ritz vectors plus 30 guess vectors, so each chunk is one subspace expansion costing about 61 operator applications, and all search directions are discarded.
+  - From copies of the same checkpoints, an uninterrupted solve cleared the 10⁻² and 10⁻³ stages within about 1–2 h on both functionals, at equal or lower operator cost. The 2-cycle scheme made no net progress (CAM-B3LYP max residual 3.9×10⁻² unchanged; B3LYP root 30 1.6×10⁻² unchanged).
+  - B3LYP root 30 converged within 4 uninterrupted cycles.
+  - No root exchange was found. The ground states are converged; internal stability is in the report.
+- **Fixes:**
+  - explicit terminal states (converged / exhausted / failed / stalled) with reconstruction and no re-optimisation;
+  - labelled residual verification;
+  - actual-iteration cycle accounting;
+  - opt-in stall stopping rule;
+  - `qc.set_threads` respects the budget's thread cap.
+- **Not changed:** functional, basis, solvent, TD vs TDA, root count, tolerances.
+- **Proposal awaiting approval:** chunk 60; seed from the diagnostic 10⁻³ checkpoints; B3LYP cap +300 actual iterations; stopping rule on.
+- **Status of the L1 spectra:** they remain unconverged and excluded from production conclusions.

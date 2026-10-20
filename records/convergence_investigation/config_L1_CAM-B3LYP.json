@@ -1,0 +1,65 @@
+{
+ "commit": "a302c4fb76e7d57bae816d577afb60e793ea38aa",
+ "pyscf": "2.14.0",
+ "numpy": "2.5.3",
+ "python": "3.13.16",
+ "system": "L1",
+ "functional": "CAM-B3LYP",
+ "xc": "CAMB3LYP",
+ "basis": "6-31g*",
+ "cartesian": true,
+ "natm": 24,
+ "nelectron": 114,
+ "nao": 256,
+ "density_fit": "def2-universal-jkfit",
+ "grid_level": 3,
+ "solvent": {
+  "method": "IEF-PCM",
+  "eps": 78.4,
+  "lebedev": 29,
+  "td_equilibrium_solvation": false
+ },
+ "td_class": "PCMTDDFT",
+ "td_mro": [
+  "PCMTDDFT",
+  "TDSCFWithSolvent",
+  "_Solvation",
+  "TDDFT",
+  "TDHF",
+  "TDBase"
+ ],
+ "response": "full TD-DFT (RPA, non-Hermitian real_eig), singlets",
+ "nstates": 30,
+ "solver": "pyscf.tdscf._lr_eig.real_eig",
+ "solver_file": "/usr/local/lib/python3.13/dist-packages/pyscf/tdscf/_lr_eig.py",
+ "solver_sha256": "9618660167332b566d4410fc2f00f4a2078b0046f2df05b76819455afb64fc7c",
+ "convergence": "per-root residual norm <= conv_tol (vectors normalised X.X-Y.Y=1); staged 1e-2 -> 1e-5",
+ "td_lindep": 1e-12,
+ "td_level_shift": 0,
+ "td_deg_eia_thresh": 0.001,
+ "space": {
+  "nocc": 57,
+  "nvir": 199,
+  "A_size": 11343,
+  "space_inc": 30,
+  "max_space": 2862,
+  "memory_warning": false,
+  "holder_mb": 1038.837312,
+  "max_memory_mb": 2100,
+  "MAX_SPACE_INC": 20
+ },
+ "scf": {
+  "energy": -799.7439885205251,
+  "seconds": 97.12605810165405,
+  "conv_tol": 1e-09,
+  "conv_tol_grad": null,
+  "grad_norm": 0.04468895494814722
+ },
+ "production": {
+  "chunk": 2,
+  "max_total_cycles": 400,
+  "threads": 2,
+  "mem_reservation_mb": 3000,
+  "restart_start_set": "30 Ritz vectors + 30 standard initial-guess vectors, SVD-orthonormalised"
+ }
+}

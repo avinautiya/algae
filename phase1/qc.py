@@ -238,7 +238,8 @@ def harmonic_check(mf, workdir: str = ".", tag: str = "freq"):
 
 def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: bool = False,
               conv_tol: float = 1e-5, ckpt_dir: str | None = None, chunk: int = 5,
-              max_total_cycles: int = 400, import_guess: str | None = None, verify_terminal: bool = False):
+              max_total_cycles: int = 400, import_guess: str | None = None, verify_terminal: bool = False,
+              min_chunk_progress: float | None = None, stall_chunks: int = 2, resume_stalled: bool = False):
     """Vertical excitations from a converged SCF (closed shell: singlets only).
 
     conv_tol is the Davidson residual-norm tolerance. It does not by itself guarantee a stated
@@ -274,7 +275,8 @@ def run_tddft(mf, nstates: int = 30, tda: bool = False, equilibrium_solvation: b
         r = tdcheckpoint.solve(td, mf, tda=tda, nstates=nstates, conv_tol=conv_tol, ckpt_dir=ckpt_dir,
                                singlet=singlet, equilibrium_solvation=equilibrium_solvation, chunk=chunk,
                                max_total_cycles=max_total_cycles, import_guess=import_guess,
-                               verify_terminal=verify_terminal)
+                               verify_terminal=verify_terminal, min_chunk_progress=min_chunk_progress,
+                               stall_chunks=stall_chunks, resume_stalled=resume_stalled)
         status = r["status"]
         extra = dict(fingerprint=r["fp"], fp_hash=r["fp_hash"], stage_history=r["stage_history"],
                      total_cycles=r["total_cycles"], resumed=r["resumed"], invalidated=r["invalidated"],

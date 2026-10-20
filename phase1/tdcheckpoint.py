@@ -340,7 +340,8 @@ def default_stages(conv_tol):
 
 def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, singlet=None,
           equilibrium_solvation=False, chunk: int = 5, max_total_cycles: int = 300,
-          import_guess: str | None = None, log=print, verify_terminal: bool = False):
+          import_guess: str | None = None, log=print, verify_terminal: bool = False,
+          min_chunk_progress: float | None = None, stall_chunks: int = 2, resume_stalled: bool = False):
     """Run td to `conv_tol` in stages and chunks with checkpoints. Returns dict(status, energies_au,
     conv, stage_history, ...). status is 'converged' only if every root converged at conv_tol.
     import_guess: optional legacy .npz with an 'x0' array, used ONLY as an unvalidated initial guess
@@ -355,6 +356,10 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
                    saved energies and amplitudes in the orbitals they were computed in. verify_terminal=True adds
                    a separately labelled residual verification. A larger budget resumes optimisation explicitly.
       failed     - the eigensolver failed with every start set (re-raised; retried on the next call).
+      stalled    - (only with min_chunk_progress) within a stage, the largest residual of the still-unconverged
+                   roots fell by less than the fraction min_chunk_progress over each of stall_chunks consecutive
+                   chunks: the solve stops (status "stalled", diagnostic only) instead of spending its budget.
+                   Residuals are those the eigensolver passes to its preconditioner (no extra operator cost).
     """
     fp = operator_fingerprint(mf, tda=tda, nstates=nstates, singlet=singlet,
                               equilibrium_solvation=equilibrium_solvation, frozen=getattr(td, "frozen", None))
@@ -470,13 +475,27 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
         # count ACTUAL eigensolver iterations: real_eig/davidson apply the response operator exactly once per
         # iteration (fresh starts included). Previously `total` advanced by the nominal chunk length even when
         # the solver stopped earlier, so budgets and reports counted cycles that never ran.
-        work = dict(iterations=0, vectors=0)
+        work = dict(iterations=0, vectors=0, rmax_iter=[], rcur=None)
         _gen = td.gen_vind
+        _prec = td.get_precond
+
+        def tracked_precond(hdiag):
+            pc = _prec(hdiag)
+
+            def p(x, *pa, **pk):
+                n = float(np.max(np.linalg.norm(np.atleast_2d(np.asarray(x)), axis=-1)))
+                work["rcur"] = n if work["rcur"] is None else max(work["rcur"], n)
+                return pc(x, *pa, **pk)
+            return p
+        td.get_precond = tracked_precond
 
         def counted_gen_vind(*ga, **gk):
             vind, hdiag = _gen(*ga, **gk)
 
             def v(x):
+                if work["rcur"] is not None:          # residuals of the iteration that ended before this call
+                    work["rmax_iter"].append(work["rcur"])
+                    work["rcur"] = None
                 work["iterations"] += 1
                 work["vectors"] += int(np.asarray(x).reshape(-1, np.asarray(x).shape[-1]).shape[0])
                 return vind(x)
@@ -486,21 +505,25 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
 
         status = "converged"
         complete = conv_done > 0 and conv_done <= conv_tol * (1 + 1e-9)
-        exhausted = (d is not None and x0 is not None and not complete and total >= max_total_cycles)
+        stalled_before = bool(meta and meta.get("status") == "stalled" and not resume_stalled)
+        exhausted = (d is not None and x0 is not None and not complete
+                     and (total >= max_total_cycles or stalled_before))
         if (complete or exhausted) and d is not None and int(d["nspin"]) == 1:
             reconstruct_td(td, mf, d, tda)
             ver = verify_residuals(td, tda, conv_tol) if (complete or verify_terminal) else None
             info.update(reconstructed=True, verification=ver)
             conv = np.atleast_1d(np.asarray(d["conv"], bool))
             if exhausted:
-                log(f"[ckpt] budget exhausted ({total} >= {max_total_cycles} cycles, {int(conv.sum())}/{conv.size} roots "
+                why = "stalled under the progress criterion" if stalled_before else \
+                    f"budget exhausted ({total} >= {max_total_cycles} cycles"
+                log(f"[ckpt] {why}, {int(conv.sum())}/{conv.size} roots "
                     f"converged at the current stage): NO further optimisation; outputs reconstructed from the saved "
                     f"Ritz pairs (diagnostic only)" + ("" if ver is None else
                                                        f"; verification max |r| = {ver['max_residual']:.3g}"))
-                write_state(ckpt_dir, "exhausted", total_cycles=total, max_total_cycles=max_total_cycles,
-                            converged_tol=conv_done, n_converged=int(conv.sum()), nstates=nstates,
-                            verification=ver)
-                return dict(status="max_cycles_unconverged", fp=fp, fp_hash=fph, conv=conv,
+                write_state(ckpt_dir, "stalled" if stalled_before else "exhausted", total_cycles=total,
+                            max_total_cycles=max_total_cycles, converged_tol=conv_done, n_converged=int(conv.sum()),
+                            nstates=nstates, verification=ver)
+                return dict(status="stalled" if stalled_before else "max_cycles_unconverged", fp=fp, fp_hash=fph, conv=conv,
                             energies_au=np.asarray(d["energies"], float), stage_history=history, total_cycles=total,
                             stages=stages, **info)
             if ver["all_within_tol"]:
@@ -528,13 +551,15 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
                 status = "verification_failed"
             return dict(status=status, fp=fp, fp_hash=fph, conv=conv, energies_au=np.asarray(td.e, float),
                         stage_history=history, total_cycles=total, stages=stages, **info)
+        stall_count = 0
         for tol in stages:
+            stall_count, prev_r_end = 0, None
             if conv_done > 0 and conv_done <= tol * (1 + 1e-9):
                 continue
             while True:
                 td.conv_tol, td.max_cycle = tol, chunk
                 t0 = time.time()
-                work.update(iterations=0, vectors=0)
+                work.update(iterations=0, vectors=0, rmax_iter=[], rcur=None)
                 try:
                     run_chunk()
                 except RuntimeError as e:
@@ -543,7 +568,9 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
                     raise
                 total += work["iterations"]
                 ops_total += work["vectors"]
-                work.update(iterations=0, vectors=0)
+                if work["rcur"] is not None:
+                    work["rmax_iter"].append(work["rcur"])
+                rtr = list(work["rmax_iter"])
                 conv = np.atleast_1d(np.asarray(td.converged, bool))
                 x0 = list(vectors_from_td(td, tda))
                 energies = np.asarray(td.e, float)
@@ -560,6 +587,21 @@ def solve(td, mf, *, tda: bool, nstates: int, conv_tol: float, ckpt_dir: str, si
                     save(conv, energies, status="exhausted")
                     status = "max_cycles_unconverged"
                     break
+                # chunk-to-chunk progress of the largest residual among still-unconverged roots (end of the previous
+                # chunk vs end of this one; within one call Davidson residuals are not monotone)
+                r_end = rtr[-1] if rtr else None
+                if min_chunk_progress is not None and r_end is not None and prev_r_end is not None:
+                    prog = 1.0 - r_end / prev_r_end
+                    stall_count = stall_count + 1 if prog < min_chunk_progress else 0
+                    log(f"[ckpt] chunk progress: max unconverged residual {prev_r_end:.3g} -> {r_end:.3g} "
+                        f"({100 * prog:.0f} %; required {100 * min_chunk_progress:.0f} %; stalled chunks {stall_count})")
+                    if stall_count >= stall_chunks:
+                        save(conv, energies, status="stalled")
+                        status = "stalled"
+                        log(f"[ckpt] STOPPED: {stall_count} consecutive chunks below the progress criterion "
+                            f"(diagnostic only; no budget increase or setting change applied)")
+                        break
+                prev_r_end = r_end if r_end is not None else prev_r_end
                 save(conv, energies)
             if status != "converged":
                 break

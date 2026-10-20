@@ -96,6 +96,16 @@ So every chunk performs **one subspace expansion** at the cost of about 60 + n_u
 
 **Converged-root count is not a diagnostic.** The same count concealed both a single slowly creeping root (B3LYP) and broad, steady improvement (CAM-B3LYP).
 
+**B3LYP from the exhausted cycle-402 checkpoint** (root 30 at 1.6×10⁻²; both arms about 65 min wall, identical 378 operator vectors):
+
+| | Cycles | Root 30 residual | Roots > 10⁻² | Roots > 10⁻³ | Max residual |
+|---|---|---|---|---|---|
+| 2-cycle restart | 12 | 1.62×10⁻² → 1.62×10⁻² | 1 | 30 | 1.6×10⁻² |
+| Uninterrupted | 48 | 1.6×10⁻² → 9.0×10⁻³ (4 cycles) → 4.2×10⁻⁴ | **0** | **0** | 8.6×10⁻⁴ (in stage 10⁻⁴) |
+
+- **Root 30 is not intrinsically hard.** It converged within 4 uninterrupted cycles after about 186 restarted expansions without progress. Its stall was produced by the restart scheme, and root oversampling is not needed to fix it.
+- **Caveat:** in the 10⁻⁴ stage its residual decreased slowly (4.7 → 4.2×10⁻⁴ over the last 12 cycles); tighter stages may cost more than the first two.
+
 ## 4. Restart vs uninterrupted segments
 
 **Design.**
@@ -127,14 +137,68 @@ So every chunk performs **one subspace expansion** at the cost of about 60 + n_u
 - The physics, tolerance and root count are not the cause: the same solver on the same operator converges once it is allowed to keep its subspace.
 - **Correction to an interim remark:** an early look at maxima over every other cycle suggested that each restart actively increases residuals. A per-root check of the small-system run found no root whose residual rose by more than 5 % across any restart boundary. The scheme mainly loses progress; it does not degrade the solution.
 
-## 5. Remedies
+## 5. Remedies (evaluated one at a time)
 
-(pending)
+1. **Longer uninterrupted segments: SELECTED.** This is the only change between the arms in section 4, and it removes the stagnation on both functionals and on the small system. It changes no physics, tolerance or root count.
+   - Chunk length tested on the stalled system: 60 cycles (CAM-B3LYP: stage 10⁻² done at cycle 39; B3LYP: at cycle 5).
+   - Proposed production setting: `--td-chunk 60`.
+   - Cost of the larger chunk: up to one chunk of work is lost if the container is reclaimed. That is about 30–90 min at 2 threads, depending on how many roots are still expanding.
+   - Each stage boundary remains a fresh start (about 60 operator vectors), which is acceptable.
+2. **Larger Davidson search space: NOT NEEDED.**
+   - The memory-derived `max_space` is 2862 vectors (td.max_memory 2100 MB), and an uninterrupted call grows by at most 30 vectors per cycle.
+   - The longest uninterrupted call used here stayed far below the cap (≤ about 400 vectors), so the cap never bound.
+   - Raising `max_memory` would only add memory without changing the iterations.
+3. **Root oversampling (e.g. 34 roots): NOT NEEDED, not tested further.** The boundary root (root 30) converged once the subspace was kept (section 3, B3LYP table). No near-degeneracy with state 31 was implicated. Oversampling would change the operator fingerprint, so it would also discard all checkpoints.
+4. **Raising the cycle cap: only where trajectories justify it.**
+   - B3LYP's counter (402 legacy restart cycles + 48 actual) already exceeds 400. Its uninterrupted trajectory shows decisive progress (all roots through two stages within 48 cycles), so continuing it requires a higher cap.
+   - Proposal: allow **300 further actual iterations** per solve under the stopping rule (B3LYP cap 750; CAM-B3LYP stays within 400). Not applied without approval.
+5. **Both functionals are NOT rerun from scratch.** The uninterrupted diagnostic segments produced valid checkpoints on the production operators: same fingerprints, all 30 roots converged at 10⁻³, written by the production code path. They can seed production (after backing up the production checkpoints), saving about 3 h. Not applied without approval.
 
-## 6. Terminal-job handling
+## 6. Terminal-job handling (implemented, tested)
 
-(pending)
+`phase1/tdcheckpoint.py`; tests in `phase1/tests/test_tdcheckpoint.py`:
+- **Explicit states:** the checkpoint meta `status` and a `state.json` sidecar record converged / exhausted / failed (with the cycle budget, converged count and reason).
+- **Exhausted solve on restart:** no optimisation chunk. Energies and amplitudes are reconstructed from the checkpoint in the orbitals they were computed in, so oscillator strengths are consistent. The result stays `max_cycles_unconverged`, i.e. diagnostic only. Before this change, every container restart spent one more chunk (B3LYP 400 → 402) and re-recorded the result.
+- **Optional verification:** `--verify-terminal` adds a separately labelled residual verification (one operator application; nothing updated; recorded under `verification`).
+- **Converged solve on restart:** the old "verification pass" was a solver chunk. It is now reconstruction plus residual verification without optimisation. Only if verification fails is additional optimisation run, and it is logged as such.
+- **Larger budget:** resumes optimisation explicitly.
+- **Cycle accounting:** counts ACTUAL eigensolver iterations and operator vectors. Previously the nominal chunk length was charged even when a chunk converged early; a converged 148-iteration small-system solve was booked as 800.
+- **Thread cap:** `qc.set_threads` now respects the budget's `OMP_NUM_THREADS`. Production jobs had run on all 4 cores with 2 reserved.
+- **Tests:**
+  - exhausted (TDA and RPA), optional verification, larger budget, converged verification without optimisation (TDA and RPA), failed verification leading to labelled optimisation, eigensolver failure recorded, actual-iteration counting;
+  - existing restart tests still pass.
 
-## 7. Stopping rule and resources
+## 7. Stopping rule, resources and portability
 
-(pending)
+**Diagnostic compute used (bounded, as declared in advance).** About 4.5 h wall on the 4-core container (2 threads per run, two runs concurrent):
+- small pair 64 min;
+- CAM-B3LYP pair 120 min (bound);
+- B3LYP pair 65 min (bound);
+- configuration, residuals and stability about 40 min.
+
+No further diagnostics without a new question.
+
+**Stopping rule for any continuation (implemented, opt-in: `--td-min-chunk-progress 0.25 --td-stall-chunks 2`).**
+- Within a stage, after each 60-cycle chunk, the largest residual among still-unconverged roots must fall by at least 25 % relative to the end of the previous chunk (or the stage must complete).
+- Two consecutive chunks below that mark the solve `stalled` and stop it. It is diagnostic only; no budget increase or setting change is made automatically, and it is not resumed on restart without `--resume-stalled`.
+- The residuals are the ones the eigensolver hands its preconditioner, so the rule costs nothing.
+- **Validated against the recorded trajectories:**
+  - the production 2-cycle CAM-B3LYP scheme would have been stopped after 2 chunks (about 16 min);
+  - the uninterrupted runs, including B3LYP's slower 10⁻⁴ stage (−45 % over 28 cycles), pass.
+- **Hard cap per functional:** 300 further actual iterations or 6 h at 2 threads, whichever comes first.
+
+**Expected cost if continued as proposed** (seed from the diagnostic 10⁻³ checkpoints; chunk 60; 2 threads; about 10–13 s per operator vector):
+- **Measured:** reaching 10⁻³ took 514 (CAM-B3LYP) and 378 (B3LYP) operator vectors.
+- **Estimate for 10⁻⁴ and 10⁻⁵:** the small system needed about as many vectors again from 10⁻³ to 10⁻⁵. That gives about 1.5–2 h per functional at 2 threads, with an upper range of 4–6 h if the tighter stages slow as B3LYP's 10⁻⁴ stage suggests.
+- **Total:** about 3–4 h for both functionals (upper bound about 10 h, enforced by the cap), versus about 400 cycles without convergence before.
+- **Memory:** about 2.3 GB RSS per solve plus up to about 1 GB of trial-space holders. 3.5–4 GB per solve was reserved and observed sufficient.
+
+**Environment limitation.**
+- The container is reclaimed when the session is idle. A pending background wait kept it alive for up to 12 h, but that is **not a guarantee against termination**.
+- A 60-cycle chunk risks losing up to about 1.5 h of work per termination. The checkpoint after each chunk and the exhausted/stalled states prevent re-running completed work.
+- If terminations recur, use the portable package (`records/portable_chemistry/manifest.json`, `docs/portable_chemistry_package.md`; to be regenerated with the new chunk length and seed checkpoints).
+- Stable machine needed: ≥ 4 cores, ≥ 8 GB RAM per concurrent solve, ≥ 5 GB disk, no preemption shorter than about 2 h.
+
+**What remains excluded.**
+- The L1 B3LYP and CAM-B3LYP spectra remain unconverged (residual ≤ 10⁻³ only).
+- They stay excluded from every production scientific conclusion until a solve reaches `converged` at 10⁻⁵ and passes the verification.

@@ -360,3 +360,25 @@ def test_cycle_budget_counts_actual_iterations_not_nominal_chunks(mf, tmp_path, 
     assert 0 < r["total_cycles"] < 60 * len(r["stages"])               # nominal count would be 60 per stage
     assert m["operator_vectors"] >= r["total_cycles"] * 1
     assert np.allclose(td.e, reference[0], atol=1e-7)
+
+
+def test_stall_rule_stops_and_is_not_resumed_automatically(mf, tmp_path):
+    msgs = []
+    r1, _, _ = _solve(mf, tmp_path, tol=1e-9, chunk=2, max_total_cycles=200, min_chunk_progress=0.999,
+                      stall_chunks=2)                                        # impossible criterion -> stalls
+    assert r1["status"] == "stalled"
+    assert _state(tmp_path)["status"] == "stalled" and _meta(tmp_path)["status"] == "stalled"
+    td, calls = _counting_td(_mf())
+    r2 = TC.solve(td, td._scf, tda=True, nstates=NST, conv_tol=1e-9, ckpt_dir=str(tmp_path), singlet=True,
+                  chunk=2, max_total_cycles=200, log=lambda *a: msgs.append(" ".join(map(str, a))))
+    assert calls == [] and r2["status"] == "stalled" and r2["reconstructed"]
+    td3, calls3 = _counting_td(_mf())
+    r3 = TC.solve(td3, td3._scf, tda=True, nstates=NST, conv_tol=1e-5, ckpt_dir=str(tmp_path), singlet=True,
+                  chunk=5, max_total_cycles=400, log=lambda *a: None, resume_stalled=True)
+    assert calls3 and r3["status"] == "converged"
+
+
+def test_stall_rule_does_not_stop_a_progressing_solve(mf, tmp_path, reference):
+    r, td, _ = _solve(mf, tmp_path, chunk=3, min_chunk_progress=0.05, stall_chunks=2)
+    assert r["status"] == "converged"
+    assert np.allclose(td.e, reference[0], atol=1e-7)

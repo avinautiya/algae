@@ -66,6 +66,11 @@ def parse_args(argv=None):
     p.add_argument("--td-chunk", type=int, default=5,
                    help="Davidson iterations per checkpoint chunk (restartable solve, phase1/tdcheckpoint.py)")
     p.add_argument("--td-max-cycles", type=int, default=400, help="total Davidson-iteration budget per solve")
+    p.add_argument("--td-min-chunk-progress", type=float, default=None,
+                   help="stopping rule: within a stage, stop as 'stalled' when the largest residual of the unconverged "
+                        "roots falls by less than this fraction over --td-stall-chunks consecutive chunks")
+    p.add_argument("--td-stall-chunks", type=int, default=2)
+    p.add_argument("--resume-stalled", action="store_true", help="explicitly continue a solve stopped as stalled")
     p.add_argument("--verify-terminal", action="store_true",
                    help="for a solve whose cycle budget is already exhausted: add a separately labelled residual "
                         "verification (one operator application) to the reconstructed diagnostic outputs")
@@ -181,7 +186,8 @@ def main(argv=None):
         res = qc.run_tddft(mf_td, nstates=a.nstates, tda=a.tda, conv_tol=a.td_conv_tol,
                            ckpt_dir=os.path.join(outdir, "td_ckpt", f"{func}_{'TDA' if a.tda else 'RPA'}_{a.nstates}"),
                            chunk=a.td_chunk, max_total_cycles=a.td_max_cycles, import_guess=a.import_guess,
-                           verify_terminal=a.verify_terminal)
+                           verify_terminal=a.verify_terminal, min_chunk_progress=a.td_min_chunk_progress,
+                           stall_chunks=a.td_stall_chunks, resume_stalled=a.resume_stalled)
         td_status = res["status"]
         problems = completion.td_problems(res["energies_ev"], res["osc_strengths"], res["converged"], a.nstates)
         if td_status != "converged":
