@@ -56,7 +56,45 @@ So every chunk performs **one subspace expansion** at the cost of about 60 + n_u
 
 ## 3. Per-root evidence
 
-(pending)
+**Method.**
+- **Tool:** `convergence_diag.py residuals` (`phase1/results/convergence_diag/res_B3LYP/residuals.json`, `res_CAM/residuals.json`).
+- **Inputs:** every saved checkpoint copy is mapped into freshly converged orbitals (rotation from the AO overlap; orbital-energy differences ≤ 1×10⁻⁵ Eh; occupied/virtual subspaces unchanged to 10⁻⁸).
+- **Residuals:** one operator application gives the true residual of each saved Ritz pair in the solver's own convention.
+- **State tracking:** by RPA-metric amplitude overlap between consecutive checkpoints, plus principal angles of near-degenerate clusters (gaps < 0.05 eV).
+- **Checkpoints available:**
+  - B3LYP: cycles 16, 18, 26, 28 (backups), 400 and 402;
+  - CAM-B3LYP: cycles 58 and 60.
+  - The production logs record only converged-root counts, not residuals.
+
+**Ground state.**
+- Orbital gradients with the solvated Fock matrix: B3LYP 2.6×10⁻⁷, CAM-B3LYP 4.0×10⁻⁶.
+- The saved Ritz values agree with the Rayleigh quotients on the current operator to ≤ 9×10⁻⁵ eV.
+- So the stored states belong to the operator they are tested against. Internal stability: see the end of this section.
+
+**B3LYP (exhausted at 400 cycles), true residuals:**
+
+| Root (index) | E (eV) at 402 | Residual at cycles 16 / 18 / 26 / 28 / 400 / 402 |
+|---|---|---|
+| 0–28 (29 roots) | 2.861 … 7.629 | all 4×10⁻³ – 1.0×10⁻² from cycle 400; most were already 6–9×10⁻³ at cycle 16 and moved by ≤ 10 % over 380 cycles |
+| 21 | 7.169 | 1.6 / 1.7 / 1.7 / 1.5×10⁻² / 9.8×10⁻³ / 9.8×10⁻³ |
+| 25 | 7.466 | 1.2 / 1.2 / 1.2 / 1.1×10⁻² / 7.9×10⁻³ / 7.9×10⁻³ |
+| 27 | 7.580 | 1.6 / 1.7 / 1.7 / 1.5×10⁻² / 9.8×10⁻³ / 9.8×10⁻³ |
+| **29 (root 30)** | **7.674** | **3.0 / 2.2 / 2.1 / 2.4 / 1.6 / 1.6 ×10⁻²** |
+
+- **Classification:** root 30 is improving very slowly, not oscillating and not being exchanged.
+  - Its Ritz value decreases monotonically (7.697 → 7.674 eV) and its residual falls by a factor of about 1.5 over about 186 restarted expansions (cycles 28 → 400).
+  - It keeps its index (overlap with the previous checkpoint > 0.9 at every step) and stays in a stable top cluster (roots 28–30; subspace cosines 0.97–1.0).
+  - In practice this is stagnation under the current scheme, not intrinsic non-convergence.
+- **Roots below tolerance are frozen:** once a root's residual falls below the stage tolerance, `real_eig` stops expanding for it. Their residuals then stay just under 0.01 for hundreds of cycles; they are "converged" only in the stage sense.
+- **Near-degenerate cluster:** roots 19–21 (7.135–7.169 eV, two within 2 meV) rotated within their 3-dimensional subspace between cycles 28 and 400 (smallest principal cosine 0.63), without index exchange. Any per-state property in this cluster is ill-defined until it converges tightly; the cluster subspace is the well-defined object.
+
+**CAM-B3LYP (cycle 60), true residuals:**
+- 12 roots are above 0.01: indices 15, 18, 20–29 (7.37–8.61 eV; maximum 3.9×10⁻² at root 27 / index 26).
+- Between cycles 58 and 60, 10 of these 12 improved by 5–25 % (e.g. index 22: 2.3 → 1.8×10⁻²; index 25: 1.7 → 1.3×10⁻²).
+- **So the flat "18/30 converged" count since cycle 30 hides steady per-root progress.** CAM-B3LYP is improving slowly, not stalled.
+- There are no index exchanges; clusters [3,4], [17,18], [20–22] and [25–27] are stable (cosines ≥ 0.998).
+
+**Converged-root count is not a diagnostic.** The same count concealed both a single slowly creeping root (B3LYP) and broad, steady improvement (CAM-B3LYP).
 
 ## 4. Restart vs uninterrupted segments
 
