@@ -1,0 +1,642 @@
+[
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "ref_S1_200_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S1_r9_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S1_r17_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "ref_S1_200_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S1_r9_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S1_r17_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "ref_S1_200_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S1_r9_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S1_r17_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "ref_S1_200_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S1_r9_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S1_r17_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "ref_S2_200_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S2_r9_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S2_r17_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "ref_S2_200_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S2_r9_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S2_r17_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "ref_S2_200_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S2_r9_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S2_r17_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "ref_S2_200_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S2_r9_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S2_r17_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "ref_S3_200_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S3_r9_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S3_r17_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "ref_S3_200_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S3_r9_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S3_r17_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "ref_S3_200_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S3_r9_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S3_r17_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "ref_S3_200_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S3_r9_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S3_r17_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "ref_S4_200_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S4_r9_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S4_r17_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "ref_S4_200_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S4_r9_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S4_r17_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "ref_S4_200_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S4_r9_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S4_r17_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "ref_S4_200_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S4_r9_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S4_r17_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S5",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "ref_S5_200_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S5_r9_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 0.5
+  },
+  "label": "red_S5_r17_nu0.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S5",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "ref_S5_200_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S5_r9_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "red_S5_r17_nu2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S5",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "ref_S5_200_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S5_r9_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.03
+  },
+  "label": "red_S5_r17_n0.03",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S5",
+  "ncell": 200,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "ref_S5_200_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 9,
+  "dt_geom": 900,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S5_r9_n0.05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "n_man": 0.05
+  },
+  "label": "red_S5_r17_n0.05",
+  "version": "v1.0"
+ }
+]

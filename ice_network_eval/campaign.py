@@ -123,6 +123,13 @@ def cases(name):
             for n in (100, 200, 400): out.append(dict(kind="reference", scn=s["id"], ncell=n, label=f"ref_{s['id']}_{n}", version="v1.0"))
             for rc in R.CFG["reduced_model_configurations"]:
                 out.append(dict(kind="reduced", scn=s["id"], stations=rc["stations"], dt_geom=rc["dt_geom_s"], label=f"red_{s['id']}_{rc['id']}", version="v1.0"))
+    if name == "closure_sensitivity":   # closure variants applied identically to both models (matched) so closure sensitivity and numerical error are separable
+        variants = {"nu0.5": dict(nu_factor=0.5), "nu2": dict(nu_factor=2.0), "n0.03": dict(n_man=0.03), "n0.05": dict(n_man=0.05)}
+        for s in R.CFG["scenarios"]:
+            for vn, ov in variants.items():
+                out.append(dict(kind="reference", scn=s["id"], ncell=200, overrides=ov, label=f"ref_{s['id']}_200_{vn}", version="v1.0"))
+                for st, dtg in ((9, 900), (17, 450)):
+                    out.append(dict(kind="reduced", scn=s["id"], stations=st, dt_geom=dtg, overrides=ov, label=f"red_{s['id']}_r{st}_{vn}", version="v1.0"))
     os.makedirs(os.path.join(HERE, "cases"), exist_ok=True); atomic_write(os.path.join(HERE, "cases", name + ".json"), out); print(len(out), "cases")
 
 
