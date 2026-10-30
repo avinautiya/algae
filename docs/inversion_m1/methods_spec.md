@@ -26,3 +26,7 @@ B needs **two measured end-member spectra** for at least one absorber, with prov
 
 ## No chemistry calculation
 No TD-DFT or MD is justified. The missing observable is a measured end-member spectrum, which is an experimental, not computational, gap; a calculation would also have no independent validation target here.
+
+
+## Update after the matched-data check
+See `extension_decision.md`: the only supported chemistry variable is one bounded scalar on per-cell algal absorption (bounds from the Williamson per-sample phenol per cell); it is degenerate with cell count except where pigment per cell and count are measured on the same sample, which they are not. The two-end-member mixing weight w is not supported by any in vivo, sample-paired data and should be treated as unspecified.
