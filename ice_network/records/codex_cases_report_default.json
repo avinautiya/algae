@@ -1,0 +1,332 @@
+{
+  "evidence_type": "analytical_verification_only",
+  "passed": false,
+  "cases": {
+    "linear_reservoir": {
+      "passed": true,
+      "rows": 101,
+      "rtol": 0.01,
+      "atol": 1e-08,
+      "fields": {
+        "discharge_m3_s": {
+          "rmse": 1.9916447929362424e-13,
+          "bias": -1.7764396413156709e-13,
+          "max_abs_error": 3.0341094220398546e-13,
+          "normalized_rmse": 9.958223964681211e-12,
+          "reference_scale": 0.02,
+          "passed": true
+        },
+        "level_m": {
+          "rmse": 9.958222718844231e-12,
+          "bias": -8.882195446693418e-12,
+          "max_abs_error": 1.517053149768799e-11,
+          "normalized_rmse": 9.958222718844231e-12,
+          "reference_scale": 1.0,
+          "passed": true
+        },
+        "outflow_m3": {
+          "rmse": 9.95520781771179e-11,
+          "bias": 8.878626217073088e-11,
+          "max_abs_error": 1.5168133415954799e-10,
+          "normalized_rmse": 1.01409457174631e-11,
+          "reference_scale": 9.816843611112658,
+          "passed": true
+        },
+        "storage_m3": {
+          "rmse": 9.95822166568761e-11,
+          "bias": -8.882195089443435e-11,
+          "max_abs_error": 1.517053149768799e-10,
+          "normalized_rmse": 9.95822166568761e-12,
+          "reference_scale": 10.0,
+          "passed": true
+        }
+      },
+      "candidate_sha256": "bb68f2bbf3779967c5be1fc0b60843daac9794bfaa1ee0e2dd9c6dd4547e812f",
+      "mass_budget": {
+        "status": "not_submitted"
+      },
+      "energy_budget": {
+        "status": "not_submitted"
+      }
+    },
+    "finite_drainage": {
+      "passed": true,
+      "rows": 121,
+      "rtol": 0.01,
+      "atol": 1e-08,
+      "fields": {
+        "discharge_m3_s": {
+          "rmse": 7.121920098270288e-12,
+          "bias": 7.028193994001471e-13,
+          "max_abs_error": 7.833516617943282e-11,
+          "normalized_rmse": 1.780480024567572e-10,
+          "reference_scale": 0.04,
+          "passed": true
+        },
+        "level_m": {
+          "rmse": 1.1549982964113123e-12,
+          "bias": 7.620953527422915e-13,
+          "max_abs_error": 2.279759714340912e-12,
+          "normalized_rmse": 1.1549982964113123e-12,
+          "reference_scale": 1.0,
+          "passed": true
+        },
+        "outflow_m3": {
+          "rmse": 4.618801506575168e-12,
+          "bias": -3.0466125490171397e-12,
+          "max_abs_error": 9.115819210592235e-12,
+          "normalized_rmse": 1.154700376643792e-12,
+          "reference_scale": 4.0,
+          "passed": true
+        },
+        "storage_m3": {
+          "rmse": 4.619993185645249e-12,
+          "bias": 3.048381410969166e-12,
+          "max_abs_error": 9.119038857363648e-12,
+          "normalized_rmse": 1.1549982964113123e-12,
+          "reference_scale": 4.0,
+          "passed": true
+        }
+      },
+      "candidate_sha256": "200b0455c997400b8e0771819772c3c16a37613f3943cf4c52a6cffd10e0f1bc",
+      "mass_budget": {
+        "status": "not_submitted"
+      },
+      "energy_budget": {
+        "status": "not_submitted"
+      }
+    },
+    "symmetric_outlets": {
+      "passed": true,
+      "rows": 101,
+      "rtol": 0.01,
+      "atol": 1e-08,
+      "fields": {
+        "level_m": {
+          "rmse": 7.986303665157833e-12,
+          "bias": -7.1274352962518006e-12,
+          "max_abs_error": 1.2149004025019394e-11,
+          "normalized_rmse": 9.982879581447291e-12,
+          "reference_scale": 0.8,
+          "passed": true
+        },
+        "outlet_1_m3_s": {
+          "rmse": 7.986304290935165e-14,
+          "bias": -7.127435749255085e-14,
+          "max_abs_error": 1.214900575974287e-13,
+          "normalized_rmse": 9.982880363668957e-12,
+          "reference_scale": 0.008,
+          "passed": true
+        },
+        "outlet_1_volume_m3": {
+          "rmse": 3.194368594311602e-11,
+          "bias": 2.8509110089171547e-11,
+          "max_abs_error": 4.85891327173249e-11,
+          "normalized_rmse": 1.0168647125969986e-11,
+          "reference_scale": 3.141389955556051,
+          "passed": true
+        },
+        "outlet_2_m3_s": {
+          "rmse": 7.986304290935165e-14,
+          "bias": -7.127435749255085e-14,
+          "max_abs_error": 1.214900575974287e-13,
+          "normalized_rmse": 9.982880363668957e-12,
+          "reference_scale": 0.008,
+          "passed": true
+        },
+        "outlet_2_volume_m3": {
+          "rmse": 3.194368594311602e-11,
+          "bias": 2.8509110089171547e-11,
+          "max_abs_error": 4.85891327173249e-11,
+          "normalized_rmse": 1.0168647125969986e-11,
+          "reference_scale": 3.141389955556051,
+          "passed": true
+        },
+        "storage_m3": {
+          "rmse": 6.389042932126266e-11,
+          "bias": -5.7019482370014405e-11,
+          "max_abs_error": 9.719203220015515e-11,
+          "normalized_rmse": 9.982879581447291e-12,
+          "reference_scale": 6.4,
+          "passed": true
+        }
+      },
+      "candidate_sha256": "6e098d0169a1a727c17b71981bb4b5205dc7eb398869c1775a34f53847a8f6e2",
+      "mass_budget": {
+        "status": "not_submitted"
+      },
+      "energy_budget": {
+        "status": "not_submitted"
+      }
+    },
+    "unequal_outlets": {
+      "passed": true,
+      "rows": 101,
+      "rtol": 0.01,
+      "atol": 1e-08,
+      "fields": {
+        "level_m": {
+          "rmse": 2.461568165283849e-12,
+          "bias": -1.7158554732316598e-12,
+          "max_abs_error": 5.271727498978862e-12,
+          "normalized_rmse": 3.076960206604811e-12,
+          "reference_scale": 0.8,
+          "passed": true
+        },
+        "outlet_1_m3_s": {
+          "rmse": 2.4615680215044103e-14,
+          "bias": -1.7158544710491133e-14,
+          "max_abs_error": 5.271737907319718e-14,
+          "normalized_rmse": 3.076960026880513e-12,
+          "reference_scale": 0.008,
+          "passed": true
+        },
+        "outlet_1_volume_m3": {
+          "rmse": 4.920782038182483e-12,
+          "bias": 3.4265024810919314e-12,
+          "max_abs_error": 1.0539347172766611e-11,
+          "normalized_rmse": 3.0765208316270265e-12,
+          "reference_scale": 1.599463259795356,
+          "passed": true
+        },
+        "outlet_2_m3_s": {
+          "rmse": 7.384709668717742e-14,
+          "bias": -5.147573643795779e-14,
+          "max_abs_error": 1.5815213721959154e-13,
+          "normalized_rmse": 3.0769623619657257e-12,
+          "reference_scale": 0.024,
+          "passed": true
+        },
+        "outlet_2_volume_m3": {
+          "rmse": 1.4771718342988765e-11,
+          "bias": 1.0306334443742857e-11,
+          "max_abs_error": 3.163291850682981e-11,
+          "normalized_rmse": 3.0784740344455175e-12,
+          "reference_scale": 4.798389779386068,
+          "passed": true
+        },
+        "storage_m3": {
+          "rmse": 1.9692545322270792e-11,
+          "bias": -1.3726843785853279e-11,
+          "max_abs_error": 4.2173819991830896e-11,
+          "normalized_rmse": 3.076960206604811e-12,
+          "reference_scale": 6.4,
+          "passed": true
+        }
+      },
+      "candidate_sha256": "2c8a3d9cc0c30c98ecceb35553cea0c448e0984a1e8bfa9f81779545a9d919b5",
+      "mass_budget": {
+        "status": "not_submitted"
+      },
+      "energy_budget": {
+        "status": "not_submitted"
+      }
+    },
+    "pre_overtopping": {
+      "passed": true,
+      "rows": 101,
+      "rtol": 0.01,
+      "atol": 1e-08,
+      "fields": {
+        "discharge_m3_s": {
+          "rmse": 0.0,
+          "bias": 0.0,
+          "max_abs_error": 0.0,
+          "normalized_rmse": null,
+          "reference_scale": 0.0,
+          "passed": true
+        },
+        "inflow_volume_m3": {
+          "rmse": 7.173442259559213e-16,
+          "bias": -4.947912266924738e-16,
+          "max_abs_error": 1.3322676295501878e-15,
+          "normalized_rmse": 3.5867211297796065e-16,
+          "reference_scale": 2.0,
+          "passed": true
+        },
+        "level_m": {
+          "rmse": 7.135001030152762e-16,
+          "bias": -6.147447787342761e-16,
+          "max_abs_error": 1.1657341758564144e-15,
+          "normalized_rmse": 1.4270002060305524e-15,
+          "reference_scale": 0.5,
+          "passed": true
+        },
+        "storage_m3": {
+          "rmse": 3.576593220255093e-15,
+          "bias": -3.065754470969863e-15,
+          "max_abs_error": 6.217248937900877e-15,
+          "normalized_rmse": 1.4306372881020374e-15,
+          "reference_scale": 2.5,
+          "passed": true
+        }
+      },
+      "candidate_sha256": "9d4e28d1d5b788681ab9f8ea74fef420183e39f490ac588e02d7fa4c00f2e7f4",
+      "mass_budget": {
+        "status": "not_submitted"
+      },
+      "energy_budget": {
+        "status": "not_submitted"
+      }
+    },
+    "thermal_front": {
+      "passed": false,
+      "error": "Missing solver export: thermal_front.csv"
+    },
+    "heat_to_melt": {
+      "passed": true,
+      "rows": 61,
+      "rtol": 0.01,
+      "atol": 1e-08,
+      "fields": {
+        "heat_to_ice_j": {
+          "rmse": 7.267203306831159e-10,
+          "bias": -6.279986366996022e-10,
+          "max_abs_error": 1.3969838619232178e-09,
+          "normalized_rmse": 5.168365422328295e-16,
+          "reference_scale": 1406093.1673746395,
+          "passed": true
+        },
+        "ice_volume_lost_m3": {
+          "rmse": 2.3393641775167292e-18,
+          "bias": -2.019104373677923e-18,
+          "max_abs_error": 4.336808689942018e-18,
+          "normalized_rmse": 5.095649407779006e-16,
+          "reference_scale": 0.004590904888286587,
+          "passed": true
+        },
+        "melt_mass_kg": {
+          "rmse": 2.1569143541003225e-15,
+          "bias": -1.862581127583229e-15,
+          "max_abs_error": 3.552713678800501e-15,
+          "normalized_rmse": 5.123482646705457e-16,
+          "reference_scale": 4.209859782558801,
+          "passed": true
+        },
+        "meltwater_volume_m3": {
+          "rmse": 2.167268884678389e-18,
+          "bias": -1.867804849197876e-18,
+          "max_abs_error": 3.903127820947816e-18,
+          "normalized_rmse": 5.148078550400313e-16,
+          "reference_scale": 0.004209859782558801,
+          "passed": true
+        },
+        "outlet_temperature_c": {
+          "rmse": 0.0,
+          "bias": 0.0,
+          "max_abs_error": 0.0,
+          "normalized_rmse": 0.0,
+          "reference_scale": 1.9065594652196545,
+          "passed": true
+        }
+      },
+      "candidate_sha256": "aae28128e8aeb2228d64038cea0c6979a53be83483716dd1e975cb4c40fc5401",
+      "mass_budget": {
+        "status": "not_submitted"
+      },
+      "energy_budget": {
+        "status": "not_submitted"
+      }
+    }
+  }
+}

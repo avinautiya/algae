@@ -5,50 +5,50 @@
   "melting": true,
   "heat_dissipation": true,
   "throughput": {
-   "input_m3": 1080.0000000000002,
-   "delivered_m3": 866.9968395472409,
-   "delivered_over_input": 0.8027748514326303,
+   "input_m3": 1080.0000000000016,
+   "delivered_m3": 866.9968395904937,
+   "delivered_over_input": 0.8027748514726781,
    "Q_min": 0.006156502081104214,
-   "Q_max": 0.0548330245014948
+   "Q_max": 0.05483302449361716
   },
   "water": {
-   "residual_m3": 3.741895682196628e-12,
-   "scale_m3": 8366.932094686352,
-   "relative": 4.472243397998915e-16
+   "residual_m3": -2.4003021792395884e-12,
+   "scale_m3": 8366.932094686452,
+   "relative": -2.868796055801549e-16
   },
   "mass_kg": {
-   "in_kg": 1080000.0000000002,
-   "out_kg": 866996.839547241,
-   "stored_change_kg": 216469.20779593664,
-   "residual_kg": 3.7512108974624425e-09,
-   "scale_kg": 2166932.0946863517,
-   "relative": 1.7311160357359533e-15
+   "in_kg": 1080000.0000000016,
+   "out_kg": 866996.8395904937,
+   "stored_change_kg": 216469.2077527302,
+   "residual_kg": -2.7075657271780074e-09,
+   "scale_kg": 2166932.0946864504,
+   "relative": -1.249492650839059e-15
   },
   "ice_to_water": {
-   "ice_mass_lost_from_heat_kg": 3466.047343173725,
-   "ice_mass_lost_from_geometry_kg": 3466.0471046414636,
-   "ice_volume_lost_geometry_m3": 3.7797678349416177,
+   "ice_mass_lost_from_heat_kg": 3466.0473432248937,
+   "ice_mass_lost_from_geometry_kg": 3466.047104692601,
+   "ice_volume_lost_geometry_m3": 3.779767834997384,
    "ice_density": 917.0,
-   "liquid_water_mass_gained_kg": 3466.047343173737,
-   "liquid_water_volume_gained_m3": 3.466047343173737,
+   "liquid_water_mass_gained_kg": 3466.047343224899,
+   "liquid_water_volume_gained_m3": 3.4660473432248993,
    "water_density": 1000.0,
-   "liquid_volume_over_ice_volume": 0.9170000631076521,
+   "liquid_volume_over_ice_volume": 0.9170000631076587,
    "expected_ratio_rho_i_over_rho_w": 0.917
   },
   "energy_J": {
-   "sensible_in": 4554359999.999996,
-   "sensible_out_outlets": 2531757483.0170107,
-   "sensible_storage_change": 912850649.2754649,
-   "latent_to_ice": 1157659812.6200242,
-   "dissipation_total": 47907944.91247757,
-   "dissipation_in_channel": 8829309.572368331,
-   "dissipation_at_exit_node": 39078635.34010924,
-   "residual": 2.6702880859375e-05,
-   "scale": 35349935889.824974,
-   "relative": 7.553869671107687e-16
+   "sensible_in": 4554360000.000006,
+   "sensible_out_outlets": 2531757483.184647,
+   "sensible_storage_change": 912850649.0932633,
+   "latent_to_ice": 1157659812.6371145,
+   "dissipation_total": 47907944.91503399,
+   "dissipation_in_channel": 8829309.572856009,
+   "dissipation_at_exit_node": 39078635.34217798,
+   "residual": -1.9073486328125e-05,
+   "scale": 35349935889.83007,
+   "relative": -5.39562119364757e-16
   },
-  "geometry_over_energy_ice_volume": 0.999999931180322,
-  "sill_lowering_m": 0.05407112028316874
+  "geometry_over_energy_ice_volume": 0.999999931180313,
+  "sill_lowering_m": 0.05407112028314032
  },
  {
   "case": "B melting, dissipation excluded",
@@ -56,50 +56,50 @@
   "melting": true,
   "heat_dissipation": false,
   "throughput": {
-   "input_m3": 1079.9999999999986,
-   "delivered_m3": 866.972981066744,
-   "delivered_over_input": 0.8027527602469862,
+   "input_m3": 1079.999999999999,
+   "delivered_m3": 866.972980960187,
+   "delivered_over_input": 0.802752760148322,
    "Q_min": 0.006156502081104214,
-   "Q_max": 0.0548314122999038
+   "Q_max": 0.05483141231917294
   },
   "water": {
-   "residual_m3": 3.2640556923979602e-12,
-   "scale_m3": 8366.923101881579,
-   "relative": 3.901142215187719e-16
+   "residual_m3": 1.4344081478157023e-12,
+   "scale_m3": 8366.923101881273,
+   "relative": 1.7143795040893593e-16
   },
   "mass_kg": {
-   "in_kg": 1079999.9999999986,
-   "out_kg": 866972.981066744,
-   "stored_change_kg": 216488.5698740477,
-   "residual_kg": 3.5952325561083853e-09,
-   "scale_kg": 2166923.10188158,
-   "relative": 1.659141735572701e-15
+   "in_kg": 1079999.999999999,
+   "out_kg": 866972.980960187,
+   "stored_change_kg": 216488.56998044995,
+   "residual_kg": 1.7689671949483454e-09,
+   "scale_kg": 2166923.101881272,
+   "relative": 8.163497788235168e-16
   },
   "ice_to_water": {
-   "ice_mass_lost_from_heat_kg": 3461.5509407894097,
-   "ice_mass_lost_from_geometry_kg": 3461.550689044956,
-   "ice_volume_lost_geometry_m3": 3.774864437344554,
+   "ice_mass_lost_from_heat_kg": 3461.550940636178,
+   "ice_mass_lost_from_geometry_kg": 3461.5506888923123,
+   "ice_volume_lost_geometry_m3": 3.774864437178094,
    "ice_density": 917.0,
-   "liquid_water_mass_gained_kg": 3461.5509407894124,
-   "liquid_water_volume_gained_m3": 3.4615509407894125,
+   "liquid_water_mass_gained_kg": 3461.5509406361734,
+   "liquid_water_volume_gained_m3": 3.4615509406361733,
    "water_density": 1000.0,
-   "liquid_volume_over_ice_volume": 0.9170000666896682,
+   "liquid_volume_over_ice_volume": 0.9170000666895104,
    "expected_ratio_rho_i_over_rho_w": 0.917
   },
   "energy_J": {
-   "sensible_in": 4554359999.999993,
-   "sensible_out_outlets": 2485269686.617488,
-   "sensible_storage_change": 912932299.1588591,
-   "latent_to_ice": 1156158014.2236629,
+   "sensible_in": 4554359999.999987,
+   "sensible_out_outlets": 2485269686.2199693,
+   "sensible_storage_change": 912932299.6075574,
+   "latent_to_ice": 1156158014.1724834,
    "dissipation_total": 0.0,
    "dissipation_in_channel": 0.0,
    "dissipation_at_exit_node": 0.0,
-   "residual": 1.9073486328125e-05,
+   "residual": 2.288818359375e-05,
    "scale": 35254120000.0,
-   "relative": 5.410285756139991e-16
+   "relative": 6.49234290736799e-16
   },
-  "geometry_over_energy_ice_volume": 0.9999999272740868,
-  "sill_lowering_m": 0.05406180677674399
+  "geometry_over_energy_ice_volume": 0.9999999272742564,
+  "sill_lowering_m": 0.05406180677653083
  },
  {
   "case": "C dissipation-only melting (inflow at 0 C)",
@@ -107,49 +107,49 @@
   "melting": true,
   "heat_dissipation": true,
   "throughput": {
-   "input_m3": 1080.0000000000002,
-   "delivered_m3": 780.9818667179089,
-   "delivered_over_input": 0.7231313580721378,
+   "input_m3": 1079.9999999999966,
+   "delivered_m3": 780.981866717235,
+   "delivered_over_input": 0.7231313580715162,
    "Q_min": 0.006156502081104214,
-   "Q_max": 0.048558065366231064
+   "Q_max": 0.04855806536634911
   },
   "water": {
-   "residual_m3": 5.275839660978665e-12,
-   "scale_m3": 8360.008476592888,
-   "relative": 6.310806592780906e-16
+   "residual_m3": 3.4654588226823435e-12,
+   "scale_m3": 8360.008476592879,
+   "relative": 4.1452814699712976e-16
   },
   "mass_kg": {
-   "in_kg": 1080000.0000000002,
-   "out_kg": 780981.8667179089,
-   "stored_change_kg": 299022.3715785378,
-   "residual_kg": 5.2922102256047765e-09,
-   "scale_kg": 2160008.476592888,
-   "relative": 2.4500877116706965e-15
+   "in_kg": 1079999.9999999965,
+   "out_kg": 780981.866717235,
+   "stored_change_kg": 299022.37157920626,
+   "residual_kg": 3.6710048334498424e-09,
+   "scale_kg": 2160008.476592879,
+   "relative": 1.699532605186974e-15
   },
   "ice_to_water": {
-   "ice_mass_lost_from_heat_kg": 4.238296441098234,
-   "ice_mass_lost_from_geometry_kg": 4.238296385764015,
-   "ice_volume_lost_geometry_m3": 0.004621915360702306,
+   "ice_mass_lost_from_heat_kg": 4.23829644108963,
+   "ice_mass_lost_from_geometry_kg": 4.238296385752561,
+   "ice_volume_lost_geometry_m3": 0.0046219153606898156,
    "ice_density": 917.0,
-   "liquid_water_mass_gained_kg": 4.23829644109824,
-   "liquid_water_volume_gained_m3": 0.0042382964410982394,
+   "liquid_water_mass_gained_kg": 4.238296441089631,
+   "liquid_water_volume_gained_m3": 0.004238296441089631,
    "water_density": 1000.0,
-   "liquid_volume_over_ice_volume": 0.9170000119721416,
+   "liquid_volume_over_ice_volume": 0.9170000119727572,
    "expected_ratio_rho_i_over_rho_w": 0.917
   },
   "energy_J": {
    "sensible_in": 0.0,
-   "sensible_out_outlets": 42055087.34475711,
+   "sensible_out_outlets": 42055087.34472268,
    "sensible_storage_change": 0.0,
-   "latent_to_ice": 1415591.0113268099,
-   "dissipation_total": 43470678.356083915,
-   "dissipation_in_channel": 8001569.531714325,
-   "dissipation_at_exit_node": 35469108.82436959,
-   "residual": 7.450580596923828e-09,
-   "scale": 86941356.71216783,
-   "relative": 8.569662216786049e-17
+   "latent_to_ice": 1415591.0113239363,
+   "dissipation_total": 43470678.356046624,
+   "dissipation_in_channel": 8001569.531707418,
+   "dissipation_at_exit_node": 35469108.8243392,
+   "residual": -7.450580596923828e-09,
+   "scale": 86941356.71209323,
+   "relative": -8.569662216793402e-17
   },
-  "geometry_over_energy_ice_volume": 0.9999999869442311,
+  "geometry_over_energy_ice_volume": 0.9999999869435587,
   "sill_lowering_m": 8.252659284835318e-06
  },
  {

@@ -175,6 +175,7 @@ class Network:
     # ----------------------------------------------------------------------------- driver
     def run(self, v0, t0, t_end, dt_geom, inflow, inflow_temp, rtol=1e-9, atol=1e-10, evolve=True, record=None):
         y = self.reset_state(v0, t0)
+        self._area0 = [((e["zs"] - e["z"]) * e["w"]).copy() for e in self.edges]      # initial channel section areas (for the geometry-derived ice inventory)
         v_init = np.array(v0, float).copy(); s_init = (np.array(v0) * np.array(t0)).copy()
         ts = [0.0]; hist = [self._snapshot(0.0, y, inflow, inflow_temp)]
         ve_tot = vg_tot = 0.0
@@ -197,6 +198,12 @@ class Network:
             ts.append(t); hist.append(self._snapshot(t, y, inflow, inflow_temp))
         self.final_state = y
         budgets = self.budgets(y, v_init, s_init)
+        vg_t = np.array([h["ice_vol_geometry"] for h in hist]); ve_t = np.array([h["ice_vol_energy"] for h in hist])
+        d_kg = RHO_I * (vg_t - ve_t)
+        budgets.update(geometry_vs_latent_kg_abs_max=float(np.max(np.abs(d_kg))),
+                       geometry_vs_latent_rel_max=float(np.max(np.abs(vg_t - ve_t) / np.maximum(np.abs(ve_t), 1e-30)[0:] ) if ve_t.max() > 0 else 0.0),
+                       geometry_vs_latent_rel_of_final=float(np.max(np.abs(vg_t - ve_t)) / max(ve_t[-1], 1e-30)),
+                       ice_vol_geometry_series=vg_t.tolist(), ice_vol_energy_series=ve_t.tolist())
         budgets.update(ice_volume_energy=ve_tot, ice_volume_geometry=vg_tot, ice_mass_from_energy_update_kg=RHO_I * ve_tot,
                        ice_mass_from_geometry_kg=RHO_I * vg_tot, geometry_energy_volume_ratio=(vg_tot / ve_tot) if ve_tot else float("nan"))
         return dict(t=np.array(ts), hist=hist, budgets=budgets, y=y)
@@ -210,7 +217,16 @@ class Network:
         for e in self.edges:
             st = self.edge_state(e, stage[e["a"]], stage[e["b"]], temps[e["a"]] if e["a"] < self.NL else 0.0, temps[e["b"]] if e["b"] < self.NL else 0.0)
             q_edges.append(st["Q"])
+        # ice inventory two ways at every snapshot: from the channel GEOMETRY (section-area change x dx, trapezoid) and from the
+        # LATENT HEAT delivered (cumulative heat / (rho_i L_f)); their difference is the geometry-reconstruction error
+        vg = 0.0
+        for e, a0 in zip(self.edges, self._area0):
+            da = (e["zs"] - e["z"]) * e["w"] - a0
+            vg += float(np.sum(0.5 * (da[:-1] + da[1:])) * e["dx"])
+        ve = float(y[self.i_H].sum() / (RHO_I * LF))
         return dict(t=t, V=v.copy(), stage=stage.copy(), T=temps.copy(), Q=np.array(q_edges), C=y[self.i_C].copy(),
+                    Win=float(y[self.i_Win]), Qm=float(y[self.i_Qm]), heat_to_ice=float(y[self.i_H].sum()), Phi=float(y[self.i_Phi]),
+                    ice_vol_geometry=vg, ice_vol_energy=ve,
                     sill=np.array([e["z"][0] if e["dir0"] > 0 else e["z"][-1] for e in self._edges_dir()]),
                     z=[e["z"].copy() for e in self.edges], w=[e["w"].copy() for e in self.edges])
 
