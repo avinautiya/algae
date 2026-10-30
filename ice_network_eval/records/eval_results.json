@@ -478,5 +478,485 @@
     }
    }
   }
+ },
+ "S3": {
+  "scenario": {
+   "id": "S3",
+   "sill_offset_m": 0.1,
+   "inflow_m3_s": 0.08,
+   "inflow_T_C": 1.0
+  },
+  "reference_metrics": {
+   "100": {
+    "t_act1_s": 1869.9886452739956,
+    "t_act2_s": 4531.613845677932,
+    "t_end_act2_s": null,
+    "t_dom2_s": null,
+    "active_at_end": [
+     true,
+     true
+    ],
+    "peak_Q2_over_I": 0.4670471112819088,
+    "sill_lowering1_m": 0.05158022889278868,
+    "sill_lowering2_m": 0.06017237591655089,
+    "delivered1_m3": 1002.577584757164,
+    "delivered2_m3": 732.2072317769158,
+    "heat_to_ice_J": 1955761744.5618694,
+    "stage_end_m": 100.23061357639378,
+    "stage_max_m": 100.25724055481672
+   },
+   "200": {
+    "t_act1_s": 1853.8666519765084,
+    "t_act2_s": 4532.8250252664875,
+    "t_end_act2_s": null,
+    "t_dom2_s": null,
+    "active_at_end": [
+     true,
+     true
+    ],
+    "peak_Q2_over_I": 0.4831418380618226,
+    "sill_lowering1_m": 0.051966366772717265,
+    "sill_lowering2_m": 0.061007234516296194,
+    "delivered1_m3": 998.5640165049077,
+    "delivered2_m3": 736.570714477527,
+    "heat_to_ice_J": 1979447818.023008,
+    "stage_end_m": 100.2304482046291,
+    "stage_max_m": 100.25779761865552
+   },
+   "400": {
+    "t_act1_s": 1848.0179540574197,
+    "t_act2_s": 4534.575907156125,
+    "t_end_act2_s": null,
+    "t_dom2_s": null,
+    "active_at_end": [
+     true,
+     true
+    ],
+    "peak_Q2_over_I": 0.49165880821838215,
+    "sill_lowering1_m": 0.05216170488299099,
+    "sill_lowering2_m": 0.06149147852136139,
+    "delivered1_m3": 996.2632772261835,
+    "delivered2_m3": 739.2267189658651,
+    "heat_to_ice_J": 1991120597.0736482,
+    "stage_end_m": 100.23027800453872,
+    "stage_max_m": 100.2579983604977
+   }
+  },
+  "reference_wall_s": {
+   "100": 11.094328204999783,
+   "200": 33.04215105100002,
+   "400": 103.397195044
+  },
+  "reference_steps": {
+   "100": 174523,
+   "200": 355524,
+   "400": 721485
+  },
+  "reduced": {
+   "r5_dt1800": {
+    "metrics": {
+     "t_act1_s": 1727.7155594152407,
+     "t_act2_s": 4307.323704199541,
+     "t_end_act2_s": null,
+     "t_dom2_s": null,
+     "active_at_end": [
+      true,
+      true
+     ],
+     "peak_Q2_over_I": 0.545847614675343,
+     "sill_lowering1_m": 0.05134723859919177,
+     "sill_lowering2_m": 0.07277883254840845,
+     "delivered1_m3": 965.4003651133676,
+     "delivered2_m3": 807.0151115636417,
+     "heat_to_ice_J": 2061668590.0722065,
+     "stage_end_m": 100.21887859188615,
+     "stage_max_m": 100.24821013434625
+    },
+    "discharge_law_evaluations": 32278,
+    "series_error_vs_finest_reference": {
+     "Q1": {
+      "rmse_over_I": 0.018913380280624694,
+      "max_abs_over_I": 0.033444528131672084,
+      "volume_error_m3": -31.87357331429009
+     },
+     "Q2": {
+      "rmse_over_I": 0.03578158080218343,
+      "max_abs_over_I": 0.05418880645696082,
+      "volume_error_m3": 74.19193376375824
+     },
+     "stage_rmse_m": 0.008493715593359877
+    },
+    "wall_s": 14.173143177000384,
+    "conservation": {
+     "water_residual_rel": -7.723249036953113e-16,
+     "mass_residual_rel": -1.4814600749823948e-15,
+     "energy_residual_rel": -6.417766508196518e-16,
+     "geometry_vs_latent_rel_max": 4.554078153711285e-06
+    }
+   },
+   "r9_dt900": {
+    "metrics": {
+     "t_act1_s": 1739.7872176669296,
+     "t_act2_s": 4315.623369794425,
+     "t_end_act2_s": null,
+     "t_dom2_s": null,
+     "active_at_end": [
+      true,
+      true
+     ],
+     "peak_Q2_over_I": 0.5322705553328275,
+     "sill_lowering1_m": 0.052361109406163564,
+     "sill_lowering2_m": 0.07234199486859438,
+     "delivered1_m3": 971.5838891987121,
+     "delivered2_m3": 796.8652029064305,
+     "heat_to_ice_J": 2038402993.9200234,
+     "stage_end_m": 100.22082695543534,
+     "stage_max_m": 100.2497663975624
+    },
+    "discharge_law_evaluations": 12232,
+    "series_error_vs_finest_reference": {
+     "Q1": {
+      "rmse_over_I": 0.01487669747907126,
+      "max_abs_over_I": 0.024655370095038286,
+      "volume_error_m3": -25.65829000561771
+     },
+     "Q2": {
+      "rmse_over_I": 0.03054783717810086,
+      "max_abs_over_I": 0.040836029835965855,
+      "volume_error_m3": 64.05681541778276
+     },
+     "stage_rmse_m": 0.007029384180942828
+    },
+    "wall_s": 10.385725377000199,
+    "conservation": {
+     "water_residual_rel": 3.866962499871362e-16,
+     "mass_residual_rel": 8.078787507024378e-16,
+     "energy_residual_rel": 1.1766067992504338e-15,
+     "geometry_vs_latent_rel_max": 1.0018734642699193e-06
+    }
+   },
+   "r17_dt450": {
+    "metrics": {
+     "t_act1_s": 1763.9922207370444,
+     "t_act2_s": 4349.063453616586,
+     "t_end_act2_s": null,
+     "t_dom2_s": null,
+     "active_at_end": [
+      true,
+      true
+     ],
+     "peak_Q2_over_I": 0.5153934351792667,
+     "sill_lowering1_m": 0.05289519565003786,
+     "sill_lowering2_m": 0.07006096285643082,
+     "delivered1_m3": 987.8319847587517,
+     "delivered2_m3": 771.0278369666232,
+     "heat_to_ice_J": 2025773242.8448873,
+     "stage_end_m": 100.22560268381224,
+     "stage_max_m": 100.2539605262144
+    },
+    "discharge_law_evaluations": 5754,
+    "series_error_vs_finest_reference": {
+     "Q1": {
+      "rmse_over_I": 0.005944692286173151,
+      "max_abs_over_I": 0.010107243067856986,
+      "volume_error_m3": -9.62096059532447
+     },
+     "Q2": {
+      "rmse_over_I": 0.01799075715102998,
+      "max_abs_over_I": 0.023734626960884592,
+      "volume_error_m3": 37.92153794586715
+     },
+     "stage_rmse_m": 0.0034750027103837757
+    },
+    "wall_s": 8.203975178000292,
+    "conservation": {
+     "water_residual_rel": 7.857409268961862e-16,
+     "mass_residual_rel": 1.372077744944818e-15,
+     "energy_residual_rel": 9.627112349411082e-16,
+     "geometry_vs_latent_rel_max": 2.9907788923030764e-07
+    }
+   },
+   "r33_dt225": {
+    "metrics": {
+     "t_act1_s": 1813.877194561805,
+     "t_act2_s": 4535.370310190113,
+     "t_end_act2_s": null,
+     "t_dom2_s": null,
+     "active_at_end": [
+      true,
+      true
+     ],
+     "peak_Q2_over_I": 0.5032533753636759,
+     "sill_lowering1_m": 0.05313231361435555,
+     "sill_lowering2_m": 0.06725952662068835,
+     "delivered1_m3": 1003.4778964068536,
+     "delivered2_m3": 747.5911278092985,
+     "heat_to_ice_J": 2017255175.7555585,
+     "stage_end_m": 100.2294853309694,
+     "stage_max_m": 100.25787777744716
+    },
+    "discharge_law_evaluations": 9132,
+    "series_error_vs_finest_reference": {
+     "Q1": {
+      "rmse_over_I": 0.0027216731833216434,
+      "max_abs_over_I": 0.004144834542245662,
+      "volume_error_m3": 5.898767992471839
+     },
+     "Q2": {
+      "rmse_over_I": 0.007237559684872981,
+      "max_abs_over_I": 0.011594567145293676,
+      "volume_error_m3": 14.366387266284558
+     },
+     "stage_rmse_m": 0.00034778567525787287
+    },
+    "wall_s": 49.622192781000194,
+    "conservation": {
+     "water_residual_rel": -6.144406799497811e-16,
+     "mass_residual_rel": -1.2756329908120144e-15,
+     "energy_residual_rel": -7.487964636523174e-16,
+     "geometry_vs_latent_rel_max": 7.030631511185544e-08
+    }
+   }
+  }
+ },
+ "S4": {
+  "scenario": {
+   "id": "S4",
+   "sill_offset_m": 0.05,
+   "inflow_m3_s": 0.05,
+   "inflow_T_C": 0.3
+  },
+  "reference_metrics": {
+   "100": {
+    "t_act1_s": 2778.1636140453993,
+    "t_act2_s": 4824.033115541396,
+    "t_end_act2_s": null,
+    "t_dom2_s": null,
+    "active_at_end": [
+     true,
+     true
+    ],
+    "peak_Q2_over_I": 0.464494762397999,
+    "sill_lowering1_m": 0.013513853569435241,
+    "sill_lowering2_m": 0.015473087596433288,
+    "delivered1_m3": 528.5334424330883,
+    "delivered2_m3": 438.410359848256,
+    "heat_to_ice_J": 413869383.8482858,
+    "stage_end_m": 100.18244406618564,
+    "stage_max_m": 100.18480154206996
+   },
+   "200": {
+    "t_act1_s": 2759.735735585345,
+    "t_act2_s": 4820.61818645204,
+    "t_end_act2_s": null,
+    "t_dom2_s": null,
+    "active_at_end": [
+     true,
+     true
+    ],
+    "peak_Q2_over_I": 0.4799550868008756,
+    "sill_lowering1_m": 0.013648622293970902,
+    "sill_lowering2_m": 0.015608997072405373,
+    "delivered1_m3": 526.5286735422138,
+    "delivered2_m3": 438.8769086562164,
+    "heat_to_ice_J": 419909146.826657,
+    "stage_end_m": 100.18319480274596,
+    "stage_max_m": 100.18567073245069
+   },
+   "400": {
+    "t_act1_s": 2753.8460447085004,
+    "t_act2_s": 4825.621747764677,
+    "t_end_act2_s": null,
+    "t_dom2_s": null,
+    "active_at_end": [
+     true,
+     true
+    ],
+    "peak_Q2_over_I": 0.4879976878332554,
+    "sill_lowering1_m": 0.013717060996100372,
+    "sill_lowering2_m": 0.015696961720422564,
+    "delivered1_m3": 525.3628296900961,
+    "delivered2_m3": 439.4434952691036,
+    "heat_to_ice_J": 422847189.41303337,
+    "stage_end_m": 100.18348661597715,
+    "stage_max_m": 100.18602687411354
+   }
+  },
+  "reference_wall_s": {
+   "100": 8.89787097999988,
+   "200": 25.536489262000032,
+   "400": 78.19722608099983
+  },
+  "reference_steps": {
+   "100": 144115,
+   "200": 291603,
+   "400": 590632
+  },
+  "reduced": {
+   "r5_dt1800": {
+    "metrics": {
+     "t_act1_s": 2569.9522816985823,
+     "t_act2_s": 4519.998329063234,
+     "t_end_act2_s": null,
+     "t_dom2_s": 15855.694755578073,
+     "active_at_end": [
+      true,
+      true
+     ],
+     "peak_Q2_over_I": 0.5375012278027188,
+     "sill_lowering1_m": 0.013496488398160977,
+     "sill_lowering2_m": 0.01983785203920263,
+     "delivered1_m3": 508.70442338046894,
+     "delivered2_m3": 490.5084499714533,
+     "heat_to_ice_J": 444300169.18029475,
+     "stage_end_m": 100.17105868333778,
+     "stage_max_m": 100.1742607179775
+    },
+    "discharge_law_evaluations": 35370,
+    "series_error_vs_finest_reference": {
+     "Q1": {
+      "rmse_over_I": 0.019199847595758778,
+      "max_abs_over_I": 0.031511655223373305,
+      "volume_error_m3": -16.966859750111634
+     },
+     "Q2": {
+      "rmse_over_I": 0.04222984612992862,
+      "max_abs_over_I": 0.056531797240796065,
+      "volume_error_m3": 55.024889967736314
+     },
+     "stage_rmse_m": 0.0088783214898918
+    },
+    "wall_s": 14.142676177999874,
+    "conservation": {
+     "water_residual_rel": -1.779570424992923e-15,
+     "mass_residual_rel": -4.049116331818515e-15,
+     "energy_residual_rel": -5.565642080191178e-16,
+     "geometry_vs_latent_rel_max": 1.4910425688941987e-06
+    }
+   },
+   "r9_dt900": {
+    "metrics": {
+     "t_act1_s": 2584.126672438184,
+     "t_act2_s": 4527.985215062042,
+     "t_end_act2_s": null,
+     "t_dom2_s": 17071.570509669204,
+     "active_at_end": [
+      true,
+      true
+     ],
+     "peak_Q2_over_I": 0.5298844070927918,
+     "sill_lowering1_m": 0.013871379164015707,
+     "sill_lowering2_m": 0.019805475897101132,
+     "delivered1_m3": 509.73052185740835,
+     "delivered2_m3": 484.40462822034755,
+     "heat_to_ice_J": 437389798.5765953,
+     "stage_end_m": 100.1735872001087,
+     "stage_max_m": 100.17659653547472
+    },
+    "discharge_law_evaluations": 8728,
+    "series_error_vs_finest_reference": {
+     "Q1": {
+      "rmse_over_I": 0.016731831604574577,
+      "max_abs_over_I": 0.026134547630505406,
+      "volume_error_m3": -15.928989791246714
+     },
+     "Q2": {
+      "rmse_over_I": 0.03746747080751922,
+      "max_abs_over_I": 0.04866911692791468,
+      "volume_error_m3": 48.92464599000701
+     },
+     "stage_rmse_m": 0.007145878832571386
+    },
+    "wall_s": 6.63178111399975,
+    "conservation": {
+     "water_residual_rel": 1.853611607049937e-15,
+     "mass_residual_rel": 4.254255854517674e-15,
+     "energy_residual_rel": 2.226411454997347e-16,
+     "geometry_vs_latent_rel_max": 3.749317307448762e-07
+    }
+   },
+   "r17_dt450": {
+    "metrics": {
+     "t_act1_s": 2617.624840580891,
+     "t_act2_s": 4569.620203824348,
+     "t_end_act2_s": null,
+     "t_dom2_s": null,
+     "active_at_end": [
+      true,
+      true
+     ],
+     "peak_Q2_over_I": 0.5131928631558054,
+     "sill_lowering1_m": 0.014052319544418879,
+     "sill_lowering2_m": 0.018949848588178497,
+     "delivered1_m3": 519.110809623545,
+     "delivered2_m3": 464.9560115816014,
+     "heat_to_ice_J": 432945656.0466629,
+     "stage_end_m": 100.17861471163702,
+     "stage_max_m": 100.18132407158129
+    },
+    "discharge_law_evaluations": 5162,
+    "series_error_vs_finest_reference": {
+     "Q1": {
+      "rmse_over_I": 0.007457532341039214,
+      "max_abs_over_I": 0.011129652832720313,
+      "volume_error_m3": -6.589582982199575
+     },
+     "Q2": {
+      "rmse_over_I": 0.022417102148859436,
+      "max_abs_over_I": 0.028577891905247725,
+      "volume_error_m3": 29.40977879047561
+     },
+     "stage_rmse_m": 0.003635877725668114
+    },
+    "wall_s": 6.4584741140001825,
+    "conservation": {
+     "water_residual_rel": -1.9504433841559852e-17,
+     "mass_residual_rel": -5.1507457482511767e-17,
+     "energy_residual_rel": 1.1133708522767397e-16,
+     "geometry_vs_latent_rel_max": 1.0227263619857481e-07
+    }
+   },
+   "r33_dt225": {
+    "metrics": {
+     "t_act1_s": 2694.016592177376,
+     "t_act2_s": 4832.2241672343525,
+     "t_end_act2_s": null,
+     "t_dom2_s": null,
+     "active_at_end": [
+      true,
+      true
+     ],
+     "peak_Q2_over_I": 0.4977769706074821,
+     "sill_lowering1_m": 0.014128127412561753,
+     "sill_lowering2_m": 0.017710076834944743,
+     "delivered1_m3": 531.0623963565673,
+     "delivered2_m3": 443.7802143270421,
+     "heat_to_ice_J": 429423354.3555777,
+     "stage_end_m": 100.18322154399107,
+     "stage_max_m": 100.18588123844877
+    },
+    "discharge_law_evaluations": 8180,
+    "series_error_vs_finest_reference": {
+     "Q1": {
+      "rmse_over_I": 0.003921424747151321,
+      "max_abs_over_I": 0.004812116120986448,
+      "volume_error_m3": 5.335361698315845
+     },
+     "Q2": {
+      "rmse_over_I": 0.006683940878891272,
+      "max_abs_over_I": 0.00977928277422671,
+      "volume_error_m3": 8.213918768732505
+     },
+     "stage_rmse_m": 0.00011181943444742222
+    },
+    "wall_s": 38.84172647699961,
+    "conservation": {
+     "water_residual_rel": 1.0534421162120789e-15,
+     "mass_residual_rel": 2.3595005347759234e-15,
+     "energy_residual_rel": 9.464973169533758e-16,
+     "geometry_vs_latent_rel_max": 0.00011623241097092178
+    }
+   }
+  }
  }
 }
