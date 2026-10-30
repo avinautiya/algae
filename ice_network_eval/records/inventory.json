@@ -22,9 +22,7 @@
   },
   "param_dev": {
    "expected": 112,
-   "completed": 75,
-   "running": 2,
-   "pending": 35
+   "completed": 112
   },
   "param_eval": {
    "expected": 224,
@@ -32,26 +30,22 @@
   },
   "timing_serial": {
    "expected": 45,
-   "pending": 45
+   "completed": 1,
+   "running": 1,
+   "pending": 43
   }
  },
  "non_completed_non_pending": [
   {
-   "set": "param_dev",
-   "id": "red_D021_r9_68bb3d935e",
-   "status": "running"
-  },
-  {
-   "set": "param_dev",
-   "id": "red_D021_r17_114822da80",
+   "set": "timing_serial",
+   "id": "ref_S1_200_rep0_c24a73c643",
    "status": "running"
   }
  ],
  "run_dirs_not_in_any_case_list": [],
  "live_workers": [
-  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/red_D021_r17_114822da80",
-  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/red_D021_r9_68bb3d935e"
+  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/ref_S1_200_rep0_c24a73c643"
  ],
  "total_expected_unique": 715,
- "total_dirs": 264
+ "total_dirs": 301
 }
