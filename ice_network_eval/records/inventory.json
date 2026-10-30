@@ -2,7 +2,7 @@
  "sets": {
   "baselines": {
    "expected": 35,
-   "pending": 35
+   "completed": 35
   },
   "challenge": {
    "expected": 112,
@@ -26,24 +26,32 @@
   },
   "param_eval": {
    "expected": 224,
-   "pending": 224
+   "completed": 5,
+   "running": 2,
+   "pending": 217
   },
   "timing_serial": {
    "expected": 45,
-   "completed": 6,
-   "interrupted": 1,
-   "pending": 38
+   "completed": 45
   }
  },
  "non_completed_non_pending": [
   {
-   "set": "timing_serial",
-   "id": "ref_S1_200_rep1_ba13d5bb58",
-   "status": "interrupted"
+   "set": "param_eval",
+   "id": "red_E001_r9_114f209f3f",
+   "status": "running"
+  },
+  {
+   "set": "param_eval",
+   "id": "red_E001_r17_1f623f11d3",
+   "status": "running"
   }
  ],
  "run_dirs_not_in_any_case_list": [],
- "live_workers": [],
+ "live_workers": [
+  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/red_E001_r17_1f623f11d3",
+  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/red_E001_r9_114f209f3f"
+ ],
  "total_expected_unique": 715,
- "total_dirs": 306
+ "total_dirs": 386
 }
