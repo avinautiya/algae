@@ -6,9 +6,9 @@
   },
   "challenge": {
    "expected": 112,
-   "completed": 5,
-   "running": 2,
-   "pending": 105
+   "completed": 107,
+   "stalled": 2,
+   "failed": 3
   },
   "closure_sensitivity": {
    "expected": 60,
@@ -38,20 +38,32 @@
  "non_completed_non_pending": [
   {
    "set": "challenge",
-   "id": "red_C001_r9_2990d7b142",
-   "status": "running"
+   "id": "red_C009_r9_adc991eaad",
+   "status": "stalled"
   },
   {
    "set": "challenge",
-   "id": "red_C001_r17_1ff89506f1",
-   "status": "running"
+   "id": "red_C019_r9_854a95a8cd",
+   "status": "stalled"
+  },
+  {
+   "set": "challenge",
+   "id": "red_C025_r9_02ddaa24f5",
+   "status": "failed"
+  },
+  {
+   "set": "challenge",
+   "id": "red_C025_r17_999bd4e50e",
+   "status": "failed"
+  },
+  {
+   "set": "challenge",
+   "id": "red_C031_r17_c154d53c36",
+   "status": "failed"
   }
  ],
  "run_dirs_not_in_any_case_list": [],
- "live_workers": [
-  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/red_C001_r17_1ff89506f1",
-  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/red_C001_r9_2990d7b142"
- ],
+ "live_workers": [],
  "total_expected_unique": 715,
- "total_dirs": 610
+ "total_dirs": 715
 }
