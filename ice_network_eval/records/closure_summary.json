@@ -1,0 +1,1032 @@
+{
+ "S1": {
+  "base": {
+   "route": "R1",
+   "t_act2_s": 4813.749736273723,
+   "t_dom2_s": 24858.554970717418,
+   "sill_lowering_m": [
+    0.04564767402108316,
+    0.05441320208076661
+   ],
+   "delivered_m3": [
+    548.1799864853633,
+    486.6148420227156
+   ],
+   "heat_to_ice_J": 1443422009.0465941,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.0545035662705611,
+    "t_act2_err_s": -290.7507893009879,
+    "route_match": false,
+    "sill_lowering_err_m": [
+     0.0005495535102397753,
+     0.012565853702881213
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.03498374710494533,
+    "t_act2_err_s": -249.30941698913466,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0011633625798026515,
+     0.010006629712805193
+    ]
+   }
+  },
+  "nu0.5": {
+   "route": "R1",
+   "t_act2_s": 4818.363934412928,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.022866324894138756,
+    0.026413006856358834
+   ],
+   "delivered_m3": [
+    534.3064079208434,
+    451.7035395160206
+   ],
+   "heat_to_ice_J": 785213008.4414961,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04817090772347023,
+    "t_act2_err_s": -293.225646394927,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0007349204103235252,
+     0.0072472769375337975
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.03037331858281915,
+    "t_act2_err_s": -251.2063947244551,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0008402024420206544,
+     0.005626248497264896
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 4.6141981392047455,
+    "t_dom2_shift_s": null,
+    "t_dom2_appears_or_disappears": true,
+    "sill_lowering_ratio": [
+     0.5009307787200187,
+     0.48541541108265374
+    ],
+    "heat_ratio": 0.5439940665447822
+   }
+  },
+  "nu2": {
+   "route": "R2",
+   "t_act2_s": 4806.612005987785,
+   "t_dom2_s": 16466.70682942875,
+   "sill_lowering_m": [
+    0.08962806755597796,
+    0.11408371499457814
+   ],
+   "delivered_m3": [
+    564.652789508257,
+    565.9133490577364
+   ],
+   "heat_to_ice_J": 2497531094.580532,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.06277526197542305,
+    "t_act2_err_s": -284.9247028507061,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     -0.0017078790200741878,
+     0.0183469206270388
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04195800006085701,
+    "t_act2_err_s": -244.71049460925042,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0007038099588783098,
+     0.015531116781886567
+    ]
+   },
+   "vs_base": {
+    "route_changed": true,
+    "t_act2_shift_s": -7.1377302859382326,
+    "t_dom2_shift_s": -8391.848141288669,
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     1.9634750176883426,
+     2.096618295413701
+    ],
+    "heat_ratio": 1.7302847531264927
+   }
+  },
+  "n0.03": {
+   "route": "R1",
+   "t_act2_s": 4755.261388279845,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.0558789972370306,
+    0.062337115540245236
+   ],
+   "delivered_m3": [
+    624.8330644553585,
+    466.8567459471856
+   ],
+   "heat_to_ice_J": 1637433388.756341,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.05802106565130869,
+    "t_act2_err_s": -249.20613464755388,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0008686100542121267,
+     0.017545006194154666
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04245722125295578,
+    "t_act2_err_s": -224.98192159688188,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0015222660359199836,
+     0.014037508210080318
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": -58.48834799387805,
+    "t_dom2_shift_s": null,
+    "t_dom2_appears_or_disappears": true,
+    "sill_lowering_ratio": [
+     1.224136791969333,
+     1.1456248328800243
+    ],
+    "heat_ratio": 1.1344107118318743
+   }
+  },
+  "n0.05": {
+   "route": "R1",
+   "t_act2_s": 4871.355004052345,
+   "t_dom2_s": 15993.18624036822,
+   "sill_lowering_m": [
+    0.03891225144627697,
+    0.04822018215617163
+   ],
+   "delivered_m3": [
+    493.4173233943735,
+    489.2705856455392
+   ],
+   "heat_to_ice_J": 1302260189.0617852,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04956971211769475,
+    "t_act2_err_s": -318.8839694527396,
+    "route_match": false,
+    "sill_lowering_err_m": [
+     0.00041600069398839423,
+     0.009785723608544572
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.03145494885374822,
+    "t_act2_err_s": -265.1285981985793,
+    "route_match": false,
+    "sill_lowering_err_m": [
+     0.0009538533072657174,
+     0.007859581637049473
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 57.605267778621965,
+    "t_dom2_shift_s": -8865.368730349197,
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     0.8524476280720169,
+     0.8861853431194409
+    ],
+    "heat_ratio": 0.9022033618026589
+   }
+  }
+ },
+ "S2": {
+  "base": {
+   "route": "R2",
+   "t_act2_s": 3523.8160662967816,
+   "t_dom2_s": 7839.770722328816,
+   "sill_lowering_m": [
+    0.04468290057447177,
+    0.05963507097845877
+   ],
+   "delivered_m3": [
+    476.94037419231427,
+    600.0272777385179
+   ],
+   "heat_to_ice_J": 1466236214.4144633,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.05653211680822119,
+    "t_act2_err_s": -273.26346491832965,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.00048068671112844186,
+     0.012594021550057732
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.03622640874685545,
+    "t_act2_err_s": -236.72922152870888,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.001151118655997152,
+     0.010034901533487073
+    ]
+   }
+  },
+  "nu0.5": {
+   "route": "R2",
+   "t_act2_s": 3530.1858129394523,
+   "t_dom2_s": 8189.269793748436,
+   "sill_lowering_m": [
+    0.022415040623442906,
+    0.028937399226037996
+   ],
+   "delivered_m3": [
+    470.0174367070856,
+    554.5090710454167
+   ],
+   "heat_to_ice_J": 797935646.46718,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.05024815232773489,
+    "t_act2_err_s": -279.7108190434278,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0007273118769859366,
+     0.007305495388806094
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.031544327531363346,
+    "t_act2_err_s": -240.4391515734651,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0008487237180077045,
+     0.005672850208142677
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 6.369746642670634,
+    "t_dom2_shift_s": 349.4990714196201,
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     0.5016469462649222,
+     0.48524129763324486
+    ],
+    "heat_ratio": 0.5442067510151037
+   }
+  },
+  "nu2": {
+   "route": "R2",
+   "t_act2_s": 3513.611878521858,
+   "t_dom2_s": 7277.979989428913,
+   "sill_lowering_m": [
+    0.08738059767313189,
+    0.12499427793613904
+   ],
+   "delivered_m3": [
+    479.0506761538341,
+    701.9356969031038
+   ],
+   "heat_to_ice_J": 2533993119.921974,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.06447273884462415,
+    "t_act2_err_s": -262.9840943654126,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     -0.0020412629623791645,
+     0.018168777995597907
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04321005791374531,
+    "t_act2_err_s": -229.41084366965106,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.000572806939203474,
+     0.015418305847461511
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": -10.204187774923412,
+    "t_dom2_shift_s": -561.7907328999036,
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     1.9555712934861296,
+     2.0959860680184175
+    ],
+    "heat_ratio": 1.7282298002262317
+   }
+  },
+  "n0.03": {
+   "route": "R2",
+   "t_act2_s": 3446.28985780218,
+   "t_dom2_s": 10206.86518854165,
+   "sill_lowering_m": [
+    0.054502594539229676,
+    0.0690626999739834
+   ],
+   "delivered_m3": [
+    535.5676339254838,
+    597.0811084212864
+   ],
+   "heat_to_ice_J": 1664157163.3141608,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.061443081262198725,
+    "t_act2_err_s": -232.18108755342791,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0007727535509758354,
+     0.0177285651470811
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.044160033646228704,
+    "t_act2_err_s": -212.03244131757037,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0014914646687316235,
+     0.014079404260897377
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": -77.52620849460163,
+    "t_dom2_shift_s": 2367.094466212833,
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     1.2197640224450443,
+     1.1580886689802055
+    ],
+    "heat_ratio": 1.1349857185042567
+   }
+  },
+  "n0.05": {
+   "route": "R2",
+   "t_act2_s": 3594.3757841758397,
+   "t_dom2_s": 7110.973148374354,
+   "sill_lowering_m": [
+    0.038209514476065465,
+    0.05247301085071854
+   ],
+   "delivered_m3": [
+    435.7487912465866,
+    589.3470464335476
+   ],
+   "heat_to_ice_J": 1324163278.4360294,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.05110444103218514,
+    "t_act2_err_s": -302.44668572112823,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.00036516367701722174,
+     0.009806157848018415
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.03261741102468282,
+    "t_act2_err_s": -253.06300309245353,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0009450705668569981,
+     0.007901621394196923
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 70.5597178790581,
+    "t_dom2_shift_s": -728.7975739544618,
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     0.8551260993538838,
+     0.8799018763585057
+    ],
+    "heat_ratio": 0.9031036509794773
+   }
+  }
+ },
+ "S3": {
+  "base": {
+   "route": "R1",
+   "t_act2_s": 4532.8250252664875,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.051966366772717265,
+    0.061007234516296194
+   ],
+   "delivered_m3": [
+    998.5640165049077,
+    736.570714477527
+   ],
+   "heat_to_ice_J": 1979447818.023008,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.03832008037097504,
+    "t_act2_err_s": -217.20165547206216,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0003947426334462989,
+     0.01133476035229819
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.02404738145727492,
+    "t_act2_err_s": -183.76157164990127,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0009288288773205977,
+     0.009053728340134626
+    ]
+   }
+  },
+  "nu0.5": {
+   "route": "R1",
+   "t_act2_s": 4533.233465372155,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.026061468244662933,
+    0.029854514461305826
+   ],
+   "delivered_m3": [
+    976.3244615287878,
+    698.3912838990482
+   ],
+   "heat_to_ice_J": 1057363346.6501184,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.03481285212451221,
+    "t_act2_err_s": -220.48521381884075,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0005455774987837003,
+     0.006508642401200859
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.02149807289566582,
+    "t_act2_err_s": -187.296017741407,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0006515073099109259,
+     0.005071713754148277
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 0.40844010566706856,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     0.5015064524069326,
+     0.4893602324054062
+    ],
+    "heat_ratio": 0.5341708617033258
+   }
+  },
+  "nu2": {
+   "route": "R1",
+   "t_act2_s": 4532.412680582312,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.10206499975241456,
+    0.12625258877672252
+   ],
+   "delivered_m3": [
+    1027.125175578554,
+    824.0508136173879
+   ],
+   "heat_to_ice_J": 3512448132.7865915,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.042857998524577896,
+    "t_act2_err_s": -212.2524187222607,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     -0.0013995934924366793,
+     0.016701357666875083
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.027979343401203106,
+    "t_act2_err_s": -177.4801652806591,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0006435606127865867,
+     0.014176150999873016
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": -0.4123446841758778,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     1.964058795928744,
+     2.0694691339106357
+    ],
+    "heat_ratio": 1.7744585640528183
+   }
+  },
+  "n0.03": {
+   "route": "R1",
+   "t_act2_s": 4522.0425488571345,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.06382743313133687,
+    0.06907327086210557
+   ],
+   "delivered_m3": [
+    1142.193838589208,
+    670.4011244939476
+   ],
+   "heat_to_ice_J": 2215039640.190494,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04197699798602013,
+    "t_act2_err_s": -184.78614988750996,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.000665394017971721,
+     0.01667936599949371
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.028901605939050105,
+    "t_act2_err_s": -165.50048594215514,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0012617241862642459,
+     0.013155642535124912
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": -10.782476409352967,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     1.2282450572404988,
+     1.132214423580449
+    ],
+    "heat_ratio": 1.1190189607538052
+   }
+  },
+  "n0.05": {
+   "route": "R1",
+   "t_act2_s": 4555.436942092057,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.04421020917398266,
+    0.054379570229798446
+   ],
+   "delivered_m3": [
+    896.9322805236513,
+    765.8987554316672
+   ],
+   "heat_to_ice_J": 1806618911.957228,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.03453925376731258,
+    "t_act2_err_s": -238.5380621362674,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.00027803176479324065,
+     0.008527256615792567
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.02219744385120937,
+    "t_act2_err_s": -194.02309660028095,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0007401719076938207,
+     0.006939528590180544
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 22.611916825569097,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     0.850746587063565,
+     0.8913626500357532
+    ],
+    "heat_ratio": 0.9126883242426695
+   }
+  }
+ },
+ "S4": {
+  "base": {
+   "route": "R1",
+   "t_act2_s": 4820.61818645204,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.013648622293970902,
+    0.015608997072405373
+   ],
+   "delivered_m3": [
+    526.5286735422138,
+    438.8769086562164
+   ],
+   "heat_to_ice_J": 419909146.826657,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.044860210222173215,
+    "t_act2_err_s": -292.6329713899986,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0002227568700448046,
+     0.00419647882469576
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.02815266596984798,
+    "t_act2_err_s": -250.99798262769218,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.00040369725044797633,
+     0.0033408515157731244
+    ]
+   }
+  },
+  "nu0.5": {
+   "route": "R1",
+   "t_act2_s": 4822.136883978611,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.006833181182557269,
+    0.00773539338466378
+   ],
+   "delivered_m3": [
+    522.0667856219866,
+    429.2006583485496
+   ],
+   "heat_to_ice_J": 232360310.47995552,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04291932465848019,
+    "t_act2_err_s": -293.4954902789932,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.00024060243585211083,
+     0.002286380502241059
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.02677771334403144,
+    "t_act2_err_s": -251.67804530539524,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.00026860502411807374,
+     0.0017750593743812715
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 1.5186975265705769,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     0.5006498850492578,
+     0.4955727359536075
+    ],
+    "heat_ratio": 0.5533585353783121
+   }
+  },
+  "nu2": {
+   "route": "R1",
+   "t_act2_s": 4818.536805614005,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.027115505009106755,
+    0.03170709344468037
+   ],
+   "delivered_m3": [
+    533.1548527521459,
+    459.2681651424493
+   ],
+   "heat_to_ice_J": 700646550.9068086,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04785100479395403,
+    "t_act2_err_s": -290.9733584861633,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     -0.00044913024434833915,
+     0.007010474715229975
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.030464574003328238,
+    "t_act2_err_s": -249.74083450126636,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0003348734124699604,
+     0.005889075813925615
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": -2.0813808380353294,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     1.9866844011856544,
+     2.0313344475369455
+    ],
+    "heat_ratio": 1.6685670131306833
+   }
+  },
+  "n0.03": {
+   "route": "R1",
+   "t_act2_s": 4760.4637788224945,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    0.016648607327809373,
+    0.017599660743385925
+   ],
+   "delivered_m3": [
+    592.2972227838012,
+    417.4715597000491
+   ],
+   "heat_to_ice_J": 474033414.294648,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04061809895611917,
+    "t_act2_err_s": -249.7700573087841,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0003914129477635697,
+     0.005931183409899177
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.029818471785632725,
+    "t_act2_err_s": -225.03181672687697,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0005762013405785638,
+     0.004766448374255106
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": -60.15440762954586,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     1.2198013080898042,
+     1.1275330927250784
+    ],
+    "heat_ratio": 1.12889518572534
+   }
+  },
+  "n0.05": {
+   "route": "R1",
+   "t_act2_s": 4879.162007191887,
+   "t_dom2_s": 19953.002668548706,
+   "sill_lowering_m": [
+    0.011650988103454551,
+    0.013977958135797053
+   ],
+   "delivered_m3": [
+    476.75858876647163,
+    446.09237614867976
+   ],
+   "heat_to_ice_J": 380125994.10549986,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04337421565927989,
+    "t_act2_err_s": -321.7755961112807,
+    "route_match": false,
+    "sill_lowering_err_m": [
+     0.00015474573710605455,
+     0.0032159347382361148
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.026863337012715087,
+    "t_act2_err_s": -267.83112532594896,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     0.0003159177610001507,
+     0.0025740298273859707
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 58.543820739846524,
+    "t_dom2_shift_s": null,
+    "t_dom2_appears_or_disappears": true,
+    "sill_lowering_ratio": [
+     0.8536384004560827,
+     0.8955064871213424
+    ],
+    "heat_ratio": 0.9052577134320438
+   }
+  }
+ },
+ "S5": {
+  "base": {
+   "route": "R1",
+   "t_act2_s": 4823.929546561471,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    4.6293922650875174e-07,
+    6.963132364035118e-07
+   ],
+   "delivered_m3": [
+    516.7303259555384,
+    419.91133794837805
+   ],
+   "heat_to_ice_J": 1260904.1008158752,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04069417658979397,
+    "t_act2_err_s": -293.7761425365925,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     2.845137458962199e-06,
+     8.779625531474267e-06
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.025270485368480453,
+    "t_act2_err_s": -252.04130368977258,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     1.2451921236333874e-06,
+     3.29422827860526e-06
+    ]
+   }
+  },
+  "nu0.5": {
+   "route": "R1",
+   "t_act2_s": 4823.929462811857,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    2.3171816110334476e-07,
+    3.4839163731703593e-07
+   ],
+   "delivered_m3": [
+    516.7259680269968,
+    419.90969002253524
+   ],
+   "heat_to_ice_J": 675911.6280971649,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04068864298590918,
+    "t_act2_err_s": -293.77554282721485,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     1.4433287134352213e-06,
+     4.437220766817518e-06
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.02526824919838775,
+    "t_act2_err_s": -252.04104974271013,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     6.277242761143498e-07,
+     1.6565258533773886e-06
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": -8.374961453228025e-05,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     0.5005368908805661,
+     0.5003375192413315
+    ],
+    "heat_ratio": 0.5360531603155326
+   }
+  },
+  "nu2": {
+   "route": "R1",
+   "t_act2_s": 4823.929698475891,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    9.228210302580919e-07,
+    1.3905926721236028e-06
+   ],
+   "delivered_m3": [
+    516.7378685602296,
+    419.9146244348607
+   ],
+   "heat_to_ice_J": 2216724.8694167235,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.040704778947589615,
+    "t_act2_err_s": -293.77687821389827,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     5.537071757544254e-06,
+     1.7204960641947764e-05
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.02527483220202313,
+    "t_act2_err_s": -252.04168007806402,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     2.452483897741331e-06,
+     6.516557988334171e-06
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 0.00015191441980277887,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     1.9933956282286358,
+     1.9970791870998668
+    ],
+    "heat_ratio": 1.7580439844571676
+   }
+  },
+  "n0.03": {
+   "route": "R1",
+   "t_act2_s": 4762.910158478897,
+   "t_dom2_s": null,
+   "sill_lowering_m": [
+    7.342252246189673e-07,
+    8.36012802096775e-07
+   ],
+   "delivered_m3": [
+    577.6257198873351,
+    398.3222205630992
+   ],
+   "heat_to_ice_J": 1418978.0115485645,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.03347832358169089,
+    "t_act2_err_s": -250.173726902648,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     3.401893039267634e-06,
+     1.0351962856702812e-05
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.02467243090054466,
+    "t_act2_err_s": -225.17304168094506,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     1.4346313434998592e-06,
+     3.6109017145236066e-06
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": -61.01938808257455,
+    "t_dom2_shift_s": "none",
+    "t_dom2_appears_or_disappears": false,
+    "sill_lowering_ratio": [
+     1.5860078009723098,
+     1.200627473943792
+    ],
+    "heat_ratio": 1.125365529884792
+   }
+  },
+  "n0.05": {
+   "route": "R1",
+   "t_act2_s": 4883.031450233859,
+   "t_dom2_s": 28686.161038761824,
+   "sill_lowering_m": [
+    3.3160367252094147e-07,
+    5.85092351457206e-07
+   ],
+   "delivered_m3": [
+    469.28684107546434,
+    428.67240023048004
+   ],
+   "heat_to_ice_J": 1143651.9236299386,
+   "r9_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.04067466179161712,
+    "t_act2_err_s": -323.5166958600139,
+    "route_match": false,
+    "sill_lowering_err_m": [
+     2.460925188074725e-06,
+     7.699711602526804e-06
+    ]
+   },
+   "r17_matched_closure_error": {
+    "hydrograph_rmse_over_I": 0.024915209422437253,
+    "t_act2_err_s": -269.4811113436617,
+    "route_match": true,
+    "sill_lowering_err_m": [
+     1.0965771650717215e-06,
+     3.0131342896311253e-06
+    ]
+   },
+   "vs_base": {
+    "route_changed": false,
+    "t_act2_shift_s": 59.10190367238738,
+    "t_dom2_shift_s": null,
+    "t_dom2_appears_or_disappears": true,
+    "sill_lowering_ratio": [
+     0.7163006579108124,
+     0.840271764011314
+    ],
+    "heat_ratio": 0.9070094409954985
+   }
+  }
+ }
+}

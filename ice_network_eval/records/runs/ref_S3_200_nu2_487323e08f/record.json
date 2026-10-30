@@ -1,0 +1,46 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 200,
+  "overrides": {
+   "nu_factor": 2.0
+  },
+  "label": "ref_S3_200_nu2",
+  "version": "v1.0",
+  "commit": "5a65cae"
+ },
+ "id": "ref_S3_200_nu2_487323e08f",
+ "commit": "5a65cae",
+ "start_unix": 1793378791.9673285,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": 1847.661317115889,
+  "t_act2_s": 4532.412680582312,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.5587254823294369,
+  "sill_lowering1_m": 0.10206499975241456,
+  "sill_lowering2_m": 0.12625258877672252,
+  "delivered1_m3": 1027.125175578554,
+  "delivered2_m3": 824.0508136173879,
+  "heat_to_ice_J": 3512448132.7865915,
+  "stage_end_m": 100.1744148423341,
+  "stage_max_m": 100.24186430526431
+ },
+ "timing": {
+  "import_s": 0.7534744319998481,
+  "warmup_s": 0.22275686900002256,
+  "solver_s": 65.56661188200019,
+  "metrics_serialization_s": 0.0026860709999709798
+ },
+ "nsteps": 367807,
+ "diss_J": 14852799.632475749,
+ "wall_total_s": 66.66155566599991,
+ "peak_rss_mb": 173.82421875,
+ "end_unix": 1793378858.6289017
+}
