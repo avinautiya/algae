@@ -40,4 +40,4 @@ Outcome of the audit (`records/inversion_m1/baseline_A/interval_audit.json`; wid
 See `competitor_reproduction.md` (profile over algae under the archived target). Short answer there once the run is complete.
 
 ## 4. Sky-mixture sensitivity and informative priors
-See `sky_and_prior_sensitivity.md`.
+Results: `sky_and_prior_sensitivity.md` (sky mixture changes nothing: RMSE 0.0097 unchanged, count bias +0.70 dex).
