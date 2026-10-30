@@ -26,9 +26,9 @@ First overtopping of the frozen S1 geometry (reduced model, 9 stations, `dt_geom
 | floor 1e-4 m | **stalled at the cap**, same macro-step | 64 | 60 001 | n/a | n/a |
 | floor 1e-3 m (production default) | completed | 15 | 27 168 | 2584.13 | 87.846435 |
 | floor 1e-2 m | completed | 5.6 | 18 560 | 2584.13 | 87.846435 |
-| raw law, unchanged bisection solver | see `records/root_activation/raw_bisection.json` | | | | |
+| raw law, unchanged bisection solver | **stalled at the 240 s wall limit**, same macro-step (t = 1800 s) | 240 | 21 439 | n/a | n/a |
 
-A floor of 0.1 mm is **not** sufficient to remove the stall; 1 mm and 10 mm give identical event time and delivered volume to all printed digits, so within the tested range the choice of floor above 1 mm does not influence the S1 endpoints.
+The stall therefore does not depend on the fast solver's root-selection rule: the independent bisection implementation of the same raw law stalls in the same macro-step. A floor of 0.1 mm is **not** sufficient to remove the stall; 1 mm and 10 mm give identical event time and delivered volume to all printed digits, so within the tested range the choice of floor above 1 mm does not influence the S1 endpoints.
 
 ## Effect on activation timing and volume in the flat 100 m geometry (activation of a slowly filling basin, rtol 1e-8, inflow 5e-2 and 5e-3 m3/s; `records/root_study/timing_*`)
 * Activation times (first `Q` above 1e-9, 1e-6, 1e-4 m3/s) are the same for raw fast, floor 1e-4, floor 1e-3 and the bisection reference: 506.8 s at 5e-2 m3/s and 5068 s at 5e-3 m3/s; the stage reaches the sill at 200 s and 2000 s, i.e. activation lags the sill crossing by 307 s and 3068 s because of the 0.031 m threshold head above.
