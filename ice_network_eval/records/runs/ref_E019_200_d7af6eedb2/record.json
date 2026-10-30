@@ -1,0 +1,89 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "E019",
+  "scn_override": {
+   "id": "E019",
+   "sill_offset_m": 0.00013412721455097198,
+   "inflow_m3_s": 0.019098177930072277,
+   "inflow_T_C": 0.818765552714467,
+   "pulse_amp": 0.25122920963913203,
+   "pulse_period_s": 4258.22768099606
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 2119.0348871845517,
+    "initial_stage_below_sill1_m": 0.2929833355125725
+   },
+   "channels": [
+    {
+     "width_m": 0.48924033567309383,
+     "length_m": 61.449921829625964,
+     "slope": 0.004943056813304303
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 59.06072985380888,
+     "slope": 0.015349059192330488
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04486204080283642,
+   "nu_factor": 1.3101198400074279
+  },
+  "params": {
+   "inflow_m3_s": 0.019098177930072277,
+   "pulse_amp": 0.25122920963913203,
+   "pulse_period_h": 1.1828410224989057,
+   "inflow_T_C": 0.818765552714467,
+   "deficit_m": 0.2929833355125725,
+   "area_m2": 2119.0348871845517,
+   "sill_offset_m": 0.00013412721455097198,
+   "w1_m": 0.48924033567309383,
+   "L1_m": 61.449921829625964,
+   "slope1": 0.004943056813304303,
+   "slope2": 0.015349059192330488,
+   "L2_m": 59.06072985380888,
+   "n_man": 0.04486204080283642,
+   "nu_factor": 1.3101198400074279
+  },
+  "label": "ref_E019_200",
+  "version": "v1.0",
+  "ncell": 200,
+  "commit": "4e81347"
+ },
+ "id": "ref_E019_200_d7af6eedb2",
+ "commit": "4e81347",
+ "start_unix": 1793391259.6486988,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": null,
+  "t_act2_s": null,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   false,
+   false
+  ],
+  "peak_Q2_over_I": 0.0,
+  "sill_lowering1_m": 0.0,
+  "sill_lowering2_m": 0.0,
+  "delivered1_m3": 0.0,
+  "delivered2_m3": 0.0,
+  "heat_to_ice_J": 0.0,
+  "stage_end_m": 99.96799310371578,
+  "stage_max_m": 99.96799310371578
+ },
+ "timing": {
+  "import_s": 0.6480940990004456,
+  "warmup_s": 0.29855212300026324,
+  "solver_s": 0.5625559879999855,
+  "metrics_serialization_s": 0.001977146999706747
+ },
+ "nsteps": 5760,
+ "diss_J": 0.0,
+ "wall_total_s": 1.666446631999861,
+ "peak_rss_mb": 172.140625,
+ "end_unix": 1793391261.3151608
+}
