@@ -1,0 +1,20 @@
+{
+ "scenario": "S1",
+ "stations": 33,
+ "dt_geom": 225.0,
+ "wall_two_runs_s": 131.175907923,
+ "calls": 9572.0,
+ "time_in_edge_flow_s": 126.79494644999437,
+ "frac_time_in_edge_flow": 0.9666023926011074,
+ "mean_call_ms": 6.623221189406308,
+ "brent_iter_mean": 7.609068115336398,
+ "brent_iter_max": 36.0,
+ "frac_outlet_control": 0.8836188884245717,
+ "frac_entrance_control": 0.0,
+ "frac_zero_Q": 0.11638111157542834,
+ "ms_per_call_by_control": {
+  "0": 0.4868974847393791,
+  "2": 7.431434077441182
+ },
+ "ms_per_brent_iter": 0.8704378892412498
+}
