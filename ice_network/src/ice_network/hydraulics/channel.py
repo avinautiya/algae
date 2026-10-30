@@ -225,3 +225,20 @@ def edge_flow_diag(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_ou
 def edge_flow(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out):
     diag = np.zeros(4)
     return edge_flow_diag(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out, diag)
+
+
+@njit(cache=True)
+def smooth_activation(q, w0, h_floor):
+    """Smooth switch-on of a discharge whose entrance critical depth h_c = (q^2/(g w0^2))^(1/3) is below h_floor.
+    The raw Manning/critical-brink law has a fold (saddle-node) at micrometric depths: no root exists for heads below roughly 1e-5 m over
+    the sill, then a root appears at Q ~ 1e-8 m3/s with h_c of a few micrometres, a regime in which Manning friction (a fully rough
+    turbulent closure) is meaningless. A jump of that size is invisible to the water budget but makes an adaptive integrator
+    stall at the moment a basin first overtops its sill. S(x) = x^2 (3 - 2x), x = h_c/h_floor, is 1 for h_c >= h_floor, so discharge
+    with a critical depth of at least h_floor (1 mm by default) is untouched. h_floor = 0 returns the raw law."""
+    if h_floor <= 0.0 or q <= 0.0:
+        return q
+    hc = (q * q / (G * w0 * w0)) ** (1.0 / 3.0)
+    x = hc / h_floor
+    if x >= 1.0:
+        return q
+    return q * x * x * (3.0 - 2.0 * x)

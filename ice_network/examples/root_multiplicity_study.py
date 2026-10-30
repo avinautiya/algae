@@ -61,26 +61,51 @@ out["ramp"] = dict(geometry="flat_100m", n_heads=len(heads), production_max_rela
                    production_first_nonzero_head=float(heads[np.argmax(qf > 0)]), reference_first_nonzero_head=float(heads[np.argmax(qr > 0)]),
                    max_abs_diff=float(np.max(np.abs(qf - qr))), heads_where_roots_differ_gt_1em6_rel=[float(x) for x, a, b in zip(heads, qf, qr) if b > 1e-12 and abs(a - b) / b > 1e-6][:20])
 # ---------------------------------------------------------------- 4 event timing (slowly filling basin crossing a sill)
-def activation(fn, inflow, area=500.0):
-    NW.edge_flow = fn
+class Stalled(Exception): pass
+
+def counting(fn, limit):
+    cnt = [0]
+    def wrapped(*args):
+        cnt[0] += 1
+        if cnt[0] > limit: raise Stalled
+        return fn(*args)
+    return wrapped, cnt
+
+def activation(fn, inflow, h_floor, area=500.0, limit=400000):
+    wrapped, cnt = counting(fn, limit)
+    NW.edge_flow = wrapped
     e = chan(0, 1, 100.0, 0.02, 0.5, L=100.0, n=9)
-    net = NW.Network([lake(99.0, area)], [dict(h_fixed=95.0)], [e], melting=False)
+    net = NW.Network([lake(99.0, area)], [dict(h_fixed=95.0)], [e], melting=False, h_floor=h_floor)
     t_cross = area * 0.02 / inflow
     t_end = 3 * t_cross
-    r = net.run([area * 0.98], [0.0], t_end, t_end / 1500.0, const(inflow), const(0.0), evolve=False, rtol=1e-12, atol=1e-14)
+    t0 = time.perf_counter()
+    try:
+        r = net.run([area * 0.98], [0.0], t_end, t_end / 1500.0, const(inflow), const(0.0), evolve=False, rtol=1e-10, atol=1e-12)
+    except Stalled:
+        return dict(stalled=True, edge_flow_calls=cnt[0], t_cross_nominal=t_cross), None, None
     t = np.array(r["t"]); Q = np.array([abs(s["Q"][0]) for s in r["hist"]]); st = np.array([s["stage"][0] for s in r["hist"]])
-    res = {}
-    for thr in (1e-12, 1e-9, 1e-6, 1e-4, 1e-3):
-        k = np.argmax(Q > thr); res[f"t_Q_gt_{thr:g}"] = float(t[k]) if Q.max() > thr else None
+    res = dict(stalled=False, edge_flow_calls=cnt[0], seconds=time.perf_counter() - t0)
+    for thr in (1e-9, 1e-6, 1e-4, 1e-3 * inflow, 1e-2 * inflow):
+        k = np.argmax(Q > thr); res[f"t_Q_gt_{thr:.3g}"] = float(t[k]) if Q.max() > thr else None
     res["t_stage_reaches_sill"] = float(t[np.argmax(st >= 100.0)])
-    res["delivered_m3"] = float(r["budgets"]["delivered_m3"][0]); res["Q_end"] = float(Q[-1])
+    res["delivered_m3"] = float(r["budgets"]["delivered_m3"][0]); res["Q_end"] = float(Q[-1]); res["t_cross_nominal"] = t_cross
     return res, t, Q
+
 tim = {}
+variants = {"raw_fast": (C.edge_flow, 0.0), "raw_reference_bisection": (CR.edge_flow_ref, 0.0), "floor_1e-4": (C.edge_flow, 1e-4),
+            "floor_1e-3": (C.edge_flow, 1e-3), "floor_1e-2": (C.edge_flow, 1e-2)}
 for inflow in (5e-2, 5e-3, 5e-4):
-    a, ta, Qa = activation(C.edge_flow, inflow); b, tb, Qb = activation(CR.edge_flow_ref, inflow)
-    tim[f"inflow_{inflow:g}"] = dict(production=a, reference=b,
-                                    max_abs_Q_diff=float(np.max(np.abs(Qa - Qb))), max_rel_Q_diff_where_Q_gt_1em6=float(np.max(np.abs(Qa - Qb)[Qb > 1e-6] / Qb[Qb > 1e-6])) if (Qb > 1e-6).any() else None,
-                    delivered_rel_diff=abs(a["delivered_m3"] - b["delivered_m3"]) / b["delivered_m3"])
+    row = {}
+    series = {}
+    for name, (fn, hf_) in variants.items():
+        res, t, Q = activation(fn, inflow, hf_)
+        row[name] = res; series[name] = (t, Q)
+        print("timing", inflow, name, res if res.get("stalled") else {k: v for k, v in res.items() if k.startswith("t_") or k in ("delivered_m3", "edge_flow_calls")}, flush=True)
+    base = series["floor_1e-3"]
+    for name in variants:
+        if series[name][0] is not None and base[0] is not None and len(series[name][0]) == len(base[0]):
+            row[name]["max_abs_Q_diff_vs_floor_1e-3"] = float(np.max(np.abs(series[name][1] - base[1])))
+    tim[f"inflow_{inflow:g}"] = row
 out["timing"] = tim
 json.dump(out, open(os.path.join(HERE, "..", "records", "root_multiplicity_study.json"), "w"), indent=1)
 # console summary
@@ -90,4 +115,3 @@ for r in out["scan"]:
     if r["msub"] == 16 and r["n_roots"] > 0:
         print(r["geometry"], "head", r["head_m"], "roots", [(x["direction"], "%.3g" % x["Q"], "hmin %.2e" % x["h_min_m"]) for x in r["roots"]])
 print("ramp", {k: v for k, v in out["ramp"].items() if k != "heads_where_roots_differ_gt_1em6_rel"})
-print(json.dumps(out["timing"], indent=1))

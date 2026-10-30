@@ -16,12 +16,13 @@ from scipy.integrate import solve_ivp
 
 from ..constants import CP_W, G, LF, RHO_I, RHO_W
 from ..geometry.storage import area_from_depth, depth_from_volume, volume_from_depth
-from ..hydraulics.channel import edge_flow
+from ..hydraulics.channel import edge_flow, smooth_activation
 from ..thermal.channel_heat import reach_heat
 
 
 class Network:
-    def __init__(self, lakes, outlets, edges, melting=True, nu_factor=1.0, wall_melt=True, heat_dissipation=True):
+    def __init__(self, lakes, outlets, edges, melting=True, nu_factor=1.0, wall_melt=True, heat_dissipation=True, h_floor=1e-3,
+                 melt_mode="thermal", geometry_mode="energy_partition"):
         """lakes: list of dict(z_bottom, a_ref, h_ref, q); outlets: list of dict(h_fixed);
         edges: list of dict(a, b, z, w, zs, n_man, ke) with a, b node ids: 0..NL-1 lakes, NL..NL+NO-1 outlets.
         z, w, zs are station arrays (physical orientation a -> b)."""
@@ -34,6 +35,9 @@ class Network:
             e["n"] = e["z"].size
             e["dx"] = float(e["length"]) / (e["n"] - 1)
         self.melting, self.nu_factor, self.wall_melt = melting, nu_factor, wall_melt
+        assert melt_mode in ("thermal", "dissipation_all") and geometry_mode in ("energy_partition", "fixed_aspect")
+        self.melt_mode, self.geometry_mode = melt_mode, geometry_mode   # treatments for the controlled incision comparison (see docs/incision_experiment.md)
+        self.h_floor = h_floor      # entrance critical depth (m) below which discharge is switched on smoothly; 0 = raw law (see smooth_activation)
         self.heat_dissipation = heat_dissipation   # False: dissipation is excluded from the thermal problem AND from the energy budget (isolates advection/mixing/melting)
         self.nseg = [e["n"] - 1 for e in self.edges]
         self.seg_off = np.concatenate([[0], np.cumsum(self.nseg)])
@@ -75,6 +79,9 @@ class Network:
         n = e["n"]
         h = np.zeros(n); hf = np.zeros(n - 1); ch = np.zeros(n, np.int64)
         q, d, e_entry, e_exit = edge_flow(h_a, h_b, e["z"], e["w"], e["n_man"], e["dx"], e["ke"], int(e.get("msub", 16)), h, hf, ch)
+        if q != 0.0 and self.h_floor > 0.0:
+            wf0 = e["w"][0] if d > 0 else e["w"][-1]
+            q = float(np.sign(q)) * smooth_activation(abs(q), wf0, self.h_floor)
         out = dict(Q=q, dir=d, h=h, hf=hf, choked=ch)
         if q == 0.0:
             out.update(Qabs=0.0, phi_in=0.0, phi_exit=0.0, q_ice=np.zeros(n - 1), wall_frac=np.zeros(n - 1), t_out=t_a, q_melt=0.0, phi_seg=np.zeros(n - 1))
@@ -92,7 +99,16 @@ class Network:
             phi_in, phi_seg, phi_exit, phi_tot = 0.0, np.zeros_like(phi_seg), 0.0, 0.0
         out.update(Qabs=qa, phi_in=phi_in, phi_seg=phi_seg, phi_exit=phi_exit, phi_tot=phi_tot)
         t_arr = np.zeros(n); q_ice = np.zeros(n - 1)
-        if self.melting:
+        if self.melting and self.melt_mode == "dissipation_all":
+            # EXPLICIT APPROXIMATION (SaDS-type assumption): all friction + entrance dissipation melts ice in the segment where it is released;
+            # the water exchanges no other heat with the wall and is not warmed by dissipation
+            t_out = t_a
+            q_ice[:] = phi_seg
+            q_ice[0] += phi_in
+            wm = 0.5 * (wf[:-1] + wf[1:]); hm = 0.5 * (h[:-1] + h[1:])
+            wall_frac = (2.0 * hm / (wm + 2.0 * hm)) if self.wall_melt else np.zeros(n - 1)
+            out["q_melt"] = q_ice.sum() / (RHO_W * LF)
+        elif self.melting:
             t_out = reach_heat(qa, t_a, 0.0, h, wf, e["dx"], phi_seg, phi_in, self.nu_factor, t_arr, q_ice)
             wm = 0.5 * (wf[:-1] + wf[1:]); hm = 0.5 * (h[:-1] + h[1:])
             wall_frac = (2.0 * hm / (wm + 2.0 * hm)) if self.wall_melt else np.zeros(n - 1)
@@ -159,8 +175,18 @@ class Network:
             dv_bed = dv_ice - dv_wall
             wm = 0.5 * (e["w"][:-1] + e["w"][1:])
             dm = 0.5 * ((e["zs"] - e["z"])[:-1] + (e["zs"] - e["z"])[1:])
-            dz_seg = dv_bed / (wm * e["dx"])
-            dw_seg = dv_wall / ((dm + dz_seg) * e["dx"])     # walls retreat at the depth AFTER bed lowering, so the area change is exactly w dz + D' dw
+            if self.geometry_mode == "fixed_aspect":
+                # SaDS-type section evolution (approximation): rectangular section whose width stays r times its incision depth,
+                # r fixed at the initial w/D; the whole melted area goes into growing the section at that aspect ratio
+                d_old = (e["zs"] - e["z"])
+                dmean = dm; r0 = wm / dmean
+                a_old_seg = wm * dmean
+                a_new_seg = a_old_seg + dv_ice / e["dx"]
+                d_new = np.sqrt(a_new_seg / r0)
+                dz_seg = d_new - dmean; dw_seg = r0 * d_new - wm
+            else:
+                dz_seg = dv_bed / (wm * e["dx"])
+                dw_seg = dv_wall / ((dm + dz_seg) * e["dx"])     # walls retreat at the depth AFTER bed lowering, so the area change is exactly w dz + D' dw
             dz = np.zeros(e["n"]); dwk = np.zeros(e["n"])
             dz[:-1] += 0.5 * dz_seg; dz[1:] += 0.5 * dz_seg; dz[0] += 0.5 * dz_seg[0]; dz[-1] += 0.5 * dz_seg[-1]
             dwk[:-1] += 0.5 * dw_seg; dwk[1:] += 0.5 * dw_seg; dwk[0] += 0.5 * dw_seg[0]; dwk[-1] += 0.5 * dw_seg[-1]
@@ -173,7 +199,7 @@ class Network:
         return v_energy, v_geom
 
     # ----------------------------------------------------------------------------- driver
-    def run(self, v0, t0, t_end, dt_geom, inflow, inflow_temp, rtol=1e-9, atol=1e-10, evolve=True, record=None):
+    def run(self, v0, t0, t_end, dt_geom, inflow, inflow_temp, rtol=1e-9, atol=1e-10, evolve=True, record=None, sample_dt=None):
         y = self.reset_state(v0, t0)
         self._area0 = [((e["zs"] - e["z"]) * e["w"]).copy() for e in self.edges]      # initial channel section areas (for the geometry-derived ice inventory)
         v_init = np.array(v0, float).copy(); s_init = (np.array(v0) * np.array(t0)).copy()
@@ -183,9 +209,16 @@ class Network:
         while t < t_end - 1e-9:
             t1 = min(t + dt_geom, t_end)
             h_before = y[self.i_H].copy(); w_before = y[self.i_W].copy()
-            sol = solve_ivp(lambda tt, yy: self.rhs(tt, yy, inflow, inflow_temp), (t, t1), y, method="LSODA", rtol=rtol, atol=atol)
+            sol = solve_ivp(lambda tt, yy: self.rhs(tt, yy, inflow, inflow_temp), (t, t1), y, method="LSODA", rtol=rtol, atol=atol,
+                            dense_output=sample_dt is not None)
             if not sol.success:
                 raise RuntimeError(f"ODE failure at t={t}: {sol.message}")
+            if sample_dt is not None:      # intermediate samples from the dense output; geometry is that of the macro-step (frozen), flagged 'mid'
+                k = int(np.floor(t / sample_dt + 1e-9)) + 1
+                while k * sample_dt < t1 - 1e-9:
+                    ts_ = k * sample_dt
+                    snap = self._snapshot(ts_, sol.sol(ts_), inflow, inflow_temp); snap["mid"] = True
+                    ts.append(ts_); hist.append(snap); k += 1
             y = sol.y[:, -1].copy()
             if evolve and self.melting:
                 ve, vg = self.update_geometry(y[self.i_H] - h_before, y[self.i_W] - w_before)
@@ -198,7 +231,8 @@ class Network:
             ts.append(t); hist.append(self._snapshot(t, y, inflow, inflow_temp))
         self.final_state = y
         budgets = self.budgets(y, v_init, s_init)
-        vg_t = np.array([h["ice_vol_geometry"] for h in hist]); ve_t = np.array([h["ice_vol_energy"] for h in hist])
+        keep = [i for i, h in enumerate(hist) if not h.get("mid")]     # macro-step ends only (mid-step samples carry frozen geometry)
+        vg_t = np.array([hist[i]["ice_vol_geometry"] for i in keep]); ve_t = np.array([hist[i]["ice_vol_energy"] for i in keep])
         d_kg = RHO_I * (vg_t - ve_t)
         budgets.update(geometry_vs_latent_kg_abs_max=float(np.max(np.abs(d_kg))),
                        geometry_vs_latent_rel_max=float(np.max(np.abs(vg_t - ve_t) / np.maximum(np.abs(ve_t), 1e-30)[0:] ) if ve_t.max() > 0 else 0.0),
