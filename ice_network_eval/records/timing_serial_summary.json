@@ -1,0 +1,275 @@
+{
+ "head": [
+  "scn",
+  "config",
+  "hydrograph RMSE/I vs 400-cell ref",
+  "serial solver s (median)",
+  "matched to reference 100-200 cell interval",
+  "reference s at equal error",
+  "speed-up",
+  "warm-up / sampling-run s"
+ ],
+ "rows": [
+  [
+   "S1",
+   "r9",
+   "0.0489",
+   "15.1 (n=3, max/min 1.01)",
+   "no (outside 0.0086-0.0249)",
+   "-",
+   "-",
+   "0.2 / 15.9"
+  ],
+  [
+   "S1",
+   "r17",
+   "0.0287",
+   "10.2 (n=3, max/min 1.04)",
+   "no (outside 0.0086-0.0249)",
+   "-",
+   "-",
+   "0.2 / 11.5"
+  ],
+  [
+   "S1",
+   "r33",
+   "0.0101",
+   "64.2 (n=3, max/min 1.01)",
+   "yes",
+   "43.6",
+   "0.68",
+   "0.3 / 68.0"
+  ],
+  [
+   "S1",
+   "ref100",
+   "0.0249",
+   "18.3 (n=3, max/min 1.06)",
+   "-",
+   "-",
+   "-",
+   "-"
+  ],
+  [
+   "S1",
+   "ref200",
+   "0.0086",
+   "51.4 (n=3, max/min 1.04)",
+   "-",
+   "-",
+   "-",
+   "-"
+  ],
+  [
+   "S2",
+   "r9",
+   "0.0500",
+   "15.0 (n=3, max/min 1.02)",
+   "no (outside 0.0092-0.0269)",
+   "-",
+   "-",
+   "0.2 / 15.8"
+  ],
+  [
+   "S2",
+   "r17",
+   "0.0290",
+   "10.2 (n=3, max/min 1.05)",
+   "no (outside 0.0092-0.0269)",
+   "-",
+   "-",
+   "0.2 / 11.4"
+  ],
+  [
+   "S2",
+   "r33",
+   "0.0108",
+   "153.5 (n=3, max/min 1.02)",
+   "yes",
+   "48.0",
+   "0.31",
+   "0.2 / 156.1"
+  ],
+  [
+   "S2",
+   "ref100",
+   "0.0269",
+   "20.7 (n=3, max/min 1.04)",
+   "-",
+   "-",
+   "-",
+   "-"
+  ],
+  [
+   "S2",
+   "ref200",
+   "0.0092",
+   "55.6 (n=3, max/min 1.01)",
+   "-",
+   "-",
+   "-",
+   "-"
+  ],
+  [
+   "S5",
+   "r9",
+   "0.0376",
+   "5.1 (n=3, max/min 1.05)",
+   "no (outside 0.0065-0.0195)",
+   "-",
+   "-",
+   "0.2 / 5.8"
+  ],
+  [
+   "S5",
+   "r17",
+   "0.0214",
+   "6.1 (n=3, max/min 1.02)",
+   "no (outside 0.0065-0.0195)",
+   "-",
+   "-",
+   "0.2 / 7.4"
+  ],
+  [
+   "S5",
+   "r33",
+   "0.0069",
+   "19.7 (n=3, max/min 1.03)",
+   "yes",
+   "46.8",
+   "2.37",
+   "0.2 / 22.2"
+  ],
+  [
+   "S5",
+   "ref100",
+   "0.0195",
+   "17.6 (n=3, max/min 1.04)",
+   "-",
+   "-",
+   "-",
+   "-"
+  ],
+  [
+   "S5",
+   "ref200",
+   "0.0065",
+   "49.5 (n=3, max/min 1.02)",
+   "-",
+   "-",
+   "-",
+   "-"
+  ]
+ ],
+ "detail": {
+  "S1|r9": {
+   "err": 0.048881906484777325,
+   "solver_median_s": 15.113730769999961,
+   "repeats": 3,
+   "max_over_min": 1.0052499027677826,
+   "matched": false,
+   "ref_time_at_equal_error_s": null,
+   "speedup": null,
+   "warmup_s": 0.23245197499998937,
+   "sampling_run_s": 15.941107970998928,
+   "e400_hydro": 0.008995238248006186
+  },
+  "S1|r17": {
+   "err": 0.028688454995241405,
+   "solver_median_s": 10.246338495000003,
+   "repeats": 3,
+   "max_over_min": 1.0415911002993992,
+   "matched": false,
+   "ref_time_at_equal_error_s": null,
+   "speedup": null,
+   "warmup_s": 0.22978858799979207,
+   "sampling_run_s": 11.54911783899999,
+   "e400_hydro": 0.008995238248006186
+  },
+  "S1|r33": {
+   "err": 0.010133472173326528,
+   "solver_median_s": 64.24762872999963,
+   "repeats": 3,
+   "max_over_min": 1.0103783484693458,
+   "matched": true,
+   "ref_time_at_equal_error_s": 43.64961866063039,
+   "speedup": 0.6793965711025338,
+   "warmup_s": 0.2585957160000021,
+   "sampling_run_s": 67.96756004499912,
+   "e400_hydro": 0.008995238248006186
+  },
+  "S2|r9": {
+   "err": 0.05002134674222034,
+   "solver_median_s": 14.999889089000021,
+   "repeats": 3,
+   "max_over_min": 1.01684015619277,
+   "matched": false,
+   "ref_time_at_equal_error_s": null,
+   "speedup": null,
+   "warmup_s": 0.22684738500004187,
+   "sampling_run_s": 15.775796031999903,
+   "e400_hydro": 0.009718455004642086
+  },
+  "S2|r17": {
+   "err": 0.02902058188491465,
+   "solver_median_s": 10.247110238000005,
+   "repeats": 3,
+   "max_over_min": 1.0473385640773871,
+   "matched": false,
+   "ref_time_at_equal_error_s": null,
+   "speedup": null,
+   "warmup_s": 0.2180056610000065,
+   "sampling_run_s": 11.43582672499997,
+   "e400_hydro": 0.009718455004642086
+  },
+  "S2|r33": {
+   "err": 0.010841185934849989,
+   "solver_median_s": 153.4887506959999,
+   "repeats": 3,
+   "max_over_min": 1.0179250119092893,
+   "matched": true,
+   "ref_time_at_equal_error_s": 47.95211296439868,
+   "speedup": 0.312414510815667,
+   "warmup_s": 0.2135069040000417,
+   "sampling_run_s": 156.05495280000002,
+   "e400_hydro": 0.009718455004642086
+  },
+  "S5|r9": {
+   "err": 0.037558074827592984,
+   "solver_median_s": 5.077635610000016,
+   "repeats": 3,
+   "max_over_min": 1.0546882321279656,
+   "matched": false,
+   "ref_time_at_equal_error_s": null,
+   "speedup": null,
+   "warmup_s": 0.20757208099985291,
+   "sampling_run_s": 5.841300565999973,
+   "e400_hydro": null
+  },
+  "S5|r17": {
+   "err": 0.02140919858611914,
+   "solver_median_s": 6.14130758400006,
+   "repeats": 3,
+   "max_over_min": 1.0181783115666787,
+   "matched": false,
+   "ref_time_at_equal_error_s": null,
+   "speedup": null,
+   "warmup_s": 0.21737553899993145,
+   "sampling_run_s": 7.423549489000379,
+   "e400_hydro": null
+  },
+  "S5|r33": {
+   "err": 0.006896460298832555,
+   "solver_median_s": 19.738365868999608,
+   "repeats": 3,
+   "max_over_min": 1.027725272509444,
+   "matched": true,
+   "ref_time_at_equal_error_s": 46.83830778009952,
+   "speedup": 2.3729577256272334,
+   "warmup_s": 0.223959155999637,
+   "sampling_run_s": 22.236140481999882,
+   "e400_hydro": null
+  }
+ },
+ "failed_or_incomplete": []
+}
