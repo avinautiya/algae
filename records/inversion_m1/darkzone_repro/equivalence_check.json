@@ -1,0 +1,95 @@
+{
+ "A_scaler": {
+  "scale__matches_1_over_range": true,
+  "data_min__matches": true,
+  "data_max__matches": true,
+  "data_range__matches": true,
+  "min__matches_minus_dmin_times_scale": true,
+  "offsets": {
+   "scale_": [
+    368
+   ],
+   "min_": [
+    480
+   ],
+   "data_min_": [
+    608
+   ],
+   "data_max_": [
+    736
+   ],
+   "data_range_": [
+    864
+   ]
+  },
+  "method": "raw-byte scan of float64 blocks; arrays identified by value, so a block is only 'found' if it equals the NumPy-code constant"
+ },
+ "B_emulator": {
+  "n_inputs": 2000,
+  "output_shape": [
+   2000,
+   440
+  ],
+  "max_abs_diff": 6.04529579284474e-07,
+  "mean_abs_diff": 1.7608144713548867e-08,
+  "max_abs_diff_in_fit_slice_10_181": 6.04529579284474e-07,
+  "note": "float32 TF vs float64 NumPy; unit-cube inputs, uniform random"
+ },
+ "C_nonfinite_pairs": [
+  [
+   NaN,
+   -Infinity
+  ],
+  [
+   NaN,
+   -Infinity
+  ],
+  [
+   NaN,
+   -Infinity
+  ],
+  [
+   NaN,
+   -Infinity
+  ],
+  [
+   NaN,
+   -Infinity
+  ],
+  [
+   NaN,
+   -Infinity
+  ],
+  [
+   NaN,
+   -Infinity
+  ],
+  [
+   NaN,
+   -Infinity
+  ],
+  [
+   NaN,
+   -Infinity
+  ],
+  [
+   NaN,
+   -Infinity
+  ]
+ ],
+ "C_target_density": {
+  "n_compared": 91,
+  "max_abs_diff": 0.001246065079840264,
+  "median_abs_diff": 0.00018956422582050436,
+  "max_rel_diff": 7.19066295536039e-07,
+  "note": "original TFP block (verbatim) vs NumPy; float32 vs float64; z drawn from broad normals incl. regions far from the data"
+ },
+ "D_band_centre_offset": {
+  "hypothesis": "emulator outputs are band centres 302.5+5k (440 outputs from [300,2500,5] band mode, session.py l.126-137), observations sampled at 350+5k",
+  "verified": false,
+  "rms_diff": 0.001972889819267456,
+  "p95_abs_diff": 0.0043680191116648856,
+  "max_abs_diff": 0.015607625959838611,
+  "likelihood_sigma": 0.003
+ }
+}

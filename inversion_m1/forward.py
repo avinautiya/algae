@@ -36,6 +36,7 @@ class FixedOpticsForward:
         self.wl_nm = self.runner.wvl_um * 1000.0
         self.radii = np.asarray(self.runner.available_radii("bubbly"), dtype=float)
         self._flux = {}
+        self.runner_diffuse = None          # created on demand by albedo_mix
         assert (self.algae.unit, self.dust.unit, self.bc.unit) == (1, 0, 0), "unit conventions changed in BioSNICAR"
 
     def _run(self, r_um: float, sza: float, cells: float, dust_ppb: float, bc_ppb: float) -> np.ndarray:
@@ -61,3 +62,22 @@ class FixedOpticsForward:
         if key not in self._flux:
             self._flux[key] = np.asarray(self.runner.illumination(sza).flx_slr, dtype=float)
         return self._flux[key]
+
+    def albedo_diffuse(self, log10_cells, log10_dust_ppb, log10_bc_ppb, ln_r_um):
+        """Albedo under fully diffuse illumination (BioSNICAR direct = 0)."""
+        if self.runner_diffuse is None:
+            self.runner_diffuse = self.BB.BioSNICARRunner(self.root, incoming=3, direct=0)
+        main, self.runner = self.runner, self.runner_diffuse
+        try:
+            return self.albedo(log10_cells, log10_dust_ppb, log10_bc_ppb, ln_r_um, 50.0)
+        finally:
+            self.runner = main
+
+    def albedo_mix(self, log10_cells, log10_dust_ppb, log10_bc_ppb, ln_r_um, sza, f_diffuse):
+        """Approximate albedo under a mixed sky: (1 - f) * direct + f * diffuse, f = diffuse FRACTION OF IRRADIANCE.
+        Exact only if the spectral weighting is the same for both components; it is an approximation, bounded by
+        the two end members."""
+        a = self.albedo(log10_cells, log10_dust_ppb, log10_bc_ppb, ln_r_um, sza)
+        if f_diffuse <= 1e-9:
+            return a
+        return (1.0 - f_diffuse) * a + f_diffuse * self.albedo_diffuse(log10_cells, log10_dust_ppb, log10_bc_ppb, ln_r_um)

@@ -1,0 +1,151 @@
+{
+ "name": "sensitivity_A_sky_v1",
+ "status": "pre-declared sensitivity variant of Baseline A; never the headline",
+ "model_choice_note": "PRIMARY specification = bounds only (no informative priors), the practice of the published fixed-optics inversion (snowlaps). The informative-prior variant is a pre-declared sensitivity run, never the headline.",
+ "forward": {
+  "solver": "BioSNICAR adding-doubling, pinned checkout fe74eeef (phase2/biosnicar_bridge.BioSNICARRunner), 480 bands of 10 nm",
+  "ice_column": {
+   "mode": "bubbly",
+   "rho_crust_kg_m3": 450.0,
+   "rho_ice_kg_m3": 690.0,
+   "dz_crust_m": 0.02,
+   "dz_ice_m": 2.0,
+   "algae_distribution": "uniform over the 2 cm crust",
+   "source": "phase4/emulator.EmulatorConfig defaults (Cooper et al. 2018 densities)"
+  },
+  "illumination": {
+   "incoming": 3,
+   "direct": 1,
+   "sza_rule": "noon solar zenith from day-of-year at S6 latitude (phase2/empirical_data.solar_zenith_noon), the rule of phase4/h1_albedo",
+   "sky_note": "S6 albedo is ALDN/ALUP with a cosine receptor under the actual sky (clear to cloudy); the primary spec assumes direct beam. The mixture is bounded by the two end-member skies; no per-plot cloud value is used."
+  },
+  "fixed_optics": {
+   "algae": "glacier_algae (ice_algae_empirical_Chevrollier2023)",
+   "mineral": "dust (dust_greenland_Cook_CENTRAL_20190911)",
+   "dark_particles": "black_carbon (bc_ChCB_rn40_dns1270, uncoated)"
+  }
+ },
+ "parameters": {
+  "log10_cells_meltwater": {
+   "bounds": [
+    1.0,
+    6.5
+   ],
+   "unit": "log10 cells per mL meltwater"
+  },
+  "log10_dust_ppb": {
+   "bounds": [
+    4.0,
+    7.3
+   ],
+   "unit": "log10 ppb (ng/g); the S6 campaign mean is about 5.5"
+  },
+  "log10_bc_ppb": {
+   "bounds": [
+    -1.0,
+    3.0
+   ],
+   "unit": "log10 ppb; a proxy for ALL dark particles (BC, cryoconite organics), not black carbon specifically"
+  },
+  "ln_bubble_radius_um": {
+   "bounds": [
+    5.703782474656201,
+    9.903487552536127
+   ],
+   "unit": "ln um (300 to 20000 um)"
+  },
+  "diffuse_fraction": {
+   "bounds": [
+    0.0,
+    1.0
+   ],
+   "unit": "fraction of downwelling irradiance that is diffuse; mixes direct-beam and fully-diffuse albedo linearly (approximation)"
+  }
+ },
+ "observation": {
+  "target_quantity": "hemispherical spectral albedo (S6_2017_albedo)",
+  "operator": "10-nm box average of the 1-nm field spectrum onto the model band centres (operators.band_average)",
+  "fit_window_nm": [
+   400,
+   1300
+  ],
+  "holdout_check": {
+   "fit_window_nm": [
+    400,
+    1000
+   ],
+   "predict_window_nm": [
+    1000,
+    1300
+   ]
+  },
+  "quality_rules": [
+   "a band is used only if at least half of its 1-nm samples are finite",
+   "albedo must lie in [-0.02, 1.02] inside the window (operators.check_albedo_bounds)"
+  ],
+  "error_model": {
+   "sigma_obs": 0.015,
+   "sigma_obs_basis": "documented albedo accuracy +-0.01-0.02 (docs/data_manifest.md, not re-verified against the source paper)",
+   "sigma_total": "RMS of held-out-window residuals of TRAINING days only (leave-one-day-out), never below sigma_obs",
+   "correlation": "AR(1) inflation from the lag-1 autocorrelation of TRAINING-day residuals: kappa = sqrt((1+rho)/(1-rho)), clipped to [1, 6]"
+  }
+ },
+ "fit": {
+  "method": "scipy.optimize.least_squares (trf) in unit-cube coordinates",
+  "n_sobol_candidates": 256,
+  "n_local_starts": 4,
+  "max_nfev": 60,
+  "seed": 20261030,
+  "profile": {
+   "parameter": "log10_cells_meltwater",
+   "grid": [
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0,
+    6.5
+   ],
+   "interval": "Delta chi2 <= 3.84 (1-d, 95 %), scaled by sigma_total and kappa"
+  }
+ },
+ "sensitivity_variants": {
+  "informative_priors": {
+   "log10_cells_meltwater": [
+    3.56,
+    0.78
+   ],
+   "ln_bubble_radius_um": "phase4/priors bubble_radius_prior at rho 690",
+   "note": "abundance prior from S6 2016 (independent year); radius prior from measured SSA"
+  }
+ },
+ "transfer_check": {
+  "dataset": "SGreenland_2021_hcrf_counts",
+  "extra_parameter": {
+   "k_anisotropy": {
+    "bounds": [
+     0.5,
+     1.4
+    ],
+    "prior": "Normal(0.898, 0.175), learned from the S6 development set (ARF)"
+   }
+  },
+  "counts_used": "Table S4 rows dated 2021 with measured == True and a finite ice-algal count",
+  "labelled": "reused data, NOT an untouched test"
+ },
+ "reference_reproduction": {
+  "snowlaps_forward": "snowlaps emulator re-implemented in NumPy from the shipped weights; per-spectrum MAE compared with the shipped results table",
+  "cook2020_published_retrievals": "29 S6 plots with algae_cells_inv_model_S2 in Spectra_Metadata.csv (reference only)"
+ },
+ "resources": {
+  "launcher": "common/run_budgeted.py --background",
+  "threads": 1,
+  "mem_mb": 1500
+ }
+}

@@ -679,11 +679,65 @@
   },
   {
    "id": "DarkZone_2026_data",
-   "title": "Chevrollier et al. 2026 Science Advances data and inversion code",
-   "status": "NOT ACCESSED",
-   "reason": "paper full text and any archive were not reachable; SNICAR-fx repository holds the forward model only",
-   "files": [],
-   "independent_glaciers": null
+   "title": "Dark Zone paper data/software archive (Chevrollier et al. 2026)",
+   "source": "Zenodo 10.5281/zenodo.18826013 (CC BY 4.0), data_software.zip md5 0955d9c3ddf93ff9b69229d4ac28aa17",
+   "files": [
+    {
+     "role": "spectra",
+     "path": "<archive>/data/spectra/HCRF_ASDFieldspec4_spectra_Chevrollier_et_al_2026.nc",
+     "sha256": "6632e7d4f5902b8c248253bbe7b19102508fcabe77c3349a05160e57ffd42e26"
+    },
+    {
+     "role": "emulator",
+     "path": "<archive>/data/emulator/mlp_icelaps_101025.h5"
+    },
+    {
+     "role": "code",
+     "path": "<archive>/src/mcmc_pipeline.py"
+    }
+   ],
+   "spectral_quantity": "HCRF, nadir, ASD FieldSpec4, fore-optic 10 degree FOV (directional; NOT albedo)",
+   "wavelengths_nm": [
+    350,
+    2500
+   ],
+   "n_spectra": 105,
+   "n_per_date": {
+    "2021-07-16": 2,
+    "2021-07-17": 2,
+    "2021-07-19": 3,
+    "2021-07-20": 2,
+    "2021-07-22": 5,
+    "2021-07-23": 5,
+    "2021-07-26": 5,
+    "2021-07-27": 9,
+    "2021-07-29": 5,
+    "2021-08-05": 12,
+    "2021-08-06": 16,
+    "2022-07-25": 5,
+    "2022-07-26": 6,
+    "2022-07-28": 4,
+    "2022-08-02": 9,
+    "2022-08-06": 11,
+    "2022-08-08": 3,
+    "2022-08-12": 1
+   },
+   "sites": "S21 (61.10 N, 2021) and S22A (69.43 N, 2022)",
+   "measured_components": "none in the archive. Paper: dust MAC n=10 samples, mineralogy n=17 (Table S1), cryoconite spectrum derived from 2 reflectance measurements at S21; NO per-spectrum concentrations, counts or pigments",
+   "sky_conditions": "recorded per spectrum in the paper's supplement tables S2/S4 (clear to fully cloudy) for 21 tabulated spectra only; not in the archive file",
+   "overlap_with_repo": {
+    "repo_dataset": "SGreenland_2021_hcrf_counts",
+    "repo_spectra": 20,
+    "identical_in_archive": 20,
+    "max_abs_diff": 4.999862817905987e-06
+   },
+   "independent_glaciers": 2,
+   "role_in_this_study": "reference for the competitor reproduction and for reconstruction-only checks; NOT a concentration-validation set; the 20 spectra already in the repo are reused data",
+   "ancestry": [
+    "the archive's algae and cryoconite optics were measured/derived at S21, the same location as 2021 spectra",
+    "the 20 repo transfer-check spectra are a subset"
+   ],
+   "leakage_notes": "S21 is both an optics source and a retrieval target in the competitor's workflow"
   },
   {
    "id": "PRISMA_Bohn2022_scene",

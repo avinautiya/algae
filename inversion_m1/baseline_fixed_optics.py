@@ -90,6 +90,14 @@ def observe(wl, spec, F, mask):
 
 
 # ----------------------------------------------------------------------------------------------- fitting
+def _alb(F, th, params, sza):
+    """Model albedo; if the config declares `diffuse_fraction` the direct/diffuse mixture is used (sensitivity variant)."""
+    names = [p.name for p in params]
+    if "diffuse_fraction" in names:
+        return F.albedo_mix(th[0], th[1], th[2], th[3], sza, th[names.index("diffuse_fraction")])
+    return F.albedo(th[0], th[1], th[2], th[3], sza)
+
+
 def make_problem(F, params, sza, mask, obs, fixed=None, priors=None, with_k=False, k_prior=None):
     """Residual function in unit-cube coordinates. `fixed` maps parameter index -> fixed physical value."""
     names = [p.name for p in params]
@@ -104,7 +112,7 @@ def make_problem(F, params, sza, mask, obs, fixed=None, priors=None, with_k=Fals
         return th
 
     def model(th):
-        a = F.albedo(th[0], th[1], th[2], th[3], sza)[mask]
+        a = _alb(F, th, params, sza)[mask]
         return th[4] * a if with_k else a
 
     def resid(u):
@@ -196,11 +204,11 @@ def fit_plot(F, cfg, params, wl, rec, seed):
     p_lo, p_hi = hw["predict_window_nm"]
     m_p = O.window_mask(F.wl_nm, p_lo + 1e-9, p_hi) & m_use
     obs_p = observe(wl, rec["spec"], F, m_p)
-    pred = F.albedo(*theta_a[:4], rec["sza"])[m_p]
+    pred = _alb(F, theta_a, params, rec["sza"])[m_p]
     out.update(theta_partial=theta_a.tolist(), sse_partial=float(2 * r_a.cost), holdout_resid=(pred - obs_p).tolist(),
                holdout_bands_nm=F.wl_nm[m_p].tolist())
     # broadband albedo: observed (H1 convention) vs predicted by the full-window fit
-    spec_full = F.albedo(*theta[:4], rec["sza"])
+    spec_full = _alb(F, theta, params, rec["sza"])
     fl = F.flux(rec["sza"])
     out["bba_obs"] = O.broadband(wl, rec["spec"], F.wl_nm, fl)
     out["bba_pred"] = O.broadband(F.wl_nm, spec_full, F.wl_nm, fl)
@@ -210,7 +218,7 @@ def fit_plot(F, cfg, params, wl, rec, seed):
 
 def cmd_fit(a):
     from forward import FixedOpticsForward
-    cfg = load_config()
+    cfg = load_config(a.config)
     params = O.make_params(cfg["parameters"])
     os.makedirs(a.out, exist_ok=True)
     path = os.path.join(a.out, "per_plot_fits.jsonl")
@@ -281,7 +289,7 @@ def profile_interval(grid, sse, sse_min, scale):
 
 
 def cmd_evaluate(a):
-    cfg = load_config()
+    cfg = load_config(a.config)
     params = O.make_params(cfg["parameters"])
     fits = read_fits(a.out, cfg)
     wl, rows = s6_plots(cfg)
@@ -379,9 +387,11 @@ def main(argv=None):
     sub = p.add_subparsers(dest="cmd", required=True)
     f = sub.add_parser("fit")
     f.add_argument("--out", default=OUT_DEFAULT)
+    f.add_argument("--config", default=CONFIG)
     f.add_argument("--limit", type=int, default=None)
     e = sub.add_parser("evaluate")
     e.add_argument("--out", default=OUT_DEFAULT)
+    e.add_argument("--config", default=CONFIG)
     a = p.parse_args(argv)
     {"fit": cmd_fit, "evaluate": cmd_evaluate}[a.cmd](a)
 
