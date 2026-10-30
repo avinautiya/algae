@@ -35,11 +35,13 @@ def _sf(q, w, h, n_man):
 
 @njit(cache=True)
 def _station_depth(e_next, sf_next, z, w, q, n_man, dx):
-    """Implicit standard-step station: find the subcritical depth h with
-        z + h + q^2/(2 g w^2 h^2) = e_next + 0.5 (Sf(h) + sf_next) dx
-    by bisection on [h_c, h_hi] (robust: no fixed-point iteration, which oscillates near critical flow).
-    Returns (h, E_k, choked). If no subcritical root exists the depth is critical and the energy line is raised
-    to z + 1.5 h_c (control point)."""
+    """Implicit standard-step station. Governing equation (subcritical branch, h > h_c):
+        g(h) = z + h + q^2/(2 g w^2 h^2) - e_next - 0.5 (Sf(h) + sf_next) dx = 0,
+        g'(h) = 1 - q^2/(g w^2 h^3) - 0.5 dx dSf/dh,   dSf/dh = Sf (-(10/3)/h + (8/3)/P).
+    Safeguarded Newton: the root stays bracketed in [h_c, h_hi] (g(h_c) < 0 < g(h_hi)); a Newton step that leaves the
+    bracket or has g' <= 0 is replaced by bisection. Converged when |dh| <= 1e-14 h (also |g| < 1e-15 (1 + e_next - z)).
+    If g(h_c) >= 0 no subcritical depth exists: depth is critical and the energy line is raised to z + 1.5 h_c.
+    Returns (h, E_k, choked)."""
     q2 = q * q / (w * w)
     hc = (q2 / G) ** (1.0 / 3.0)
     sf_c = _sf(q, w, hc, n_man)
@@ -50,16 +52,24 @@ def _station_depth(e_next, sf_next, z, w, q, n_man, dx):
     hi = e_next + 0.5 * (sf_c + sf_next) * dx - z
     if hi <= lo:
         hi = 2.0 * lo
+    h = hi
     for _ in range(80):
-        mid = 0.5 * (lo + hi)
-        gm = z + mid + q2 / (2.0 * G * mid * mid) - e_next - 0.5 * (_sf(q, w, mid, n_man) + sf_next) * dx
-        if gm > 0.0:
-            hi = mid
+        sf = _sf(q, w, h, n_man)
+        gv = z + h + q2 / (2.0 * G * h * h) - e_next - 0.5 * (sf + sf_next) * dx
+        if gv > 0.0:
+            hi = h
         else:
-            lo = mid
-        if hi - lo < 1e-15 * hi:
+            lo = h
+        p = w + 2.0 * h
+        dsf = sf * (-(10.0 / 3.0) / h + (8.0 / 3.0) / p)
+        dg = 1.0 - q2 / (G * h ** 3) - 0.5 * dx * dsf
+        hn = h - gv / dg if dg > 0.0 else -1.0
+        if not (lo < hn < hi):
+            hn = 0.5 * (lo + hi)
+        if abs(hn - h) <= 1e-14 * hn:
+            h = hn
             break
-    h = 0.5 * (lo + hi)
+        h = hn
     return h, e_next + 0.5 * (_sf(q, w, h, n_man) + sf_next) * dx, False
 
 
@@ -102,62 +112,116 @@ def gvf_upstream(q, h_l, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out):
 
 
 @njit(cache=True)
-def edge_flow_forward(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out):
-    """Discharge from node i to node j for h_i >= h_j. Returns (Q, E_exit_total, E_entry_total). Q >= 0."""
+def _req(q, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out):
     n = z.size
+    hl = max(h_j - z[n - 1], _crit_depth(q, w[n - 1]))
+    return gvf_upstream(q, hl, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out)
+
+
+@njit(cache=True)
+def edge_flow_forward(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out, diag):
+    """Discharge from node i to node j for h_i >= h_j. Returns (Q, E_exit_total, E_entry_total), Q >= 0.
+
+    Governing equation: R(Q) = H_req(Q) - h_i = 0 on [q_lo, q_in], where H_req(Q) = E_0(Q) + k_e v_0^2/(2g) comes from the
+    standard-step profile and R is increasing in Q; if R(q_in) <= 0 the entrance (critical-flow) control governs, Q = q_in.
+    Solver: Brent's method (bracketing + inverse quadratic/secant steps), converged when the bracket is below
+    2e-15 Q or |R| <= 1e-14 (1 + h_i - z_0) m. diag = (iterations, |R| at the returned Q [m], bracket width/Q, 0/1/2 =
+    dry/entrance control/outlet control)."""
+    n = z.size
+    diag[0] = 0.0; diag[1] = 0.0; diag[2] = 0.0; diag[3] = 0.0
     if h_i <= z[0] or h_i <= h_j:
         return 0.0, 0.0, 0.0
-    # inlet-control capacity
-    hc_in = (h_i - z[0]) / (1.5 + 0.5 * ke)
-    q_in = w[0] * np.sqrt(G) * hc_in ** 1.5
-    # dry-limit check: a hump higher than the reservoir stage blocks the channel
     zmax = z[0]
     for k in range(n):
         if z[k] > zmax:
             zmax = z[k]
     if zmax >= h_i:
         return 0.0, 0.0, 0.0
-    q_lo, q_hi = 0.0, q_in
-
-    def_req = 0.0
-    # R(Q) = H_req(Q) - h_i, increasing in Q
-    # evaluate at q_hi
-    hl = max(h_j - z[n - 1], _crit_depth(q_hi, w[n - 1]))
-    req = gvf_upstream(q_hi, hl, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out)
-    if req <= h_i:
-        q = q_hi
-        e_exit = z[n - 1] + h_out[n - 1] + q * q / (2.0 * G * (w[n - 1] * h_out[n - 1]) ** 2)
-        return q, e_exit, req
-    for _ in range(70):
-        q_mid = 0.5 * (q_lo + q_hi)
-        if q_mid <= 0.0:
+    hc_in = (h_i - z[0]) / (1.5 + 0.5 * ke)
+    q_in = w[0] * np.sqrt(G) * hc_in ** 1.5
+    fb = _req(q_in, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out) - h_i
+    if fb <= 0.0:
+        n_l = n - 1
+        q = q_in
+        e_exit = z[n_l] + h_out[n_l] + q * q / (2.0 * G * (w[n_l] * h_out[n_l]) ** 2)
+        diag[1] = abs(fb); diag[3] = 1.0
+        return q, e_exit, fb + h_i
+    # lower bracket end: R is NOT monotone as Q -> 0 at a free outfall (the brink critical depth becomes micrometric, the
+    # Manning slope there is >> 1 and H_req jumps up). Halve Q from q_in until R < 0; flows below 2^-40 q_in are reported as 0.
+    a = q_in
+    fa = fb
+    for _ in range(40):
+        a = 0.5 * a
+        fa = _req(a, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out) - h_i
+        if fa < 0.0:
             break
-        hl = max(h_j - z[n - 1], _crit_depth(q_mid, w[n - 1]))
-        req = gvf_upstream(q_mid, hl, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out)
-        if req > h_i:
-            q_hi = q_mid
-        else:
-            q_lo = q_mid
-        if q_hi - q_lo < 1e-14 * max(q_hi, 1e-12):
-            break
-    q = q_lo
-    if q <= 0.0:
+    if fa >= 0.0:
         return 0.0, 0.0, 0.0
-    hl = max(h_j - z[n - 1], _crit_depth(q, w[n - 1]))
-    req = gvf_upstream(q, hl, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out)
-    e_exit = z[n - 1] + h_out[n - 1] + q * q / (2.0 * G * (w[n - 1] * h_out[n - 1]) ** 2)
+    b = q_in
+    fb = _req(b, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out) - h_i
+    c, fc = a, fa
+    d = e = b - a
+    tol_r = 1e-14 * (1.0 + h_i - z[0])
+    it = 0
+    for it in range(1, 100):
+        if (fb > 0.0) == (fc > 0.0):
+            c, fc = a, fa
+            d = e = b - a
+        if abs(fc) < abs(fb):
+            a, b, c = b, c, b
+            fa, fb, fc = fb, fc, fb
+        tol = 2e-15 * abs(b) + 1e-300
+        m = 0.5 * (c - b)
+        if abs(m) <= tol or abs(fb) <= tol_r:
+            break
+        if abs(e) >= tol and abs(fa) > abs(fb):
+            s = fb / fa
+            if a == c:
+                p = 2.0 * m * s
+                qq = 1.0 - s
+            else:
+                qa = fa / fc
+                r = fb / fc
+                p = s * (2.0 * m * qa * (qa - r) - (b - a) * (r - 1.0))
+                qq = (qa - 1.0) * (r - 1.0) * (s - 1.0)
+            if p > 0.0:
+                qq = -qq
+            p = abs(p)
+            if 2.0 * p < min(3.0 * m * qq - abs(tol * qq), abs(e * qq)):
+                e = d
+                d = p / qq
+            else:
+                d = m
+                e = m
+        else:
+            d = m
+            e = m
+        a, fa = b, fb
+        b = b + d if abs(d) > tol else b + (tol if m > 0 else -tol)
+        fb = _req(b, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out) - h_i
+    q = b
+    # final profile at the returned discharge (h_out, hf_out, choked_out correspond to the last evaluation = b)
+    req = fb + h_i
+    n_l = n - 1
+    e_exit = z[n_l] + h_out[n_l] + q * q / (2.0 * G * (w[n_l] * h_out[n_l]) ** 2)
+    diag[0] = it; diag[1] = abs(fb); diag[2] = abs(c - b) / max(q, 1e-300); diag[3] = 2.0
     return q, e_exit, req
 
 
 @njit(cache=True)
-def edge_flow(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out):
-    """Signed discharge (positive i -> j) and head bookkeeping. Returns (Q, direction, E_entry, E_exit) where the head
-    quantities refer to the direction of flow; h_out/hf_out/choked_out are indexed in the FLOW direction
-    (index 0 = upstream end of the flowing water)."""
+def edge_flow_diag(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out, diag):
+    """Signed discharge (positive i -> j) and head bookkeeping; diag as in edge_flow_forward. Returns (Q, direction,
+    E_entry, E_exit); h_out/hf_out/choked_out are indexed in the FLOW direction (index 0 = upstream end of the water)."""
     if h_i >= h_j:
-        q, e_exit, e_entry = edge_flow_forward(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out)
+        q, e_exit, e_entry = edge_flow_forward(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out, diag)
         return q, 1, e_entry, e_exit
     zr = z[::-1].copy()
     wr = w[::-1].copy()
-    q, e_exit, e_entry = edge_flow_forward(h_j, h_i, zr, wr, n_man, dx, ke, msub, h_out, hf_out, choked_out)
+    q, e_exit, e_entry = edge_flow_forward(h_j, h_i, zr, wr, n_man, dx, ke, msub, h_out, hf_out, choked_out, diag)
     return -q, -1, e_entry, e_exit
+
+
+@njit(cache=True)
+def edge_flow(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out):
+    diag = np.zeros(4)
+    return edge_flow_diag(h_i, h_j, z, w, n_man, dx, ke, msub, h_out, hf_out, choked_out, diag)

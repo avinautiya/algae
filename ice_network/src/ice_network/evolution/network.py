@@ -51,10 +51,10 @@ class Network:
         self.i_C = slice(2 * NL, 2 * NL + NO)
         self.i_E = slice(2 * NL + NO, 2 * NL + 2 * NO)
         base = 2 * NL + 2 * NO
-        self.i_Win, self.i_Ein, self.i_Qm, self.i_Phi = base, base + 1, base + 2, base + 3
-        self.i_H = slice(base + 4, base + 4 + NS)
-        self.i_W = slice(base + 4 + NS, base + 4 + 2 * NS)
-        self.n_state = base + 4 + 2 * NS
+        self.i_Win, self.i_Ein, self.i_Qm, self.i_Phi, self.i_PhiC = base, base + 1, base + 2, base + 3, base + 4
+        self.i_H = slice(base + 5, base + 5 + NS)
+        self.i_W = slice(base + 5 + NS, base + 5 + 2 * NS)
+        self.n_state = base + 5 + 2 * NS
         y = np.zeros(self.n_state)
         if v0 is not None:
             y[self.i_V] = v0
@@ -118,7 +118,7 @@ class Network:
         I = inflow(t); TI = inflow_temp(t)
         dV += I; dS += I * TI
         dy[self.i_Win] = I.sum(); dy[self.i_Ein] = RHO_W * CP_W * (I * TI).sum()
-        phi_total = 0.0; qm_total = 0.0
+        phi_total = 0.0; qm_total = 0.0; phi_chan = 0.0
         for ie, e in enumerate(self.edges):
             a, b = e["a"], e["b"]
             st = self.edge_state(e, stage[a], stage[b], temps[a] if a < NL else 0.0, temps[b] if b < NL else 0.0)
@@ -135,7 +135,7 @@ class Network:
                 dV[dst] += gain; dS[dst] += heat_s
             else:
                 dC[dst - NL] += gain; dE[dst - NL] += RHO_W * CP_W * qa * st["t_out"] + st["phi_exit"]
-            phi_total += st["phi_tot"]; qm_total += st["q_melt"]
+            phi_total += st["phi_tot"]; qm_total += st["q_melt"]; phi_chan += st["phi_in"] + st["phi_seg"].sum()
             ns = e["n"] - 1
             o = self.seg_off[ie]
             qi, wf_ = st["q_ice"], st["wall_frac"]
@@ -143,7 +143,7 @@ class Network:
                 qi, wf_ = qi[::-1], wf_[::-1]      # flow-direction order -> physical station order
             dy[self.i_H][o:o + ns] += qi
             dy[self.i_W][o:o + ns] += qi * wf_
-        dy[self.i_Qm] = qm_total; dy[self.i_Phi] = phi_total
+        dy[self.i_Qm] = qm_total; dy[self.i_Phi] = phi_total; dy[self.i_PhiC] = phi_chan
         return dy
 
     # ----------------------------------------------------------------------------- geometry update
@@ -160,7 +160,7 @@ class Network:
             wm = 0.5 * (e["w"][:-1] + e["w"][1:])
             dm = 0.5 * ((e["zs"] - e["z"])[:-1] + (e["zs"] - e["z"])[1:])
             dz_seg = dv_bed / (wm * e["dx"])
-            dw_seg = dv_wall / (dm * e["dx"])
+            dw_seg = dv_wall / ((dm + dz_seg) * e["dx"])     # walls retreat at the depth AFTER bed lowering, so the area change is exactly w dz + D' dw
             dz = np.zeros(e["n"]); dwk = np.zeros(e["n"])
             dz[:-1] += 0.5 * dz_seg; dz[1:] += 0.5 * dz_seg; dz[0] += 0.5 * dz_seg[0]; dz[-1] += 0.5 * dz_seg[-1]
             dwk[:-1] += 0.5 * dw_seg; dwk[1:] += 0.5 * dw_seg; dwk[0] += 0.5 * dw_seg[0]; dwk[-1] += 0.5 * dw_seg[-1]
@@ -238,4 +238,6 @@ class Network:
                     water_residual_m3=water_res, water_scale_m3=water_scale, water_residual_rel=water_res / water_scale,
                     energy_residual_J=energy_res, energy_scale_J=energy_scale, energy_residual_rel=energy_res / energy_scale,
                     delivered_m3=y[self.i_C].copy(), input_m3=y[self.i_Win], melt_water_m3=y[self.i_Qm], dissipation_J=y[self.i_Phi],
+                    dissipation_channel_J=y[self.i_PhiC], dissipation_exit_J=y[self.i_Phi] - y[self.i_PhiC], sensible_out_J=y[self.i_E].sum(), sensible_in_J=y[self.i_Ein],
+                    sensible_storage_change_J=rc * (s.sum() - s_init.sum()),
                     heat_to_ice_J=y[self.i_H].sum(), ice_melted_m3=y[self.i_H].sum() / (RHO_I * LF))
