@@ -1,0 +1,61 @@
+{
+ "as_reported (sigma_total*kappa)": {
+  "median_width_dex": 4.144059680261013,
+  "p10": 3.654800132810201,
+  "p90": 4.593122662910829,
+  "frac_lower_end_bound_limited": 0.9574468085106383,
+  "frac_upper_end_bound_limited": 0.0,
+  "frac_both_ends_bound_limited": 0.0,
+  "frac_closed_both_sides": 0.0425531914893617
+ },
+ "sigma_total, no kappa": {
+  "median_width_dex": 0.5055435461417712,
+  "p10": 0.1497258512973369,
+  "p90": 3.511330456988312,
+  "frac_lower_end_bound_limited": 0.2553191489361702,
+  "frac_upper_end_bound_limited": 0.0,
+  "frac_both_ends_bound_limited": 0.0,
+  "frac_closed_both_sides": 0.7446808510638298
+ },
+ "sigma_obs 0.015, no inflation": {
+  "median_width_dex": 0.5,
+  "p10": 0.019708928006114058,
+  "p90": 0.5,
+  "frac_lower_end_bound_limited": 0.02127659574468085,
+  "frac_upper_end_bound_limited": 0.0,
+  "frac_both_ends_bound_limited": 0.0,
+  "frac_closed_both_sides": 0.9787234042553191
+ },
+ "Dark Zone sigma 0.003, no inflation": {
+  "median_width_dex": 0.5,
+  "p10": 0.3069374374491004,
+  "p90": 0.5,
+  "frac_lower_end_bound_limited": 0.02127659574468085,
+  "frac_upper_end_bound_limited": 0.0,
+  "frac_both_ends_bound_limited": 0.0,
+  "frac_closed_both_sides": 0.9787234042553191
+ },
+ "_note": "widths are on a 0.5-dex grid with linear interpolation of the threshold crossing; 'bound-limited' = threshold not reached before the imposed bound (1.0 or 6.5 log10 cells/mL)",
+ "_calibration_vs_heldout_and_counts": {
+  "as_reported (sigma_total*kappa)": {
+   "heldout_window_band_coverage_1p96sigma": 0.9574468085106383,
+   "counts_within_interval": 1.0,
+   "n_positive_counts": 42
+  },
+  "sigma_total, no kappa": {
+   "heldout_window_band_coverage_1p96sigma": 0.9574468085106383,
+   "counts_within_interval": 0.5,
+   "n_positive_counts": 42
+  },
+  "sigma_obs 0.015, no inflation": {
+   "heldout_window_band_coverage_1p96sigma": 0.9007092198581559,
+   "counts_within_interval": 0.023809523809523808,
+   "n_positive_counts": 42
+  },
+  "Dark Zone sigma 0.003, no inflation": {
+   "heldout_window_band_coverage_1p96sigma": 0.2716312056737588,
+   "counts_within_interval": 0.023809523809523808,
+   "n_positive_counts": 42
+  }
+ }
+}
