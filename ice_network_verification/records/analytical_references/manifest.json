@@ -1,0 +1,160 @@
+{
+  "version": "0.1.0",
+  "evidence_type": "analytical_verification_only",
+  "not_observations": true,
+  "cases": [
+    {
+      "name": "linear_reservoir",
+      "description": "Constant-area reservoir with Q=G h",
+      "parameters": {
+        "area_m2": 10.0,
+        "initial_head_m": 1.0,
+        "conductance_m2_s": 0.02
+      },
+      "units": {
+        "time_s": "s",
+        "level_m": "m",
+        "storage_m3": "m3",
+        "discharge_m3_s": "m3/s",
+        "outflow_m3": "m3"
+      },
+      "duration_s": 2000.0,
+      "samples": 101,
+      "reference_file": "linear_reservoir.reference.csv",
+      "reference_sha256": "f14fe0bfb54b944db549bb62a5a5c4fa71804dccee872b6a2f49034fb1f227c1"
+    },
+    {
+      "name": "finite_drainage",
+      "description": "Ideal reservoir outlet Q=C sqrt(h), including emptying",
+      "parameters": {
+        "area_m2": 4.0,
+        "initial_head_m": 1.0,
+        "coefficient_m5_2_s": 0.04,
+        "emptying_time_s": 200.0
+      },
+      "units": {
+        "time_s": "s",
+        "level_m": "m",
+        "storage_m3": "m3",
+        "discharge_m3_s": "m3/s",
+        "outflow_m3": "m3"
+      },
+      "duration_s": 300.0,
+      "samples": 121,
+      "reference_file": "finite_drainage.reference.csv",
+      "reference_sha256": "858850cb4505bf44178af6d267057a8b1a013548e76f2e052a4b18c337bc9408"
+    },
+    {
+      "name": "symmetric_outlets",
+      "description": "Parallel linear outlets at a common datum; no channel storage",
+      "parameters": {
+        "area_m2": 8.0,
+        "initial_head_m": 0.8,
+        "conductance_1_m2_s": 0.01,
+        "conductance_2_m2_s": 0.01
+      },
+      "units": {
+        "time_s": "s",
+        "level_m": "m",
+        "storage_m3": "m3",
+        "outlet_1_m3_s": "m3/s",
+        "outlet_2_m3_s": "m3/s",
+        "outlet_1_volume_m3": "m3",
+        "outlet_2_volume_m3": "m3"
+      },
+      "duration_s": 1600.0,
+      "samples": 101,
+      "reference_file": "symmetric_outlets.reference.csv",
+      "reference_sha256": "1c2a95ad5dd5e22e1eb7bf73894b5d660aac23d2e72b6fe9b4f6d9694b35e232"
+    },
+    {
+      "name": "unequal_outlets",
+      "description": "Parallel linear outlets at a common datum; no channel storage",
+      "parameters": {
+        "area_m2": 8.0,
+        "initial_head_m": 0.8,
+        "conductance_1_m2_s": 0.01,
+        "conductance_2_m2_s": 0.03
+      },
+      "units": {
+        "time_s": "s",
+        "level_m": "m",
+        "storage_m3": "m3",
+        "outlet_1_m3_s": "m3/s",
+        "outlet_2_m3_s": "m3/s",
+        "outlet_1_volume_m3": "m3",
+        "outlet_2_volume_m3": "m3"
+      },
+      "duration_s": 1600.0,
+      "samples": 101,
+      "reference_file": "unequal_outlets.reference.csv",
+      "reference_sha256": "709a444b3b5a74146308f1c43174392da5c9904b4b580f502de06be5e00f764d"
+    },
+    {
+      "name": "pre_overtopping",
+      "description": "Filling a constant-area basin up to first contact with a sill",
+      "parameters": {
+        "area_m2": 5.0,
+        "initial_head_m": 0.1,
+        "sill_height_m": 0.5,
+        "inflow_m3_s": 0.002,
+        "first_sill_contact_s": 1000.0
+      },
+      "units": {
+        "time_s": "s",
+        "level_m": "m",
+        "storage_m3": "m3",
+        "inflow_volume_m3": "m3",
+        "discharge_m3_s": "m3/s"
+      },
+      "duration_s": 1000.0,
+      "samples": 101,
+      "reference_file": "pre_overtopping.reference.csv",
+      "reference_sha256": "b0bdf91b53f206dc55f428913a242e72036a27e3a7bd26cd204a70dc93424370"
+    },
+    {
+      "name": "thermal_front",
+      "description": "Plug-flow temperature step with linear wall cooling",
+      "parameters": {
+        "velocity_m_s": 0.2,
+        "probe_x_m": 5.0,
+        "cooling_rate_s_1": 0.01,
+        "inlet_temperature_c": 2.0,
+        "arrival_time_s": 25.0
+      },
+      "units": {
+        "time_s": "s",
+        "temperature_c": "degC"
+      },
+      "duration_s": 60.0,
+      "samples": 121,
+      "reference_file": "thermal_front.reference.csv",
+      "reference_sha256": "7efae8390f1887acbe3b86f7e6c547807f88be6b2df97cd2df0a72134b84c0c8"
+    },
+    {
+      "name": "heat_to_melt",
+      "description": "Fixed-geometry warm-water heat exchanger against temperate ice",
+      "parameters": {
+        "discharge_m3_s": 0.001,
+        "water_density_kg_m3": 1000.0,
+        "water_cp_j_kg_k": 4180.0,
+        "inlet_temperature_c": 2.0,
+        "wall_conductance_w_k": 200.0,
+        "latent_heat_j_kg": 334000.0,
+        "ice_density_kg_m3": 917.0
+      },
+      "units": {
+        "time_s": "s",
+        "outlet_temperature_c": "degC",
+        "heat_to_ice_j": "J",
+        "melt_mass_kg": "kg",
+        "ice_volume_lost_m3": "m3",
+        "meltwater_volume_m3": "m3"
+      },
+      "duration_s": 3600.0,
+      "samples": 61,
+      "reference_file": "heat_to_melt.reference.csv",
+      "reference_sha256": "9a998896979aa58baa2edf2a3e46101d6843f9bfd48ba252dd9739a7c774a54c"
+    }
+  ]
+}
