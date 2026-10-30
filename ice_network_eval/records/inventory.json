@@ -1,0 +1,64 @@
+{
+ "sets": {
+  "baselines": {
+   "expected": 35,
+   "pending": 35
+  },
+  "challenge": {
+   "expected": 112,
+   "pending": 112
+  },
+  "closure_sensitivity": {
+   "expected": 60,
+   "completed": 60
+  },
+  "convergence": {
+   "expected": 92,
+   "completed": 65,
+   "running": 2,
+   "pending": 25
+  },
+  "frozen_s1_s5": {
+   "expected": 35,
+   "completed": 35
+  },
+  "param_dev": {
+   "expected": 112,
+   "interrupted": 1,
+   "pending": 110,
+   "completed": 1
+  },
+  "param_eval": {
+   "expected": 224,
+   "pending": 224
+  },
+  "timing_serial": {
+   "expected": 45,
+   "pending": 45
+  }
+ },
+ "non_completed_non_pending": [
+  {
+   "set": "convergence",
+   "id": "ref_S3_conv_400_f66b528af1",
+   "status": "running"
+  },
+  {
+   "set": "convergence",
+   "id": "ref_S3_conv_800_7bccda1403",
+   "status": "running"
+  },
+  {
+   "set": "param_dev",
+   "id": "red_D000_r9_f3c9ceee1c",
+   "status": "interrupted"
+  }
+ ],
+ "run_dirs_not_in_any_case_list": [],
+ "live_workers": [
+  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/ref_S3_conv_400_f66b528af1",
+  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/ref_S3_conv_800_7bccda1403"
+ ],
+ "total_expected_unique": 715,
+ "total_dirs": 164
+}
