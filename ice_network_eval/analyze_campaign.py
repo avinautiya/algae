@@ -13,6 +13,7 @@ def case_set(spec):
     if "_rep" in lab: return "timing"
     if "conv" in lab: return "convergence"
     if scn[0] in "DEC" and scn[1:].isdigit(): return {"D": "param_dev", "E": "param_eval", "C": "challenge"}[scn[0]]
+    if any(t in lab for t in ("_T0nomelt", "_T2dissall", "_T3dissall")): return "baselines"
     if any(t in lab for t in ("_nu0.5", "_nu2", "_n0.03", "_n0.05")): return "closure"
     return "frozen"
 

@@ -1,0 +1,392 @@
+[
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 200,
+  "overrides": {
+   "melting": false
+  },
+  "label": "ref_S1_200_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S1_r17_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S1_r33_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S1_r17_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S1_r33_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S1_r17_T3dissall_fixedaspect",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S1_r33_T3dissall_fixedaspect",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 200,
+  "overrides": {
+   "melting": false
+  },
+  "label": "ref_S2_200_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S2_r17_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S2_r33_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S2_r17_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S2_r33_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S2_r17_T3dissall_fixedaspect",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S2_r33_T3dissall_fixedaspect",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 200,
+  "overrides": {
+   "melting": false
+  },
+  "label": "ref_S3_200_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S3_r17_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S3_r33_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S3_r17_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S3_r33_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S3_r17_T3dissall_fixedaspect",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S3_r33_T3dissall_fixedaspect",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 200,
+  "overrides": {
+   "melting": false
+  },
+  "label": "ref_S4_200_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S4_r17_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S4_r33_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S4_r17_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S4_r33_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S4_r17_T3dissall_fixedaspect",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S4_r33_T3dissall_fixedaspect",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S5",
+  "ncell": 200,
+  "overrides": {
+   "melting": false
+  },
+  "label": "ref_S5_200_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S5_r17_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melting": false
+  },
+  "label": "red_S5_r33_T0nomelt",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S5_r17_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all"
+  },
+  "label": "red_S5_r33_T2dissall",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S5_r17_T3dissall_fixedaspect",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S5",
+  "stations": 33,
+  "dt_geom": 225,
+  "overrides": {
+   "melt_mode": "dissipation_all",
+   "geometry_mode": "fixed_aspect"
+  },
+  "label": "red_S5_r33_T3dissall_fixedaspect",
+  "version": "v1.0"
+ }
+]

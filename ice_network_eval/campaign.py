@@ -219,6 +219,12 @@ def cases(name):
                 out.append(dict(kind="reference", scn=s["id"], ncell=200, overrides=ov, label=f"ref_{s['id']}_200_{vn}", version="v1.0"))
                 for st, dtg in ((9, 900), (17, 450)):
                     out.append(dict(kind="reduced", scn=s["id"], stations=st, dt_geom=dtg, overrides=ov, label=f"red_{s['id']}_r{st}_{vn}", version="v1.0"))
+    if name == "baselines":   # evolving-channel baselines on the SAME frozen problems; target = thermal reference; also fixed-terrain (no melting) reference
+        modes = {"T0nomelt": dict(melting=False), "T2dissall": dict(melt_mode="dissipation_all"), "T3dissall_fixedaspect": dict(melt_mode="dissipation_all", geometry_mode="fixed_aspect")}
+        for s in R.CFG["scenarios"]:
+            out.append(dict(kind="reference", scn=s["id"], ncell=200, overrides=dict(melting=False), label=f"ref_{s['id']}_200_T0nomelt", version="v1.0"))
+            for mn, ov in modes.items():
+                for st, dtg in ((17, 450), (33, 225)): out.append(dict(kind="reduced", scn=s["id"], stations=st, dt_geom=dtg, overrides=ov, label=f"red_{s['id']}_r{st}_{mn}", version="v1.0"))
     if name == "timing_serial":   # repeated timings, run with --workers 1 on an otherwise idle machine
         for s in ("S1", "S2", "S5"):
             for rep in range(3):
