@@ -7,6 +7,6 @@
 | frozen_s1_s5 | 35 | 35 | 0 | 0 | 0 | 0 | 0 | 0 |
 | param_dev | 112 | 112 | 0 | 0 | 0 | 0 | 0 | 0 |
 | param_eval | 224 | 0 | 0 | 0 | 0 | 0 | 0 | 224 |
-| timing_serial | 45 | 1 | 0 | 0 | 0 | 0 | 1 | 43 |
+| timing_serial | 45 | 6 | 0 | 0 | 0 | 1 | 0 | 38 |
 
-Live worker processes: 1. Run dirs not in any case list: []
+Live worker processes: 0. Run dirs not in any case list: []

@@ -22,15 +22,22 @@ if man: P(f"Manifest: {man['counts']}; summed per-run wall time {man['total_wall
 
 # ---------------------------------------------------------------- 1 frozen S1-S5
 S = json.load(open(R("campaign_summary_frozen.json")))
+RU = json.load(open(R("reference_uncertainty.json")))
+def e400(scn, key):
+    """estimated discretisation error of the 400-cell reference: S1-S4 from the 100/200/400/800 sequence with the observed order if supported (else range); S5 from 100/200/400 assuming order 1 (not testable)"""
+    a = RU.get(f"convergence|{scn}", {}).get(key)
+    if a: return f(a["err_coarser_of_last_pair"], 3) if a["order_supported"] else "%s-%s (order unsupported)" % (f(a["err_coarser_range"][0], 2), f(a["err_coarser_range"][1], 2))
+    a = RU.get(f"frozen|{scn}", {}).get(key)
+    return "-" if not a else f(a["err_finer_range"][0], 3) + " (order 1 assumed)"
 P("## 1. Reduced network vs resolved reference under shared closures (frozen S1-S5)\n")
-P("Target = 400-cell reference; its uncertainty is the 200->400 change (first-order upwind scheme; observed orders in the convergence table). Route = outlet with the larger delivered volume over 8 h. t_dom2 = first time Q_R2 > Q_R1.\n")
+P("Target = 400-cell reference. Its discretisation error is estimated from the mesh sequence (`reference_uncertainty.json`): S1-S4 from 100/200/400/800 cells with the observed convergence order where two successive orders agree (hydrograph, incision, delivered volume, t_dom2: orders 0.6-1.06; t_act2: order NOT supported, range given); S5 has three meshes only and order 1 is assumed (flagged). Route = outlet with the larger delivered volume over 8 h. t_dom2 = first time Q_R2 > Q_R1.\n")
 rows = []
 for scn in ("S1", "S2", "S3", "S4", "S5"):
     v = S[f"{scn}|{{}}"]; t = v["target"]; cv = v["reference_convergence"]
     ru = lambda k: None if cv[k].get("change_fine") is None else abs(cv[k]["change_fine"])
-    rows.append([scn, t["route"], f(t["metrics"]["t_act1_s"], 5), f(t["metrics"]["t_act2_s"], 5) + f" (±{f(ru('t_act2_s'),2)})", f(t["metrics"]["t_dom2_s"], 5) + (f" (±{f(ru('t_dom2_s'),2)})" if t["metrics"]["t_dom2_s"] else ""),
-                 f"{t['metrics']['sill_lowering1_m']*1e3:.2f} / {t['metrics']['sill_lowering2_m']*1e3:.2f}", f"{t['metrics']['delivered1_m3']:.0f} / {t['metrics']['delivered2_m3']:.0f}", f(v["reference_hydrograph_change"]["200->400"], 3)])
-table(["scn", "ref route", "t_act1 (s)", "t_act2 (s, ±ref unc.)", "t_dom2 (s, ±ref unc.)", "sill lowering R1/R2 (mm)", "delivered R1/R2 (m3)", "ref hydrograph change 200->400 (RMSE/I)"], rows)
+    rows.append([scn, t["route"], f(t["metrics"]["t_act1_s"], 5), f(t["metrics"]["t_act2_s"], 5) + f" (e400 {e400(scn,'t_act2_s')})", f(t["metrics"]["t_dom2_s"], 5) + (f" (e400 {e400(scn,'t_dom2_s')})" if t["metrics"]["t_dom2_s"] else ""),
+                 f"{t['metrics']['sill_lowering1_m']*1e3:.2f} / {t['metrics']['sill_lowering2_m']*1e3:.2f}", f"{t['metrics']['delivered1_m3']:.0f} / {t['metrics']['delivered2_m3']:.0f}", e400(scn, "hydrograph_rmse_over_I")])
+table(["scn", "ref route", "t_act1 (s)", "t_act2 (s; est. error of 400-cell ref)", "t_dom2 (s; est. error of 400-cell ref)", "sill lowering R1/R2 (mm)", "delivered R1/R2 (m3)", "est. error of 400-cell ref: hydrograph RMSE/I"], rows)
 rows = []
 for scn in ("S1", "S2", "S3", "S4", "S5"):
     v = S[f"{scn}|{{}}"]

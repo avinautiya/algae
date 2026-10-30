@@ -30,22 +30,20 @@
   },
   "timing_serial": {
    "expected": 45,
-   "completed": 1,
-   "running": 1,
-   "pending": 43
+   "completed": 6,
+   "interrupted": 1,
+   "pending": 38
   }
  },
  "non_completed_non_pending": [
   {
    "set": "timing_serial",
-   "id": "ref_S1_200_rep0_c24a73c643",
-   "status": "running"
+   "id": "ref_S1_200_rep1_ba13d5bb58",
+   "status": "interrupted"
   }
  ],
  "run_dirs_not_in_any_case_list": [],
- "live_workers": [
-  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/ref_S1_200_rep0_c24a73c643"
- ],
+ "live_workers": [],
  "total_expected_unique": 715,
- "total_dirs": 301
+ "total_dirs": 306
 }

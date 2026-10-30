@@ -4,15 +4,15 @@ Manifest: {'completed': 299}; summed per-run wall time 4.96 h (concurrent worker
 
 ## 1. Reduced network vs resolved reference under shared closures (frozen S1-S5)
 
-Target = 400-cell reference; its uncertainty is the 200->400 change (first-order upwind scheme; observed orders in the convergence table). Route = outlet with the larger delivered volume over 8 h. t_dom2 = first time Q_R2 > Q_R1.
+Target = 400-cell reference. Its discretisation error is estimated from the mesh sequence (`reference_uncertainty.json`): S1-S4 from 100/200/400/800 cells with the observed convergence order where two successive orders agree (hydrograph, incision, delivered volume, t_dom2: orders 0.6-1.06; t_act2: order NOT supported, range given); S5 has three meshes only and order 1 is assumed (flagged). Route = outlet with the larger delivered volume over 8 h. t_dom2 = first time Q_R2 > Q_R1.
 
-| scn | ref route | t_act1 (s) | t_act2 (s, ±ref unc.) | t_dom2 (s, ±ref unc.) | sill lowering R1/R2 (mm) | delivered R1/R2 (m3) | ref hydrograph change 200->400 (RMSE/I) |
+| scn | ref route | t_act1 (s) | t_act2 (s; est. error of 400-cell ref) | t_dom2 (s; est. error of 400-cell ref) | sill lowering R1/R2 (mm) | delivered R1/R2 (m3) | est. error of 400-cell ref: hydrograph RMSE/I |
 |---|---|---|---|---|---|---|---|
-| S1 | R1 | 2744.8 | 4818.6 (±4.8) | 23443 (±1.4e+03) | 45.87 / 54.93 | 546 / 489 | 0.00855 |
-| S2 | R2 | 2744.8 | 3528.4 (±4.6) | 7774.6 (±65) | 44.89 / 60.18 | 475 / 602 | 0.00924 |
-| S3 | R1 | 1848 | 4534.6 (±1.8) | - | 52.16 / 61.49 | 996 / 739 | 0.00676 |
-| S4 | R1 | 2753.8 | 4825.6 (±5) | - | 13.72 / 15.70 | 525 / 439 | 0.00705 |
-| S5 | R1 | 2758 | 4828.8 (±4.8) | - | 0.00 / 0.00 | 516 / 420 | 0.0065 |
+| S1 | R1 | 2744.8 | 4818.6 (e400 4.6-7.8 (order unsupported)) | 23443 (e400 1.31e+03) | 45.87 / 54.93 | 546 / 489 | 0.009 |
+| S2 | R2 | 2744.8 | 3528.4 (e400 4-6.8 (order unsupported)) | 7774.6 (e400 99.2) | 44.89 / 60.18 | 475 / 602 | 0.00972 |
+| S3 | R1 | 1848 | 4534.6 (e400 1.9-3.3 (order unsupported)) | - | 52.16 / 61.49 | 996 / 739 | 0.00701 |
+| S4 | R1 | 2753.8 | 4825.6 (e400 4.6-7.9 (order unsupported)) | - | 13.72 / 15.70 | 525 / 439 | 0.00721 |
+| S5 | R1 | 2758 | 4828.8 (e400 4.82 (order 1 assumed)) | - | 0.00 / 0.00 | 516 / 420 | 0.0065 (order 1 assumed) |
 
 | scn | reduced | route ok | hydrograph RMSE/I | cum. volume err (rel total) | t_act2 err (s) | t_dom2 err (s) | sill err R1/R2 (mm; % of 400-cell reference lowering of that route, n/a for S5) | water / energy / geometry-vs-latent resid (rel) | solver s* | RSS MB |
 |---|---|---|---|---|---|---|---|---|---|---|
