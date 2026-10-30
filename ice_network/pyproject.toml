@@ -1,0 +1,10 @@
+[project]
+name = "ice_network"
+version = "0.1.0"
+description = "Conservative reduced network model of meltwater routing through thermally evolving ice channels (version 1: open channels, temperate ice, no neural networks)"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "numba", "matplotlib"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
