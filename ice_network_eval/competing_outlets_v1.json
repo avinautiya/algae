@@ -1,0 +1,38 @@
+{
+  "name": "competing_outlets_v1",
+  "status": "FROZEN before any reduced-vs-reference run. Idealised controlled problems, not a real glacier and not a forecast.",
+  "physics_shared_by_both_models": {
+    "manning_n": 0.04, "entrance_loss_ke": 0.5, "free_outfall": "critical depth at the brink",
+    "heat_transfer": "Dittus-Boelter Nu = 0.023 Re^0.8 Pr^0.3 times nu_factor (default 1)", "ice": "temperate", "lake": "0-D prismatic well-mixed basin",
+    "wall_partition": "equal heat flux on the wetted perimeter; wall share spread over the full bank height",
+    "note": "These closures are shared on purpose, so the comparison measures the reduction (quasi-steady edges, no channel storage, well-mixed edges, station-based geometry, macro-step splitting), NOT the closures. They are tested only by sensitivity, not validated."
+  },
+  "lake": {"area_m2": 2000.0, "bottom_m": 99.0, "initial_stage_below_sill1_m": 0.05},
+  "channels": [
+    {"name": "R1", "length_m": 100.0, "width_m": 0.40, "slope": 0.005, "crest_length_m": 2.0, "sill_m": 100.0},
+    {"name": "R2", "length_m": 60.0, "width_m": 0.40, "slope": 0.020, "crest_length_m": 2.0, "sill_offset_above_R1_m": "per scenario"}
+  ],
+  "bank_height_m": 1.0,
+  "terrain_rule": "bed z(x) = z_sill for x <= crest_length, then z_sill - slope (x - crest_length); both models sample this one function",
+  "duration_h": 8.0,
+  "scenarios": [
+    {"id": "S1", "sill_offset_m": 0.05, "inflow_m3_s": 0.05, "inflow_T_C": 1.0},
+    {"id": "S2", "sill_offset_m": 0.02, "inflow_m3_s": 0.05, "inflow_T_C": 1.0},
+    {"id": "S3", "sill_offset_m": 0.10, "inflow_m3_s": 0.08, "inflow_T_C": 1.0},
+    {"id": "S4", "sill_offset_m": 0.05, "inflow_m3_s": 0.05, "inflow_T_C": 0.3},
+    {"id": "S5", "sill_offset_m": 0.05, "inflow_m3_s": 0.05, "inflow_T_C": 0.0}
+  ],
+  "reduced_model_configurations": [
+    {"id": "r5_dt1800", "stations": 5, "dt_geom_s": 1800}, {"id": "r9_dt900", "stations": 9, "dt_geom_s": 900},
+    {"id": "r17_dt450", "stations": 17, "dt_geom_s": 450}, {"id": "r33_dt225", "stations": 33, "dt_geom_s": 225}
+  ],
+  "reference_resolutions_cells_per_channel": [100, 200, 400],
+  "reference_estimate": "Richardson extrapolation of the 200 and 400 cell results assuming first order (scheme is first order in space); uncertainty = |400 - extrapolated|",
+  "metrics": {
+    "activity_threshold_fraction_of_inflow": 0.01,
+    "event_times": ["t_act2: first time Q_R2 > 0.01 I", "t_end_act2: last time Q_R2 > 0.01 I (None if active at the end)", "t_dom2: first time Q_R2 > Q_R1 (None if never)"],
+    "state": ["sill lowering of each route at the end", "delivered volume per outlet", "lake stage series", "outlet discharge series of each route"],
+    "cost": "single-thread wall-clock seconds (JIT already compiled); also number of time steps / RHS evaluations"
+  },
+  "interpretation_limits": "Agreement is shown only for these scenarios and shared closures; it is not a validation of the physics and not a forecast."
+}
