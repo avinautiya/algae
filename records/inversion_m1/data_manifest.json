@@ -1,0 +1,761 @@
+{
+ "generated_utc": "2026-10-30T06:32:43+00:00",
+ "repo_commit": "c0aecb29ec7a379fe522cb63bb5132f7f348c6b9",
+ "biosnicar_commit": "fe74eeef2999fd285f3dc06c47b0f0e1a36a17a6",
+ "snowlaps_commit": "01a7ec62ec3b01a08a161b253ad05456d5649a54",
+ "python": "3.13.16",
+ "numpy": "2.5.3",
+ "pandas": "3.0.5",
+ "datasets": [
+  {
+   "id": "S6_2017_albedo",
+   "title": "S6 2017 hemispherical spectral albedo (Cook et al. 2020 archive)",
+   "source": "Zenodo 10.5281/zenodo.3564501 via biosnicar-py data/additional_data/Albedo_master.csv (MIT)",
+   "version": "biosnicar-py revision fe74eeef2999fd285f3dc06c47b0f0e1a36a17a6",
+   "license": "MIT (biosnicar-py)",
+   "files": [
+    {
+     "role": "spectra",
+     "path": "<BIOSNICAR_PATH>/data/additional_data/Albedo_master.csv",
+     "exists": true,
+     "bytes": 2228554,
+     "sha256": "b4f645cbb38c3ec95583ae87f1c1322793429e3dc8847754ed361922995ed665"
+    }
+   ],
+   "site": "S6, SW Greenland ablation area (about 1000 m a.s.l.; one site)",
+   "period": "2017-07-13 to 2017-07-25",
+   "spectral_quantity": "hemispherical spectral albedo (upward/downward irradiance ratio, cosine receptor)",
+   "geometry_illumination": "natural sky at about solar noon; sky condition and exact time per plot not recorded in the file",
+   "units": "dimensionless (0-1)",
+   "wavelengths": {
+    "n_samples": 86,
+    "wavelength_nm": {
+     "min": 350.0,
+     "max": 2499.0,
+     "n": 2150,
+     "steps_nm": [
+      1.0
+     ]
+    },
+    "nan_fraction": 5.408328826392644e-06,
+    "fraction_samples_outside_0_1p2_in_window": 0.0,
+    "window_nm": [
+     400.0,
+     1300.0
+    ],
+    "samples_outside_window_qc": [],
+    "samples_with_no_finite_value_in_window": [],
+    "overall_min": -1048.780483,
+    "overall_max": 2453.721863
+   },
+   "documented_uncertainty": "about +-0.01-0.02 (not stated per plot); source docs/data_manifest.md; the publication was NOT re-read here",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "measured_components": "none in this file; algal counts for 47 of the 87 plots (S6_2017_counts)",
+   "colocation": "the 47 SB plots with counts also have an albedo and an HCRF spectrum (same plot IDs); 40 plots (tag 'S') have albedo only",
+   "temporal_match": "same day and plot; counts are surface samples taken at the plot, albedo is a footprint average",
+   "id_overlaps": {
+    "counts_and_albedo": 47,
+    "counts_and_hcrf": 47,
+    "albedo_and_hcrf": 47,
+    "arf_and_albedo": 50,
+    "arf_and_counts": 29,
+    "published_retrievals_and_counts": 29,
+    "all_three_measurements": 47
+   },
+   "n_samples_total": 86,
+   "n_with_counts": 47,
+   "sampling_groups": {
+    "level": "sampling day (plots differ per day)",
+    "n_days_albedo": 10,
+    "n_days_counts": 9,
+    "days_with_counts": [
+     "2017-07-13",
+     "2017-07-14",
+     "2017-07-15",
+     "2017-07-17",
+     "2017-07-20",
+     "2017-07-21",
+     "2017-07-22",
+     "2017-07-23",
+     "2017-07-24"
+    ]
+   },
+   "independent_glaciers": 1,
+   "ancestry": [
+    "denominators of the ARF/k prior (50 of 87 plots); H1 albedo target; see docs/data_use_register.md",
+    "the S6 mean dust loading and the radius prior are campaign-level information from the same campaign"
+   ],
+   "leakage_notes": "any S6 evaluation of a model whose k prior or dust prior came from S6 is not independent of S6",
+   "endpoints_available": [
+    "spectral albedo",
+    "broadband albedo (integrated)"
+   ],
+   "non_plot_columns": [
+    "RAIN2"
+   ]
+  },
+  {
+   "id": "S6_2017_hcrf",
+   "title": "S6 2017 nadir HCRF (same plots)",
+   "source": "Zenodo 10.5281/zenodo.3564501 (HCRF_master.csv)",
+   "version": "repo copy",
+   "license": "CC BY (Zenodo)",
+   "files": [
+    {
+     "role": "spectra",
+     "path": "data/empirical/cook2020_archive_hcrf.csv",
+     "exists": true,
+     "bytes": 803932,
+     "sha256": "521da52fba98ccb9009b3a2cabbbccf305c7b0e3953c26281f3db78aeac0d43c"
+    }
+   ],
+   "site": "S6",
+   "period": "2017-07-13 to 2017-07-24",
+   "spectral_quantity": "HCRF, nadir (ASD FieldSpec, bare fibre; directional, NOT albedo)",
+   "geometry_illumination": "nadir view; solar zenith not recorded in the file",
+   "units": "dimensionless reflectance factor",
+   "wavelengths": {
+    "n_samples": 47,
+    "wavelength_nm": {
+     "min": 350.0,
+     "max": 2499.0,
+     "n": 2150,
+     "steps_nm": [
+      1.0
+     ]
+    },
+    "nan_fraction": 0.02127659574468085,
+    "fraction_samples_outside_0_1p2_in_window": 0.0,
+    "window_nm": [
+     400.0,
+     1300.0
+    ],
+    "samples_outside_window_qc": [],
+    "samples_with_no_finite_value_in_window": [
+     "20_7_SB4"
+    ],
+    "overall_min": -0.01342,
+    "overall_max": 0.93477
+   },
+   "documented_uncertainty": "not stated in the file",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "measured_components": "see S6_2017_counts",
+   "colocation": "same plot IDs as the counts (47/47)",
+   "temporal_match": "same day and plot",
+   "n_samples_total": 47,
+   "independent_glaciers": 1,
+   "ancestry": [
+    "numerators of the ARF/k prior (29 of 51 ARF columns)",
+    "sigma and radius prior of earlier retrievals (docs/data_use_register.md)"
+   ],
+   "leakage_notes": "HCRF is directional; converting to albedo needs k = HCRF/albedo, which was itself estimated from these plots",
+   "endpoints_available": [
+    "directional spectral reflectance"
+   ],
+   "empty_columns": [
+    "20_7_SB4"
+   ]
+  },
+  {
+   "id": "S6_2017_counts",
+   "title": "S6 2017 glacier-algae cell counts (47 plots)",
+   "source": "Zenodo 10.5281/zenodo.3564501 (Cell_Counts)",
+   "version": "repo copy",
+   "license": "CC BY (Zenodo)",
+   "files": [
+    {
+     "role": "table",
+     "path": "data/empirical/cook2020_archive_cell_counts.csv",
+     "exists": true,
+     "bytes": 1791,
+     "sha256": "41128a219bc9084e254f75d4f00e2ec8f1a509a3e06648fc83af97da27dfab90"
+    }
+   ],
+   "site": "S6",
+   "period": "2017-07-13 to 2017-07-24",
+   "spectral_quantity": "n/a (component measurement)",
+   "geometry_illumination": "surface sample, top about 2 cm, about 1 m2 plot",
+   "units": "cells per mL of meltwater",
+   "wavelengths": null,
+   "documented_uncertainty": "Poisson on cells counted (1/sqrt N); 5 zero counts; counted volume of zero counts not recorded",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "measured_components": "glacier-algal cells only. NO per-plot mineral dust, black carbon, cryoconite, pigment or ice-structure measurement",
+   "colocation": "plot-level, matching albedo and HCRF IDs",
+   "temporal_match": "same day",
+   "n_samples_total": 47,
+   "n_zero_counts": 5,
+   "cells_per_ml": {
+    "min": 0.0,
+    "median": 7562.5,
+    "max": 92250.0
+   },
+   "independent_glaciers": 1,
+   "ancestry": [
+    "evaluation target of earlier held-out and H1 tests"
+   ],
+   "leakage_notes": "reused as an evaluation set before; not untouched",
+   "endpoints_available": [
+    "algal abundance (component truth for the algal term only)"
+   ]
+  },
+  {
+   "id": "S6_2017_ARF_and_published_retrievals",
+   "title": "ARF (HCRF/albedo) and published BioSNICAR retrievals for S6 2017",
+   "source": "biosnicar-py ARF_master.csv and Spectra_Metadata.csv (MIT)",
+   "version": "revision fe74eeef",
+   "license": "MIT",
+   "files": [
+    {
+     "role": "table",
+     "path": "data/empirical/biosnicar_field_ARF.csv",
+     "exists": true,
+     "bytes": 877304,
+     "sha256": "1878bf6cbe0542dc4f7f6fd1b0877d70bde5188730fe35268fb089aca2d79ba8"
+    },
+    {
+     "role": "table",
+     "path": "data/empirical/cook2020_field_metadata.csv",
+     "exists": true,
+     "bytes": 3103,
+     "sha256": "bbe18a468e29131ff1908665ca171b16767fe08552c0c438779b271a8422e747"
+    }
+   ],
+   "site": "S6",
+   "period": "2017",
+   "spectral_quantity": "ARF = HCRF/albedo (derived); retrievals are MODEL OUTPUT (algae_cells_inv_model_S2 etc.)",
+   "geometry_illumination": "n/a",
+   "units": "dimensionless; cells per mL",
+   "wavelengths": {
+    "n_samples": 51,
+    "wavelength_nm": {
+     "min": 350.0,
+     "max": 2499.0,
+     "n": 2150,
+     "steps_nm": [
+      1.0
+     ]
+    },
+    "nan_fraction": 0.0007113543091655267,
+    "fraction_samples_outside_0_1p2_in_window": 0.059,
+    "window_nm": [
+     400.0,
+     1300.0
+    ],
+    "samples_outside_window_qc": [
+     "13_7_SB3",
+     "13_7_SB5",
+     "21_7_SB3"
+    ],
+    "samples_with_no_finite_value_in_window": [],
+    "overall_min": -2184.1,
+    "overall_max": 1018.6
+   },
+   "documented_uncertainty": "none",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "measured_components": "none (derived and model-output quantities)",
+   "colocation": "29 of 51 ARF columns are count plots",
+   "temporal_match": "same campaign",
+   "n_samples_total": 51,
+   "n_published_retrievals": 31,
+   "independent_glaciers": 1,
+   "ancestry": [
+    "k prior for every physics retrieval in this repository"
+   ],
+   "leakage_notes": "published retrievals are a REFERENCE, never a truth target; the fitting procedure that produced them was not verified here",
+   "endpoints_available": []
+  },
+  {
+   "id": "SGreenland_2021_hcrf_counts",
+   "title": "Southern Greenland 2021 HCRF spectra and counts (Chevrollier et al. 2023 / 2026 data)",
+   "source": "Zenodo 10.5281/zenodo.18826013 (HCRF netCDF, as recorded in data/empirical/SOURCES.md) and Chevrollier et al. 2023 Table S4 (parsed from the supplement text)",
+   "version": "repo copy",
+   "license": "CC BY 4.0",
+   "files": [
+    {
+     "role": "spectra",
+     "path": "data/empirical/chevrollier2023_hcrf.csv",
+     "exists": true,
+     "bytes": 355073,
+     "sha256": "9f933e520106fc6d1733c8d1117e23a57000481ae6ffb506bc5684c53fd1d4a0"
+    },
+    {
+     "role": "table",
+     "path": "data/empirical/chevrollier2023_tableS4.csv",
+     "exists": true,
+     "bytes": 1175,
+     "sha256": "3f8c04d42ecb36947c53f9eeb0808e4d1395e0790518646452494ee5b8c41d10"
+    }
+   ],
+   "site": "southern Greenland (site name not recorded in the repository files; one site)",
+   "period": "2021-08-05 to 2021-08-06",
+   "spectral_quantity": "HCRF, nadir (ASD FieldSpec 4; directional, NOT albedo)",
+   "geometry_illumination": "nadir; solar zenith per spectrum in Table S4 (sza_deg)",
+   "units": "dimensionless reflectance factor",
+   "wavelengths": {
+    "n_samples": 20,
+    "wavelength_nm": {
+     "min": 350.0,
+     "max": 2500.0,
+     "n": 2151,
+     "steps_nm": [
+      1.0
+     ]
+    },
+    "nan_fraction": 0.0,
+    "fraction_samples_outside_0_1p2_in_window": 0.0,
+    "window_nm": [
+     400.0,
+     1300.0
+    ],
+    "samples_outside_window_qc": [],
+    "samples_with_no_finite_value_in_window": [],
+    "overall_min": -232.09972,
+    "overall_max": 610.24095
+   },
+   "documented_uncertainty": "counts: number counted not published (log-normal SD 0.10 dex assumed in earlier work); scraped depth 1-6 cm not recorded per sample",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "measured_components": "ice-algal and snow-algal cells (Table S4). No dust, BC, cryoconite or pigment per sample",
+   "colocation": "20 spectra with matching Table S4 rows",
+   "temporal_match": "same day",
+   "n_samples_total": 20,
+   "table_s4_rows": 26,
+   "table_s4_rows_2021": 20,
+   "table_s4_rows_that_are_S6_2017_plots": [
+    "15-7-SB3",
+    "20-7-SB1",
+    "21-7-SB4",
+    "21-7-SB7",
+    "22-7-SB4",
+    "22-7-SB5"
+   ],
+   "measured_flags": {
+    "true": 24,
+    "false": 2
+   },
+   "sampling_groups": {
+    "level": "sampling day",
+    "days": [
+     "2021-08-05",
+     "2021-08-06"
+    ]
+   },
+   "independent_glaciers": 1,
+   "ancestry": [
+    "BioSNICAR's default ice-algal optics (Chevrollier 2023) were measured on algae from this research programme",
+    "used as the PRIMARY target of held-out_v2 and for sigma/tau of the reverse fold (docs/data_use_register.md)",
+    "Table S4 also carries the authors' own fitted model parameters (model_density, model_reff_um): fits to these spectra"
+   ],
+   "leakage_notes": "not untouched; 6 Table S4 rows are S6-2017 plots without spectra in this file",
+   "endpoints_available": [
+    "directional reflectance",
+    "algal abundance"
+   ]
+  },
+  {
+   "id": "Norway_snow_2023_hcrf",
+   "title": "Finse (southern Norway) snowfield HCRF, 180 spectra (snowlaps dataset)",
+   "source": "github.com/openosmia/snowlaps data/spectra; Zenodo 10.5281/zenodo.14639602 (per the paper)",
+   "version": "snowlaps commit 01a7ec62ec3b01a08a161b253ad05456d5649a54",
+   "license": "GPL-3.0 (repository)",
+   "files": [
+    {
+     "role": "spectra",
+     "path": "<SNOWLAPS_PATH>/data/spectra/Chevrollier_et_al_2024_TC_spectra.csv",
+     "exists": true,
+     "bytes": 7330951,
+     "sha256": "75dfc349277bc3b0ca0853d1e12f2f4e81e524b49b19351ee22c7d0679c6be78"
+    },
+    {
+     "role": "table",
+     "path": "<SNOWLAPS_PATH>/data/spectra/Chevrollier_et_al_2024_TC_metadata.csv",
+     "exists": true,
+     "bytes": 13315,
+     "sha256": "2d805ec5d2bbec8b7536db55c1443b4ec8d2184cbda692e02d2fabbc02b50e1e"
+    },
+    {
+     "role": "published_result",
+     "path": "<SNOWLAPS_PATH>/data/optimization_results/results_inversion_no_anisotropy_correction_Chevrollier2024_TC.csv",
+     "exists": true,
+     "bytes": 24605,
+     "sha256": "d548a272517d26e2d332636e74d97c035f59da825a5d08eedab8bce0c1663756"
+    },
+    {
+     "role": "emulator_weights",
+     "path": "<SNOWLAPS_PATH>/data/emulator/snowlaps_emulator_v1.h5",
+     "exists": true,
+     "bytes": 1099236,
+     "sha256": "a8125db0c40fa8bd608ac92434759ff866356af7e5c68fc04e6582ed6f2edd62"
+    },
+    {
+     "role": "scaler",
+     "path": "<SNOWLAPS_PATH>/data/scaler/minmax_scaler.save",
+     "exists": true,
+     "bytes": 903,
+     "sha256": "00e4d97b3e13dc0022ce8d1578850ca7a92e98dcbb9e1d48427e42d8b62b0f0b"
+    }
+   ],
+   "site": "Finse, southern Norway (60.57 N, 7.46 E); snow, not glacier ice",
+   "period": "2023-07-08 to 2023-08-06",
+   "spectral_quantity": "HCRF (ASD FieldSpec 4, 25 degree foreoptic, relative to Spectralon), treated as albedo by the authors",
+   "geometry_illumination": "nadir; SZA 38-58 degrees (metadata); 88 of 180 spectra flagged diffuse (SZA set to 50 by snowlaps)",
+   "units": "dimensionless; RAW values include non-physical numbers in atmospheric absorption bands",
+   "wavelengths": {
+    "n_samples": 180,
+    "wavelength_nm": {
+     "min": 350.0,
+     "max": 2500.0,
+     "n": 2151,
+     "steps_nm": [
+      1.0
+     ]
+    },
+    "nan_fraction": 0.0,
+    "fraction_samples_outside_0_1p2_in_window": 0.0,
+    "window_nm": [
+     400.0,
+     1300.0
+    ],
+    "samples_outside_window_qc": [],
+    "samples_with_no_finite_value_in_window": [],
+    "overall_min": -308.10474928499514,
+    "overall_max": 166.68381833613893,
+    "n_diffuse": 88
+   },
+   "documented_uncertainty": "not stated per spectrum",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "measured_components": "NONE (no LAP concentration measured; black carbon presence not measured)",
+   "colocation": "n/a",
+   "temporal_match": "n/a",
+   "n_samples_total": 180,
+   "n_dates": 12,
+   "published_result_rows": 180,
+   "sampling_groups": {
+    "level": "sampling day (12 dates), one site",
+    "days": [
+     "2023-07-08",
+     "2023-07-09",
+     "2023-07-11",
+     "2023-07-13",
+     "2023-07-14",
+     "2023-07-20",
+     "2023-07-23",
+     "2023-07-28",
+     "2023-07-29",
+     "2023-07-31",
+     "2023-08-01",
+     "2023-08-06"
+    ]
+   },
+   "independent_glaciers": 0,
+   "ancestry": [
+    "reference data for reproducing the snowlaps retrieval only"
+   ],
+   "leakage_notes": "snow substrate, red snow algae: NOT a glacier-ice evaluation set",
+   "endpoints_available": [
+    "spectral reflectance only"
+   ]
+  },
+  {
+   "id": "Williamson2020_lab",
+   "title": "Williamson et al. 2020 S6 2016 pigments, MACs, HPLC spectra (calibration data)",
+   "source": "data/empirical/SOURCES.md",
+   "version": "repo copy",
+   "license": "OGL v3",
+   "files": [
+    {
+     "role": "table",
+     "path": "data/empirical/williamson2020_pigments_per_cell.csv",
+     "exists": true,
+     "bytes": 833,
+     "sha256": "bb0c47a62a9a4bcf37c322422e78a8faba16ef55566dbf1fc37a31111a7e4764"
+    },
+    {
+     "role": "table",
+     "path": "data/empirical/williamson2020_mass_absorption_coefficients.csv",
+     "exists": true,
+     "bytes": 23500,
+     "sha256": "f48a2432275101749563d8fcf1ba4736210da03105f68211478d272ffa052e08"
+    },
+    {
+     "role": "table",
+     "path": "data/empirical/williamson2020_phenolics_mac_with_error.csv",
+     "exists": true,
+     "bytes": 28363,
+     "sha256": "97bdbb411f340b6f6af054742b414b78c8192e030e627a37bc6aab7d2b71fd54"
+    },
+    {
+     "role": "table",
+     "path": "data/empirical/williamson2020_phenolics_hplc_abs_spec.csv",
+     "exists": true,
+     "bytes": 20465,
+     "sha256": "b915733feadfbb23ca6ed57123d27d4b717e00f3fe4b4d9a5f30a9bb5a58a3c5"
+    },
+    {
+     "role": "table",
+     "path": "data/empirical/williamson2020_phenolics_per_sample.csv",
+     "exists": true,
+     "bytes": 13583,
+     "sha256": "0af71e52fec18e0beafd8e3d5cb36423b788cd892c3bcd0a6cae96b8baa6abcf"
+    },
+    {
+     "role": "table",
+     "path": "data/empirical/williamson2020_count_biomass_S6_2016.csv",
+     "exists": true,
+     "bytes": 12402,
+     "sha256": "2a519435991b3a7f60f73733e8066aa5415537d8e06bdb81eb140a64d747b267"
+    }
+   ],
+   "spectral_quantity": "in vivo absorption of algal pigments (per mass, phenol-equivalent) and counts, S6 2016",
+   "notes": "laboratory; the only MEASURED variability of algal pigment optics in the repository (53 extracts, one site)",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "independent_glaciers": 0
+  },
+  {
+   "id": "Ice_SSA",
+   "title": "Measured specific surface area of bubbly ice",
+   "source": "data/empirical/SOURCES.md",
+   "version": "repo copy",
+   "license": "values from publications",
+   "files": [
+    {
+     "role": "table",
+     "path": "data/empirical/ice_ssa_measurements.csv",
+     "exists": true,
+     "bytes": 3189,
+     "sha256": "efdd290e0cc664c196eedcdefc3f73ad09f2b7fb1e50c33cde95405dc110a34a"
+    }
+   ],
+   "spectral_quantity": "19 SSA values (Cooper 2021; Dadic 2013)",
+   "notes": "ice-structure prior",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "independent_glaciers": 0
+  },
+  {
+   "id": "S2_SRF",
+   "title": "Sentinel-2 spectral response functions",
+   "source": "data/empirical/SOURCES.md",
+   "version": "repo copy",
+   "license": "Copernicus open licence",
+   "files": [
+    {
+     "role": "table",
+     "path": "data/empirical/esa_s2_srf_TN-15-0007_v4.0.csv",
+     "exists": true,
+     "bytes": 213434,
+     "sha256": "175e0123242cd54e45e13c83608c6af3638619d7686384779bb9310a9bf30eaa"
+    }
+   ],
+   "spectral_quantity": "ESA SRF v4.0, 1 nm",
+   "notes": "band-integration operator",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "independent_glaciers": 0
+  },
+  {
+   "id": "PROMICE_KAN_hourly",
+   "title": "PROMICE KAN_L and KAN_M hourly (L3), 2016-2023",
+   "source": "GEUS Dataverse doi:10.22008/FK2/IW73UU (live L3 product, downloaded 2026-10-09)",
+   "version": "dataset version 40; sha256 recorded in data/promice_raw/SHA256SUMS",
+   "license": "CC BY 4.0 (GEUS)",
+   "files": [
+    {
+     "role": "table",
+     "path": "<MAIN_CHECKOUT>/data/promice_raw/KAN_L_hour.csv",
+     "exists": true,
+     "bytes": 72976831,
+     "sha256": "2a6fee92ec7c8bfba813b5217bc43a1e24d5c07ec4d15a22a5964a468948d9f9"
+    },
+    {
+     "role": "table",
+     "path": "<MAIN_CHECKOUT>/data/promice_raw/KAN_M_hour.csv",
+     "exists": true,
+     "bytes": 66965925,
+     "sha256": "4665d74ead7ad516bf607d95672966c74e915c9fc26089dcc89d3d7020941983"
+    }
+   ],
+   "site": "KAN_L (about 650 m) and KAN_M (about 1270 m), SW Greenland",
+   "period": "2016-2023 (JJA used)",
+   "spectral_quantity": "broadband shortwave up/down radiation and albedo (radiometer); NO spectral information",
+   "geometry_illumination": "hourly means; tilt-corrected only where dsr_cor exists (KAN_M none in 2019/2021)",
+   "verified_here": {
+    "structure": false,
+    "uncertainty": false
+   },
+   "notes": "untracked read-only data in the main checkout; hashes taken from this run",
+   "measured_components": "none",
+   "independent_glaciers": 2,
+   "endpoints_available": [
+    "station broadband albedo",
+    "absorbed shortwave (with SW down)",
+    "ablation (disagreeing sensors in 2019)"
+   ],
+   "ancestry": [
+    "forcing and validation endpoint of H2/H4 (frozen protocol); KAN_M also used for clear-sky transmissivity and chi"
+   ]
+  },
+  {
+   "id": "PROMBIO",
+   "title": "PROMBIO ice-algae counts under PROMICE radiometers (GEUS)",
+   "source": "doi:10.22008/FK2/IJA2Y4 (2021-2023) and doi:10.22008/FK2/D0JC0P (2024)",
+   "version": "see records/prombio_matching/manifest.csv",
+   "license": "per GEUS Dataverse",
+   "files": [
+    {
+     "role": "table",
+     "path": "records/prombio_matching/manifest.csv",
+     "exists": true,
+     "bytes": 143412,
+     "sha256": "76350424b494f351a0a47600483c1bae3a5c3cdc59e16a6c242baaf1b02e66ce"
+    },
+    {
+     "role": "table",
+     "path": "records/prombio_matching/station_days.csv",
+     "exists": true,
+     "bytes": 2585,
+     "sha256": "5b10624f8eb169ead7b36b064bc78b2d5aab875a7bf3912d8270933ecd701a79"
+    }
+   ],
+   "site": "PROMICE stations (KAN_L, QAS_L/M/U, TAS_A, ...)",
+   "period": "2021-2024",
+   "spectral_quantity": "n/a (counts); station albedo is the radiative endpoint",
+   "measured_components": "ice-algal cells per mL; strata incl. 'under radiometer', 'dark ice' (targeted, not an area mean)",
+   "colocation": "sample under the radiometer; coordinates are STATION positions",
+   "temporal_match": "station-day",
+   "manifest_rows": 163,
+   "manifest_columns": [
+    "obs_id",
+    "source",
+    "source_line",
+    "campaign",
+    "year",
+    "station",
+    "date",
+    "sampling_stratum",
+    "sample_tool",
+    "obs_state",
+    "ice_cells_ml",
+    "upper_bound",
+    "raw_value",
+    "abiotic_load"
+   ],
+   "roles_frozen": "docs/new_data_inventory.md: 2021 and 2023 development; 2024 final test, withheld (5 station-days; 2 usable after exclusions in H5)",
+   "independent_glaciers": "station-days across several stations; usable test n is very small",
+   "verified_here": {
+    "structure": true,
+    "uncertainty": false
+   },
+   "endpoints_available": [
+    "station broadband albedo (daily)"
+   ],
+   "ancestry": [
+    "2024 file header and some rows were seen during an import audit (docs/new_data_inventory.md)"
+   ]
+  },
+  {
+   "id": "DarkZone_2026_data",
+   "title": "Chevrollier et al. 2026 Science Advances data and inversion code",
+   "status": "NOT ACCESSED",
+   "reason": "paper full text and any archive were not reachable; SNICAR-fx repository holds the forward model only",
+   "files": [],
+   "independent_glaciers": null
+  },
+  {
+   "id": "PRISMA_Bohn2022_scene",
+   "title": "PRISMA scene analysed by Bohn et al. 2022 (SW Greenland, 2020-08)",
+   "status": "NOT ACCESSED",
+   "reason": "not downloaded (large; no co-located field measurements per the paper)",
+   "files": [],
+   "independent_glaciers": null
+  },
+  {
+   "id": "Himalaya_observations",
+   "title": "Himalayan spectra with algae and mineral measurements",
+   "status": "NOT ACCESSED",
+   "reason": "none found in this search and none in the repository",
+   "files": [],
+   "independent_glaciers": null
+  },
+  {
+   "id": "Alps_algae_spectra",
+   "title": "Di Mauro et al. 2020 Alpine glacier algae spectra",
+   "status": "NOT ACCESSED",
+   "reason": "not retrieved",
+   "files": [],
+   "independent_glaciers": null
+  },
+  {
+   "id": "Particle_optics_libraries",
+   "title": "Particle optical-property libraries (model inputs, NOT observations)",
+   "source": "BioSNICAR (impurity npz files) and SNICAR-fx data/light_absorbing_particles",
+   "status": "available as software data",
+   "biosnicar_impurities": [
+    "black_carbon bc_ChCB_rn40_dns1270",
+    "snow_algae empirical Chevrollier2023",
+    "glacier_algae ice_algae empirical Chevrollier2023",
+    "dust dust_greenland_Cook_CENTRAL_20190911"
+   ],
+   "snicarfx_files": [
+    "bc_ChCB_rn40_dns1270.nc",
+    "bc_ChCB_rn40_dns1270_slfcot.nc",
+    "brC_Kirch_BCsd.nc",
+    "brC_Kirch_BCsd_slfcot.nc",
+    "dark_cryoconite_1nm_resolution.nc",
+    "dust_balkanski_central_size1.nc",
+    "dust_balkanski_central_size2.nc",
+    "dust_balkanski_central_size3.nc",
+    "dust_balkanski_central_size4.nc",
+    "dust_balkanski_central_size5.nc",
+    "dust_greenland_Cook_CENTRAL_20190911.nc",
+    "dust_greenland_Cook_HIGH_20190911.nc",
+    "dust_greenland_Cook_LOW_20190911.nc",
+    "dust_greenland_central_size1.nc",
+    "dust_greenland_central_size2.nc",
+    "dust_greenland_central_size3.nc",
+    "dust_greenland_central_size4.nc",
+    "dust_greenland_central_size5.nc",
+    "dust_skiles_size1.nc",
+    "dust_skiles_size2.nc",
+    "dust_skiles_size3.nc",
+    "dust_skiles_size4.nc",
+    "dust_skiles_size5.nc",
+    "ice_algae_1nm_resolution.nc",
+    "mineral_dust_1nm_resolution.nc",
+    "snow_algae.nc",
+    "volc_ash_eyja_central_size1.nc",
+    "volc_ash_eyja_central_size2.nc",
+    "volc_ash_eyja_central_size3.nc",
+    "volc_ash_eyja_central_size4.nc",
+    "volc_ash_eyja_central_size5.nc"
+   ],
+   "licence_note": "BioSNICAR MIT; SNICAR-fx repository ACSL v1.4 (restricts commercial use) - reuse needs a licence decision",
+   "files": [],
+   "independent_glaciers": null
+  }
+ ]
+}
