@@ -1,0 +1,105 @@
+{
+ "description": "Resolved laminar benchmark for the reduced model's segment heat exchange: Graetz problem between parallel plates with isothermal (T = T_m = 0) walls.",
+ "Nu_fd_resolved_at_x0p5": 7.540959032453343,
+ "Nu_fd_analytic": 7.5407,
+ "rows": [
+  {
+   "xstar": 0.0001,
+   "Tb_resolved_400": 0.9974989138498045,
+   "Tb_resolved_200": 0.9974921404212488,
+   "Tb_resolved_100": 0.9974639969139276,
+   "grid_change_200_400": 6.7734285557063956e-06,
+   "Tb_reduced_constNu": 0.999811500268307,
+   "reduced_minus_resolved": 0.002312586418502516,
+   "heat_removed_resolved": 0.0025010861501955084,
+   "heat_removed_reduced": 0.0001884997316929926,
+   "heat_error_rel": -0.9246328513401036,
+   "local_Nu_resolved": 66.70016092741812
+  },
+  {
+   "xstar": 0.001,
+   "Tb_resolved_400": 0.988455235650092,
+   "Tb_resolved_200": 0.9884509391628006,
+   "Tb_resolved_100": 0.9884287987642673,
+   "grid_change_200_400": 4.296487291388651e-06,
+   "Tb_reduced_constNu": 0.9981166008263003,
+   "reduced_minus_resolved": 0.009661365176208303,
+   "heat_removed_resolved": 0.011544764349908032,
+   "heat_removed_reduced": 0.001883399173699729,
+   "heat_error_rel": -0.836861185155786,
+   "local_Nu_resolved": 31.01736918222988
+  },
+  {
+   "xstar": 0.01,
+   "Tb_resolved_400": 0.9469955148087004,
+   "Tb_resolved_200": 0.9470016547297827,
+   "Tb_resolved_100": 0.9470031772660847,
+   "grid_change_200_400": 6.139921082337629e-06,
+   "Tb_reduced_constNu": 0.9813248328660018,
+   "reduced_minus_resolved": 0.03432931805730144,
+   "heat_removed_resolved": 0.05300448519129963,
+   "heat_removed_reduced": 0.018675167133998194,
+   "heat_error_rel": -0.6476681724839465,
+   "local_Nu_resolved": 14.779655897975395
+  },
+  {
+   "xstar": 0.05,
+   "Tb_resolved_400": 0.8473845920442511,
+   "Tb_resolved_200": 0.8474152464792526,
+   "Tb_resolved_100": 0.8474713784791882,
+   "grid_change_200_400": 3.0654435001498115e-05,
+   "Tb_reduced_constNu": 0.9100472570458353,
+   "reduced_minus_resolved": 0.06266266500158424,
+   "heat_removed_resolved": 0.1526154079557489,
+   "heat_removed_reduced": 0.08995274295416467,
+   "heat_error_rel": -0.4105919961879169,
+   "local_Nu_resolved": 9.424770277062798
+  },
+  {
+   "xstar": 0.1,
+   "Tb_resolved_400": 0.7602536022204163,
+   "Tb_resolved_200": 0.7603066806141773,
+   "Tb_resolved_100": 0.7604112082835365,
+   "grid_change_200_400": 5.307839376100798e-05,
+   "Tb_reduced_constNu": 0.8281860100566489,
+   "reduced_minus_resolved": 0.06793240783623267,
+   "heat_removed_resolved": 0.23974639777958373,
+   "heat_removed_reduced": 0.17181398994335106,
+   "heat_error_rel": -0.2833511096116149,
+   "local_Nu_resolved": 8.194227393898625
+  },
+  {
+   "xstar": 0.2,
+   "Tb_resolved_400": 0.6252259108969792,
+   "Tb_resolved_200": 0.6253254809176527,
+   "Tb_resolved_100": 0.6255331326383854,
+   "grid_change_200_400": 9.957002067351173e-05,
+   "Tb_reduced_constNu": 0.6858920672535525,
+   "reduced_minus_resolved": 0.06066615635657324,
+   "heat_removed_resolved": 0.3747740891030208,
+   "heat_removed_reduced": 0.31410793274644755,
+   "heat_error_rel": -0.16187393451284424,
+   "local_Nu_resolved": 7.633633784363433
+  },
+  {
+   "xstar": 0.5,
+   "Tb_resolved_400": 0.35497502348490856,
+   "Tb_resolved_200": 0.3552883733753227,
+   "Tb_resolved_100": 0.35594419992802606,
+   "grid_change_200_400": 0.0003133498904141496,
+   "Tb_reduced_constNu": 0.3896183923646025,
+   "reduced_minus_resolved": 0.034643368879693937,
+   "heat_removed_resolved": 0.6450249765150915,
+   "heat_removed_reduced": 0.6103816076353975,
+   "heat_error_rel": -0.05370856965394339,
+   "local_Nu_resolved": 7.540959032453343
+  }
+ ],
+ "segmentation_independence": {
+  "1": 0.8281860100566494,
+  "2": 0.8281860100566493,
+  "8": 0.8281860100566489,
+  "64": 0.8281860100566486
+ },
+ "note": "x* = alpha x /(H^2 U); T_b/T_in at x*. Positive heat_error_rel = constant-Nu closure removes MORE heat than the resolved solution"
+}
