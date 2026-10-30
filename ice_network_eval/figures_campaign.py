@@ -78,6 +78,21 @@ def fig_cost(d):
     fig.text(0.5, 0.01, NOTE, ha="center", fontsize=8); fig.tight_layout(rect=(0, 0.03, 1, 1)); fig.savefig(os.path.join(OUT, "accuracy_cost_frozen.png")); plt.close(fig)
 
 
+def fig_convergence():
+    K = json.load(open(os.path.join(HERE, "records", "convergence_summary.json"))); cols = dict(S1=OI["black"], S2=OI["blue"], S3=OI["verm"], S4=OI["green"])
+    fig, ax = plt.subplots(2, 4, figsize=(13, 6.2))
+    for j, fac in enumerate(("stations", "dt_geom", "msub", "rtol")):
+        for scn, v in K.items():
+            rs = v["sweeps"][fac]; x = [r["value"] for r in rs]
+            ax[0, j].plot(x, [r["hydrograph_rmse_over_I"] for r in rs], "o-", color=cols[scn], ms=3, label=scn)
+            ax[1, j].plot(x, [r["sill_err_m"][1] * 1e3 for r in rs], "o-", color=cols[scn], ms=3)
+            ax[0, j].axhline(v["reference_uncertainty_400_to_800"]["hydrograph_rmse_over_I"], color=cols[scn], lw=0.6, ls=":")
+        ax[0, j].set_xscale("log"); ax[1, j].set_xscale("log"); ax[0, j].set_yscale("log"); ax[1, j].set_xlabel({"stations": "stations per route (-)", "dt_geom": "geometry step (s)", "msub": "hydraulic substeps (-)", "rtol": "ODE rtol (-)"}[fac])
+        ax[0, j].set_title(fac, fontsize=9)
+    ax[0, 0].set_ylabel("hydrograph RMSE / inflow vs 800-cell ref"); ax[1, 0].set_ylabel("R2 sill-lowering error vs 800-cell ref (mm)"); ax[0, 0].legend(fontsize=7)
+    fig.suptitle("One-factor convergence about r17 / dt 450 s / msub 16 / rtol 1e-7 (dotted: 400->800 reference change). " + NOTE, fontsize=8); fig.tight_layout(); fig.savefig(os.path.join(OUT, "convergence.png")); plt.close(fig)
+
+
 if __name__ == "__main__":
     d = frozen()
-    for w in sys.argv[1:]: {"hydro": fig_hydro, "events": fig_events, "cost": fig_cost}[w](d)
+    for w in sys.argv[1:]: {"hydro": fig_hydro, "events": fig_events, "cost": fig_cost, "conv": lambda _d: fig_convergence()}[w](d)

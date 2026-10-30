@@ -1,0 +1,43 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 800,
+  "label": "ref_S3_conv_800",
+  "version": "v1.0",
+  "commit": "4fc1fbb"
+ },
+ "id": "ref_S3_conv_800_7bccda1403",
+ "commit": "4fc1fbb",
+ "start_unix": 1793381951.35657,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": 1845.465091741523,
+  "t_act2_s": 4535.535109212522,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.4960319713171943,
+  "sill_lowering1_m": 0.05226196155454943,
+  "sill_lowering2_m": 0.06175004434413722,
+  "delivered1_m3": 995.0459233758477,
+  "delivered2_m3": 740.6603569255756,
+  "heat_to_ice_J": 1996980343.0992155,
+  "stage_end_m": 100.23017510582733,
+  "stage_max_m": 100.25808037265122
+ },
+ "timing": {
+  "import_s": 0.724358819000372,
+  "warmup_s": 0.21724322099998972,
+  "solver_s": 720.4560253809996,
+  "metrics_serialization_s": 0.0026417750004839036
+ },
+ "nsteps": 1459315,
+ "diss_J": 14615825.091515752,
+ "wall_total_s": 721.5460219229999,
+ "peak_rss_mb": 173.984375,
+ "end_unix": 1793382672.9026089
+}

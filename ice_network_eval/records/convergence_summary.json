@@ -605,5 +605,1826 @@
     "geometry_vs_latent_kg_abs_max": 5.3668488645186585e-05
    }
   }
+ },
+ "S2": {
+  "reference": {
+   "100_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": 0.03158651496191973,
+    "solver_s": 20.37113910700009,
+    "nsteps": 160933,
+    "t_act2_s": 3525.5160381523433,
+    "t_dom2_s": 7929.27892691583,
+    "sill_lowering1_m": 0.04426412332104235,
+    "sill_lowering2_m": 0.058728519045814664,
+    "delivered1_m3": 480.1466350683752,
+    "delivered2_m3": 596.1867192011821
+   },
+   "200_cfl0.1": {
+    "hydrograph_rmse_over_I_vs800": 0.013250873394066283,
+    "solver_s": 234.3010017809993,
+    "nsteps": 1311487,
+    "t_act2_s": 3512.474885941431,
+    "t_dom2_s": 7815.305532071456,
+    "sill_lowering1_m": 0.04485277298402934,
+    "sill_lowering2_m": 0.05996528449358607,
+    "delivered1_m3": 477.10682294739604,
+    "delivered2_m3": 601.2342174352954
+   },
+   "200_cfl0.2": {
+    "hydrograph_rmse_over_I_vs800": 0.013490445674848578,
+    "solver_s": 120.59452204699937,
+    "nsteps": 655710,
+    "t_act2_s": 3516.3322063637006,
+    "t_dom2_s": 7823.41924134617,
+    "sill_lowering1_m": 0.04479562203380283,
+    "sill_lowering2_m": 0.05985489433059854,
+    "delivered1_m3": 477.0508167641733,
+    "delivered2_m3": 600.8323758800477
+   },
+   "200_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": 0.01397413378280983,
+    "solver_s": 58.46295684500046,
+    "nsteps": 327820,
+    "t_act2_s": 3523.8160662967816,
+    "t_dom2_s": 7839.770722328816,
+    "sill_lowering1_m": 0.04468290057447177,
+    "sill_lowering2_m": 0.05963507097845877,
+    "delivered1_m3": 476.94037419231427,
+    "delivered2_m3": 600.0272777385179
+   },
+   "400_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": 0.004736250393642391,
+    "solver_s": 193.17280595500006,
+    "nsteps": 665739,
+    "t_act2_s": 3528.3922247637465,
+    "t_dom2_s": 7774.577540911774,
+    "sill_lowering1_m": 0.04489205758389403,
+    "sill_lowering2_m": 0.06017501520956614,
+    "delivered1_m3": 475.03356334761884,
+    "delivered2_m3": 602.4797845555321
+   },
+   "800_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": null,
+    "solver_s": 669.0332813000005,
+    "nsteps": 1347659,
+    "t_act2_s": 3530.374061992809,
+    "t_dom2_s": 7735.240461863216,
+    "sill_lowering1_m": 0.044999120978062024,
+    "sill_lowering2_m": 0.0604669561272857,
+    "delivered1_m3": 474.00771576120144,
+    "delivered2_m3": 603.8273903572996
+   }
+  },
+  "reference_uncertainty_400_to_800": {
+   "hydrograph_rmse_over_I": 0.004736250393642391,
+   "t_act2_s": 1.981837229062421,
+   "t_dom2_s": 39.337079048557825,
+   "sill_lowering1_m": 0.00010706339416799437,
+   "sill_lowering2_m": 0.00029194091771955755
+  },
+  "sweeps": {
+   "dt_geom": [
+    {
+     "value": 112.5,
+     "hydrograph_rmse_over_I": 0.026429113490796057,
+     "cumvol_err_rel_total": 0.04146348961819893,
+     "t_act2_err_s": -247.95583747659884,
+     "t_dom2_err_s": -1769.6432855437715,
+     "sill_err_m": [
+      0.0008362206656045146,
+      0.009241577826699654
+     ],
+     "delivered_err_m3": [
+      -9.445701998689572,
+      30.887236179341244
+     ],
+     "solver_s": 17.37204953699984,
+     "law_evals": 9824,
+     "conservation": {
+      "water_residual_rel": -4.973983292695677e-16,
+      "mass_residual_rel": -1.2327913881530325e-15,
+      "energy_residual_rel": -3.3700596270180513e-16,
+      "geometry_vs_latent_rel_max": 3.05210705888974e-06,
+      "geometry_vs_latent_kg_abs_max": 7.83013732519322e-06
+     }
+    },
+    {
+     "value": 225.0,
+     "hydrograph_rmse_over_I": 0.026191793092484938,
+     "cumvol_err_rel_total": 0.04111235998733016,
+     "t_act2_err_s": -243.20158096411524,
+     "t_dom2_err_s": -1737.0380527806055,
+     "sill_err_m": [
+      0.0008356525481190147,
+      0.009228222130687413
+     ],
+     "delivered_err_m3": [
+      -9.40008633343308,
+      30.510603121511622
+     ],
+     "solver_s": 13.278244289999748,
+     "law_evals": 7356,
+     "conservation": {
+      "water_residual_rel": 7.164874710057948e-16,
+      "mass_residual_rel": 1.6237849129685503e-15,
+      "energy_residual_rel": 1.0784205391448495e-15,
+      "geometry_vs_latent_rel_max": 3.056813368980084e-06,
+      "geometry_vs_latent_kg_abs_max": 1.574754562660985e-05
+     },
+     "observed_order_vs_previous": 0.013013203510212462
+    },
+    {
+     "value": 450.0,
+     "hydrograph_rmse_over_I": 0.02575382990713258,
+     "cumvol_err_rel_total": 0.04041589976253623,
+     "t_act2_err_s": -243.2872172247362,
+     "t_dom2_err_s": -1738.8831723935782,
+     "sill_err_m": [
+      0.0008348982524069015,
+      0.009203016384660145
+     ],
+     "delivered_err_m3": [
+      -9.315551449011764,
+      29.757330115323725
+     ],
+     "solver_s": 10.317725316999713,
+     "law_evals": 5616,
+     "conservation": {
+      "water_residual_rel": 2.5201888581305276e-16,
+      "mass_residual_rel": 5.716938455739866e-16,
+      "energy_residual_rel": 6.740146789030185e-17,
+      "geometry_vs_latent_rel_max": 3.4185797912117393e-07,
+      "geometry_vs_latent_kg_abs_max": 3.1876984849077417e-05
+     },
+     "observed_order_vs_previous": 0.02432783558460368
+    },
+    {
+     "value": 900.0,
+     "hydrograph_rmse_over_I": 0.025018977656091422,
+     "cumvol_err_rel_total": 0.039022635028194336,
+     "t_act2_err_s": -235.90256465008497,
+     "t_dom2_err_s": -1613.2495659675096,
+     "sill_err_m": [
+      0.000834631356511295,
+      0.009154774950062006
+     ],
+     "delivered_err_m3": [
+      -9.162311657173063,
+      28.238784767939137
+     ],
+     "solver_s": 9.586749955999949,
+     "law_evals": 4946,
+     "conservation": {
+      "water_residual_rel": 2.1829265623897432e-16,
+      "mass_residual_rel": 4.542709935783782e-16,
+      "energy_residual_rel": 2.0220553298946914e-16,
+      "geometry_vs_latent_rel_max": 4.4635391171342263e-07,
+      "geometry_vs_latent_kg_abs_max": 6.559250638993319e-05
+     },
+     "observed_order_vs_previous": 0.041764156275803585
+    },
+    {
+     "value": 1800.0,
+     "hydrograph_rmse_over_I": 0.023881586016428428,
+     "cumvol_err_rel_total": 0.03596105981392147,
+     "t_act2_err_s": -236.18348073366042,
+     "t_dom2_err_s": -1619.873401183053,
+     "sill_err_m": [
+      0.0008357679016768316,
+      0.009068720962943644
+     ],
+     "delivered_err_m3": [
+      -8.932160391251386,
+      25.168299474205128
+     ],
+     "solver_s": 9.125094395999895,
+     "law_evals": 4518,
+     "conservation": {
+      "water_residual_rel": -6.094679184487702e-17,
+      "mass_residual_rel": -1.2781348661898899e-16,
+      "energy_residual_rel": 0.0,
+      "geometry_vs_latent_rel_max": 5.895367866421478e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0001376791447667003
+     },
+     "observed_order_vs_previous": 0.0671241866432481
+    }
+   ],
+   "msub": [
+    {
+     "value": 2,
+     "hydrograph_rmse_over_I": 0.023432083540206105,
+     "cumvol_err_rel_total": 0.03659054109658778,
+     "t_act2_err_s": -261.8419894552708,
+     "t_dom2_err_s": -1562.8154293820144,
+     "sill_err_m": [
+      0.0008441459445407418,
+      0.008923740132459557
+     ],
+     "delivered_err_m3": [
+      -7.83207077666259,
+      27.15250256922411
+     ],
+     "solver_s": 22.412547716000063,
+     "law_evals": 44304,
+     "conservation": {
+      "water_residual_rel": 2.8377068161283416e-15,
+      "mass_residual_rel": 6.485903524719994e-15,
+      "energy_residual_rel": 2.493866839029595e-15,
+      "geometry_vs_latent_rel_max": 3.4489669711882666e-07,
+      "geometry_vs_latent_kg_abs_max": 3.991711836803802e-05
+     }
+    },
+    {
+     "value": 4,
+     "hydrograph_rmse_over_I": 0.025236556408719562,
+     "cumvol_err_rel_total": 0.03956407541701998,
+     "t_act2_err_s": -243.55689741769174,
+     "t_dom2_err_s": -1705.2727194590652,
+     "sill_err_m": [
+      0.0008360674215168729,
+      0.009138669388320864
+     ],
+     "delivered_err_m3": [
+      -8.98768629284399,
+      29.17575043587931
+     ],
+     "solver_s": 31.331005477000417,
+     "law_evals": 45038,
+     "conservation": {
+      "water_residual_rel": 2.615533639216613e-15,
+      "mass_residual_rel": 6.135677390700611e-15,
+      "energy_residual_rel": 2.359054052104629e-15,
+      "geometry_vs_latent_rel_max": 3.4215382524544567e-07,
+      "geometry_vs_latent_kg_abs_max": 3.221660636221202e-05
+     },
+     "observed_order_vs_previous": 0.10702982255713349
+    },
+    {
+     "value": 8,
+     "hydrograph_rmse_over_I": 0.02565066994432704,
+     "cumvol_err_rel_total": 0.04024582323617339,
+     "t_act2_err_s": -243.29785889168352,
+     "t_dom2_err_s": -1732.3785034219545,
+     "sill_err_m": [
+      0.0008350784287074475,
+      0.009189690896846514
+     ],
+     "delivered_err_m3": [
+      -9.249983379671733,
+      29.64122020642401
+     ],
+     "solver_s": 19.43229346199996,
+     "law_evals": 16584,
+     "conservation": {
+      "water_residual_rel": 1.2142855601904003e-15,
+      "mass_residual_rel": 2.7630855437226055e-15,
+      "energy_residual_rel": 1.4154311463685293e-15,
+      "geometry_vs_latent_rel_max": 3.419118587007475e-07,
+      "geometry_vs_latent_kg_abs_max": 2.9904738221175897e-05
+     },
+     "observed_order_vs_previous": 0.02348144223944893
+    },
+    {
+     "value": 16,
+     "hydrograph_rmse_over_I": 0.02575382990713258,
+     "cumvol_err_rel_total": 0.04041589976253623,
+     "t_act2_err_s": -243.2872172247362,
+     "t_dom2_err_s": -1738.8831723935782,
+     "sill_err_m": [
+      0.0008348982524069015,
+      0.009203016384660145
+     ],
+     "delivered_err_m3": [
+      -9.315551449011764,
+      29.757330115323725
+     ],
+     "solver_s": 10.317725316999713,
+     "law_evals": 5616,
+     "conservation": {
+      "water_residual_rel": 2.5201888581305276e-16,
+      "mass_residual_rel": 5.716938455739866e-16,
+      "energy_residual_rel": 6.740146789030185e-17,
+      "geometry_vs_latent_rel_max": 3.4185797912117393e-07,
+      "geometry_vs_latent_kg_abs_max": 3.1876984849077417e-05
+     },
+     "observed_order_vs_previous": 0.005790487874927094
+    },
+    {
+     "value": 32,
+     "hydrograph_rmse_over_I": 0.025779544698352266,
+     "cumvol_err_rel_total": 0.040458297127421924,
+     "t_act2_err_s": -243.2863283494471,
+     "t_dom2_err_s": -1740.4920608525836,
+     "sill_err_m": [
+      0.0008348548412726586,
+      0.009206366185225079
+     ],
+     "delivered_err_m3": [
+      -9.331876935968921,
+      29.786282560098357
+     ],
+     "solver_s": 13.833624894999957,
+     "law_evals": 4584,
+     "conservation": {
+      "water_residual_rel": -7.780982399265555e-17,
+      "mass_residual_rel": -1.3473837267555872e-16,
+      "energy_residual_rel": -4.044087844817038e-16,
+      "geometry_vs_latent_rel_max": 3.418429582028059e-07,
+      "geometry_vs_latent_kg_abs_max": 3.266178591321278e-05
+     },
+     "observed_order_vs_previous": 0.0014397894620043396
+    }
+   ],
+   "rtol": [
+    {
+     "value": 1e-09,
+     "hydrograph_rmse_over_I": 0.025753969624692733,
+     "cumvol_err_rel_total": 0.04041601415668806,
+     "t_act2_err_s": -243.28721725719242,
+     "t_dom2_err_s": -1738.883182552201,
+     "sill_err_m": [
+      0.0008348964269231374,
+      0.009203012674163347
+     ],
+     "delivered_err_m3": [
+      -9.315646437167914,
+      29.757178932195075
+     ],
+     "solver_s": 13.98210865100009,
+     "law_evals": 7908,
+     "conservation": {
+      "water_residual_rel": 1.127445921924145e-15,
+      "mass_residual_rel": 2.6078809574054206e-15,
+      "energy_residual_rel": 1.2806278912544469e-15,
+      "geometry_vs_latent_rel_max": 3.418289075055653e-07,
+      "geometry_vs_latent_kg_abs_max": 3.18772910858911e-05
+     }
+    },
+    {
+     "value": 1e-08,
+     "hydrograph_rmse_over_I": 0.02575399085053684,
+     "cumvol_err_rel_total": 0.04041603347143073,
+     "t_act2_err_s": -243.28721725419246,
+     "t_dom2_err_s": -1738.8831799394693,
+     "sill_err_m": [
+      0.0008348961797111087,
+      0.009203012157229296
+     ],
+     "delivered_err_m3": [
+      -9.315675742756184,
+      29.757130845577535
+     ],
+     "solver_s": 12.035890656999982,
+     "law_evals": 6810,
+     "conservation": {
+      "water_residual_rel": -3.86393549985974e-17,
+      "mass_residual_rel": -3.399941374045767e-17,
+      "energy_residual_rel": -4.718102758820436e-16,
+      "geometry_vs_latent_rel_max": 3.4185454296843783e-07,
+      "geometry_vs_latent_kg_abs_max": 3.187706385165967e-05
+     },
+     "observed_order_vs_previous": 3.579356233412121e-07
+    },
+    {
+     "value": 1e-07,
+     "hydrograph_rmse_over_I": 0.02575382990713258,
+     "cumvol_err_rel_total": 0.04041589976253623,
+     "t_act2_err_s": -243.2872172247362,
+     "t_dom2_err_s": -1738.8831723935782,
+     "sill_err_m": [
+      0.0008348982524069015,
+      0.009203016384660145
+     ],
+     "delivered_err_m3": [
+      -9.315551449011764,
+      29.757330115323725
+     ],
+     "solver_s": 10.317725316999713,
+     "law_evals": 5616,
+     "conservation": {
+      "water_residual_rel": 2.5201888581305276e-16,
+      "mass_residual_rel": 5.716938455739866e-16,
+      "energy_residual_rel": 6.740146789030185e-17,
+      "geometry_vs_latent_rel_max": 3.4185797912117393e-07,
+      "geometry_vs_latent_kg_abs_max": 3.1876984849077417e-05
+     },
+     "observed_order_vs_previous": 2.71402794145171e-06
+    },
+    {
+     "value": 1e-06,
+     "hydrograph_rmse_over_I": 0.02575325399221911,
+     "cumvol_err_rel_total": 0.04041537485660846,
+     "t_act2_err_s": -243.28721701728136,
+     "t_dom2_err_s": -1738.883275136227,
+     "sill_err_m": [
+      0.0008349049298885802,
+      0.009203030974873627
+     ],
+     "delivered_err_m3": [
+      -9.314845755163901,
+      29.758503649863314
+     ],
+     "solver_s": 9.43765498599987,
+     "law_evals": 5040,
+     "conservation": {
+      "water_residual_rel": -6.689521314235794e-16,
+      "mass_residual_rel": -1.5960835849517419e-15,
+      "energy_residual_rel": -5.392117387561024e-16,
+      "geometry_vs_latent_rel_max": 3.418581297640288e-07,
+      "geometry_vs_latent_kg_abs_max": 3.1877370902932967e-05
+     },
+     "observed_order_vs_previous": 9.711932807769184e-06
+    },
+    {
+     "value": 1e-05,
+     "hydrograph_rmse_over_I": 0.02575629097628934,
+     "cumvol_err_rel_total": 0.04041761975576672,
+     "t_act2_err_s": -243.28721562467126,
+     "t_dom2_err_s": -1738.8826734707254,
+     "sill_err_m": [
+      0.0008348027254356793,
+      0.00920283997457716
+     ],
+     "delivered_err_m3": [
+      -9.318541361164307,
+      29.75290007342835
+     ],
+     "solver_s": 7.63622253199992,
+     "law_evals": 4074,
+     "conservation": {
+      "water_residual_rel": 3.1880787618698035e-16,
+      "mass_residual_rel": 7.734866745401645e-16,
+      "energy_residual_rel": 6.066132295566393e-16,
+      "geometry_vs_latent_rel_max": 3.4188359003150855e-07,
+      "geometry_vs_latent_kg_abs_max": 3.1874723909197655e-05
+     },
+     "observed_order_vs_previous": 5.121169001446147e-05
+    }
+   ],
+   "stations": [
+    {
+     "value": 5,
+     "hydrograph_rmse_over_I": 0.05692612733751719,
+     "cumvol_err_rel_total": 0.08928782409451319,
+     "t_act2_err_s": -296.79547841784233,
+     "t_dom2_err_s": -2403.829388174022,
+     "sill_err_m": [
+      -0.0011339661244562649,
+      0.012118200945849367
+     ],
+     "delivered_err_m3": [
+      -26.453235265947114,
+      65.23721063352673
+     ],
+     "solver_s": 28.02107314399973,
+     "law_evals": 49914,
+     "conservation": {
+      "water_residual_rel": -2.8848441755193495e-15,
+      "mass_residual_rel": -6.72003904303175e-15,
+      "energy_residual_rel": -2.9654234923415846e-15,
+      "geometry_vs_latent_rel_max": 1.7166143051825594e-06,
+      "geometry_vs_latent_kg_abs_max": 0.000638736824739361
+     }
+    },
+    {
+     "value": 9,
+     "hydrograph_rmse_over_I": 0.04787859480961631,
+     "cumvol_err_rel_total": 0.07586595132122398,
+     "t_act2_err_s": -285.7012839325853,
+     "t_dom2_err_s": -2384.761622576516,
+     "sill_err_m": [
+      0.00016328787381780785,
+      0.011805561890326999
+     ],
+     "delivered_err_m3": [
+      -22.431739789563323,
+      54.822468559237564
+     ],
+     "solver_s": 15.607903331000216,
+     "law_evals": 14318,
+     "conservation": {
+      "water_residual_rel": -4.299406928880518e-16,
+      "mass_residual_rel": -1.1276161328308245e-15,
+      "energy_residual_rel": 0.0,
+      "geometry_vs_latent_rel_max": 8.337634130322726e-07,
+      "geometry_vs_latent_kg_abs_max": 0.00015767365419794288
+     },
+     "observed_order_vs_previous": 0.29447058585867064
+    },
+    {
+     "value": 17,
+     "hydrograph_rmse_over_I": 0.02575382990713258,
+     "cumvol_err_rel_total": 0.04041589976253623,
+     "t_act2_err_s": -243.2872172247362,
+     "t_dom2_err_s": -1738.8831723935782,
+     "sill_err_m": [
+      0.0008348982524069015,
+      0.009203016384660145
+     ],
+     "delivered_err_m3": [
+      -9.315551449011764,
+      29.757330115323725
+     ],
+     "solver_s": 10.317725316999713,
+     "law_evals": 5616,
+     "conservation": {
+      "water_residual_rel": 2.5201888581305276e-16,
+      "mass_residual_rel": 5.716938455739866e-16,
+      "energy_residual_rel": 6.740146789030185e-17,
+      "geometry_vs_latent_rel_max": 3.4185797912117393e-07,
+      "geometry_vs_latent_kg_abs_max": 3.1876984849077417e-05
+     },
+     "observed_order_vs_previous": 0.974993921637211
+    },
+    {
+     "value": 33,
+     "hydrograph_rmse_over_I": 0.0061241355925213785,
+     "cumvol_err_rel_total": 0.008261470001940994,
+     "t_act2_err_s": 12.073743513461523,
+     "t_dom2_err_s": -92.73719968676323,
+     "sill_err_m": [
+      0.0011524640936073638,
+      0.005793856949011911
+     ],
+     "delivered_err_m3": [
+      5.049551877555132,
+      5.389689469387804
+     ],
+     "solver_s": 66.3854944059999,
+     "law_evals": 8122,
+     "conservation": {
+      "water_residual_rel": 1.265150877290822e-15,
+      "mass_residual_rel": 2.884655206464803e-15,
+      "energy_residual_rel": 1.6851145586369796e-15,
+      "geometry_vs_latent_rel_max": 1.1025690126041531e-07,
+      "geometry_vs_latent_kg_abs_max": 4.179243605584304e-05
+     },
+     "observed_order_vs_previous": 2.1654730191916345
+    },
+    {
+     "value": 65,
+     "hydrograph_rmse_over_I": 0.005368773551853143,
+     "cumvol_err_rel_total": 0.007212527831106202,
+     "t_act2_err_s": 10.268793560127051,
+     "t_dom2_err_s": -96.29783416976534,
+     "sill_err_m": [
+      0.0008994567863425118,
+      0.002206192164393883
+     ],
+     "delivered_err_m3": [
+      5.0029683930264355,
+      4.30229839986464
+     ],
+     "solver_s": 48.85806536900009,
+     "law_evals": 5208,
+     "conservation": {
+      "water_residual_rel": -1.1545459374642302e-15,
+      "mass_residual_rel": -2.647928830648279e-15,
+      "energy_residual_rel": -1.75252710600531e-15,
+      "geometry_vs_latent_rel_max": 2.881661781053001e-08,
+      "geometry_vs_latent_kg_abs_max": 2.360799062284258e-05
+     },
+     "observed_order_vs_previous": 0.19419098034791507
+    }
+   ]
+  },
+  "baseline": {
+   "value": null,
+   "hydrograph_rmse_over_I": 0.02575382990713258,
+   "cumvol_err_rel_total": 0.04041589976253623,
+   "t_act2_err_s": -243.2872172247362,
+   "t_dom2_err_s": -1738.8831723935782,
+   "sill_err_m": [
+    0.0008348982524069015,
+    0.009203016384660145
+   ],
+   "delivered_err_m3": [
+    -9.315551449011764,
+    29.757330115323725
+   ],
+   "solver_s": 10.317725316999713,
+   "law_evals": 5616,
+   "conservation": {
+    "water_residual_rel": 2.5201888581305276e-16,
+    "mass_residual_rel": 5.716938455739866e-16,
+    "energy_residual_rel": 6.740146789030185e-17,
+    "geometry_vs_latent_rel_max": 3.4185797912117393e-07,
+    "geometry_vs_latent_kg_abs_max": 3.1876984849077417e-05
+   }
+  }
+ },
+ "S3": {
+  "reference": {
+   "100_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": 0.023245115733724665,
+    "solver_s": 24.34594213999935,
+    "nsteps": 174523,
+    "t_act2_s": 4531.613845677932,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.05158022889278868,
+    "sill_lowering2_m": 0.06017237591655089,
+    "delivered1_m3": 1002.577584757164,
+    "delivered2_m3": 732.2072317769158
+   },
+   "200_cfl0.1": {
+    "hydrograph_rmse_over_I_vs800": 0.009881407688311332,
+    "solver_s": 249.6788420010007,
+    "nsteps": 1422113,
+    "t_act2_s": 4529.476802137154,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.05213532503100282,
+    "sill_lowering2_m": 0.061268271779326255,
+    "delivered1_m3": 999.4593712348401,
+    "delivered2_m3": 737.0898013049563
+   },
+   "200_cfl0.2": {
+    "hydrograph_rmse_over_I_vs800": 0.0099841405201147,
+    "solver_s": 125.20617817099992,
+    "nsteps": 711059,
+    "t_act2_s": 4530.582159097421,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.05207858967271761,
+    "sill_lowering2_m": 0.061181135166506806,
+    "delivered1_m3": 999.1600305564409,
+    "delivered2_m3": 736.917981370226
+   },
+   "200_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": 0.010194098521956777,
+    "solver_s": 65.79774402200019,
+    "nsteps": 355524,
+    "t_act2_s": 4532.8250252664875,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.051966366772717265,
+    "sill_lowering2_m": 0.061007234516296194,
+    "delivered1_m3": 998.5640165049077,
+    "delivered2_m3": 736.570714477527
+   },
+   "400_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": 0.003439103247133176,
+    "solver_s": 213.16168966499936,
+    "nsteps": 721485,
+    "t_act2_s": 4534.575907156125,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.05216170488299099,
+    "sill_lowering2_m": 0.06149147852136139,
+    "delivered1_m3": 996.2632772261835,
+    "delivered2_m3": 739.2267189658651
+   },
+   "800_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": null,
+    "solver_s": 720.4560253809996,
+    "nsteps": 1459315,
+    "t_act2_s": 4535.535109212522,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.05226196155454943,
+    "sill_lowering2_m": 0.06175004434413722,
+    "delivered1_m3": 995.0459233758477,
+    "delivered2_m3": 740.6603569255756
+   }
+  },
+  "reference_uncertainty_400_to_800": {
+   "hydrograph_rmse_over_I": 0.003439103247133176,
+   "t_act2_s": 0.9592020563968617,
+   "t_dom2_s": null,
+   "sill_lowering1_m": 0.00010025667155844076,
+   "sill_lowering2_m": 0.00025856582277583584
+  },
+  "sweeps": {
+   "dt_geom": [
+    {
+     "value": 112.5,
+     "hydrograph_rmse_over_I": 0.017038647539101805,
+     "cumvol_err_rel_total": 0.026156637508290018,
+     "t_act2_err_s": -192.2433128492694,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006366345493091785,
+      0.008336433779604135
+     ],
+     "delivered_err_m3": [
+      -7.035076143182778,
+      31.299317037789592
+     ],
+     "solver_s": 15.662503612999899,
+     "law_evals": 10194,
+     "conservation": {
+      "water_residual_rel": -6.825783899369888e-16,
+      "mass_residual_rel": -1.264396775840491e-15,
+      "energy_residual_rel": -2.1393511593384525e-16,
+      "geometry_vs_latent_rel_max": 1.0138485635049551e-07,
+      "geometry_vs_latent_kg_abs_max": 7.684383180706078e-05
+     }
+    },
+    {
+     "value": 225.0,
+     "hydrograph_rmse_over_I": 0.016933037160472612,
+     "cumvol_err_rel_total": 0.026030928390646104,
+     "t_act2_err_s": -192.6044331251387,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006353909333967067,
+      0.008327672746830217
+     ],
+     "delivered_err_m3": [
+      -7.092555791937002,
+      30.989989181548935
+     ],
+     "solver_s": 12.13084542300021,
+     "law_evals": 7550,
+     "conservation": {
+      "water_residual_rel": 4.0051779876992633e-16,
+      "mass_residual_rel": 6.008003107604865e-16,
+      "energy_residual_rel": 4.278707028596793e-16,
+      "geometry_vs_latent_rel_max": 1.938350680274563e-07,
+      "geometry_vs_latent_kg_abs_max": 0.00015389446468283552
+     },
+     "observed_order_vs_previous": 0.008970062079866677
+    },
+    {
+     "value": 450.0,
+     "hydrograph_rmse_over_I": 0.01675267416067915,
+     "cumvol_err_rel_total": 0.025780825872866172,
+     "t_act2_err_s": -186.47165559593577,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.000633234095488433,
+      0.008310918512293597
+     ],
+     "delivered_err_m3": [
+      -7.213938617096005,
+      30.367480041047656
+     ],
+     "solver_s": 9.38098169099976,
+     "law_evals": 5754,
+     "conservation": {
+      "water_residual_rel": 7.857409268961862e-16,
+      "mass_residual_rel": 1.372077744944818e-15,
+      "energy_residual_rel": 9.627112349411082e-16,
+      "geometry_vs_latent_rel_max": 2.9907788923030764e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0003085678760941235
+     },
+     "observed_order_vs_previous": 0.015449357118446994
+    },
+    {
+     "value": 900.0,
+     "hydrograph_rmse_over_I": 0.016517050762740244,
+     "cumvol_err_rel_total": 0.025284600322909426,
+     "t_act2_err_s": -186.08109756345402,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006304005853792205,
+      0.008280263702701518
+     ],
+     "delivered_err_m3": [
+      -7.4796527657457546,
+      29.110073974072293
+     ],
+     "solver_s": 8.604617624000639,
+     "law_evals": 5028,
+     "conservation": {
+      "water_residual_rel": -7.689697825486556e-16,
+      "mass_residual_rel": -1.431333104150574e-15,
+      "energy_residual_rel": -7.487788472652788e-16,
+      "geometry_vs_latent_rel_max": 3.169223628058092e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0006209764464353285
+     },
+     "observed_order_vs_previous": 0.020435299185794502
+    },
+    {
+     "value": 1800.0,
+     "hydrograph_rmse_over_I": 0.01637160264231111,
+     "cumvol_err_rel_total": 0.02415941578885211,
+     "t_act2_err_s": -187.7056540108997,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006265480860889738,
+      0.008221951170071407
+     ],
+     "delivered_err_m3": [
+      -8.102243979486389,
+      26.530525733421086
+     ],
+     "solver_s": 6.926501319999261,
+     "law_evals": 4116,
+     "conservation": {
+      "water_residual_rel": -2.283706783898521e-16,
+      "mass_residual_rel": -3.862307450174688e-16,
+      "energy_residual_rel": -2.1393889505631422e-16,
+      "geometry_vs_latent_rel_max": 4.1010956633672405e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0012531354396170258
+     },
+     "observed_order_vs_previous": 0.012760549815121704
+    }
+   ],
+   "msub": [
+    {
+     "value": 2,
+     "hydrograph_rmse_over_I": 0.015494582136926676,
+     "cumvol_err_rel_total": 0.023786314768407757,
+     "t_act2_err_s": -196.88367363298403,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006066584627291149,
+      0.008079311972821301
+     ],
+     "delivered_err_m3": [
+      -6.063066325520026,
+      28.084297964925895
+     ],
+     "solver_s": 11.6193340359996,
+     "law_evals": 27412,
+     "conservation": {
+      "water_residual_rel": -2.9514381163500046e-16,
+      "mass_residual_rel": -6.827054367832709e-16,
+      "energy_residual_rel": 4.278732476670264e-16,
+      "geometry_vs_latent_rel_max": 3.0429231640648086e-07,
+      "geometry_vs_latent_kg_abs_max": 0.00024244190761812945
+     }
+    },
+    {
+     "value": 4,
+     "hydrograph_rmse_over_I": 0.016464063211652336,
+     "cumvol_err_rel_total": 0.02532172105551545,
+     "t_act2_err_s": -186.64713996832143,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006272767411275026,
+      0.00825715215981404
+     ],
+     "delivered_err_m3": [
+      -6.946992846610556,
+      29.845086719862252
+     ],
+     "solver_s": 26.219227792999845,
+     "law_evals": 41546,
+     "conservation": {
+      "water_residual_rel": -9.52933442176927e-16,
+      "mass_residual_rel": -1.7972922046448884e-15,
+      "energy_residual_rel": -1.39058406131588e-15,
+      "geometry_vs_latent_rel_max": 2.99842927339113e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0002880074711661962
+     },
+     "observed_order_vs_previous": 0.08755657803076781
+    },
+    {
+     "value": 8,
+     "hydrograph_rmse_over_I": 0.016695151602569056,
+     "cumvol_err_rel_total": 0.025689238465019627,
+     "t_act2_err_s": -186.49387178339384,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006320128634342836,
+      0.0082998538525203
+     ],
+     "delivered_err_m3": [
+      -7.160736514911719,
+      30.263270172636
+     ],
+     "solver_s": 18.179438465000203,
+     "law_evals": 15674,
+     "conservation": {
+      "water_residual_rel": 9.56412482366167e-16,
+      "mass_residual_rel": 1.774450527014014e-15,
+      "energy_residual_rel": 6.418075974017144e-16,
+      "geometry_vs_latent_rel_max": 2.9917811763473034e-07,
+      "geometry_vs_latent_kg_abs_max": 0.00030400429518806504
+     },
+     "observed_order_vs_previous": 0.020108767649685902
+    },
+    {
+     "value": 16,
+     "hydrograph_rmse_over_I": 0.01675267416067915,
+     "cumvol_err_rel_total": 0.025780825872866172,
+     "t_act2_err_s": -186.47165559593577,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.000633234095488433,
+      0.008310918512293597
+     ],
+     "delivered_err_m3": [
+      -7.213938617096005,
+      30.367480041047656
+     ],
+     "solver_s": 9.38098169099976,
+     "law_evals": 5754,
+     "conservation": {
+      "water_residual_rel": 7.857409268961862e-16,
+      "mass_residual_rel": 1.372077744944818e-15,
+      "energy_residual_rel": 9.627112349411082e-16,
+      "geometry_vs_latent_rel_max": 2.9907788923030764e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0003085678760941235
+     },
+     "observed_order_vs_previous": 0.004962211399154616
+    },
+    {
+     "value": 32,
+     "hydrograph_rmse_over_I": 0.01676669490984371,
+     "cumvol_err_rel_total": 0.025803041941140355,
+     "t_act2_err_s": -186.46738636722057,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006335787427360628,
+      0.008313691423722958
+     ],
+     "delivered_err_m3": [
+      -7.226491309614289,
+      30.39304451400426
+     ],
+     "solver_s": 13.187088747999951,
+     "law_evals": 4736,
+     "conservation": {
+      "water_residual_rel": -2.9703935269967155e-16,
+      "mass_residual_rel": -4.99617277203537e-16,
+      "energy_residual_rel": -7.487753733013744e-16,
+      "geometry_vs_latent_rel_max": 2.990382277321349e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0003099023225567876
+     },
+     "observed_order_vs_previous": 0.0012069240579327513
+    }
+   ],
+   "rtol": [
+    {
+     "value": 1e-09,
+     "hydrograph_rmse_over_I": 0.01675277120233146,
+     "cumvol_err_rel_total": 0.025780889866073842,
+     "t_act2_err_s": -186.4716798967338,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006332332060310364,
+      0.008310915641814631
+     ],
+     "delivered_err_m3": [
+      -7.214036731359215,
+      30.36734692783216
+     ],
+     "solver_s": 13.211915050999778,
+     "law_evals": 8142,
+     "conservation": {
+      "water_residual_rel": -6.243523354574146e-16,
+      "mass_residual_rel": -1.217349896195153e-15,
+      "energy_residual_rel": -5.34839575388088e-16,
+      "geometry_vs_latent_rel_max": 2.9904738381895376e-07,
+      "geometry_vs_latent_kg_abs_max": 0.00030856709258397785
+     }
+    },
+    {
+     "value": 1e-08,
+     "hydrograph_rmse_over_I": 0.01675278717926512,
+     "cumvol_err_rel_total": 0.025780901718339643,
+     "t_act2_err_s": -186.47167972580792,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006332330474663195,
+      0.008310915172728528
+     ],
+     "delivered_err_m3": [
+      -7.214071954392352,
+      30.367293511842036
+     ],
+     "solver_s": 11.442307041000277,
+     "law_evals": 6906,
+     "conservation": {
+      "water_residual_rel": 6.738237403335128e-16,
+      "mass_residual_rel": 1.1893965189610436e-15,
+      "energy_residual_rel": 7.48775405773034e-16,
+      "geometry_vs_latent_rel_max": 2.9904625461240237e-07,
+      "geometry_vs_latent_kg_abs_max": 0.00030856663648659577
+     },
+     "observed_order_vs_previous": 4.141816738061644e-07
+    },
+    {
+     "value": 1e-07,
+     "hydrograph_rmse_over_I": 0.01675267416067915,
+     "cumvol_err_rel_total": 0.025780825872866172,
+     "t_act2_err_s": -186.47165559593577,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.000633234095488433,
+      0.008310918512293597
+     ],
+     "delivered_err_m3": [
+      -7.213938617096005,
+      30.367480041047656
+     ],
+     "solver_s": 9.38098169099976,
+     "law_evals": 5754,
+     "conservation": {
+      "water_residual_rel": 7.857409268961862e-16,
+      "mass_residual_rel": 1.372077744944818e-15,
+      "energy_residual_rel": 9.627112349411082e-16,
+      "geometry_vs_latent_rel_max": 2.9907788923030764e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0003085678760941235
+     },
+     "observed_order_vs_previous": 2.9298715062124467e-06
+    },
+    {
+     "value": 1e-06,
+     "hydrograph_rmse_over_I": 0.016752124210974807,
+     "cumvol_err_rel_total": 0.025780431205073763,
+     "t_act2_err_s": -186.4715315458343,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006332401418660538,
+      0.008310935318235124
+     ],
+     "delivered_err_m3": [
+      -7.212920780862419,
+      30.36900128738023
+     ],
+     "solver_s": 8.24960570300027,
+     "law_evals": 4866,
+     "conservation": {
+      "water_residual_rel": -7.138016978031353e-16,
+      "mass_residual_rel": -1.406330472287042e-15,
+      "energy_residual_rel": -1.0696791405279478e-16,
+      "geometry_vs_latent_rel_max": 2.990243208527754e-07,
+      "geometry_vs_latent_kg_abs_max": 0.00030856813346336054
+     },
+     "observed_order_vs_previous": 1.4257069646688547e-05
+    },
+    {
+     "value": 1e-05,
+     "hydrograph_rmse_over_I": 0.016754345275973404,
+     "cumvol_err_rel_total": 0.02578167591560501,
+     "t_act2_err_s": -186.47140696125825,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0006331968470902893,
+      0.008310763177078684
+     ],
+     "delivered_err_m3": [
+      -7.217531516808435,
+      30.36314730496406
+     ],
+     "solver_s": 7.2664739109995935,
+     "law_evals": 4188,
+     "conservation": {
+      "water_residual_rel": -4.760436057509985e-16,
+      "mass_residual_rel": -8.628144628450749e-16,
+      "energy_residual_rel": -7.487754244144907e-16,
+      "geometry_vs_latent_rel_max": 2.990400606483562e-07,
+      "geometry_vs_latent_kg_abs_max": 0.00030856375004173486
+     },
+     "observed_order_vs_previous": 5.757671810975765e-05
+    }
+   ],
+   "stations": [
+    {
+     "value": 5,
+     "hydrograph_rmse_over_I": 0.03985843619033217,
+     "cumvol_err_rel_total": 0.061509870231503026,
+     "t_act2_err_s": -226.0743437194642,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      -0.0009043739431717768,
+      0.011103838243712971
+     ],
+     "delivered_err_m3": [
+      -29.081040326499533,
+      70.53058123437779
+     ],
+     "solver_s": 26.706969873999697,
+     "law_evals": 48080,
+     "conservation": {
+      "water_residual_rel": 1.1702983643246136e-15,
+      "mass_residual_rel": 1.9627391709096503e-15,
+      "energy_residual_rel": 1.7113796968472116e-15,
+      "geometry_vs_latent_rel_max": 1.7117695591684686e-06,
+      "geometry_vs_latent_kg_abs_max": 0.0011878108497160866
+     }
+    },
+    {
+     "value": 9,
+     "hydrograph_rmse_over_I": 0.03242157460619442,
+     "cumvol_err_rel_total": 0.05066367243683945,
+     "t_act2_err_s": -219.8518256745274,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00010179544075583635,
+      0.01061778178024042
+     ],
+     "delivered_err_m3": [
+      -23.26512101426863,
+      57.53201472839305
+     ],
+     "solver_s": 12.539368086999275,
+     "law_evals": 12052,
+     "conservation": {
+      "water_residual_rel": 2.761511156922694e-16,
+      "mass_residual_rel": 3.5846615658594587e-16,
+      "energy_residual_rel": 1.0696376122298087e-16,
+      "geometry_vs_latent_rel_max": 7.72324594610718e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0005685629919973678
+     },
+     "observed_order_vs_previous": 0.3513349480119902
+    },
+    {
+     "value": 17,
+     "hydrograph_rmse_over_I": 0.01675267416067915,
+     "cumvol_err_rel_total": 0.025780825872866172,
+     "t_act2_err_s": -186.47165559593577,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.000633234095488433,
+      0.008310918512293597
+     ],
+     "delivered_err_m3": [
+      -7.213938617096005,
+      30.367480041047656
+     ],
+     "solver_s": 9.38098169099976,
+     "law_evals": 5754,
+     "conservation": {
+      "water_residual_rel": 7.857409268961862e-16,
+      "mass_residual_rel": 1.372077744944818e-15,
+      "energy_residual_rel": 9.627112349411082e-16,
+      "geometry_vs_latent_rel_max": 2.9907788923030764e-07,
+      "geometry_vs_latent_kg_abs_max": 0.0003085678760941235
+     },
+     "observed_order_vs_previous": 1.0381727189885677
+    },
+    {
+     "value": 33,
+     "hydrograph_rmse_over_I": 0.004429402596607411,
+     "cumvol_err_rel_total": 0.006000434679343773,
+     "t_act2_err_s": -1.0051415089228612,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0008679437962371139,
+      0.005487772155618131
+     ],
+     "delivered_err_m3": [
+      8.291203412282698,
+      6.322841086024482
+     ],
+     "solver_s": 99.38664347599934,
+     "law_evals": 10526,
+     "conservation": {
+      "water_residual_rel": 7.992478878934881e-16,
+      "mass_residual_rel": 1.3636290665884024e-15,
+      "energy_residual_rel": 5.348558202741013e-16,
+      "geometry_vs_latent_rel_max": 9.271574734969893e-08,
+      "geometry_vs_latent_kg_abs_max": 0.00014908177560357672
+     },
+     "observed_order_vs_previous": 2.0055853662971073
+    },
+    {
+     "value": 65,
+     "hydrograph_rmse_over_I": 0.003983684854422351,
+     "cumvol_err_rel_total": 0.0054612471346303605,
+     "t_act2_err_s": -4.00619217653275,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0007004646392658742,
+      0.002134070823018419
+     ],
+     "delivered_err_m3": [
+      8.560420186947454,
+      5.113269856207694
+     ],
+     "solver_s": 45.75391928499994,
+     "law_evals": 5538,
+     "conservation": {
+      "water_residual_rel": 1.1181261853880177e-17,
+      "mass_residual_rel": 1.4173754719159623e-17,
+      "energy_residual_rel": 1.0697148110116138e-16,
+      "geometry_vs_latent_rel_max": 2.3221717473849048e-08,
+      "geometry_vs_latent_kg_abs_max": 6.360983640973927e-05
+     },
+     "observed_order_vs_previous": 0.15645473056318843
+    }
+   ]
+  },
+  "baseline": {
+   "value": null,
+   "hydrograph_rmse_over_I": 0.01675267416067915,
+   "cumvol_err_rel_total": 0.025780825872866172,
+   "t_act2_err_s": -186.47165559593577,
+   "t_dom2_err_s": null,
+   "sill_err_m": [
+    0.000633234095488433,
+    0.008310918512293597
+   ],
+   "delivered_err_m3": [
+    -7.213938617096005,
+    30.367480041047656
+   ],
+   "solver_s": 9.38098169099976,
+   "law_evals": 5754,
+   "conservation": {
+    "water_residual_rel": 7.857409268961862e-16,
+    "mass_residual_rel": 1.372077744944818e-15,
+    "energy_residual_rel": 9.627112349411082e-16,
+    "geometry_vs_latent_rel_max": 2.9907788923030764e-07,
+    "geometry_vs_latent_kg_abs_max": 0.0003085678760941235
+   }
+  }
+ },
+ "S4": {
+  "reference": {
+   "100_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": 0.02446567412280757,
+    "solver_s": 19.347881696000513,
+    "nsteps": 144115,
+    "t_act2_s": 4824.033115541396,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.013513853569435241,
+    "sill_lowering2_m": 0.015473087596433288,
+    "delivered1_m3": 528.5334424330883,
+    "delivered2_m3": 438.410359848256
+   },
+   "200_cfl0.1": {
+    "hydrograph_rmse_over_I_vs800": 0.01027210518130179,
+    "solver_s": 204.39231843700054,
+    "nsteps": 1165775,
+    "t_act2_s": 4812.842622119034,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.013708359759931454,
+    "sill_lowering2_m": 0.015686732823908756,
+    "delivered1_m3": 527.1382343912998,
+    "delivered2_m3": 439.2666042206859
+   },
+   "200_cfl0.2": {
+    "hydrograph_rmse_over_I_vs800": 0.010382784545453654,
+    "solver_s": 99.84491395300029,
+    "nsteps": 582992,
+    "t_act2_s": 4815.499328269215,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.013688258132120268,
+    "sill_lowering2_m": 0.01566079427821876,
+    "delivered1_m3": 526.9343423895269,
+    "delivered2_m3": 439.1379544619276
+   },
+   "200_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": 0.010609349429371829,
+    "solver_s": 50.873602212999685,
+    "nsteps": 291603,
+    "t_act2_s": 4820.61818645204,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.013648622293970902,
+    "sill_lowering2_m": 0.015608997072405373,
+    "delivered1_m3": 526.5286735422138,
+    "delivered2_m3": 438.8769086562164
+   },
+   "400_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": 0.003564536892219566,
+    "solver_s": 163.9381464070002,
+    "nsteps": 590632,
+    "t_act2_s": 4825.621747764677,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.013717060996100372,
+    "sill_lowering2_m": 0.015696961720422564,
+    "delivered1_m3": 525.3628296900961,
+    "delivered2_m3": 439.4434952691036
+   },
+   "800_cfl0.4": {
+    "hydrograph_rmse_over_I_vs800": null,
+    "solver_s": 581.190189461,
+    "nsteps": 1193539,
+    "t_act2_s": 4827.932728309744,
+    "t_dom2_s": null,
+    "sill_lowering1_m": 0.013752526936826825,
+    "sill_lowering2_m": 0.015747010429180364,
+    "delivered1_m3": 524.7311970126294,
+    "delivered2_m3": 439.8174219830275
+   }
+  },
+  "reference_uncertainty_400_to_800": {
+   "hydrograph_rmse_over_I": 0.003564536892219566,
+   "t_act2_s": 2.310980545066741,
+   "t_dom2_s": null,
+   "sill_lowering1_m": 3.546594072645348e-05,
+   "sill_lowering2_m": 5.004870875779943e-05
+  },
+  "sweeps": {
+   "dt_geom": [
+    {
+     "value": 112.5,
+     "hydrograph_rmse_over_I": 0.021939337986252014,
+     "cumvol_err_rel_total": 0.036542800332857894,
+     "t_act2_err_s": -258.37842906129026,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0003002191292580392,
+      0.003206073679521637
+     ],
+     "delivered_err_m3": [
+      -5.5921757572981505,
+      25.385542127261317
+     ],
+     "solver_s": 14.402152001000104,
+     "law_evals": 9490,
+     "conservation": {
+      "water_residual_rel": -1.5772008385873873e-15,
+      "mass_residual_rel": -3.679666886629902e-15,
+      "energy_residual_rel": 1.113366783531851e-15,
+      "geometry_vs_latent_rel_max": 1.2488908620703787e-05,
+      "geometry_vs_latent_kg_abs_max": 7.541924502696418e-07
+     }
+    },
+    {
+     "value": 225.0,
+     "hydrograph_rmse_over_I": 0.021886632311008073,
+     "cumvol_err_rel_total": 0.03647587281043647,
+     "t_act2_err_s": -258.1657421076425,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00030006322546682895,
+      0.003204968595056812
+     ],
+     "delivered_err_m3": [
+      -5.601166824872735,
+      25.303619876030723
+     ],
+     "solver_s": 11.100684564999938,
+     "law_evals": 6890,
+     "conservation": {
+      "water_residual_rel": 1.1200927294781908e-16,
+      "mass_residual_rel": 2.7859773188377006e-16,
+      "energy_residual_rel": 4.453472508625435e-16,
+      "geometry_vs_latent_rel_max": 1.2500013062668972e-05,
+      "geometry_vs_latent_kg_abs_max": 1.5111642439613604e-06
+     },
+     "observed_order_vs_previous": 0.003470008875690689
+    },
+    {
+     "value": 450.0,
+     "hydrograph_rmse_over_I": 0.02178360975845913,
+     "cumvol_err_rel_total": 0.036341860501585325,
+     "t_act2_err_s": -258.31252448539544,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0002997926075920532,
+      0.0032028381589981336
+     ],
+     "delivered_err_m3": [
+      -5.620387389084385,
+      25.1385895985739
+     ],
+     "solver_s": 8.458839543000067,
+     "law_evals": 5162,
+     "conservation": {
+      "water_residual_rel": -1.9504433841559852e-17,
+      "mass_residual_rel": -5.1507457482511767e-17,
+      "energy_residual_rel": 1.1133708522767397e-16,
+      "geometry_vs_latent_rel_max": 1.0227263619857481e-07,
+      "geometry_vs_latent_kg_abs_max": 3.0358409837116795e-06
+     },
+     "observed_order_vs_previous": 0.00680694195161041
+    },
+    {
+     "value": 900.0,
+     "hydrograph_rmse_over_I": 0.021587418183844027,
+     "cumvol_err_rel_total": 0.036073323563337575,
+     "t_act2_err_s": -258.59322411711764,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00029936961050225364,
+      0.003198919830623481
+     ],
+     "delivered_err_m3": [
+      -5.663171478574668,
+      24.804091069563185
+     ],
+     "solver_s": 7.79791199400006,
+     "law_evals": 4468,
+     "conservation": {
+      "water_residual_rel": -1.7799874333039277e-16,
+      "mass_residual_rel": -4.422701068248743e-16,
+      "energy_residual_rel": -1.6700646610567277e-16,
+      "geometry_vs_latent_rel_max": 1.3353204679534463e-07,
+      "geometry_vs_latent_kg_abs_max": 6.1546601306528e-06
+     },
+     "observed_order_vs_previous": 0.013052332666555857
+    },
+    {
+     "value": 1800.0,
+     "hydrograph_rmse_over_I": 0.021162835380707633,
+     "cumvol_err_rel_total": 0.035472884400030005,
+     "t_act2_err_s": -255.26136933669477,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00029873158284488,
+      0.0031915004518481283
+     ],
+     "delivered_err_m3": [
+      -5.766697210424468,
+      24.119335134971834
+     ],
+     "solver_s": 6.734187655999449,
+     "law_evals": 3902,
+     "conservation": {
+      "water_residual_rel": -9.391370998315757e-16,
+      "mass_residual_rel": -2.190448780571655e-15,
+      "energy_residual_rel": 1.0577187401428804e-15,
+      "geometry_vs_latent_rel_max": 1.951516779042378e-07,
+      "geometry_vs_latent_kg_abs_max": 1.2700603151172274e-05
+     },
+     "observed_order_vs_previous": 0.028657778366948897
+    }
+   ],
+   "msub": [
+    {
+     "value": 2,
+     "hydrograph_rmse_over_I": 0.019718696361947508,
+     "cumvol_err_rel_total": 0.032687925503418605,
+     "t_act2_err_s": -277.91450097798406,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00030073459765844746,
+      0.003105824674747737
+     ],
+     "delivered_err_m3": [
+      -4.350781586152834,
+      22.885133089262467
+     ],
+     "solver_s": 11.91224152399991,
+     "law_evals": 27168,
+     "conservation": {
+      "water_residual_rel": 3.860862794303477e-15,
+      "mass_residual_rel": 8.939818638947157e-15,
+      "energy_residual_rel": 4.063863956480951e-15,
+      "geometry_vs_latent_rel_max": 1.0334431393166295e-07,
+      "geometry_vs_latent_kg_abs_max": 3.646482636898707e-06
+     }
+    },
+    {
+     "value": 4,
+     "hydrograph_rmse_over_I": 0.02133318592365877,
+     "cumvol_err_rel_total": 0.03554437840408391,
+     "t_act2_err_s": -258.54347642847006,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0002996916829260954,
+      0.0031808047528159022
+     ],
+     "delivered_err_m3": [
+      -5.3454518531515305,
+      24.644960694534916
+     ],
+     "solver_s": 21.676931936000074,
+     "law_evals": 32628,
+     "conservation": {
+      "water_residual_rel": 2.673870815770357e-15,
+      "mass_residual_rel": 6.298436133019927e-15,
+      "energy_residual_rel": 1.169043244234521e-15,
+      "geometry_vs_latent_rel_max": 1.0252450567204048e-07,
+      "geometry_vs_latent_kg_abs_max": 2.91330044488447e-06
+     },
+     "observed_order_vs_previous": 0.11353525984572989
+    },
+    {
+     "value": 8,
+     "hydrograph_rmse_over_I": 0.021695112690902154,
+     "cumvol_err_rel_total": 0.036185015176603545,
+     "t_act2_err_s": -258.33538712855807,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00029975035251084137,
+      0.0031983036372764673
+     ],
+     "delivered_err_m3": [
+      -5.566372397221585,
+      25.04144129289216
+     ],
+     "solver_s": 12.199031692999597,
+     "law_evals": 11228,
+     "conservation": {
+      "water_residual_rel": 9.401338034819674e-16,
+      "mass_residual_rel": 2.1473017675251032e-15,
+      "energy_residual_rel": 5.010172089215444e-16,
+      "geometry_vs_latent_rel_max": 1.0242643836434963e-07,
+      "geometry_vs_latent_kg_abs_max": 2.761213551139008e-06
+     },
+     "observed_order_vs_previous": 0.024270644381789507
+    },
+    {
+     "value": 16,
+     "hydrograph_rmse_over_I": 0.02178360975845913,
+     "cumvol_err_rel_total": 0.036341860501585325,
+     "t_act2_err_s": -258.31252448539544,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0002997926075920532,
+      0.0032028381589981336
+     ],
+     "delivered_err_m3": [
+      -5.620387389084385,
+      25.1385895985739
+     ],
+     "solver_s": 8.458839543000067,
+     "law_evals": 5162,
+     "conservation": {
+      "water_residual_rel": -1.9504433841559852e-17,
+      "mass_residual_rel": -5.1507457482511767e-17,
+      "energy_residual_rel": 1.1133708522767397e-16,
+      "geometry_vs_latent_rel_max": 1.0227263619857481e-07,
+      "geometry_vs_latent_kg_abs_max": 3.0358409837116795e-06
+     },
+     "observed_order_vs_previous": 0.0058729626640081495
+    },
+    {
+     "value": 32,
+     "hydrograph_rmse_over_I": 0.021805586659560703,
+     "cumvol_err_rel_total": 0.03638080569031264,
+     "t_act2_err_s": -258.30739500196705,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00029980412197971873,
+      0.0032039765371507656
+     ],
+     "delivered_err_m3": [
+      -5.633777583238725,
+      25.16272673742162
+     ],
+     "solver_s": 13.47363243900054,
+     "law_evals": 4600,
+     "conservation": {
+      "water_residual_rel": 2.499358517510381e-16,
+      "mass_residual_rel": 6.084662893945282e-16,
+      "energy_residual_rel": 1.2803762731431648e-15,
+      "geometry_vs_latent_rel_max": 1.0241712190908867e-07,
+      "geometry_vs_latent_kg_abs_max": 3.1102599908905404e-06
+     },
+     "observed_order_vs_previous": 0.0014547627176162983
+    }
+   ],
+   "rtol": [
+    {
+     "value": 1e-09,
+     "hydrograph_rmse_over_I": 0.02178366374503023,
+     "cumvol_err_rel_total": 0.036341897047280025,
+     "t_act2_err_s": -258.31253073291373,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0002997919970084695,
+      0.0032028365863681074
+     ],
+     "delivered_err_m3": [
+      -5.620510855472958,
+      25.138428598366147
+     ],
+     "solver_s": 11.684588549999717,
+     "law_evals": 7268,
+     "conservation": {
+      "water_residual_rel": 4.376701917849755e-16,
+      "mass_residual_rel": 1.0177652741153527e-15,
+      "energy_residual_rel": 4.453483426764061e-16,
+      "geometry_vs_latent_rel_max": 1.022741596939886e-07,
+      "geometry_vs_latent_kg_abs_max": 3.0355080733457385e-06
+     }
+    },
+    {
+     "value": 1e-08,
+     "hydrograph_rmse_over_I": 0.021783656886835787,
+     "cumvol_err_rel_total": 0.03634189210660086,
+     "t_act2_err_s": -258.31253053977525,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0002997919870892929,
+      0.0032028365638581135
+     ],
+     "delivered_err_m3": [
+      -5.620518888405286,
+      25.13841617750586
+     ],
+     "solver_s": 9.657501628999853,
+     "law_evals": 6030,
+     "conservation": {
+      "water_residual_rel": -9.390039189096266e-17,
+      "mass_residual_rel": -1.8552150079319928e-16,
+      "energy_residual_rel": 2.2267417140323013e-16,
+      "geometry_vs_latent_rel_max": 1.0223888982296301e-07,
+      "geometry_vs_latent_kg_abs_max": 3.035036908460853e-06
+     },
+     "observed_order_vs_previous": 1.3672982220898968e-07
+    },
+    {
+     "value": 1e-07,
+     "hydrograph_rmse_over_I": 0.02178360975845913,
+     "cumvol_err_rel_total": 0.036341860501585325,
+     "t_act2_err_s": -258.31252448539544,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0002997926075920532,
+      0.0032028381589981336
+     ],
+     "delivered_err_m3": [
+      -5.620387389084385,
+      25.1385895985739
+     ],
+     "solver_s": 8.458839543000067,
+     "law_evals": 5162,
+     "conservation": {
+      "water_residual_rel": -1.9504433841559852e-17,
+      "mass_residual_rel": -5.1507457482511767e-17,
+      "energy_residual_rel": 1.1133708522767397e-16,
+      "geometry_vs_latent_rel_max": 1.0227263619857481e-07,
+      "geometry_vs_latent_kg_abs_max": 3.0358409837116795e-06
+     },
+     "observed_order_vs_previous": 9.395858633361993e-07
+    },
+    {
+     "value": 1e-06,
+     "hydrograph_rmse_over_I": 0.021783885322687355,
+     "cumvol_err_rel_total": 0.03634206315056349,
+     "t_act2_err_s": -258.31249440759893,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0002997933395789687,
+      0.0032028400792967204
+     ],
+     "delivered_err_m3": [
+      -5.620126636422583,
+      25.138980958683817
+     ],
+     "solver_s": 7.525733090999893,
+     "law_evals": 4502,
+     "conservation": {
+      "water_residual_rel": 5.030283200922978e-16,
+      "mass_residual_rel": 1.1932692443987112e-15,
+      "energy_residual_rel": 1.3917135523888056e-15,
+      "geometry_vs_latent_rel_max": 1.0228190245047777e-07,
+      "geometry_vs_latent_kg_abs_max": 3.0359967491122575e-06
+     },
+     "observed_order_vs_previous": 5.493821644175918e-06
+    },
+    {
+     "value": 1e-05,
+     "hydrograph_rmse_over_I": 0.02178560383939375,
+     "cumvol_err_rel_total": 0.0363431368897097,
+     "t_act2_err_s": -258.3123986773071,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00029977897921185104,
+      0.003202801475751471
+     ],
+     "delivered_err_m3": [
+      -5.621538729074132,
+      25.13762322073569
+     ],
+     "solver_s": 6.212442508000095,
+     "law_evals": 3728,
+     "conservation": {
+      "water_residual_rel": 1.206151531804716e-17,
+      "mass_residual_rel": -6.483787159348104e-17,
+      "energy_residual_rel": -1.057702338780093e-15,
+      "geometry_vs_latent_rel_max": 1.0251458500206331e-07,
+      "geometry_vs_latent_kg_abs_max": 3.035642459181531e-06
+     },
+     "observed_order_vs_previous": 3.425986108104714e-05
+    }
+   ],
+   "stations": [
+    {
+     "value": 5,
+     "hydrograph_rmse_over_I": 0.045472477724247874,
+     "cumvol_err_rel_total": 0.07467861877989371,
+     "t_act2_err_s": -309.616814258844,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      -0.0002551461829511936,
+      0.004101467988277818
+     ],
+     "delivered_err_m3": [
+      -15.983621950950237,
+      51.828356664636544
+     ],
+     "solver_s": 19.444126237999626,
+     "law_evals": 35504,
+     "conservation": {
+      "water_residual_rel": -3.000395165003349e-16,
+      "mass_residual_rel": -7.876585052044488e-16,
+      "energy_residual_rel": -1.3357329326889588e-15,
+      "geometry_vs_latent_rel_max": 5.342638096187817e-07,
+      "geometry_vs_latent_kg_abs_max": 5.440949417989671e-05
+     }
+    },
+    {
+     "value": 9,
+     "hydrograph_rmse_over_I": 0.03959636252635788,
+     "cumvol_err_rel_total": 0.06651637086506586,
+     "t_act2_err_s": -299.65976594288895,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00011918130738308719,
+      0.004062032378811864
+     ],
+     "delivered_err_m3": [
+      -14.980190213388312,
+      44.94828545859406
+     ],
+     "solver_s": 10.635349965999922,
+     "law_evals": 10598,
+     "conservation": {
+      "water_residual_rel": 1.6010848648119232e-15,
+      "mass_residual_rel": 3.7035325929470376e-15,
+      "energy_residual_rel": 3.0056401388486185e-15,
+      "geometry_vs_latent_rel_max": 2.492352453751848e-07,
+      "geometry_vs_latent_kg_abs_max": 1.4042112709389265e-05
+     },
+     "observed_order_vs_previous": 0.23540853744149987
+    },
+    {
+     "value": 17,
+     "hydrograph_rmse_over_I": 0.02178360975845913,
+     "cumvol_err_rel_total": 0.036341860501585325,
+     "t_act2_err_s": -258.31252448539544,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.0002997926075920532,
+      0.0032028381589981336
+     ],
+     "delivered_err_m3": [
+      -5.620387389084385,
+      25.1385895985739
+     ],
+     "solver_s": 8.458839543000067,
+     "law_evals": 5162,
+     "conservation": {
+      "water_residual_rel": -1.9504433841559852e-17,
+      "mass_residual_rel": -5.1507457482511767e-17,
+      "energy_residual_rel": 1.1133708522767397e-16,
+      "geometry_vs_latent_rel_max": 1.0227263619857481e-07,
+      "geometry_vs_latent_kg_abs_max": 3.0358409837116795e-06
+     },
+     "observed_order_vs_previous": 0.9396068749036006
+    },
+    {
+     "value": 33,
+     "hydrograph_rmse_over_I": 0.004189017817356708,
+     "cumvol_err_rel_total": 0.0074519691531005385,
+     "t_act2_err_s": 6.613136440052585,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00037526744939953005,
+      0.001960286578338355
+     ],
+     "delivered_err_m3": [
+      6.304213237646877,
+      3.805419075593477
+     ],
+     "solver_s": 30.57597538400023,
+     "law_evals": 5772,
+     "conservation": {
+      "water_residual_rel": -1.5378979734525787e-15,
+      "mass_residual_rel": -3.702806354188222e-15,
+      "energy_residual_rel": -3.3405869271197357e-16,
+      "geometry_vs_latent_rel_max": 3.307401350768136e-08,
+      "geometry_vs_latent_kg_abs_max": 3.805235119003214e-06
+     },
+     "observed_order_vs_previous": 2.4856112151686767
+    },
+    {
+     "value": 65,
+     "hydrograph_rmse_over_I": 0.003917004695292088,
+     "cumvol_err_rel_total": 0.006751007523615329,
+     "t_act2_err_s": 1.8670912761654108,
+     "t_dom2_err_s": null,
+     "sill_err_m": [
+      0.00029009227381493474,
+      0.0007020186056934108
+     ],
+     "delivered_err_m3": [
+      5.830093171657836,
+      3.6005585112524727
+     ],
+     "solver_s": 44.59281723800086,
+     "law_evals": 5162,
+     "conservation": {
+      "water_residual_rel": 6.254401964652865e-16,
+      "mass_residual_rel": 1.401362624508742e-15,
+      "energy_residual_rel": -1.67030739954958e-16,
+      "geometry_vs_latent_rel_max": 8.581423626747441e-09,
+      "geometry_vs_latent_kg_abs_max": 2.1235207927627897e-06
+     },
+     "observed_order_vs_previous": 0.09904270788699916
+    }
+   ]
+  },
+  "baseline": {
+   "value": null,
+   "hydrograph_rmse_over_I": 0.02178360975845913,
+   "cumvol_err_rel_total": 0.036341860501585325,
+   "t_act2_err_s": -258.31252448539544,
+   "t_dom2_err_s": null,
+   "sill_err_m": [
+    0.0002997926075920532,
+    0.0032028381589981336
+   ],
+   "delivered_err_m3": [
+    -5.620387389084385,
+    25.1385895985739
+   ],
+   "solver_s": 8.458839543000067,
+   "law_evals": 5162,
+   "conservation": {
+    "water_residual_rel": -1.9504433841559852e-17,
+    "mass_residual_rel": -5.1507457482511767e-17,
+    "energy_residual_rel": 1.1133708522767397e-16,
+    "geometry_vs_latent_rel_max": 1.0227263619857481e-07,
+    "geometry_vs_latent_kg_abs_max": 3.0358409837116795e-06
+   }
+  }
  }
 }
