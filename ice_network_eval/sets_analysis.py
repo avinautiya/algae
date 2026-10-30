@@ -37,7 +37,9 @@ def analyze(setname):
             ev = lambda k: None if (m[k] is None or tm[k] is None) else m[k] - tm[k]
             bad = (e["hydrograph_rmse_over_I"] > TOL_HYD) or ((not rm) and not near)
             cls = "ok" if not bad else ("failure_unexplained" if inside else "failure_outside_regime")
-            row["reds"][st] = dict(status="completed", route=A.route(m), route_match=rm, near_tie=near, hydro_rmse_over_I=e["hydrograph_rmse_over_I"], cumvol_err_rel_total=e["cumvol_err_rel_total"], t_act2_err_s=ev("t_act2_s"),
+            lowest = 100.0 + min(0.0, p["scn"]["sill_offset_m"]); head = m["stage_max_m"] - lowest
+            re50 = (r.get("applicability") or {}).get("Re_max_p50_p90_max"); shared = dict(bank_not_overtopped=bool(head < 1.0), head_over_lowest_sill_m=head, Re_max_median=None if not re50 else re50[0], manning_regime_plausible=bool(re50 and re50[0] >= 2000.0))
+            row["reds"][st] = dict(shared_assumption_flags=shared, within_both_models=bool(inside and shared["bank_not_overtopped"] and shared["manning_regime_plausible"]), status="completed", route=A.route(m), route_match=rm, near_tie=near, hydro_rmse_over_I=e["hydrograph_rmse_over_I"], cumvol_err_rel_total=e["cumvol_err_rel_total"], t_act2_err_s=ev("t_act2_s"),
                                   switch_ref=tm["t_dom2_s"] is not None, switch_red=m["t_dom2_s"] is not None, t_dom2_err_s=ev("t_dom2_s"),
                                   sill_err_m=[m["sill_lowering1_m"] - tm["sill_lowering1_m"], m["sill_lowering2_m"] - tm["sill_lowering2_m"]], flags=fl, inside_envelope=inside,
                                   conservation=r.get("conservation"), solver_s=r["timing"]["solver_s"], class_=cls, applicability=r.get("applicability", {}).get("summary") if r.get("applicability") else None)
@@ -55,7 +57,7 @@ def aggregate(res):
         sw = [x for x in comp if x["switch_ref"] or x["switch_red"]]
         agg[f"r{st}"] = dict(n=len(rows), classes=cls, hydro_rmse_median=float(np.median([x["hydro_rmse_over_I"] for x in comp])) if comp else None, hydro_rmse_p90=float(np.percentile([x["hydro_rmse_over_I"] for x in comp], 90)) if comp else None,
                              route_accuracy_clear_cases=(float(np.mean([x["route_match"] for x in clear])), len(clear)) if clear else None, n_near_tie=len(comp) - len(clear),
-                             switching_agree=(int(sum(x["switch_ref"] == x["switch_red"] for x in sw)), len(sw)), inside_envelope=int(sum(x["inside_envelope"] for x in comp)), outside_envelope=int(sum(not x["inside_envelope"] for x in comp)))
+                             switching_agree=(int(sum(x["switch_ref"] == x["switch_red"] for x in sw)), len(sw)), within_both_models=int(sum(x["within_both_models"] for x in comp)), classes_within_both={c: int(sum(1 for x in comp if x["within_both_models"] and x["class_"] == c)) for c in ("ok", "failure_unexplained", "failure_outside_regime")}, classes_outside_both={c: int(sum(1 for x in comp if not x["within_both_models"] and x["class_"] == c)) for c in ("ok", "failure_unexplained", "failure_outside_regime")}, inside_envelope=int(sum(x["inside_envelope"] for x in comp)), outside_envelope=int(sum(not x["inside_envelope"] for x in comp)))
     agg["reference_failed"] = int(sum(v.get("class") == "reference_failed" for v in res.values()))
     return agg
 
