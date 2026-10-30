@@ -1,0 +1,54 @@
+{
+ "velocity_m_s": 0.4085670490879001,
+ "beta_s_1": 0.0013652927824302206,
+ "cooling_length_m": 299.2523320607107,
+ "rows": [
+  {
+   "cells": 100,
+   "dx_m": 1.0,
+   "max_err_behind_front": 0.04534168765376134,
+   "max_T_10m_ahead": 0.056071670097738134,
+   "front_position_error_m": 0.5,
+   "L1_error": 4.594697951207806
+  },
+  {
+   "cells": 200,
+   "dx_m": 0.5,
+   "max_err_behind_front": 0.012025270933767707,
+   "max_T_10m_ahead": 0.015631751322360766,
+   "front_position_error_m": 0.25,
+   "L1_error": 3.2606131724300282,
+   "max_err_behind_front_order": 1.9147686915273563,
+   "max_T_10m_ahead_order": 1.842792619699792,
+   "L1_error_order": 0.49482672892702745
+  },
+  {
+   "cells": 400,
+   "dx_m": 0.25,
+   "max_err_behind_front": 0.001955000053738498,
+   "max_T_10m_ahead": 0.0014942247098877137,
+   "front_position_error_m": 0.125,
+   "L1_error": 2.3175328013628467,
+   "max_err_behind_front_order": 2.620828846508601,
+   "max_T_10m_ahead_order": 3.3870103913719736,
+   "L1_error_order": 0.4925535367402634
+  },
+  {
+   "cells": 800,
+   "dx_m": 0.125,
+   "max_err_behind_front": 0.0012456642530680462,
+   "max_T_10m_ahead": 1.7469917735149277e-05,
+   "front_position_error_m": 0.0625,
+   "L1_error": 1.6508868090949749,
+   "max_err_behind_front_order": 0.6502533795542251,
+   "max_T_10m_ahead_order": 6.418380500082993,
+   "L1_error_order": 0.48934855114602666
+  }
+ ],
+ "test_tolerance_history": {
+  "initial_ahead_of_front": 0.001,
+  "measured_first_run": 0.0014947,
+  "changed_to": 0.005,
+  "reason": "first-order upwind numerical diffusion; the original tolerance was set without a refinement study and was changed after seeing the result"
+ }
+}

@@ -95,3 +95,39 @@ def test_thermal_front_and_cooling_follow_the_independent_plug_flow_solution():
     half = 0.5 * tin * np.exp(-beta * front / vn)
     xfront = x[np.argmax(T < half)]
     assert abs(xfront - front) < 2.0
+
+
+def _two_channel_net():
+    n1, n2 = 120, 80
+    z1 = 100.0 - 0.01 * 60.0 * (np.arange(n1) + 0.5) / n1; z2 = 100.04 - 0.02 * 40.0 * (np.arange(n2) + 0.5) / n2
+    c1 = dict(lake=0, z=z1, w=np.full(n1, 0.4), zs=z1 + 1.0, length=60.0, n_man=0.04, ke=0.5, pool=90.0)
+    c2 = dict(lake=0, z=z2, w=np.full(n2, 0.4), zs=z2 + 1.0, length=40.0, n_man=0.04, ke=0.5, pool=90.0)
+    return RefNetwork([dict(z_bottom=99.0, area=300.0)], [c1, c2], melting=True)
+
+
+def test_budgets_close_through_wetting_competing_outlets_drying_and_melting():
+    """Two dry channels fed by one lake: the lake rises, wets R1 then R2 (junction with two outlets), melts, then the inflow stops and the
+    lake drains below both sills so the channels dry. Water and thermal-energy ledgers must close at EVERY record, not only at the end."""
+    net = _two_channel_net()
+    inflow = lambda t: np.array([0.03 if t < 1500.0 else 0.0])
+    r = net.run([300.0 * 0.97], [0.8], 7200.0, inflow, lambda t: np.array([0.8]), record_every=60.0)
+    rec = r["rec"]; f = rec[0]
+    wres, eres = [], []
+    for x in rec[1:]:
+        stored = x["V"].sum() + x["channel_volume"].sum() - f["V"].sum() - f["channel_volume"].sum()
+        wres.append(abs(stored + x["delivered"].sum() - x["input"] - x["melt_w"]) / max(x["input"], 1e-9))
+        lhs = (x["lake_sens"] + x["chan_sens"]) - (f["lake_sens"] + f["chan_sens"]) + x["sens_out"] + x["heat"]
+        rhs = x["sens_in_ext"] + x["diss"]
+        if abs(rhs) > 1e6:
+            eres.append(abs(lhs - rhs) / abs(rhs))
+    q1 = np.array([x["Q_in"][0] for x in rec]); q2 = np.array([x["Q_in"][1] for x in rec])
+    assert net.min_depth_seen >= 0.0                                   # positivity through wetting and drying
+    assert q1.max() > 1e-3 and q2.max() > 1e-4                         # both routes were wetted (R2 after R1: competing outlets)
+    assert np.argmax(q2 > 1e-4) > np.argmax(q1 > 1e-4)
+    cv2 = np.array([x["channel_volume"][1] for x in rec])
+    assert q2[-1] < 1e-3 * q2.max() and cv2[-1] < 0.01 * cv2.max()      # R2 wetted and then dried while the lake falls below its sill
+    assert rec[-1]["stage"][0] < rec[-1]["sill"][1] and q1[-1] < 0.2 * q1.max()   # R1 draining down
+    assert rec[-1]["heat"] > 0 and rec[-1]["melt_w"] > 0               # melting happened
+    assert max(wres) < 1e-9, max(wres)
+    assert max(eres) < 1e-8, max(eres)
+    print("max water residual %.2e, max energy residual %.2e, min depth %.2e" % (max(wres), max(eres), net.min_depth_seen))

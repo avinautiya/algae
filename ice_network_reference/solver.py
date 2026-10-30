@@ -202,6 +202,7 @@ class RefNetwork:
         rc = RHO_W * CP_W
         next_rec = 0.0
         nsteps = 0
+        self.min_depth_seen = np.inf; self.max_cfl_dt_ratio = 0.0
         while t < t_end - 1e-12:
             st = np.array([lake_stage(v[i], L["z_bottom"], L["area"], L.get("h_ref", 1.0), L.get("q", 0.0)) for i, L in enumerate(self.lakes)])
             tl = np.where(v > 1e-9, sv / np.maximum(v, 1e-9), 0.0)
@@ -230,6 +231,8 @@ class RefNetwork:
                 tot["delivered"][k] += out[1]; tot["heat"] += out[3]; tot["sens_out"] += out[4]; tot["melt_w"] += out[5]; tot["diss"] += out[6]
             v = v + dv; sv = sv + ds
             t += dt; nsteps += 1
+            for c in self.ch:
+                self.min_depth_seen = min(self.min_depth_seen, float(c["h"].min()))
         st = np.array([lake_stage(v[i], L["z_bottom"], L["area"], L.get("h_ref", 1.0), L.get("q", 0.0)) for i, L in enumerate(self.lakes)])
         tl = np.where(v > 1e-9, sv / np.maximum(v, 1e-9), 0.0)
         rec.append(self._record(t, v, st, tl, tot, sv))
