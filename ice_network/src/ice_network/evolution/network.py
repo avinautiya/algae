@@ -199,7 +199,7 @@ class Network:
         return v_energy, v_geom
 
     # ----------------------------------------------------------------------------- driver
-    def run(self, v0, t0, t_end, dt_geom, inflow, inflow_temp, rtol=1e-9, atol=1e-10, evolve=True, record=None, sample_dt=None):
+    def run(self, v0, t0, t_end, dt_geom, inflow, inflow_temp, rtol=1e-9, atol=1e-10, evolve=True, record=None, sample_dt=None, progress=None):
         y = self.reset_state(v0, t0)
         self._area0 = [((e["zs"] - e["z"]) * e["w"]).copy() for e in self.edges]      # initial channel section areas (for the geometry-derived ice inventory)
         v_init = np.array(v0, float).copy(); s_init = (np.array(v0) * np.array(t0)).copy()
@@ -229,6 +229,8 @@ class Network:
                         assert e["z"][0] > self.lakes[src]["z_bottom"] + 1e-6, "sill incised below lake bottom: lake would drain completely (beyond model scope)"
             t = t1
             ts.append(t); hist.append(self._snapshot(t, y, inflow, inflow_temp))
+            if progress is not None:
+                progress(t, int(sol.nfev))
         self.final_state = y
         budgets = self.budgets(y, v_init, s_init)
         keep = [i for i, h in enumerate(hist) if not h.get("mid")]     # macro-step ends only (mid-step samples carry frozen geometry)

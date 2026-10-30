@@ -195,7 +195,7 @@ class RefNetwork:
             d["z0"] = d["z"].copy(); d["w0"] = d["w"].copy()
             self.ch.append(d)
 
-    def run(self, v0, t0_lake, t_end, inflow, inflow_temp, cfl=0.4, dt_max=5.0, record_every=60.0, h_pool_default=-1e9):
+    def run(self, v0, t0_lake, t_end, inflow, inflow_temp, cfl=0.4, dt_max=5.0, record_every=60.0, h_pool_default=-1e9, progress=None):
         v = np.array(v0, float); sv = v * np.array(t0_lake, float)
         t = 0.0; out = np.zeros(8); rec = []
         tot = dict(input=0.0, delivered=np.zeros(len(self.ch)), heat=0.0, melt_w=0.0, diss=0.0, sens_in_ext=0.0, sens_out=0.0, sens_from_lake=np.zeros(len(self.ch)))
@@ -231,6 +231,8 @@ class RefNetwork:
                 tot["delivered"][k] += out[1]; tot["heat"] += out[3]; tot["sens_out"] += out[4]; tot["melt_w"] += out[5]; tot["diss"] += out[6]
             v = v + dv; sv = sv + ds
             t += dt; nsteps += 1
+            if progress is not None and nsteps % 500 == 0:
+                progress(t, nsteps, dt, float(min(c["h"].min() for c in self.ch)))
             for c in self.ch:
                 self.min_depth_seen = min(self.min_depth_seen, float(c["h"].min()))
         st = np.array([lake_stage(v[i], L["z_bottom"], L["area"], L.get("h_ref", 1.0), L.get("q", 0.0)) for i, L in enumerate(self.lakes)])
