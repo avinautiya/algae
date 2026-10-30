@@ -34,7 +34,8 @@ def run(out=os.path.join(HERE, "records", "convergence_summary.json")):
             if len(diff) > 1: continue
             e = A.ser_err(A.series(r), ts, I); m = r["metrics"]
             ev = lambda k: None if (m[k] is None or tm[k] is None) else m[k] - tm[k]
-            sweeps.setdefault(factor, []).append(dict(value=par[factor] if factor != "baseline" else None, hydrograph_rmse_over_I=e["hydrograph_rmse_over_I"], cumvol_err_rel_total=e["cumvol_err_rel_total"], t_act2_err_s=ev("t_act2_s"), t_dom2_err_s=ev("t_dom2_s"),
+            rel = lambda a, b: a / max(abs(b), 1e-12)
+            sweeps.setdefault(factor, []).append(dict(route=A.route(m), route_match=A.route(m) == A.route(tm), sill_rel_err=[rel(m['sill_lowering1_m'] - tm['sill_lowering1_m'], tm['sill_lowering1_m']), rel(m['sill_lowering2_m'] - tm['sill_lowering2_m'], tm['sill_lowering2_m'])], delivered_rel_err=[rel(m['delivered1_m3'] - tm['delivered1_m3'], tm['delivered1_m3']), rel(m['delivered2_m3'] - tm['delivered2_m3'], tm['delivered2_m3'])], value=par[factor] if factor != "baseline" else None, hydrograph_rmse_over_I=e["hydrograph_rmse_over_I"], cumvol_err_rel_total=e["cumvol_err_rel_total"], t_act2_err_s=ev("t_act2_s"), t_dom2_err_s=ev("t_dom2_s"),
                                                       sill_err_m=[m["sill_lowering1_m"] - tm["sill_lowering1_m"], m["sill_lowering2_m"] - tm["sill_lowering2_m"]], delivered_err_m3=[m["delivered1_m3"] - tm["delivered1_m3"], m["delivered2_m3"] - tm["delivered2_m3"]],
                                                       solver_s=r["timing"]["solver_s"], law_evals=r.get("discharge_law_evaluations"), conservation=r.get("conservation")))
         base = sweeps.pop("baseline", [None])[0]
@@ -45,7 +46,7 @@ def run(out=os.path.join(HERE, "records", "convergence_summary.json")):
                 ratio = max(b["value"], a["value"]) / min(a["value"], b["value"]); ea, eb = a["hydrograph_rmse_over_I"], b["hydrograph_rmse_over_I"]
                 fine, coarse = (b, a) if (f in ("stations", "msub")) else ((a, b) if f in ("dt_geom", "rtol") else (b, a))
                 b["observed_order_vs_previous"] = None if min(ea, eb) <= 0 else float(np.log(max(ea, eb) / min(ea, eb)) / np.log(ratio))
-        res[scn] = dict(reference=ref_tab, reference_uncertainty_400_to_800=dict(
+        res[scn] = dict(target=dict(route=A.route(tm), sill_lowering_m=[tm['sill_lowering1_m'], tm['sill_lowering2_m']], delivered_m3=[tm['delivered1_m3'], tm['delivered2_m3']], t_act2_s=tm['t_act2_s'], t_dom2_s=tm['t_dom2_s']), reference=ref_tab, reference_uncertainty_400_to_800=dict(
             hydrograph_rmse_over_I=ref_tab["400_cfl0.4"]["hydrograph_rmse_over_I_vs800"], **{k: abs(ref_tab["800_cfl0.4"][k] - ref_tab["400_cfl0.4"][k]) if ref_tab["800_cfl0.4"][k] is not None and ref_tab["400_cfl0.4"][k] is not None else None for k in ("t_act2_s", "t_dom2_s", "sill_lowering1_m", "sill_lowering2_m")}),
             sweeps=sweeps, baseline=base)
     json.dump(res, open(out, "w"), indent=1, default=float); return res

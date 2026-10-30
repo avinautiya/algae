@@ -37,8 +37,8 @@ for scn in ("S1", "S2", "S3", "S4", "S5"):
     for k, b in v["reduced"].items():
         te = b["event_time_error_s"]
         rows.append([scn, k, "yes" if b["route_match"] else "NO", f(b["hydrograph"]["hydrograph_rmse_over_I"], 3), f(b["hydrograph"]["cumvol_err_rel_total"], 3), f(te["t_act2_s"], 4), f(te["t_dom2_s"], 5),
-                     f"{b['sill_lowering_err_m'][0]*1e3:+.2f} / {b['sill_lowering_err_m'][1]*1e3:+.2f}", f"{b['conservation']['water_residual_rel']:.1e} / {b['conservation']['energy_residual_rel']:.1e} / {b['conservation']['geometry_vs_latent_rel_max']:.1e} ({b['conservation'].get('geometry_vs_latent_kg_abs_max', float('nan')):.1e} kg)", f(b["solver_s"], 3), f(b["peak_rss_mb"], 3)])
-table(["scn", "reduced", "route ok", "hydrograph RMSE/I", "cum. volume err (rel total)", "t_act2 err (s)", "t_dom2 err (s)", "sill err R1/R2 (mm)", "water / energy / geometry-vs-latent resid (rel)", "solver s*", "RSS MB"], rows)
+                     f"{b['sill_lowering_err_m'][0]*1e3:+.2f} / {b['sill_lowering_err_m'][1]*1e3:+.2f} ({b['sill_lowering_rel_err'][0]*100:+.1f} / {b['sill_lowering_rel_err'][1]*100:+.1f} %)", f"{b['conservation']['water_residual_rel']:.1e} / {b['conservation']['energy_residual_rel']:.1e} / {b['conservation']['geometry_vs_latent_rel_max']:.1e} ({b['conservation'].get('geometry_vs_latent_kg_abs_max', float('nan')):.1e} kg)", f(b["solver_s"], 3), f(b["peak_rss_mb"], 3)])
+table(["scn", "reduced", "route ok", "hydrograph RMSE/I", "cum. volume err (rel total)", "t_act2 err (s)", "t_dom2 err (s)", "sill err R1/R2 (mm; % of 400-cell reference lowering of that route, n/a for S5)", "water / energy / geometry-vs-latent resid (rel)", "solver s*", "RSS MB"], rows)
 P("*solver seconds measured with two campaign workers concurrently on 4 cores; see the serial timing section.\n")
 
 # ---------------------------------------------------------------- 2 closure

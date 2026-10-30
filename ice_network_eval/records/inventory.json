@@ -14,9 +14,7 @@
   },
   "convergence": {
    "expected": 92,
-   "completed": 65,
-   "running": 2,
-   "pending": 25
+   "completed": 92
   },
   "frozen_s1_s5": {
    "expected": 35,
@@ -24,9 +22,9 @@
   },
   "param_dev": {
    "expected": 112,
-   "interrupted": 1,
-   "pending": 110,
-   "completed": 1
+   "completed": 75,
+   "running": 2,
+   "pending": 35
   },
   "param_eval": {
    "expected": 224,
@@ -39,26 +37,21 @@
  },
  "non_completed_non_pending": [
   {
-   "set": "convergence",
-   "id": "ref_S3_conv_400_f66b528af1",
-   "status": "running"
-  },
-  {
-   "set": "convergence",
-   "id": "ref_S3_conv_800_7bccda1403",
+   "set": "param_dev",
+   "id": "red_D021_r9_68bb3d935e",
    "status": "running"
   },
   {
    "set": "param_dev",
-   "id": "red_D000_r9_f3c9ceee1c",
-   "status": "interrupted"
+   "id": "red_D021_r17_114822da80",
+   "status": "running"
   }
  ],
  "run_dirs_not_in_any_case_list": [],
  "live_workers": [
-  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/ref_S3_conv_400_f66b528af1",
-  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/ref_S3_conv_800_7bccda1403"
+  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/red_D021_r17_114822da80",
+  "/home/user/algae/.worktrees/ice-network/ice_network_eval/records/runs/red_D021_r9_68bb3d935e"
  ],
  "total_expected_unique": 715,
- "total_dirs": 164
+ "total_dirs": 264
 }
