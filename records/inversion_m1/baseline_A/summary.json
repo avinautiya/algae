@@ -1,0 +1,77 @@
+{
+ "config_sha256": "7c9fe755ccff99a633f5418bb6188f1e5ab888593573a81c022da91985850ac4",
+ "n_plots": 47,
+ "n_days": 9,
+ "n_positive_counts": 42,
+ "spectral_fit_full_window": {
+  "median_rmse": 0.009689213369416536,
+  "iqr": [
+   0.0074819333776982595,
+   0.011227646859952305
+  ],
+  "median_mae": 0.007606990578214454
+ },
+ "holdout_window_1000_1300": {
+  "median_mae": 0.01163706408384757,
+  "mean_bias": -0.007481237556485547,
+  "coverage_of_95pct_band_leave_one_day_out": 0.9574468085106383
+ },
+ "algal_recovery_vs_counts": {
+  "spearman": 0.7778093120717704,
+  "spearman_p": 1.358389603765489e-09,
+  "bias_dex": 0.6941944602809219,
+  "rmse_dex": 0.9961287286118645,
+  "median_abs_err_dex": 0.6996834945028794,
+  "interval_coverage_95": 1.0,
+  "profile_interval_median_width_dex": 4.1798738281848955,
+  "fraction_interval_open_at_either_end": 1.0,
+  "fraction_interval_wider_than_1_dex": 1.0
+ },
+ "zero_count_plots": {
+  "n": 5,
+  "retrieved_log10_median": 4.123073319089996
+ },
+ "broadband_albedo": {
+  "bias": -0.006712779346165132,
+  "mae": 0.008380248325571101,
+  "n": 47
+ },
+ "ambiguity": {
+  "fraction_dust_at_bound": 0.2127659574468085,
+  "fraction_dark_particles_at_bound": 0.6595744680851063,
+  "fraction_cells_at_bound": 0.02127659574468085,
+  "fraction_radius_at_bound": 0.0425531914893617,
+  "median_abs_corr_cells_dust": 0.9146492189497071,
+  "median_abs_corr_cells_dark": 0.9523107567497118,
+  "median_abs_corr_dust_dark": 0.8225563222698594,
+  "median_condition_number": 3248589.581288682
+ },
+ "error_scale_lodo": {
+  "sigma_total_range": [
+   0.015623391238174513,
+   0.05937275979217077
+  ],
+  "kappa_range": [
+   5.814336582117377,
+   6.0
+  ]
+ },
+ "vs_published_cook2020_retrievals": {
+  "n": 13,
+  "spearman_mine_vs_published": 0.5500339537611831,
+  "spearman_published_vs_counts": 0.7469060521623868,
+  "spearman_mine_vs_counts": 0.8005509636664615,
+  "rmse_dex_published_vs_counts": 0.24394312492725218,
+  "rmse_dex_mine_vs_counts": 0.47895167547542983,
+  "note": "published retrievals are model output of an unverified procedure: a reference, never a truth target"
+ },
+ "provenance": {
+  "generated_utc": "2026-10-30T06:48:38+00:00",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "biosnicar_commit": "fe74eeef2999fd285f3dc06c47b0f0e1a36a17a6",
+  "code_sha256": "a46cc4cdb5abd34bc9dc95d6fddcdc5824e6f646acc8ce1665b80ba72a73c6ad",
+  "operators_sha256": "20d1f8cdd7c0859071ac060f7998a1a4ad5ecd63a526df3b873e87cc9547aa77",
+  "sample_groups_roles_hash": "3bce82ee9756a21317ec7b7c5ff60562eeafa60917ea416e5b6e51c6762a28c9"
+ }
+}
