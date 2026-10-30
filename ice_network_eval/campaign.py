@@ -28,6 +28,21 @@ def atomic_write(path, obj):
     os.replace(tmp, path)
 
 
+def applic(m, scn):
+    """compact applicability summary (diagnostics only, from the sampled run); percentiles over active-edge snapshots with Q > 1 % of the mean inflow"""
+    import numpy as np
+    from ice_network.diagnostics.applicability import diagnose
+    try:
+        d = diagnose(m["net"], m["result"]); rows = [r for r in d["rows"] if r["Q"] > 0.01 * scn["inflow_m3_s"]]
+        out = dict(summary=d.get("summary"), n_rows_active=len(rows))
+        for k in ("r_qs", "froude_max", "channel_over_node", "melt_over_flow", "Re_min", "Re_max"):
+            v = np.array([r[k] for r in rows if np.isfinite(r[k])]); out[k + "_p50_p90_max"] = [float(np.percentile(v, 50)), float(np.percentile(v, 90)), float(v.max())] if v.size else None
+        out["frac_active_snapshots_with_froude_ge_1"] = float(np.mean([r["n_stations_froude_ge_1"] > 0 for r in rows])) if rows else None
+        return out
+    except Exception as e:
+        return dict(error=f"{type(e).__name__}: {e}")
+
+
 def worker(rd):
     sys.path.insert(0, HERE)
     spec = json.load(open(os.path.join(rd, "spec.json"))); t_start = time.time(); t0 = time.perf_counter()
@@ -49,7 +64,7 @@ def worker(rd):
         if spec["kind"] == "reduced":
             tw = time.perf_counter(); R.run_reduced(scn, 3, 86400.0, msub=2, sample_dt=None, **{k: v for k, v in ov.items() if k in ("n_man", "nu_factor")}) if False else None
             m = R.run_reduced(scn, spec["stations"], spec["dt_geom"], timing=timing, progress=progress, **ov)
-            timing["solver_s"] = m["wall"]; extra = dict(discharge_law_evaluations=m["nfev"], conservation={k: m["budgets"][k] for k in ("water_residual_rel", "mass_residual_rel", "energy_residual_rel", "geometry_vs_latent_rel_max", "geometry_vs_latent_kg_abs_max")},
+            timing["solver_s"] = m["wall"]; extra = dict(applicability=applic(m, scn), discharge_law_evaluations=m["nfev"], conservation={k: m["budgets"][k] for k in ("water_residual_rel", "mass_residual_rel", "energy_residual_rel", "geometry_vs_latent_rel_max", "geometry_vs_latent_kg_abs_max")},
                                                        n_macrosteps=int(len(m["result"]["t"]) and round(R.T_END / spec["dt_geom"])))
         else:
             m = R.run_reference(scn, spec["ncell"], progress=progress, **ov)
@@ -123,10 +138,17 @@ PARAM_RANGES = {   # name: (low, high, scale, status).  Idealised bare-ice range
     "n_man": (0.03, 0.05, "lin"), "nu_factor": (0.5, 2.0, "log")}
 
 
-def param_point(u):
+CHALLENGE_RANGES = {   # deliberately wider than PARAM_RANGES (outside the development envelope on every axis); negative deficit = lake initially ABOVE sill 1 (initially wet route 1); negative sill_offset = route 2 is the LOWER sill
+    "inflow_m3_s": (0.005, 0.30, "log"), "pulse_amp": (0.0, 0.9, "lin"), "pulse_period_h": (0.25, 8.0, "log"), "inflow_T_C": (0.0, 4.0, "lin"),
+    "deficit_m": (-0.10, 0.50, "lin"), "area_m2": (300.0, 12000.0, "log"), "sill_offset_m": (-0.15, 0.20, "lin"),
+    "w1_m": (0.1, 2.0, "log"), "L1_m": (20.0, 400.0, "log"), "slope1": (0.0005, 0.08, "log"), "slope2": (0.002, 0.15, "log"), "L2_m": (20.0, 300.0, "log"),
+    "n_man": (0.02, 0.07, "lin"), "nu_factor": (0.33, 3.0, "log")}
+
+
+def param_point(u, ranges=None):
     import math
     p = {}
-    for x, (k, (lo, hi, sc)) in zip(u, PARAM_RANGES.items()):
+    for x, (k, (lo, hi, sc)) in zip(u, (ranges or PARAM_RANGES).items()):
         p[k] = float(math.exp(math.log(lo) + x * (math.log(hi) - math.log(lo)))) if sc == "log" else float(lo + x * (hi - lo))
     return p
 
@@ -139,12 +161,12 @@ def param_spec(p, idx, set_name, kind, **kw):
     return dict(kind=kind, scn=scn["id"], scn_override=scn, cfg_patch=patch, overrides=dict(n_man=p["n_man"], nu_factor=p["nu_factor"]), params=p, label=f"{kind[:3]}_{set_name}{idx:03d}" + kw.pop("suffix", ""), version="v1.0", **kw)
 
 
-def param_cases(set_name, seed, n):
+def param_cases(set_name, seed, n, ranges=None):
     from scipy.stats import qmc
     U = qmc.Sobol(d=len(PARAM_RANGES), scramble=True, seed=seed).random(n)
     out = []
     for i, u in enumerate(U):
-        p = param_point(u)
+        p = param_point(u, ranges)
         for st, dtg in ((9, 900), (17, 450)):
             out.append(param_spec(p, i, set_name, "reduced", stations=st, dt_geom=dtg, suffix=f"_r{st}"))
         out.append(param_spec(p, i, set_name, "reference", ncell=200, suffix="_200"))
@@ -164,6 +186,25 @@ def cases(name):
                 out.append(dict(kind="reduced", scn=s["id"], stations=rc["stations"], dt_geom=rc["dt_geom_s"], label=f"red_{s['id']}_{rc['id']}", version="v1.0"))
     if name.startswith("param_"):    # param_dev (seed 11, 32 pts), param_eval (seed 22, 64 pts): independent Sobol designs, deterministic
         out = param_cases({"param_dev": "D", "param_eval": "E"}[name], {"param_dev": 11, "param_eval": 22}[name], {"param_dev": 32, "param_eval": 64}[name])
+    if name == "convergence":   # one factor at a time about the baseline r17 / dt 450 / msub 16 / rtol 1e-7; reference mesh and CFL separately
+        for sid in ("S1", "S2", "S3", "S4"):    # S1 competing outlets, S2 near activation, S3 strongly incising (largest inflow), S4 weak melting / smooth
+            base = dict(stations=17, dt_geom=450, msub=16, rtol=1e-7)
+            def red(tag, **kw):
+                d = dict(base); d.update(kw); ov = {k: d[k] for k in ("msub", "rtol")}
+                out.append(dict(kind="reduced", scn=sid, stations=d["stations"], dt_geom=d["dt_geom"], overrides=ov, label=f"red_{sid}_conv_{tag}", version="v1.0"))
+            for st in (5, 9, 17, 33, 65): red(f"st{st}", stations=st)
+            for dtg in (1800, 900, 450, 225, 112.5): red(f"dt{dtg}", dt_geom=dtg)
+            for ms in (2, 4, 8, 16, 32): red(f"msub{ms}", msub=ms)
+            for rt in (1e-5, 1e-6, 1e-7, 1e-8, 1e-9): red(f"rtol{rt:g}", rtol=rt)
+            for n in (100, 200, 400, 800): out.append(dict(kind="reference", scn=sid, ncell=n, label=f"ref_{sid}_conv_{n}", version="v1.0"))
+            for cfl in (0.2, 0.1): out.append(dict(kind="reference", scn=sid, ncell=200, overrides=dict(cfl=cfl), label=f"ref_{sid}_conv_200_cfl{cfl}", version="v1.0"))
+        seen = set(); uniq = []
+        for o in out:
+            k = json.dumps({a: b for a, b in o.items() if a != "label"}, sort_keys=True)
+            if k not in seen: seen.add(k); uniq.append(o)
+        out = uniq
+    if name == "challenge":   # frozen BEFORE any challenge run (commit precedes execution): Sobol seed 33, 32 points, outside the development ranges
+        out = param_cases("C", 33, 32, CHALLENGE_RANGES)
     if name == "closure_sensitivity":   # closure variants applied identically to both models (matched) so closure sensitivity and numerical error are separable
         variants = {"nu0.5": dict(nu_factor=0.5), "nu2": dict(nu_factor=2.0), "n0.03": dict(n_man=0.03), "n0.05": dict(n_man=0.05)}
         for s in R.CFG["scenarios"]:

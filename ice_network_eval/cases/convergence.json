@@ -1,0 +1,1010 @@
+[
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 5,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_st5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 9,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_st9",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_st17",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 33,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_st33",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 65,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_st65",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 1800,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_dt1800",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 900,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_dt900",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 225,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_dt225",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 112.5,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_dt112.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 2,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_msub2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 4,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_msub4",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 8,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_msub8",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 32,
+   "rtol": 1e-07
+  },
+  "label": "red_S1_conv_msub32",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-05
+  },
+  "label": "red_S1_conv_rtol1e-05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-06
+  },
+  "label": "red_S1_conv_rtol1e-06",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-08
+  },
+  "label": "red_S1_conv_rtol1e-08",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S1",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-09
+  },
+  "label": "red_S1_conv_rtol1e-09",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 100,
+  "label": "ref_S1_conv_100",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 200,
+  "label": "ref_S1_conv_200",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 400,
+  "label": "ref_S1_conv_400",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 800,
+  "label": "ref_S1_conv_800",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 200,
+  "overrides": {
+   "cfl": 0.2
+  },
+  "label": "ref_S1_conv_200_cfl0.2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S1",
+  "ncell": 200,
+  "overrides": {
+   "cfl": 0.1
+  },
+  "label": "ref_S1_conv_200_cfl0.1",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 5,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_st5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 9,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_st9",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_st17",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 33,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_st33",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 65,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_st65",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 1800,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_dt1800",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 900,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_dt900",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 225,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_dt225",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 112.5,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_dt112.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 2,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_msub2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 4,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_msub4",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 8,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_msub8",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 32,
+   "rtol": 1e-07
+  },
+  "label": "red_S2_conv_msub32",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-05
+  },
+  "label": "red_S2_conv_rtol1e-05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-06
+  },
+  "label": "red_S2_conv_rtol1e-06",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-08
+  },
+  "label": "red_S2_conv_rtol1e-08",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S2",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-09
+  },
+  "label": "red_S2_conv_rtol1e-09",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 100,
+  "label": "ref_S2_conv_100",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 200,
+  "label": "ref_S2_conv_200",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 400,
+  "label": "ref_S2_conv_400",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 800,
+  "label": "ref_S2_conv_800",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 200,
+  "overrides": {
+   "cfl": 0.2
+  },
+  "label": "ref_S2_conv_200_cfl0.2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S2",
+  "ncell": 200,
+  "overrides": {
+   "cfl": 0.1
+  },
+  "label": "ref_S2_conv_200_cfl0.1",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 5,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_st5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 9,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_st9",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_st17",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 33,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_st33",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 65,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_st65",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 1800,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_dt1800",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 900,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_dt900",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 225,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_dt225",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 112.5,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_dt112.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 2,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_msub2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 4,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_msub4",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 8,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_msub8",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 32,
+   "rtol": 1e-07
+  },
+  "label": "red_S3_conv_msub32",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-05
+  },
+  "label": "red_S3_conv_rtol1e-05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-06
+  },
+  "label": "red_S3_conv_rtol1e-06",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-08
+  },
+  "label": "red_S3_conv_rtol1e-08",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S3",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-09
+  },
+  "label": "red_S3_conv_rtol1e-09",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 100,
+  "label": "ref_S3_conv_100",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 200,
+  "label": "ref_S3_conv_200",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 400,
+  "label": "ref_S3_conv_400",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 800,
+  "label": "ref_S3_conv_800",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 200,
+  "overrides": {
+   "cfl": 0.2
+  },
+  "label": "ref_S3_conv_200_cfl0.2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 200,
+  "overrides": {
+   "cfl": 0.1
+  },
+  "label": "ref_S3_conv_200_cfl0.1",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 5,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_st5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 9,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_st9",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_st17",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 33,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_st33",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 65,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_st65",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 1800,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_dt1800",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 900,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_dt900",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 225,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_dt225",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 112.5,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_dt112.5",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 2,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_msub2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 4,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_msub4",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 8,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_msub8",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 32,
+   "rtol": 1e-07
+  },
+  "label": "red_S4_conv_msub32",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-05
+  },
+  "label": "red_S4_conv_rtol1e-05",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-06
+  },
+  "label": "red_S4_conv_rtol1e-06",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-08
+  },
+  "label": "red_S4_conv_rtol1e-08",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reduced",
+  "scn": "S4",
+  "stations": 17,
+  "dt_geom": 450,
+  "overrides": {
+   "msub": 16,
+   "rtol": 1e-09
+  },
+  "label": "red_S4_conv_rtol1e-09",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 100,
+  "label": "ref_S4_conv_100",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 200,
+  "label": "ref_S4_conv_200",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 400,
+  "label": "ref_S4_conv_400",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 800,
+  "label": "ref_S4_conv_800",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 200,
+  "overrides": {
+   "cfl": 0.2
+  },
+  "label": "ref_S4_conv_200_cfl0.2",
+  "version": "v1.0"
+ },
+ {
+  "kind": "reference",
+  "scn": "S4",
+  "ncell": 200,
+  "overrides": {
+   "cfl": 0.1
+  },
+  "label": "ref_S4_conv_200_cfl0.1",
+  "version": "v1.0"
+ }
+]

@@ -73,7 +73,7 @@ def run_reduced(scn, n_st, dt_geom, msub=16, rtol=1e-7, nu_factor=1.0, melting=T
                 heat=float(r["budgets"]["heat_to_ice_J"]), net=net, result=r, nfev=nfev)
 
 
-def run_reference(scn, ncell, nu_factor=1.0, melting=True, heat_dissipation=True, n_man=None, progress=None):
+def run_reference(scn, ncell, nu_factor=1.0, melting=True, heat_dissipation=True, n_man=None, progress=None, cfl=0.4):
     G_COMMON = dict(globals()['G_COMMON']); G_COMMON.update({} if n_man is None else dict(n_man=n_man))
     lk = CFG["lake"]; sl = sills(scn)
     chans = []
@@ -84,7 +84,7 @@ def run_reference(scn, ncell, nu_factor=1.0, melting=True, heat_dissipation=True
     v0 = lk["area_m2"] * (sl[0] - lk["initial_stage_below_sill1_m"] - lk["bottom_m"])
     I, T = scn["inflow_m3_s"], scn["inflow_T_C"]
     t0 = time.perf_counter()
-    r = net.run([v0], [T], T_END, inflow_fn(scn), lambda t: np.array([T]), record_every=60.0, progress=progress)
+    r = net.run([v0], [T], T_END, inflow_fn(scn), lambda t: np.array([T]), record_every=60.0, progress=progress, cfl=cfl)
     wall = time.perf_counter() - t0
     rec = r["rec"]
     return dict(t=np.array([x["t"] for x in rec]), Q1=np.array([x["Q_in"][0] for x in rec]), Q2=np.array([x["Q_in"][1] for x in rec]),
