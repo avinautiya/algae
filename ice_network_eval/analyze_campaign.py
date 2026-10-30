@@ -7,6 +7,16 @@ HERE = os.path.dirname(os.path.abspath(__file__)); RUNS = os.path.join(HERE, "re
 KEYS = ("t_act1_s", "t_act2_s", "t_dom2_s", "sill_lowering1_m", "sill_lowering2_m", "delivered1_m3", "delivered2_m3", "heat_to_ice_J", "stage_max_m")
 
 
+def case_set(spec):
+    """campaign set inferred from the (immutable) label: frozen S1-S5 / closure / convergence / param dev (D) / param eval (E) / challenge (C)"""
+    lab = spec["label"]; scn = spec["scn"]
+    if "_rep" in lab: return "timing"
+    if "conv" in lab: return "convergence"
+    if scn[0] in "DEC" and scn[1:].isdigit(): return {"D": "param_dev", "E": "param_eval", "C": "challenge"}[scn[0]]
+    if any(t in lab for t in ("_nu0.5", "_nu2", "_n0.03", "_n0.05")): return "closure"
+    return "frozen"
+
+
 def load(selector=None):
     runs = []
     for f in sorted(glob.glob(os.path.join(RUNS, "*", "record.json"))):
@@ -84,5 +94,5 @@ def summarize(runs):
 
 
 if __name__ == "__main__":
-    pre = sys.argv[1]; sel = None if pre == "all" else (lambda r: r["spec"]["label"].split("_", 1)[1].startswith(pre) or r["spec"]["scn"].startswith(pre))
+    pre = sys.argv[1]; sel = None if pre == "all" else (lambda r: case_set(r["spec"]) == pre)
     out = summarize(load(sel)); json.dump(out, open(sys.argv[2], "w"), indent=1, default=float); print(len(out), "groups ->", sys.argv[2])

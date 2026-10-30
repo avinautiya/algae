@@ -60,9 +60,16 @@ def worker(rd):
     scn = next(s for s in R.CFG["scenarios"] if s["id"] == spec["scn"]) if "scn_override" not in spec else spec["scn_override"]
     ov = spec.get("overrides", {}); rec = dict(spec=spec, id=os.path.basename(rd), commit=spec.get("commit"), start_unix=t_start)
     timing = dict(import_s=t_imp)
+    # warm-up (numba cache load / dispatcher compile): a 120 s simulation of the same problem, timed separately and discarded
+    tw = time.perf_counter(); T_full = R.T_END; R.T_END = 120.0
+    try:
+        if spec["kind"] == "reduced": R.run_reduced(scn, spec["stations"], 60.0, sample_dt=None, **{k: v for k, v in ov.items() if k in ("n_man", "nu_factor", "msub", "rtol")})
+        else: R.run_reference(scn, min(spec["ncell"], 50), **{k: v for k, v in ov.items() if k in ("n_man", "nu_factor", "cfl")})
+    except BaseException as e:
+        timing["warmup_error"] = f"{type(e).__name__}: {e}"
+    R.T_END = T_full; timing["warmup_s"] = time.perf_counter() - tw
     try:
         if spec["kind"] == "reduced":
-            tw = time.perf_counter(); R.run_reduced(scn, 3, 86400.0, msub=2, sample_dt=None, **{k: v for k, v in ov.items() if k in ("n_man", "nu_factor")}) if False else None
             m = R.run_reduced(scn, spec["stations"], spec["dt_geom"], timing=timing, progress=progress, **ov)
             timing["solver_s"] = m["wall"]; extra = dict(applicability=applic(m, scn), discharge_law_evaluations=m["nfev"], conservation={k: m["budgets"][k] for k in ("water_residual_rel", "mass_residual_rel", "energy_residual_rel", "geometry_vs_latent_rel_max", "geometry_vs_latent_kg_abs_max")},
                                                        n_macrosteps=int(len(m["result"]["t"]) and round(R.T_END / spec["dt_geom"])))
@@ -212,6 +219,11 @@ def cases(name):
                 out.append(dict(kind="reference", scn=s["id"], ncell=200, overrides=ov, label=f"ref_{s['id']}_200_{vn}", version="v1.0"))
                 for st, dtg in ((9, 900), (17, 450)):
                     out.append(dict(kind="reduced", scn=s["id"], stations=st, dt_geom=dtg, overrides=ov, label=f"red_{s['id']}_r{st}_{vn}", version="v1.0"))
+    if name == "timing_serial":   # repeated timings, run with --workers 1 on an otherwise idle machine
+        for s in ("S1", "S2", "S5"):
+            for rep in range(3):
+                for n in (100, 200): out.append(dict(kind="reference", scn=s, ncell=n, label=f"ref_{s}_{n}_rep{rep}", version="v1.0"))
+                for st, dtg in ((9, 900), (17, 450), (33, 225)): out.append(dict(kind="reduced", scn=s, stations=st, dt_geom=dtg, label=f"red_{s}_r{st}_rep{rep}", version="v1.0"))
     os.makedirs(os.path.join(HERE, "cases"), exist_ok=True); atomic_write(os.path.join(HERE, "cases", name + ".json"), out); print(len(out), "cases")
 
 

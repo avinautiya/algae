@@ -40,7 +40,7 @@ def sills(scn):
     return [s1, s1 + scn["sill_offset_m"]]
 
 
-def run_reduced(scn, n_st, dt_geom, msub=16, rtol=1e-7, nu_factor=1.0, melting=True, heat_dissipation=True, sample_dt=60.0, n_man=None, progress=None, timing=None):
+def run_reduced(scn, n_st, dt_geom, msub=16, rtol=1e-7, nu_factor=1.0, melting=True, heat_dissipation=True, sample_dt=60.0, n_man=None, progress=None, timing=None, h_floor=1e-3, t_end=None):
     G_COMMON = dict(globals()['G_COMMON']); G_COMMON.update({} if n_man is None else dict(n_man=n_man))
     lk = CFG["lake"]; sl = sills(scn)
     edges = []
@@ -48,7 +48,7 @@ def run_reduced(scn, n_st, dt_geom, msub=16, rtol=1e-7, nu_factor=1.0, melting=T
         x = np.linspace(0.0, ch["length_m"], n_st); z = bed(ch, x, sl[k])
         edges.append(dict(a=0, b=1 + k, z=z, w=np.full(n_st, ch["width_m"]), zs=z + BANK, length=ch["length_m"], msub=msub, **G_COMMON))
     outlets = [dict(h_fixed=float(e["z"][-1]) - 5.0) for e in edges]
-    net = Network([dict(z_bottom=lk["bottom_m"], a_ref=lk["area_m2"], h_ref=1.0, q=0.0)], outlets, edges, melting=melting, nu_factor=nu_factor, heat_dissipation=heat_dissipation)
+    net = Network([dict(z_bottom=lk["bottom_m"], a_ref=lk["area_m2"], h_ref=1.0, q=0.0)], outlets, edges, melting=melting, nu_factor=nu_factor, heat_dissipation=heat_dissipation, h_floor=h_floor)
     v0 = lk["area_m2"] * (sl[0] - lk["initial_stage_below_sill1_m"] - lk["bottom_m"])
     I, T = scn["inflow_m3_s"], scn["inflow_T_C"]
     # COST run: no intermediate sampling (sampling is a diagnostic overhead, not part of the method); count discharge-law evaluations
