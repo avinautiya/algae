@@ -41,6 +41,7 @@ def worker(rd):
                                      peak_rss_mb=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024))
     import numpy as np
     t_imp = time.perf_counter(); import run_eval as R; t_imp = time.perf_counter() - t_imp
+    if spec.get("cfg_patch"): R.set_config(spec["cfg_patch"])
     scn = next(s for s in R.CFG["scenarios"] if s["id"] == spec["scn"]) if "scn_override" not in spec else spec["scn_override"]
     ov = spec.get("overrides", {}); rec = dict(spec=spec, id=os.path.basename(rd), commit=spec.get("commit"), start_unix=t_start)
     timing = dict(import_s=t_imp)
@@ -115,6 +116,44 @@ def manifest():
     atomic_write(os.path.join(HERE, "records", "manifest.json"), out); print(out["counts"], "total wall s", round(out["total_wall_s"]))
 
 
+PARAM_RANGES = {   # name: (low, high, scale, status).  Idealised bare-ice ranges bracketing order-of-magnitude supraglacial values; NOT tied to any glacier and no literature value was verified in this work.
+    "inflow_m3_s": (0.01, 0.10, "log"), "pulse_amp": (0.0, 0.6, "lin"), "pulse_period_h": (1.0, 4.0, "lin"), "inflow_T_C": (0.0, 2.0, "lin"),
+    "deficit_m": (0.01, 0.30, "log"), "area_m2": (1000.0, 6000.0, "log"), "sill_offset_m": (0.0, 0.15, "lin"),
+    "w1_m": (0.2, 1.0, "lin"), "L1_m": (50.0, 200.0, "lin"), "slope1": (0.002, 0.02, "log"), "slope2": (0.005, 0.05, "log"), "L2_m": (30.0, 120.0, "lin"),
+    "n_man": (0.03, 0.05, "lin"), "nu_factor": (0.5, 2.0, "log")}
+
+
+def param_point(u):
+    import math
+    p = {}
+    for x, (k, (lo, hi, sc)) in zip(u, PARAM_RANGES.items()):
+        p[k] = float(math.exp(math.log(lo) + x * (math.log(hi) - math.log(lo)))) if sc == "log" else float(lo + x * (hi - lo))
+    return p
+
+
+def param_spec(p, idx, set_name, kind, **kw):
+    patch = dict(lake=dict(area_m2=p["area_m2"], initial_stage_below_sill1_m=p["deficit_m"]),
+                 channels=[dict(width_m=p["w1_m"], length_m=p["L1_m"], slope=p["slope1"]), dict(width_m=0.4, length_m=p["L2_m"], slope=p["slope2"])])
+    scn = dict(id=f"{set_name}{idx:03d}", sill_offset_m=p["sill_offset_m"], inflow_m3_s=p["inflow_m3_s"], inflow_T_C=p["inflow_T_C"],
+               pulse_amp=p["pulse_amp"], pulse_period_s=p["pulse_period_h"] * 3600.0)
+    return dict(kind=kind, scn=scn["id"], scn_override=scn, cfg_patch=patch, overrides=dict(n_man=p["n_man"], nu_factor=p["nu_factor"]), params=p, label=f"{kind[:3]}_{set_name}{idx:03d}" + kw.pop("suffix", ""), version="v1.0", **kw)
+
+
+def param_cases(set_name, seed, n):
+    from scipy.stats import qmc
+    U = qmc.Sobol(d=len(PARAM_RANGES), scramble=True, seed=seed).random(n)
+    out = []
+    for i, u in enumerate(U):
+        p = param_point(u)
+        for st, dtg in ((9, 900), (17, 450)):
+            out.append(param_spec(p, i, set_name, "reduced", stations=st, dt_geom=dtg, suffix=f"_r{st}"))
+        out.append(param_spec(p, i, set_name, "reference", ncell=200, suffix="_200"))
+        if i % 4 == 0:
+            out.append(param_spec(p, i, set_name, "reference", ncell=100, suffix="_100"))
+            out.append(param_spec(p, i, set_name, "reference", ncell=400, suffix="_400"))
+    return out
+
+
 def cases(name):
     sys.path.insert(0, HERE); import run_eval as R
     out = []
@@ -123,6 +162,8 @@ def cases(name):
             for n in (100, 200, 400): out.append(dict(kind="reference", scn=s["id"], ncell=n, label=f"ref_{s['id']}_{n}", version="v1.0"))
             for rc in R.CFG["reduced_model_configurations"]:
                 out.append(dict(kind="reduced", scn=s["id"], stations=rc["stations"], dt_geom=rc["dt_geom_s"], label=f"red_{s['id']}_{rc['id']}", version="v1.0"))
+    if name.startswith("param_"):    # param_dev (seed 11, 32 pts), param_eval (seed 22, 64 pts): independent Sobol designs, deterministic
+        out = param_cases({"param_dev": "D", "param_eval": "E"}[name], {"param_dev": 11, "param_eval": 22}[name], {"param_dev": 32, "param_eval": 64}[name])
     if name == "closure_sensitivity":   # closure variants applied identically to both models (matched) so closure sensitivity and numerical error are separable
         variants = {"nu0.5": dict(nu_factor=0.5), "nu2": dict(nu_factor=2.0), "n0.03": dict(n_man=0.03), "n0.05": dict(n_man=0.05)}
         for s in R.CFG["scenarios"]:

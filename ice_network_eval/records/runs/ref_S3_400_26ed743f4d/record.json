@@ -1,0 +1,42 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "S3",
+  "ncell": 400,
+  "label": "ref_S3_400",
+  "version": "v1.0",
+  "commit": "bffa237"
+ },
+ "id": "ref_S3_400_26ed743f4d",
+ "commit": "bffa237",
+ "start_unix": 1793377440.0282514,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": 1848.0179540574197,
+  "t_act2_s": 4534.575907156125,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.49165880821838215,
+  "sill_lowering1_m": 0.05216170488299099,
+  "sill_lowering2_m": 0.06149147852136139,
+  "delivered1_m3": 996.2632772261835,
+  "delivered2_m3": 739.2267189658651,
+  "heat_to_ice_J": 1991120597.0736482,
+  "stage_end_m": 100.23027800453872,
+  "stage_max_m": 100.2579983604977
+ },
+ "timing": {
+  "import_s": 0.7215985770000088,
+  "solver_s": 218.97780347499997,
+  "metrics_serialization_s": 0.0028867069999023443
+ },
+ "nsteps": 721485,
+ "diss_J": 14391951.926000109,
+ "wall_total_s": 219.858090499,
+ "peak_rss_mb": 172.94140625,
+ "end_unix": 1793377659.8863635
+}

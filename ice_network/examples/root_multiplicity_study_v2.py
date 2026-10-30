@@ -80,7 +80,7 @@ def section_ramp():
 
 
 # ---------------------------------------------------------------- 4 event timing (slowly filling basin crossing a sill)
-EVAL_CAP = 400000
+EVAL_CAP = int(os.environ.get("EVAL_CAP", 150000)); RTOL = float(os.environ.get("RTOL", 1e-8))
 class Stalled(Exception): pass
 
 def counting(fn, limit):
@@ -100,7 +100,7 @@ def activation(fn, inflow, h_floor, area=500.0, limit=EVAL_CAP):
     t_end = 3 * t_cross
     t0 = time.perf_counter()
     try:
-        r = net.run([area * 0.98], [0.0], t_end, t_end / 1500.0, const(inflow), const(0.0), evolve=False, rtol=1e-10, atol=1e-12)
+        r = net.run([area * 0.98], [0.0], t_end, t_end / 1500.0, const(inflow), const(0.0), evolve=False, rtol=RTOL, atol=1e-10)
     except Stalled:
         return dict(stalled=True, edge_flow_calls=cnt[0], t_cross_nominal=t_cross), None, None
     t = np.array(r["t"]); Q = np.array([abs(s["Q"][0]) for s in r["hist"]]); st = np.array([s["stage"][0] for s in r["hist"]])
@@ -119,7 +119,7 @@ VARIANTS = {"raw_fast": (C.edge_flow, 0.0), "raw_reference_bisection": (CR.edge_
 def section_timing(inflow, name):
     fn, hf_ = VARIANTS[name]; t0 = time.perf_counter()
     res, t, Q = activation(fn, float(inflow), hf_)
-    res["wall_s"] = time.perf_counter() - t0; res["eval_cap"] = EVAL_CAP
+    res["wall_s"] = time.perf_counter() - t0; res["eval_cap"] = EVAL_CAP; res["rtol"] = RTOL
     if t is not None: np.savez_compressed(os.path.join(OUTDIR, f"timing_{inflow}_{name}.npz"), t=t, Q=Q)
     save(f"timing_{inflow}_{name}", res); print(inflow, name, {k: v for k, v in res.items() if k.startswith("t_") or k in ("stalled", "edge_flow_calls", "wall_s")}, flush=True)
 
