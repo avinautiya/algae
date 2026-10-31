@@ -1,0 +1,26 @@
+{
+  "version": "observability-demonstration-1",
+  "scope": "Synthetic computational study of the declared fixed-flow thermal equation; no environmental accuracy claim",
+  "seed": 3192026,
+  "stations_m": [0.02, 0.04],
+  "target_m": [0.06, 0.12],
+  "horizon_s": 60,
+  "temperature_cap_K": 0.2,
+  "reference_inlet_K": 0.1,
+  "transverse_refinement": [24, 48, 96, 192],
+  "primary_cells": 96,
+  "independent_lp_vertex_cases": 80,
+  "smooth_profile_cases": 120,
+  "smooth_profile_generation": "0.2 sin(pi*y/(2H)) sigmoid(offset + sum_{n=1..5} a_n cos(n*pi*y/H)/n), seeded Gaussian coefficients, offset uniform[-0.5,0.5]",
+  "comparators": ["uniform-entrance amplitude fitted to all observations", "two-mode Graetz least-squares fitted to all observations", "conditional interval midpoint"],
+  "measurement_noise_K": [0, 0.00001, 0.0001, 0.001],
+  "surface_heating_interval_W_m2": [0, 100],
+  "acceptance": {
+    "primal_dual_scaled_gap": 0.00000002,
+    "independent_vertex_absolute_error": 0.00000001,
+    "forecast_feasibility_K": 0.00000002,
+    "analytical_plug_refinement": "Observe convergence and report actual errors; no preselected winning result",
+    "comparison": "Report every comparator, signed errors, median/mean/max errors and endpoint worst-case loss; do not claim midpoint wins average error"
+  },
+  "information_rule": "Operational forecasts use stations at/upstream of 0.04 m only. Endpoint observations downstream of this origin may appear only in explicitly retrospective theorem demonstrations, never as operational forecast inputs."
+}

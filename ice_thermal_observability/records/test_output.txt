@@ -1,0 +1,28 @@
+test_demo_energy_replay_and_scope (test_observability.ForecastTests) ... ok
+test_future_observations_rejected (test_observability.ForecastTests) ... ok
+test_geometry_screen_and_invalid_inputs (test_observability.ForecastTests) ... ok
+test_overwrite_preserved_and_cli_executes (test_observability.ForecastTests) ... ok
+test_surface_uncertainty_and_source_energy (test_observability.ForecastTests) ... ok
+test_temperature_scale_linearity (test_observability.ForecastTests) ... ok
+test_unknown_future_data_fields_rejected (test_observability.ForecastTests) ... ok
+test_endpoint_information_collapses_range (test_observability.RecoveryTests) ... ok
+test_independent_vertex_comparison_exact_and_noisy (test_observability.RecoveryTests) ... ok
+test_infeasible_measurement_rejected (test_observability.RecoveryTests) ... ok
+test_midpoint_is_minimax_on_attaining_pair (test_observability.RecoveryTests) ... ok
+test_more_information_and_less_noise_do_not_widen (test_observability.RecoveryTests) ... ok
+test_target_weighted_profile_moment_collapses_range (test_observability.RecoveryTests) ... ok
+test_upstream_information_leaves_attainable_range (test_observability.RecoveryTests) ... ok
+test_all_thermal_modes_couple_to_bulk_discrete_identity (test_observability.ThermalPhysicsTests) ... ok
+test_exact_mean_flow_and_capacity (test_observability.ThermalPhysicsTests) ... ok
+test_independent_analytical_kernel_refinement (test_observability.ThermalPhysicsTests) ... ok
+test_no_slip_spectrum_independent_shooting (test_observability.ThermalPhysicsTests) ... ok
+test_semigroup_positivity_and_composition (test_observability.ThermalPhysicsTests) ... ok
+test_smooth_continuum_counterexample (test_observability.ThermalPhysicsTests) ... ok
+test_source_coefficients_causal_and_nonnegative (test_observability.ThermalPhysicsTests) ... ok
+test_source_response_independent_ode_and_ledger (test_observability.ThermalPhysicsTests) ... ok
+test_wall_flux_integral_matches_regional_heat (test_observability.ThermalPhysicsTests) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 7.934s
+
+OK
