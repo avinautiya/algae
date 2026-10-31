@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "scope": "Analytical and dimensional design checks only; not a predictive CFD result.",
+  "constructed_closure_counterexample": {
+    "depth_mean_over_scale": "2/3",
+    "flux_mean_over_scale": "4/5",
+    "bottom_gradient_over_scale": [
+      "3/2",
+      "5/2"
+    ],
+    "flux_ratio": 1.6666666666666667,
+    "warning": "Constructed admissible instantaneous fields, not evidence of a persistent environmental effect."
+  },
+  "energy_projection": {
+    "water_to_interface_W": 8000.0,
+    "latent_W": 6000.0,
+    "ice_volume_m3_s": 1.9590045644806352e-05,
+    "ledger_residual_W": 0.0,
+    "warning": "Manufactured ledger identity; not a discrete moving-mesh conservation test."
+  },
+  "regime_examples": {
+    "published_flume_hydraulics_only": {
+      "depth_m": 0.00165,
+      "velocity_m_s": 0.4027272727272727,
+      "width_m": 0.02,
+      "temperature_scale_K": 0.7,
+      "Fr": 3.165443493172772,
+      "Re_Uh": 369.16666666666663,
+      "We_h": 3.5681636363636366,
+      "Bo_h": 0.356103,
+      "Ste_sensible_over_latent": 0.008768862275449102,
+      "inverse_Ste": 114.03987981425841,
+      "upstream_characteristic_m_s": 0.27550109617543256,
+      "upstream_small_disturbance_possible": false,
+      "latent_bias_for_2cm_per_day_W_m2": 70.89768518518518
+    },
+    "synthetic_supercritical_reach": {
+      "depth_m": 0.05,
+      "velocity_m_s": 1,
+      "width_m": 0.5,
+      "temperature_scale_K": 0.2,
+      "Fr": 1.4278431229270643,
+      "Re_Uh": 27777.77777777778,
+      "We_h": 666.6666666666667,
+      "Bo_h": 327.00000000000006,
+      "Ste_sensible_over_latent": 0.0025053892215568863,
+      "inverse_Ste": 399.13957934990435,
+      "upstream_characteristic_m_s": 0.29964294820427484,
+      "upstream_small_disturbance_possible": false,
+      "latent_bias_for_2cm_per_day_W_m2": 70.89768518518518
+    },
+    "synthetic_subcritical_reach": {
+      "depth_m": 0.1,
+      "velocity_m_s": 0.5,
+      "width_m": 0.5,
+      "temperature_scale_K": 0.2,
+      "Fr": 0.5048187773461522,
+      "Re_Uh": 27777.77777777778,
+      "We_h": 333.33333333333337,
+      "Bo_h": 1308.0000000000002,
+      "Ste_sensible_over_latent": 0.0025053892215568863,
+      "inverse_Ste": 399.13957934990435,
+      "upstream_characteristic_m_s": -0.49045444115315073,
+      "upstream_small_disturbance_possible": true,
+      "latent_bias_for_2cm_per_day_W_m2": 70.89768518518518
+    }
+  },
+  "conditional_bed_error_m_at_100W_m2_24h": 0.028209665728521148,
+  "warning": "Example material constants are approximate design values, not site calibrations."
+}
