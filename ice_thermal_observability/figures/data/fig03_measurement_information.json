@@ -1,0 +1,71 @@
+{
+  "noise": [
+    {
+      "stations": 1,
+      "noise_bound_K": 0,
+      "lower_W": 0.20092688106896323,
+      "upper_W": 0.29407913994149154
+    },
+    {
+      "stations": 1,
+      "noise_bound_K": 1e-05,
+      "lower_W": 0.2008982236152695,
+      "upper_W": 0.2941077973951853
+    },
+    {
+      "stations": 1,
+      "noise_bound_K": 0.0001,
+      "lower_W": 0.20064030653202575,
+      "upper_W": 0.294365714478429
+    },
+    {
+      "stations": 1,
+      "noise_bound_K": 0.001,
+      "lower_W": 0.19809259377923216,
+      "upper_W": 0.2969134272312226
+    },
+    {
+      "stations": 2,
+      "noise_bound_K": 0,
+      "lower_W": 0.23224060984885597,
+      "upper_W": 0.2627654111615991
+    },
+    {
+      "stations": 2,
+      "noise_bound_K": 1e-05,
+      "lower_W": 0.2320950228383849,
+      "upper_W": 0.2629109981720702
+    },
+    {
+      "stations": 2,
+      "noise_bound_K": 0.0001,
+      "lower_W": 0.23080906236875443,
+      "upper_W": 0.2641969586417007
+    },
+    {
+      "stations": 2,
+      "noise_bound_K": 0.001,
+      "lower_W": 0.21970782112504697,
+      "upper_W": 0.2752981998854081
+    }
+  ],
+  "goal_information": [
+    {
+      "noise_bound_K": 0,
+      "radius_W": 5.551115123125783e-17
+    },
+    {
+      "noise_bound_K": 1e-05,
+      "radius_W": 3.13583972964826e-05
+    },
+    {
+      "noise_bound_K": 0.0001,
+      "radius_W": 0.00031358397296542273
+    },
+    {
+      "noise_bound_K": 0.001,
+      "radius_W": 0.0031358397296546436
+    }
+  ],
+  "meaning": "Illustrative ideal weighted-profile observation; not one point thermometer or an achieved sensor precision"
+}

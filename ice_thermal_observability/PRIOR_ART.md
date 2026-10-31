@@ -1,0 +1,24 @@
+# Closest prior work and priority gate
+
+Focused primary-source search on 31 October 2026. Searches covered Graetz inverse/inlet-profile problems; sharp heat/temperature recovery from finite observations; optimal recovery of heat semigroups; glacier-channel thermal incision; and adjoint ice-melt sensitivities. This is not an exhaustive full-text priority certification.
+
+| Primary source | Actual reading scope | Established work and distinction |
+|---|---|---|
+| [Pierre & Plouraboue, analytical Graetz modes, 2018/2020](https://arxiv.org/html/1812.05351v2) | Model and spectral formulation, general solution and boundary-source convolution sections inspected. | Generalized Graetz modes, including axial conduction and boundary forcing, already provide efficient analytical thermal representations. This package's basic spectral solver and source convolution are established methods. Its restricted PDE deliberately omits axial conduction. |
+| [Fourcher & Mansouri 1997](https://doi.org/10.1016/S0142-727X(96)00089-6) | Primary publisher abstract. | Thermal response to periodic inlet temperature and a low-order Galerkin approximation predate this project. Thermal memory or adding temperature modes alone cannot be claimed new. |
+| [Neuhauser et al. 2025](https://doi.org/10.1016/j.ijheatmasstransfer.2025.127198) and [author-institution copy](https://publikationen.bibliothek.kit.edu/1000182972) | Repository metadata and primary abstract/model excerpts screened. | Analytical extensions for nonuniform heat flux exist. The source-corrected energy identity here is conservation, not a newly discovered law. Full-text comparison still needed. |
+| [Osipenko, optimal recovery of linear operators](https://osipenko.rstu.ru/IzvOse.pdf), [journal DOI](https://doi.org/10.4213/im9384e) | Primary abstract and introduction defining optimal recovery inspected. | Optimal recovery of heat solutions from inaccurate information is an established mathematical field. Generic minimax recovery, and the midpoint argument in particular, are not novel inventions here. This package uses a bounded positive-profile class and a regional bed-heat functional; the exact placement characterization needs direct comparison with this literature. |
+| [Jarosch & Gudmundsson 2012](https://tc.copernicus.org/articles/6/493/2012/) | Primary abstract; attempted full-PDF retrieval timed out. | Coupled glacial channel hydraulics, heat transfer, incision and ice dynamics already exist. This work neither introduces the first ice-channel model nor replaces that coupled physics. Full-text review remains open. |
+| [Isenko et al. 2005](https://doi.org/10.1016/j.coldregions.2004.12.003) | Primary publisher abstract, discussion/conclusion excerpts. | Bulk stream cooling and its contribution to ice melt already have explicit energy-balance treatments. The present question is the sufficiency of finite bulk data for a chosen regional prediction. |
+| [Heimbach & Losch, ice-shelf melt sensitivities](https://epic.awi.de/24588/1/Hei2011b.pdf) | Primary abstract and appendix excerpts screened. | Adjoint melt sensitivities already exist in glaciology. The target-weighted thermal moment here is a goal-oriented measurement, not the first use of an adjoint for ice. |
+| [SciPy 1.13.1 HiGHS documentation](https://docs.scipy.org/doc/scipy-1.13.1/reference/optimize.linprog-highs.html) | Official objective/constraint and marginal conventions checked. | Solver methodology is existing software. Independent active-face enumeration and evaluated dual bounds check this implementation. |
+
+## Candidate claim
+
+For the specified ice-bounded unidirectional-flow model (including prescribed no-slip shear) and positive smooth inlet class, the manuscript gives a complete finite-bulk-observation placement criterion for regional heat identifiability and a positive smooth counterexample when it fails. The explicitly evaluated continuum witness uses plug flow. A companion tool computes sharp class-dependent erosion ranges, includes uncertain surface heat conservatively, and identifies target-specific thermal information.
+
+The focused search did not locate that exact placement statement coupled to this regional ice observable. That is a reason for expert/full-text review, not evidence that all relevant literature has been excluded. A Nature-level physical discovery or environmental model improvement is not established by this result.
+
+## Stronger scientific question
+
+The meaningful physical question is whether conditional regional uncertainty remains forecast-relevant after imposing independently justified profile reachability, mixing and hydraulic constraints. It may become negligible. A reduced modal baseline may predict the synthetic profile family very well. Both outcomes must be reported and used to narrow the contribution.

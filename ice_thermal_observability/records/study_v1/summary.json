@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "protocol_sha256": "254fc727de897721c255c0132c280d25b3000f863ab9a980ae2668454fa80cac",
+  "scope": "Synthetic conditional model study; not new CFD or field validation",
+  "test_profiles": 120,
+  "independently_enumerated_cases": 80,
+  "max_vertex_error": 3.3306690738754696e-16,
+  "continuum_witness_power_difference_W": 0.004383205427877431,
+  "continuum_witness_max_observation_difference_K": 3.2526065174565133e-19,
+  "primary_heat_power_W": {
+    "lower": 0.23224060984885586,
+    "upper": 0.26276541116159907,
+    "minimax": 0.24750301050522747,
+    "worst_case_absolute_error": 0.015262400656371605
+  },
+  "primary_lowering_m": {
+    "lower": 7.582673579194583e-06,
+    "upper": 8.579310664220057e-06,
+    "minimax": 8.08099212170732e-06,
+    "worst_case_absolute_error": 4.98318542512737e-07
+  },
+  "upper_over_lower": 1.1314361055657278,
+  "max_primary_dual_gap_W": 2.220446049250313e-16,
+  "source_extended_heat_power_W": {
+    "lower": 0.2322406098488558,
+    "upper": 0.27175091637695314,
+    "minimax": 0.2519957631129045
+  },
+  "smooth_profile_metrics": {
+    "uniform_entrance": {
+      "mean_abs_error_W": 0.00982422206810927,
+      "median_abs_error_W": 0.008938036948604719,
+      "max_abs_error_W": 0.02512434452104151,
+      "mean_signed_error_W": 0.007855720728842991
+    },
+    "two_mode_graetz": {
+      "mean_abs_error_W": 0.0013170861972158362,
+      "median_abs_error_W": 0.0011510803679101733,
+      "max_abs_error_W": 0.004445897528929765,
+      "mean_signed_error_W": 0.00018137322108998332
+    },
+    "minimax": {
+      "mean_abs_error_W": 0.001592479986935428,
+      "median_abs_error_W": 0.0014806178841856726,
+      "max_abs_error_W": 0.005852385051575315,
+      "mean_signed_error_W": -0.0008374828739578302
+    }
+  },
+  "smooth_cases_with_infeasible_two_mode_initial_profile": 3,
+  "smooth_cases_consistent_with_uniform_entrance_at_1e_6K": 0,
+  "all_admitted_profiles_inside_conditional_intervals": true,
+  "no_statistical_coverage_claim": true
+}

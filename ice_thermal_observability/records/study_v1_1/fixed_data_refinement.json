@@ -1,0 +1,126 @@
+{
+  "scope": "Supplemental numerical-validation audit; no changes to primary protocol/test cases",
+  "references": {
+    "plug": {
+      "bulk_data_K": [
+        0.08159441238406147,
+        0.07397056837896873
+      ],
+      "reference": "Analytical uniform-inlet sine series, 1024 terms; 2048-term agreement checked",
+      "reference_refinement_difference_K": [
+        0.0,
+        0.0
+      ]
+    },
+    "shear_free": {
+      "bulk_data_K": [
+        0.08990375482828664,
+        0.08410123591053562
+      ],
+      "reference": "768-cell synthetic reference; 384-to-768 difference is an error indicator, not a certified bound",
+      "reference_refinement_difference_K": [
+        3.272424779765526e-08,
+        3.1202462766333205e-08
+      ]
+    }
+  },
+  "rows": [
+    {
+      "velocity": "plug",
+      "cells": 24,
+      "fixed_bulk_data_K": [
+        0.08159441238406147,
+        0.07397056837896873
+      ],
+      "lower_W": 0.2590361446026669,
+      "upper_W": 0.2972329368185792,
+      "minimax_W": 0.27813454071062305,
+      "max_dual_gap_W": 1.1102230246251565e-16
+    },
+    {
+      "velocity": "plug",
+      "cells": 48,
+      "fixed_bulk_data_K": [
+        0.08159441238406147,
+        0.07397056837896873
+      ],
+      "lower_W": 0.25926485384311404,
+      "upper_W": 0.29708498670045824,
+      "minimax_W": 0.27817492027178614,
+      "max_dual_gap_W": 1.1102230246251565e-16
+    },
+    {
+      "velocity": "plug",
+      "cells": 96,
+      "fixed_bulk_data_K": [
+        0.08159441238406147,
+        0.07397056837896873
+      ],
+      "lower_W": 0.25933112274335185,
+      "upper_W": 0.2970370451724462,
+      "minimax_W": 0.27818408395789906,
+      "max_dual_gap_W": 5.551115123125783e-17
+    },
+    {
+      "velocity": "plug",
+      "cells": 192,
+      "fixed_bulk_data_K": [
+        0.08159441238406147,
+        0.07397056837896873
+      ],
+      "lower_W": 0.25934623118584166,
+      "upper_W": 0.2970265738063609,
+      "minimax_W": 0.27818640249610127,
+      "max_dual_gap_W": 1.6653345369377348e-16
+    },
+    {
+      "velocity": "shear_free",
+      "cells": 24,
+      "fixed_bulk_data_K": [
+        0.08990375482828664,
+        0.08410123591053562
+      ],
+      "lower_W": 0.23209932262424116,
+      "upper_W": 0.26291698696147503,
+      "minimax_W": 0.2475081547928581,
+      "max_dual_gap_W": 1.1102230246251565e-16
+    },
+    {
+      "velocity": "shear_free",
+      "cells": 48,
+      "fixed_bulk_data_K": [
+        0.08990375482828664,
+        0.08410123591053562
+      ],
+      "lower_W": 0.23222297956127957,
+      "upper_W": 0.2627880777971696,
+      "minimax_W": 0.2475055286792246,
+      "max_dual_gap_W": 1.1102230246251565e-16
+    },
+    {
+      "velocity": "shear_free",
+      "cells": 96,
+      "fixed_bulk_data_K": [
+        0.08990375482828664,
+        0.08410123591053562
+      ],
+      "lower_W": 0.23224243894686292,
+      "upper_W": 0.2627672402596061,
+      "minimax_W": 0.24750483960323452,
+      "max_dual_gap_W": 1.1102230246251565e-16
+    },
+    {
+      "velocity": "shear_free",
+      "cells": 192,
+      "fixed_bulk_data_K": [
+        0.08990375482828664,
+        0.08410123591053562
+      ],
+      "lower_W": 0.23224568708449758,
+      "upper_W": 0.2627636294557681,
+      "minimax_W": 0.24750465827013285,
+      "max_dual_gap_W": 1.3877787807814457e-16
+    }
+  ],
+  "continuum_error_certified": false
+}

@@ -1,0 +1,14 @@
+# Independent contribution for review after Claude's current milestone
+
+Do not interrupt, restart or modify the active CFD work. This directory is standalone and changes no prior solver, branch, checkpoint, case or frozen result.
+
+1. Review `THEOREMS.md`. The continuum proof covers prescribed unidirectional flow including no-slip shear, using a weighted Sturm–Liouville problem and a nonzero bulk coupling for every mode. The explicitly evaluated sine-mode counterexample is for plug flow. Do not promote the proof to turbulent/free-surface dynamics or reverse-flow recirculation.
+2. Reproduce the tests, predeclared study and figures in new directories. Inspect primal witnesses, observed temperatures, dual bounds, source budgets and mesh behavior.
+3. Retain every baseline result. If a two-mode Graetz model is more accurate on the smooth synthetic profiles, report it. The interval method guarantees a different property: the best scalar worst-case error over its declared information class.
+4. Inspect the reachability assumption. The inlet box admits arbitrary bounded upstream transverse profiles. Downstream smoothing makes them mathematically admissible; realistic atmospheric/upstream-flow histories need not generate all of them. Use the matched-history CFD work to restrict that class when possible.
+5. Use the existing thermal-memory experiment as a physical test of consequential unresolved state, with classical developing-flow comparators. This package supplies an information theorem and quantitative diagnostic, not independent evidence for an environmental mechanism.
+6. To connect a verified linear passive-thermal solver, derive consistent input-to-observation and input-to-regional-bed-power maps. `recovery.sharp_interval(c,E,d,epsilon,l,u)` can then operate on those maps. Include fixed boundary/source offsets before subtracting the reference. Confirm linear superposition, common normalization and conservation through direct solver replays. A heat-gradient/point-temperature map must not be mislabeled bulk enthalpy.
+7. Do not merge the fixed-flow power-to-lowering conversion into a moving-ice solver as a second melt source. The current tool omits meltwater mass and geometry feedback. The earlier `ice_incision_forecast` has a different bulk model with mass addition; the assumptions do not automatically combine.
+8. For any field application, validate the observation operator, inlet/source prior, profile bounds and hydraulic regime independently. The current results are synthetic. No satellite or glacier melt accuracy improvement is claimed.
+
+The potential research contribution is a defensible statement about when thermal calibration can support a regional ice-erosion forecast, with a runnable way to compute its conditional information limit. Historical originality and practical importance require additional review and physical evidence.
