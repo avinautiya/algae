@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Verification of analytical subproblems only; no ice-step stability result.",
+  "thermal_response": {
+    "finest_relative_error": 1.7441860858624956e-05,
+    "observed_orders": [
+      1.9963171176883656,
+      1.9992983891325082,
+      1.9955531149660417,
+      1.9941630007236875
+    ],
+    "passivity_samples": 1000,
+    "min_sampled_real_response": 0.4038172809717566,
+    "note": "The positivity proof is in MATHEMATICS.md; sampling is only a regression check."
+  },
+  "moving_hydraulic_jump": {
+    "cases": 200,
+    "max_scaled_linearization_error": 4.4836996615504887e-10,
+    "max_base_jump_residual": 6.494804694057166e-15,
+    "max_relative_jump_head_loss_error": 4.6629367034256575e-14
+  }
+}
