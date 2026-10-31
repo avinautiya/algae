@@ -7,8 +7,8 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys
 import rtm, forcing
 
 
-def run(p, segments, mode="thermal", stations=17, tabs=None, ramp_s=900.0, t_end=None, lake_T0=None):
-    p = rtm.full(p); T_end = t_end or sum(s[0] for s in segments); Qf, Tf = forcing.make(segments, ramp_s)
+def run(p, segments, mode="thermal", stations=17, tabs=None, ramp_s=900.0, t_end=None, lake_T0=None, fns=None):
+    p = rtm.full(p); T_end = t_end or sum(s[0] for s in segments); Qf, Tf = fns if fns is not None else forcing.make(segments, ramp_s)
     if tabs is None:
         q1 = dict(p, T=1.0); tabs = (rtm.tabulate(q1, 1, stations, "fixed" if mode == "fixed" else "thermal"), rtm.tabulate(q1, 2, stations, "fixed" if mode == "fixed" else "thermal"))
     t1, t2 = tabs; A = p["area"]; V0 = A * (p["sill1"] - p["deficit"] - p["bottom"]); T0 = Tf(0.0) if lake_T0 is None else lake_T0

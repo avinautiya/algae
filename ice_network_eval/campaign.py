@@ -104,7 +104,7 @@ def drive(cases_path, workers=2):
         time.sleep(2)
         for rid in list(active):
             p, rd, c, t0 = active[rid]; rc = p.poll(); now = time.time()
-            lim = LIMITS["reference_wall_s" if c["kind"] == "reference" else "reduced_wall_s"]
+            lim = c.get("wall_limit_s") or LIMITS["reference_wall_s" if c["kind"] == "reference" else "reduced_wall_s"]
             reason = None
             if rc is None:
                 pp = os.path.join(rd, "progress.json")

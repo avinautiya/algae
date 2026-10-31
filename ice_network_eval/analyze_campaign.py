@@ -10,6 +10,7 @@ KEYS = ("t_act1_s", "t_act2_s", "t_dom2_s", "sill_lowering1_m", "sill_lowering2_
 def case_set(spec):
     """campaign set inferred from the (immutable) label: frozen S1-S5 / closure / convergence / param dev (D) / param eval (E) / challenge (C)"""
     lab = spec["label"]; scn = spec["scn"]
+    if lab.startswith("evt_"): return "events"
     if lab.startswith("seq_"): return "sequence"
     if lab.startswith("cap_"): return "capture"
     if "_rep" in lab: return "timing"

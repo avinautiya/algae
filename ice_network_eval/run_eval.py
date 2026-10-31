@@ -20,6 +20,10 @@ def inflow_fn(scn):
 
 def forcing_fns(scn):
     """(Q(t), T_in(t)) callables returning 1-element arrays. Default: constant/sinusoidal inflow (frozen scenarios). With scn['segments'] (sequence study): smooth matched-budget episodes (ice_network_sequence/forcing.py)."""
+    if "series" in scn:      # event study: hourly (t, Q, H = Q T) samples joined by a monotone C1 interpolant; T = H / Q keeps both budgets consistent
+        from scipy.interpolate import PchipInterpolator
+        ser = scn["series"]; Qf = PchipInterpolator(ser["t"], ser["Q"]); Hf = PchipInterpolator(ser["t"], ser["H"])
+        return (lambda t: np.array([float(Qf(t))])), (lambda t: np.array([float(Hf(t) / max(float(Qf(t)), 1e-12))]))
     if "segments" in scn:
         sys.path.insert(0, os.path.join(ROOT, "ice_network_sequence")); import forcing
         Qf, Tf = forcing.make(scn["segments"], scn.get("ramp_s", 900.0))

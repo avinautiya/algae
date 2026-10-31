@@ -1,0 +1,283 @@
+{
+ "mean": {
+  "Q_bar": 0.06863937847674449,
+  "T_bar": 0.4201867121899771,
+  "duration": 108000.0
+ },
+ "wet_threshold_m3s": 0.00034319689238372246,
+ "results": {
+  "thermal_r17|AB": {
+   "wet_hours_outlet1": 30.016666666666666,
+   "wet_hours_outlet2": 17.616666666666667,
+   "dry_hours_outlet2": 12.4,
+   "transitions_outlet2": 1,
+   "first_dry_to_wet_h": null,
+   "min_stage_minus_sill2_m": -0.10000000000000853,
+   "max_stage_minus_sill2_m": 0.16936188728885782,
+   "stage_minus_sill1_end": 0.32661003556897583,
+   "cum1": 5757.878073042103,
+   "cum2": 1540.9278747860349,
+   "share_end": 0.12539011278419365,
+   "share_deliv": 0.21112054297656174,
+   "sill1_mm": 124.03008760489342,
+   "sill2_mm": 64.27944739343161,
+   "heat_to_ice_J": 4195889896.4897337,
+   "conservation": {
+    "water_residual_rel": 3.135007886570569e-16,
+    "mass_residual_rel": 3.853243249529243e-16,
+    "energy_residual_rel": -5.443586038885846e-16,
+    "geometry_vs_latent_rel_max": 3.440369903328246e-08,
+    "geometry_vs_latent_kg_abs_max": 0.00034416607396536847
+   },
+   "solver_s": 13.789967149999939,
+   "dry_periods_h": [
+    [
+     0.0,
+     12.38
+    ]
+   ]
+  },
+  "thermal_r17|BA": {
+   "wet_hours_outlet1": 30.016666666666666,
+   "wet_hours_outlet2": 19.016666666666666,
+   "dry_hours_outlet2": 11.0,
+   "transitions_outlet2": 3,
+   "first_dry_to_wet_h": null,
+   "min_stage_minus_sill2_m": -0.10000000000000853,
+   "max_stage_minus_sill2_m": 0.20938564145755834,
+   "stage_minus_sill1_end": 0.32474983027043436,
+   "cum1": 5228.12948784317,
+   "cum2": 2057.886667193469,
+   "share_end": 0.16080923776558093,
+   "share_deliv": 0.28244333026504526,
+   "sill1_mm": 110.93251202700571,
+   "sill2_mm": 66.23336817655456,
+   "heat_to_ice_J": 3745499601.1060896,
+   "conservation": {
+    "water_residual_rel": 8.274510719311079e-17,
+    "mass_residual_rel": 8.57520786194444e-17,
+    "energy_residual_rel": 8.462114550770531e-16,
+    "geometry_vs_latent_rel_max": 1.8126379214275544e-08,
+    "geometry_vs_latent_kg_abs_max": 0.00020315550840166452
+   },
+   "solver_s": 13.959424012999989,
+   "dry_periods_h": [
+    [
+     0.0,
+     0.33
+    ],
+    [
+     14.07,
+     24.7
+    ]
+   ]
+  },
+  "thermal_r17|AVG": {
+   "wet_hours_outlet1": 30.016666666666666,
+   "wet_hours_outlet2": 29.316666666666666,
+   "dry_hours_outlet2": 0.7,
+   "transitions_outlet2": 1,
+   "first_dry_to_wet_h": null,
+   "min_stage_minus_sill2_m": -0.10000000000000853,
+   "max_stage_minus_sill2_m": 0.11503052998445185,
+   "stage_minus_sill1_end": 0.28620771106527343,
+   "cum1": 5348.056813570176,
+   "cum2": 1962.4191502297647,
+   "share_end": 0.2794652786813346,
+   "share_deliv": 0.2684393136571796,
+   "sill1_mm": 93.87407878479337,
+   "sill2_mm": 120.9493524600731,
+   "heat_to_ice_J": 4464135428.750237,
+   "conservation": {
+    "water_residual_rel": -2.0153218938853598e-16,
+    "mass_residual_rel": -1.616570623092066e-16,
+    "energy_residual_rel": 2.41853075755955e-16,
+    "geometry_vs_latent_rel_max": 1.3423280514268787e-08,
+    "geometry_vs_latent_kg_abs_max": 6.793300920016065e-05
+   },
+   "solver_s": 15.777318161999574,
+   "dry_periods_h": [
+    [
+     0.0,
+     0.68
+    ]
+   ]
+  },
+  "fixed_r17|AB": {
+   "wet_hours_outlet1": 30.016666666666666,
+   "wet_hours_outlet2": 17.866666666666667,
+   "dry_hours_outlet2": 12.15,
+   "transitions_outlet2": 1,
+   "first_dry_to_wet_h": null,
+   "min_stage_minus_sill2_m": -0.10000000000000853,
+   "max_stage_minus_sill2_m": 0.2100187280425132,
+   "stage_minus_sill1_end": 0.31407550841684895,
+   "cum1": 4888.60439879429,
+   "cum2": 2283.5177151581947,
+   "share_end": 0.27292569724353066,
+   "share_deliv": 0.3183880138788896,
+   "sill1_mm": 0.0,
+   "sill2_mm": 0.0,
+   "heat_to_ice_J": 0.0,
+   "conservation": {
+    "water_residual_rel": -9.461801311378105e-16,
+    "mass_residual_rel": -1.067878758073585e-15,
+    "energy_residual_rel": -1.390202890756691e-15,
+    "geometry_vs_latent_rel_max": 0.0,
+    "geometry_vs_latent_kg_abs_max": 0.0
+   },
+   "solver_s": 12.928646035000384,
+   "dry_periods_h": [
+    [
+     0.0,
+     12.13
+    ]
+   ]
+  },
+  "fixed_r17|BA": {
+   "wet_hours_outlet1": 30.016666666666666,
+   "wet_hours_outlet2": 19.4,
+   "dry_hours_outlet2": 10.616666666666667,
+   "transitions_outlet2": 3,
+   "first_dry_to_wet_h": null,
+   "min_stage_minus_sill2_m": -0.10000000000000853,
+   "max_stage_minus_sill2_m": 0.21001872788149,
+   "stage_minus_sill1_end": 0.31403124819664185,
+   "cum1": 4982.286294695285,
+   "cum2": 2189.877569176293,
+   "share_end": 0.2728494169198616,
+   "share_deliv": 0.3053301082825768,
+   "sill1_mm": 0.0,
+   "sill2_mm": 0.0,
+   "heat_to_ice_J": 0.0,
+   "conservation": {
+    "water_residual_rel": -1.103876888954134e-15,
+    "mass_residual_rel": -1.3191444448436799e-15,
+    "energy_residual_rel": 1.813527002683991e-16,
+    "geometry_vs_latent_rel_max": 0.0,
+    "geometry_vs_latent_kg_abs_max": 0.0
+   },
+   "solver_s": 11.994565614999374,
+   "dry_periods_h": [
+    [
+     0.0,
+     0.33
+    ],
+    [
+     14.03,
+     24.28
+    ]
+   ]
+  },
+  "fixed_r17|AVG": {
+   "wet_hours_outlet1": 30.016666666666666,
+   "wet_hours_outlet2": 29.316666666666666,
+   "dry_hours_outlet2": 0.7,
+   "transitions_outlet2": 1,
+   "first_dry_to_wet_h": null,
+   "min_stage_minus_sill2_m": -0.10000000000000853,
+   "max_stage_minus_sill2_m": 0.11406163425571947,
+   "stage_minus_sill1_end": 0.3140616342557223,
+   "cum1": 5255.347192260084,
+   "cum2": 1916.78747301056,
+   "share_end": 0.2729017887120144,
+   "share_deliv": 0.26725480801303786,
+   "sill1_mm": 0.0,
+   "sill2_mm": 0.0,
+   "heat_to_ice_J": 0.0,
+   "conservation": {
+    "water_residual_rel": -6.83352330692796e-16,
+    "mass_residual_rel": -8.16613187127952e-16,
+    "energy_residual_rel": 7.257517701974874e-16,
+    "geometry_vs_latent_rel_max": 0.0,
+    "geometry_vs_latent_kg_abs_max": 0.0
+   },
+   "solver_s": 9.57845427600023,
+   "dry_periods_h": [
+    [
+     0.0,
+     0.68
+    ]
+   ]
+  },
+  "thermal_ref200|AB": {
+   "wet_hours_outlet1": 30.0,
+   "wet_hours_outlet2": 17.583333333333332,
+   "dry_hours_outlet2": 12.433333333333334,
+   "transitions_outlet2": 1,
+   "first_dry_to_wet_h": null,
+   "min_stage_minus_sill2_m": -0.10000000000000853,
+   "max_stage_minus_sill2_m": 0.17234823144876543,
+   "stage_minus_sill1_end": 0.3325932407159513,
+   "cum1": 5802.310276140638,
+   "cum2": 1322.9117410612519,
+   "share_end": 0.0877552699743033,
+   "share_deliv": 0.18566603789572383,
+   "sill1_mm": 122.08893707290258,
+   "sill2_mm": 52.19050651651003,
+   "heat_to_ice_J": 4077696712.092878,
+   "conservation": null,
+   "solver_s": 278.4234954579997,
+   "dry_periods_h": [
+    [
+     0.0,
+     12.42
+    ]
+   ]
+  },
+  "thermal_ref200|BA": {
+   "wet_hours_outlet1": 30.0,
+   "wet_hours_outlet2": 18.7,
+   "dry_hours_outlet2": 11.316666666666666,
+   "transitions_outlet2": 3,
+   "first_dry_to_wet_h": null,
+   "min_stage_minus_sill2_m": -0.10000000000000853,
+   "max_stage_minus_sill2_m": 0.21463734827440817,
+   "stage_minus_sill1_end": 0.3324037847024641,
+   "cum1": 5268.999730466788,
+   "cum2": 1829.6644594706838,
+   "share_end": 0.11601440035535181,
+   "share_deliv": 0.25774771288156967,
+   "sill1_mm": 109.1560086462664,
+   "sill2_mm": 51.44489491901538,
+   "heat_to_ice_J": 3606068419.9261007,
+   "conservation": null,
+   "solver_s": 278.2833698550003,
+   "dry_periods_h": [
+    [
+     0.0,
+     0.37
+    ],
+    [
+     13.9,
+     24.82
+    ]
+   ]
+  },
+  "thermal_ref200|AVG": {
+   "wet_hours_outlet1": 30.0,
+   "wet_hours_outlet2": 29.266666666666666,
+   "dry_hours_outlet2": 0.75,
+   "transitions_outlet2": 1,
+   "first_dry_to_wet_h": null,
+   "min_stage_minus_sill2_m": -0.10000000000000853,
+   "max_stage_minus_sill2_m": 0.11845793046316544,
+   "stage_minus_sill1_end": 0.2985603724834789,
+   "cum1": 5515.772530612902,
+   "cum2": 1572.5317810854058,
+   "share_end": 0.21599497981280755,
+   "share_deliv": 0.22184879654364587,
+   "sill1_mm": 93.14675974648878,
+   "sill2_mm": 97.96657098777928,
+   "heat_to_ice_J": 4274839930.818311,
+   "conservation": null,
+   "solver_s": 222.44070681599987,
+   "dry_periods_h": [
+    [
+     0.0,
+     0.73
+    ]
+   ]
+  }
+ }
+}
