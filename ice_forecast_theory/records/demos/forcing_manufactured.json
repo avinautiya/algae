@@ -1,0 +1,45 @@
+{
+  "intervals": [
+    {
+      "duration_s": 1.0,
+      "A_per_s": [
+        [
+          -1.0
+        ]
+      ],
+      "B_per_s": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "duration_s": 1.0,
+      "A_per_s": [
+        [
+          -1.0
+        ]
+      ],
+      "B_per_s": [
+        [
+          1.0
+        ]
+      ]
+    }
+  ],
+  "C": [
+    [
+      1.0
+    ]
+  ],
+  "budget_rows_on_input_amplitudes": [
+    [
+      1.0,
+      1.0
+    ]
+  ],
+  "state_normalization": "One abstract relaxation coordinate, not a glacier state",
+  "input_normalization": "Abstract dimensionless input; time-average L2 norm",
+  "output_normalization": "Same abstract state coordinate",
+  "operator_provenance": "Manufactured relaxation equation dx/dt=-x+f, no physical claim"
+}

@@ -1,0 +1,24 @@
+test_equal_budget_integrator_has_zero_terminal_response (test_theory.ForcingTests) ... ok
+test_equal_budget_relaxation_against_closed_formula (test_theory.ForcingTests) ... ok
+test_forcing_refinement_below_continuous_time_optimum (test_theory.ForcingTests) ... ok
+test_invalid_dimensions_norms_and_limits (test_theory.ForcingTests) ... ok
+test_projector_symmetry_idempotence_and_unit_scale_invariance (test_theory.ForcingTests) ... ok
+test_redundant_and_full_rank_budgets (test_theory.ForcingTests) ... ok
+test_time_order_noncommuting_operators (test_theory.ForcingTests) ... ok
+test_unconstrained_integrator_grid_invariant_gain (test_theory.ForcingTests) ... ok
+test_zoh_scalar_against_closed_integral (test_theory.ForcingTests) ... ok
+test_zoh_singular_integrator (test_theory.ForcingTests) ... ok
+test_all_cli_paths_and_immutable_output (test_theory.RegimeTests) ... ok
+test_analytic_expansion_against_finite_difference (test_theory.RegimeTests) ... ok
+test_bed_and_ceiling_reverse_mean_stratification (test_theory.RegimeTests) ... ok
+test_density_maximum_and_expansion_sign (test_theory.RegimeTests) ... ok
+test_dimensionless_and_power_identities (test_theory.RegimeTests) ... ok
+test_invalid_unsupported_physics_is_rejected (test_theory.RegimeTests) ... ok
+test_local_slow_flow_changes_inertia_ratio (test_theory.RegimeTests) ... ok
+test_published_polynomial_endpoints_and_scale_conversion (test_theory.RegimeTests) ... ok
+test_stagnation_and_zero_temperature_do_not_return_infinity (test_theory.RegimeTests) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.410s
+
+OK

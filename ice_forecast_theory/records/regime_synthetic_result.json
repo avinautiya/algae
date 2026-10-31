@@ -1,0 +1,72 @@
+{
+  "input_sha256": "9e4462808d49000d6c07b9389a7a06e2f3fbffea11a4be0f106c8300bf7145f5",
+  "command": "regime",
+  "result": {
+    "input": {
+      "temperature_C": 0.2,
+      "depth_m": 0.05,
+      "velocity_m_s": 1.0,
+      "length_m": 5.0,
+      "width_m": 0.5,
+      "ice_position": "bed",
+      "potential_drop_m": 0.1,
+      "external_power_W": 0.0,
+      "local_patch": {
+        "depth_m": 0.05,
+        "speed_m_s": 0.005,
+        "length_m": 0.2
+      }
+    },
+    "properties": {
+      "cp_J_kg_K": 4217.0,
+      "k_W_m_K": 0.561,
+      "nu_m2_s": 1.79e-06,
+      "surface_tension_N_m": 0.075,
+      "rho_ice_kg_m3": 917.0,
+      "L_J_kg": 334000.0,
+      "g_m_s2": 9.81
+    },
+    "diagnostics": {
+      "rho_bulk_kg_m3": 999.8558219789797,
+      "rho_at_0C_kg_m3": 999.842594,
+      "expansion_coefficient_per_K": -6.433723204627064e-05,
+      "kappa_m2_s": 1.3305214501616085e-07,
+      "Re_Uh": 27932.96089385475,
+      "Pe_Uh": 375792.5134835434,
+      "Pr": 13.453371982710854,
+      "Fr": 1.4278431229270643,
+      "We_h": 666.5705479859865,
+      "Bo_h": 326.9528537871264,
+      "Ste_sensible_over_latent": 0.0025251497005988025,
+      "buoyancy_N2_per_s2": -0.002595703719259194,
+      "stratification": "unstable_mean_density_difference",
+      "signed_Ri_N2_h2_over_U2": -6.489259298147985e-06,
+      "signed_Ra_destabilizing": 68117.73917032086,
+      "transit_time_s": 5.0,
+      "thermal_diffusion_h2_over_kappa_s": 18789.625674177176,
+      "buoyancy_time_s": 19.627836891149084,
+      "discharge_m3_s": 0.025,
+      "advected_sensible_power_W": 21081.960006426787,
+      "available_potential_power_W": 24.52146403403448,
+      "potential_to_advected_power_ratio": 0.0011631491581693147,
+      "external_to_advected_power_ratio": 0.0,
+      "listed_power_latent_ice_volume_equivalent_m3_s": 6.891282256793116e-05,
+      "local_patch": {
+        "signed_Ri_N2_h2_over_U2": -0.2595703719259194,
+        "residence_length_over_speed_s": 40.0,
+        "buoyancy_time_s": 19.627836891149084,
+        "density_assumption": "Same endpoint temperatures as bulk; replace with measured/resolved local thermal contrast"
+      }
+    },
+    "warnings": [
+      "Screening ratios are not a linear-stability theorem or a validated inclusion/exclusion threshold",
+      "Bulk density contrast can miss a nonmonotone interior profile, especially across 4 deg C",
+      "Properties are declared constants; use temperature/uncertainty sensitivity before environmental extrapolation",
+      "The latent volume equivalent is a power conversion, not a universal upper bound; storage, kinetic/pressure work and other sources need the full ledger",
+      "Zero bulk speed makes a bulk Richardson number undefined, not zero",
+      "Local speed/length is a sensitivity input, not a prediction of recirculation residence time"
+    ],
+    "status": "SCREENING_ONLY_NO_MELT_FORECAST_OR_NOVELTY_CLAIM"
+  },
+  "scope": "Offline mathematical/physical screening, no solver integration or environmental forecast"
+}

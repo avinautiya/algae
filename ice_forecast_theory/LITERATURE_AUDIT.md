@@ -1,0 +1,29 @@
+# Focused novelty and environmental audit
+
+Checked 31 October 2026. This extends the earlier packet and does not replace a final systematic priority review. Searches covered thermal ice morphodynamics, finite-time response, freshwater buoyancy, near-field melting, free-surface steps and current supraglacial-channel work. Exact phrase absence was not treated as proof of novelty.
+
+| Primary source | Access/reading depth in this pass | Consequence for the project |
+|---|---|---|
+| [Topography generation by melting and freezing in a turbulent shear flow, JFM 2021](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/topography-generation-by-melting-and-freezing-in-a-turbulent-shear-flow/E142533DC7BA22F48167C209C86CBA85) | Publisher full-text model, buoyancy and geophysical-scaling discussion inspected. | Ice–flow–topography feedback and the bed/ceiling freshwater-buoyancy distinction are established. Its published scaling discussion explicitly limits environmental transfer. No first-buoyancy or first-feedback claim. |
+| [Prados, Les Houches 2025 abstract book](https://nctr.eu/images/2025/2025_NCTR7_bookofabstracts.pdf), “Turbulence in proglacial lakes and ice channels” | Primary indexed conference abstract inspected, not a full journal method or code audit. | Supraglacial-channel simulations with freshwater density anomaly and slope/stratification-dependent heat transfer are already being pursued. A conference abstract is a serious priority warning, not a complete description of everything that group has done. |
+| [Perissutti et al., Morphodynamics of melting ice over turbulent warm water streams](https://arxiv.org/abs/2406.12116) and [ICMF 2025 primary abstract](https://www.conftool.net/icmf2025/index.php/PERISSUTTI-Morphodynamics_of_melting_ice_over_turbulent_warm_water_streams-500.pdf?filename=PERISSUTTI-Morphodynamics_of_melting_ice_over_turbulent_warm_water_streams-500.pdf&form_id=500&page=downloadPaper) | Research abstract plus conference mechanism summary inspected; earlier packet covers the related JFM timescale study. | Heat-flux and shear-stress phase relationships need not obey a simple Reynolds analogy. That mismatch alone is not a new project discovery. |
+| [Perry & Morris, Physics of Fluids 2026](https://doi.org/10.1063/5.0326595) | Publisher-indexed abstract only; full text was inaccessible through the DOI redirect. | Geometry, separation, wakes and proximity already produce local melt differences in ice-cylinder experiments. Distinguish the proposed free-surface control problem rather than claiming first local-melting feedback. |
+| [Wake transitions and melting dynamics of a translating sphere, JFM 2026](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/wake-transitions-and-melting-dynamics-of-a-translating-sphere-in-warm-liquid/C7E5E93C614C76D0CC7663A2CAE181E8) | Primary EOS/flow-orientation comparison passages screened. | Density-anomaly effects on separation and melting are also known in another geometry. A channel-specific interaction still requires its own demonstration. |
+| [Yokokawa et al. 2016](https://doi.org/10.1002/2015JF003736), [open author manuscript](https://eprints.lib.hokudai.ac.jp/repo/huscap/all/64599/Yokokawa_et_al-2016-Journal_of_Geophysical_Research__Earth_Surface.pdf) | Primary indexed experimental/analysis passages revisited, complementing the previous review. | Cyclic ice steps and their initial instability are established. Experiments have thermal/atmospheric/cold-ice conditions that cannot be silently replaced with a temperate idealization. |
+| [Caruso et al. 2016](https://doi.org/10.1103/PhysRevE.93.053110), [author manuscript](https://iris.polito.it/bitstream/11583/2642897/1/PhysRevE.93.053110.pdf) | Prior pass inspected primary introduction and method summary. | Nonmodal morphodynamic response is established. The new optimizer is not a novel theorem or a first morphodynamic use. |
+| [UNESCO EOS background, 1981](https://www.vliz.be/imisdocs/publications/ocrd/270530.pdf), [1987 tables](https://www.vliz.be/imisdocs/publications/ocrd/270490.pdf) | Primary indexed polynomial/coefficient passages inspected. | Supplies the explicit pure-water screening polynomial, not a complete production material model. |
+| [MITgcm density implementation](https://lxr.mitgcm.org/lxr2/source/MITgcm/utils/python/MITgcmutils/MITgcmutils/density.py), [JMA property report](https://www.mri-jma.go.jp/Publish/Technical/DATA/VOL_80/2.pdf) | Official code/document coefficient and temperature-scale passages checked. | Confirms the chosen coefficient convention and need to distinguish IPTS-68 from ITS-90. |
+
+## Claim status
+
+Supported now: executable mathematical utilities, exact manufactured checks, explicit environmental assumptions, and identification of close competing literature.
+
+Candidate only: a quantitatively important local buoyancy–recirculation–control interaction in open ice channels; a reduced criterion/closure that transfers; a forecast improvement on held-out geometries/forcing.
+
+Not supported: first thermal ice model, first density-anomaly effect, first nonmodal mathematics, improvement over every glacier model, Himalayan validation, or a guaranteed publication outcome.
+
+## Priority work before a scientific headline
+
+Locate full papers, code or theses associated with the 2025 supraglacial-turbulence abstract. Finish the full-text 2026 local-melting comparison where lawful access becomes available. Trace forward citations of the closest ice-step/thermal-stability papers. Compare actual equations, geometry, observables and validation, rather than relying on title differences. Preserve access limits and ask a mentor to assess the resulting narrow claim.
+
+No inaccessible result was reconstructed or asserted to be absent. All new examples in this package are synthetic; no new field dataset was analyzed here.

@@ -1,0 +1,52 @@
+{
+  "input_sha256": "b0dbfadcb45c57de1126a83a3187417915236316fdc2173c1c9f2b40ba1ea88b",
+  "command": "forcing",
+  "result": {
+    "horizon_s": 2.0,
+    "forcing_norm": "(1/T) integral |f(t)|^2 dt",
+    "squared_gain": 0.15966130015118535,
+    "linear_norm_bound_per_unit_input": 0.39957640089372815,
+    "optimal_interval_amplitudes": [
+      [
+        -1.0000000000000002
+      ],
+      [
+        1.0000000000000002
+      ]
+    ],
+    "normalized_optimal_coordinates": [
+      -0.7071067811865476,
+      0.7071067811865476
+    ],
+    "realized_output": [
+      0.3995764008937282
+    ],
+    "realized_squared_output": 0.1596613001511854,
+    "gain_replay_difference": 5.551115123125783e-17,
+    "budget_residuals": [
+      0.0
+    ],
+    "budget_rank": 1,
+    "admissible_coordinate_dimension": 1,
+    "normalized_response_matrix": [
+      [
+        0.3288671020020669,
+        0.8939534673502062
+      ]
+    ],
+    "operator_provenance": "Manufactured relaxation equation dx/dt=-x+f, no physical claim",
+    "normalization": {
+      "state_normalization": "One abstract relaxation coordinate, not a glacier state",
+      "input_normalization": "Abstract dimensionless input; time-average L2 norm",
+      "output_normalization": "Same abstract state coordinate"
+    },
+    "limitations": [
+      "Reduced linear model only; not a physical forecast until operator and nonlinear response are validated",
+      "Budget constraints are linearized; nonlinear heat-flow products require explicit paired-case checks",
+      "Optimal signed perturbations need amplitude and positivity bounds before physical use",
+      "All intervals require a common state basis; no hidden projection/remap is allowed",
+      "No claim of a new optimization theorem or an actual glacier discovery"
+    ]
+  },
+  "scope": "Offline mathematical/physical screening, no solver integration or environmental forecast"
+}
