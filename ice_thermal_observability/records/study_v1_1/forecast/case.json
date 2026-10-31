@@ -1,0 +1,48 @@
+{
+  "schema": "thermal-observability-0.1",
+  "label": "SYNTHETIC METHOD DEMONSTRATION",
+  "channel": {
+    "depth_m": 0.002,
+    "speed_m_s": 0.025,
+    "width_m": 0.1,
+    "rho_water": 1000.0,
+    "cp": 4217.0,
+    "conductivity": 0.561,
+    "rho_ice": 917.0,
+    "latent_heat": 334000.0,
+    "nu_m2_s": 1e-06,
+    "velocity": "shear_free"
+  },
+  "cells": 96,
+  "stretch": 1.0,
+  "forecast_origin_m": 0.04,
+  "horizon_s": 60.0,
+  "initial_lower_K": 0.0,
+  "initial_upper_K": 0.2,
+  "observations": [
+    {
+      "x_m": 0.02,
+      "bulk_excess_K": 0.08990306775548891,
+      "error_bound_K": 0.0,
+      "provenance": "Synthetic uniform 0.1 K inlet; exact for declared FV grid"
+    },
+    {
+      "x_m": 0.04,
+      "bulk_excess_K": 0.08410058074813972,
+      "error_bound_K": 0.0,
+      "provenance": "Synthetic uniform 0.1 K inlet; exact for declared FV grid"
+    }
+  ],
+  "surface_heat_segments": [],
+  "regions": [
+    {
+      "name": "downstream_control",
+      "start_m": 0.06,
+      "stop_m": 0.12
+    }
+  ],
+  "scope": {
+    "max_declared_lowering_fraction_of_depth": 0.05,
+    "provenance": "User screening limit; not a proved applicability threshold"
+  }
+}

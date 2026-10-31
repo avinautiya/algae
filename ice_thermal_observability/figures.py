@@ -32,7 +32,7 @@ def make(study,output):
     def save(fig,name,data):
         if len(fig.axes)>1:
             for i,ax in enumerate(fig.axes):
-                ax.text(-.12,1.04,"("+chr(97+i)+")",transform=ax.transAxes,fontsize=10,fontweight="bold")
+                ax.text(0,1.04,"("+chr(97+i)+")",transform=ax.transAxes,fontsize=10,fontweight="bold",va="bottom")
         fig.text(.5,.008,"SYNTHETIC FIXED-FLOW MODEL",ha="center",fontsize=8,color="#666666")
         fig.tight_layout(rect=[0,.035,1,.94])
         fig.savefig(out/(name+".png"),dpi=180)
@@ -175,7 +175,7 @@ def make(study,output):
     ax.set(xlabel="Spatial scale β = x$_1$ / (UH$^2$/α)",ylabel="Conditional half-width / midpoint (%)")
     ax.legend(frameon=False)
     if any(r.get("numerically_unresolved_width",False) for r in age):
-        ax.text(.02,.03,"Some four-station ranges are below numerical resolution",transform=ax.transAxes,fontsize=8)
+        ax.text(.42,.65,"Some four-station ranges are below numerical resolution",transform=ax.transAxes,fontsize=8)
     save(fig,"fig06_thermal_age",dict(rows=age,definition="Probe=2β UH²/α; target=[3β,6β] UH²/α; station sets nested and upstream"))
     # Figure 7: nonnegative source responses and conservative forecast extension.
     source=read("surface_heating_forecast/forecast.json")["regions"][0]
