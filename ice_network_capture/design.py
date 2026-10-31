@@ -23,6 +23,25 @@ DEV = {   # id: (description, overrides)
     "D15": ("low inflow 0.02, 2 C, offset 0.02", dict(offset=0.02, I=0.02, T=2.0)),
     "D16": ("route 2 the lower sill (-0.03), steep route 2", dict(offset=-0.03)),
 }
+TEST = {   # frozen BEFORE any test run (see TEST_FREEZE.md): both sides of the predicted boundaries
+    "T01": ("geom A, small lake (300 m2), 3 C, gap 0.15 m (below QS threshold 0.166)", dict(area=300.0, T=3.0, offset=0.15)),
+    "T02": ("geom A, small lake, 3 C, gap 0.18 m (between QS threshold and horizon boundary)", dict(area=300.0, T=3.0, offset=0.18)),
+    "T03": ("geom A, small lake, 3 C, gap 0.21 m (above both)", dict(area=300.0, T=3.0, offset=0.21)),
+    "T04": ("geom B (route-2 slope 0.01), small lake, 3 C, gap 0.085 (below QS threshold 0.0965)", dict(S2=0.01, area=300.0, T=3.0, offset=0.085)),
+    "T05": ("geom B, small lake, 3 C, gap 0.115 (between)", dict(S2=0.01, area=300.0, T=3.0, offset=0.115)),
+    "T06": ("geom B, small lake, 3 C, gap 0.15 (above both)", dict(S2=0.01, area=300.0, T=3.0, offset=0.15)),
+    "T07": ("geom A, 2 C, gap 0.05 (switching expected)", dict(T=2.0, offset=0.05)),
+    "T08": ("geom A, 2 C, gap 0.065", dict(T=2.0, offset=0.065)),
+    "T09": ("geom A, 2 C, gap 0.085", dict(T=2.0, offset=0.085)),
+    "T10": ("geom A, 2 C, gap 0.10", dict(T=2.0, offset=0.10)),
+    "T11": ("geom A, 2 C, gap 0.05, pulsed 50 % / 3 h", dict(T=2.0, offset=0.05, amp=0.5, period_h=3.0)),
+    "T12": ("geom A, 2 C, gap 0.085, pulsed 50 % / 3 h", dict(T=2.0, offset=0.085, amp=0.5, period_h=3.0)),
+    "T13": ("symmetric routes, 3 C, gap 0.02", dict(SYM, T=3.0, offset=0.02)),
+    "T14": ("symmetric steep-short routes (S 0.05, L 40 m), 3 C, gap 0.02", dict(w1=0.4, L1=40.0, S1=0.05, w2=0.4, L2=40.0, S2=0.05, T=3.0, offset=0.02)),
+    "T15": ("route 1 steep-short, route 2 flat-long, 2 C, gap 0.05 (no overtaking expected)", dict(S1=0.02, L1=60.0, S2=0.005, L2=100.0, T=2.0, offset=0.05)),
+    "T16": ("geom A, 0.3 C, gap 0.05 (cold: incision too slow to overtake?)", dict(T=0.3, offset=0.05)),
+}
+TEST_REF = ("T01", "T02", "T04", "T05", "T07", "T13")        # informative cases for the independent resolved-model comparison
 TREATMENTS = {"thermal": {}, "dissipation": dict(melt_mode="dissipation_all"), "fixed": dict(melting=False)}
 
 
@@ -57,3 +76,5 @@ if __name__ == "__main__":
     which = sys.argv[1]
     if which == "dev":
         c = cases(DEV); json.dump(c, open(os.path.join(HERE, "cases_dev.json"), "w"), indent=1); print(len(c), "dev cases")
+    if which == "test":
+        c = cases(TEST, ref_ids=TEST_REF, ref_cells=(200, 400), r33_ids=TEST_REF); json.dump(c, open(os.path.join(HERE, "cases_test.json"), "w"), indent=1); print(len(c), "test cases")

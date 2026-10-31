@@ -1,0 +1,682 @@
+{
+ "T01": {
+  "id": "T01",
+  "description": "geom A, small lake (300 m2), 3 C, gap 0.15 m (below QS threshold 0.166)",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.16588107188234563
+  ],
+  "qs_sigma_per_s": [
+   2.458371078315662e-05
+  ],
+  "gap0": 0.15,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.312357244350394,
+   "sill1_mm": 256.26238820355223,
+   "sill2_mm": 315.2904316629927,
+   "gap_drift_mm": -35.34788108438988,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 1489.5813510256176
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.27288991442976196
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.27317998663437726,
+   "sill1_mm": 0.29994104259577564,
+   "sill2_mm": 0.4425625776437953
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.2527920801789808,
+   "sill1_mm": 258.86996005634495,
+   "sill2_mm": 288.3218687985269,
+   "gap_drift_mm": -18.924794614053997
+  }
+ },
+ "T02": {
+  "id": "T02",
+  "description": "geom A, small lake, 3 C, gap 0.18 m (between QS threshold and horizon boundary)",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.16588107188234563
+  ],
+  "qs_sigma_per_s": [
+   2.458371078315662e-05
+  ],
+  "gap0": 0.18,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.13435988359405943,
+   "sill1_mm": 261.10029215460486,
+   "sill2_mm": 284.2220542539096,
+   "gap_drift_mm": -13.32603445852834,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 1832.4054381132019
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.21203755722247533
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.2120191710858333,
+   "sill1_mm": 0.3170152522210601,
+   "sill2_mm": 0.34055778745396015
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.06068826017135024,
+   "sill1_mm": 263.5691341960261,
+   "sill2_mm": 244.46740974127272,
+   "gap_drift_mm": 13.228574507203133
+  }
+ },
+ "T03": {
+  "id": "T03",
+  "description": "geom A, small lake, 3 C, gap 0.21 m (above both)",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.16588107264012517
+  ],
+  "qs_sigma_per_s": [
+   2.4583713225660828e-05
+  ],
+  "gap0": 0.21,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.0,
+   "sill1_mm": 265.09799510695774,
+   "sill2_mm": 197.9505327760624,
+   "gap_drift_mm": 58.78480552819308,
+   "gap_drift_sign": "opening",
+   "t_act2_s": 2283.049825783999
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.15337305930140618
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.15307831378494535,
+   "sill1_mm": 0.3319631753341462,
+   "sill2_mm": 0.24259923440920644
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.0,
+   "sill1_mm": 266.88978481693493,
+   "sill2_mm": 130.95269182961906,
+   "gap_drift_mm": 107.1927820601722
+  }
+ },
+ "T04": {
+  "id": "T04",
+  "description": "geom B (route-2 slope 0.01), small lake, 3 C, gap 0.085 (below QS threshold 0.0965)",
+  "qs_kappa": 0.02658781476190814,
+  "qs_capture_threshold_gap": [
+   0.09648420017196298
+  ],
+  "qs_sigma_per_s": [
+   1.9298723319460677e-05
+  ],
+  "gap0": 0.085,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.4035494970103151,
+   "sill1_mm": 250.8390596330669,
+   "sill2_mm": 282.09460832693094,
+   "gap_drift_mm": -18.277848912197094,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 944.371218073865
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.38002204372175796
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.3802004699645983,
+   "sill1_mm": 0.26829520548247937,
+   "sill2_mm": 0.3593301640067732
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.39927792636615345,
+   "sill1_mm": 252.0239457547794,
+   "sill2_mm": 278.3375537222989,
+   "gap_drift_mm": -15.885695357867435
+  }
+ },
+ "T05": {
+  "id": "T05",
+  "description": "geom B, small lake, 3 C, gap 0.115 (between)",
+  "qs_kappa": 0.02658781476190814,
+  "qs_capture_threshold_gap": [
+   0.09648420017196298
+  ],
+  "qs_sigma_per_s": [
+   1.9298723319460677e-05
+  ],
+  "gap0": 0.115,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.2622515633613076,
+   "sill1_mm": 255.8690741709787,
+   "sill2_mm": 266.03899079021636,
+   "gap_drift_mm": -6.100913289482951,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 1183.5732812964618
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.31937412473530863
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.3193662075315915,
+   "sill1_mm": 0.28676173066773347,
+   "sill2_mm": 0.3033775400764404
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.25633035723303554,
+   "sill1_mm": 257.0638873353614,
+   "sill2_mm": 261.14560174935576,
+   "gap_drift_mm": -2.947664383914722
+  }
+ },
+ "T06": {
+  "id": "T06",
+  "description": "geom B, small lake, 3 C, gap 0.15 (above both)",
+  "qs_kappa": 0.02658781476190814,
+  "qs_capture_threshold_gap": [
+   0.09648419912064471
+  ],
+  "qs_sigma_per_s": [
+   1.9298721919014518e-05
+  ],
+  "gap0": 0.15,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.09801414231508286,
+   "sill1_mm": 260.7960979445831,
+   "sill2_mm": 239.21635855456174,
+   "gap_drift_mm": 13.631146089087359,
+   "gap_drift_sign": "opening",
+   "t_act2_s": 1512.8340175089472
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.25010003661726626
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.24988411323237567,
+   "sill1_mm": 0.30633444784328223,
+   "sill2_mm": 0.23764974641124245
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.0879725385439065,
+   "sill1_mm": 262.0120780781591,
+   "sill2_mm": 231.40291391034367,
+   "gap_drift_mm": 18.9494435882626
+  }
+ },
+ "T07": {
+  "id": "T07",
+  "description": "geom A, 2 C, gap 0.05 (switching expected)",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.16585803345693992
+  ],
+  "qs_sigma_per_s": [
+   1.639038205273161e-05
+  ],
+  "gap0": 0.05,
+  "rtm_thermal": {
+   "switch": true,
+   "t_dom2_s": 13567.936939639612,
+   "near_tie_switch": false,
+   "phi2_end": 0.6467093302570349,
+   "sill1_mm": 149.4147131789754,
+   "sill2_mm": 218.23627641853074,
+   "gap_drift_mm": -46.91336050722704,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 4553.10730752794
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.48651161239848156
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.4876670852106493,
+   "sill1_mm": 0.19496382599686332,
+   "sill2_mm": 0.6252398283521273
+  },
+  "rtm_thermal33": {
+   "switch": true,
+   "t_dom2_s": 16583.778035480045,
+   "phi2_end": 0.6221574960053383,
+   "sill1_mm": 150.76977583015258,
+   "sill2_mm": 206.94778203085613,
+   "gap_drift_mm": -41.33668034212766
+  }
+ },
+ "T08": {
+  "id": "T08",
+  "description": "geom A, 2 C, gap 0.065",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.1658580326806919
+  ],
+  "qs_sigma_per_s": [
+   1.6390380401466292e-05
+  ],
+  "gap0": 0.065,
+  "rtm_thermal": {
+   "switch": true,
+   "t_dom2_s": 21347.86716693967,
+   "near_tie_switch": false,
+   "phi2_end": 0.5910272049991362,
+   "sill1_mm": 151.369026181303,
+   "sill2_mm": 211.12093009074022,
+   "gap_drift_mm": -43.50353118483832,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 5237.361377309606
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.4540749472792765
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.4550504854711415,
+   "sill1_mm": 0.2035275876730618,
+   "sill2_mm": 0.5725859017564636
+  },
+  "rtm_thermal33": {
+   "switch": true,
+   "t_dom2_s": 26636.062423236966,
+   "phi2_end": 0.5648194252436112,
+   "sill1_mm": 152.62549209956808,
+   "sill2_mm": 199.34081089156763,
+   "gap_drift_mm": -37.596575872616974
+  }
+ },
+ "T09": {
+  "id": "T09",
+  "description": "geom A, 2 C, gap 0.085",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.16585803345693992
+  ],
+  "qs_sigma_per_s": [
+   1.639038205273161e-05
+  ],
+  "gap0": 0.085,
+  "rtm_thermal": {
+   "switch": true,
+   "t_dom2_s": 38879.10595077388,
+   "near_tie_switch": true,
+   "phi2_end": 0.5152251620445364,
+   "sill1_mm": 153.6035466889528,
+   "sill2_mm": 200.98179690502988,
+   "gap_drift_mm": -38.86911370837662,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 6210.232642532217
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.41073640522205407
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.41153415688881084,
+   "sill1_mm": 0.21416702776897217,
+   "sill2_mm": 0.5036227651857212
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.4868868654713871,
+   "sill1_mm": 154.7942588301702,
+   "sill2_mm": 188.4511772544094,
+   "gap_drift_mm": -32.3948769389921
+  }
+ },
+ "T10": {
+  "id": "T10",
+  "description": "geom A, 2 C, gap 0.10",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.1658580326806919
+  ],
+  "qs_sigma_per_s": [
+   1.6390380401466292e-05
+  ],
+  "gap0": 0.1,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.4572530450022626,
+   "sill1_mm": 155.0701484888446,
+   "sill2_mm": 192.79848670821602,
+   "gap_drift_mm": -35.229055934433745,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 6998.053800680764
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.3783275829053875
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.3789597422327314,
+   "sill1_mm": 0.2216004831217233,
+   "sill2_mm": 0.45307676938119884
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.42677249920550137,
+   "sill1_mm": 156.1647842321042,
+   "sill2_mm": 179.58692809818268,
+   "gap_drift_mm": -28.24861534554683
+  }
+ },
+ "T11": {
+  "id": "T11",
+  "description": "geom A, 2 C, gap 0.05, pulsed 50 % / 3 h",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.16585803345693992
+  ],
+  "qs_sigma_per_s": [
+   1.639038205273161e-05
+  ],
+  "gap0": 0.05,
+  "rtm_thermal": {
+   "switch": true,
+   "t_dom2_s": 12551.693060886744,
+   "near_tie_switch": false,
+   "phi2_end": 0.6626605728470053,
+   "sill1_mm": 151.5807549127218,
+   "sill2_mm": 225.15704618223316,
+   "gap_drift_mm": -47.588837271664936,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 3348.2547110600945
+  },
+  "rtm_fixed": {
+   "switch": true,
+   "t_dom2_s": 25920.581719315775,
+   "phi2_end": 0.46908445248042085
+  },
+  "rtm_dissipation": {
+   "switch": true,
+   "t_dom2_s": 25738.17795901392,
+   "phi2_end": 0.47043944607895943,
+   "sill1_mm": 0.19927687041359976,
+   "sill2_mm": 0.6387995738376823
+  },
+  "rtm_thermal33": {
+   "switch": true,
+   "t_dom2_s": 13813.25188302742,
+   "phi2_end": 0.6349217360689314,
+   "sill1_mm": 153.0274130355255,
+   "sill2_mm": 213.77214323298972,
+   "gap_drift_mm": -42.03561994459174
+  }
+ },
+ "T12": {
+  "id": "T12",
+  "description": "geom A, 2 C, gap 0.085, pulsed 50 % / 3 h",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.16585803345693992
+  ],
+  "qs_sigma_per_s": [
+   1.639038205273161e-05
+  ],
+  "gap0": 0.085,
+  "rtm_thermal": {
+   "switch": true,
+   "t_dom2_s": 34776.470998732344,
+   "near_tie_switch": false,
+   "phi2_end": 0.517517138776431,
+   "sill1_mm": 156.00635178186337,
+   "sill2_mm": 209.21739181691092,
+   "gap_drift_mm": -39.612273253368926,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 4491.911454159647
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.3829871929132598
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.38391962590835116,
+   "sill1_mm": 0.21925165031859492,
+   "sill2_mm": 0.5140908297390896
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.4833140202928696,
+   "sill1_mm": 157.31091958184723,
+   "sill2_mm": 195.82186008699597,
+   "gap_drift_mm": -33.097771539265935
+  }
+ },
+ "T13": {
+  "id": "T13",
+  "description": "symmetric routes, 3 C, gap 0.02",
+  "qs_kappa": null,
+  "qs_capture_threshold_gap": [],
+  "qs_sigma_per_s": [],
+  "gap0": 0.02,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.42925557517652313,
+   "sill1_mm": 232.17302059048313,
+   "sill2_mm": 220.73136907445524,
+   "gap_drift_mm": 4.275507422819846,
+   "gap_drift_sign": "opening",
+   "t_act2_s": 3408.6096635871295
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.4625164127184204
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.4624634094105518,
+   "sill1_mm": 0.19829298038035653,
+   "sill2_mm": 0.17298521373637013
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.42927207215497554,
+   "sill1_mm": 232.85956902212928,
+   "sill2_mm": 221.37224191122087,
+   "gap_drift_mm": 4.287778382085869
+  }
+ },
+ "T14": {
+  "id": "T14",
+  "description": "symmetric steep-short routes (S 0.05, L 40 m), 3 C, gap 0.02",
+  "qs_kappa": null,
+  "qs_capture_threshold_gap": [
+   -1.5132149229404174e-09
+  ],
+  "qs_sigma_per_s": [
+   3.163448444265558e-05
+  ],
+  "gap0": 0.02,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.3109556063111062,
+   "sill1_mm": 433.302921429457,
+   "sill2_mm": 387.72757391283386,
+   "gap_drift_mm": 26.339982748829176,
+   "gap_drift_sign": "opening",
+   "t_act2_s": 3254.8402378676897
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.44461074845461784
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.4436537955687782,
+   "sill1_mm": 1.1713727394159885,
+   "sill2_mm": 0.902081347132777
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.3008862529318807,
+   "sill1_mm": 381.3492539951436,
+   "sill2_mm": 334.95433712183456,
+   "gap_drift_mm": 28.066522099595648
+  }
+ },
+ "T15": {
+  "id": "T15",
+  "description": "route 1 steep-short, route 2 flat-long, 2 C, gap 0.05 (no overtaking expected)",
+  "qs_kappa": -0.04385465835022526,
+  "qs_capture_threshold_gap": [],
+  "qs_sigma_per_s": [],
+  "gap0": 0.05,
+  "rtm_thermal": {
+   "switch": false,
+   "t_dom2_s": null,
+   "near_tie_switch": false,
+   "phi2_end": 0.04267765160951599,
+   "sill1_mm": 246.27895709471773,
+   "sill2_mm": 118.40331792799316,
+   "gap_drift_mm": 73.12997224924322,
+   "gap_drift_sign": "opening",
+   "t_act2_s": 4788.460943308044
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.2979224325580425
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.2959175199120325,
+   "sill1_mm": 0.9344173345213446,
+   "sill2_mm": 0.11950844018940356
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.056126585055996304,
+   "sill1_mm": 237.32471241275132,
+   "sill2_mm": 121.01012355509675,
+   "gap_drift_mm": 68.26733344615961
+  }
+ },
+ "T16": {
+  "id": "T16",
+  "description": "geom A, 0.3 C, gap 0.05 (cold: incision too slow to overtake?)",
+  "qs_kappa": 0.043854658350225256,
+  "qs_capture_threshold_gap": [
+   0.16572973755872372
+  ],
+  "qs_sigma_per_s": [
+   2.4610030945110563e-06
+  ],
+  "gap0": 0.05,
+  "rtm_thermal": {
+   "switch": true,
+   "t_dom2_s": 29850.747431611602,
+   "near_tie_switch": false,
+   "phi2_end": 0.5081827206184979,
+   "sill1_mm": 22.305849721575555,
+   "sill2_mm": 31.051535772047703,
+   "gap_drift_mm": -5.815571207866706,
+   "gap_drift_sign": "closing",
+   "t_act2_s": 4568.585456695472
+  },
+  "rtm_fixed": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.48651161239848156
+  },
+  "rtm_dissipation": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.4876670852106493,
+   "sill1_mm": 0.19496382599686332,
+   "sill2_mm": 0.6252398283521273
+  },
+  "rtm_thermal33": {
+   "switch": false,
+   "t_dom2_s": null,
+   "phi2_end": 0.49294995445282824,
+   "sill1_mm": 22.450887971037638,
+   "sill2_mm": 29.207128971686807,
+   "gap_drift_mm": -4.911927813471457
+  }
+ }
+}
