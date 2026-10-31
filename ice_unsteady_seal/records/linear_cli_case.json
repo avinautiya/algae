@@ -1,0 +1,29 @@
+{
+  "purpose": "Manufactured dimensionless verification example; not a glacier forecast",
+  "base": {
+    "alpha": 0.5,
+    "beta": 0.5,
+    "froude_coefficient": 0.3,
+    "discharge": 1.0,
+    "downstream_velocity": 1.0,
+    "relative_ice_speed": 0.5,
+    "left": -8.0,
+    "right": 8.0,
+    "points": 65
+  },
+  "lake_capacity": 2.0,
+  "initial_head": 0.0,
+  "initial_bed": null,
+  "sample_step": 0.1,
+  "relative_limit": 0.1,
+  "segments": [
+    [
+      0.5,
+      0.001
+    ],
+    [
+      0.5,
+      0.0
+    ]
+  ]
+}

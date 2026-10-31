@@ -1,0 +1,27 @@
+{
+  "scope": "Model equations/proofs and numerical verification; no environmental skill or historical-priority certification",
+  "tests": "16 passing; records/tests_final.txt",
+  "engines": [
+    "canonical outer-matched linear",
+    "finite fixed-frame linear",
+    "finite fixed-frame nonlinear"
+  ],
+  "final_record": "records/verification_v3.json",
+  "figure_sets": 3,
+  "figure_formats": [
+    "PNG",
+    "SVG"
+  ],
+  "review": "Three agents: primary-literature audit, independent derivation, adversarial mathematics/code review",
+  "production_campaign_run": false,
+  "claude_active_work_changed": false,
+  "important_limits": [
+    "Canonical subcritical regime",
+    "Nonlinear outer selection not completed",
+    "No environmental comparison",
+    "Priority coverage incomplete",
+    "Algebraic tail uses an ordered ideal infinite-pond limit"
+  ],
+  "all_document_links_checked": true,
+  "source_and_figure_hashes_checked": true
+}

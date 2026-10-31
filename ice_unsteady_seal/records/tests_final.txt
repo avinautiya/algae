@@ -1,0 +1,21 @@
+test_matched_ledger_and_independent_time_propagation (test_matched.MatchedVerification) ... ok
+test_noncanonical_case_is_rejected (test_matched.MatchedVerification) ... ok
+test_positive_contraction_shape_generator_and_kernel (test_matched.MatchedVerification) ... ok
+test_translation_identity_converges_under_spatial_refinement (test_matched.MatchedVerification) ... ok
+test_critical_state_is_rejected (test_model.HydraulicVerification) ... ok
+test_shape_sensitivity_against_independent_quadrature (test_model.HydraulicVerification) ... ok
+test_uniform_matched_zero_shape_memory (test_model.HydraulicVerification) ... ok
+test_actual_nonuniform_seal_and_matching_diagnostics (test_model.NonuniformVerification) ... ok
+test_forecast_against_independent_time_integrator_and_ledger (test_model.NonuniformVerification) ... ok
+test_initial_state_and_time_rules (test_model.NonuniformVerification) ... ok
+test_nonuniform_linear_map_against_nonlinear_shooting (test_model.NonuniformVerification) ... ok
+test_same_head_crest_and_end_slopes_different_flux (test_model.NonuniformVerification) ... ok
+test_small_amplitude_does_not_override_critical_margin (test_model.NonuniformVerification) ... ok
+test_base_is_hydraulic_equilibrium (test_nonlinear.NonlinearVerification) ... ok
+test_nonlinear_head_derivative_matches_refined_operator (test_nonlinear.NonlinearVerification) ... ok
+test_nonlinear_propagation_and_surrogate_ledger (test_nonlinear.NonlinearVerification) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 8.079s
+
+OK
