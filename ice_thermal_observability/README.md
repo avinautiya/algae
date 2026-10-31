@@ -19,10 +19,13 @@ python3 -m unittest discover -s ice_thermal_observability/tests -v
 python3 -m ice_thermal_observability demo --output /tmp/thermal_case_01.json
 python3 -m ice_thermal_observability predict --case /tmp/thermal_case_01.json --output /tmp/thermal_forecast_01
 python3 -m ice_thermal_observability.study --output /tmp/thermal_study_01
+python3 -m ice_thermal_observability.audit_fixed_data --output /tmp/thermal_study_01/fixed_data_refinement.json
 python3 -m ice_thermal_observability.figures --study /tmp/thermal_study_01 --output /tmp/thermal_figures_01
 ```
 
 Each command preserves existing output paths. The demo is explicitly synthetic. The study copies its predeclared protocol and source hashes before running. All baselines consume the same bulk observations. Comparisons report every result; midpoint minimax is not promised to win average prediction error.
+
+The main grid study regenerates bulk data on each grid from the same uniform inlet profile. The supplemental fixed-data audit holds the observation vector constant across meshes; it is a numerical-validation addition, not a changed test campaign. Plug data are analytical; shear data use a 768-cell synthetic reference with a separately reported refinement indicator. Neither is field validation.
 
 ## Physical model and inputs
 

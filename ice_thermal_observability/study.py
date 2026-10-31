@@ -150,6 +150,8 @@ def run(output):
             r=interval(m,ss,target,reference,cap)
             age.append(dict(beta=float(beta),stations=count,target_start_m=float(target[0]),
                             target_stop_m=float(target[1]),lower_W=r["lower"],upper_W=r["upper"],
+                            numerically_unresolved_width=r["numerically_unresolved_width"],
+                            extrema_reordered_for_roundoff=r["extrema_reordered_for_roundoff"],
                             half_width_over_midpoint=float((r["upper"]-r["lower"])/(r["upper"]+r["lower"]))))
     dump(out/"thermal_age.json",age)
     base_r=base["regions"][0];source_r=source["regions"][0]

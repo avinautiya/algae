@@ -55,8 +55,22 @@ def sharp_interval(objective, observation, data, uncertainty, lower, upper):
     negative_low = extremum(-np.asarray(objective), observation, data, uncertainty, lower, upper)
     low = -negative_low["value"]
     upper_bound = high["value"]
+    raw_low,raw_high=low,upper_bound
+    scale=max(float(np.sum(np.abs(objective)*np.maximum(np.abs(lower),np.abs(upper)))),1e-12)
+    resolution=2e-8*scale
+    reordered=False
+    if upper_bound<low:
+        if low-upper_bound>resolution:
+            raise ArithmeticError("Extremal values have inconsistent ordering")
+        # Near-collapse LPs can disagree at roundoff. Preserve the raw result and
+        # flag it, rather than returning a negative worst-case error radius.
+        low,upper_bound=upper_bound,low
+        reordered=True
     return dict(lower=low, upper=upper_bound, minimax=(low+upper_bound)/2,
                 worst_case_absolute_error=(upper_bound-low)/2,
+                raw_extremal_values=[raw_low,raw_high],extrema_reordered_for_roundoff=reordered,
+                numerically_unresolved_width=upper_bound-low<=resolution,
+                numerical_comparison_scale=resolution,
                 lower_witness_variables=negative_low["variables"], upper_witness_variables=high["variables"],
                 upper_certificate=high, negative_lower_certificate=negative_low)
 

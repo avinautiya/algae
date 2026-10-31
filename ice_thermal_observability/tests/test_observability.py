@@ -189,6 +189,14 @@ class RecoveryTests(unittest.TestCase):
             z=r["minimax"]+offset
             self.assertGreaterEqual(max(abs(z-r["lower"]),abs(z-r["upper"]))+1e-14,r["worst_case_absolute_error"])
 
+    def test_near_collapsed_range_has_nonnegative_radius_and_precision_flag(self):
+        m=CrossStream(Channel(),96);length=m.channel.speed_m_s*m.channel.depth_m**2/m.channel.diffusivity
+        beta=.11986456615013454;stations=np.linspace(.5*beta*length,2*beta*length,4)
+        e=np.array([m.bulk_kernel(x) for x in stations]);f=np.full(96,.1)
+        r=sharp_interval(m.heat_kernel_W_K(3*beta*length,6*beta*length),e,e@f,np.zeros(4),np.zeros(96),np.full(96,.2))
+        self.assertGreaterEqual(r["worst_case_absolute_error"],0)
+        self.assertTrue(r["numerically_unresolved_width"])
+
 
 class ForecastTests(unittest.TestCase):
     def test_demo_energy_replay_and_scope(self):

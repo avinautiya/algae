@@ -1,0 +1,78 @@
+[
+  {
+    "velocity": "plug",
+    "cells": 24,
+    "lower_W": 0.2593498852003474,
+    "upper_W": 0.2975466774162597,
+    "minimax_W": 0.27844828130830357,
+    "max_dual_gap_W": 1.1102230246251565e-16,
+    "analytic_uniform_power_W": 0.2781871943134684,
+    "fv_uniform_power_W": 0.27844828130830357,
+    "relative_uniform_power_error": 0.000938529882655133
+  },
+  {
+    "velocity": "plug",
+    "cells": 48,
+    "lower_W": 0.259342170942379,
+    "upper_W": 0.2971623037997233,
+    "minimax_W": 0.27825223737105115,
+    "max_dual_gap_W": 1.1102230246251565e-16,
+    "analytic_uniform_power_W": 0.2781871943134684,
+    "fv_uniform_power_W": 0.2782522373710511,
+    "relative_uniform_power_error": 0.00023381039426786506
+  },
+  {
+    "velocity": "plug",
+    "cells": 96,
+    "lower_W": 0.25935047968620084,
+    "upper_W": 0.2970564021152952,
+    "minimax_W": 0.278203440900748,
+    "max_dual_gap_W": 5.551115123125783e-17,
+    "analytic_uniform_power_W": 0.2781871943134684,
+    "fv_uniform_power_W": 0.278203440900748,
+    "relative_uniform_power_error": 5.8401636062745224e-05
+  },
+  {
+    "velocity": "plug",
+    "cells": 192,
+    "lower_W": 0.2593510837658505,
+    "upper_W": 0.2970314263863697,
+    "minimax_W": 0.2781912550761101,
+    "max_dual_gap_W": 1.1102230246251565e-16,
+    "analytic_uniform_power_W": 0.27818719431346833,
+    "fv_uniform_power_W": 0.27819125507611,
+    "relative_uniform_power_error": 1.4597230658535223e-05
+  },
+  {
+    "velocity": "shear_free",
+    "cells": 24,
+    "lower_W": 0.23207002763493967,
+    "upper_W": 0.26288769197217354,
+    "minimax_W": 0.2474788598035566,
+    "max_dual_gap_W": 2.7755575615628914e-17
+  },
+  {
+    "velocity": "shear_free",
+    "cells": 48,
+    "lower_W": 0.2322156145487353,
+    "upper_W": 0.26278071278462534,
+    "minimax_W": 0.24749816366668032,
+    "max_dual_gap_W": 1.6653345369377348e-16
+  },
+  {
+    "velocity": "shear_free",
+    "cells": 96,
+    "lower_W": 0.23224060984885597,
+    "upper_W": 0.2627654111615991,
+    "minimax_W": 0.24750301050522755,
+    "max_dual_gap_W": 1.6653345369377348e-16
+  },
+  {
+    "velocity": "shear_free",
+    "cells": 192,
+    "lower_W": 0.2322452523429157,
+    "upper_W": 0.2627631947141862,
+    "minimax_W": 0.24750422352855095,
+    "max_dual_gap_W": 1.6653345369377348e-16
+  }
+]

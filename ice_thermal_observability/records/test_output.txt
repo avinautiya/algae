@@ -10,6 +10,7 @@ test_independent_vertex_comparison_exact_and_noisy (test_observability.RecoveryT
 test_infeasible_measurement_rejected (test_observability.RecoveryTests) ... ok
 test_midpoint_is_minimax_on_attaining_pair (test_observability.RecoveryTests) ... ok
 test_more_information_and_less_noise_do_not_widen (test_observability.RecoveryTests) ... ok
+test_near_collapsed_range_has_nonnegative_radius_and_precision_flag (test_observability.RecoveryTests) ... ok
 test_target_weighted_profile_moment_collapses_range (test_observability.RecoveryTests) ... ok
 test_upstream_information_leaves_attainable_range (test_observability.RecoveryTests) ... ok
 test_all_thermal_modes_couple_to_bulk_discrete_identity (test_observability.ThermalPhysicsTests) ... ok
@@ -23,6 +24,6 @@ test_source_response_independent_ode_and_ledger (test_observability.ThermalPhysi
 test_wall_flux_integral_matches_regional_heat (test_observability.ThermalPhysicsTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 23 tests in 7.934s
+Ran 24 tests in 1.946s
 
 OK
