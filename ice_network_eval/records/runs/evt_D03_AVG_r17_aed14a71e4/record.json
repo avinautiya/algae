@@ -1,0 +1,172 @@
+{
+ "spec": {
+  "kind": "reduced",
+  "scn": "D03AVG",
+  "scn_override": {
+   "id": "D03AVG",
+   "sill_offset_m": 0.13565425459551178,
+   "inflow_m3_s": 0.012884622344122581,
+   "inflow_T_C": 0.5222038274547633,
+   "lake_T0": 0.6529668026508242,
+   "ramp_s": 900.0,
+   "segments": [
+    [
+     129600.0,
+     0.012884622344122581,
+     0.5222038274547633
+    ]
+   ]
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 761.8425528620207,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 36.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 120.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0,
+   "atol_energy": 0.001
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 761.8425528620207,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.13565425459551178,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 120.0,
+   "S2": 0.02,
+   "duration_h": 36.0,
+   "cid": "D03",
+   "method": "AVG",
+   "mean": {
+    "Q_bar": 0.012884622344122581,
+    "T_bar": 0.5222038274547633,
+    "duration": 129600.0,
+    "volume": 1669.8470557982864
+   }
+  },
+  "version": "events_v1",
+  "stations": 17,
+  "dt_geom": 450,
+  "label": "evt_D03_AVG_r17",
+  "commit": "d132940"
+ },
+ "id": "evt_D03_AVG_r17_aed14a71e4",
+ "commit": "d132940",
+ "start_unix": 1793438776.7064302,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": null,
+  "t_act2_s": null,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   false
+  ],
+  "peak_Q2_over_I": 0.0,
+  "sill_lowering1_m": 0.12613470268715332,
+  "sill_lowering2_m": 0.0,
+  "delivered1_m3": 1755.2870058789006,
+  "delivered2_m3": 0.0,
+  "heat_to_ice_J": 1964177043.3794198,
+  "stage_end_m": 99.99557004896775,
+  "stage_max_m": 100.11250976628673
+ },
+ "timing": {
+  "import_s": 0.6254979299999377,
+  "warmup_s": 0.4421508390000781,
+  "sampling_run_s": 8.85326225499989,
+  "solver_s": 5.660980824000035,
+  "metrics_serialization_s": 0.004773486999965826
+ },
+ "applicability": {
+  "summary": {
+   "n_active_edge_snapshots": 2305,
+   "r_qs_max": 0.0045479181969042826,
+   "tau_wave_s_max": 109.33960410211485,
+   "tau_transit_s_max": 354.7692750757876,
+   "channel_over_node_max": 0.005901765224987628,
+   "melt_over_flow_max": 0.004368924999600046,
+   "froude_max": 1.0,
+   "snapshots_with_critical_control": 0,
+   "snapshots_with_froude_ge_1": 127,
+   "Re_min": 36678.46458119979,
+   "Re_max": 61227.80661256385,
+   "Re_outside_nominal_1e4_1p2e5": false
+  },
+  "n_rows_active": 2305,
+  "r_qs_p50_p90_max": [
+   0.0007795547989920472,
+   0.0008444900058886623,
+   0.0045479181969042826
+  ],
+  "froude_max_p50_p90_max": [
+   0.9999999999999997,
+   0.9999999999999999,
+   1.0
+  ],
+  "channel_over_node_p50_p90_max": [
+   0.00549816312682174,
+   0.005811790382740689,
+   0.005901765224987628
+  ],
+  "melt_over_flow_p50_p90_max": [
+   0.0033000871633132372,
+   0.0036615777871078082,
+   0.004368924999600046
+  ],
+  "Re_min_p50_p90_max": [
+   46812.88280153855,
+   47508.25952992036,
+   47685.97850956342
+  ],
+  "Re_max_p50_p90_max": [
+   60182.97491688292,
+   60984.8838656681,
+   61227.80661256385
+  ],
+  "frac_active_snapshots_with_froude_ge_1": 0.05509761388286334
+ },
+ "discharge_law_evaluations": 6798,
+ "conservation": {
+  "water_residual_rel": 4.536723973294532e-16,
+  "mass_residual_rel": 6.155572861232603e-16,
+  "energy_residual_rel": 2.3528226721923004e-16,
+  "geometry_vs_latent_rel_max": 2.8077434902575343e-08,
+  "geometry_vs_latent_kg_abs_max": 3.162174216608804e-05
+ },
+ "n_macrosteps": 288,
+ "wall_total_s": 19.224821466999856,
+ "peak_rss_mb": 206.390625,
+ "end_unix": 1793438795.9312701
+}

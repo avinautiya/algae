@@ -1,12 +1,12 @@
 {
- "generated_unix": 1793433465.348914,
+ "generated_unix": 1793439042.919712,
  "counts": {
-  "completed": 1035,
+  "completed": 1070,
   "stalled": 3,
   "failed": 3,
   "timeout": 2
  },
- "total_wall_s": 58348.39825709464,
+ "total_wall_s": 59465.36937331364,
  "runs": [
   {
    "id": "cap_D01_dissipation_r17_9e364cef68",
@@ -889,6 +889,251 @@
    "wall_s": 23.962080860000242,
    "peak_rss_mb": 184.79296875,
    "label": "cap_T16_thermal_r17"
+  },
+  {
+   "id": "evt_D01_AVG_r17_23fcf34f87",
+   "state": "completed",
+   "wall_s": 41.45711112799995,
+   "peak_rss_mb": 208.1796875,
+   "label": "evt_D01_AVG_r17"
+  },
+  {
+   "id": "evt_D01_EA_r17_b24dfddf41",
+   "state": "completed",
+   "wall_s": 42.33686995300013,
+   "peak_rss_mb": 208.0625,
+   "label": "evt_D01_EA_r17"
+  },
+  {
+   "id": "evt_D01_PW6_r17_5463b951a8",
+   "state": "completed",
+   "wall_s": 45.81872565699996,
+   "peak_rss_mb": 208.3671875,
+   "label": "evt_D01_PW6_r17"
+  },
+  {
+   "id": "evt_D01_PWn_r17_7e2c1cf4ef",
+   "state": "completed",
+   "wall_s": 42.68270972899995,
+   "peak_rss_mb": 208.19921875,
+   "label": "evt_D01_PWn_r17"
+  },
+  {
+   "id": "evt_D01_TR_r17_861aaeb5f0",
+   "state": "completed",
+   "wall_s": 44.97469683600002,
+   "peak_rss_mb": 210.578125,
+   "label": "evt_D01_TR_r17"
+  },
+  {
+   "id": "evt_D02_AVG_r17_2b605c0334",
+   "state": "completed",
+   "wall_s": 40.174326286999985,
+   "peak_rss_mb": 207.06640625,
+   "label": "evt_D02_AVG_r17"
+  },
+  {
+   "id": "evt_D02_EA_r17_37228e3420",
+   "state": "completed",
+   "wall_s": 36.95171537700003,
+   "peak_rss_mb": 207.26953125,
+   "label": "evt_D02_EA_r17"
+  },
+  {
+   "id": "evt_D02_PW6_r17_1942d43c51",
+   "state": "completed",
+   "wall_s": 38.31565371600004,
+   "peak_rss_mb": 207.328125,
+   "label": "evt_D02_PW6_r17"
+  },
+  {
+   "id": "evt_D02_PWn_r17_d74d72ed31",
+   "state": "completed",
+   "wall_s": 36.68997748699985,
+   "peak_rss_mb": 207.6171875,
+   "label": "evt_D02_PWn_r17"
+  },
+  {
+   "id": "evt_D02_TR_r17_e91aa4206e",
+   "state": "completed",
+   "wall_s": 39.58878712899991,
+   "peak_rss_mb": 209.75390625,
+   "label": "evt_D02_TR_r17"
+  },
+  {
+   "id": "evt_D03_AVG_r17_aed14a71e4",
+   "state": "completed",
+   "wall_s": 19.224821466999856,
+   "peak_rss_mb": 206.390625,
+   "label": "evt_D03_AVG_r17"
+  },
+  {
+   "id": "evt_D03_EA_r17_b9555c770e",
+   "state": "completed",
+   "wall_s": 28.20092909699997,
+   "peak_rss_mb": 206.62890625,
+   "label": "evt_D03_EA_r17"
+  },
+  {
+   "id": "evt_D03_PW6_r17_0dc1fada20",
+   "state": "completed",
+   "wall_s": 23.142741400999967,
+   "peak_rss_mb": 206.3359375,
+   "label": "evt_D03_PW6_r17"
+  },
+  {
+   "id": "evt_D03_PWn_r17_8dfffa3caf",
+   "state": "completed",
+   "wall_s": 23.119991459000175,
+   "peak_rss_mb": 206.15625,
+   "label": "evt_D03_PWn_r17"
+  },
+  {
+   "id": "evt_D03_TR_r17_ad56775c89",
+   "state": "completed",
+   "wall_s": 33.96677540499991,
+   "peak_rss_mb": 208.97265625,
+   "label": "evt_D03_TR_r17"
+  },
+  {
+   "id": "evt_D04_AVG_r17_c4e0cf322e",
+   "state": "completed",
+   "wall_s": 41.94412495300003,
+   "peak_rss_mb": 207.29296875,
+   "label": "evt_D04_AVG_r17"
+  },
+  {
+   "id": "evt_D04_EA_r17_2e413709fe",
+   "state": "completed",
+   "wall_s": 38.11225941199996,
+   "peak_rss_mb": 207.2421875,
+   "label": "evt_D04_EA_r17"
+  },
+  {
+   "id": "evt_D04_PW6_r17_efeb3df9cb",
+   "state": "completed",
+   "wall_s": 38.10700100899999,
+   "peak_rss_mb": 207.3046875,
+   "label": "evt_D04_PW6_r17"
+  },
+  {
+   "id": "evt_D04_PWn_r17_2c398de215",
+   "state": "completed",
+   "wall_s": 35.251448753999966,
+   "peak_rss_mb": 207.05859375,
+   "label": "evt_D04_PWn_r17"
+  },
+  {
+   "id": "evt_D04_TR_r17_39d230ca3f",
+   "state": "completed",
+   "wall_s": 34.82901838199996,
+   "peak_rss_mb": 209.41015625,
+   "label": "evt_D04_TR_r17"
+  },
+  {
+   "id": "evt_D05_AVG_r17_3548e450ec",
+   "state": "completed",
+   "wall_s": 35.96945547799987,
+   "peak_rss_mb": 206.9609375,
+   "label": "evt_D05_AVG_r17"
+  },
+  {
+   "id": "evt_D05_EA_r17_27c0c14563",
+   "state": "completed",
+   "wall_s": 35.01427232299989,
+   "peak_rss_mb": 207.0078125,
+   "label": "evt_D05_EA_r17"
+  },
+  {
+   "id": "evt_D05_PW6_r17_708328590c",
+   "state": "completed",
+   "wall_s": 33.84504081099999,
+   "peak_rss_mb": 206.63671875,
+   "label": "evt_D05_PW6_r17"
+  },
+  {
+   "id": "evt_D05_PWn_r17_1d7d963407",
+   "state": "completed",
+   "wall_s": 39.07270477600014,
+   "peak_rss_mb": 207.0546875,
+   "label": "evt_D05_PWn_r17"
+  },
+  {
+   "id": "evt_D05_TR_r17_e4c5f2488f",
+   "state": "completed",
+   "wall_s": 34.21402649800007,
+   "peak_rss_mb": 209.26171875,
+   "label": "evt_D05_TR_r17"
+  },
+  {
+   "id": "evt_D06_AVG_r17_d082424eb2",
+   "state": "completed",
+   "wall_s": 21.968164909000052,
+   "peak_rss_mb": 206.07421875,
+   "label": "evt_D06_AVG_r17"
+  },
+  {
+   "id": "evt_D06_EA_r17_b2dfd0bfb2",
+   "state": "completed",
+   "wall_s": 22.079969094000035,
+   "peak_rss_mb": 206.22265625,
+   "label": "evt_D06_EA_r17"
+  },
+  {
+   "id": "evt_D06_PW6_r17_6af8a6c0bb",
+   "state": "completed",
+   "wall_s": 24.6175765160001,
+   "peak_rss_mb": 206.078125,
+   "label": "evt_D06_PW6_r17"
+  },
+  {
+   "id": "evt_D06_PWn_r17_03482805f2",
+   "state": "completed",
+   "wall_s": 22.326669508000123,
+   "peak_rss_mb": 206.25390625,
+   "label": "evt_D06_PWn_r17"
+  },
+  {
+   "id": "evt_D06_TR_r17_e2c3ac1ba6",
+   "state": "completed",
+   "wall_s": 24.132789483999886,
+   "peak_rss_mb": 208.5546875,
+   "label": "evt_D06_TR_r17"
+  },
+  {
+   "id": "evt_D07_AVG_r17_65ebdf816b",
+   "state": "completed",
+   "wall_s": 19.061719097999912,
+   "peak_rss_mb": 206.34765625,
+   "label": "evt_D07_AVG_r17"
+  },
+  {
+   "id": "evt_D07_EA_r17_78ee49cf8e",
+   "state": "completed",
+   "wall_s": 18.992166373999908,
+   "peak_rss_mb": 205.99609375,
+   "label": "evt_D07_EA_r17"
+  },
+  {
+   "id": "evt_D07_PW6_r17_9d79d28544",
+   "state": "completed",
+   "wall_s": 21.230435468999985,
+   "peak_rss_mb": 206.48828125,
+   "label": "evt_D07_PW6_r17"
+  },
+  {
+   "id": "evt_D07_PWn_r17_89611ab9e3",
+   "state": "completed",
+   "wall_s": 18.86443556999984,
+   "peak_rss_mb": 206.03125,
+   "label": "evt_D07_PWn_r17"
+  },
+  {
+   "id": "evt_D07_TR_r17_00e957f207",
+   "state": "completed",
+   "wall_s": 20.692005672999812,
+   "peak_rss_mb": 208.828125,
+   "label": "evt_D07_TR_r17"
   },
   {
    "id": "red_C000_r17_774d0c27e5",

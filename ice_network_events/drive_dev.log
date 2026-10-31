@@ -1,0 +1,72 @@
+35 cases, 35 pending, workers=3
+start evt_D01_TR_r17_861aaeb5f0
+start evt_D01_AVG_r17_23fcf34f87
+start evt_D01_PW6_r17_5463b951a8
+end evt_D01_AVG_r17_23fcf34f87 completed 41.5
+start evt_D01_EA_r17_b24dfddf41
+end evt_D01_TR_r17_861aaeb5f0 completed 45.0
+start evt_D01_PWn_r17_7e2c1cf4ef
+end evt_D01_PW6_r17_5463b951a8 completed 45.8
+start evt_D02_TR_r17_e91aa4206e
+end evt_D01_EA_r17_b24dfddf41 completed 42.3
+start evt_D02_AVG_r17_2b605c0334
+end evt_D01_PWn_r17_7e2c1cf4ef completed 42.7
+end evt_D02_TR_r17_e91aa4206e completed 39.6
+start evt_D02_PW6_r17_1942d43c51
+start evt_D02_EA_r17_37228e3420
+end evt_D02_AVG_r17_2b605c0334 completed 40.2
+end evt_D02_EA_r17_37228e3420 completed 37.0
+start evt_D02_PWn_r17_d74d72ed31
+start evt_D03_TR_r17_ad56775c89
+end evt_D02_PW6_r17_1942d43c51 completed 38.3
+start evt_D03_AVG_r17_aed14a71e4
+end evt_D03_AVG_r17_aed14a71e4 completed 19.2
+start evt_D03_PW6_r17_0dc1fada20
+end evt_D03_TR_r17_ad56775c89 completed 34.0
+start evt_D03_EA_r17_b9555c770e
+end evt_D02_PWn_r17_d74d72ed31 completed 36.7
+start evt_D03_PWn_r17_8dfffa3caf
+end evt_D03_PW6_r17_0dc1fada20 completed 23.1
+start evt_D04_TR_r17_39d230ca3f
+end evt_D03_PWn_r17_8dfffa3caf completed 23.1
+start evt_D04_AVG_r17_c4e0cf322e
+end evt_D03_EA_r17_b9555c770e completed 28.2
+start evt_D04_PW6_r17_efeb3df9cb
+end evt_D04_TR_r17_39d230ca3f completed 34.8
+start evt_D04_EA_r17_2e413709fe
+end evt_D04_AVG_r17_c4e0cf322e completed 41.9
+end evt_D04_PW6_r17_efeb3df9cb completed 38.1
+start evt_D04_PWn_r17_2c398de215
+start evt_D05_TR_r17_e4c5f2488f
+end evt_D04_EA_r17_2e413709fe completed 38.1
+start evt_D05_AVG_r17_3548e450ec
+end evt_D04_PWn_r17_2c398de215 completed 35.3
+end evt_D05_TR_r17_e4c5f2488f completed 34.2
+start evt_D05_PW6_r17_708328590c
+start evt_D05_EA_r17_27c0c14563
+end evt_D05_AVG_r17_3548e450ec completed 36.0
+start evt_D05_PWn_r17_1d7d963407
+end evt_D05_PW6_r17_708328590c completed 33.8
+end evt_D05_EA_r17_27c0c14563 completed 35.0
+start evt_D06_TR_r17_e2c3ac1ba6
+start evt_D06_AVG_r17_d082424eb2
+end evt_D05_PWn_r17_1d7d963407 completed 39.1
+start evt_D06_PW6_r17_6af8a6c0bb
+end evt_D06_AVG_r17_d082424eb2 completed 22.0
+start evt_D06_EA_r17_b2dfd0bfb2
+end evt_D06_TR_r17_e2c3ac1ba6 completed 24.1
+start evt_D06_PWn_r17_03482805f2
+end evt_D06_PW6_r17_6af8a6c0bb completed 24.6
+end evt_D06_EA_r17_b2dfd0bfb2 completed 22.1
+start evt_D07_TR_r17_00e957f207
+start evt_D07_AVG_r17_65ebdf816b
+end evt_D06_PWn_r17_03482805f2 completed 22.3
+start evt_D07_PW6_r17_9d79d28544
+end evt_D07_AVG_r17_65ebdf816b completed 19.1
+start evt_D07_EA_r17_78ee49cf8e
+end evt_D07_TR_r17_00e957f207 completed 20.7
+start evt_D07_PWn_r17_89611ab9e3
+end evt_D07_PW6_r17_9d79d28544 completed 21.2
+end evt_D07_EA_r17_78ee49cf8e completed 19.0
+end evt_D07_PWn_r17_89611ab9e3 completed 18.9
+{'completed': 1070, 'stalled': 3, 'failed': 3, 'timeout': 2} total wall s 59465
