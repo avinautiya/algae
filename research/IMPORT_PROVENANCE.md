@@ -1,2 +1,4 @@
 # Import provenance
 Imported from `origin/codex/ice-channel-v2-foundation` commit 29a72d3 (`git checkout 29a72d3 -- research`). A plain `git cherry-pick 29a72d3` was **not** used: that commit is a snapshot on a different base and would have deleted unrelated repository content (agency_design, comparison_study, data/empirical, ...); the attempt was reset before any push. Only `research/` is imported, byte-identical. Both verification scripts were run unchanged from `research/` and exit 0 (they verify subproblems, not research results).
+
+UPDATE: the packet imported from 29a72d3 was defective per the producer (ice_lake_coupling/INTEGRATION_HANDOFF.md); research/ was replaced with the corrected 6ddbb449 contents (git checkout origin/codex/ice-channel-v2-foundation -- research). Both verification scripts rerun: exit 0. ice_lake_coupling/ imported from c0b661d; its 22 unit tests pass (standalone module tests only; NO coupled-solver test exists).

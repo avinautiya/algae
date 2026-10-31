@@ -1,0 +1,48 @@
+{
+  "model": "Well-mixed lake + ideal critical outlet + prescribed thermal exchange",
+  "scenario": "synthetic_clear_water_lake_6h",
+  "melting": false,
+  "limits": [
+    "Synthetic scenario, not a calibrated or validated glacier forecast",
+    "No resolved CFD, channel storage, backwater or hydrofracture",
+    "No debris, stratification, lake freezing, glacier mechanics or inundation routing",
+    "Heat-transfer coefficient and contact area are prescribed, not learned or resolved",
+    "Fixed lake hypsometry; channel meltwater leaves downstream, not back into lake",
+    "First-order time integration and explicit sill update require refinement"
+  ],
+  "constants": {
+    "rho_water": 1000.0,
+    "rho_ice": 917.0,
+    "cp_water": 4217.0,
+    "latent_heat": 334000.0,
+    "gravity": 9.81
+  },
+  "accepted_steps": 720,
+  "geometry_step_rejections": 0,
+  "final_stage_m": 1.201030615275831,
+  "final_temperature_K": 0.4377650374485774,
+  "final_sill_m": 1.1,
+  "sill_lowering_m": 0.0,
+  "totals": {
+    "inflow_m3": 1043.9999999999932,
+    "inflow_J": 2095005600.0,
+    "external_J": 14400000.0,
+    "port_m3": 1254.9280538972505,
+    "port_J": 2289210628.496588,
+    "delivered_m3": 1254.9280538972505,
+    "exported_J": 2289210628.496588,
+    "latent_J": 0.0,
+    "meltwater_m3": 0.0,
+    "ice_loss_m3": 0.0
+  },
+  "peak_lake_release_m3_s": 0.1400714103591449,
+  "sampled_peak_time_s": 0.0,
+  "peak_definition": "Maximum initial instantaneous or accepted-step mean lake-to-control discharge; requires refinement",
+  "max_water_residual_m3": 1.075363798008766e-09,
+  "max_energy_residual_J": 2.86102294921875e-06,
+  "water_scale_m3": 2359.999999999993,
+  "energy_scale_J": 4329234400.0,
+  "max_water_residual_relative": 4.556626262749022e-13,
+  "max_energy_residual_relative": 6.608611788769742e-16,
+  "geometry_latent_volume_residual_m3": 0.0
+}
