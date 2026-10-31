@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "synthetic_clear_water_lake_6h",
+  "duration_s": 21600.0,
+  "max_dt_s": 30.0,
+  "max_lowering_per_step_m": 0.002,
+  "storage": {
+    "stages_m": [0.0, 1.0, 2.0, 4.0],
+    "areas_m2": [800.0, 1000.0, 1200.0, 1600.0]
+  },
+  "initial": {"stage_m": 1.4, "temperature_K": 0.4},
+  "control": {
+    "sill_m": 1.1,
+    "width_m": 0.5,
+    "contact_length_m": 5.0,
+    "htc_W_m2_K": 1500.0,
+    "discharge_coefficient": 1.0
+  },
+  "forcing": [
+    {"until_s": 7200.0, "inflow_m3_s": 0.04, "inflow_temperature_K": 0.4, "external_power_W": 0.0},
+    {"until_s": 14400.0, "inflow_m3_s": 0.08, "inflow_temperature_K": 0.6, "external_power_W": 2000.0},
+    {"until_s": 21600.0, "inflow_m3_s": 0.025, "inflow_temperature_K": 0.2, "external_power_W": 0.0}
+  ]
+}

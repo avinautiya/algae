@@ -1,0 +1,102 @@
+{
+  "scope": "Numerical verification on one synthetic case, not environmental validation",
+  "python": "3.9.6",
+  "case_sha256": "23de7a71b1015763e91301f7780ccf82e06810d9143f0ff00a39a00f11a1cfe0",
+  "levels": [
+    {
+      "dt_s": 60.0,
+      "wall_s": 0.055394874999999996,
+      "final_stage_m": 1.1608060958687312,
+      "sill_lowering_m": 0.0455149610752279,
+      "delivered_m3": 1296.7123871329686,
+      "exported_J": 2333095291.67379,
+      "max_water_residual_relative": 1.6369164292736426e-13,
+      "max_energy_residual_relative": 1.7622964770052644e-15
+    },
+    {
+      "dt_s": 30.0,
+      "wall_s": 0.11033470799999998,
+      "final_stage_m": 1.1606419263638679,
+      "sill_lowering_m": 0.04551419806813617,
+      "delivered_m3": 1296.8818320858993,
+      "exported_J": 2333339678.301165,
+      "max_water_residual_relative": 5.515285396870311e-13,
+      "max_energy_residual_relative": 1.5420094173796065e-15
+    },
+    {
+      "dt_s": 15.0,
+      "wall_s": 0.221041959,
+      "final_stage_m": 1.1605598955660057,
+      "sill_lowering_m": 0.04551381056643833,
+      "delivered_m3": 1296.9664968375312,
+      "exported_J": 2333461926.428066,
+      "max_water_residual_relative": 4.574622023101653e-13,
+      "max_energy_residual_relative": 2.7535882453207258e-15
+    },
+    {
+      "dt_s": 7.5,
+      "wall_s": 0.45005324999999996,
+      "final_stage_m": 1.1605188943477642,
+      "sill_lowering_m": 0.045513615304610955,
+      "delivered_m3": 1297.0088140715532,
+      "exported_J": 2333523063.0121975,
+      "max_water_residual_relative": 3.8768102561398143e-13,
+      "max_energy_residual_relative": 1.7622964770052644e-15
+    }
+  ],
+  "convergence": {
+    "final_stage_m": {
+      "successive_absolute_differences": [
+        0.0001641695048633096,
+        8.203079786217593e-05,
+        4.100121824146541e-05
+      ],
+      "observed_orders": [
+        1.0009485998430436,
+        1.0004988845310618
+      ]
+    },
+    "sill_lowering_m": {
+      "successive_absolute_differences": [
+        7.630070917308274e-07,
+        3.875016978405199e-07,
+        1.9526182737372721e-07
+      ],
+      "observed_orders": [
+        0.9774938346023574,
+        0.9887926938276347
+      ]
+    },
+    "delivered_m3": {
+      "successive_absolute_differences": [
+        0.1694449529306894,
+        0.0846647516318626,
+        0.0423172340219935
+      ],
+      "observed_orders": [
+        1.0009833012224139,
+        1.0005161273938308
+      ]
+    },
+    "exported_J": {
+      "successive_absolute_differences": [
+        244386.62737512589,
+        122248.12690067291,
+        61136.58413171768
+      ],
+      "observed_orders": [
+        0.9993529840777892,
+        0.9997045079449907
+      ]
+    }
+  },
+  "source_sha256": {
+    "__init__.py": "2df3ee7a01d88a3f1bb4548c2351040903c8649f1c1f41067e2675ac35dcd9fb",
+    "__main__.py": "fbb3324147c9a0de3e2997996c367312841cd22e17216d5b2c77b3fb95ade514",
+    "kernel.py": "53f40217d08817dca5fc7583193ca133593b76a8c99c93009a1a01ab7b2c9cf6",
+    "simulation.py": "1da1cb1b113d3a1340958fec50b95444d3e086001941fc0cc0596486cc934e17",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_coupling.py": "3c9495c7d77bdf3389ee2ebb3ece1f3ef4cf043579357d4c32ba72e9bd291721",
+    "verify.py": "f3dd9feefde7fcb38065d5b3e44792493e8667a68b191b9ad9041c4732b366d9"
+  }
+}
