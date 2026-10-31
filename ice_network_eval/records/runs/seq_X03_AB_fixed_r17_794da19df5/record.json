@@ -1,0 +1,181 @@
+{
+ "spec": {
+  "kind": "reduced",
+  "scn": "X03AB",
+  "scn_override": {
+   "id": "X03AB",
+   "sill_offset_m": 0.05,
+   "inflow_m3_s": 0.0729343794552085,
+   "inflow_T_C": 0.7040460294491595,
+   "lake_T0": 0.7040460294491595,
+   "segments": [
+    [
+     10800.0,
+     0.04028063317107432,
+     1.208842411456948
+    ],
+    [
+     10800.0,
+     0.10558812573934266,
+     0.5114721226072387
+    ],
+    [
+     21600.0,
+     0.0729343794552085,
+     0.7040460294491595
+    ]
+   ],
+   "ramp_s": 900.0
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 2340.8978701912793,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 12.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.8,
+     "length_m": 60.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0,
+   "melting": false
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 2340.8978701912793,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.05,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.8,
+   "L2": 60.0,
+   "S2": 0.02,
+   "duration_h": 12.0,
+   "cid": "X03",
+   "forcing": "AB",
+   "mean": {
+    "Q_bar": 0.0729343794552085,
+    "T_bar": 0.7040460294491595,
+    "duration": 43200.0
+   }
+  },
+  "version": "sequence_v1",
+  "stations": 17,
+  "dt_geom": 450,
+  "label": "seq_X03_AB_fixed_r17",
+  "commit": "f9cb797"
+ },
+ "id": "seq_X03_AB_fixed_r17_794da19df5",
+ "commit": "f9cb797",
+ "start_unix": 1793427621.0691462,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": null,
+  "t_act2_s": null,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.9817597907249429,
+  "sill_lowering1_m": 0.0,
+  "sill_lowering2_m": 0.0,
+  "delivered1_m3": 994.3444056830062,
+  "delivered2_m3": 1952.386649438241,
+  "heat_to_ice_J": 0.0,
+  "stage_end_m": 100.18716090673811,
+  "stage_max_m": 100.22602614450973
+ },
+ "timing": {
+  "import_s": 0.6098012269999344,
+  "warmup_s": 0.7197506649999923,
+  "sampling_run_s": 6.877609758999824,
+  "solver_s": 4.792540272999759,
+  "metrics_serialization_s": 0.002371442999901774
+ },
+ "applicability": {
+  "summary": {
+   "n_active_edge_snapshots": 1538,
+   "r_qs_max": 0.019486411804862745,
+   "tau_wave_s_max": 109.33960410211485,
+   "tau_transit_s_max": 354.7692750757876,
+   "channel_over_node_max": 0.0027580879964772074,
+   "melt_over_flow_max": 0.0,
+   "froude_max": 1.0000000000000002,
+   "snapshots_with_critical_control": 0,
+   "snapshots_with_froude_ge_1": 190,
+   "Re_min": 24988.058324531128,
+   "Re_max": 162126.1806686314,
+   "Re_outside_nominal_1e4_1p2e5": true
+  },
+  "n_rows_active": 1538,
+  "r_qs_p50_p90_max": [
+   0.000939693778832364,
+   0.006602007018903072,
+   0.019486411804862745
+  ],
+  "froude_max_p50_p90_max": [
+   0.9999999999999998,
+   1.0,
+   1.0000000000000002
+  ],
+  "channel_over_node_p50_p90_max": [
+   0.001779236917873964,
+   0.0025566325613750364,
+   0.0027580879964772074
+  ],
+  "melt_over_flow_p50_p90_max": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "Re_min_p50_p90_max": [
+   75763.04063990881,
+   124809.1979848415,
+   145966.0768052661
+  ],
+  "Re_max_p50_p90_max": [
+   104962.80616489981,
+   137574.41861875332,
+   162126.1806686314
+  ],
+  "frac_active_snapshots_with_froude_ge_1": 0.1235370611183355
+ },
+ "discharge_law_evaluations": 3138,
+ "conservation": {
+  "water_residual_rel": 2.3826419601556457e-16,
+  "mass_residual_rel": 4.4337914481972046e-16,
+  "energy_residual_rel": -1.6657466523047958e-16,
+  "geometry_vs_latent_rel_max": 0.0,
+  "geometry_vs_latent_kg_abs_max": 0.0
+ },
+ "n_macrosteps": 96,
+ "wall_total_s": 15.624864204000005,
+ "peak_rss_mb": 184.4921875,
+ "end_unix": 1793427636.694029
+}

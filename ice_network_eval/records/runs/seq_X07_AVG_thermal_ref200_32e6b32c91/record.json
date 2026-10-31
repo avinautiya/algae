@@ -1,0 +1,113 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "X07AVG",
+  "scn_override": {
+   "id": "X07AVG",
+   "sill_offset_m": 0.12,
+   "inflow_m3_s": 0.06835190525896527,
+   "inflow_T_C": 0.5806123612109388,
+   "lake_T0": 0.5806123612109388,
+   "segments": [
+    [
+     43200.0,
+     0.06835190525896527,
+     0.5806123612109388
+    ]
+   ],
+   "ramp_s": 900.0
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 3683.377203914502,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 12.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.8,
+     "length_m": 60.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 3683.377203914502,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.12,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.8,
+   "L2": 60.0,
+   "S2": 0.02,
+   "duration_h": 12.0,
+   "cid": "X07",
+   "forcing": "AVG",
+   "mean": {
+    "Q_bar": 0.06835190525896527,
+    "T_bar": 0.5806123612109388,
+    "duration": 43200.0
+   }
+  },
+  "version": "sequence_v1",
+  "ncell": 200,
+  "label": "seq_X07_AVG_thermal_ref200",
+  "commit": "f9cb797"
+ },
+ "id": "seq_X07_AVG_thermal_ref200_32e6b32c91",
+ "commit": "f9cb797",
+ "start_unix": 1793429527.8067994,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": 4.280561795558583,
+  "t_act2_s": 2254.447078954008,
+  "t_end_act2_s": null,
+  "t_dom2_s": 20299.084213456365,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.5450157212859587,
+  "sill_lowering1_m": 0.04780356968470301,
+  "sill_lowering2_m": 0.05160160647726286,
+  "delivered1_m3": 1361.7365677410705,
+  "delivered2_m3": 1264.8516970791268,
+  "heat_to_ice_J": 2000212465.456812,
+  "stage_end_m": 100.18678324198154,
+  "stage_max_m": 100.2171796707872
+ },
+ "timing": {
+  "import_s": 0.5973390129993277,
+  "warmup_s": 0.2181839199993192,
+  "solver_s": 92.35149414599982,
+  "metrics_serialization_s": 0.0033173140000144485
+ },
+ "nsteps": 479569,
+ "diss_J": 20980443.3123637,
+ "wall_total_s": 93.29698448999989,
+ "peak_rss_mb": 172.79296875,
+ "end_unix": 1793429621.1038024
+}

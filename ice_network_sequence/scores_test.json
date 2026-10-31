@@ -1,0 +1,1092 @@
+{
+ "X01": {
+  "description": "scan config 2: predicted share effect -0.0019",
+  "predicted": {
+   "share_end": -0.0018811582396041082,
+   "heat_rel": 0.03716234362959825,
+   "eta": 0.03631571948681002,
+   "product_rule": 0.0017399969680924612,
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.0009146717866171383,
+    -0.0009664864529869699
+   ]
+  },
+  "net17": {
+   "share_end": -0.00045617310830742275,
+   "share_deliv": 0.0023736055152103197,
+   "cum2": 6.773944706756083,
+   "heat_rel": 0.03710956559571987,
+   "incision_rel": 0.03616949066276014,
+   "stage_end": -0.00525097731180324,
+   "persistence": -0.1409804696773669,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.00018875979217397587,
+    -0.0002674133161334469
+   ],
+   "avg_error_share_deliv": [
+    -0.00122032809049194,
+    0.0011532774247183797
+   ],
+   "avg_error_heat_rel": [
+    -0.017933050529182704,
+    0.018511027351592935
+   ],
+   "avg_adequate": true
+  },
+  "net17_fixed": {
+   "share_end": 9.231632125406009e-11,
+   "share_deliv": -2.127583664801591e-10,
+   "cum2": -2.6594750579533866e-07,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": 1.8204104890173767e-11,
+   "persistence": null,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    2.5749047338763376e-10,
+    3.4980679464169384e-10
+   ],
+   "avg_error_share_deliv": [
+    6.032893073992796e-10,
+    3.9053094091912044e-10
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net33": null,
+  "ref200": null,
+  "ref400": null,
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {}
+ },
+ "X02": {
+  "description": "scan config 13: predicted share effect +0.0000",
+  "predicted": {
+   "share_end": 0.0,
+   "heat_rel": 0.0,
+   "eta": 0.0,
+   "product_rule": 0.0,
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.0,
+    0.0
+   ]
+  },
+  "net17": {
+   "share_end": 0.0,
+   "share_deliv": 0.0,
+   "cum2": 0.0,
+   "heat_rel": 0.0,
+   "incision_rel": 0.0,
+   "stage_end": 0.0,
+   "persistence": null,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.0,
+    0.0
+   ],
+   "avg_error_share_deliv": [
+    0.0,
+    0.0
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net17_fixed": {
+   "share_end": 0.0,
+   "share_deliv": 0.0,
+   "cum2": 0.0,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": 0.0,
+   "persistence": null,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.0,
+    0.0
+   ],
+   "avg_error_share_deliv": [
+    0.0,
+    0.0
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net33": null,
+  "ref200": {
+   "share_end": 0.0,
+   "share_deliv": 0.0,
+   "cum2": 0.0,
+   "heat_rel": 0.0,
+   "incision_rel": 0.0,
+   "stage_end": 0.0,
+   "persistence": null,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.0,
+    0.0
+   ],
+   "avg_error_share_deliv": [
+    0.0,
+    0.0
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "ref400": null,
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {}
+ },
+ "X03": {
+  "description": "scan config 23: predicted share effect -0.0001",
+  "predicted": {
+   "share_end": -8.098441637360843e-05,
+   "heat_rel": 0.013228122131898612,
+   "eta": 0.02348951442395677,
+   "product_rule": 0.0013665939499313937,
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.0008720073954459062,
+    0.0007910229790722978
+   ]
+  },
+  "net17": {
+   "share_end": 6.145146116165456e-05,
+   "share_deliv": 0.0017488099827347448,
+   "cum2": 7.8252889399686865,
+   "heat_rel": 0.012456072217996494,
+   "incision_rel": 0.021067887377566197,
+   "stage_end": -0.0014004063530563826,
+   "persistence": 0.0011932631522896993,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.0005854646978918909,
+    0.0006469161590535455
+   ],
+   "avg_error_share_deliv": [
+    -0.0016328541586517753,
+    0.00011595582408296945
+   ],
+   "avg_error_heat_rel": [
+    0.0014593723371760792,
+    0.013933622602397389
+   ],
+   "avg_adequate": true
+  },
+  "net17_fixed": {
+   "share_end": 7.784873069105469e-05,
+   "share_deliv": 0.001625186247710797,
+   "cum2": 4.6470292019002954,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": 9.236542429391648e-05,
+   "persistence": 0.001037738473531091,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -3.4042525299038395e-05,
+    4.3806205392016295e-05
+   ],
+   "avg_error_share_deliv": [
+    -0.002326703238781924,
+    -0.0007015169910711272
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net33": null,
+  "ref200": null,
+  "ref400": null,
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {}
+ },
+ "X04": {
+  "description": "scan config 42: predicted share effect +0.0240",
+  "predicted": {
+   "share_end": 0.024016254097817713,
+   "heat_rel": 0.12841283434440354,
+   "eta": 0.13229206394494245,
+   "product_rule": 0.022966432560762612,
+   "meaningful_routing": false,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    -0.012491395695038765,
+    0.011524858402778948
+   ]
+  },
+  "net17": {
+   "share_end": 0.024175685418026616,
+   "share_deliv": 0.025177517128426752,
+   "cum2": 142.8187104897679,
+   "heat_rel": 0.12624097204150497,
+   "incision_rel": 0.12009916151155839,
+   "stage_end": -0.028283078598477118,
+   "persistence": 0.634509539828121,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    -0.012494300948400205,
+    0.01168138446962641
+   ],
+   "avg_error_share_deliv": [
+    -0.01323424577692045,
+    0.011943271351506302
+   ],
+   "avg_error_heat_rel": [
+    -0.05501545579445466,
+    0.06428031163025194
+   ],
+   "avg_adequate": true
+  },
+  "net17_fixed": {
+   "share_end": 0.0007921446042459257,
+   "share_deliv": 0.001132061224828007,
+   "cum2": 2.4744046494984104,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": 0.0011314346735531444,
+   "persistence": 0.01913197245685546,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    true,
+    true
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -0.0003708518643815717,
+    0.000421292739864354
+   ],
+   "avg_error_share_deliv": [
+    -0.0013082755854802453,
+    -0.00017621436065223817
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net33": null,
+  "ref200": {
+   "share_end": 0.021572443999421376,
+   "share_deliv": 0.022317666740310882,
+   "cum2": 128.02683610067243,
+   "heat_rel": 0.1272480771616198,
+   "incision_rel": 0.12450036621742665,
+   "stage_end": -0.027385889560150645,
+   "persistence": 0.4888657034850904,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    -0.010654902758441276,
+    0.0109175412409801
+   ],
+   "avg_error_share_deliv": [
+    -0.011507659694179329,
+    0.010810007046131553
+   ],
+   "avg_error_heat_rel": [
+    -0.05518027784046453,
+    0.06504621506871211
+   ],
+   "avg_adequate": true
+  },
+  "ref400": {
+   "share_end": 0.022312910605671643,
+   "share_deliv": 0.023236329642625786,
+   "cum2": 132.44918433844623,
+   "heat_rel": 0.12699342719704787,
+   "incision_rel": 0.12475252749633045,
+   "stage_end": -0.027687094218663333,
+   "persistence": 0.5073483055613244,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    null
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": true
+  },
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {
+   "ref_share_end": 0.0007404666062502674,
+   "ref_heat_rel": 0.000254649964571918
+  }
+ },
+ "X05": {
+  "description": "scan config 77: predicted share effect -0.0223",
+  "predicted": {
+   "share_end": -0.02226958075482613,
+   "heat_rel": 0.10834767475625307,
+   "eta": 0.1110677537143151,
+   "product_rule": -0.006579100750446628,
+   "meaningful_routing": false,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    0.010515882007554073,
+    -0.011753698747272057
+   ]
+  },
+  "net17": {
+   "share_end": -0.009100211686362769,
+   "share_deliv": 0.0010118411869652066,
+   "cum2": 9.927558207277457,
+   "heat_rel": 0.11101357709424797,
+   "incision_rel": 0.10325089555410845,
+   "stage_end": -0.02119598694355318,
+   "persistence": 0.8464769636484403,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    0.0036304316630790257,
+    -0.0054697800232837435
+   ],
+   "avg_error_share_deliv": [
+    -0.001115419536151241,
+    -0.00010357834918603426
+   ],
+   "avg_error_heat_rel": [
+    -0.049586421848604734,
+    0.05592238918092529
+   ],
+   "avg_adequate": true
+  },
+  "net17_fixed": {
+   "share_end": 0.0,
+   "share_deliv": 7.523820455546115e-10,
+   "cum2": 1.8316319483346888e-06,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": 0.0,
+   "persistence": null,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -4.977018797092114e-12,
+    -4.977018797092114e-12
+   ],
+   "avg_error_share_deliv": [
+    6.322731227470513e-11,
+    8.156093578293167e-10
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net33": null,
+  "ref200": null,
+  "ref400": null,
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {}
+ },
+ "X06": {
+  "description": "scan config 74: predicted share effect -0.0156",
+  "predicted": {
+   "share_end": -0.015565810770439559,
+   "heat_rel": 0.028760844793859208,
+   "eta": 0.04322809920596435,
+   "product_rule": 0.0004214926892305405,
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.012156705306681226,
+    -0.003409105463758333
+   ]
+  },
+  "net17": {
+   "share_end": -0.014894145080667498,
+   "share_deliv": -0.009648171646555903,
+   "cum2": -32.38370707575723,
+   "heat_rel": 0.027172888291681074,
+   "incision_rel": 0.04387455366706987,
+   "stage_end": -0.002517492465827331,
+   "persistence": -0.14439369119634704,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.012064086677436636,
+    -0.0028300584032308618
+   ],
+   "avg_error_share_deliv": [
+    0.006248173029518911,
+    -0.0033999986170369922
+   ],
+   "avg_error_heat_rel": [
+    -0.006505408356613285,
+    0.020490709200501778
+   ],
+   "avg_adequate": true
+  },
+  "net17_fixed": {
+   "share_end": 4.462650970221693e-05,
+   "share_deliv": 0.004548689515446236,
+   "cum2": 15.079864461412399,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": 1.3456501065434168e-05,
+   "persistence": 0.00034328077037015813,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -2.0027327370886194e-05,
+    2.4599182331330738e-05
+   ],
+   "avg_error_share_deliv": [
+    -0.004409561718896782,
+    0.00013912779654945417
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net33": null,
+  "ref200": null,
+  "ref400": null,
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {}
+ },
+ "X07": {
+  "description": "scan config 51: predicted share effect -0.0180",
+  "predicted": {
+   "share_end": -0.017953922382795473,
+   "heat_rel": -0.03741208332640045,
+   "eta": 0.041100576613596757,
+   "product_rule": 0.001233878257954894,
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.017276669566742786,
+    -0.0006772528160526869
+   ]
+  },
+  "net17": {
+   "share_end": -0.01810368981749444,
+   "share_deliv": -0.006539663933981421,
+   "cum2": -29.581946404910923,
+   "heat_rel": -0.03842020243129507,
+   "incision_rel": 0.13230480303089467,
+   "stage_end": 0.006482857605320191,
+   "persistence": -0.10575045830469744,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.01730530375021,
+    -0.0007983860672844401
+   ],
+   "avg_error_share_deliv": [
+    0.0050969003604875995,
+    -0.0014427635734938216
+   ],
+   "avg_error_heat_rel": [
+    0.05387713181996179,
+    0.013386959077726024
+   ],
+   "avg_adequate": true
+  },
+  "net17_fixed": {
+   "share_end": 0.003351825423589583,
+   "share_deliv": 0.01540576896483703,
+   "cum2": 34.986795863240786,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": 0.0016679910819590305,
+   "persistence": 0.01551228064949642,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    true,
+    true
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -0.0013984125471936393,
+    0.0019534128763959435
+   ],
+   "avg_error_share_deliv": [
+    -0.014346893255866577,
+    0.0010588757089704526
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net33": null,
+  "ref200": {
+   "share_end": -0.016940236550204157,
+   "share_deliv": -0.0025409836649115114,
+   "cum2": -18.004510451578426,
+   "heat_rel": -0.03790181947049309,
+   "incision_rel": 0.13797961560938726,
+   "stage_end": 0.006271415166580141,
+   "persistence": -0.08720190871785166,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    true,
+    true
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.016122948769074164,
+    -0.0008172877811299939
+   ],
+   "avg_error_share_deliv": [
+    0.0011272691199180618,
+    -0.0014137145449934496
+   ],
+   "avg_error_heat_rel": [
+    0.05281192168533333,
+    0.012908434293233073
+   ],
+   "avg_adequate": true
+  },
+  "ref400": {
+   "share_end": -0.017492285925793993,
+   "share_deliv": -0.0027396324208618927,
+   "cum2": -18.788179579761163,
+   "heat_rel": -0.03912822060680077,
+   "incision_rel": 0.13959042595717097,
+   "stage_end": 0.006393091488476443,
+   "persistence": -0.09104501104684552,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    null
+   ],
+   "tie": [
+    true,
+    true
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false
+  },
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {
+   "ref_share_end": 0.0005520493755898359,
+   "ref_heat_rel": 0.0012264011363076754
+  }
+ },
+ "X08": {
+  "description": "scan config 43: predicted share effect +0.0093",
+  "predicted": {
+   "share_end": 0.009259349119231541,
+   "heat_rel": 0.18515231280191502,
+   "eta": 0.184450497103925,
+   "product_rule": 0.01583717104025782,
+   "meaningful_routing": false,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    0.0008081153274526187,
+    0.01006746444668416
+   ]
+  },
+  "net17": {
+   "share_end": 0.008413635777331119,
+   "share_deliv": 0.0070462283748645715,
+   "cum2": 85.83558185875972,
+   "heat_rel": 0.1786435595775182,
+   "incision_rel": 0.16328292990138155,
+   "stage_end": -0.022587089661442405,
+   "persistence": 0.1544234392948364,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    true
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    0.0012056114947307517,
+    0.00961924727206187
+   ],
+   "avg_error_share_deliv": [
+    -0.0024457959164189136,
+    0.004600432458445658
+   ],
+   "avg_error_heat_rel": [
+    -0.06177654040200309,
+    0.10583103809971695
+   ],
+   "avg_adequate": false
+  },
+  "net17_fixed": {
+   "share_end": 0.014871907388946448,
+   "share_deliv": 0.0012825956087572088,
+   "cum2": -26.281094734103135,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": 0.016366372563126674,
+   "persistence": 0.13044769779521212,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -0.006193236725709372,
+    0.008678670663237076
+   ],
+   "avg_error_share_deliv": [
+    -0.004671342979422843,
+    -0.0033887473706656346
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net33": null,
+  "ref200": {
+   "share_end": 0.006735585915258802,
+   "share_deliv": 0.0047096569177567105,
+   "cum2": 71.40783006607717,
+   "heat_rel": 0.1786064808125134,
+   "incision_rel": 0.16467056473964764,
+   "stage_end": -0.02195279259809979,
+   "persistence": 0.11112901373528133,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    true,
+    true
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    0.0032111560291705477,
+    0.00994674194442935
+   ],
+   "avg_error_share_deliv": [
+    -0.000652292236972607,
+    0.0040573646807841035
+   ],
+   "avg_error_heat_rel": [
+    -0.060983266097090594,
+    0.10673120816936832
+   ],
+   "avg_adequate": false
+  },
+  "ref400": null,
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {}
+ },
+ "X09": {
+  "description": "scan config 64: predicted share effect -0.0471",
+  "predicted": {
+   "share_end": -0.047103398578389646,
+   "heat_rel": 0.12917039631911176,
+   "eta": 0.08911166958584747,
+   "product_rule": -0.0007659743321741795,
+   "meaningful_routing": true,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    0.1560408601372129,
+    0.10893746155882328
+   ]
+  },
+  "net17": {
+   "share_end": -0.03541912498138727,
+   "share_deliv": -0.07122672115745468,
+   "cum2": -516.7263874576984,
+   "heat_rel": 0.12024838962755169,
+   "incision_rel": 0.11148647145040821,
+   "stage_end": -0.011237370279346237,
+   "persistence": -0.1296459012673954,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": true,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    0.15407516589714093,
+    0.11865604091575366
+   ],
+   "avg_error_share_deliv": [
+    0.05749254009594171,
+    -0.013734181061512973
+   ],
+   "avg_error_heat_rel": [
+    0.06393054605291648,
+    0.19186648089134128
+   ],
+   "avg_adequate": false
+  },
+  "net17_fixed": {
+   "share_end": 7.628032366907567e-05,
+   "share_deliv": 0.013058298082266884,
+   "cum2": 93.64065360945779,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": 4.426022020709297e-05,
+   "persistence": 0.00019664303048893089,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -2.3908531516236842e-05,
+    5.2371792152838825e-05
+   ],
+   "avg_error_share_deliv": [
+    -0.0511333260782153,
+    -0.03807502799594842
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": false
+  },
+  "net33": null,
+  "ref200": {
+   "share_end": -0.028259130381048506,
+   "share_deliv": -0.07185540621015735,
+   "cum2": -519.2922375765318,
+   "heat_rel": 0.130787394260379,
+   "incision_rel": 0.11185479869767471,
+   "stage_end": -0.012743472413148993,
+   "persistence": -0.11583301160703577,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    "R1"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": true,
+   "meaningful_incision": true,
+   "avg_error_share_end": [
+    0.12823970983850425,
+    0.09998057945745574
+   ],
+   "avg_error_share_deliv": [
+    0.03960887727401702,
+    -0.03224652893614033
+   ],
+   "avg_error_heat_rel": [
+    0.048346709587493875,
+    0.1854572440158846
+   ],
+   "avg_adequate": false
+  },
+  "ref400": null,
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {}
+ },
+ "X10": {
+  "description": "scan config 96: predicted share effect +0.0451",
+  "predicted": {
+   "share_end": 0.04510521336290774,
+   "heat_rel": 0.09324098060844666,
+   "eta": 0.09810697435617863,
+   "product_rule": 0.032335132240296785,
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -0.022870762516764342,
+    0.022234450846143394
+   ]
+  },
+  "net17": null,
+  "net17_fixed": null,
+  "net33": null,
+  "ref200": null,
+  "ref400": null,
+  "closure": {
+   "nu0.5": null,
+   "nu2": null
+  },
+  "tol": null,
+  "numerical_uncertainty": {}
+ }
+}

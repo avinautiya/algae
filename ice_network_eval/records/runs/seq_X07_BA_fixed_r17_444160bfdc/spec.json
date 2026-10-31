@@ -1,0 +1,90 @@
+{
+ "kind": "reduced",
+ "scn": "X07BA",
+ "scn_override": {
+  "id": "X07BA",
+  "sill_offset_m": 0.12,
+  "inflow_m3_s": 0.06835190525896527,
+  "inflow_T_C": 0.5806123612109388,
+  "lake_T0": 0.5806123612109388,
+  "segments": [
+   [
+    10800.0,
+    0.11199699481579614,
+    0.27748237566592293
+   ],
+   [
+    10800.0,
+    0.02470681570213438,
+    1.9547128454212397
+   ],
+   [
+    21600.0,
+    0.06835190525896527,
+    0.5806123612109388
+   ]
+  ],
+  "ramp_s": 900.0
+ },
+ "cfg_patch": {
+  "lake": {
+   "area_m2": 3683.377203914502,
+   "initial_stage_below_sill1_m": -0.1
+  },
+  "duration_h": 12.0,
+  "channels": [
+   {
+    "width_m": 0.4,
+    "length_m": 100.0,
+    "slope": 0.005,
+    "crest_length_m": 2.0
+   },
+   {
+    "width_m": 0.8,
+    "length_m": 60.0,
+    "slope": 0.02,
+    "crest_length_m": 2.0
+   }
+  ]
+ },
+ "overrides": {
+  "n_man": 0.04,
+  "nu_factor": 1.0,
+  "melting": false
+ },
+ "params": {
+  "I": 0.05,
+  "T": 1.0,
+  "area": 3683.377203914502,
+  "bottom": 99.0,
+  "deficit": -0.1,
+  "offset": 0.12,
+  "amp": 0.0,
+  "period_h": 3.0,
+  "n_man": 0.04,
+  "ke": 0.5,
+  "nu_factor": 1.0,
+  "bank": 1.0,
+  "crest": 2.0,
+  "sill1": 100.0,
+  "w1": 0.4,
+  "L1": 100.0,
+  "S1": 0.005,
+  "w2": 0.8,
+  "L2": 60.0,
+  "S2": 0.02,
+  "duration_h": 12.0,
+  "cid": "X07",
+  "forcing": "BA",
+  "mean": {
+   "Q_bar": 0.06835190525896527,
+   "T_bar": 0.5806123612109388,
+   "duration": 43200.0
+  }
+ },
+ "version": "sequence_v1",
+ "stations": 17,
+ "dt_geom": 450,
+ "label": "seq_X07_BA_fixed_r17",
+ "commit": "f9cb797"
+}

@@ -1,0 +1,170 @@
+{
+ "spec": {
+  "kind": "reduced",
+  "scn": "X09AVG",
+  "scn_override": {
+   "id": "X09AVG",
+   "sill_offset_m": 0.2,
+   "inflow_m3_s": 0.06863937847674449,
+   "inflow_T_C": 0.4201867121899771,
+   "lake_T0": 0.4201867121899771,
+   "segments": [
+    [
+     108000.0,
+     0.06863937847674449,
+     0.4201867121899771
+    ]
+   ],
+   "ramp_s": 900.0
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 1125.4524383456217,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 30.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 120.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 1125.4524383456217,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.2,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 120.0,
+   "S2": 0.02,
+   "duration_h": 30.0,
+   "cid": "X09",
+   "forcing": "AVG",
+   "mean": {
+    "Q_bar": 0.06863937847674449,
+    "T_bar": 0.4201867121899771,
+    "duration": 108000.0
+   }
+  },
+  "version": "sequence_v1",
+  "stations": 17,
+  "dt_geom": 450,
+  "label": "seq_X09_AVG_thermal_r17",
+  "commit": "f9cb797"
+ },
+ "id": "seq_X09_AVG_thermal_r17_8e18e6dcf4",
+ "commit": "f9cb797",
+ "start_unix": 1793430544.1548986,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": null,
+  "t_act2_s": 2619.2447608850193,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.2852546416973772,
+  "sill_lowering1_m": 0.09387407878479337,
+  "sill_lowering2_m": 0.1209493524600731,
+  "delivered1_m3": 5355.037869341774,
+  "delivered2_m3": 1967.4635694916092,
+  "heat_to_ice_J": 4464135428.750237,
+  "stage_end_m": 100.19233363228048,
+  "stage_max_m": 100.30296845925685
+ },
+ "timing": {
+  "import_s": 0.6330901490000542,
+  "warmup_s": 0.5285936889995355,
+  "sampling_run_s": 20.372604826000497,
+  "solver_s": 15.777318161999574,
+  "metrics_serialization_s": 0.004690148999543453
+ },
+ "applicability": {
+  "summary": {
+   "n_active_edge_snapshots": 3802,
+   "r_qs_max": 1173.6975998785617,
+   "tau_wave_s_max": 3777.8760512430376,
+   "tau_transit_s_max": 2378409.822963418,
+   "channel_over_node_max": 0.008205641281917095,
+   "melt_over_flow_max": 0.005374489291167568,
+   "froude_max": 1.0000000000000002,
+   "snapshots_with_critical_control": 0,
+   "snapshots_with_froude_ge_1": 484,
+   "Re_min": 0.011690533666223243,
+   "Re_max": 177870.8898793596,
+   "Re_outside_nominal_1e4_1p2e5": true
+  },
+  "n_rows_active": 3795,
+  "r_qs_p50_p90_max": [
+   0.001162680467027311,
+   0.0014679393941248637,
+   0.90070284383821
+  ],
+  "froude_max_p50_p90_max": [
+   0.9999999999999998,
+   1.0,
+   1.0000000000000002
+  ],
+  "channel_over_node_p50_p90_max": [
+   0.0043698714706403696,
+   0.008065118474667244,
+   0.008205641281917095
+  ],
+  "melt_over_flow_p50_p90_max": [
+   0.002053688638549225,
+   0.002913265840998016,
+   0.0053652288328008176
+  ],
+  "Re_min_p50_p90_max": [
+   71671.75887061046,
+   113358.17414533439,
+   113457.33954148632
+  ],
+  "Re_max_p50_p90_max": [
+   85352.77516772292,
+   176913.21558438893,
+   177870.8898793596
+  ],
+  "frac_active_snapshots_with_froude_ge_1": 0.12753623188405797
+ },
+ "discharge_law_evaluations": 9688,
+ "conservation": {
+  "water_residual_rel": -2.0153218938853598e-16,
+  "mass_residual_rel": -1.616570623092066e-16,
+  "energy_residual_rel": 2.41853075755955e-16,
+  "geometry_vs_latent_rel_max": 1.3423280514268787e-08,
+  "geometry_vs_latent_kg_abs_max": 6.793300920016065e-05
+ },
+ "n_macrosteps": 240,
+ "wall_total_s": 43.24324631499985,
+ "peak_rss_mb": 202.40625,
+ "end_unix": 1793430587.3981638
+}

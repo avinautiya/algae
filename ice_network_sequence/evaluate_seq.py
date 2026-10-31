@@ -24,7 +24,7 @@ def load(which):
     out = {}
     for cid, (desc, c) in table.items():
         seq, mean = design.physical(c); p = dict(tail_s=c["tail_h"] * 3600.0); row = dict(description=desc, config=c, mean=mean)
-        for sim in ("thermal_r17", "fixed_r17", "dissipation_r17", "thermal_r33", "thermal_ref200", "thermal_ref400"):
+        for sim in ("thermal_r17", "fixed_r17", "dissipation_r17", "thermal_r33", "thermal_ref200", "thermal_ref400", "thermalnu0.5_r17", "thermalnu2_r17", "thermalTOL_r17"):
             tr, kind = sim.rsplit("_", 1)[0], sim.rsplit("_", 1)[1]; fl = {}
             for fn in ("AB", "BA", "AVG"):
                 r = runs.get(f"seq_{cid}_{fn}_{tr}_{kind}")

@@ -1,0 +1,170 @@
+{
+ "spec": {
+  "kind": "reduced",
+  "scn": "X05AVG",
+  "scn_override": {
+   "id": "X05AVG",
+   "sill_offset_m": 0.16,
+   "inflow_m3_s": 0.039817582584195835,
+   "inflow_T_C": 1.4393953226440976,
+   "lake_T0": 1.4393953226440976,
+   "segments": [
+    [
+     64800.0,
+     0.039817582584195835,
+     1.4393953226440976
+    ]
+   ],
+   "ramp_s": 900.0
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 1298.3559331781528,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 18.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.8,
+     "length_m": 60.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 1298.3559331781528,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.16,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.8,
+   "L2": 60.0,
+   "S2": 0.02,
+   "duration_h": 18.0,
+   "cid": "X05",
+   "forcing": "AVG",
+   "mean": {
+    "Q_bar": 0.039817582584195835,
+    "T_bar": 1.4393953226440976,
+    "duration": 64800.0
+   }
+  },
+  "version": "sequence_v1",
+  "stations": 17,
+  "dt_geom": 450,
+  "label": "seq_X05_AVG_thermal_r17",
+  "commit": "f9cb797"
+ },
+ "id": "seq_X05_AVG_thermal_r17_4060ed2a0f",
+ "commit": "f9cb797",
+ "start_unix": 1793428909.5549917,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": null,
+  "t_act2_s": 3659.3150079833304,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.2899545613512427,
+  "sill_lowering1_m": 0.17885002558946894,
+  "sill_lowering2_m": 0.1854585863378162,
+  "delivered1_m3": 2036.136036209877,
+  "delivered2_m3": 656.285635492347,
+  "heat_to_ice_J": 6223807230.897172,
+  "stage_end_m": 100.0279025385348,
+  "stage_max_m": 100.19468750785809
+ },
+ "timing": {
+  "import_s": 0.606360513999789,
+  "warmup_s": 0.5054172369996195,
+  "sampling_run_s": 18.791850369999793,
+  "solver_s": 15.446817189000285,
+  "metrics_serialization_s": 0.003046619000087958
+ },
+ "applicability": {
+  "summary": {
+   "n_active_edge_snapshots": 2248,
+   "r_qs_max": 18.690414615712598,
+   "tau_wave_s_max": 855.7831420751884,
+   "tau_transit_s_max": 18547.706156353248,
+   "channel_over_node_max": 0.006101024793216175,
+   "melt_over_flow_max": 0.01820744466192164,
+   "froude_max": 1.0000000000000002,
+   "snapshots_with_critical_control": 0,
+   "snapshots_with_froude_ge_1": 169,
+   "Re_min": 3.616856510888856,
+   "Re_max": 124954.68900398248,
+   "Re_outside_nominal_1e4_1p2e5": true
+  },
+  "n_rows_active": 2241,
+  "r_qs_p50_p90_max": [
+   0.00347290277682714,
+   0.006179263814150844,
+   0.5408799964748058
+  ],
+  "froude_max_p50_p90_max": [
+   0.9999999999999998,
+   0.9999999999999999,
+   1.0000000000000002
+  ],
+  "channel_over_node_p50_p90_max": [
+   0.003350598410921888,
+   0.005873693027736964,
+   0.006101024793216175
+  ],
+  "melt_over_flow_p50_p90_max": [
+   0.007688457416723313,
+   0.01038016167758835,
+   0.01820460926414343
+  ],
+  "Re_min_p50_p90_max": [
+   54491.11175263795,
+   86300.9286078725,
+   86634.59866932525
+  ],
+  "Re_max_p50_p90_max": [
+   71434.4697834501,
+   124068.28081517904,
+   124954.68900398248
+  ],
+  "frac_active_snapshots_with_froude_ge_1": 0.07541276215975011
+ },
+ "discharge_law_evaluations": 8858,
+ "conservation": {
+  "water_residual_rel": -5.288922744984417e-16,
+  "mass_residual_rel": -8.039592805873714e-16,
+  "energy_residual_rel": 6.232932250297392e-16,
+  "geometry_vs_latent_rel_max": 5.578061469879863e-08,
+  "geometry_vs_latent_kg_abs_max": 0.0007372498366535751
+ },
+ "n_macrosteps": 144,
+ "wall_total_s": 39.151272012999925,
+ "peak_rss_mb": 190.8359375,
+ "end_unix": 1793428948.7062807
+}

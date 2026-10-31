@@ -1,0 +1,181 @@
+{
+ "spec": {
+  "kind": "reduced",
+  "scn": "X07AB",
+  "scn_override": {
+   "id": "X07AB",
+   "sill_offset_m": 0.12,
+   "inflow_m3_s": 0.06835190525896527,
+   "inflow_T_C": 0.5806123612109388,
+   "lake_T0": 0.5806123612109388,
+   "segments": [
+    [
+     10800.0,
+     0.02470681570213438,
+     1.9547128454212397
+    ],
+    [
+     10800.0,
+     0.11199699481579614,
+     0.27748237566592293
+    ],
+    [
+     21600.0,
+     0.06835190525896527,
+     0.5806123612109388
+    ]
+   ],
+   "ramp_s": 900.0
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 3683.377203914502,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 12.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.8,
+     "length_m": 60.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0,
+   "melting": false
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 3683.377203914502,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.12,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.8,
+   "L2": 60.0,
+   "S2": 0.02,
+   "duration_h": 12.0,
+   "cid": "X07",
+   "forcing": "AB",
+   "mean": {
+    "Q_bar": 0.06835190525896527,
+    "T_bar": 0.5806123612109388,
+    "duration": 43200.0
+   }
+  },
+  "version": "sequence_v1",
+  "stations": 17,
+  "dt_geom": 450,
+  "label": "seq_X07_AB_fixed_r17",
+  "commit": "f9cb797"
+ },
+ "id": "seq_X07_AB_fixed_r17_0121f9eef5",
+ "commit": "f9cb797",
+ "start_unix": 1793429105.6466186,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": null,
+  "t_act2_s": 8628.54039261838,
+  "t_end_act2_s": null,
+  "t_dom2_s": 15363.82763512606,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.8263575570155142,
+  "sill_lowering1_m": 0.0,
+  "sill_lowering2_m": 0.0,
+  "delivered1_m3": 1231.630594917816,
+  "delivered2_m3": 1232.7165616668701,
+  "heat_to_ice_J": 0.0,
+  "stage_end_m": 100.23261065857504,
+  "stage_max_m": 100.27114566293407
+ },
+ "timing": {
+  "import_s": 0.5997076989997367,
+  "warmup_s": 0.4941341379999358,
+  "sampling_run_s": 12.788831381999898,
+  "solver_s": 10.906003028999748,
+  "metrics_serialization_s": 0.0027299479997964227
+ },
+ "applicability": {
+  "summary": {
+   "n_active_edge_snapshots": 1440,
+   "r_qs_max": 44.12261930023995,
+   "tau_wave_s_max": 1855.8673561915282,
+   "tau_transit_s_max": 1216012.4897683277,
+   "channel_over_node_max": 0.0020250321555317823,
+   "melt_over_flow_max": 0.0,
+   "froude_max": 1.0000000000000002,
+   "snapshots_with_critical_control": 0,
+   "snapshots_with_froude_ge_1": 151,
+   "Re_min": 0.01179614794163632,
+   "Re_max": 151317.25375041805,
+   "Re_outside_nominal_1e4_1p2e5": true
+  },
+  "n_rows_active": 1384,
+  "r_qs_p50_p90_max": [
+   0.001455167453325221,
+   0.010692853353529062,
+   0.1613858698707929
+  ],
+  "froude_max_p50_p90_max": [
+   0.9999999999999998,
+   1.0,
+   1.0000000000000002
+  ],
+  "channel_over_node_p50_p90_max": [
+   0.00103882288525806,
+   0.0019008447986893775,
+   0.0020250321555317823
+  ],
+  "melt_over_flow_p50_p90_max": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "Re_min_p50_p90_max": [
+   87838.68775850907,
+   99346.7048753749,
+   119566.9075620158
+  ],
+  "Re_max_p50_p90_max": [
+   103219.11816271668,
+   138792.16146011054,
+   151317.25375041805
+  ],
+  "frac_active_snapshots_with_froude_ge_1": 0.10910404624277456
+ },
+ "discharge_law_evaluations": 5536,
+ "conservation": {
+  "water_residual_rel": -8.764471695574845e-16,
+  "mass_residual_rel": -2.2078207435025187e-15,
+  "energy_residual_rel": -3.308459727804498e-16,
+  "geometry_vs_latent_rel_max": 0.0,
+  "geometry_vs_latent_kg_abs_max": 0.0
+ },
+ "n_macrosteps": 96,
+ "wall_total_s": 27.31394994199991,
+ "peak_rss_mb": 185.07421875,
+ "end_unix": 1793429132.960631
+}
