@@ -1,5 +1,7 @@
 # V2 milestone 2 report — free-surface thermal flow, melting kernel, prediction interface
 
+> **Corrections (see `VERIFICATION_RECORD_CORRECTIONS.md`):** the Stefan kernel has two separately reported ledgers — a discrete energy ledger (1e-14…1e-12, with an nx = 160 exception of 1.4e-8 caused by the linear-solver iteration cap) and a physical sensible-plus-latent balance with a first-order-in-dt residual of 4.25e-4 (dt = 2.5 s), independent of mesh. The frozen-flow diffusion test is an isolated transport verification. Rest-state currents grow with refinement; curved beds fail; the bore is unresolved.
+
 Branch `claude/ice-network-v2`. Previous results preserved (`MILESTONE_REPORT.md`, baseline `predict` CLI, frozen network results untouched). OpenFOAM = ESI v1912 patch 200626 (Ubuntu 1912.200626-2build3), pinned; build path in `foam/BUILD.md`.
 **Overall status: milestone partly complete.** Verified: thermal-budget diagnosis; toolchain; hydrostatic rest (orthogonal bed); free-surface heat diffusion and advection in the custom solver; ALE Stefan melting incl. density jump; predictor restart/extension/budget tests. **Unresolved or not done:** free-surface hydraulic-jump (bore) conjugate-depth check (unresolved), free-surface smooth-vs-step comparison (not done — blocked), coupled free-surface + moving ice (not started), lake adapter (not integrated).
 

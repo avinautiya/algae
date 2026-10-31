@@ -1,0 +1,41 @@
+{
+  "model": "Quasi-steady temperate-bed heat exchange with meltwater mass addition",
+  "name": "synthetic_temperate_channel_1h",
+  "assumptions": [
+    "Prescribed inlet scenarios; this model does not predict the inlet weather or discharge",
+    "Frozen channel geometry and effective conductance shape over the forecast horizon",
+    "Known common conductance multiplier may vary between intervals",
+    "Temperate bed-only melting; all interface heat becomes latent heat",
+    "No additional atmospheric, frictional or cold-ice heat terms and no retained thermal storage",
+    "Exact internal prefix constraints are idealized information, not uncertain field observations",
+    "Bounds are deterministic conditional envelopes, not statistical prediction intervals"
+  ],
+  "scope_flags": [],
+  "scope_threshold_note": "User-declared screening limits, not universal validity theorems",
+  "horizon_s": 3600.0,
+  "cumulative_nominal": {
+    "inlet_water_m3": 360.0,
+    "outlet_water_m3": 360.04916937272185,
+    "meltwater_m3": 0.049169372721860144,
+    "inlet_energy_J": 354228000.0,
+    "outlet_energy_J": 337805429.5108987,
+    "latent_energy_J": 16422570.489101287
+  },
+  "total_ice_nominal_m3": 0.05361981758109067,
+  "max_fractional_depth_change_bound": 0.024664833610869227,
+  "max_transit_to_interval_ratio": 0.04166666666666667,
+  "max_abs_water_residual_m3": 1.477290512141849e-14,
+  "max_abs_energy_residual_J": 2.2351741790771484e-08,
+  "marginal_bound_warning": "Different cell/region bounds have different witnesses; never sum marginal maxima as a jointly realizable forecast",
+  "minimax_note": "Regional scalar minimax estimates minimize worst-case absolute error within the assumed class; they are not probability means or a jointly conservative spatial profile",
+  "threshold_forecasts": {
+    "declared_control_region": {
+      "threshold_m": 0.002,
+      "earliest_possible_s": 1518.6962947799693,
+      "latest_guaranteed_s": null,
+      "nominal_crossing_s": 2375.6141250943497,
+      "status": "OCCURRENCE_UNRESOLVED_WITHIN_HORIZON",
+      "meaning": "Declared mean-incision threshold only, not an independently established hydraulic-failure or flood threshold"
+    }
+  }
+}

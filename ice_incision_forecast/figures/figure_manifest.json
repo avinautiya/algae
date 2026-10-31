@@ -1,0 +1,58 @@
+{
+  "case_sha256": "5e500ab8b26d68e991057832d59e04e36eaa42de7dee2f67ff27eb1a6cc25c72",
+  "figures": [
+    {
+      "name": "fig01_equal_outlet_different_incision",
+      "caption": "Two admissible profiles attain opposite regional extrema while sharing outlet states. Shading marks the predeclared region. Power is for the first interval; lowering integrates the full horizon.",
+      "formats": [
+        "png",
+        "pdf"
+      ]
+    },
+    {
+      "name": "fig02_sharp_spatial_envelope",
+      "caption": "Pointwise bounds are marginal and cannot all be attained together. Sampled feasible profiles illustrate the class without defining a probability distribution.",
+      "formats": [
+        "png",
+        "pdf"
+      ]
+    },
+    {
+      "name": "fig03_regional_forecast",
+      "caption": "A single fixed witness attains each time-integrated extreme despite changing inlet scenarios and the common conductance multiplier. The midpoint minimizes scalar worst-case absolute error in this class. The declared incision threshold is not a flood threshold; no future outlet measurement is an input.",
+      "formats": [
+        "png",
+        "pdf"
+      ]
+    },
+    {
+      "name": "fig04_thermal_information_limit",
+      "caption": "Idealized exact prefix information partitions the uncertainty class. Real point sensors and noisy measurements require observation operators and uncertainty treatment; this is not a field sensor-performance claim.",
+      "formats": [
+        "png",
+        "pdf"
+      ]
+    },
+    {
+      "name": "fig05_independent_checks",
+      "caption": "Independent RK4 integration, exhaustive small-case extrema and the physical effect of meltwater addition check different parts of the implementation. Numerical agreement supports the implementation; the proof establishes the conditional theorem.",
+      "formats": [
+        "png",
+        "pdf"
+      ]
+    },
+    {
+      "name": "fig06_local_vs_total_information",
+      "caption": "Information sensitivity for the declared control and a secondary broader-reach observable. Bulk information can constrain a reach average while leaving local allocation uncertain. The second region is an explanatory scale comparison, not a replacement primary endpoint.",
+      "formats": [
+        "png",
+        "pdf"
+      ]
+    }
+  ],
+  "scope": "All figures use the supplied synthetic reduced-model case; no field or CFD results",
+  "source_sha256": "20fddf9ad1102b577a15083bc0e21a339a25674018bfaa1b85de58d393057a16",
+  "matplotlib_version": "3.9.4",
+  "numpy_version": "2.0.2",
+  "python_version": "3.9.6"
+}

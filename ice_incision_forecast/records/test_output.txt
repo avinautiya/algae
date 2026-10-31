@@ -1,0 +1,27 @@
+test_cli_actual_forecast_and_output_preservation (test_bounds.ForecastTests) ... ok
+test_complete_forward_envelope_and_ledgers (test_bounds.ForecastTests) ... ok
+test_fixed_geometry_scope_violation_is_flagged (test_bounds.ForecastTests) ... ok
+test_future_data_and_invalid_nominal_are_rejected (test_bounds.ForecastTests) ... ok
+test_minimax_forecast_and_attainable_error_radius (test_bounds.ForecastTests) ... ok
+test_threshold_occurrence_bounds (test_bounds.ForecastTests) ... ok
+test_bracketing_exact_sensors_identify_regional_heat (test_bounds.SharpBoundTests) ... ok
+test_continuous_polytope_reference (test_bounds.SharpBoundTests) ... ok
+test_exact_internal_sensors_exhaustive_vertices (test_bounds.SharpBoundTests) ... ok
+test_exact_total_exhaustive_vertices (test_bounds.SharpBoundTests) ... ok
+test_infeasible_priors_and_invalid_regions (test_bounds.SharpBoundTests) ... ok
+test_internal_sensors_and_final_total_band (test_bounds.SharpBoundTests) ... ok
+test_interval_total_exhaustive_vertices (test_bounds.SharpBoundTests) ... ok
+test_one_fixed_witness_attains_time_integrated_bound (test_bounds.SharpBoundTests) ... ok
+test_outlet_equivalence_does_not_fix_regional_melt (test_bounds.SharpBoundTests) ... ok
+test_randomized_feasible_transfers_stay_within_bounds (test_bounds.SharpBoundTests) ... ok
+test_attenuation_bracket_and_convexity (test_bounds.ThermalMapTests) ... ok
+test_independent_rk4_fourth_order (test_bounds.ThermalMapTests) ... ok
+test_invalid_inputs_and_zero_outlet_calibration (test_bounds.ThermalMapTests) ... ok
+test_mass_and_energy_invariant (test_bounds.ThermalMapTests) ... ok
+test_temperature_calibration_roundtrip (test_bounds.ThermalMapTests) ... ok
+test_zero_heat_and_mass_addition_limit (test_bounds.ThermalMapTests) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.374s
+
+OK

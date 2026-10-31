@@ -1,0 +1,34 @@
+{
+  "source_url": "https://github.com/avinautiya/algae/blob/9a52524/ice_network_v2/cfd/graetz_final.json",
+  "source_sha256": "96b5b697aec330adae01aeb1cf642f973ecd84c988d744b3bd1a2c6b812dae8a",
+  "observed_orders": {
+    "err_u_over_Ub": [
+      1.9631660487453746,
+      1.9907421359207211
+    ],
+    "err_T_shape_rms": [
+      1.9805553108107055,
+      1.9794478542751552
+    ],
+    "err_wall_flux_rel": [
+      2.918523504058597,
+      2.820891798042423
+    ]
+  },
+  "steady_sensitivity": {
+    "err_u_over_Ub": {
+      "max_absolute_change_in_error_metric": 0.0,
+      "change_over_base_spatial_error": 0.0
+    },
+    "err_T_shape_rms": {
+      "max_absolute_change_in_error_metric": 2.114193824349908e-11,
+      "change_over_base_spatial_error": 1.17014343106341e-08
+    },
+    "err_wall_flux_rel": {
+      "max_absolute_change_in_error_metric": 5.324461993267554e-10,
+      "change_over_base_spatial_error": 1.068692884766359e-06
+    }
+  },
+  "note": "Stored temperature and wall-flux error metrics do not all differ by less than 1e-13. Differences remain tiny relative to spatial error; this is a reporting correction, not a demonstrated physical failure.",
+  "scope": "Replot of prior completed verification; no new CFD run or active-work modification"
+}
