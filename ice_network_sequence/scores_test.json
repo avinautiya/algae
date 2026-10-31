@@ -399,7 +399,28 @@
    ],
    "avg_adequate": true
   },
-  "net33": null,
+  "net33": {
+   "share_end": 0.023328656905124423,
+   "share_deliv": 0.02455596875490773,
+   "cum2": 138.99245408977276,
+   "heat_rel": 0.12618286897707898,
+   "incision_rel": 0.12081255013447387,
+   "stage_end": -0.028167888725008083,
+   "persistence": 0.54464839705587,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    null
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": true
+  },
   "ref200": {
    "share_end": 0.021572443999421376,
    "share_deliv": 0.022317666740310882,
@@ -458,11 +479,102 @@
    "meaningful_incision": true
   },
   "closure": {
-   "nu0.5": null,
-   "nu2": null
+   "nu0.5": {
+    "share_end": 0.010002657215807065,
+    "share_deliv": 0.011534158247160309,
+    "cum2": 62.962077293191214,
+    "heat_rel": 0.13642072848340248,
+    "incision_rel": 0.12838268709359268,
+    "stage_end": -0.014516799404148628,
+    "persistence": 0.27219724588315886,
+    "flip": false,
+    "switch_differs": false,
+    "dominant": [
+     "R2",
+     "R2",
+     "R2"
+    ],
+    "tie": [
+     false,
+     false
+    ],
+    "meaningful_routing": false,
+    "meaningful_incision": true,
+    "avg_error_share_end": [
+     -0.005044858549506537,
+     0.004957798666300528
+    ],
+    "avg_error_share_deliv": [
+     -0.006296145066471359,
+     0.00523801318068895
+    ],
+    "avg_error_heat_rel": [
+     -0.059757611120909826,
+     0.0685109405209503
+    ],
+    "avg_adequate": true
+   },
+   "nu2": {
+    "share_end": 0.045613370321652136,
+    "share_deliv": 0.05406856761260248,
+    "cum2": 333.2267251757921,
+    "heat_rel": 0.09788289205276901,
+    "incision_rel": 0.0974302084009551,
+    "stage_end": -0.04997320745133038,
+    "persistence": 0.8580973283353056,
+    "flip": false,
+    "switch_differs": false,
+    "dominant": [
+     "R2",
+     "R2",
+     "R2"
+    ],
+    "tie": [
+     false,
+     false
+    ],
+    "meaningful_routing": true,
+    "meaningful_incision": false,
+    "avg_error_share_end": [
+     -0.02287734211653092,
+     0.022736028205121217
+    ],
+    "avg_error_share_deliv": [
+     -0.02807508978179185,
+     0.02599347783081063
+    ],
+    "avg_error_heat_rel": [
+     -0.04201690182458495,
+     0.05175325436249634
+    ],
+    "avg_adequate": true
+   }
   },
-  "tol": null,
+  "tol": {
+   "share_end": 0.024175685439908,
+   "share_deliv": 0.025177517146601325,
+   "cum2": 142.81871057376884,
+   "heat_rel": 0.12624097204147255,
+   "incision_rel": 0.12009916155350092,
+   "stage_end": -0.02828307860598045,
+   "persistence": 0.6345095401346957,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    null
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": true
+  },
   "numerical_uncertainty": {
+   "net_share_end": 0.0008470285129021926,
+   "net_heat_rel": 5.810306442599611e-05,
    "ref_share_end": 0.0007404666062502674,
    "ref_heat_rel": 0.000254649964571918
   }
@@ -929,8 +1041,76 @@
   },
   "ref400": null,
   "closure": {
-   "nu0.5": null,
-   "nu2": null
+   "nu0.5": {
+    "share_end": 0.01007815248027033,
+    "share_deliv": 0.002573769413227567,
+    "cum2": 22.739773771534146,
+    "heat_rel": 0.18392306906499822,
+    "incision_rel": 0.17296737106428878,
+    "stage_end": -0.004931789524221131,
+    "persistence": 0.1216240579755537,
+    "flip": false,
+    "switch_differs": false,
+    "dominant": [
+     "R1",
+     "R1",
+     "R1"
+    ],
+    "tie": [
+     true,
+     false
+    ],
+    "meaningful_routing": false,
+    "meaningful_incision": true,
+    "avg_error_share_end": [
+     -0.0014577528653301752,
+     0.008620399614940155
+    ],
+    "avg_error_share_deliv": [
+     -0.0023492266920807636,
+     0.00022454272114680318
+    ],
+    "avg_error_heat_rel": [
+     -0.06483390436767356,
+     0.10716471402655547
+    ],
+    "avg_adequate": false
+   },
+   "nu2": {
+    "share_end": 0.0077588535573777095,
+    "share_deliv": 0.020497718966633993,
+    "cum2": 232.35040937811164,
+    "heat_rel": 0.16633279586710814,
+    "incision_rel": 0.13932367332286555,
+    "stage_end": -0.04468671904923838,
+    "persistence": 1.2483475833262017,
+    "flip": false,
+    "switch_differs": false,
+    "dominant": [
+     "R2",
+     "R2",
+     "R2"
+    ],
+    "tie": [
+     false,
+     false
+    ],
+    "meaningful_routing": false,
+    "meaningful_incision": true,
+    "avg_error_share_end": [
+     0.0031078581283873197,
+     0.01086671168576503
+    ],
+    "avg_error_share_deliv": [
+     -0.006910746265404999,
+     0.013586972701228994
+    ],
+    "avg_error_heat_rel": [
+     -0.05724437376413283,
+     0.09956680536712526
+    ],
+    "avg_adequate": true
+   }
   },
   "tol": null,
   "numerical_uncertainty": {}
@@ -1057,10 +1237,99 @@
   },
   "ref400": null,
   "closure": {
-   "nu0.5": null,
-   "nu2": null
+   "nu0.5": {
+    "share_end": -0.019175321689473612,
+    "share_deliv": -0.030465857261041618,
+    "cum2": -218.56959024801677,
+    "heat_rel": 0.12313855164170229,
+    "incision_rel": 0.1184925930876963,
+    "stage_end": -0.005823063997368649,
+    "persistence": -0.0582697201660047,
+    "flip": false,
+    "switch_differs": false,
+    "dominant": [
+     "R1",
+     "R1",
+     "R1"
+    ],
+    "tie": [
+     false,
+     false
+    ],
+    "meaningful_routing": true,
+    "meaningful_incision": true,
+    "avg_error_share_end": [
+     0.0743419385306959,
+     0.05516661684122229
+    ],
+    "avg_error_share_deliv": [
+     0.0032919256605906666,
+     -0.02717393160045095
+    ],
+    "avg_error_heat_rel": [
+     0.053778439479119644,
+     0.1835391902678314
+    ],
+    "avg_adequate": false
+   },
+   "nu2": {
+    "share_end": -0.04586885561095033,
+    "share_deliv": -0.14036639353479252,
+    "cum2": -1034.0675644353364,
+    "heat_rel": 0.10042692234147754,
+    "incision_rel": 0.09652495722667835,
+    "stage_end": -0.023514453628777687,
+    "persistence": -0.2625296836345637,
+    "flip": false,
+    "switch_differs": false,
+    "dominant": [
+     "R1",
+     "R1",
+     "R1"
+    ],
+    "tie": [
+     false,
+     false
+    ],
+    "meaningful_routing": true,
+    "meaningful_incision": true,
+    "avg_error_share_end": [
+     0.31435260403830545,
+     0.2684837484273551
+    ],
+    "avg_error_share_deliv": [
+     0.15917547532316578,
+     0.01880908178837326
+    ],
+    "avg_error_heat_rel": [
+     0.10786107084515018,
+     0.2191201485720624
+    ],
+    "avg_adequate": false
+   }
   },
-  "tol": null,
+  "tol": {
+   "share_end": -0.03541911868390307,
+   "share_deliv": -0.0712267143945895,
+   "cum2": -516.7263377602903,
+   "heat_rel": 0.12024839834148815,
+   "incision_rel": 0.11148647221717747,
+   "stage_end": -0.011237371275697683,
+   "persistence": -0.12964587578018477,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R1",
+    "R1",
+    null
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": true,
+   "meaningful_incision": true
+  },
   "numerical_uncertainty": {}
  },
  "X10": {
@@ -1077,16 +1346,142 @@
     0.022234450846143394
    ]
   },
-  "net17": null,
-  "net17_fixed": null,
-  "net33": null,
-  "ref200": null,
+  "net17": {
+   "share_end": 0.04002470548833981,
+   "share_deliv": 0.0285346882746903,
+   "cum2": 414.6458999679162,
+   "heat_rel": 0.09293794071038342,
+   "incision_rel": 0.08975071315621753,
+   "stage_end": -0.04124265654989756,
+   "persistence": 0.869603148717665,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -0.019930119976244054,
+    0.020094585512095753
+   ],
+   "avg_error_share_deliv": [
+    -0.014266079657560105,
+    0.014268608617130196
+   ],
+   "avg_error_heat_rel": [
+    -0.041939829340371215,
+    0.047100309997373024
+   ],
+   "avg_adequate": true
+  },
+  "net17_fixed": {
+   "share_end": -1.1299667868058805e-09,
+   "share_deliv": 2.0709604031665663e-09,
+   "cum2": 1.888004226202611e-05,
+   "heat_rel": null,
+   "incision_rel": 0.0,
+   "stage_end": -1.8930848000309197e-09,
+   "persistence": null,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    true,
+    true
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    1.296435181430411e-10,
+    -1.0003232686628394e-09
+   ],
+   "avg_error_share_deliv": [
+    1.0832146291051004e-10,
+    2.1792818660770763e-09
+   ],
+   "avg_error_heat_rel": [
+    0.0,
+    0.0
+   ],
+   "avg_adequate": true
+  },
+  "net33": {
+   "share_end": 0.0402075107965415,
+   "share_deliv": 0.02900945504850172,
+   "cum2": 415.6594019466884,
+   "heat_rel": 0.09330797624572629,
+   "incision_rel": 0.09096429691914434,
+   "stage_end": -0.04124216610125586,
+   "persistence": 0.8691002972520935,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    null
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false
+  },
+  "ref200": {
+   "share_end": 0.04000170549764959,
+   "share_deliv": 0.02828005027329905,
+   "cum2": 402.87856927503526,
+   "heat_rel": 0.0945549728663777,
+   "incision_rel": 0.09447613058217581,
+   "stage_end": -0.04061093596200749,
+   "persistence": 0.8790415510974656,
+   "flip": false,
+   "switch_differs": false,
+   "dominant": [
+    "R2",
+    "R2",
+    "R2"
+   ],
+   "tie": [
+    false,
+    false
+   ],
+   "meaningful_routing": false,
+   "meaningful_incision": false,
+   "avg_error_share_end": [
+    -0.019983780578627486,
+    0.0200179249190221
+   ],
+   "avg_error_share_deliv": [
+    -0.014180573274401365,
+    0.014099476998897686
+   ],
+   "avg_error_heat_rel": [
+    -0.042653916663302094,
+    0.04786791627033238
+   ],
+   "avg_adequate": true
+  },
   "ref400": null,
   "closure": {
    "nu0.5": null,
    "nu2": null
   },
   "tol": null,
-  "numerical_uncertainty": {}
+  "numerical_uncertainty": {
+   "net_share_end": 0.0001828053082016945,
+   "net_heat_rel": 0.0003700355353428719
+  }
  }
 }

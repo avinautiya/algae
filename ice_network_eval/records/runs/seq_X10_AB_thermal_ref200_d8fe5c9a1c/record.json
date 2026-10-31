@@ -1,0 +1,123 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "X10AB",
+  "scn_override": {
+   "id": "X10AB",
+   "sill_offset_m": 0.05,
+   "inflow_m3_s": 0.06588950326954739,
+   "inflow_T_C": 1.2660135543923035,
+   "lake_T0": 1.2660135543923035,
+   "segments": [
+    [
+     43200.0,
+     0.0658895032695474,
+     1.944750319637875
+    ],
+    [
+     43200.0,
+     0.0658895032695474,
+     0.5872767891467314
+    ],
+    [
+     21600.0,
+     0.06588950326954739,
+     1.2660135543923035
+    ]
+   ],
+   "ramp_s": 900.0
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 6042.329573281198,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 30.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 60.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 6042.329573281198,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.05,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 60.0,
+   "S2": 0.02,
+   "duration_h": 30.0,
+   "cid": "X10",
+   "forcing": "AB",
+   "mean": {
+    "Q_bar": 0.06588950326954739,
+    "T_bar": 1.2660135543923035,
+    "duration": 108000.0
+   }
+  },
+  "version": "sequence_v1",
+  "ncell": 200,
+  "label": "seq_X10_AB_thermal_ref200",
+  "commit": "f9cb797"
+ },
+ "id": "seq_X10_AB_thermal_ref200_d8fe5c9a1c",
+ "commit": "f9cb797",
+ "start_unix": 1793430778.2781985,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": 4.146005528743273,
+  "t_act2_s": 11.02579428746682,
+  "t_end_act2_s": null,
+  "t_dom2_s": 13353.950945951503,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 1.0902276387167766,
+  "sill_lowering1_m": 0.2591960193812781,
+  "sill_lowering2_m": 0.42715262771474727,
+  "delivered1_m3": 2879.154842807297,
+  "delivered2_m3": 5746.649477929085,
+  "heat_to_ice_J": 11467738233.934948,
+  "stage_end_m": 99.85412565615913,
+  "stage_max_m": 100.17294164912843
+ },
+ "timing": {
+  "import_s": 0.5903164749997813,
+  "warmup_s": 0.2439261939998687,
+  "solver_s": 496.98511706499994,
+  "metrics_serialization_s": 0.005247331000646227
+ },
+ "nsteps": 1822561,
+ "diss_J": 81875415.94610907,
+ "wall_total_s": 497.9424162510004,
+ "peak_rss_mb": 174.9375,
+ "end_unix": 1793431276.2206335
+}

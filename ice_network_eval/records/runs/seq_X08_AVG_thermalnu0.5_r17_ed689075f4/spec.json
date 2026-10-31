@@ -1,0 +1,79 @@
+{
+ "kind": "reduced",
+ "scn": "X08AVG",
+ "scn_override": {
+  "id": "X08AVG",
+  "sill_offset_m": 0.05,
+  "inflow_m3_s": 0.04284288975671837,
+  "inflow_T_C": 0.8599312176855062,
+  "lake_T0": 0.8599312176855062,
+  "segments": [
+   [
+    108000.0,
+    0.04284288975671837,
+    0.8599312176855062
+   ]
+  ],
+  "ramp_s": 900.0
+ },
+ "cfg_patch": {
+  "lake": {
+   "area_m2": 4468.848189901482,
+   "initial_stage_below_sill1_m": -0.1
+  },
+  "duration_h": 30.0,
+  "channels": [
+   {
+    "width_m": 0.4,
+    "length_m": 100.0,
+    "slope": 0.005,
+    "crest_length_m": 2.0
+   },
+   {
+    "width_m": 0.4,
+    "length_m": 60.0,
+    "slope": 0.01,
+    "crest_length_m": 2.0
+   }
+  ]
+ },
+ "overrides": {
+  "n_man": 0.04,
+  "nu_factor": 0.5
+ },
+ "params": {
+  "I": 0.05,
+  "T": 1.0,
+  "area": 4468.848189901482,
+  "bottom": 99.0,
+  "deficit": -0.1,
+  "offset": 0.05,
+  "amp": 0.0,
+  "period_h": 3.0,
+  "n_man": 0.04,
+  "ke": 0.5,
+  "nu_factor": 1.0,
+  "bank": 1.0,
+  "crest": 2.0,
+  "sill1": 100.0,
+  "w1": 0.4,
+  "L1": 100.0,
+  "S1": 0.005,
+  "w2": 0.4,
+  "L2": 60.0,
+  "S2": 0.01,
+  "duration_h": 30.0,
+  "cid": "X08",
+  "forcing": "AVG",
+  "mean": {
+   "Q_bar": 0.04284288975671837,
+   "T_bar": 0.8599312176855062,
+   "duration": 108000.0
+  }
+ },
+ "version": "sequence_v1",
+ "stations": 17,
+ "dt_geom": 450,
+ "label": "seq_X08_AVG_thermalnu0.5_r17",
+ "commit": "f9cb797"
+}

@@ -47,9 +47,9 @@ def fig3_pred_vs_obs():
     fig, ax = plt.subplots(1, 3, figsize=(13, 4))
     for cid, r in SC.items():
         pe = r["predicted"]["share_end"]
-        if r["net17"]: ax[0].scatter(r["net17"]["share_end"], pe, color=OI["blue"], s=28)
+        if r["net17"]: ax[0].scatter(r["net17"]["share_end"], pe, color=OI["blue"], s=28, zorder=3)
         ref = r["ref400"] or r["ref200"]
-        if ref: ax[0].scatter(ref["share_end"], pe, color=OI["green"], marker="s", s=34)
+        if ref: ax[0].scatter(ref["share_end"], pe, color=OI["green"], marker="s", s=34, zorder=3)
         if r["net17"]: ax[1].scatter(r["net17"]["heat_rel"], r["predicted"]["heat_rel"], color=OI["blue"], s=28)
         if ref: ax[1].scatter(ref["heat_rel"], r["predicted"]["heat_rel"], color=OI["green"], marker="s", s=34)
         if r["net17"]: ax[2].scatter(r["net17"]["share_end"], r["predicted"]["product_rule"], color=OI["orange"], s=28)
