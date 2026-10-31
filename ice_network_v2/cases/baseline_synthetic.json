@@ -1,0 +1,6 @@
+{"id": "synthetic_clear_water_temperate_v1", "length_m": 100.0, "n_cells": 200,
+ "bed": {"z_inlet_m": 100.0, "slope": 0.02}, "width_m": 0.5, "bank_height_m": 1.0, "n_manning": 0.04,
+ "ice": {"condition": "temperate"},
+ "inflow": {"Q": [[0, 0.05], [86400, 0.05]], "T_C": [[0, 0.5], [86400, 0.5]], "T_reference": "flux-weighted bulk temperature relative to the melting point"},
+ "outlet": {"type": "free_outfall"}, "initial": {"depth_m": 0.08}, "spinup_s": 900, "t_end_s": 14400,
+ "record_every_s": 60, "snapshot_every_s": 3600, "checkpoint_every_s": 1800, "nu_factor": 1.0, "heat_dissipation": true, "evolve_width": true, "cfl": 0.4}
