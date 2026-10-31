@@ -40,7 +40,7 @@ Theorem 1 (exact map P = P0 e^(−s), meltwater-corrected) reduces to the passiv
 
 ## 7. Supported claim and limits
 **Supported:** in a laminar rigid-lid channel at Re_H = 50, Pe_H = 350, two physically attainable upstream thermal developments matched in discharge, depth, velocity profile and flow-weighted bulk temperature differ in integrated bed heat over the 10 H after a 1 H bed step by 22 ± ≤7 % (frozen U; ±1.2 % numerical-only) — and over 30 H by 13.5 ± ≤5 % — a local fully developed closure cannot represent it, and a straight-channel developing-flow control reproduces ≥ 77 % of it. Known Graetz-type physics; **no new mechanism is supported.** A step-specific modification of 2–3 pp is unresolved.
-**Not supported / limits:** laminar, rigid-lid, 2-D, steady, fixed geometry, one Re/Pe; nothing about free-surface flow, turbulence, melting feedback, or environmental heat transfer (Re_h 1e4–1e5, Pe ~1e5); only two (plus two sensitivity) histories; no withheld forecast test; mesh sequence for the step not asymptotic; thermal-layer resolution at Pe_H = 350 is 1–3 cells per Lévêque thickness at n = 8–16.
+**Not supported / limits:** laminar, rigid-lid, 2-D, steady, fixed geometry, one Re/Pe; nothing about free-surface flow, turbulence, melting feedback, or environmental heat transfer (Re_h 1e4–1e5, Pe ~1e5); only two (plus two sensitivity) histories; no withheld forecast test; mesh sequence for the step not asymptotic; thermal-layer resolution: the Lévêque thickness at the matching plane for history A (2 H of cooling) is ≈ H (2/Pe_H)^(1/3) ≈ 0.18 H, i.e. ≈ 1.4 / 2.9 / 5.8 cells at n = 8 / 16 / 32 (estimate, not measured).
 
 ## 8. Itemized runtime estimate for the next milestone (from measured times; 4 cores)
 | task | cells | est. wall (one core) |
