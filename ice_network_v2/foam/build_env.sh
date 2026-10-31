@@ -1,0 +1,5 @@
+# Build environment replicating debian/rules of openfoam 1912.200626-2build3 (ESI v1912), headers/tools from the matching source tree, libraries from the installed package (/usr/lib)
+export SRC=/tmp/claude-0/ofsrc/ofdeb
+export WM_PROJECT_DIR=$SRC WM_DIR=$SRC/wmake WM_PROJECT=OpenFOAM WM_ARCH=linux64 WM_LABEL_SIZE=32 WM_LABEL_OPTION=Int32 WM_COMPILER=Gcc WM_COMPILER_LIB_ARCH=64 WM_COMPILE_OPTION=Opt WM_OPTIONS=linux64Gcc WM_PRECISION_OPTION=DP WM_MPLIB=SYSTEMOPENMPI WM_PROJECT_VERSION=v1912
+export FOAM_APP=$SRC/applications FOAM_SRC=$SRC/src FOAM_ETC=$SRC/etc FOAM_SOLVERS=$SRC/applications/solvers FOAM_APPBIN=/tmp/claude-0/ofbuild/bin FOAM_LIBBIN=/usr/lib FOAM_EXT_LIBBIN=/usr/lib FOAM_USER_APPBIN=/tmp/claude-0/ofbuild/bin FOAM_USER_LIBBIN=/tmp/claude-0/ofbuild/lib FOAM_MPI=openmpi-system MPI_ARCH_PATH=/usr/include/openmpi WM_NCOMPPROCS=2
+export PATH=$SRC/wmake:$SRC/bin:/tmp/claude-0/ofbuild/bin:$PATH LD_LIBRARY_PATH=/usr/lib:/usr/lib/x86_64-linux-gnu/openmpi/lib:/tmp/claude-0/ofbuild/lib:$LD_LIBRARY_PATH

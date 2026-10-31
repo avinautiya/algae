@@ -1,0 +1,15 @@
+{
+ "restart_bitwise_identical": true,
+ "incompatible_restarts_refused": {
+  "n_cells": true,
+  "nu_factor": true,
+  "width": true,
+  "forcing_past": true,
+  "n_manning": true,
+  "outlet": true
+ },
+ "extension_matches_uninterrupted_longer_run": true,
+ "water_budget_closes": true,
+ "energy_budget_closes": true,
+ "latent_equals_heat_to_ice": true
+}

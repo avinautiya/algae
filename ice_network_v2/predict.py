@@ -10,7 +10,27 @@ import hashlib, json, os, subprocess, sys, time
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, ".."))
 from ice_network_v2.reach import channel_step_q, G, RHO_W, RHO_I, CP_W, LF, NU_W
-VERSION = "v2-baseline-0.1"
+VERSION = "v2-baseline-0.2"
+PERMITTED_RESTART_CHANGES = ("t_end_s", "record_every_s", "snapshot_every_s", "checkpoint_every_s")      # everything else must match; forcing tables must agree on [0, t_checkpoint]
+
+
+def sha(o): return hashlib.sha256(json.dumps(o, sort_keys=True, default=float).encode()).hexdigest()
+
+
+def fingerprints(case):
+    core = {k: v for k, v in case.items() if k not in PERMITTED_RESTART_CHANGES}
+    g = build(case)
+    return dict(model_version=VERSION, case_core=sha(core), grid=sha(dict(n=case["n_cells"], L=case["length_m"], z0=g["z0"].tolist(), w0=g["w0"].tolist(), zs=g["zs"].tolist())),
+                params=sha({k: case.get(k) for k in ("n_manning", "nu_factor", "heat_dissipation", "evolve_width", "cfl", "dt_max_s", "bank_height_m", "ice", "outlet")}),
+                solver=sha(dict(cfl=case.get("cfl", 0.4), dt_max=case.get("dt_max_s", 5.0), scheme="HLL-hydrostatic-reconstruction+upwind-T", reach="reach.py")))
+
+
+def check_restart(case, ck_fp, ck_forcing, t_ck):
+    fp = fingerprints(case); bad = [k for k in fp if fp[k] != ck_fp.get(k)]
+    if bad: raise SystemExit("REFUSED restart: checkpoint was produced by a different " + ", ".join(bad) + " (permitted changes: " + ", ".join(PERMITTED_RESTART_CHANGES) + ")")
+    for key in ("Q", "T_C"):
+        old = np.array(ck_forcing[key], float); tt = np.linspace(0.0, max(t_ck, 1e-9), 200)
+        if not np.allclose(np.interp(tt, old[:, 0], old[:, 1]), [interp(case["inflow"][key], t) for t in tt], rtol=0, atol=1e-12): raise SystemExit(f"REFUSED restart: inflow.{key} differs from the checkpointed forcing on [0, {t_ck:g}] s")
 
 
 def interp(tab, t):
@@ -80,11 +100,12 @@ class Run:
 
     def save(self, path, snaps):
         g = self.g; tmp = path + f".tmp{os.getpid()}.npz"
-        np.savez(tmp, h=self.h, Q=self.Q, T=self.T, z=g["z"], w=g["w"], t=self.t, tot=json.dumps(self.tot), flags=json.dumps(self.flags), E0=self.E0, V0=self.V0, next_rec=self.next_rec, nsteps=self.nsteps, rec=json.dumps(self.rec), snaps=json.dumps(snaps))
+        np.savez(tmp, fp=json.dumps(fingerprints(self.case)), forcing=json.dumps(dict(Q=self.case['inflow']['Q'], T_C=self.case['inflow']['T_C'])), h=self.h, Q=self.Q, T=self.T, z=g["z"], w=g["w"], t=self.t, tot=json.dumps(self.tot), flags=json.dumps(self.flags), E0=self.E0, V0=self.V0, next_rec=self.next_rec, nsteps=self.nsteps, rec=json.dumps(self.rec), snaps=json.dumps(snaps))
         os.replace(tmp, path)
 
     def load(self, path):
         d = np.load(path, allow_pickle=False); g = self.g
+        check_restart(self.case, json.loads(str(d['fp'])), json.loads(str(d['forcing'])), float(d['t']))
         self.h = d["h"].copy(); self.Q = d["Q"].copy(); self.T = d["T"].copy(); g["z"] = d["z"].copy(); g["w"] = d["w"].copy(); self.t = float(d["t"]); self.tot = json.loads(str(d["tot"])); self.flags = json.loads(str(d["flags"]))
         self.E0 = float(d["E0"]); self.V0 = float(d["V0"]); self.next_rec = float(d["next_rec"]); self.nsteps = int(d["nsteps"]); self.rec = json.loads(str(d["rec"])); return json.loads(str(d["snaps"]))
 
@@ -123,7 +144,7 @@ def main(argv):
     except Exception: gh = "unknown"
     summ = dict(version=VERSION, git=gh, case_sha256=hashlib.sha256(json.dumps(case, sort_keys=True).encode()).hexdigest(), case_id=case.get("id"), t_end_s=R.t, steps=R.nsteps, wall_s=time.time() - wall0,
                 outputs=dict(bed_lowering_max_m=R.rec[-1]["bed_lowering_max_m"], bed_lowering_mean_m=R.rec[-1]["bed_lowering_mean_m"], melted_ice_volume_m3=R.tot["melted_ice"], heat_to_ice_J=R.tot["heat_ice"], outlet_sensible_export_J=R.tot["sens_out"], delivered_volume_m3=R.tot["V_out"], inlet_volume_m3=R.tot["V_in"]),
-                ledgers=R.residuals(), flags=flags)
+                ledgers=R.residuals(), budget=dict(initial_water_storage_m3=R.V0, final_water_storage_m3=R.state_V(), supplied_inflow_m3=R.tot['V_in'], delivered_m3=R.tot['V_out'], meltwater_added_m3=R.tot['melt_w'], initial_sensible_storage_J=R.E0, final_sensible_storage_J=R.state_E(), supplied_sensible_J=R.tot['sens_in'], exported_sensible_J=R.tot['sens_out'], dissipation_heating_J=R.tot['diss'], heat_to_ice_J=R.tot['heat_ice'], latent_energy_of_melted_ice_J=RHO_I * LF * R.tot['melted_ice'], temperature_reference='melting point (T_C is excess over T_m)'), flags=flags)
     json.dump(summ, open(os.path.join(out, "summary.json"), "w"), indent=1, default=float); print(json.dumps(summ["outputs"]), json.dumps(summ["ledgers"]["energy"]), json.dumps(summ["ledgers"]["water"]))
 
 
