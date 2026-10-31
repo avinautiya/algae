@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "tests": 22,
+  "continuous_vertex_cases": 500,
+  "max_vertex_power_scaled_error": 1.3271058739799543e-17,
+  "synthetic_regional_lowering_mm": {
+    "lowering_min_mm": 0.529942650007661,
+    "lowering_nominal_mm": 2.680732197162647,
+    "lowering_minimax_mm": 2.70589540078899,
+    "lowering_max_mm": 4.881848151570319,
+    "minimax_worst_case_error_mm": 2.175952750781329
+  },
+  "synthetic_extreme_ratio": 9.212031059398116,
+  "nominal_mass_residual_m3": 1.477290512141849e-14,
+  "nominal_energy_residual_J": 2.2351741790771484e-08,
+  "threshold_forecast": {
+    "declared_control_region": {
+      "threshold_m": 0.002,
+      "earliest_possible_s": 1518.6962947799693,
+      "latest_guaranteed_s": null,
+      "nominal_crossing_s": 2375.6141250943497,
+      "status": "OCCURRENCE_UNRESOLVED_WITHIN_HORIZON",
+      "meaning": "Declared mean-incision threshold only, not an independently established hydraulic-failure or flood threshold"
+    }
+  },
+  "mathematical_scope": "Theorems proved for stated reduced model; numerical checks validate implementation",
+  "scientific_scope": "Synthetic demonstrations plus replot of prior CFD metrics; no new field or resolved-CFD validation"
+}

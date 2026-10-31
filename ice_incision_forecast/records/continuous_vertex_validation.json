@@ -1,0 +1,2510 @@
+{
+  "status": "PASS",
+  "cases": 500,
+  "seed": 3102026,
+  "max_power_scaled_error": 1.3271058739799543e-17,
+  "method": "Independent enumeration of intersections of three polytope faces",
+  "scope": "Numerical implementation check, not a substitute for proof or physical validation",
+  "rows": [
+    {
+      "case": 0,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 1,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 2,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 3,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 4,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 5,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 6,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 7,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 8,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 9,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 10,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 11,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 12,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 13,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 14,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 15,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 16,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 17,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 18,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 19,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 20,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 21,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 22,
+      "scaled_extreme_error": 3.764612599781531e-18,
+      "reference_vertices": 6
+    },
+    {
+      "case": 23,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 24,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 25,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 26,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 27,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 28,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 29,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 30,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 31,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 32,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 13
+    },
+    {
+      "case": 33,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 34,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 35,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 36,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 37,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 38,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 39,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 40,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 41,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 42,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 43,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 44,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 45,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 46,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 47,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 48,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 49,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 50,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 13
+    },
+    {
+      "case": 51,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 52,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 53,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 54,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 55,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 56,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 57,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 58,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 59,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 60,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 61,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 62,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 63,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 64,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 65,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 66,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 67,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 68,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 69,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 70,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 71,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 72,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 73,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 74,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 75,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 76,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 77,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 78,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 79,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 80,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 81,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 82,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 83,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 84,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 85,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 86,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 87,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 88,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 89,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 13
+    },
+    {
+      "case": 90,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 91,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 92,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 93,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 94,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 95,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 96,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 97,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 98,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 99,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 100,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 101,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 102,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 103,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 104,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 7
+    },
+    {
+      "case": 105,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 106,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 107,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 108,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 109,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 110,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 111,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 112,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 113,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 114,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 115,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 116,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 117,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 118,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 119,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 120,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 121,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 122,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 123,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 124,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 125,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 126,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 127,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 128,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 129,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 130,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 131,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 132,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 133,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 134,
+      "scaled_extreme_error": 7.666881899648292e-18,
+      "reference_vertices": 10
+    },
+    {
+      "case": 135,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 136,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 137,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 138,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 139,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 140,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 141,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 142,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 143,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 144,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 145,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 146,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 147,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 148,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 149,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 150,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 151,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 152,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 153,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 154,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 155,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 156,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 157,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 158,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 159,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 160,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 161,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 13
+    },
+    {
+      "case": 162,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 163,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 164,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 165,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 166,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 167,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 168,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 169,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 170,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 171,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 172,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 173,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 174,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 175,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 176,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 177,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 178,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 179,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 180,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 181,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 182,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 183,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 184,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 185,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 186,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 187,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 188,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 189,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 190,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 191,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 192,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 193,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 194,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 195,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 196,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 197,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 198,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 199,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 200,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 201,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 202,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 203,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 204,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 205,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 206,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 7
+    },
+    {
+      "case": 207,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 208,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 209,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 210,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 211,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 212,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 213,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 214,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 215,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 216,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 217,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 218,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 219,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 220,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 221,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 222,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 223,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 224,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 225,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 226,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 227,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 228,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 229,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 230,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 231,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 232,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 233,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 234,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 235,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 236,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 237,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 238,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 239,
+      "scaled_extreme_error": 7.163789311000444e-18,
+      "reference_vertices": 8
+    },
+    {
+      "case": 240,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 241,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 242,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 243,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 244,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 245,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 246,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 247,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 248,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 249,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 250,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 251,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 252,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 253,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 254,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 255,
+      "scaled_extreme_error": 1.3271058739799543e-17,
+      "reference_vertices": 8
+    },
+    {
+      "case": 256,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 257,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 258,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 259,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 260,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 261,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 262,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 263,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 264,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 265,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 266,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 267,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 268,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 269,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 270,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 271,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 272,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 273,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 274,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 275,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 276,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 277,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 278,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 279,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 280,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 281,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 282,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 283,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 284,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 285,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 286,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 287,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 288,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 289,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 290,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 291,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 292,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 293,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 294,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 295,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 296,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 297,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 298,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 299,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 300,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 301,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 302,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 303,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 304,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 305,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 306,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 307,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 308,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 309,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 310,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 311,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 312,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 313,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 314,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 315,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 316,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 317,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 7
+    },
+    {
+      "case": 318,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 319,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 320,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 321,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 322,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 323,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 324,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 325,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 326,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 327,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 328,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 329,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 330,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 331,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 332,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 13
+    },
+    {
+      "case": 333,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 334,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 335,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 336,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 337,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 338,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 339,
+      "scaled_extreme_error": 6.739773750561745e-18,
+      "reference_vertices": 10
+    },
+    {
+      "case": 340,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 341,
+      "scaled_extreme_error": 4.152870444604633e-18,
+      "reference_vertices": 7
+    },
+    {
+      "case": 342,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 343,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 344,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 345,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 346,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 347,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 348,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 349,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 350,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 351,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 352,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 353,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 354,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 355,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 356,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 357,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 358,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 359,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 360,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 361,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 362,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 363,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 364,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 13
+    },
+    {
+      "case": 365,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 13
+    },
+    {
+      "case": 366,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 367,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 368,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 369,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 370,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 371,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 372,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 373,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 374,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 375,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 376,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 377,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 378,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 379,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 380,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 381,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 6
+    },
+    {
+      "case": 382,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 383,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 384,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 385,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 386,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 387,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 388,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 389,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 390,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 391,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 392,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 393,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 394,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 395,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 396,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 397,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 398,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 399,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 400,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 401,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 402,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 403,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 404,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 405,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 406,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 407,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 408,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 409,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 13
+    },
+    {
+      "case": 410,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 411,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 412,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 413,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 414,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 415,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 13
+    },
+    {
+      "case": 416,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 417,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 418,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 419,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 420,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 421,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 422,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 423,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 424,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 425,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 426,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 427,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 428,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 429,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 430,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 431,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 432,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 433,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 434,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 435,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 436,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 437,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 438,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 439,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 440,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 441,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 442,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 443,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 444,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 445,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 446,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 447,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 448,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 449,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 450,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 451,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 452,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 453,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 454,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 455,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 456,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 457,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 458,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 459,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 460,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 461,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 462,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 463,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 464,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 465,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 466,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 467,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 468,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 469,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 9
+    },
+    {
+      "case": 470,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 471,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 472,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 473,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 474,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 475,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 476,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 477,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 478,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 479,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 480,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 481,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 482,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 483,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 484,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 11
+    },
+    {
+      "case": 485,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 486,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 487,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 488,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 489,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 490,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 491,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 492,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 10
+    },
+    {
+      "case": 493,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 494,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 495,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 496,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 8
+    },
+    {
+      "case": 497,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 498,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    },
+    {
+      "case": 499,
+      "scaled_extreme_error": 0.0,
+      "reference_vertices": 12
+    }
+  ]
+}
