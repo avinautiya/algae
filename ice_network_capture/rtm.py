@@ -36,7 +36,7 @@ def tabulate(p, k, stations=17, mode="thermal", ugrid=None, dt_pert=10.0):
     net, sill = route_net(p, k, stations, melting=(mode != "fixed"), melt_mode="dissipation_all" if mode == "dissipation" else "thermal")
     h_out = net.outlets[0]["h_fixed"]; T = p["T"]
     ug = np.concatenate([[0.0], np.geomspace(2e-4, 1.2, 70)]) if ugrid is None else ugrid
-    Q = np.zeros_like(ug); g = np.zeros_like(ug); E = np.zeros_like(ug); ms = np.zeros_like(ug)   # ms: inlet-sill (station 0) bed-lowering rate, what the network and the reference report as sill lowering
+    Q = np.zeros_like(ug); g = np.zeros_like(ug); E = np.zeros_like(ug); qice = np.zeros_like(ug); ms = np.zeros_like(ug)   # ms: inlet-sill (station 0) bed-lowering rate, what the network and the reference report as sill lowering
     for i, u in enumerate(ug):
         H = sill + u; st = net.edge_state(net.edges[0], H, h_out, T); Q[i] = abs(st["Q"])
         if Q[i] <= 0.0: continue
@@ -44,12 +44,12 @@ def tabulate(p, k, stations=17, mode="thermal", ugrid=None, dt_pert=10.0):
         Qp = abs(net.edge_state(net.edges[0], H + dh, h_out, T)["Q"]); Qm = abs(net.edge_state(net.edges[0], max(H - dh, sill), h_out, T)["Q"]) if u > dh else Q[i]
         g[i] = (Qp - Qm) / (dh + (dh if u > dh else 0.0))
         if mode != "fixed":
-            e0 = net.edges[0]; wm = 0.5 * (e0["w"][0] + e0["w"][1]); ms[i] = st["q_ice"][0] * (1.0 - st["wall_frac"][0]) / (RHO_I * LF * wm * e0["dx"])
+            qice[i] = st["q_ice"].sum(); e0 = net.edges[0]; wm = 0.5 * (e0["w"][0] + e0["w"][1]); ms[i] = st["q_ice"][0] * (1.0 - st["wall_frac"][0]) / (RHO_I * LF * wm * e0["dx"])
         if mode == "fixed" or g[i] <= 0: continue
         n2 = copy.deepcopy(net); hs = st["q_ice"] * dt_pert; ws = hs * st["wall_frac"]
         n2.update_geometry(hs, ws)
         Q2 = abs(n2.edge_state(n2.edges[0], H, h_out, T)["Q"]); E[i] = (Q2 - Q[i]) / dt_pert / g[i]
-    return dict(u=ug, Q=Q, g=g, E=E, ms=ms, sill=sill)
+    return dict(u=ug, Q=Q, g=g, E=E, ms=ms, qice=qice, sill=sill)
 
 
 def _interp(tab, key, u):

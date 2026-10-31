@@ -1,11 +1,11 @@
 {
- "generated_unix": 1793413174.4352887,
+ "generated_unix": 1793426565.4870162,
  "counts": {
-  "completed": 836,
+  "completed": 926,
   "stalled": 2,
   "failed": 3
  },
- "total_wall_s": 43600.27828820646,
+ "total_wall_s": 45917.082197943455,
  "runs": [
   {
    "id": "cap_D01_dissipation_r17_9e364cef68",
@@ -5893,6 +5893,636 @@
    "wall_s": 171.78715280899996,
    "peak_rss_mb": 173.63671875,
    "label": "ref_S5_400"
+  },
+  {
+   "id": "seq_S01_AB_dissipation_r17_d31446f7bd",
+   "state": "completed",
+   "wall_s": 21.697130725000022,
+   "peak_rss_mb": 190.28125,
+   "label": "seq_S01_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S01_AB_fixed_r17_db3690de26",
+   "state": "completed",
+   "wall_s": 21.261795062000004,
+   "peak_rss_mb": 190.52734375,
+   "label": "seq_S01_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S01_AB_thermal_r17_8123c2f789",
+   "state": "completed",
+   "wall_s": 22.268132891999983,
+   "peak_rss_mb": 190.421875,
+   "label": "seq_S01_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S01_AVG_dissipation_r17_9d75159d4f",
+   "state": "completed",
+   "wall_s": 17.86297186500002,
+   "peak_rss_mb": 190.27734375,
+   "label": "seq_S01_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S01_AVG_fixed_r17_1fe267a55b",
+   "state": "completed",
+   "wall_s": 17.28589549000003,
+   "peak_rss_mb": 190.1015625,
+   "label": "seq_S01_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S01_AVG_thermal_r17_ec5649c8f0",
+   "state": "completed",
+   "wall_s": 20.176909631,
+   "peak_rss_mb": 190.46875,
+   "label": "seq_S01_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S01_BA_dissipation_r17_b404428993",
+   "state": "completed",
+   "wall_s": 21.53597695100001,
+   "peak_rss_mb": 190.25390625,
+   "label": "seq_S01_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S01_BA_fixed_r17_244e9ce2fa",
+   "state": "completed",
+   "wall_s": 21.11344081699997,
+   "peak_rss_mb": 190.29296875,
+   "label": "seq_S01_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S01_BA_thermal_r17_fa6cb00114",
+   "state": "completed",
+   "wall_s": 21.866695269000047,
+   "peak_rss_mb": 190.5234375,
+   "label": "seq_S01_BA_thermal_r17"
+  },
+  {
+   "id": "seq_S02_AB_dissipation_r17_30d6d43412",
+   "state": "completed",
+   "wall_s": 26.10906169699996,
+   "peak_rss_mb": 190.35546875,
+   "label": "seq_S02_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S02_AB_fixed_r17_b0ad8dfcd0",
+   "state": "completed",
+   "wall_s": 26.041793900000016,
+   "peak_rss_mb": 190.4375,
+   "label": "seq_S02_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S02_AB_thermal_r17_b9b4530c12",
+   "state": "completed",
+   "wall_s": 29.434785904000023,
+   "peak_rss_mb": 190.3125,
+   "label": "seq_S02_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S02_AVG_dissipation_r17_219751e9cb",
+   "state": "completed",
+   "wall_s": 19.54026042999999,
+   "peak_rss_mb": 190.4296875,
+   "label": "seq_S02_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S02_AVG_fixed_r17_606155c279",
+   "state": "completed",
+   "wall_s": 15.273741124000026,
+   "peak_rss_mb": 190.26171875,
+   "label": "seq_S02_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S02_AVG_thermal_r17_088b56b350",
+   "state": "completed",
+   "wall_s": 27.83133791299997,
+   "peak_rss_mb": 190.3046875,
+   "label": "seq_S02_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S02_BA_dissipation_r17_d161ed9130",
+   "state": "completed",
+   "wall_s": 25.388597164999965,
+   "peak_rss_mb": 190.265625,
+   "label": "seq_S02_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S02_BA_fixed_r17_475063d8c4",
+   "state": "completed",
+   "wall_s": 25.416211431000022,
+   "peak_rss_mb": 190.47265625,
+   "label": "seq_S02_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S02_BA_thermal_r17_888b5cde7c",
+   "state": "completed",
+   "wall_s": 28.793706059999977,
+   "peak_rss_mb": 190.67578125,
+   "label": "seq_S02_BA_thermal_r17"
+  },
+  {
+   "id": "seq_S03_AB_dissipation_r17_11b9361d4e",
+   "state": "completed",
+   "wall_s": 20.953203093000013,
+   "peak_rss_mb": 190.1015625,
+   "label": "seq_S03_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S03_AB_fixed_r17_66251a9c51",
+   "state": "completed",
+   "wall_s": 20.521541069999955,
+   "peak_rss_mb": 190.65625,
+   "label": "seq_S03_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S03_AB_thermal_r17_74578162ef",
+   "state": "completed",
+   "wall_s": 19.670783651000022,
+   "peak_rss_mb": 190.484375,
+   "label": "seq_S03_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S03_AVG_dissipation_r17_4456b0c44c",
+   "state": "completed",
+   "wall_s": 20.05062878299998,
+   "peak_rss_mb": 190.4609375,
+   "label": "seq_S03_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S03_AVG_fixed_r17_eab16e2e85",
+   "state": "completed",
+   "wall_s": 18.604121983000027,
+   "peak_rss_mb": 190.44921875,
+   "label": "seq_S03_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S03_AVG_thermal_r17_1f6ae089d6",
+   "state": "completed",
+   "wall_s": 19.25345579100002,
+   "peak_rss_mb": 190.6015625,
+   "label": "seq_S03_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S03_BA_dissipation_r17_71bf39eb45",
+   "state": "completed",
+   "wall_s": 21.992363336999972,
+   "peak_rss_mb": 190.51171875,
+   "label": "seq_S03_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S03_BA_fixed_r17_d272e4a00d",
+   "state": "completed",
+   "wall_s": 20.427348784000003,
+   "peak_rss_mb": 190.484375,
+   "label": "seq_S03_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S03_BA_thermal_r17_ec66c2df16",
+   "state": "completed",
+   "wall_s": 20.631968965,
+   "peak_rss_mb": 190.6640625,
+   "label": "seq_S03_BA_thermal_r17"
+  },
+  {
+   "id": "seq_S04_AB_dissipation_r17_9c25ec0f03",
+   "state": "completed",
+   "wall_s": 32.37434246700002,
+   "peak_rss_mb": 190.8125,
+   "label": "seq_S04_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S04_AB_fixed_r17_87d1c537f0",
+   "state": "completed",
+   "wall_s": 46.08390419900002,
+   "peak_rss_mb": 191.14453125,
+   "label": "seq_S04_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S04_AB_thermal_r17_f0ebdfb0bb",
+   "state": "completed",
+   "wall_s": 40.99320216499996,
+   "peak_rss_mb": 190.74609375,
+   "label": "seq_S04_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S04_AVG_dissipation_r17_ced2413b06",
+   "state": "completed",
+   "wall_s": 23.257518740000023,
+   "peak_rss_mb": 190.57421875,
+   "label": "seq_S04_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S04_AVG_fixed_r17_602dedc5ce",
+   "state": "completed",
+   "wall_s": 20.32484733299998,
+   "peak_rss_mb": 190.74609375,
+   "label": "seq_S04_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S04_AVG_thermal_r17_0dba6ffa9b",
+   "state": "completed",
+   "wall_s": 33.59925619699993,
+   "peak_rss_mb": 190.8671875,
+   "label": "seq_S04_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S04_BA_dissipation_r17_0549449861",
+   "state": "completed",
+   "wall_s": 43.005094905999954,
+   "peak_rss_mb": 191.02734375,
+   "label": "seq_S04_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S04_BA_fixed_r17_22f560539d",
+   "state": "completed",
+   "wall_s": 45.462290706999966,
+   "peak_rss_mb": 191.23828125,
+   "label": "seq_S04_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S04_BA_thermal_r17_448d96d49b",
+   "state": "completed",
+   "wall_s": 34.90764565500001,
+   "peak_rss_mb": 190.83203125,
+   "label": "seq_S04_BA_thermal_r17"
+  },
+  {
+   "id": "seq_S05_AB_dissipation_r17_77e9df1b49",
+   "state": "completed",
+   "wall_s": 30.622439365000105,
+   "peak_rss_mb": 191.0234375,
+   "label": "seq_S05_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S05_AB_fixed_r17_8a922e7522",
+   "state": "completed",
+   "wall_s": 54.87437807399999,
+   "peak_rss_mb": 191.515625,
+   "label": "seq_S05_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S05_AB_thermal_r17_c66476ea82",
+   "state": "completed",
+   "wall_s": 35.126715313999966,
+   "peak_rss_mb": 190.66796875,
+   "label": "seq_S05_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S05_AVG_dissipation_r17_6aff35047d",
+   "state": "completed",
+   "wall_s": 41.05116164900005,
+   "peak_rss_mb": 191.234375,
+   "label": "seq_S05_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S05_AVG_fixed_r17_76a4e197ba",
+   "state": "completed",
+   "wall_s": 21.463295536000032,
+   "peak_rss_mb": 190.53515625,
+   "label": "seq_S05_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S05_AVG_thermal_r17_b6ca5398c0",
+   "state": "completed",
+   "wall_s": 35.37309092600003,
+   "peak_rss_mb": 190.87890625,
+   "label": "seq_S05_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S05_BA_dissipation_r17_96b1d98693",
+   "state": "completed",
+   "wall_s": 33.419554751999954,
+   "peak_rss_mb": 190.55859375,
+   "label": "seq_S05_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S05_BA_fixed_r17_a6a41e8783",
+   "state": "completed",
+   "wall_s": 32.62897147499996,
+   "peak_rss_mb": 190.65234375,
+   "label": "seq_S05_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S05_BA_thermal_r17_c1f133d459",
+   "state": "completed",
+   "wall_s": 37.23957959900008,
+   "peak_rss_mb": 190.78125,
+   "label": "seq_S05_BA_thermal_r17"
+  },
+  {
+   "id": "seq_S06_AB_dissipation_r17_905a63573d",
+   "state": "completed",
+   "wall_s": 20.252331636000008,
+   "peak_rss_mb": 190.72265625,
+   "label": "seq_S06_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S06_AB_fixed_r17_151a1616fa",
+   "state": "completed",
+   "wall_s": 19.665257340999915,
+   "peak_rss_mb": 190.55859375,
+   "label": "seq_S06_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S06_AB_thermal_r17_69ef6eb69b",
+   "state": "completed",
+   "wall_s": 20.026017919000083,
+   "peak_rss_mb": 190.51953125,
+   "label": "seq_S06_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S06_AVG_dissipation_r17_8975cd0e37",
+   "state": "completed",
+   "wall_s": 17.2409796500001,
+   "peak_rss_mb": 190.46875,
+   "label": "seq_S06_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S06_AVG_fixed_r17_726580f780",
+   "state": "completed",
+   "wall_s": 17.104883414000028,
+   "peak_rss_mb": 190.45703125,
+   "label": "seq_S06_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S06_AVG_thermal_r17_9d779d08d3",
+   "state": "completed",
+   "wall_s": 18.64177458300003,
+   "peak_rss_mb": 190.37109375,
+   "label": "seq_S06_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S06_BA_dissipation_r17_1bebe22f50",
+   "state": "completed",
+   "wall_s": 20.679132596000045,
+   "peak_rss_mb": 190.53515625,
+   "label": "seq_S06_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S06_BA_fixed_r17_3940cf4743",
+   "state": "completed",
+   "wall_s": 19.597154601000057,
+   "peak_rss_mb": 190.625,
+   "label": "seq_S06_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S06_BA_thermal_r17_579f02050e",
+   "state": "completed",
+   "wall_s": 20.127993737999986,
+   "peak_rss_mb": 190.609375,
+   "label": "seq_S06_BA_thermal_r17"
+  },
+  {
+   "id": "seq_S07_AB_dissipation_r17_801baa8ff7",
+   "state": "completed",
+   "wall_s": 19.966684093000026,
+   "peak_rss_mb": 190.421875,
+   "label": "seq_S07_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S07_AB_fixed_r17_8bb9d7a493",
+   "state": "completed",
+   "wall_s": 19.41061635799997,
+   "peak_rss_mb": 190.65234375,
+   "label": "seq_S07_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S07_AB_thermal_r17_98672b7d60",
+   "state": "completed",
+   "wall_s": 21.913698994000015,
+   "peak_rss_mb": 190.55078125,
+   "label": "seq_S07_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S07_AVG_dissipation_r17_0bbcf4312b",
+   "state": "completed",
+   "wall_s": 18.274824157000012,
+   "peak_rss_mb": 190.5859375,
+   "label": "seq_S07_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S07_AVG_fixed_r17_035abc1e22",
+   "state": "completed",
+   "wall_s": 18.142368842999986,
+   "peak_rss_mb": 190.2421875,
+   "label": "seq_S07_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S07_AVG_thermal_r17_4b9360c2dc",
+   "state": "completed",
+   "wall_s": 21.052977934999944,
+   "peak_rss_mb": 190.38671875,
+   "label": "seq_S07_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S07_BA_dissipation_r17_06059f4d00",
+   "state": "completed",
+   "wall_s": 19.859163182999964,
+   "peak_rss_mb": 190.78515625,
+   "label": "seq_S07_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S07_BA_fixed_r17_29eb830095",
+   "state": "completed",
+   "wall_s": 19.47954563099995,
+   "peak_rss_mb": 190.62890625,
+   "label": "seq_S07_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S07_BA_thermal_r17_b9129f7b5b",
+   "state": "completed",
+   "wall_s": 22.728197007000063,
+   "peak_rss_mb": 190.6171875,
+   "label": "seq_S07_BA_thermal_r17"
+  },
+  {
+   "id": "seq_S08_AB_dissipation_r17_0c2b26990b",
+   "state": "completed",
+   "wall_s": 21.877698022999994,
+   "peak_rss_mb": 190.62890625,
+   "label": "seq_S08_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S08_AB_fixed_r17_643826bb33",
+   "state": "completed",
+   "wall_s": 20.92357164300006,
+   "peak_rss_mb": 190.60546875,
+   "label": "seq_S08_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S08_AB_thermal_r17_e4e250a307",
+   "state": "completed",
+   "wall_s": 22.03861773099993,
+   "peak_rss_mb": 190.60546875,
+   "label": "seq_S08_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S08_AVG_dissipation_r17_86531c3d83",
+   "state": "completed",
+   "wall_s": 18.493260917000043,
+   "peak_rss_mb": 190.46484375,
+   "label": "seq_S08_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S08_AVG_fixed_r17_72aea68c9d",
+   "state": "completed",
+   "wall_s": 18.071492260000014,
+   "peak_rss_mb": 190.6796875,
+   "label": "seq_S08_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S08_AVG_thermal_r17_d3ee6b58b1",
+   "state": "completed",
+   "wall_s": 21.135520643000064,
+   "peak_rss_mb": 190.61328125,
+   "label": "seq_S08_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S08_BA_dissipation_r17_a6c61e18f7",
+   "state": "completed",
+   "wall_s": 22.794029701,
+   "peak_rss_mb": 190.796875,
+   "label": "seq_S08_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S08_BA_fixed_r17_b8c77fa4ff",
+   "state": "completed",
+   "wall_s": 21.5589551139999,
+   "peak_rss_mb": 190.66015625,
+   "label": "seq_S08_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S08_BA_thermal_r17_88ee7e8fa9",
+   "state": "completed",
+   "wall_s": 22.508121831999915,
+   "peak_rss_mb": 190.5859375,
+   "label": "seq_S08_BA_thermal_r17"
+  },
+  {
+   "id": "seq_S09_AB_dissipation_r17_02a6ddd1f0",
+   "state": "completed",
+   "wall_s": 13.765930798,
+   "peak_rss_mb": 182.484375,
+   "label": "seq_S09_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S09_AB_fixed_r17_781e739904",
+   "state": "completed",
+   "wall_s": 13.811815427000056,
+   "peak_rss_mb": 182.390625,
+   "label": "seq_S09_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S09_AB_thermal_r17_aa22af5971",
+   "state": "completed",
+   "wall_s": 14.556993368000121,
+   "peak_rss_mb": 182.28125,
+   "label": "seq_S09_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S09_AVG_dissipation_r17_4ebf6de367",
+   "state": "completed",
+   "wall_s": 12.372546929999999,
+   "peak_rss_mb": 182.46875,
+   "label": "seq_S09_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S09_AVG_fixed_r17_8df9a4836e",
+   "state": "completed",
+   "wall_s": 11.968546287000208,
+   "peak_rss_mb": 182.64453125,
+   "label": "seq_S09_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S09_AVG_thermal_r17_977d59b53b",
+   "state": "completed",
+   "wall_s": 13.188347120999879,
+   "peak_rss_mb": 182.23828125,
+   "label": "seq_S09_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S09_BA_dissipation_r17_c5dbb43b71",
+   "state": "completed",
+   "wall_s": 13.953368435999892,
+   "peak_rss_mb": 182.6875,
+   "label": "seq_S09_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S09_BA_fixed_r17_adbc6c5000",
+   "state": "completed",
+   "wall_s": 13.385714301000007,
+   "peak_rss_mb": 182.5546875,
+   "label": "seq_S09_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S09_BA_thermal_r17_8c0e93f153",
+   "state": "completed",
+   "wall_s": 13.818405233000021,
+   "peak_rss_mb": 182.46875,
+   "label": "seq_S09_BA_thermal_r17"
+  },
+  {
+   "id": "seq_S10_AB_dissipation_r17_2b650e697e",
+   "state": "completed",
+   "wall_s": 50.174790741999914,
+   "peak_rss_mb": 202.42578125,
+   "label": "seq_S10_AB_dissipation_r17"
+  },
+  {
+   "id": "seq_S10_AB_fixed_r17_3d6856b6ee",
+   "state": "completed",
+   "wall_s": 48.61229600799993,
+   "peak_rss_mb": 202.7265625,
+   "label": "seq_S10_AB_fixed_r17"
+  },
+  {
+   "id": "seq_S10_AB_thermal_r17_034199b9dc",
+   "state": "completed",
+   "wall_s": 54.7672304780001,
+   "peak_rss_mb": 202.62890625,
+   "label": "seq_S10_AB_thermal_r17"
+  },
+  {
+   "id": "seq_S10_AVG_dissipation_r17_b177ad9420",
+   "state": "completed",
+   "wall_s": 41.50674688799995,
+   "peak_rss_mb": 202.5078125,
+   "label": "seq_S10_AVG_dissipation_r17"
+  },
+  {
+   "id": "seq_S10_AVG_fixed_r17_36700027a5",
+   "state": "completed",
+   "wall_s": 40.29319924299989,
+   "peak_rss_mb": 202.609375,
+   "label": "seq_S10_AVG_fixed_r17"
+  },
+  {
+   "id": "seq_S10_AVG_thermal_r17_cfc875e44e",
+   "state": "completed",
+   "wall_s": 47.90240054700007,
+   "peak_rss_mb": 202.54296875,
+   "label": "seq_S10_AVG_thermal_r17"
+  },
+  {
+   "id": "seq_S10_BA_dissipation_r17_5a651a55a3",
+   "state": "completed",
+   "wall_s": 44.38741234899999,
+   "peak_rss_mb": 202.35546875,
+   "label": "seq_S10_BA_dissipation_r17"
+  },
+  {
+   "id": "seq_S10_BA_fixed_r17_6e37a7e221",
+   "state": "completed",
+   "wall_s": 43.81332028299994,
+   "peak_rss_mb": 202.54296875,
+   "label": "seq_S10_BA_fixed_r17"
+  },
+  {
+   "id": "seq_S10_BA_thermal_r17_740f766584",
+   "state": "completed",
+   "wall_s": 48.14882691299999,
+   "peak_rss_mb": 202.61328125,
+   "label": "seq_S10_BA_thermal_r17"
   }
  ]
 }
