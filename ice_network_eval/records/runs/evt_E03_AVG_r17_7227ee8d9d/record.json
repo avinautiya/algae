@@ -1,0 +1,172 @@
+{
+ "spec": {
+  "kind": "reduced",
+  "scn": "E03AVG",
+  "scn_override": {
+   "id": "E03AVG",
+   "sill_offset_m": 0.15636026540647946,
+   "inflow_m3_s": 0.02134029053821858,
+   "inflow_T_C": 1.083929110052655,
+   "lake_T0": 0.7864429188972766,
+   "ramp_s": 900.0,
+   "segments": [
+    [
+     129600.0,
+     0.02134029053821858,
+     1.083929110052655
+    ]
+   ]
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 1722.569999984567,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 36.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 60.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0,
+   "atol_energy": 0.001
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 1722.569999984567,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.15636026540647946,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 60.0,
+   "S2": 0.02,
+   "duration_h": 36.0,
+   "cid": "E03",
+   "method": "AVG",
+   "mean": {
+    "Q_bar": 0.02134029053821858,
+    "T_bar": 1.083929110052655,
+    "duration": 129600.0,
+    "volume": 2765.7016537531276
+   }
+  },
+  "version": "events_v1",
+  "stations": 17,
+  "dt_geom": 450,
+  "label": "evt_E03_AVG_r17",
+  "commit": "1004f58"
+ },
+ "id": "evt_E03_AVG_r17_7227ee8d9d",
+ "commit": "1004f58",
+ "start_unix": 1793439589.2465005,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": null,
+  "t_act2_s": null,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   false
+  ],
+  "peak_Q2_over_I": 0.0,
+  "sill_lowering1_m": 0.2190119962244239,
+  "sill_lowering2_m": 0.0,
+  "delivered1_m3": 3030.9949254175585,
+  "delivered2_m3": 0.0,
+  "heat_to_ice_J": 4323398164.545462,
+  "stage_end_m": 99.953504376725,
+  "stage_max_m": 100.14477444430007
+ },
+ "timing": {
+  "import_s": 0.6345588390004195,
+  "warmup_s": 0.5085651270001108,
+  "sampling_run_s": 8.639708888999849,
+  "solver_s": 5.101339776000259,
+  "metrics_serialization_s": 0.0044605720004256
+ },
+ "applicability": {
+  "summary": {
+   "n_active_edge_snapshots": 2305,
+   "r_qs_max": 0.007334058455688915,
+   "tau_wave_s_max": 109.33960410211485,
+   "tau_transit_s_max": 354.7692750757876,
+   "channel_over_node_max": 0.004117944801800483,
+   "melt_over_flow_max": 0.00526108660362262,
+   "froude_max": 1.0000000000000002,
+   "snapshots_with_critical_control": 0,
+   "snapshots_with_froude_ge_1": 209,
+   "Re_min": 36678.46458119979,
+   "Re_max": 98221.3849673718,
+   "Re_outside_nominal_1e4_1p2e5": false
+  },
+  "n_rows_active": 2305,
+  "r_qs_p50_p90_max": [
+   0.0008547786166378684,
+   0.0009331206406429938,
+   0.007334058455688915
+  ],
+  "froude_max_p50_p90_max": [
+   0.9999999999999998,
+   0.9999999999999999,
+   1.0000000000000002
+  ],
+  "channel_over_node_p50_p90_max": [
+   0.0035882007645547174,
+   0.003995614989615011,
+   0.004117944801800483
+  ],
+  "melt_over_flow_p50_p90_max": [
+   0.00429180463787677,
+   0.004583336793504604,
+   0.00526108660362262
+  ],
+  "Re_min_p50_p90_max": [
+   70327.10414720981,
+   71023.92146685335,
+   71201.31948032924
+  ],
+  "Re_max_p50_p90_max": [
+   96635.10665625017,
+   97905.15182156012,
+   98221.3849673718
+  ],
+  "frac_active_snapshots_with_froude_ge_1": 0.09067245119305857
+ },
+ "discharge_law_evaluations": 6442,
+ "conservation": {
+  "water_residual_rel": 4.627638740305406e-16,
+  "mass_residual_rel": 6.355371175983375e-16,
+  "energy_residual_rel": 3.9964710267967764e-16,
+  "geometry_vs_latent_rel_max": 3.411621752187963e-08,
+  "geometry_vs_latent_kg_abs_max": 0.0004416107551357129
+ },
+ "n_macrosteps": 288,
+ "wall_total_s": 18.643392122000023,
+ "peak_rss_mb": 206.09765625,
+ "end_unix": 1793439607.8899114
+}

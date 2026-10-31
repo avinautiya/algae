@@ -1,0 +1,81 @@
+{
+ "kind": "reduced",
+ "scn": "E09AVG",
+ "scn_override": {
+  "id": "E09AVG",
+  "sill_offset_m": 0.28081722386390984,
+  "inflow_m3_s": 0.02669144443982807,
+  "inflow_T_C": 1.0592448451951781,
+  "lake_T0": 0.6180705582165857,
+  "ramp_s": 900.0,
+  "segments": [
+   [
+    129600.0,
+    0.02669144443982807,
+    1.0592448451951781
+   ]
+  ]
+ },
+ "cfg_patch": {
+  "lake": {
+   "area_m2": 575.3355446726537,
+   "initial_stage_below_sill1_m": -0.1
+  },
+  "duration_h": 36.0,
+  "channels": [
+   {
+    "width_m": 0.4,
+    "length_m": 100.0,
+    "slope": 0.005,
+    "crest_length_m": 2.0
+   },
+   {
+    "width_m": 0.4,
+    "length_m": 120.0,
+    "slope": 0.02,
+    "crest_length_m": 2.0
+   }
+  ]
+ },
+ "overrides": {
+  "n_man": 0.04,
+  "nu_factor": 1.0,
+  "atol_energy": 0.001
+ },
+ "params": {
+  "I": 0.05,
+  "T": 1.0,
+  "area": 575.3355446726537,
+  "bottom": 99.0,
+  "deficit": -0.1,
+  "offset": 0.28081722386390984,
+  "amp": 0.0,
+  "period_h": 3.0,
+  "n_man": 0.04,
+  "ke": 0.5,
+  "nu_factor": 1.0,
+  "bank": 1.0,
+  "crest": 2.0,
+  "sill1": 100.0,
+  "w1": 0.4,
+  "L1": 100.0,
+  "S1": 0.005,
+  "w2": 0.4,
+  "L2": 120.0,
+  "S2": 0.02,
+  "duration_h": 36.0,
+  "cid": "E09",
+  "method": "AVG",
+  "mean": {
+   "Q_bar": 0.02669144443982807,
+   "T_bar": 1.0592448451951781,
+   "duration": 129600.0,
+   "volume": 3459.211199401718
+  }
+ },
+ "version": "events_v1",
+ "stations": 17,
+ "dt_geom": 450,
+ "label": "evt_E09_AVG_r17",
+ "commit": "1004f58"
+}

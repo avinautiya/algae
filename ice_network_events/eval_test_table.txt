@@ -1,0 +1,21 @@
+id   category      ratio     R | net TR wet/cls         | wet_h: TR  SE  AVG PW6 PWn EA | d2 vol: TR  AVG PW6 PWn EA | class TR/AVG/EA
+E01  wet            3.15  0.00 |  34.8 wet          | 34.8 34.3 34.0 34.3 34.3 |  2976  2821  2939  2821  2821 | wet/wet/wet
+      rtm wet_h: {'TR': 34.8, 'SE': 34.8, 'AVG': 34.3, 'PW6': 34.0, 'PW3': 34.6, 'EA': 34.3, 'PWn': 34.3} net-vs-rtm TR cum2 2976 vs 2906
+E02  wet           18.27  0.00 |  36.0 wet          | 36.0 36.0 36.0 36.0 36.0 |  5488  5475  5445  5475  5475 | wet/wet/wet
+      rtm wet_h: {'TR': 36.0, 'SE': 36.0, 'AVG': 36.0, 'PW6': 36.0, 'PW3': 36.0, 'EA': 36.0, 'PWn': 36.0} net-vs-rtm TR cum2 5488 vs 5482
+E03  intermittent*  1.13  8.41 |   4.2 intermittent |  4.2  0.0  0.0  4.1  0.0 |    19     0     0     6     0 | int/dry/dry
+      rtm wet_h: {'TR': 4.2, 'SE': 14.3, 'AVG': 0.0, 'PW6': 0.0, 'PW3': 4.6, 'EA': 0.0, 'PWn': 4.0} net-vs-rtm TR cum2 19 vs 19
+E04  intermittent*  1.18 38.57 |  11.7 intermittent | 11.7  6.3 11.7  8.8 12.9 |   340    17   306   218   267 | int/int/int
+      rtm wet_h: {'TR': 11.3, 'SE': 18.6, 'AVG': 6.1, 'PW6': 11.7, 'PW3': 11.6, 'EA': 12.9, 'PWn': 8.8} net-vs-rtm TR cum2 340 vs 333
+E05  intermittent*  1.00 516.50 |   0.0 dry          |  0.0  0.0  0.0  0.0  0.0 |     0     0     0     0     0 | dry/dry/dry
+      rtm wet_h: {'TR': 0.0, 'SE': 12.1, 'AVG': 0.0, 'PW6': 0.0, 'PW3': 0.0, 'EA': 0.0, 'PWn': 0.0} net-vs-rtm TR cum2 0 vs 0
+E06  intermittent   0.66  7.36 |   0.0 dry          |  0.0  0.0  0.0  0.0  0.0 |     0     0     0     0     0 | dry/dry/dry
+      rtm wet_h: {'TR': 0.0, 'SE': 7.4, 'AVG': 0.0, 'PW6': 0.0, 'PW3': 0.0, 'EA': 0.0, 'PWn': 0.0} net-vs-rtm TR cum2 0 vs 0
+E07  intermittent   1.44 17.51 |  22.9 intermittent | 22.9 35.0 23.2 18.1 23.6 |   799   476   747   562   747 | int/wet/int
+      rtm wet_h: {'TR': 22.7, 'SE': 23.8, 'AVG': 35.0, 'PW6': 23.1, 'PW3': 22.9, 'EA': 23.5, 'PWn': 17.9} net-vs-rtm TR cum2 799 vs 785
+E08  intermittent   2.24  0.00 |  34.1 intermittent | 34.1 33.1 34.1 33.1 33.1 |  1926  1835  1925  1835  1835 | int/int/int
+      rtm wet_h: {'TR': 26.6, 'SE': 34.1, 'AVG': 33.1, 'PW6': 30.9, 'PW3': 27.6, 'EA': 33.1, 'PWn': 33.1} net-vs-rtm TR cum2 1926 vs 1307
+E09  dry            0.62  0.00 |   0.0 dry          |  0.0  0.0  0.0  0.0  0.0 |     0     0     0     0     0 | dry/dry/dry
+      rtm wet_h: {'TR': 0.0, 'SE': 0.0, 'AVG': 0.0, 'PW6': 0.0, 'PW3': 0.0, 'EA': 0.0, 'PWn': 0.0} net-vs-rtm TR cum2 0 vs 0
+E10  dry*           0.76  0.63 |   0.0 dry          |  0.0  0.0  0.0  0.0  0.0 |     0     0     0     0     0 | dry/dry/dry
+      rtm wet_h: {'TR': 0.0, 'SE': 0.0, 'AVG': 0.0, 'PW6': 0.0, 'PW3': 0.0, 'EA': 0.0, 'PWn': 0.0} net-vs-rtm TR cum2 0 vs 0

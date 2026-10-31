@@ -1,0 +1,26 @@
+12 cases, 12 pending, workers=3
+start evt_E03_TR_ref200_2d6557aa14
+start evt_E03_AVG_ref200_457c2d8fcc
+start evt_E03_EA_ref200_1310c47f49
+end evt_E03_AVG_ref200_457c2d8fcc completed 187.0
+start evt_E04_TR_ref200_6f4f99f099
+end evt_E03_TR_ref200_2d6557aa14 completed 231.8
+start evt_E04_AVG_ref200_d83e3ae34f
+end evt_E03_EA_ref200_1310c47f49 completed 323.0
+start evt_E04_EA_ref200_17e69ca9c4
+end evt_E04_TR_ref200_6f4f99f099 completed 300.9
+start evt_E10_TR_ref200_4d5561f054
+end evt_E04_AVG_ref200_d83e3ae34f completed 270.4
+start evt_E10_AVG_ref200_6e934b7e75
+end evt_E10_AVG_ref200_6e934b7e75 completed 178.4
+start evt_E10_EA_ref200_4fd71ab9c0
+end evt_E10_TR_ref200_4d5561f054 completed 212.0
+start evt_E06_TR_ref200_cf3ac5f15c
+end evt_E04_EA_ref200_17e69ca9c4 completed 406.4
+start evt_E06_AVG_ref200_47dc347720
+end evt_E10_EA_ref200_4fd71ab9c0 completed 167.1
+start evt_E06_EA_ref200_0fe7204743
+end evt_E06_AVG_ref200_47dc347720 completed 205.7
+end evt_E06_TR_ref200_cf3ac5f15c completed 241.2
+end evt_E06_EA_ref200_0fe7204743 completed 283.5
+{'completed': 1162, 'failed': 15, 'stalled': 3, 'timeout': 2} total wall s 65121

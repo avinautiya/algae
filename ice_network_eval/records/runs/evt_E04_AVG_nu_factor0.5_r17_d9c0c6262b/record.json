@@ -1,0 +1,172 @@
+{
+ "spec": {
+  "kind": "reduced",
+  "scn": "E04AVG",
+  "scn_override": {
+   "id": "E04AVG",
+   "sill_offset_m": 0.24676162934584933,
+   "inflow_m3_s": 0.042590597929767354,
+   "inflow_T_C": 0.9064337900069529,
+   "lake_T0": 0.448383685342985,
+   "ramp_s": 900.0,
+   "segments": [
+    [
+     129600.0,
+     0.042590597929767354,
+     0.9064337900069529
+    ]
+   ]
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 602.185646056914,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 36.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 0.5,
+   "atol_energy": 0.001
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 602.185646056914,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.24676162934584933,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 100.0,
+   "S2": 0.02,
+   "duration_h": 36.0,
+   "cid": "E04",
+   "method": "AVG",
+   "mean": {
+    "Q_bar": 0.042590597929767354,
+    "T_bar": 0.9064337900069529,
+    "duration": 129600.0,
+    "volume": 5519.741491697849
+   }
+  },
+  "version": "events_v1",
+  "stations": 17,
+  "dt_geom": 450,
+  "label": "evt_E04_AVG_nu_factor0.5_r17",
+  "commit": "1004f58"
+ },
+ "id": "evt_E04_AVG_nu_factor0.5_r17_d9c0c6262b",
+ "commit": "1004f58",
+ "start_unix": 1793440159.6813376,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": null,
+  "t_act2_s": 6605.312796702544,
+  "t_end_act2_s": 48604.98191231703,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   false
+  ],
+  "peak_Q2_over_I": 0.03308693334369324,
+  "sill_lowering1_m": 0.11207554514315632,
+  "sill_lowering2_m": 0.029870564324511406,
+  "delivered1_m3": 5459.800057697443,
+  "delivered2_m3": 44.869042268205476,
+  "heat_to_ice_J": 3168437277.5714874,
+  "stage_end_m": 100.14078265738719,
+  "stage_max_m": 100.26505611405533
+ },
+ "timing": {
+  "import_s": 1.219009571999777,
+  "warmup_s": 0.8445781150003313,
+  "sampling_run_s": 19.50383748599961,
+  "solver_s": 14.129597644999649,
+  "metrics_serialization_s": 0.00674606299980951
+ },
+ "applicability": {
+  "summary": {
+   "n_active_edge_snapshots": 3334,
+   "r_qs_max": 81.16803371233706,
+   "tau_wave_s_max": 3967.936936302034,
+   "tau_transit_s_max": 312610290282909.25,
+   "channel_over_node_max": 0.014195644251340803,
+   "melt_over_flow_max": 0.0113444248705516,
+   "froude_max": 1.0000000000000002,
+   "snapshots_with_critical_control": 0,
+   "snapshots_with_froude_ge_1": 357,
+   "Re_min": 2.8372156942944615e-09,
+   "Re_max": 154716.20769195494,
+   "Re_outside_nominal_1e4_1p2e5": true
+  },
+  "n_rows_active": 3048,
+  "r_qs_p50_p90_max": [
+   0.0002975334218023058,
+   0.018492823965530508,
+   0.1971494394743861
+  ],
+  "froude_max_p50_p90_max": [
+   0.9999999999999998,
+   1.0,
+   1.0000000000000002
+  ],
+  "channel_over_node_p50_p90_max": [
+   0.013060675663706956,
+   0.01397171944135439,
+   0.014195644251340803
+  ],
+  "melt_over_flow_p50_p90_max": [
+   0.0017508179305154603,
+   0.009862512536556341,
+   0.011070146884167624
+  ],
+  "Re_min_p50_p90_max": [
+   102345.63480128479,
+   103631.40443258337,
+   103698.57710998705
+  ],
+  "Re_max_p50_p90_max": [
+   152627.03156208992,
+   154309.0891442489,
+   154716.20769195494
+  ],
+  "frac_active_snapshots_with_froude_ge_1": 0.1171259842519685
+ },
+ "discharge_law_evaluations": 10618,
+ "conservation": {
+  "water_residual_rel": 2.0019629626282255e-15,
+  "mass_residual_rel": 2.2635270193176587e-15,
+  "energy_residual_rel": 8.417588775010871e-17,
+  "geometry_vs_latent_rel_max": 4.115064775490536e-08,
+  "geometry_vs_latent_kg_abs_max": 0.00039036900102651373
+ },
+ "n_macrosteps": 288,
+ "wall_total_s": 41.72035758900029,
+ "peak_rss_mb": 206.9921875,
+ "end_unix": 1793440201.4017222
+}

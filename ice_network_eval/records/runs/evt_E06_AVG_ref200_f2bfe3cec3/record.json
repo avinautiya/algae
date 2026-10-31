@@ -1,0 +1,95 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "E06AVG",
+  "scn_override": {
+   "id": "E06AVG",
+   "sill_offset_m": 0.29229993754421935,
+   "inflow_m3_s": 0.02988287885027313,
+   "inflow_T_C": 0.8022797721985899,
+   "lake_T0": 0.9579715920296831,
+   "ramp_s": 900.0,
+   "segments": [
+    [
+     129600.0,
+     0.02988287885027313,
+     0.8022797721985899
+    ]
+   ]
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 691.5137652503673,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 36.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 60.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0,
+   "atol_energy": 0.001
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 691.5137652503673,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.29229993754421935,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 60.0,
+   "S2": 0.02,
+   "duration_h": 36.0,
+   "cid": "E06",
+   "method": "AVG",
+   "mean": {
+    "Q_bar": 0.02988287885027313,
+    "T_bar": 0.8022797721985899,
+    "duration": 129600.0,
+    "volume": 3872.8210989953977
+   }
+  },
+  "version": "events_v1",
+  "ncell": 200,
+  "label": "evt_E06_AVG_ref200",
+  "wall_limit_s": 2400,
+  "commit": "1004f58"
+ },
+ "id": "evt_E06_AVG_ref200_f2bfe3cec3",
+ "commit": "1004f58",
+ "start_unix": 1793440317.7647202,
+ "status": "failed",
+ "error": "TypeError: run_reference() got an unexpected keyword argument 'atol_energy'",
+ "timing": {
+  "import_s": 0.6973455670004114,
+  "warmup_s": 0.24666699499994138
+ },
+ "wall_total_s": 1.03318752999985,
+ "peak_rss_mb": 171.265625,
+ "end_unix": 1793440318.7979417
+}

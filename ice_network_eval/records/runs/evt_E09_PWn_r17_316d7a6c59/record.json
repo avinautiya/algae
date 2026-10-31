@@ -1,0 +1,172 @@
+{
+ "spec": {
+  "kind": "reduced",
+  "scn": "E09PWn",
+  "scn_override": {
+   "id": "E09PWn",
+   "sill_offset_m": 0.28081722386390984,
+   "inflow_m3_s": 0.02669144443982807,
+   "inflow_T_C": 1.0592448451951781,
+   "lake_T0": 0.6180705582165857,
+   "ramp_s": 900.0,
+   "segments": [
+    [
+     129600.0,
+     0.02669144443982807,
+     1.0592448451951781
+    ]
+   ]
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 575.3355446726537,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 36.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 120.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0,
+   "atol_energy": 0.001
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 575.3355446726537,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.28081722386390984,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 120.0,
+   "S2": 0.02,
+   "duration_h": 36.0,
+   "cid": "E09",
+   "method": "PWn",
+   "mean": {
+    "Q_bar": 0.02669144443982807,
+    "T_bar": 1.0592448451951781,
+    "duration": 129600.0,
+    "volume": 3459.211199401718
+   }
+  },
+  "version": "events_v1",
+  "stations": 17,
+  "dt_geom": 450,
+  "label": "evt_E09_PWn_r17",
+  "commit": "1004f58"
+ },
+ "id": "evt_E09_PWn_r17_316d7a6c59",
+ "commit": "1004f58",
+ "start_unix": 1793440037.577381,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": null,
+  "t_act2_s": null,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   false
+  ],
+  "peak_Q2_over_I": 0.0,
+  "sill_lowering1_m": 0.23638681380582227,
+  "sill_lowering2_m": 0.0,
+  "delivered1_m3": 3562.0071339314927,
+  "delivered2_m3": 0.0,
+  "heat_to_ice_J": 5005341059.13847,
+  "stage_end_m": 99.94737622372266,
+  "stage_max_m": 100.18592803517333
+ },
+ "timing": {
+  "import_s": 0.7630996970001434,
+  "warmup_s": 0.4712732729999516,
+  "sampling_run_s": 10.685557545999927,
+  "solver_s": 7.222268854999584,
+  "metrics_serialization_s": 0.004450100999747519
+ },
+ "applicability": {
+  "summary": {
+   "n_active_edge_snapshots": 2305,
+   "r_qs_max": 0.03123638229876051,
+   "tau_wave_s_max": 109.33960410211485,
+   "tau_transit_s_max": 354.7692750757876,
+   "channel_over_node_max": 0.013481707801344923,
+   "melt_over_flow_max": 0.004580130286840652,
+   "froude_max": 1.0000000000000002,
+   "snapshots_with_critical_control": 0,
+   "snapshots_with_froude_ge_1": 235,
+   "Re_min": 36678.46458119979,
+   "Re_max": 110356.07248194852,
+   "Re_outside_nominal_1e4_1p2e5": false
+  },
+  "n_rows_active": 2305,
+  "r_qs_p50_p90_max": [
+   0.0008492107375186549,
+   0.0009494983568921875,
+   0.03123638229876051
+  ],
+  "froude_max_p50_p90_max": [
+   0.9999999999999998,
+   1.0,
+   1.0000000000000002
+  ],
+  "channel_over_node_p50_p90_max": [
+   0.011671623154908549,
+   0.013064747897301441,
+   0.013481707801344923
+  ],
+  "melt_over_flow_p50_p90_max": [
+   0.0043969507335889935,
+   0.00455634277176322,
+   0.004580130286840652
+  ],
+  "Re_min_p50_p90_max": [
+   77100.7721825007,
+   78045.15281898362,
+   78244.30311561265
+  ],
+  "Re_max_p50_p90_max": [
+   107508.11894489589,
+   109908.33508437194,
+   110356.07248194852
+  ],
+  "frac_active_snapshots_with_froude_ge_1": 0.1019522776572668
+ },
+ "discharge_law_evaluations": 9242,
+ "conservation": {
+  "water_residual_rel": -1.2460680248785114e-15,
+  "mass_residual_rel": -1.3157262245747175e-15,
+  "energy_residual_rel": 1.1028347686020383e-16,
+  "geometry_vs_latent_rel_max": 4.754208741833823e-08,
+  "geometry_vs_latent_kg_abs_max": 0.0007124681502759245
+ },
+ "n_macrosteps": 288,
+ "wall_total_s": 22.808619347999866,
+ "peak_rss_mb": 206.26171875,
+ "end_unix": 1793440060.3860202
+}

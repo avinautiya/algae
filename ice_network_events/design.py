@@ -45,8 +45,10 @@ def spec(cid, c, method, kind="reduced", ncell=200, stations=17, extra=None, wal
     else:
         th = M.thresholds(dict(c["geom"], deficit=-0.10)); ftabs = sim.fixed_tabs(dict(c["geom"], deficit=-0.10)); r, _ = sim.se_run(dict(c["geom"], deficit=-0.10), ser, ftabs)
         scn["segments"] = M.forcing_for(method, ser, th, dur, dict(t=r["t"], wet=r["Q2"] > 0.005 * m["Q_bar"]))
-    ov = dict(n_man=p["n_man"], nu_factor=p["nu_factor"], atol_energy=1e-3); ov.update(extra or {})
-    base = dict(kind=kind, scn=scn["id"], scn_override=scn, cfg_patch=patch, overrides=ov, params=dict(p, cid=cid, method=method, mean=m), version="events_v1")
+    ov = dict(n_man=p["n_man"], nu_factor=p["nu_factor"]); 
+    if kind == "reduced": ov["atol_energy"] = 1e-3      # the resolved reference has no such option (its first launch, version events_v1, failed on this; see FAILURES.md)
+    ov.update(extra or {})
+    base = dict(kind=kind, scn=scn["id"], scn_override=scn, cfg_patch=patch, overrides=ov, params=dict(p, cid=cid, method=method, mean=m), version="events_v1" if kind == "reduced" else "events_v1b")
     tag = "" if not extra else "_" + "_".join(f"{k}{v}" for k, v in extra.items() if k != "atol_energy")
     if kind == "reduced": o = dict(base, stations=stations, dt_geom=450 if stations == 17 else 225, label=f"evt_{cid}_{method}{tag}_r{stations}")
     else: o = dict(base, ncell=ncell, label=f"evt_{cid}_{method}{tag}_ref{ncell}")

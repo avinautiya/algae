@@ -1,0 +1,115 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "E04AVG",
+  "scn_override": {
+   "id": "E04AVG",
+   "sill_offset_m": 0.24676162934584933,
+   "inflow_m3_s": 0.042590597929767354,
+   "inflow_T_C": 0.9064337900069529,
+   "lake_T0": 0.448383685342985,
+   "ramp_s": 900.0,
+   "segments": [
+    [
+     129600.0,
+     0.042590597929767354,
+     0.9064337900069529
+    ]
+   ]
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 602.185646056914,
+    "initial_stage_below_sill1_m": -0.1
+   },
+   "duration_h": 36.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0
+  },
+  "params": {
+   "I": 0.05,
+   "T": 1.0,
+   "area": 602.185646056914,
+   "bottom": 99.0,
+   "deficit": -0.1,
+   "offset": 0.24676162934584933,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 100.0,
+   "S2": 0.02,
+   "duration_h": 36.0,
+   "cid": "E04",
+   "method": "AVG",
+   "mean": {
+    "Q_bar": 0.042590597929767354,
+    "T_bar": 0.9064337900069529,
+    "duration": 129600.0,
+    "volume": 5519.741491697849
+   }
+  },
+  "version": "events_v1b",
+  "ncell": 200,
+  "label": "evt_E04_AVG_ref200",
+  "wall_limit_s": 2400,
+  "commit": "1004f58"
+ },
+ "id": "evt_E04_AVG_ref200_d83e3ae34f",
+ "commit": "1004f58",
+ "start_unix": 1793440617.0009065,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": 2.5649974492431906,
+  "t_act2_s": 9010.674113339475,
+  "t_end_act2_s": 14994.482214376763,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   false
+  ],
+  "peak_Q2_over_I": 0.012085996433084185,
+  "sill_lowering1_m": 0.21700822186998892,
+  "sill_lowering2_m": 0.009462900122244378,
+  "delivered1_m3": 5565.891900511979,
+  "delivered2_m3": 7.462638309870348,
+  "heat_to_ice_J": 5591315870.219208,
+  "stage_end_m": 100.02217315933036,
+  "stage_max_m": 100.26212971840289
+ },
+ "timing": {
+  "import_s": 0.7829092020001553,
+  "warmup_s": 0.3359720460002791,
+  "solver_s": 269.14961163399994,
+  "metrics_serialization_s": 0.006070921000173257
+ },
+ "nsteps": 1251674,
+ "diss_J": 33188007.275739666,
+ "wall_total_s": 270.3975834720004,
+ "peak_rss_mb": 175.609375,
+ "end_unix": 1793440887.3985114
+}

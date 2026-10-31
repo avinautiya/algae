@@ -23,10 +23,10 @@ def run(which):
                 r = runs.get(f"evt_{cid}_{m}_{sfx}")
                 if r: d[m] = net_metrics(r, mm["Q_bar"])
             if d: row[key] = d
-        for tag in ("nu0.5", "nu2"):
-            d = {m: net_metrics(runs[f"evt_{cid}_{m}_nu_factor{tag[2:]}_r17"], mm["Q_bar"]) for m in ("TR", "AVG", "EA") if f"evt_{cid}_{m}_nu_factor{tag[2:]}_r17" in runs}
+        for tag, val in (("nu0.5", "0.5"), ("nu2", "2.0")):
+            d = {m: net_metrics(runs[f"evt_{cid}_{m}_nu_factor{val}_r17"], mm["Q_bar"]) for m in ("TR", "AVG", "EA") if f"evt_{cid}_{m}_nu_factor{val}_r17" in runs}
             if d: row["net_" + tag] = d
-        r = runs.get(f"evt_{cid}_TR_atol_energyNone_r17")
+        r = runs.get(f"evt_{cid}_TR__r17")
         if r: row["net_legacytol"] = net_metrics(r, mm["Q_bar"])
         out[cid] = row
     json.dump(out, open(os.path.join(HERE, f"eval_{which}.json"), "w"), indent=1, default=float); return out
