@@ -40,7 +40,7 @@ def sills(scn):
     return [s1, s1 + scn["sill_offset_m"]]
 
 
-def run_reduced(scn, n_st, dt_geom, msub=16, rtol=1e-7, nu_factor=1.0, melting=True, heat_dissipation=True, sample_dt=60.0, n_man=None, progress=None, timing=None, h_floor=1e-3, t_end=None, melt_mode=None, geometry_mode=None):
+def run_reduced(scn, n_st, dt_geom, msub=16, rtol=1e-7, nu_factor=1.0, melting=True, heat_dissipation=True, sample_dt=60.0, n_man=None, progress=None, timing=None, h_floor=1e-3, t_end=None, melt_mode=None, geometry_mode=None, atol_energy=None):
     G_COMMON = dict(globals()['G_COMMON']); G_COMMON.update({} if n_man is None else dict(n_man=n_man))
     XM = {k: v for k, v in (('melt_mode', melt_mode), ('geometry_mode', geometry_mode)) if v is not None}
     lk = CFG["lake"]; sl = sills(scn)
@@ -59,12 +59,12 @@ def run_reduced(scn, n_st, dt_geom, msub=16, rtol=1e-7, nu_factor=1.0, melting=T
         calls[0] += 1; return orig(*a)
     NW.edge_flow = counted
     t0 = time.perf_counter()
-    net.run([v0], [T], T_END, dt_geom, inflow_fn(scn), lambda t: np.array([T]), rtol=rtol, atol=1e-9, progress=progress)
+    net.run([v0], [T], T_END, dt_geom, inflow_fn(scn), lambda t: np.array([T]), rtol=rtol, atol=1e-9, progress=progress, atol_energy=atol_energy)
     wall = time.perf_counter() - t0; nfev = calls[0]; NW.edge_flow = orig
     # OUTPUT run: identical settings with dense output samples every sample_dt (does not change the solution)
     net2 = Network([dict(z_bottom=lk["bottom_m"], a_ref=lk["area_m2"], h_ref=1.0, q=0.0)], outlets, [dict(e) for e in [dict(a=0, b=1 + k, z=bed(ch, np.linspace(0.0, ch["length_m"], n_st), sl[k]), w=np.full(n_st, ch["width_m"]), zs=bed(ch, np.linspace(0.0, ch["length_m"], n_st), sl[k]) + BANK, length=ch["length_m"], msub=msub, **G_COMMON) for k, ch in enumerate(CFG["channels"])]], melting=melting, nu_factor=nu_factor, heat_dissipation=heat_dissipation, h_floor=h_floor, **XM)
     t1 = time.perf_counter()
-    r = net2.run([v0], [T], T_END, dt_geom, inflow_fn(scn), lambda t: np.array([T]), rtol=rtol, atol=1e-9, sample_dt=sample_dt)
+    r = net2.run([v0], [T], T_END, dt_geom, inflow_fn(scn), lambda t: np.array([T]), rtol=rtol, atol=1e-9, sample_dt=sample_dt, atol_energy=atol_energy)
     if timing is not None: timing['sampling_run_s'] = time.perf_counter() - t1
     net = net2
     t = np.array(r["t"]); h = r["hist"]

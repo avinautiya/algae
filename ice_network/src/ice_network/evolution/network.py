@@ -199,8 +199,12 @@ class Network:
         return v_energy, v_geom
 
     # ----------------------------------------------------------------------------- driver
-    def run(self, v0, t0, t_end, dt_geom, inflow, inflow_temp, rtol=1e-9, atol=1e-10, evolve=True, record=None, sample_dt=None, progress=None):
+    def run(self, v0, t0, t_end, dt_geom, inflow, inflow_temp, rtol=1e-9, atol=1e-10, evolve=True, record=None, sample_dt=None, progress=None, atol_energy=None):
         y = self.reset_state(v0, t0)
+        if atol_energy is not None:      # per-component absolute tolerance: cumulative energy states (J) get atol_energy, volumes keep atol (default None = legacy scalar atol for every state)
+            atol = np.full(self.n_state, atol, float)
+            for sl in (self.i_E, slice(self.i_Ein, self.i_Ein + 1), slice(self.i_Phi, self.i_PhiC + 1), self.i_H, self.i_W):
+                atol[sl] = atol_energy
         self._area0 = [((e["zs"] - e["z"]) * e["w"]).copy() for e in self.edges]      # initial channel section areas (for the geometry-derived ice inventory)
         v_init = np.array(v0, float).copy(); s_init = (np.array(v0) * np.array(t0)).copy()
         ts = [0.0]; hist = [self._snapshot(0.0, y, inflow, inflow_temp)]

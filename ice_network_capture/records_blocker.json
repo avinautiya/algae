@@ -1,0 +1,123 @@
+{
+ "correction": "atol_energy=1e-3 J on cumulative energy states",
+ "failures": [
+  {
+   "status": "completed",
+   "wall_s": 4.220366887999944,
+   "evals": 4730,
+   "metrics": {
+    "t_act1_s": 1509.8412317315126,
+    "t_act2_s": 2471.3870097268023,
+    "t_end_act2_s": null,
+    "t_dom2_s": null,
+    "active_at_end": [
+     true,
+     true
+    ],
+    "peak_Q2_over_I": 0.23188787433347247,
+    "sill_lowering1_m": 0.0725133460137215,
+    "sill_lowering2_m": 0.0998937457364093,
+    "delivered1_m3": 1066.9370803822114,
+    "delivered2_m3": 143.4727953646674,
+    "heat_to_ice_J": 7301949060.335868,
+    "stage_end_m": 100.03762325189922,
+    "stage_max_m": 100.11492667584932
+   },
+   "budgets": {
+    "water_residual_rel": 1.2552470527279425e-15,
+    "energy_residual_rel": 0.0
+   },
+   "label": "red_C009_r9"
+  },
+  {
+   "status": "completed",
+   "wall_s": 6.5580660929999794,
+   "evals": 3790,
+   "metrics": {
+    "t_act1_s": 15350.514805775914,
+    "t_act2_s": 6596.581926524917,
+    "t_end_act2_s": null,
+    "t_dom2_s": 6180.0,
+    "active_at_end": [
+     false,
+     true
+    ],
+    "peak_Q2_over_I": 1.2757987141687215,
+    "sill_lowering1_m": 0.002778608645698455,
+    "sill_lowering2_m": 0.08955178904376737,
+    "delivered1_m3": 1.3394666649900002,
+    "delivered2_m3": 336.9418668550686,
+    "heat_to_ice_J": 762453079.437851,
+    "stage_end_m": 99.99369581156762,
+    "stage_max_m": 100.02782568926393
+   },
+   "budgets": {
+    "water_residual_rel": -3.1938065640104483e-16,
+    "energy_residual_rel": 6.113583637862024e-16
+   },
+   "label": "red_C019_r9"
+  },
+  {
+   "status": "completed",
+   "wall_s": 16.189722921999874,
+   "evals": 8484,
+   "metrics": {
+    "t_act1_s": null,
+    "t_act2_s": 15292.695782717812,
+    "t_end_act2_s": null,
+    "t_dom2_s": 14580.0,
+    "active_at_end": [
+     false,
+     true
+    ],
+    "peak_Q2_over_I": 1.2447856336542484,
+    "sill_lowering1_m": 0.0,
+    "sill_lowering2_m": 0.03321747519837004,
+    "delivered1_m3": 0.0,
+    "delivered2_m3": 81.67508304075021,
+    "heat_to_ice_J": 175182295.55825973,
+    "stage_end_m": 99.95472269911787,
+    "stage_max_m": 99.96346599559885
+   },
+   "budgets": {
+    "water_residual_rel": -3.052431134149741e-16,
+    "energy_residual_rel": 3.9707066276933066e-16
+   },
+   "label": "red_C031_r17"
+  }
+ ],
+ "equivalence": [
+  {
+   "scenario": "S1",
+   "legacy_evals": 5852,
+   "corrected_evals": 3388,
+   "legacy_wall": 9.74640124099983,
+   "corrected_wall": 4.764975267999944,
+   "differences": {
+    "t_act2_s": -2.561878318374511e-06,
+    "t_dom2_s": -1.3492899597622454e-06,
+    "sill_lowering1_m": 5.1102233555866405e-11,
+    "sill_lowering2_m": 1.2848033748014132e-10,
+    "delivered1_m3": 1.1475412975414656e-07,
+    "delivered2_m3": 1.2433542906364892e-07
+   },
+   "max_Q_diff_over_I": 3.8067707666678e-09
+  },
+  {
+   "scenario": "S2",
+   "legacy_evals": 5616,
+   "corrected_evals": 3200,
+   "legacy_wall": 9.932592598999918,
+   "corrected_wall": 4.7381566689998635,
+   "differences": {
+    "t_act2_s": 3.999693944933824e-07,
+    "t_dom2_s": 5.5636855904594995e-06,
+    "sill_lowering1_m": 2.3064217202772852e-11,
+    "sill_lowering2_m": -5.9685589803848416e-12,
+    "delivered1_m3": 5.4488225487148156e-08,
+    "delivered2_m3": -4.759931471198797e-08
+   },
+   "max_Q_diff_over_I": 2.2155634965548288e-10
+  }
+ ]
+}

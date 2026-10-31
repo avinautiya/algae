@@ -1,12 +1,348 @@
 {
- "generated_unix": 1793397100.27091,
+ "generated_unix": 1793409617.012506,
  "counts": {
-  "completed": 710,
+  "completed": 758,
   "stalled": 2,
   "failed": 3
  },
- "total_wall_s": 36045.453352371456,
+ "total_wall_s": 37394.56989989845,
  "runs": [
+  {
+   "id": "cap_D01_dissipation_r17_9e364cef68",
+   "state": "completed",
+   "wall_s": 24.350493357999994,
+   "peak_rss_mb": 184.2890625,
+   "label": "cap_D01_dissipation_r17"
+  },
+  {
+   "id": "cap_D01_fixed_r17_547841c5ab",
+   "state": "completed",
+   "wall_s": 21.82959967599993,
+   "peak_rss_mb": 184.31640625,
+   "label": "cap_D01_fixed_r17"
+  },
+  {
+   "id": "cap_D01_thermal_r17_378a95e608",
+   "state": "completed",
+   "wall_s": 27.014492110000106,
+   "peak_rss_mb": 184.84375,
+   "label": "cap_D01_thermal_r17"
+  },
+  {
+   "id": "cap_D02_dissipation_r17_10c26a5044",
+   "state": "completed",
+   "wall_s": 27.38148665999995,
+   "peak_rss_mb": 184.2109375,
+   "label": "cap_D02_dissipation_r17"
+  },
+  {
+   "id": "cap_D02_fixed_r17_8cc3dcc470",
+   "state": "completed",
+   "wall_s": 24.247057163000022,
+   "peak_rss_mb": 184.30078125,
+   "label": "cap_D02_fixed_r17"
+  },
+  {
+   "id": "cap_D02_thermal_r17_7cc5e094d8",
+   "state": "completed",
+   "wall_s": 30.319886677,
+   "peak_rss_mb": 185.0546875,
+   "label": "cap_D02_thermal_r17"
+  },
+  {
+   "id": "cap_D03_dissipation_r17_f2dcd4ae09",
+   "state": "completed",
+   "wall_s": 27.39234572700002,
+   "peak_rss_mb": 184.296875,
+   "label": "cap_D03_dissipation_r17"
+  },
+  {
+   "id": "cap_D03_fixed_r17_4826a28456",
+   "state": "completed",
+   "wall_s": 23.39693024799999,
+   "peak_rss_mb": 184.36328125,
+   "label": "cap_D03_fixed_r17"
+  },
+  {
+   "id": "cap_D03_thermal_r17_22cc3b78c0",
+   "state": "completed",
+   "wall_s": 44.89139542700002,
+   "peak_rss_mb": 185.16015625,
+   "label": "cap_D03_thermal_r17"
+  },
+  {
+   "id": "cap_D04_dissipation_r17_10e7e31763",
+   "state": "completed",
+   "wall_s": 24.081274657999984,
+   "peak_rss_mb": 183.87890625,
+   "label": "cap_D04_dissipation_r17"
+  },
+  {
+   "id": "cap_D04_fixed_r17_d7950821e1",
+   "state": "completed",
+   "wall_s": 23.027717802999973,
+   "peak_rss_mb": 184.16796875,
+   "label": "cap_D04_fixed_r17"
+  },
+  {
+   "id": "cap_D04_thermal_r17_597339b89c",
+   "state": "completed",
+   "wall_s": 27.46947963699995,
+   "peak_rss_mb": 184.65625,
+   "label": "cap_D04_thermal_r17"
+  },
+  {
+   "id": "cap_D05_dissipation_r17_a636389ec2",
+   "state": "completed",
+   "wall_s": 24.93834120000008,
+   "peak_rss_mb": 184.23046875,
+   "label": "cap_D05_dissipation_r17"
+  },
+  {
+   "id": "cap_D05_fixed_r17_1d5d565564",
+   "state": "completed",
+   "wall_s": 24.934342943999923,
+   "peak_rss_mb": 184.14453125,
+   "label": "cap_D05_fixed_r17"
+  },
+  {
+   "id": "cap_D05_thermal_r17_038532ec6c",
+   "state": "completed",
+   "wall_s": 28.002038026000037,
+   "peak_rss_mb": 184.82421875,
+   "label": "cap_D05_thermal_r17"
+  },
+  {
+   "id": "cap_D06_dissipation_r17_a91cae1e79",
+   "state": "completed",
+   "wall_s": 34.68329450800002,
+   "peak_rss_mb": 184.37890625,
+   "label": "cap_D06_dissipation_r17"
+  },
+  {
+   "id": "cap_D06_fixed_r17_7469ab9041",
+   "state": "completed",
+   "wall_s": 21.30779321199998,
+   "peak_rss_mb": 184.1796875,
+   "label": "cap_D06_fixed_r17"
+  },
+  {
+   "id": "cap_D06_thermal_r17_b8d0b4a008",
+   "state": "completed",
+   "wall_s": 26.26148634699996,
+   "peak_rss_mb": 184.74609375,
+   "label": "cap_D06_thermal_r17"
+  },
+  {
+   "id": "cap_D07_dissipation_r17_b85a3fdf37",
+   "state": "completed",
+   "wall_s": 27.816146021999998,
+   "peak_rss_mb": 184.4453125,
+   "label": "cap_D07_dissipation_r17"
+  },
+  {
+   "id": "cap_D07_fixed_r17_2ed07115cd",
+   "state": "completed",
+   "wall_s": 25.659938076000003,
+   "peak_rss_mb": 184.38671875,
+   "label": "cap_D07_fixed_r17"
+  },
+  {
+   "id": "cap_D07_thermal_r17_07efed6b64",
+   "state": "completed",
+   "wall_s": 32.18126195399998,
+   "peak_rss_mb": 184.94921875,
+   "label": "cap_D07_thermal_r17"
+  },
+  {
+   "id": "cap_D08_dissipation_r17_068ed8998f",
+   "state": "completed",
+   "wall_s": 24.45260925299999,
+   "peak_rss_mb": 184.32421875,
+   "label": "cap_D08_dissipation_r17"
+  },
+  {
+   "id": "cap_D08_fixed_r17_2a90715b7f",
+   "state": "completed",
+   "wall_s": 22.19053343600001,
+   "peak_rss_mb": 184.1484375,
+   "label": "cap_D08_fixed_r17"
+  },
+  {
+   "id": "cap_D08_thermal_r17_e7b13a3137",
+   "state": "completed",
+   "wall_s": 26.462182511000037,
+   "peak_rss_mb": 184.82421875,
+   "label": "cap_D08_thermal_r17"
+  },
+  {
+   "id": "cap_D09_dissipation_r17_8d91e90b3a",
+   "state": "completed",
+   "wall_s": 23.486871203000078,
+   "peak_rss_mb": 184.22265625,
+   "label": "cap_D09_dissipation_r17"
+  },
+  {
+   "id": "cap_D09_fixed_r17_a1da39bc45",
+   "state": "completed",
+   "wall_s": 21.298254940999982,
+   "peak_rss_mb": 184.40625,
+   "label": "cap_D09_fixed_r17"
+  },
+  {
+   "id": "cap_D09_thermal_r17_36cfb97d95",
+   "state": "completed",
+   "wall_s": 27.03085045599994,
+   "peak_rss_mb": 184.578125,
+   "label": "cap_D09_thermal_r17"
+  },
+  {
+   "id": "cap_D10_dissipation_r17_075595912a",
+   "state": "completed",
+   "wall_s": 30.337250132999998,
+   "peak_rss_mb": 184.671875,
+   "label": "cap_D10_dissipation_r17"
+  },
+  {
+   "id": "cap_D10_fixed_r17_55b1a76b9c",
+   "state": "completed",
+   "wall_s": 27.00529674699999,
+   "peak_rss_mb": 184.484375,
+   "label": "cap_D10_fixed_r17"
+  },
+  {
+   "id": "cap_D10_thermal_r17_41550cde58",
+   "state": "completed",
+   "wall_s": 31.735824022999964,
+   "peak_rss_mb": 184.66015625,
+   "label": "cap_D10_thermal_r17"
+  },
+  {
+   "id": "cap_D11_dissipation_r17_424240e122",
+   "state": "completed",
+   "wall_s": 25.466501056000084,
+   "peak_rss_mb": 184.66796875,
+   "label": "cap_D11_dissipation_r17"
+  },
+  {
+   "id": "cap_D11_fixed_r17_d4b2fc3464",
+   "state": "completed",
+   "wall_s": 24.573318072000006,
+   "peak_rss_mb": 184.3046875,
+   "label": "cap_D11_fixed_r17"
+  },
+  {
+   "id": "cap_D11_thermal_r17_a22c180128",
+   "state": "completed",
+   "wall_s": 29.330151749000038,
+   "peak_rss_mb": 184.78515625,
+   "label": "cap_D11_thermal_r17"
+  },
+  {
+   "id": "cap_D12_dissipation_r17_219a3b52d2",
+   "state": "completed",
+   "wall_s": 49.66069845099992,
+   "peak_rss_mb": 184.66796875,
+   "label": "cap_D12_dissipation_r17"
+  },
+  {
+   "id": "cap_D12_fixed_r17_1ad837637a",
+   "state": "completed",
+   "wall_s": 22.54233492800006,
+   "peak_rss_mb": 184.234375,
+   "label": "cap_D12_fixed_r17"
+  },
+  {
+   "id": "cap_D12_thermal_r17_ffe8dda729",
+   "state": "completed",
+   "wall_s": 29.162253788000044,
+   "peak_rss_mb": 184.58203125,
+   "label": "cap_D12_thermal_r17"
+  },
+  {
+   "id": "cap_D13_dissipation_r17_5842cf00bb",
+   "state": "completed",
+   "wall_s": 29.082812955999998,
+   "peak_rss_mb": 184.1796875,
+   "label": "cap_D13_dissipation_r17"
+  },
+  {
+   "id": "cap_D13_fixed_r17_11c07dd7f2",
+   "state": "completed",
+   "wall_s": 28.27004342500004,
+   "peak_rss_mb": 184.2578125,
+   "label": "cap_D13_fixed_r17"
+  },
+  {
+   "id": "cap_D13_thermal_r17_7b921ea607",
+   "state": "completed",
+   "wall_s": 32.361112318000096,
+   "peak_rss_mb": 185.1640625,
+   "label": "cap_D13_thermal_r17"
+  },
+  {
+   "id": "cap_D14_dissipation_r17_f2ff7af52c",
+   "state": "completed",
+   "wall_s": 26.430031853999935,
+   "peak_rss_mb": 184.27734375,
+   "label": "cap_D14_dissipation_r17"
+  },
+  {
+   "id": "cap_D14_fixed_r17_45bb4a3eb8",
+   "state": "completed",
+   "wall_s": 25.63448553199987,
+   "peak_rss_mb": 184.1328125,
+   "label": "cap_D14_fixed_r17"
+  },
+  {
+   "id": "cap_D14_thermal_r17_94a6a05f47",
+   "state": "completed",
+   "wall_s": 28.05502873399996,
+   "peak_rss_mb": 184.921875,
+   "label": "cap_D14_thermal_r17"
+  },
+  {
+   "id": "cap_D15_dissipation_r17_193660747e",
+   "state": "completed",
+   "wall_s": 33.07539045899989,
+   "peak_rss_mb": 184.85546875,
+   "label": "cap_D15_dissipation_r17"
+  },
+  {
+   "id": "cap_D15_fixed_r17_6f286360fa",
+   "state": "completed",
+   "wall_s": 31.217278777000047,
+   "peak_rss_mb": 184.375,
+   "label": "cap_D15_fixed_r17"
+  },
+  {
+   "id": "cap_D15_thermal_r17_3ee050f2d6",
+   "state": "completed",
+   "wall_s": 37.78010062299995,
+   "peak_rss_mb": 185.4921875,
+   "label": "cap_D15_thermal_r17"
+  },
+  {
+   "id": "cap_D16_dissipation_r17_dab4273b63",
+   "state": "completed",
+   "wall_s": 25.599198327000067,
+   "peak_rss_mb": 184.5703125,
+   "label": "cap_D16_dissipation_r17"
+  },
+  {
+   "id": "cap_D16_fixed_r17_3c3df61f60",
+   "state": "completed",
+   "wall_s": 36.317598567000005,
+   "peak_rss_mb": 184.921875,
+   "label": "cap_D16_fixed_r17"
+  },
+  {
+   "id": "cap_D16_thermal_r17_7e5c0ef6e0",
+   "state": "completed",
+   "wall_s": 29.37173377499994,
+   "peak_rss_mb": 184.796875,
+   "label": "cap_D16_thermal_r17"
+  },
   {
    "id": "red_C000_r17_774d0c27e5",
    "state": "completed",
