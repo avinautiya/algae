@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "tests": 31,
+  "scope": "Independent analytical/manufactured verification and small-matrix analysis only; no CFD or glacier result",
+  "stefan_equal_density_reference_checks": [
+    {
+      "Ste_sensible_over_latent": 0.001,
+      "wall_excess_K": 0.0792032250414987,
+      "front_at_1h_m": 0.0009785285866652845,
+      "relative_energy_identity_residual": 3.5601892438868226e-16
+    },
+    {
+      "Ste_sensible_over_latent": 0.003,
+      "wall_excess_K": 0.2376096751244961,
+      "front_at_1h_m": 0.0016942970459174838,
+      "relative_energy_identity_residual": -2.0541082717115376e-16
+    },
+    {
+      "Ste_sensible_over_latent": 0.013,
+      "wall_excess_K": 1.029641925539483,
+      "front_at_1h_m": 0.0035211151832277524,
+      "relative_energy_identity_residual": -1.9669924127886786e-16
+    },
+    {
+      "Ste_sensible_over_latent": 0.2,
+      "wall_excess_K": 15.84064500829974,
+      "front_at_1h_m": 0.013411690401172117,
+      "relative_energy_identity_residual": 0.0
+    }
+  ],
+  "active_solver_files_modified": false,
+  "active_jobs_started_or_stopped": false,
+  "external_software_installed": false
+}

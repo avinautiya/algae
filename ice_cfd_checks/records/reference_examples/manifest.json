@@ -1,0 +1,20 @@
+{
+  "scope": "Known analytical references and manufactured examples, no CFD results",
+  "dam_break": {
+    "left_depth_m": 1.0,
+    "time_s": 0.3,
+    "gravity_m_s2": 9.81,
+    "right_depths_m": {
+      "wet": 0.1,
+      "dry": 0.0
+    }
+  },
+  "stefan": "Equal-density one-phase conduction limit; densities are not independently varied",
+  "source_sha256": {
+    "__init__.py": "bf27d4705240d71dc5e32b0ef9374fa19ea3284ca93addb0403183c31de31877",
+    "__main__.py": "806888eec0acaceb1984169afbe7783f708a75cd11fb23ddd5177ebe2ec92617",
+    "diagnostics.py": "d3de19106a195f0451584cff16f78466c39ef5c425f87b4fe089eca1c21f07ae",
+    "linear_response.py": "0291a49eebbd428e4b06007cee073d657341ecbd8776878b595e3bc4aad263a4",
+    "references.py": "fa6d52aedba3f82f95a92d6ee140e55fd5aea2eaebcfd4317bc5f427795b37fa"
+  }
+}

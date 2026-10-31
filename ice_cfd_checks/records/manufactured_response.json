@@ -1,0 +1,48 @@
+{
+  "command": "linear-response",
+  "input_sha256": "b45817c2526d4a97deae74fb117cc406f0950ff4b9b89b369bc026260b110b3d",
+  "diagnostics": {
+    "gains": [
+      {
+        "time_s": 0,
+        "squared_gain": 1.0
+      },
+      {
+        "time_s": 0.1,
+        "squared_gain": 1.9488834691902
+      },
+      {
+        "time_s": 0.3,
+        "squared_gain": 4.49992500202603
+      },
+      {
+        "time_s": 0.6931471805599453,
+        "squared_gain": 6.5601181831540565
+      },
+      {
+        "time_s": 1,
+        "squared_gain": 5.560883713198144
+      },
+      {
+        "time_s": 2,
+        "squared_gain": 1.388006391201453
+      },
+      {
+        "time_s": 5,
+        "squared_gain": 0.004524420597743834
+      }
+    ],
+    "max_sampled_squared_gain": 6.5601181831540565,
+    "operator_provenance": "Manufactured stable non-normal matrix, not a CFD operator or scientific result",
+    "state_normalization": "Two abstract dimensionless coordinates; no glacier states",
+    "input_normalization": "Euclidean unit perturbation in the two abstract coordinates",
+    "output_normalization": "Euclidean norm in the same coordinates",
+    "limits": [
+      "Sampling times need refinement; sampled maximum is not a global maximum",
+      "Gain depends on the declared norm and input/output maps",
+      "No eigenvalue stability, CFD linearization, finite-amplitude validity or novelty is certified",
+      "Neutral modes, conserved quantities and jump displacement require physical treatment before export"
+    ]
+  },
+  "acceptance": "No automatic physical validation or novelty verdict"
+}

@@ -1,0 +1,25 @@
+{
+  "A_per_s": [
+    [
+      -1,
+      10
+    ],
+    [
+      0,
+      -2
+    ]
+  ],
+  "times_s": [
+    0,
+    0.1,
+    0.3,
+    0.6931471805599453,
+    1,
+    2,
+    5
+  ],
+  "state_normalization": "Two abstract dimensionless coordinates; no glacier states",
+  "input_normalization": "Euclidean unit perturbation in the two abstract coordinates",
+  "output_normalization": "Euclidean norm in the same coordinates",
+  "operator_provenance": "Manufactured stable non-normal matrix, not a CFD operator or scientific result"
+}

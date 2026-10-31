@@ -1,0 +1,36 @@
+test_exact_dry_front_and_states (test_checks.DamBreakTests) ... ok
+test_finite_volume_scoring_detects_bias (test_checks.DamBreakTests) ... ok
+test_initial_discontinuity_cell_average (test_checks.DamBreakTests) ... ok
+test_integrated_mass_and_boundary_pressure_impulse (test_checks.DamBreakTests) ... ok
+test_invalid_cases_and_overlapping_cells (test_checks.DamBreakTests) ... ok
+test_partition_independence_of_cell_integrals (test_checks.DamBreakTests) ... ok
+test_rarefaction_invariant (test_checks.DamBreakTests) ... ok
+test_wet_shock_rankine_hugoniot (test_checks.DamBreakTests) ... ok
+test_all_cli_paths_and_no_overwrite (test_checks.DiagnosticTests) ... ok
+test_convergence_and_oscillation_are_distinguished (test_checks.DiagnosticTests) ... ok
+test_face_backflow_and_temperature_weighting (test_checks.DiagnosticTests) ... ok
+test_hydrostatic_rest_dry_and_wet (test_checks.DiagnosticTests) ... ok
+test_ledger_detects_missing_conductive_flux (test_checks.DiagnosticTests) ... ok
+test_ledger_restart_origin_and_invalid_time (test_checks.DiagnosticTests) ... ok
+test_numerical_flux_is_not_replaced_by_alpha_u (test_checks.DiagnosticTests) ... ok
+test_weighted_norms (test_checks.DiagnosticTests) ... ok
+test_independent_equal_momentum_pair (test_checks.JumpTests) ... ok
+test_jumps_satisfy_momentum_continuity_and_energy_loss (test_checks.JumpTests) ... ok
+test_scorer_detects_wrong_tailwater (test_checks.JumpTests) ... ok
+test_subcritical_and_nonfinite_rejected (test_checks.JumpTests) ... ok
+test_boundaries_scaling_and_small_stefan_limit (test_checks.StefanTests) ... ok
+test_invalid_initial_singular_flux (test_checks.StefanTests) ... ok
+test_stefan_condition_and_global_energy (test_checks.StefanTests) ... ok
+test_storage_against_independent_temperature_quadrature (test_checks.StefanTests) ... ok
+test_temperature_satisfies_heat_equation (test_checks.StefanTests) ... ok
+test_diagonal_decay (test_response.ResponseTests) ... ok
+test_input_output_maps_and_jacobi (test_response.ResponseTests) ... ok
+test_jordan_block_against_closed_form (test_response.ResponseTests) ... ok
+test_non_normal_exponential_and_gain_against_two_by_two_formula (test_response.ResponseTests) ... ok
+test_normalization_and_provenance_required (test_response.ResponseTests) ... ok
+test_orthogonal_rotation_preserves_norm (test_response.ResponseTests) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.658s
+
+OK
