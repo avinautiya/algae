@@ -1,4 +1,4 @@
-# V2 milestone report (verification + baseline prediction pipeline) — updated as results complete
+# V2 milestone report (verification + baseline prediction pipeline)
 
 Scope of this report: verified stock-OpenFOAM laminar benchmarks, a separate Stefan benchmark, the baseline `predict` CLI, a smooth-vs-step fixed-geometry comparison (laminar, rigid lid), and the Ogier data audit. **Not done:** free-surface hydrostatic/jump CFD, temperature in a free-surface solver, moving-ice coupling, turbulent runs, production campaign.
 
@@ -38,8 +38,8 @@ Applicability flags in `summary.json` (e.g. Re_Dh range, Fr range, laminar-closu
 |---|---|---|---|---|---|
 | n = 8 (4,608) | 0.80305 / 0.80360 | +5.5e-4 | 6.68 / 6.28 | 0.795 / 0.759 | −1.6e-4 / −2.6e-4 |
 | n = 16 (18,432) | 0.79800 / 0.79861 | +6.1e-4 | 6.75 / 6.32 | 0.788 / 0.751 | −3.1e-4 / −3.6e-4 |
-| n = 32 | pending (running) | | | | |
-Reading so far: the ramp lowers the near-field wall flux by ≈ 5 % and shortens the separation by ≈ 0.4 H at both meshes (differences stable under n = 8→16: mean-flux change from mesh 0.007 vs step–ramp difference 0.037), whereas the downstream enthalpy differs by only 6e-4 (0.08 %) — **smaller than the 5e-3 mesh change in T_b**, i.e. not resolved. So at fixed budgets and Re = 50 the geometry redistributes wall heat locally but does not measurably change heat export. Third resolution and a time-independence note (steady) to follow; q uses a first-order gradient so absolute q has O(dy) error.
+| n = 32 (73,728) | 0.79577 / 0.79643 | +6.5e-4 | 6.78 / 6.34 | 0.784 / 0.746 | −5.9e-4 / −6.1e-4 |
+Reading (three resolutions, cells 4.6k/18k/74k): the ramp lowers the mean near-field wall flux (0.5<x<10) by 4.5–4.8 % and shortens the separation by 0.40/0.42/0.44 H, differences that are stable across the meshes (L1 difference of q(x): 3.5 %, 3.6 %, 3.6 %), while the mesh change of those quantities is ≈ 0.7 % (0.795→0.788→0.784 for the step). The outlet temperature converges at roughly first order (T_b change 5.0e-3 for 8→16, 2.2e-3 for 16→32; observed order ≈ 1.2) so its mesh uncertainty (~2e-3) is **larger than the step–ramp difference (5.5e-4, 6.1e-4, 6.5e-4, drifting slowly upward)**: at these budgets and Re = 50 the geometry redistributes wall heat locally (≈ 5 %) and moves the separation point, and any difference in downstream enthalpy is unresolved (< ~0.1 %). Wall-heat ledger (α∂T/∂n integrated over the wall vs P_in − P_out) closes to 1.6e-4 → 5.9e-4 of P_in and the residual *grows* with refinement — unexplained (first-order wall gradient and the outlet flux average both contribute); treat the wall-flux values as O(dy) accurate. This is a laminar, rigid-lid, steady, Re = 50 result: it says nothing about hydraulic jumps, free-surface effects, turbulence or melting feedback.
 
 ## 5. Observational route
 See `data_audit/DATA_READINESS.md`. Retrieved: the 337,848,233-byte archive (MD5 verified), 454 entries; geometry (5 stations, ±0.5 m) does not support a forward bed-lowering test; discharge forcing exists; temperatures are near-bed point sensors; Nusselt numbers are derived.
@@ -53,7 +53,7 @@ See `data_audit/DATA_READINESS.md`. Retrieved: the 337,848,233-byte archive (MD5
 * Blocker: custom boundary condition/solver needs `wmake` and headers (absent); building OpenFOAM from source (or the OpenFOAM.com repository packages) is the next toolchain step.
 
 ## 7. Unresolved issues
-1. n = 32 step/ramp meshes and hence a third-resolution envelope; wall-flux gradient is first order.
+1. Step/ramp wall-flux gradient is first order and the ledger residual grows with refinement (unexplained); outlet T_b uncertainty exceeds the step–ramp enthalpy difference.
 2. Free-surface hydrostatic rest, conjugate-depth jump, VOF + temperature coupling, moving-ice coupling: not started (need the toolchain note above).
 3. Environmental-Stefan (Ste ~ 1e-2) benchmark and the density-jump normal velocity not exercised.
 4. Stefan benchmark and the baseline use different codes (Python) from the CFD (OpenFOAM); the reach model's closure (Dittus–Boelter at Re ~1e5) is untested by CFD.
