@@ -1,0 +1,100 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "T02",
+  "scn_override": {
+   "id": "T02",
+   "sill_offset_m": 0.18,
+   "inflow_m3_s": 0.05,
+   "inflow_T_C": 3.0,
+   "pulse_amp": 0.0,
+   "pulse_period_s": 10800.0
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 300.0,
+    "initial_stage_below_sill1_m": 0.05
+   },
+   "duration_h": 12.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 60.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0,
+   "melting": false
+  },
+  "params": {
+   "I": 0.05,
+   "T": 3.0,
+   "area": 300.0,
+   "bottom": 99.0,
+   "deficit": 0.05,
+   "offset": 0.18,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 60.0,
+   "S2": 0.02,
+   "duration_h": 12.0
+  },
+  "version": "capture_v1",
+  "ncell": 200,
+  "label": "cap_T02_fixed_ref200",
+  "commit": "9e65de1"
+ },
+ "id": "cap_T02_fixed_ref200_70bb7d835b",
+ "commit": "9e65de1",
+ "start_unix": 1793410645.5166295,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": 406.9206598639553,
+  "t_act2_s": 1884.1366092383475,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.18931723067565187,
+  "sill_lowering1_m": 0.0,
+  "sill_lowering2_m": 0.0,
+  "delivered1_m3": 1659.3275932417496,
+  "delivered2_m3": 394.7557304275134,
+  "heat_to_ice_J": 0.0,
+  "stage_end_m": 100.26739319791281,
+  "stage_max_m": 100.26739319791281
+ },
+ "timing": {
+  "import_s": 0.6032971719996567,
+  "warmup_s": 0.20730648800008566,
+  "solver_s": 54.64476740100008,
+  "metrics_serialization_s": 0.002773608000097738
+ },
+ "nsteps": 415561,
+ "diss_J": 13540053.455511158,
+ "wall_total_s": 55.60053781199986,
+ "peak_rss_mb": 172.48046875,
+ "end_unix": 1793410701.117184
+}

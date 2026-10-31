@@ -1,0 +1,99 @@
+{
+ "spec": {
+  "kind": "reference",
+  "scn": "T07",
+  "scn_override": {
+   "id": "T07",
+   "sill_offset_m": 0.05,
+   "inflow_m3_s": 0.05,
+   "inflow_T_C": 2.0,
+   "pulse_amp": 0.0,
+   "pulse_period_s": 10800.0
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 2000.0,
+    "initial_stage_below_sill1_m": 0.05
+   },
+   "duration_h": 12.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 60.0,
+     "slope": 0.02,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0
+  },
+  "params": {
+   "I": 0.05,
+   "T": 2.0,
+   "area": 2000.0,
+   "bottom": 99.0,
+   "deficit": 0.05,
+   "offset": 0.05,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 60.0,
+   "S2": 0.02,
+   "duration_h": 12.0
+  },
+  "version": "capture_v1",
+  "ncell": 200,
+  "label": "cap_T07_thermal_ref200",
+  "commit": "9e65de1"
+ },
+ "id": "cap_T07_thermal_ref200_8eb990c489",
+ "commit": "9e65de1",
+ "start_unix": 1793412088.0256617,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": 2738.4347175574326,
+  "t_act2_s": 4804.852274582082,
+  "t_end_act2_s": null,
+  "t_dom2_s": 17277.397037915347,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.7406802342586327,
+  "sill_lowering1_m": 0.1435489923609765,
+  "sill_lowering2_m": 0.19778353813177318,
+  "delivered1_m3": 938.2112610338601,
+  "delivered2_m3": 1082.9973176450947,
+  "heat_to_ice_J": 5088922492.861525,
+  "stage_end_m": 100.02208969362908,
+  "stage_max_m": 100.15552596044385
+ },
+ "timing": {
+  "import_s": 0.6650593630001822,
+  "warmup_s": 0.2217016419999709,
+  "solver_s": 88.66981810099969,
+  "metrics_serialization_s": 0.0029923070001132146
+ },
+ "nsteps": 533827,
+ "diss_J": 16817802.362105437,
+ "wall_total_s": 89.700189314,
+ "peak_rss_mb": 172.671875,
+ "end_unix": 1793412177.72587
+}

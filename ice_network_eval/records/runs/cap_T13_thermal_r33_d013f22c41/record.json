@@ -1,0 +1,156 @@
+{
+ "spec": {
+  "kind": "reduced",
+  "scn": "T13",
+  "scn_override": {
+   "id": "T13",
+   "sill_offset_m": 0.02,
+   "inflow_m3_s": 0.05,
+   "inflow_T_C": 3.0,
+   "pulse_amp": 0.0,
+   "pulse_period_s": 10800.0
+  },
+  "cfg_patch": {
+   "lake": {
+    "area_m2": 2000.0,
+    "initial_stage_below_sill1_m": 0.05
+   },
+   "duration_h": 12.0,
+   "channels": [
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    },
+    {
+     "width_m": 0.4,
+     "length_m": 100.0,
+     "slope": 0.005,
+     "crest_length_m": 2.0
+    }
+   ]
+  },
+  "overrides": {
+   "n_man": 0.04,
+   "nu_factor": 1.0
+  },
+  "params": {
+   "I": 0.05,
+   "T": 3.0,
+   "area": 2000.0,
+   "bottom": 99.0,
+   "deficit": 0.05,
+   "offset": 0.02,
+   "amp": 0.0,
+   "period_h": 3.0,
+   "n_man": 0.04,
+   "ke": 0.5,
+   "nu_factor": 1.0,
+   "bank": 1.0,
+   "crest": 2.0,
+   "sill1": 100.0,
+   "w1": 0.4,
+   "L1": 100.0,
+   "S1": 0.005,
+   "w2": 0.4,
+   "L2": 100.0,
+   "S2": 0.005,
+   "duration_h": 12.0
+  },
+  "version": "capture_v1",
+  "stations": 33,
+  "dt_geom": 225,
+  "label": "cap_T13_thermal_r33",
+  "commit": "9e65de1"
+ },
+ "id": "cap_T13_thermal_r33_d013f22c41",
+ "commit": "9e65de1",
+ "start_unix": 1793412780.2932634,
+ "status": "completed",
+ "metrics": {
+  "t_act1_s": 2668.1422507295138,
+  "t_act2_s": 3493.0322379542736,
+  "t_end_act2_s": null,
+  "t_dom2_s": null,
+  "active_at_end": [
+   true,
+   true
+  ],
+  "peak_Q2_over_I": 0.5570385683663053,
+  "sill_lowering1_m": 0.22446090541973263,
+  "sill_lowering2_m": 0.2133327562346068,
+  "delivered1_m3": 1167.7373704958975,
+  "delivered2_m3": 931.3795903131601,
+  "heat_to_ice_J": 8924065763.643108,
+  "stage_end_m": 99.99380089948117,
+  "stage_max_m": 100.14530061470208
+ },
+ "timing": {
+  "import_s": 0.6074315379992186,
+  "warmup_s": 0.22375158700015163,
+  "sampling_run_s": 27.576636232000055,
+  "solver_s": 23.99983982899994,
+  "metrics_serialization_s": 0.0027252840000073775
+ },
+ "applicability": {
+  "summary": {
+   "n_active_edge_snapshots": 1634,
+   "r_qs_max": 62.6336390073363,
+   "tau_wave_s_max": 1075.1296728133557,
+   "tau_transit_s_max": 1286331.4049111216,
+   "channel_over_node_max": 0.004364626359054214,
+   "melt_over_flow_max": 0.03789157166189678,
+   "froude_max": 1.0000000000000002,
+   "snapshots_with_critical_control": 0,
+   "snapshots_with_froude_ge_1": 132,
+   "Re_min": 0.08135329962789536,
+   "Re_max": 127740.8967141274,
+   "Re_outside_nominal_1e4_1p2e5": true
+  },
+  "n_rows_active": 1605,
+  "r_qs_p50_p90_max": [
+   0.0020732493112295986,
+   0.0125416746226501,
+   0.3624724255141186
+  ],
+  "froude_max_p50_p90_max": [
+   0.9999999999999998,
+   0.9999999999999999,
+   1.0000000000000002
+  ],
+  "channel_over_node_p50_p90_max": [
+   0.003402110249950258,
+   0.004118150383682,
+   0.004364626359054214
+  ],
+  "melt_over_flow_p50_p90_max": [
+   0.012853018559365674,
+   0.018766670416456684,
+   0.03777588280099456
+  ],
+  "Re_min_p50_p90_max": [
+   75854.84378146582,
+   88051.41383881815,
+   88339.38054081188
+  ],
+  "Re_max_p50_p90_max": [
+   106932.99498424843,
+   127126.8068418261,
+   127740.8967141274
+  ],
+  "frac_active_snapshots_with_froude_ge_1": 0.08224299065420561
+ },
+ "discharge_law_evaluations": 7902,
+ "conservation": {
+  "water_residual_rel": 5.424629062792485e-16,
+  "mass_residual_rel": 9.774062346224326e-16,
+  "energy_residual_rel": -5.187419749751465e-16,
+  "geometry_vs_latent_rel_max": 1.1563723671954446e-05,
+  "geometry_vs_latent_kg_abs_max": 0.000874148632192373
+ },
+ "n_macrosteps": 192,
+ "wall_total_s": 57.057788046000496,
+ "peak_rss_mb": 229.734375,
+ "end_unix": 1793412837.3510675
+}

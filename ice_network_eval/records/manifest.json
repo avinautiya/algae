@@ -1,11 +1,11 @@
 {
- "generated_unix": 1793409617.012506,
+ "generated_unix": 1793413174.4352887,
  "counts": {
-  "completed": 758,
+  "completed": 836,
   "stalled": 2,
   "failed": 3
  },
- "total_wall_s": 37394.56989989845,
+ "total_wall_s": 43600.27828820646,
  "runs": [
   {
    "id": "cap_D01_dissipation_r17_9e364cef68",
@@ -342,6 +342,552 @@
    "wall_s": 29.37173377499994,
    "peak_rss_mb": 184.796875,
    "label": "cap_D16_thermal_r17"
+  },
+  {
+   "id": "cap_T01_dissipation_r17_f41f8fa7dc",
+   "state": "completed",
+   "wall_s": 21.69520115599994,
+   "peak_rss_mb": 184.390625,
+   "label": "cap_T01_dissipation_r17"
+  },
+  {
+   "id": "cap_T01_fixed_r17_ffcf8af9f0",
+   "state": "completed",
+   "wall_s": 18.648794404,
+   "peak_rss_mb": 184.5546875,
+   "label": "cap_T01_fixed_r17"
+  },
+  {
+   "id": "cap_T01_fixed_ref200_0bab5c86cb",
+   "state": "completed",
+   "wall_s": 54.81763525800011,
+   "peak_rss_mb": 172.4296875,
+   "label": "cap_T01_fixed_ref200"
+  },
+  {
+   "id": "cap_T01_fixed_ref400_6997c7d6e6",
+   "state": "completed",
+   "wall_s": 174.25609025300014,
+   "peak_rss_mb": 172.58984375,
+   "label": "cap_T01_fixed_ref400"
+  },
+  {
+   "id": "cap_T01_thermal_r17_5d53030b1e",
+   "state": "completed",
+   "wall_s": 31.64318838400004,
+   "peak_rss_mb": 185.08203125,
+   "label": "cap_T01_thermal_r17"
+  },
+  {
+   "id": "cap_T01_thermal_r33_41f40b1da9",
+   "state": "completed",
+   "wall_s": 348.44648953499996,
+   "peak_rss_mb": 230.24609375,
+   "label": "cap_T01_thermal_r33"
+  },
+  {
+   "id": "cap_T01_thermal_ref200_09480127f5",
+   "state": "completed",
+   "wall_s": 78.26725548700006,
+   "peak_rss_mb": 172.6328125,
+   "label": "cap_T01_thermal_ref200"
+  },
+  {
+   "id": "cap_T01_thermal_ref400_096f644ac2",
+   "state": "completed",
+   "wall_s": 268.721284446,
+   "peak_rss_mb": 172.765625,
+   "label": "cap_T01_thermal_ref400"
+  },
+  {
+   "id": "cap_T02_dissipation_r17_8587d1eb31",
+   "state": "completed",
+   "wall_s": 22.439906476000033,
+   "peak_rss_mb": 184.51171875,
+   "label": "cap_T02_dissipation_r17"
+  },
+  {
+   "id": "cap_T02_fixed_r17_740f8f0e78",
+   "state": "completed",
+   "wall_s": 30.736481645999902,
+   "peak_rss_mb": 184.70703125,
+   "label": "cap_T02_fixed_r17"
+  },
+  {
+   "id": "cap_T02_fixed_ref200_70bb7d835b",
+   "state": "completed",
+   "wall_s": 55.60053781199986,
+   "peak_rss_mb": 172.48046875,
+   "label": "cap_T02_fixed_ref200"
+  },
+  {
+   "id": "cap_T02_fixed_ref400_e6a475f001",
+   "state": "completed",
+   "wall_s": 169.2863187480002,
+   "peak_rss_mb": 172.4140625,
+   "label": "cap_T02_fixed_ref400"
+  },
+  {
+   "id": "cap_T02_thermal_r17_439a16e3c3",
+   "state": "completed",
+   "wall_s": 46.24877097999979,
+   "peak_rss_mb": 185.38671875,
+   "label": "cap_T02_thermal_r17"
+  },
+  {
+   "id": "cap_T02_thermal_r33_1799d938d9",
+   "state": "completed",
+   "wall_s": 167.7582555050003,
+   "peak_rss_mb": 229.91796875,
+   "label": "cap_T02_thermal_r33"
+  },
+  {
+   "id": "cap_T02_thermal_ref200_0dccd9b279",
+   "state": "completed",
+   "wall_s": 72.70281965999993,
+   "peak_rss_mb": 172.8359375,
+   "label": "cap_T02_thermal_ref200"
+  },
+  {
+   "id": "cap_T02_thermal_ref400_77e3e63763",
+   "state": "completed",
+   "wall_s": 246.17336866200003,
+   "peak_rss_mb": 172.4140625,
+   "label": "cap_T02_thermal_ref400"
+  },
+  {
+   "id": "cap_T03_dissipation_r17_dde345e3c8",
+   "state": "completed",
+   "wall_s": 38.82608609399995,
+   "peak_rss_mb": 184.828125,
+   "label": "cap_T03_dissipation_r17"
+  },
+  {
+   "id": "cap_T03_fixed_r17_23901ffdf0",
+   "state": "completed",
+   "wall_s": 20.186828178999804,
+   "peak_rss_mb": 184.59765625,
+   "label": "cap_T03_fixed_r17"
+  },
+  {
+   "id": "cap_T03_thermal_r17_ec862bc41b",
+   "state": "completed",
+   "wall_s": 34.96554020400026,
+   "peak_rss_mb": 185.0859375,
+   "label": "cap_T03_thermal_r17"
+  },
+  {
+   "id": "cap_T04_dissipation_r17_cf579703d1",
+   "state": "completed",
+   "wall_s": 30.032667578999735,
+   "peak_rss_mb": 184.44921875,
+   "label": "cap_T04_dissipation_r17"
+  },
+  {
+   "id": "cap_T04_fixed_r17_a94169db94",
+   "state": "completed",
+   "wall_s": 29.22274048899999,
+   "peak_rss_mb": 184.58984375,
+   "label": "cap_T04_fixed_r17"
+  },
+  {
+   "id": "cap_T04_fixed_ref200_2d6ccced35",
+   "state": "completed",
+   "wall_s": 73.32014846099992,
+   "peak_rss_mb": 172.47265625,
+   "label": "cap_T04_fixed_ref200"
+  },
+  {
+   "id": "cap_T04_fixed_ref400_8e4d52a8c3",
+   "state": "completed",
+   "wall_s": 198.46445150599993,
+   "peak_rss_mb": 172.5546875,
+   "label": "cap_T04_fixed_ref400"
+  },
+  {
+   "id": "cap_T04_thermal_r17_808ffdc498",
+   "state": "completed",
+   "wall_s": 31.109500231999846,
+   "peak_rss_mb": 184.78125,
+   "label": "cap_T04_thermal_r17"
+  },
+  {
+   "id": "cap_T04_thermal_r33_b6ba3e2adc",
+   "state": "completed",
+   "wall_s": 184.44206817800023,
+   "peak_rss_mb": 229.91796875,
+   "label": "cap_T04_thermal_r33"
+  },
+  {
+   "id": "cap_T04_thermal_ref200_dd4b61061c",
+   "state": "completed",
+   "wall_s": 93.58825797100008,
+   "peak_rss_mb": 172.6328125,
+   "label": "cap_T04_thermal_ref200"
+  },
+  {
+   "id": "cap_T04_thermal_ref400_2328416e3b",
+   "state": "completed",
+   "wall_s": 322.2565244509997,
+   "peak_rss_mb": 172.59375,
+   "label": "cap_T04_thermal_ref400"
+  },
+  {
+   "id": "cap_T05_dissipation_r17_4843d6a3f5",
+   "state": "completed",
+   "wall_s": 20.939301993999834,
+   "peak_rss_mb": 184.6640625,
+   "label": "cap_T05_dissipation_r17"
+  },
+  {
+   "id": "cap_T05_fixed_r17_d7c3c62b02",
+   "state": "completed",
+   "wall_s": 16.92769007400011,
+   "peak_rss_mb": 184.32421875,
+   "label": "cap_T05_fixed_r17"
+  },
+  {
+   "id": "cap_T05_fixed_ref200_9a87ae4ca6",
+   "state": "completed",
+   "wall_s": 61.37514904599993,
+   "peak_rss_mb": 173.0859375,
+   "label": "cap_T05_fixed_ref200"
+  },
+  {
+   "id": "cap_T05_fixed_ref400_2cdfc9fefa",
+   "state": "completed",
+   "wall_s": 188.023920868,
+   "peak_rss_mb": 172.56640625,
+   "label": "cap_T05_fixed_ref400"
+  },
+  {
+   "id": "cap_T05_thermal_r17_6c79ab158f",
+   "state": "completed",
+   "wall_s": 52.11448425500021,
+   "peak_rss_mb": 185.54296875,
+   "label": "cap_T05_thermal_r17"
+  },
+  {
+   "id": "cap_T05_thermal_r33_966e364a87",
+   "state": "completed",
+   "wall_s": 311.2879624000002,
+   "peak_rss_mb": 230.37109375,
+   "label": "cap_T05_thermal_r33"
+  },
+  {
+   "id": "cap_T05_thermal_ref200_cdedfdd9c9",
+   "state": "completed",
+   "wall_s": 83.00897177100023,
+   "peak_rss_mb": 172.75390625,
+   "label": "cap_T05_thermal_ref200"
+  },
+  {
+   "id": "cap_T05_thermal_ref400_9691908d7a",
+   "state": "completed",
+   "wall_s": 282.43780344900006,
+   "peak_rss_mb": 172.45703125,
+   "label": "cap_T05_thermal_ref400"
+  },
+  {
+   "id": "cap_T06_dissipation_r17_dde404c6a8",
+   "state": "completed",
+   "wall_s": 27.480392637000023,
+   "peak_rss_mb": 185.10546875,
+   "label": "cap_T06_dissipation_r17"
+  },
+  {
+   "id": "cap_T06_fixed_r17_fa24eadc4d",
+   "state": "completed",
+   "wall_s": 23.329198697000265,
+   "peak_rss_mb": 184.96875,
+   "label": "cap_T06_fixed_r17"
+  },
+  {
+   "id": "cap_T06_thermal_r17_bb2ec479a5",
+   "state": "completed",
+   "wall_s": 53.33145539099996,
+   "peak_rss_mb": 185.61328125,
+   "label": "cap_T06_thermal_r17"
+  },
+  {
+   "id": "cap_T07_dissipation_r17_fedacb9f93",
+   "state": "completed",
+   "wall_s": 27.803214478999962,
+   "peak_rss_mb": 184.71875,
+   "label": "cap_T07_dissipation_r17"
+  },
+  {
+   "id": "cap_T07_fixed_r17_446ccc58f9",
+   "state": "completed",
+   "wall_s": 25.633628124000097,
+   "peak_rss_mb": 184.44140625,
+   "label": "cap_T07_fixed_r17"
+  },
+  {
+   "id": "cap_T07_fixed_ref200_a9ad7eaf1a",
+   "state": "completed",
+   "wall_s": 59.33293855900001,
+   "peak_rss_mb": 172.59765625,
+   "label": "cap_T07_fixed_ref200"
+  },
+  {
+   "id": "cap_T07_fixed_ref400_93ea098257",
+   "state": "completed",
+   "wall_s": 184.9995402329996,
+   "peak_rss_mb": 172.53515625,
+   "label": "cap_T07_fixed_ref400"
+  },
+  {
+   "id": "cap_T07_thermal_r17_9e43eaff84",
+   "state": "completed",
+   "wall_s": 31.159450528000434,
+   "peak_rss_mb": 185.0703125,
+   "label": "cap_T07_thermal_r17"
+  },
+  {
+   "id": "cap_T07_thermal_r33_4fa2270186",
+   "state": "completed",
+   "wall_s": 196.50003803799973,
+   "peak_rss_mb": 230.62890625,
+   "label": "cap_T07_thermal_r33"
+  },
+  {
+   "id": "cap_T07_thermal_ref200_8eb990c489",
+   "state": "completed",
+   "wall_s": 89.700189314,
+   "peak_rss_mb": 172.671875,
+   "label": "cap_T07_thermal_ref200"
+  },
+  {
+   "id": "cap_T07_thermal_ref400_5582c6894e",
+   "state": "completed",
+   "wall_s": 286.7405826969998,
+   "peak_rss_mb": 172.671875,
+   "label": "cap_T07_thermal_ref400"
+  },
+  {
+   "id": "cap_T08_dissipation_r17_71664278c8",
+   "state": "completed",
+   "wall_s": 28.389608207000492,
+   "peak_rss_mb": 184.59765625,
+   "label": "cap_T08_dissipation_r17"
+  },
+  {
+   "id": "cap_T08_fixed_r17_0a670b2045",
+   "state": "completed",
+   "wall_s": 26.56783026499943,
+   "peak_rss_mb": 184.59765625,
+   "label": "cap_T08_fixed_r17"
+  },
+  {
+   "id": "cap_T08_thermal_r17_d59e698f00",
+   "state": "completed",
+   "wall_s": 31.799832882999453,
+   "peak_rss_mb": 185.21875,
+   "label": "cap_T08_thermal_r17"
+  },
+  {
+   "id": "cap_T09_dissipation_r17_7ce29954e3",
+   "state": "completed",
+   "wall_s": 42.58118553299937,
+   "peak_rss_mb": 185.14453125,
+   "label": "cap_T09_dissipation_r17"
+  },
+  {
+   "id": "cap_T09_fixed_r17_b49de5c73c",
+   "state": "completed",
+   "wall_s": 26.944409257999723,
+   "peak_rss_mb": 184.32421875,
+   "label": "cap_T09_fixed_r17"
+  },
+  {
+   "id": "cap_T09_thermal_r17_75be9f95e5",
+   "state": "completed",
+   "wall_s": 31.356186589000572,
+   "peak_rss_mb": 185.15234375,
+   "label": "cap_T09_thermal_r17"
+  },
+  {
+   "id": "cap_T10_dissipation_r17_b1d882ae1b",
+   "state": "completed",
+   "wall_s": 28.807268255000054,
+   "peak_rss_mb": 184.40625,
+   "label": "cap_T10_dissipation_r17"
+  },
+  {
+   "id": "cap_T10_fixed_r17_8937cba935",
+   "state": "completed",
+   "wall_s": 26.442250695999974,
+   "peak_rss_mb": 184.546875,
+   "label": "cap_T10_fixed_r17"
+  },
+  {
+   "id": "cap_T10_thermal_r17_04054772fe",
+   "state": "completed",
+   "wall_s": 31.896066278000035,
+   "peak_rss_mb": 185.28125,
+   "label": "cap_T10_thermal_r17"
+  },
+  {
+   "id": "cap_T11_dissipation_r17_e8e175f4c6",
+   "state": "completed",
+   "wall_s": 31.40501183000015,
+   "peak_rss_mb": 184.8125,
+   "label": "cap_T11_dissipation_r17"
+  },
+  {
+   "id": "cap_T11_fixed_r17_b3ad55de71",
+   "state": "completed",
+   "wall_s": 28.138318980000804,
+   "peak_rss_mb": 184.34765625,
+   "label": "cap_T11_fixed_r17"
+  },
+  {
+   "id": "cap_T11_thermal_r17_f82870fdf3",
+   "state": "completed",
+   "wall_s": 40.09128119700017,
+   "peak_rss_mb": 185.63671875,
+   "label": "cap_T11_thermal_r17"
+  },
+  {
+   "id": "cap_T12_dissipation_r17_4546b932c4",
+   "state": "completed",
+   "wall_s": 31.076310960999763,
+   "peak_rss_mb": 184.53515625,
+   "label": "cap_T12_dissipation_r17"
+  },
+  {
+   "id": "cap_T12_fixed_r17_71cd10cd3b",
+   "state": "completed",
+   "wall_s": 28.381447171000218,
+   "peak_rss_mb": 184.25,
+   "label": "cap_T12_fixed_r17"
+  },
+  {
+   "id": "cap_T12_thermal_r17_84459aad2b",
+   "state": "completed",
+   "wall_s": 39.97611065899946,
+   "peak_rss_mb": 185.71875,
+   "label": "cap_T12_thermal_r17"
+  },
+  {
+   "id": "cap_T13_dissipation_r17_7713e15c59",
+   "state": "completed",
+   "wall_s": 30.18451398599973,
+   "peak_rss_mb": 184.609375,
+   "label": "cap_T13_dissipation_r17"
+  },
+  {
+   "id": "cap_T13_fixed_r17_7dd8e2e4ad",
+   "state": "completed",
+   "wall_s": 25.678257278000274,
+   "peak_rss_mb": 184.55859375,
+   "label": "cap_T13_fixed_r17"
+  },
+  {
+   "id": "cap_T13_fixed_ref200_2fda0865f2",
+   "state": "completed",
+   "wall_s": 40.786915515000146,
+   "peak_rss_mb": 172.71875,
+   "label": "cap_T13_fixed_ref200"
+  },
+  {
+   "id": "cap_T13_fixed_ref400_647769991a",
+   "state": "completed",
+   "wall_s": 121.20208108999941,
+   "peak_rss_mb": 172.953125,
+   "label": "cap_T13_fixed_ref400"
+  },
+  {
+   "id": "cap_T13_thermal_r17_6f2b3d1b12",
+   "state": "completed",
+   "wall_s": 32.88738519599974,
+   "peak_rss_mb": 185.55859375,
+   "label": "cap_T13_thermal_r17"
+  },
+  {
+   "id": "cap_T13_thermal_r33_d013f22c41",
+   "state": "completed",
+   "wall_s": 57.057788046000496,
+   "peak_rss_mb": 229.734375,
+   "label": "cap_T13_thermal_r33"
+  },
+  {
+   "id": "cap_T13_thermal_ref200_5454d8f20a",
+   "state": "completed",
+   "wall_s": 58.38096657799997,
+   "peak_rss_mb": 172.77734375,
+   "label": "cap_T13_thermal_ref200"
+  },
+  {
+   "id": "cap_T13_thermal_ref400_8a90949640",
+   "state": "completed",
+   "wall_s": 192.0200060469997,
+   "peak_rss_mb": 172.7890625,
+   "label": "cap_T13_thermal_ref400"
+  },
+  {
+   "id": "cap_T14_dissipation_r17_eafcd7b0eb",
+   "state": "completed",
+   "wall_s": 43.68143366200002,
+   "peak_rss_mb": 185.23046875,
+   "label": "cap_T14_dissipation_r17"
+  },
+  {
+   "id": "cap_T14_fixed_r17_1a9572564e",
+   "state": "completed",
+   "wall_s": 42.51061649099938,
+   "peak_rss_mb": 184.82421875,
+   "label": "cap_T14_fixed_r17"
+  },
+  {
+   "id": "cap_T14_thermal_r17_894a1470f6",
+   "state": "completed",
+   "wall_s": 49.21789198100032,
+   "peak_rss_mb": 185.7265625,
+   "label": "cap_T14_thermal_r17"
+  },
+  {
+   "id": "cap_T15_dissipation_r17_caef4d48f9",
+   "state": "completed",
+   "wall_s": 27.955883719000667,
+   "peak_rss_mb": 184.296875,
+   "label": "cap_T15_dissipation_r17"
+  },
+  {
+   "id": "cap_T15_fixed_r17_e90fcf1398",
+   "state": "completed",
+   "wall_s": 25.58061025799998,
+   "peak_rss_mb": 184.44921875,
+   "label": "cap_T15_fixed_r17"
+  },
+  {
+   "id": "cap_T15_thermal_r17_ac5a912c4c",
+   "state": "completed",
+   "wall_s": 32.515689271000156,
+   "peak_rss_mb": 185.5078125,
+   "label": "cap_T15_thermal_r17"
+  },
+  {
+   "id": "cap_T16_dissipation_r17_7997030946",
+   "state": "completed",
+   "wall_s": 22.2278468100003,
+   "peak_rss_mb": 184.55078125,
+   "label": "cap_T16_dissipation_r17"
+  },
+  {
+   "id": "cap_T16_fixed_r17_b241eec8a8",
+   "state": "completed",
+   "wall_s": 20.022178447999977,
+   "peak_rss_mb": 184.42578125,
+   "label": "cap_T16_fixed_r17"
+  },
+  {
+   "id": "cap_T16_thermal_r17_5386cdebc0",
+   "state": "completed",
+   "wall_s": 23.962080860000242,
+   "peak_rss_mb": 184.79296875,
+   "label": "cap_T16_thermal_r17"
   },
   {
    "id": "red_C000_r17_774d0c27e5",

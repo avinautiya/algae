@@ -1,0 +1,132 @@
+{
+ "rtm17_vs_net17": {
+  "switch_ok": [
+   13,
+   13
+  ],
+  "t_dom2_ok": [
+   3,
+   3
+  ],
+  "drift_ok": [
+   15,
+   15
+  ],
+  "phi2_ok": [
+   4,
+   16
+  ],
+  "sill_ok": [
+   15,
+   16
+  ]
+ },
+ "rtm33_vs_ref": {
+  "switch_ok": [
+   6,
+   6
+  ],
+  "t_dom2_ok": [
+   1,
+   1
+  ],
+  "drift_ok": [
+   5,
+   6
+  ],
+  "phi2_ok": [
+   3,
+   6
+  ],
+  "sill_ok": [
+   6,
+   6
+  ]
+ },
+ "rtm17_vs_ref": {
+  "switch_ok": [
+   6,
+   6
+  ],
+  "t_dom2_ok": [
+   0,
+   1
+  ],
+  "drift_ok": [
+   6,
+   6
+  ],
+  "phi2_ok": [
+   2,
+   6
+  ],
+  "sill_ok": [
+   6,
+   6
+  ]
+ },
+ "net17_vs_ref": {
+  "switch_ok": [
+   6,
+   6
+  ],
+  "t_dom2_ok": [
+   0,
+   1
+  ],
+  "drift_ok": [
+   6,
+   6
+  ],
+  "phi2_ok": [
+   4,
+   6
+  ],
+  "sill_ok": [
+   6,
+   6
+  ]
+ },
+ "net33_vs_ref": {
+  "switch_ok": [
+   6,
+   6
+  ],
+  "t_dom2_ok": [
+   1,
+   1
+  ],
+  "drift_ok": [
+   6,
+   6
+  ],
+  "phi2_ok": [
+   6,
+   6
+  ],
+  "sill_ok": [
+   6,
+   6
+  ]
+ },
+ "fixed_geometry_vs_thermal_net": {
+  "switch_agree": [
+   11,
+   16
+  ],
+  "drift_sign_agree": [
+   1,
+   16
+  ]
+ },
+ "dissipation_only_vs_thermal_net": {
+  "switch_agree": [
+   11,
+   16
+  ],
+  "drift_sign_agree": [
+   1,
+   16
+  ]
+ }
+}

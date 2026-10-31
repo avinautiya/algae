@@ -1,0 +1,2862 @@
+{
+ "T01": {
+  "description": "geom A, small lake (300 m2), 3 C, gap 0.15 m (below QS threshold 0.166)",
+  "gap0": 0.15,
+  "qs_threshold": [
+   0.16588107188234563
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 1487.3648315294888,
+    "phi2_deliv": 0.3157603747543739,
+    "d1": 0.2478539821069603,
+    "d2": 0.32473722544192185,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.07311675666504414,
+    "gap_drift_mm": -49.50120691964344,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1497.0672530875472,
+     690.8610659573122
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 1479.2589801661477,
+    "phi2_deliv": 0.2691420493698314,
+    "d1": 0.00030029447367496687,
+    "d2": 0.00044321330473451326,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.14985708116894614,
+    "gap_drift_mm": -0.07968267729552281,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1513.302307721099,
+     557.2810476577162
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 1479.2560007354277,
+    "phi2_deliv": 0.26899901533566967,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.15000000000000568,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1513.470903688979,
+     556.937940403006
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": {
+    "t_dom2": null,
+    "t_act2": 1546.682557939567,
+    "phi2_deliv": 0.2919059622778045,
+    "d1": 0.2497866727698721,
+    "d2": 0.31562324946951037,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.08416342330036741,
+    "gap_drift_mm": -46.760668647578996,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1548.4146053165305,
+     638.3212275362459
+    ],
+    "status": "completed"
+   },
+   "thermal_ref200": {
+    "t_dom2": null,
+    "t_act2": 1548.2808793895624,
+    "phi2_deliv": 0.27354160891816487,
+    "d1": 0.24596598811723425,
+    "d2": 0.29301457603440895,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.10295141208283098,
+    "gap_drift_mm": -39.90374437950095,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1578.5160434394456,
+     594.3765307501568
+    ],
+    "status": "completed"
+   },
+   "thermal_ref400": {
+    "t_dom2": null,
+    "t_act2": 1547.4266861556548,
+    "phi2_deliv": 0.28178252356427785,
+    "d1": 0.24651111276523352,
+    "d2": 0.3001946916005096,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.0963164211647296,
+    "gap_drift_mm": -44.40905767673087,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1561.6693491026188,
+     612.6990007914437
+    ],
+    "status": "completed"
+   },
+   "fixed_ref200": {
+    "t_dom2": null,
+    "t_act2": 1537.4342794487009,
+    "phi2_deliv": 0.2533715145340962,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.15000000000000568,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1537.1790770762982,
+     521.648180387744
+    ],
+    "status": "completed"
+   },
+   "fixed_ref400": {
+    "t_dom2": null,
+    "t_act2": 1536.4143222432413,
+    "phi2_deliv": 0.25353076136858,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.15000000000000568,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1536.705226909327,
+     521.9264586062465
+    ],
+    "status": "completed"
+   }
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -49.50120691964344,
+   "drift_pred_mm": -35.34788108438988,
+   "drift_ok": 1.0,
+   "phi2_err": -0.0034031304039798815,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.033924837620576624,
+    -0.029090578593425412
+   ],
+   "sill_ok": true
+  },
+  "target_ref": "ref400",
+  "rtm33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -44.40905767673087,
+   "drift_pred_mm": -18.924794614053997,
+   "drift_ok": 1.0,
+   "phi2_err": -0.02899044338529705,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.050135051326799455,
+    -0.03955040889857807
+   ],
+   "sill_ok": true
+  },
+  "rtm17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -44.40905767673087,
+   "drift_pred_mm": -35.34788108438988,
+   "drift_ok": 1.0,
+   "phi2_err": 0.030574720786116172,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.039557143403938164,
+    0.05028649901168836
+   ],
+   "sill_ok": true
+  },
+  "net17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -44.40905767673087,
+   "drift_pred_mm": -49.50120691964344,
+   "drift_ok": 1.0,
+   "phi2_err": 0.03397785119009605,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.0054475002228628645,
+    0.08175538917947538
+   ],
+   "sill_ok": true
+  },
+  "net33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -44.40905767673087,
+   "drift_pred_mm": -46.760668647578996,
+   "drift_ok": 1.0,
+   "phi2_err": 0.010123438713526667,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.013287676843023621,
+    0.05139517220222084
+   ],
+   "sill_ok": true
+  },
+  "ref_200_vs_400": {
+   "phi2": 0.008240914646112985,
+   "sill1_mm": 0.5451246479992733,
+   "sill2_mm": 7.180115566100653,
+   "drift_mm": -4.505313297229918,
+   "t_dom2": null,
+   "switch_200": false,
+   "switch_400": false
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": -49.50120691964344,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.04676135941870424,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": -0.07968267729552281,
+   "drift_thermal": -49.50120691964344,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.046618325384542525,
+   "sill_rel_err": [
+    -0.9987884218315872,
+    -0.9986351632334994
+   ]
+  }
+ },
+ "T02": {
+  "description": "geom A, small lake, 3 C, gap 0.18 m (between QS threshold and horizon boundary)",
+  "gap0": 0.18,
+  "qs_threshold": [
+   0.16588107188234563
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 1824.7232705689732,
+    "phi2_deliv": 0.20971397345990933,
+    "d1": 0.2530827158308142,
+    "d2": 0.29810259809794104,
+    "gap0": 0.18000000000000682,
+    "gap_end": 0.13498011773288,
+    "gap_drift_mm": -31.32126854757189,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1722.9697666924571,
+     457.21526610598374
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 1809.6188914502452,
+    "phi2_deliv": 0.20757608113271034,
+    "d1": 0.00031706314230461885,
+    "d2": 0.0003407594317650364,
+    "gap0": 0.18000000000000682,
+    "gap_end": 0.1799763037105464,
+    "gap_drift_mm": -0.017922866661024273,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1637.1860536477711,
+     428.86219990318847
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 1809.6114123497662,
+    "phi2_deliv": 0.20758656386982297,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.18000000000000682,
+    "gap_end": 0.18000000000000682,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1637.0382146212255,
+     428.85080237456174
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": {
+    "t_dom2": null,
+    "t_act2": 1902.1461247776442,
+    "phi2_deliv": 0.18141011256022438,
+    "d1": 0.2549840467184765,
+    "d2": 0.2840059342449308,
+    "gap0": 0.18000000000000682,
+    "gap_end": 0.15097811247355253,
+    "gap_drift_mm": -25.54288216515488,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1783.2303981778423,
+     395.1869333079881
+    ],
+    "status": "completed"
+   },
+   "thermal_ref200": {
+    "t_dom2": null,
+    "t_act2": 1910.2865255439954,
+    "phi2_deliv": 0.16096220057301008,
+    "d1": 0.2510803032779023,
+    "d2": 0.2576283310805252,
+    "gap0": 0.18000000000000682,
+    "gap_end": 0.17345197219738395,
+    "gap_drift_mm": -15.533159176925437,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1815.2120631735932,
+     348.23285481850314
+    ],
+    "status": "completed"
+   },
+   "thermal_ref400": {
+    "t_dom2": null,
+    "t_act2": 1908.9760293564339,
+    "phi2_deliv": 0.16981466381071644,
+    "d1": 0.25168393036116754,
+    "d2": 0.2673035957685812,
+    "gap0": 0.18000000000000682,
+    "gap_end": 0.16438033459259316,
+    "gap_drift_mm": -22.192389315065952,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1797.4447388228755,
+     367.6678697345169
+    ],
+    "status": "completed"
+   },
+   "fixed_ref200": {
+    "t_dom2": null,
+    "t_act2": 1884.1366092383475,
+    "phi2_deliv": 0.19218097234845902,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.18000000000000682,
+    "gap_end": 0.18000000000000682,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1659.3275932417496,
+     394.7557304275134
+    ],
+    "status": "completed"
+   },
+   "fixed_ref400": {
+    "t_dom2": null,
+    "t_act2": 1882.7721234517846,
+    "phi2_deliv": 0.1921848642371979,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.18000000000000682,
+    "gap_end": 0.18000000000000682,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1659.1611663012325,
+     394.72603245064903
+    ],
+    "status": "completed"
+   }
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -31.32126854757189,
+   "drift_pred_mm": -13.32603445852834,
+   "drift_ok": 1.0,
+   "phi2_err": -0.0753540898658499,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.03167966764332654,
+    -0.04656297507165971
+   ],
+   "sill_ok": true
+  },
+  "target_ref": "ref400",
+  "rtm33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -22.192389315065952,
+   "drift_pred_mm": 13.228574507203133,
+   "drift_ok": 0.0,
+   "phi2_err": -0.10912640363936621,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.04722273614292031,
+    -0.08543164547280903
+   ],
+   "sill_ok": true
+  },
+  "rtm17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -22.192389315065952,
+   "drift_pred_mm": -13.32603445852834,
+   "drift_ok": 1.0,
+   "phi2_err": -0.03545478021665702,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.03741344065918232,
+    0.0632930448865926
+   ],
+   "sill_ok": true
+  },
+  "net17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -22.192389315065952,
+   "drift_pred_mm": -31.32126854757189,
+   "drift_ok": 1.0,
+   "phi2_err": 0.03989930964919289,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.005557706714288057,
+    0.11522105507336368
+   ],
+   "sill_ok": true
+  },
+  "net33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -22.192389315065952,
+   "drift_pred_mm": -25.54288216515488,
+   "drift_ok": 1.0,
+   "phi2_err": 0.011595448749507936,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.013112145668471159,
+    0.06248452598748318
+   ],
+   "sill_ok": true
+  },
+  "ref_200_vs_400": {
+   "phi2": 0.00885246323770636,
+   "sill1_mm": 0.6036270832652235,
+   "sill2_mm": 9.675264688056018,
+   "drift_mm": -6.659230138140515,
+   "t_dom2": null,
+   "switch_200": false,
+   "switch_400": false
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": -31.32126854757189,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.0021274095900863654,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": -0.017922866661024273,
+   "drift_thermal": -31.32126854757189,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.0021378923271989925,
+   "sill_rel_err": [
+    -0.9987471955907231,
+    -0.998856905528703
+   ]
+  }
+ },
+ "T03": {
+  "description": "geom A, small lake, 3 C, gap 0.21 m (above both)",
+  "gap0": 0.21,
+  "qs_threshold": [
+   0.16588107264012517
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 2267.0955188316307,
+    "phi2_deliv": 0.10090476882577346,
+    "d1": 0.2576830317307781,
+    "d2": 0.2531096474255037,
+    "gap0": 0.20999999999999375,
+    "gap_end": 0.21457338430526818,
+    "gap_drift_mm": 0.5443819036088371,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1952.257654478908,
+     219.10038056398926
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 2225.4327432204527,
+    "phi2_deliv": 0.14894959573452562,
+    "d1": 0.0003323216914736804,
+    "d2": 0.0002430131360000587,
+    "gap0": 0.20999999999999375,
+    "gap_end": 0.21008930855546737,
+    "gap_drift_mm": 0.041195238139835055,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1754.6681805823887,
+     307.09945596178267
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 2225.4073764175378,
+    "phi2_deliv": 0.14909377067102414,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.20999999999999375,
+    "gap_end": 0.20999999999999375,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1754.245479243455,
+     307.37473080818836
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": 0.5443819036088371,
+   "drift_pred_mm": 58.78480552819308,
+   "drift_ok": null,
+   "phi2_err": -0.10090476882577346,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.028775520554751265,
+    -0.21792576936711172
+   ],
+   "sill_ok": false
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": 0.5443819036088371,
+   "drift_sign_agree": true,
+   "phi2_diff": 0.048189001845250684,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.041195238139835055,
+   "drift_thermal": 0.5443819036088371,
+   "drift_sign_agree": true,
+   "phi2_diff": 0.04804482690875217,
+   "sill_rel_err": [
+    -0.9987103470133769,
+    -0.9990398898719514
+   ]
+  }
+ },
+ "T04": {
+  "description": "geom B (route-2 slope 0.01), small lake, 3 C, gap 0.085 (below QS threshold 0.0965)",
+  "gap0": 0.085,
+  "qs_threshold": [
+   0.09648420017196298
+  ],
+  "qs_kappa": 0.02658781476190814,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 944.155643800731,
+    "phi2_deliv": 0.40114608449268263,
+    "d1": 0.24291538453489636,
+    "d2": 0.2812290194615059,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.046686365073384195,
+    "gap_drift_mm": -23.65608391467333,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1309.699447530048,
+     877.3104619243134
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 943.9456379155066,
+    "phi2_deliv": 0.37760593337839343,
+    "d1": 0.0002686197648529287,
+    "d2": 0.0003596731945378906,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.08490894657030879,
+    "gap_drift_mm": -0.04956924553312092,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1293.7428948767208,
+     784.9126776277492
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 943.9455151403603,
+    "phi2_deliv": 0.37751691084872796,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.08499999999999375,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1293.8391119832436,
+     784.6737577355717
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": {
+    "t_dom2": null,
+    "t_act2": 973.4322328142523,
+    "phi2_deliv": 0.39813329306473244,
+    "d1": 0.2438267264049756,
+    "d2": 0.28046286256895314,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.04836386383601621,
+    "gap_drift_mm": -23.43350583591075,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1316.3098970093263,
+     870.7356428777954
+    ],
+    "status": "completed"
+   },
+   "thermal_ref200": {
+    "t_dom2": null,
+    "t_act2": 970.4114363245244,
+    "phi2_deliv": 0.3952173003925506,
+    "d1": 0.23925977581590985,
+    "d2": 0.2709100596469085,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.05334971616899509,
+    "gap_drift_mm": -22.16994578493825,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1315.330347069323,
+     859.5505612686201
+    ],
+    "status": "completed"
+   },
+   "thermal_ref400": {
+    "t_dom2": null,
+    "t_act2": 969.4750231126048,
+    "phi2_deliv": 0.3976053745183323,
+    "d1": 0.2400717282138629,
+    "d2": 0.273054435201729,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.05201729301212765,
+    "gap_drift_mm": -22.991999076751313,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1310.4811713696693,
+     864.9717890909653
+    ],
+    "status": "completed"
+   },
+   "fixed_ref200": {
+    "t_dom2": null,
+    "t_act2": 970.0108249184585,
+    "phi2_deliv": 0.37347266995194467,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.08499999999999375,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1295.5473762849135,
+     772.2752296108957
+    ],
+    "status": "completed"
+   },
+   "fixed_ref400": {
+    "t_dom2": null,
+    "t_act2": 968.9922979060295,
+    "phi2_deliv": 0.37414804241758615,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.08499999999999375,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1294.0403074309354,
+     773.6057097352452
+    ],
+    "status": "completed"
+   }
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -23.65608391467333,
+   "drift_pred_mm": -18.277848912197094,
+   "drift_ok": 1.0,
+   "phi2_err": 0.002403412517632486,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.03261907479981887,
+    0.003077878901268597
+   ],
+   "sill_ok": true
+  },
+  "target_ref": "ref400",
+  "rtm33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -22.991999076751313,
+   "drift_pred_mm": -15.885695357867435,
+   "drift_ok": 1.0,
+   "phi2_err": 0.0016725518478211687,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.049786026992187496,
+    0.019348224527709186
+   ],
+   "sill_ok": true
+  },
+  "rtm17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -22.991999076751313,
+   "drift_pred_mm": -18.277848912197094,
+   "drift_ok": 1.0,
+   "phi2_err": 0.0059441224919828395,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.044850476560955754,
+    0.03310758574026886
+   ],
+   "sill_ok": true
+  },
+  "net17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -22.991999076751313,
+   "drift_pred_mm": -23.65608391467333,
+   "drift_ok": 1.0,
+   "phi2_err": 0.0035407099743503534,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.011845027909743032,
+    0.029937562646574968
+   ],
+   "sill_ok": true
+  },
+  "net33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -22.991999076751313,
+   "drift_pred_mm": -23.43350583591075,
+   "drift_ok": 1.0,
+   "phi2_err": 0.0005279185464001634,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.01564115116365401,
+    0.02713168662413737
+   ],
+   "sill_ok": true
+  },
+  "ref_200_vs_400": {
+   "phi2": 0.0023880741257816807,
+   "sill1_mm": 0.8119523979530641,
+   "sill2_mm": 2.144375554820499,
+   "drift_mm": -0.822053291813063,
+   "t_dom2": null,
+   "switch_200": false,
+   "switch_400": false
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": -23.65608391467333,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.02362917364395467,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": -0.04956924553312092,
+   "drift_thermal": -23.65608391467333,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.0235401511142892,
+   "sill_rel_err": [
+    -0.9988941838106827,
+    -0.998721066569778
+   ]
+  }
+ },
+ "T05": {
+  "description": "geom B, small lake, 3 C, gap 0.115 (between)",
+  "gap0": 0.115,
+  "qs_threshold": [
+   0.09648420017196298
+  ],
+  "qs_kappa": 0.02658781476190814,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 1183.1601532641707,
+    "phi2_deliv": 0.3102901510530346,
+    "d1": 0.2480560318174696,
+    "d2": 0.2673446744211958,
+    "gap0": 0.11499999999999488,
+    "gap_end": 0.09571135739626868,
+    "gap_drift_mm": -13.244412213410328,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1504.621991844457,
+     676.906942593238
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 1180.4031887353688,
+    "phi2_deliv": 0.3160854181023646,
+    "d1": 0.00028693263641343947,
+    "d2": 0.0003035647526132834,
+    "gap0": 0.11499999999999488,
+    "gap_end": 0.11498336788379504,
+    "gap_drift_mm": -0.01155918053541427,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1418.4564863754433,
+     655.5693114657118
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 1180.402432804295,
+    "phi2_deliv": 0.31609008620908025,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.11499999999999488,
+    "gap_end": 0.11499999999999488,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1418.353017900336,
+     655.5356468192475
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": {
+    "t_dom2": null,
+    "t_act2": 1215.1821903935715,
+    "phi2_deliv": 0.3064913784781117,
+    "d1": 0.24894195977627476,
+    "d2": 0.26635294297017253,
+    "gap0": 0.11499999999999488,
+    "gap_end": 0.0975890168060971,
+    "gap_drift_mm": -13.019876375253148,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1512.911153860761,
+     668.6207073303993
+    ],
+    "status": "completed"
+   },
+   "thermal_ref200": {
+    "t_dom2": null,
+    "t_act2": 1213.9560194855967,
+    "phi2_deliv": 0.30317716238655257,
+    "d1": 0.24438910361493527,
+    "d2": 0.25642995588816575,
+    "gap0": 0.11499999999999488,
+    "gap_end": 0.1029591477267644,
+    "gap_drift_mm": -11.646080941630998,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1511.2638658045068,
+     657.5282348970762
+    ],
+    "status": "completed"
+   },
+   "thermal_ref400": {
+    "t_dom2": null,
+    "t_act2": 1212.7418547171753,
+    "phi2_deliv": 0.30567530866667425,
+    "d1": 0.2452124035645511,
+    "d2": 0.2588857477289537,
+    "gap0": 0.11499999999999488,
+    "gap_end": 0.1013266558355923,
+    "gap_drift_mm": -12.68360603437202,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1506.264799951895,
+     663.1306122426278
+    ],
+    "status": "completed"
+   },
+   "fixed_ref200": {
+    "t_dom2": null,
+    "t_act2": 1211.1600422331182,
+    "phi2_deliv": 0.3115559760919752,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.11499999999999488,
+    "gap_end": 0.11499999999999488,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1420.221757529691,
+     642.7226623632338
+    ],
+    "status": "completed"
+   },
+   "fixed_ref400": {
+    "t_dom2": null,
+    "t_act2": 1209.8431222833572,
+    "phi2_deliv": 0.3121552424664941,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.11499999999999488,
+    "gap_end": 0.11499999999999488,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1418.8629281425,
+     643.9032885112415
+    ],
+    "status": "completed"
+   }
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -13.244412213410328,
+   "drift_pred_mm": -6.100913289482951,
+   "drift_ok": 1.0,
+   "phi2_err": -0.048038587691726975,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.031497086751989485,
+    -0.00488389616814423
+   ],
+   "sill_ok": true
+  },
+  "target_ref": "ref400",
+  "rtm33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -12.68360603437202,
+   "drift_pred_mm": -2.947664383914722,
+   "drift_ok": 1.0,
+   "phi2_err": -0.049344951433638706,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.048331501989826824,
+    0.008729155777119463
+   ],
+   "sill_ok": true
+  },
+  "rtm17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -12.68360603437202,
+   "drift_pred_mm": -6.100913289482951,
+   "drift_ok": 1.0,
+   "phi2_err": -0.043423745305366634,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.04345893784945625,
+    0.027630887849229676
+   ],
+   "sill_ok": true
+  },
+  "net17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -12.68360603437202,
+   "drift_pred_mm": -13.244412213410328,
+   "drift_ok": 1.0,
+   "phi2_err": 0.0046148423863603405,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.011596592226094035,
+    0.032674362209766744
+   ],
+   "sill_ok": true
+  },
+  "net33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -12.68360603437202,
+   "drift_pred_mm": -13.019876375253148,
+   "drift_ok": 1.0,
+   "phi2_err": 0.0008160698114374476,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.015209492495113004,
+    0.02884359338713698
+   ],
+   "sill_ok": true
+  },
+  "ref_200_vs_400": {
+   "phi2": 0.0024981462801216825,
+   "sill1_mm": 0.82329994961583,
+   "sill2_mm": 2.4557918407879242,
+   "drift_mm": -1.0375250927410207,
+   "t_dom2": null,
+   "switch_200": false,
+   "switch_400": false
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": -13.244412213410328,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.005799935156045655,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": -0.01155918053541427,
+   "drift_thermal": -13.244412213410328,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.005795267049330033,
+   "sill_rel_err": [
+    -0.9988432749072412,
+    -0.9988645191707278
+   ]
+  }
+ },
+ "T06": {
+  "description": "geom B, small lake, 3 C, gap 0.15 (above both)",
+  "gap0": 0.15,
+  "qs_threshold": [
+   0.09648419912064471
+  ],
+  "qs_kappa": 0.02658781476190814,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 1510.8168548292667,
+    "phi2_deliv": 0.20438751463716617,
+    "d1": 0.2532092060624507,
+    "d2": 0.24525017779983216,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.1579590282626242,
+    "gap_drift_mm": 2.439875212047582,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1730.5459061261274,
+     444.56564373463596
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 1503.112208672511,
+    "phi2_deliv": 0.24606506040291948,
+    "d1": 0.0003066656224035569,
+    "d2": 0.0002378667052767014,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.15006879891713254,
+    "gap_drift_mm": 0.032423578531393105,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1559.7687512443401,
+     509.06858381525404
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 1503.1092924944976,
+    "phi2_deliv": 0.24617373398275713,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.15000000000000568,
+    "gap_end": 0.15000000000000568,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1559.4442922287947,
+     509.2608756979545
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": 2.439875212047582,
+   "drift_pred_mm": 13.631146089087359,
+   "drift_ok": 1.0,
+   "phi2_err": -0.10637337232208331,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.029962938552325836,
+    -0.024602710992507795
+   ],
+   "sill_ok": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": 2.439875212047582,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.04178621934559096,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.032423578531393105,
+   "drift_thermal": 2.439875212047582,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.041677545765753304,
+   "sill_rel_err": [
+    -0.9987888843886351,
+    -0.999030105880409
+   ]
+  }
+ },
+ "T07": {
+  "description": "geom A, 2 C, gap 0.05 (switching expected)",
+  "gap0": 0.05,
+  "qs_threshold": [
+   0.16585803345693992
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": 13456.966350882425,
+    "t_act2": 4557.151425752295,
+    "phi2_deliv": 0.5626955872531257,
+    "d1": 0.14559242076418855,
+    "d2": 0.2194232322835319,
+    "gap0": 0.04999999999999716,
+    "gap_end": -0.023830811519346184,
+    "gap_drift_mm": -50.84794183474628,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     896.4265382945376,
+     1153.4648237974745
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 4571.887943726033,
+    "phi2_deliv": 0.4744881048266354,
+    "d1": 0.00019515809827908015,
+    "d2": 0.000625943970192111,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.04956921412808413,
+    "gap_drift_mm": -0.29140666217131184,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     879.361892472766,
+     793.9815666370749
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 4571.888665894922,
+    "phi2_deliv": 0.47390800972628805,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.04999999999999716,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     879.8465363055708,
+     792.5730263792927
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": {
+    "t_dom2": 15745.434071022393,
+    "t_act2": 4819.1944119098025,
+    "phi2_deliv": 0.5452338554992274,
+    "d1": 0.14674605157735243,
+    "d2": 0.21325132431000782,
+    "gap0": 0.04999999999999716,
+    "gap_end": -0.016505272732658227,
+    "gap_drift_mm": -49.055751900539235,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     928.2809249898952,
+     1112.9460577463235
+    ],
+    "status": "completed"
+   },
+   "thermal_ref200": {
+    "t_dom2": 17277.397037915347,
+    "t_act2": 4804.852274582082,
+    "phi2_deliv": 0.5358167034660681,
+    "d1": 0.1435489923609765,
+    "d2": 0.19778353813177318,
+    "gap0": 0.04999999999999716,
+    "gap_end": -0.004234545770799514,
+    "gap_drift_mm": -43.38014892120157,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     938.2112610338601,
+     1082.9973176450947
+    ],
+    "status": "completed"
+   },
+   "thermal_ref400": {
+    "t_dom2": 16618.13002069662,
+    "t_act2": 4809.299378875737,
+    "phi2_deliv": 0.5401859195960323,
+    "d1": 0.14404916404340895,
+    "d2": 0.20049276951371553,
+    "gap0": 0.04999999999999716,
+    "gap_end": -0.0064436054703094214,
+    "gap_drift_mm": -45.020354369071924,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     931.1346159008627,
+     1093.8895309952447
+    ],
+    "status": "completed"
+   },
+   "fixed_ref200": {
+    "t_dom2": null,
+    "t_act2": 4823.929372783864,
+    "phi2_deliv": 0.45834762445889626,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.04999999999999716,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     896.5150347725241,
+     758.6333136066688
+    ],
+    "status": "completed"
+   },
+   "fixed_ref400": {
+    "t_dom2": null,
+    "t_act2": 4828.753076325926,
+    "phi2_deliv": 0.45882054121003707,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.04999999999999716,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     895.16611975932,
+     758.9360550734885
+    ],
+    "status": "completed"
+   }
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": 0.008246330254805938,
+   "t_dom2_ok": true,
+   "drift_sim_mm": -50.84794183474628,
+   "drift_pred_mm": -46.91336050722704,
+   "drift_ok": 1.0,
+   "phi2_err": 0.08401374300390918,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.02625337496776501,
+    -0.005409435694883052
+   ],
+   "sill_ok": true
+  },
+  "target_ref": "ref400",
+  "rtm33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": -0.0020671390327185357,
+   "t_dom2_ok": true,
+   "drift_sim_mm": -45.020354369071924,
+   "drift_pred_mm": -41.33668034212766,
+   "drift_ok": 1.0,
+   "phi2_err": 0.08197157640930597,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.04665498638172164,
+    0.03219573719689189
+   ],
+   "sill_ok": true
+  },
+  "rtm17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": -0.18354610761007542,
+   "t_dom2_ok": false,
+   "drift_sim_mm": -45.020354369071924,
+   "drift_pred_mm": -46.91336050722704,
+   "drift_ok": 1.0,
+   "phi2_err": 0.10652341066100257,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.0372480407727292,
+    0.08849948528244252
+   ],
+   "sill_ok": true
+  },
+  "net17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": -0.19022378967291775,
+   "t_dom2_ok": false,
+   "drift_sim_mm": -45.020354369071924,
+   "drift_pred_mm": -50.84794183474628,
+   "drift_ok": 1.0,
+   "phi2_err": 0.02250966765709339,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.010713402823459204,
+    0.09441967815463462
+   ],
+   "sill_ok": true
+  },
+  "net33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": -0.05251469019602983,
+   "t_dom2_ok": true,
+   "drift_sim_mm": -45.020354369071924,
+   "drift_pred_mm": -49.055751900539235,
+   "drift_ok": 1.0,
+   "phi2_err": 0.005047935903195078,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.018721993646077528,
+    0.06363598461549251
+   ],
+   "sill_ok": true
+  },
+  "ref_200_vs_400": {
+   "phi2": 0.004369216129964215,
+   "sill1_mm": 0.5001716824324376,
+   "sill2_mm": 2.7092313819423453,
+   "drift_mm": -1.6402054478703576,
+   "t_dom2": -659.2670172187281,
+   "switch_200": true,
+   "switch_400": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": 0.0,
+   "drift_thermal": -50.84794183474628,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.08878757752683769,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": -0.29140666217131184,
+   "drift_thermal": -50.84794183474628,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.08820748242649035,
+   "sill_rel_err": [
+    -0.998659558668956,
+    -0.9971473213493488
+   ]
+  }
+ },
+ "T08": {
+  "description": "geom A, 2 C, gap 0.065",
+  "gap0": 0.065,
+  "qs_threshold": [
+   0.1658580326806919
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": 20247.68251344373,
+    "t_act2": 5259.067649815824,
+    "phi2_deliv": 0.5149482753630986,
+    "d1": 0.14753028665882084,
+    "d2": 0.2123816546833126,
+    "gap0": 0.06499999999999773,
+    "gap_end": 0.00014863197550596396,
+    "gap_drift_mm": -47.536396270302816,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     981.5480042659306,
+     1042.04650001234
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 5246.52963459476,
+    "phi2_deliv": 0.43807175578370683,
+    "d1": 0.00020368792898750598,
+    "d2": 0.0005731308007455027,
+    "gap0": 0.06499999999999773,
+    "gap_end": 0.06463055712823973,
+    "gap_drift_mm": -0.2585269032948645,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     930.5875323594348,
+     725.4736141260942
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 5246.5254473012865,
+    "phi2_deliv": 0.4375717233467623,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.06499999999999773,
+    "gap_end": 0.06499999999999773,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     930.9325527348719,
+     724.2697039411978
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": true,
+   "switch_ok": null,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -47.536396270302816,
+   "drift_pred_mm": -43.50353118483832,
+   "drift_ok": 1.0,
+   "phi2_err": 0.07607892963603757,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.026020009920808034,
+    -0.005936127555142576
+   ],
+   "sill_ok": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": 0.0,
+   "drift_thermal": -47.536396270302816,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.07737655201633631,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": -0.2585269032948645,
+   "drift_thermal": -47.536396270302816,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.07687651957939179,
+   "sill_rel_err": [
+    -0.9986193483819458,
+    -0.9973014109829773
+   ]
+  }
+ },
+ "T09": {
+  "description": "geom A, 2 C, gap 0.085",
+  "gap0": 0.085,
+  "qs_threshold": [
+   0.16585803345693992
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": 35073.54770672123,
+    "t_act2": 6235.701253737217,
+    "phi2_deliv": 0.45023392648893024,
+    "d1": 0.14978324407667287,
+    "d2": 0.20235398652630465,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.03242925755036197,
+    "gap_drift_mm": -43.006306164656394,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1093.4945062077882,
+     895.5232940799013
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 6195.769777381186,
+    "phi2_deliv": 0.38971342145254523,
+    "d1": 0.00021435350176091106,
+    "d2": 0.0005040906916775612,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.0847102628100771,
+    "gap_drift_mm": -0.2146823045166002,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     996.8619198823997,
+     636.5705607319278
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 6195.75619917846,
+    "phi2_deliv": 0.3893198179608775,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.08499999999999375,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     997.0298656113896,
+     635.6248281797315
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": true,
+   "switch_ok": null,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -43.006306164656394,
+   "drift_pred_mm": -38.86911370837662,
+   "drift_ok": 1.0,
+   "phi2_err": 0.06499123555560615,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.025505540595210693,
+    -0.006781134608862254
+   ],
+   "sill_ok": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": 0.0,
+   "drift_thermal": -43.006306164656394,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.060914108528052735,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": -0.2146823045166002,
+   "drift_thermal": -43.006306164656394,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.06052050503638501,
+   "sill_rel_err": [
+    -0.9985689086714453,
+    -0.9975088670090914
+   ]
+  }
+ },
+ "T10": {
+  "description": "geom A, 2 C, gap 0.10",
+  "gap0": 0.1,
+  "qs_threshold": [
+   0.1658580326806919
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 7013.832977655631,
+    "phi2_deliv": 0.401062625718806,
+    "d1": 0.1512665454272053,
+    "d2": 0.1942558287413334,
+    "gap0": 0.09999999999999432,
+    "gap_end": 0.057010716685866214,
+    "gap_drift_mm": -39.43961822254494,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1175.9614593469896,
+     787.4515949114839
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 6953.016398009128,
+    "phi2_deliv": 0.35374541445948715,
+    "d1": 0.00022182534182491054,
+    "d2": 0.0004535438321795482,
+    "gap0": 0.09999999999999432,
+    "gap_end": 0.09976828150963968,
+    "gap_drift_mm": -0.18185435921225235,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1044.8541133458282,
+     571.9299478023579
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 6952.9885705742545,
+    "phi2_deliv": 0.3534303691068875,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.09999999999999432,
+    "gap_end": 0.09999999999999432,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1044.8971075706897,
+     571.1656606842373
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -39.43961822254494,
+   "drift_pred_mm": -35.229055934433745,
+   "drift_ok": 1.0,
+   "phi2_err": 0.05619041928345658,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.025145038190018912,
+    -0.007502179175575463
+   ],
+   "sill_ok": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": -39.43961822254494,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.0476322566119185,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": -0.18185435921225235,
+   "drift_thermal": -39.43961822254494,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.04731721125931887,
+   "sill_rel_err": [
+    -0.9985335465869308,
+    -0.9976652240752916
+   ]
+  }
+ },
+ "T11": {
+  "description": "geom A, 2 C, gap 0.05, pulsed 50 % / 3 h",
+  "gap0": 0.05,
+  "qs_threshold": [
+   0.16585803345693992
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": 12545.749897808051,
+    "t_act2": 3358.8742800478763,
+    "phi2_deliv": 0.5698910041702494,
+    "d1": 0.1478207236957445,
+    "d2": 0.22647863562713155,
+    "gap0": 0.04999999999999716,
+    "gap_end": -0.02865791193138989,
+    "gap_drift_mm": -51.540998846007824,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     902.5276405741391,
+     1195.8419571902966
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": 25708.491871990682,
+    "t_act2": 3358.6409915751374,
+    "phi2_deliv": 0.47457870174687034,
+    "d1": 0.00019944332238708284,
+    "d2": 0.0006394850520763384,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.0495599582703079,
+    "gap_drift_mm": -0.29191147882556834,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     899.2324962732995,
+     812.217913641528
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": 25894.789980887945,
+    "t_act2": 3358.6406750104165,
+    "phi2_deliv": 0.4739850319465343,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.04999999999999716,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     899.7511178855174,
+     810.7536634044022
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": 0.0004737192377580714,
+   "t_dom2_ok": true,
+   "drift_sim_mm": -51.540998846007824,
+   "drift_pred_mm": -47.588837271664936,
+   "drift_ok": 1.0,
+   "phi2_err": 0.0927695686767559,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.02543642814735821,
+    -0.0058353824025778
+   ],
+   "sill_ok": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": -51.540998846007824,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.09590597222371511,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": -0.29191147882556834,
+   "drift_thermal": -51.540998846007824,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.09531230242337907,
+   "sill_rel_err": [
+    -0.9986507756328024,
+    -0.9971764001036761
+   ]
+  }
+ },
+ "T12": {
+  "description": "geom A, 2 C, gap 0.085, pulsed 50 % / 3 h",
+  "gap0": 0.085,
+  "qs_threshold": [
+   0.16585803345693992
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": 33740.35920802977,
+    "t_act2": 4490.920883107058,
+    "phi2_deliv": 0.4591356641686969,
+    "d1": 0.1522522189425075,
+    "d2": 0.21054722076250698,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.026704998179994277,
+    "gap_drift_mm": -43.670701404110446,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1102.7075947761837,
+     936.0801782821619
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 4494.921017392109,
+    "phi2_deliv": 0.3893119918299779,
+    "d1": 0.00021943438352423073,
+    "d2": 0.0005145969154938257,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.08470483746802415,
+    "gap_drift_mm": -0.2155464268724927,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1020.9145213369853,
+     650.8303101953079
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 4494.918642217257,
+    "phi2_deliv": 0.38891229401605365,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.08499999999999375,
+    "gap_end": 0.08499999999999375,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1021.0961166029209,
+     649.8524339963702
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": 0.030708380557371046,
+   "t_dom2_ok": true,
+   "drift_sim_mm": -43.670701404110446,
+   "drift_pred_mm": -39.612273253368926,
+   "drift_ok": 1.0,
+   "phi2_err": 0.05838147460773413,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    0.02465732759384921,
+    -0.006316060315496081
+   ],
+   "sill_ok": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": 0.0,
+   "drift_thermal": -43.670701404110446,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.07022337015264324,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": -0.2155464268724927,
+   "drift_thermal": -43.670701404110446,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.069823672338719,
+   "sill_rel_err": [
+    -0.9985587442662686,
+    -0.9975559073464366
+   ]
+  }
+ },
+ "T13": {
+  "description": "symmetric routes, 3 C, gap 0.02",
+  "gap0": 0.02,
+  "qs_threshold": [],
+  "qs_kappa": null,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 3430.806019580114,
+    "phi2_deliv": 0.4438645813290824,
+    "d1": 0.22394460519170423,
+    "d2": 0.2127981325798487,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.03114647261185155,
+    "gap_drift_mm": 4.151870559326198,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1167.2007761990583,
+     931.5700213676524
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 3439.501824372896,
+    "phi2_deliv": 0.4576237496451159,
+    "d1": 0.0001984621765132033,
+    "d2": 0.00017310194563435743,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.020025360230874867,
+    "gap_drift_mm": 0.013484522668250065,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     900.4983205848575,
+     759.7851449902838
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 3439.5019978911673,
+    "phi2_deliv": 0.4576520485445338,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.01999999999999602,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     900.2447117945014,
+     759.6577721709481
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": {
+    "t_dom2": null,
+    "t_act2": 3493.0322379542736,
+    "phi2_deliv": 0.44370066447092144,
+    "d1": 0.22446090541973263,
+    "d2": 0.2133327562346068,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.031128149185121856,
+    "gap_drift_mm": 4.117936590162685,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1167.7373704958975,
+     931.3795903131601
+    ],
+    "status": "completed"
+   },
+   "thermal_ref200": {
+    "t_dom2": null,
+    "t_act2": 3542.375073430243,
+    "phi2_deliv": 0.44380369957087973,
+    "d1": 0.21932979833513855,
+    "d2": 0.20824662768622204,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.031083170648912528,
+    "gap_drift_mm": 4.147627467588677,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1155.668100818635,
+     922.1380620900472
+    ],
+    "status": "completed"
+   },
+   "thermal_ref400": {
+    "t_dom2": null,
+    "t_act2": 3539.3651305241624,
+    "phi2_deliv": 0.4437136936654112,
+    "d1": 0.220397491431072,
+    "d2": 0.20930035180106188,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.031097139630006154,
+    "gap_drift_mm": 4.1139113224062385,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1156.609102197549,
+     922.5524536899776
+    ],
+    "status": "completed"
+   },
+   "fixed_ref200": {
+    "t_dom2": null,
+    "t_act2": 3579.7959899795123,
+    "phi2_deliv": 0.45730497753836924,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.01999999999999602,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     893.2395798984359,
+     752.6932975522489
+    ],
+    "status": "completed"
+   },
+   "fixed_ref400": {
+    "t_dom2": null,
+    "t_act2": 3576.4079939708836,
+    "phi2_deliv": 0.45726301360203264,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.01999999999999602,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     892.738037596001,
+     752.1434795471699
+    ],
+    "status": "completed"
+   }
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": 4.151870559326198,
+   "drift_pred_mm": 4.275507422819846,
+   "drift_ok": 1.0,
+   "phi2_err": -0.014609006152559278,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.03674308381635317,
+    0.03728057383976216
+   ],
+   "sill_ok": true
+  },
+  "target_ref": "ref400",
+  "rtm33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": 4.1139113224062385,
+   "drift_pred_mm": 4.287778382085869,
+   "drift_ok": 1.0,
+   "phi2_err": -0.014441621510435654,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.056543645347953995,
+    0.057677352217894086
+   ],
+   "sill_ok": true
+  },
+  "rtm17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": 4.1139113224062385,
+   "drift_pred_mm": 4.275507422819846,
+   "drift_ok": 1.0,
+   "phi2_err": -0.014458118488888061,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.053428598859955025,
+    0.054615375344702934
+   ],
+   "sill_ok": true
+  },
+  "net17_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": 4.1139113224062385,
+   "drift_pred_mm": 4.151870559326198,
+   "drift_ok": 1.0,
+   "phi2_err": 0.00015088766367121753,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.01609416576205248,
+    0.016711776873224886
+   ],
+   "sill_ok": true
+  },
+  "net33_vs_ref": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": 4.1139113224062385,
+   "drift_pred_mm": 4.117936590162685,
+   "drift_ok": 1.0,
+   "phi2_err": -1.3029194489755369e-05,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.01843675244339803,
+    0.019266113978526306
+   ],
+   "sill_ok": true
+  },
+  "ref_200_vs_400": {
+   "phi2": -9.00059054685376e-05,
+   "sill1_mm": 1.067693095933464,
+   "sill2_mm": 1.053724114839838,
+   "drift_mm": -0.033716145182438595,
+   "t_dom2": null,
+   "switch_200": false,
+   "switch_400": false
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": 4.151870559326198,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.013787467215451377,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.013484522668250065,
+   "drift_thermal": 4.151870559326198,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.013759168316033465,
+   "sill_rel_err": [
+    -0.999113788982131,
+    -0.9991865438688969
+   ]
+  }
+ },
+ "T14": {
+  "description": "symmetric steep-short routes (S 0.05, L 40 m), 3 C, gap 0.02",
+  "gap0": 0.02,
+  "qs_threshold": [
+   -1.5132149229404174e-09
+  ],
+  "qs_kappa": null,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 3271.1765511851227,
+    "phi2_deliv": 0.3860643532586035,
+    "d1": 0.45457356337925603,
+    "d2": 0.4125353661762148,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.06203819720303727,
+    "gap_drift_mm": 22.68498525775442,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1612.3747681964167,
+     1013.9180309828841
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 3295.2717224992102,
+    "phi2_deliv": 0.4399978574373797,
+    "d1": 0.0011761012591051667,
+    "d2": 0.0009056348900173816,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.020270466369083806,
+    "gap_drift_mm": 0.1571631271417573,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     986.5128262905539,
+     775.1104806778484
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 3295.2726477572987,
+    "phi2_deliv": 0.44047985564469894,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.01999999999999602,
+    "gap_end": 0.01999999999999602,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     984.1473199827119,
+     774.7657949627408
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": 22.68498525775442,
+   "drift_pred_mm": 26.339982748829176,
+   "drift_ok": 1.0,
+   "phi2_err": -0.0751087469474973,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    -0.046792518666671085,
+    -0.06013494671577867
+   ],
+   "sill_ok": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": 22.68498525775442,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.05441550238609544,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.1571631271417573,
+   "drift_thermal": 22.68498525775442,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.05393350417877618,
+   "sill_rel_err": [
+    -0.9974127372248351,
+    -0.997804709694561
+   ]
+  }
+ },
+ "T15": {
+  "description": "route 1 steep-short, route 2 flat-long, 2 C, gap 0.05 (no overtaking expected)",
+  "gap0": 0.05,
+  "qs_threshold": [],
+  "qs_kappa": -0.04385465835022526,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": null,
+    "t_act2": 4801.908641042894,
+    "phi2_deliv": 0.15087996492464362,
+    "d1": 0.24680597786746716,
+    "d2": 0.11576420300541201,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.1810417748620523,
+    "gap_drift_mm": 75.47510581929373,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1792.9863058208373,
+     318.59536903826097
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 4782.144480454941,
+    "phi2_deliv": 0.2872388357700204,
+    "d1": 0.000935503760686629,
+    "d2": 0.00011960724521031807,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.05081589651547347,
+    "gap_drift_mm": 0.5061312139673646,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1208.187632903207,
+     486.89298250665996
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 4782.1300631130025,
+    "phi2_deliv": 0.28823893273142165,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.04999999999999716,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     1205.528049701277,
+     488.1977034191574
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": false,
+   "switch_sim": false,
+   "near_tie_switch": false,
+   "switch_ok": true,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": 75.47510581929373,
+   "drift_pred_mm": 73.12997224924322,
+   "drift_ok": 1.0,
+   "phi2_err": -0.10820231331512763,
+   "phi2_ok": false,
+   "sill_rel_err": [
+    -0.0021353646994419395,
+    0.022797331593582205
+   ],
+   "sill_ok": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.0,
+   "drift_thermal": 75.47510581929373,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.13735896780677803,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": true,
+   "drift_sim": 0.5061312139673646,
+   "drift_thermal": 75.47510581929373,
+   "drift_sign_agree": false,
+   "phi2_diff": 0.1363588708453768,
+   "sill_rel_err": [
+    -0.996209557933848,
+    -0.9989668028448766
+   ]
+  }
+ },
+ "T16": {
+  "description": "geom A, 0.3 C, gap 0.05 (cold: incision too slow to overtake?)",
+  "gap0": 0.05,
+  "qs_threshold": [
+   0.16572973755872372
+  ],
+  "qs_kappa": 0.043854658350225256,
+  "sim": {
+   "thermal_r17": {
+    "t_dom2": 29243.063179880417,
+    "t_act2": 4569.620203824348,
+    "phi2_deliv": 0.486098604915709,
+    "d1": 0.022236081024189502,
+    "d2": 0.03110700663610544,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.04112907438808122,
+    "gap_drift_mm": -5.9155352436732755,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     887.2455995163448,
+     839.2443614046939
+    ],
+    "status": "completed"
+   },
+   "dissipation_r17": {
+    "t_dom2": null,
+    "t_act2": 4571.887943744043,
+    "phi2_deliv": 0.47448810482573944,
+    "d1": 0.00019515809827908015,
+    "d2": 0.0006259439702063219,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.049569214128069916,
+    "gap_drift_mm": -0.2914066621855227,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     879.3618924743109,
+     793.9815666356169
+    ],
+    "status": "completed"
+   },
+   "fixed_r17": {
+    "t_dom2": null,
+    "t_act2": 4571.888666022133,
+    "phi2_deliv": 0.47390800972760794,
+    "d1": 0.0,
+    "d2": 0.0,
+    "gap0": 0.04999999999999716,
+    "gap_end": 0.04999999999999716,
+    "gap_drift_mm": 0.0,
+    "active_end": [
+     true,
+     true
+    ],
+    "delivered": [
+     879.8465363162821,
+     792.5730263931374
+    ],
+    "status": "completed"
+   },
+   "thermal_r33": null,
+   "thermal_ref200": null,
+   "thermal_ref400": null,
+   "fixed_ref200": null,
+   "fixed_ref400": null
+  },
+  "rtm17_vs_net17": {
+   "nondraining": false,
+   "switch_pred": true,
+   "switch_sim": true,
+   "near_tie_switch": true,
+   "switch_ok": null,
+   "t_dom2_rel_err": null,
+   "t_dom2_ok": null,
+   "drift_sim_mm": -5.9155352436732755,
+   "drift_pred_mm": -5.815571207866706,
+   "drift_ok": 1.0,
+   "phi2_err": 0.022084115702788898,
+   "phi2_ok": true,
+   "sill_rel_err": [
+    0.003137634608821353,
+    -0.0017832273193831214
+   ],
+   "sill_ok": true
+  },
+  "fixed_geometry_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": 0.0,
+   "drift_thermal": -5.9155352436732755,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.012190595188101061,
+   "sill_rel_err": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "dissipation_only_vs_thermal_net": {
+   "switch_agree": false,
+   "drift_sim": -0.2914066621855227,
+   "drift_thermal": -5.9155352436732755,
+   "drift_sign_agree": false,
+   "phi2_diff": -0.011610500089969555,
+   "sill_rel_err": [
+    -0.9912233590952121,
+    -0.9798777176624961
+   ]
+  }
+ }
+}
