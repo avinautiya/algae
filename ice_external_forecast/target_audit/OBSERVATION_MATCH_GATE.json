@@ -1,0 +1,43 @@
+{
+  "source_title": "Vincent et al. 2010, Outburst flood hazard for glacier-dammed Lac de Rochemelon, France",
+  "source_doi": "10.3189/002214310791190857",
+  "source_pdf": "/private/tmp/rochemelon_external_2026_11_01/forcing/vincent2010_publisher.pdf",
+  "source_pdf_sha256": "3ebd438caa17a6b6a8daf936cf228d528ac1fc65f73cffb529d0da68f86a507b",
+  "pages_visual_inspected": [
+    93,
+    94
+  ],
+  "design_reading": "Methods and figure identities inspected; no numerical bed-target table extracted",
+  "parameter_freeze_sha256_reported_by_root": "1b3734f3120eacaef7559130b89cde035d85b80c02594ed733c8e267188b347e",
+  "direct_observable": "Surveyed vertical bed elevation, not a directly observed total cliff/ice melt volume",
+  "available_targets": [
+    {
+      "source": "Figure 6b",
+      "kind": "Black-dot observed bed-elevation series",
+      "section_binding": "Not identified A/B/C in caption or visible legend; no separate station symbol labels",
+      "numerical_targets_extracted": false
+    },
+    {
+      "source": "Figure 5",
+      "kind": "Observed longitudinal profiles with labelled sections A-G",
+      "time_support": "Calendar dates only in figure; exact survey hour not established",
+      "numerical_targets_extracted": false
+    }
+  ],
+  "input_matching": {
+    "temperature": "Lake temperature, not local downstream-section bulk temperature",
+    "discharge": "Lake-level/hypsography/recharge derived; not direct instantaneous gauge measurement at every section",
+    "geometry": "Initial/evolving survey profiles; regular breach width assumption requires explicit conditional hydraulics",
+    "clock": "Use common elapsed-time figure origin; absolute timezone not established"
+  },
+  "accuracy_gate": "RED for unqualified independent field-superiority claim; conditional component comparison remains possible only with explicit section/time/geometry assumptions",
+  "blockers": [
+    "No clear station binding for Figure6b black dots",
+    "No exact hour for dated Figure5 spatial surveys",
+    "No separately established uncertainty for each channel-bed survey; generic geodetic precision is not automatically individual target error",
+    "Lake inlet temperature is not independently measured downstream water temperature",
+    "Current heat-only local closures omit or approximate friction, spatial cooling, cold ice, evolving geometry and possible mechanical ablation"
+  ],
+  "no_target_fitting": true,
+  "no_numeric_field_score": true
+}

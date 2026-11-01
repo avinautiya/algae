@@ -1,0 +1,21 @@
+{
+  "protocol_sha256": "c8721bc68719a8551c3d5a581eed030416fbd73edb1133c9083bcd4acd5bef5d",
+  "rochemelon_numerical_bed_targets_extracted": false,
+  "rochemelon_target_scores_seen": false,
+  "source_paper_previously_read": true,
+  "parameters_from": "SwissV5_linear_nominal",
+  "parameters": {
+    "db04_scale": 4.3956164544491925,
+    "constant_h_W_m2_K": 6431.4136285363775,
+    "constant_rate_m_s": 3.4944254768079555e-06
+  },
+  "new_site_parameter_fitting_allowed": false,
+  "primary_candidate": "scaled_db04",
+  "parent_parameter_freeze_sha256": "1b3734f3120eacaef7559130b89cde035d85b80c02594ed733c8e267188b347e",
+  "boundary_policy_sha256": "ed0bb15286e3c315879114b386c702985835b2c7bbc8d58ecc407eb5d2e2d970",
+  "omitted_heat_sources": [
+    "atmosphere",
+    "frictional_dissipation"
+  ],
+  "critical_depth_allowed_only_at_verified_point_control": true
+}
