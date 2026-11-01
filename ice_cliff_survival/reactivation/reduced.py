@@ -41,3 +41,28 @@ def fixed(removal_day, days=21.0, **kw):
     r = fractional(removal_day, days=days, evolve=False, **kw); return r
 def all_methods(layout, removal_day, days=21.0):
     out = [connectivity(layout, removal_day, days), fractional(removal_day, days), fixed(removal_day, days)]; return out
+
+def topology_lanes(layout, removal_day, days=21.0, uniform_incision=False, c=None, cover_fraction=.5, grain_depth=.2, dt=225.0):
+    """Line-by-line copy of imported topology.run (pinned 3e51620; reproduces it exactly when uniform_incision=False, tested) extended to return PER-LANE melt/heat and an optional counterfactual in which the same total melt volume lowers every lane's ice floor equally (no differential incision)."""
+    c = c or case()
+    if layout == "corridor":
+        widths = np.array([(1 - cover_fraction) * c.width, cover_fraction * c.width, c.width]); lengths = np.full(3, c.length); bed = np.array([c.initial_toe_ice_z, c.initial_toe_ice_z, c.initial_bypass_z], dtype=float); covered = np.array([False, True, False]); toe = np.array([True, True, False]); names = ["toe_open", "toe_fp", "byp"]
+    else:
+        widths = np.array([c.width, c.width]); lengths = np.array([cover_fraction * c.length, c.length]); bed = np.array([c.initial_toe_ice_z, c.initial_bypass_z], dtype=float); covered = np.array([True, False]); toe = np.array([True, False]); names = ["toe_fp", "byp"]
+    areas = widths * lengths; K = (2 / 3) ** 1.5 * math.sqrt(c.gravity) * widths; melt = np.zeros_like(bed); Q = c.discharge; latent = c.ice_density * c.latent; hist = []; heat = np.zeros_like(bed)
+    for step in range(math.ceil(days * 86400 / dt)):
+        t = step * dt; h = min(dt, days * 86400 - t); present = removal_day is None or t < removal_day * 86400; crest = bed + covered.astype(float) * grain_depth * present
+        lo = float(np.min(crest)); hi = float(np.max(crest) + (Q / np.min(K)) ** (2 / 3))
+        for _ in range(44):
+            eta = (lo + hi) / 2
+            if float(np.sum(K * np.maximum(eta - crest, 0) ** 1.5)) < Q: lo = eta
+            else: hi = eta
+        eta = (lo + hi) / 2; q = K * np.maximum(eta - crest, 0) ** 1.5; ht = np.full_like(bed, c.h_water)
+        if c.h_water: ht = np.where(covered & present, 1 / (1 / c.h_water + grain_depth / c.debris_k), ht)
+        cap = c.water_density * c.water_cp * q; ntu = np.divide(ht * areas, cap, out=np.zeros_like(q), where=cap > 0); P = cap * c.water_temperature * (-np.expm1(-ntu)); m = P / (latent * areas)
+        if step % max(1, int(21600 / dt)) == 0: hist.append(dict(day=t / 86400, f_toe=float(q[toe].sum() / Q), heat_W=dict(zip(names, P.tolist()))))
+        dvol = h * m * areas
+        if uniform_incision: bed = bed - dvol.sum() / areas.sum()
+        else: bed = bed - h * m
+        melt += dvol; heat += P * h
+    return dict(series=hist, melt_m3=dict(zip(names, melt.tolist())), area_m2=dict(zip(names, areas.tolist())), final_bed=bed.tolist())

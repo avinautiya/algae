@@ -28,3 +28,17 @@ def summarize(run, theta=PRIMARY):
                 max_water_resid=float(np.nanmax(np.abs([x["water_resid"] for x in run["records"]]))), max_energy_resid=float(np.nanmax(np.abs([x["energy_resid_rel"] for x in run["records"]]))), wall_s=run["wall_s"], maxrss_MB=run["maxrss_MB"], cells=run["cells"])
 def f_interp(run, days):
     a = arrays(run); return np.interp(days, a["day"], a["f"])
+
+# ---- corrected recovery classification (v2) --------------------------------------------------------------------------------
+RECOVERY_FULL, RECOVERY_PARTIAL = 0.5, 0.05
+def classify(day, f, removal, theta=PRIMARY, f_ref=None):
+    """access class relative to the bare-route share f_ref (ordinary access). maintained: never below theta before removal (a removal then cannot 'reconnect' anything); lost-recovered-full: R>=0.5; lost-recovered-partial: 0.05<=R<0.5; lost-not-recovered: R<0.05, where R = mean f over [removal+1 d, end] / f_ref. decline flag: f at end < 0.5 f(removal+1 d).
+    For runs without removal: maintained / lost. (v1 'sustained reconnection' counted any f>=theta as reconnection and labelled runs that never lost contact as reconnected.)"""
+    day = np.asarray(day); f = np.asarray(f); pre = f[day <= (removal if removal is not None else day[-1])]; lost_pre = bool(np.any(pre < theta))
+    if removal is None: return dict(cls="lost" if np.any(f < theta) else "maintained", R=None, decline=False)
+    if not lost_pre: cls = "maintained"; w = day >= removal + 1.0
+    else: w = day >= removal + 1.0
+    R = float(np.mean(f[w]) / f_ref) if (np.any(w) and f_ref) else None; f1 = float(np.interp(removal + 1.0, day, f)); decline = bool(f[-1] < 0.5 * f1) if f1 > theta else False
+    if lost_pre:
+        cls = "lost-recovered-full" if R >= RECOVERY_FULL else ("lost-recovered-partial" if R >= RECOVERY_PARTIAL else "lost-not-recovered")
+    return dict(cls=cls, R=R, decline=decline, f_post1=f1)
