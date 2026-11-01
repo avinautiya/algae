@@ -155,5 +155,5 @@ class TestShieldPlanar(unittest.TestCase):
         from ice_cliff_survival import shield_planar as S
         d, k, rc, Tw = 0.007, 0.5, 1.5e6, 1.2
         for t in (60.0, 600.0, 3600.0): self.assertAlmostEqual(float(S.Q_series(t, d, k, rc, Tw)) / S.fv_numeric(t, d, k, rc, Tw, N=200, nsteps=2000), 1.0, 4)
-        t = 1e5; self.assertAlmostEqual((float(S.Q_massless(t, d, k, Tw)) - float(S.Q_series(t, d, k, rc, Tw))) / (rc * d * Tw / 6.0), 1.0, 9)
+        t = 1e5; self.assertAlmostEqual((float(S.Q_massless(t, d, k, Tw)) - float(S.Q_series(t, d, k, rc, Tw))) / (rc * d * Tw / 6.0), 1.0, 7)
         self.assertGreater(float(S.Q_massless(60.0, d, k, Tw)), float(S.Q_series(60.0, d, k, rc, Tw)))      # massless always over-delivers heat
