@@ -1,0 +1,438 @@
+{
+  "source_record": "https://zenodo.org/api/records/13073856",
+  "source_doi": "10.5281/zenodo.13073856",
+  "metadata_sha256": "24f68097126bcfae713d4fccb293dce7ead0f3c64cccb595c912fe6df6bc0665",
+  "archive": {
+    "id": "f37c3b07-a03b-4ea4-ae55-6c8b17ce5e4f",
+    "key": "supplementary-data-to-article.tar",
+    "size": 463867904,
+    "checksum": "md5:661be5c27fc7ae05f39105c18919cd21",
+    "links": {
+      "self": "https://zenodo.org/api/records/13073856/files/supplementary-data-to-article.tar/content"
+    }
+  },
+  "status": "header_budget_reached",
+  "entries": [
+    {
+      "name": "accuracy/",
+      "size": 0,
+      "header_offset": 0,
+      "data_offset": 512,
+      "type": "5"
+    },
+    {
+      "name": "accuracy/survey-error-statistics.csv",
+      "size": 2080,
+      "header_offset": 512,
+      "data_offset": 1024,
+      "type": "0"
+    },
+    {
+      "name": "accuracy/validation-point-errors.csv",
+      "size": 41391,
+      "header_offset": 3584,
+      "data_offset": 4096,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/",
+      "size": 0,
+      "header_offset": 45568,
+      "data_offset": 46080,
+      "type": "5"
+    },
+    {
+      "name": "area-of-interest/langtang_analysis_aoi.CPG",
+      "size": 5,
+      "header_offset": 46080,
+      "data_offset": 46592,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/langtang_analysis_aoi.dbf",
+      "size": 155,
+      "header_offset": 47104,
+      "data_offset": 47616,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/langtang_analysis_aoi.prj",
+      "size": 401,
+      "header_offset": 48128,
+      "data_offset": 48640,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/langtang_analysis_aoi.sbn",
+      "size": 132,
+      "header_offset": 49152,
+      "data_offset": 49664,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/langtang_analysis_aoi.sbx",
+      "size": 116,
+      "header_offset": 50176,
+      "data_offset": 50688,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/langtang_analysis_aoi.shp",
+      "size": 5420,
+      "header_offset": 51200,
+      "data_offset": 51712,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/langtang_analysis_aoi.shp.xml",
+      "size": 799,
+      "header_offset": 57344,
+      "data_offset": 57856,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/langtang_analysis_aoi.shx",
+      "size": 108,
+      "header_offset": 58880,
+      "data_offset": 59392,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/lirung_analysis_aoi.CPG",
+      "size": 5,
+      "header_offset": 59904,
+      "data_offset": 60416,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/lirung_analysis_aoi.dbf",
+      "size": 125,
+      "header_offset": 60928,
+      "data_offset": 61440,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/lirung_analysis_aoi.prj",
+      "size": 401,
+      "header_offset": 61952,
+      "data_offset": 62464,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/lirung_analysis_aoi.sbn",
+      "size": 132,
+      "header_offset": 62976,
+      "data_offset": 63488,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/lirung_analysis_aoi.sbx",
+      "size": 116,
+      "header_offset": 64000,
+      "data_offset": 64512,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/lirung_analysis_aoi.shp",
+      "size": 1260,
+      "header_offset": 65024,
+      "data_offset": 65536,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/lirung_analysis_aoi.shp.xml",
+      "size": 1480,
+      "header_offset": 67072,
+      "data_offset": 67584,
+      "type": "0"
+    },
+    {
+      "name": "area-of-interest/lirung_analysis_aoi.shx",
+      "size": 108,
+      "header_offset": 69120,
+      "data_offset": 69632,
+      "type": "0"
+    },
+    {
+      "name": "cliff-profiles/",
+      "size": 0,
+      "header_offset": 70144,
+      "data_offset": 70656,
+      "type": "5"
+    },
+    {
+      "name": "cliff-profiles/cliff_profile_lines.gpkg",
+      "size": 98304,
+      "header_offset": 70656,
+      "data_offset": 71168,
+      "type": "0"
+    },
+    {
+      "name": "cliff-profiles/cliff_profile_point_clouds.csv",
+      "size": 26831944,
+      "header_offset": 169472,
+      "data_offset": 169984,
+      "type": "0"
+    },
+    {
+      "name": "elevation/",
+      "size": 0,
+      "header_offset": 27002368,
+      "data_offset": 27002880,
+      "type": "5"
+    },
+    {
+      "name": "elevation/langtang_dbdt_regression_determ.tif",
+      "size": 11572819,
+      "header_offset": 27002880,
+      "data_offset": 27003392,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dbdt_regression_mc.tif",
+      "size": 11572253,
+      "header_offset": 38576640,
+      "data_offset": 38577152,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dbdt_regression_mc_sd.tif",
+      "size": 10526863,
+      "header_offset": 50149888,
+      "data_offset": 50150400,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dbdt_regression_pval.tif",
+      "size": 11822841,
+      "header_offset": 60677632,
+      "data_offset": 60678144,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dbdt_regression_r2.tif",
+      "size": 11822841,
+      "header_offset": 72501248,
+      "data_offset": 72501760,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dbdt_regression_ts_count.tif",
+      "size": 1222256,
+      "header_offset": 84324864,
+      "data_offset": 84325376,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dem_stack.tif",
+      "size": 50663001,
+      "header_offset": 85548032,
+      "data_offset": 85548544,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dem_stack_flow-corrected.tif",
+      "size": 52162875,
+      "header_offset": 136211968,
+      "data_offset": 136212480,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dhdt_regression_determ.tif",
+      "size": 10992398,
+      "header_offset": 188375552,
+      "data_offset": 188376064,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dhdt_regression_mc.tif",
+      "size": 10993411,
+      "header_offset": 199368704,
+      "data_offset": 199369216,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dhdt_regression_mc_sd.tif",
+      "size": 9380528,
+      "header_offset": 210362880,
+      "data_offset": 210363392,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dhdt_regression_pval.tif",
+      "size": 10936722,
+      "header_offset": 219744256,
+      "data_offset": 219744768,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dhdt_regression_r2.tif",
+      "size": 10936722,
+      "header_offset": 230681600,
+      "data_offset": 230682112,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_dhdt_regression_ts_count.tif",
+      "size": 1162032,
+      "header_offset": 241618944,
+      "data_offset": 241619456,
+      "type": "0"
+    },
+    {
+      "name": "elevation/langtang_input_time_steps.csv",
+      "size": 80,
+      "header_offset": 242781696,
+      "data_offset": 242782208,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dbdt_regression_determ.tif",
+      "size": 10327711,
+      "header_offset": 242782720,
+      "data_offset": 242783232,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dbdt_regression_mc.tif",
+      "size": 10329920,
+      "header_offset": 253111296,
+      "data_offset": 253111808,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dbdt_regression_mc_sd.tif",
+      "size": 9157998,
+      "header_offset": 263441920,
+      "data_offset": 263442432,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dbdt_regression_pval.tif",
+      "size": 10592796,
+      "header_offset": 272600576,
+      "data_offset": 272601088,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dbdt_regression_r2.tif",
+      "size": 10592796,
+      "header_offset": 283194368,
+      "data_offset": 283194880,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dbdt_regression_ts_count.tif",
+      "size": 1404056,
+      "header_offset": 293788160,
+      "data_offset": 293788672,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dem_stack.tif",
+      "size": 56884933,
+      "header_offset": 295193088,
+      "data_offset": 295193600,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dem_stack_flow-corrected.tif",
+      "size": 58962024,
+      "header_offset": 352078848,
+      "data_offset": 352079360,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dhdt_regression_determ.tif",
+      "size": 9396933,
+      "header_offset": 411041792,
+      "data_offset": 411042304,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dhdt_regression_mc.tif",
+      "size": 9396591,
+      "header_offset": 420439552,
+      "data_offset": 420440064,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dhdt_regression_mc_sd.tif",
+      "size": 7988481,
+      "header_offset": 429836800,
+      "data_offset": 429837312,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dhdt_regression_pval.tif",
+      "size": 9465354,
+      "header_offset": 437826048,
+      "data_offset": 437826560,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dhdt_regression_r2.tif",
+      "size": 9465354,
+      "header_offset": 447292416,
+      "data_offset": 447292928,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_dhdt_regression_ts_count.tif",
+      "size": 1315978,
+      "header_offset": 456758784,
+      "data_offset": 456759296,
+      "type": "0"
+    },
+    {
+      "name": "elevation/lirung_input_time_steps.csv",
+      "size": 104,
+      "header_offset": 458075648,
+      "data_offset": 458076160,
+      "type": "0"
+    },
+    {
+      "name": "README.txt",
+      "size": 4313,
+      "header_offset": 458076672,
+      "data_offset": 458077184,
+      "type": "0"
+    },
+    {
+      "name": "velocity/",
+      "size": 0,
+      "header_offset": 458081792,
+      "data_offset": 458082304,
+      "type": "5"
+    },
+    {
+      "name": "velocity/langtang_u.tif",
+      "size": 883591,
+      "header_offset": 458082304,
+      "data_offset": 458082816,
+      "type": "0"
+    },
+    {
+      "name": "velocity/langtang_v.tif",
+      "size": 886178,
+      "header_offset": 458966528,
+      "data_offset": 458967040,
+      "type": "0"
+    },
+    {
+      "name": "velocity/langtang_velocity.tif",
+      "size": 861304,
+      "header_offset": 459853312,
+      "data_offset": 459853824,
+      "type": "0"
+    },
+    {
+      "name": "velocity/lirung_u.tif",
+      "size": 1065412,
+      "header_offset": 460715520,
+      "data_offset": 460716032,
+      "type": "0"
+    }
+  ],
+  "warning": "range header inventory is not a full archive checksum or extracted-data validation"
+}

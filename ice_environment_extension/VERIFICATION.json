@@ -1,0 +1,42 @@
+{
+  "scope": "component and conditional geometry checks; not environmental model validation",
+  "tests": 47,
+  "passed": true,
+  "results": [
+    {
+      "component": "data",
+      "tests": 2,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_filter_median_and_negative_bin (test_profiles.ProfileTests) ... ok\ntest_invalid_and_sparse (test_profiles.ProfileTests) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "component": "geometry",
+      "tests": 12,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_exhaustion_refuses (test_cliff_geometry.GeometryTests) ... ok\ntest_exposure (test_cliff_geometry.GeometryTests) ... ok\ntest_floor_lowering_is_distinct (test_cliff_geometry.GeometryTests) ... ok\ntest_horizontal_segment (test_cliff_geometry.GeometryTests) ... ok\ntest_invalid (test_cliff_geometry.GeometryTests) ... ok\ntest_map_coordinate_area (test_cliff_geometry.GeometryTests) ... ok\ntest_normal_face_retreat (test_cliff_geometry.GeometryTests) ... ok\ntest_signed_area (test_cliff_geometry.GeometryTests) ... ok\ntest_triangle_cut (test_cliff_geometry.GeometryTests) ... ok\ntest_wet_debris_no_doublecount (test_cliff_geometry.GeometryTests) ... ok\ntest_width_scaling (test_cliff_geometry.GeometryTests) ... ok\ntest_zero (test_cliff_geometry.GeometryTests) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "component": "forcing",
+      "tests": 6,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_atmosphere_signs (test_energy.EnergyTests) ... ok\ntest_bare_ice_exact_signed_sequence (test_energy.EnergyTests) ... ok\ntest_cold_repaid_before_melt (test_energy.EnergyTests) ... ok\ntest_invalid_and_freezing (test_energy.EnergyTests) ... ok\ntest_signed_cooling_and_long_step_stability (test_energy.EnergyTests) ... ok\ntest_storage_conservation_many_steps (test_energy.EnergyTests) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "component": "transmission",
+      "tests": 9,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_cubic_small_gap_and_path_length (test_filled_slot.SlotTests) ... ok\ntest_invalid_partial_fill_and_zero_head (test_filled_slot.SlotTests) ... ok\ntest_poiseuille_limit_and_head_ledger (test_filled_slot.SlotTests) ... ok\ntest_aperture_against_independent_vertical_quadrature (test_transmission.TransmissionTests) ... ok\ntest_conservation_and_bound (test_transmission.TransmissionTests) ... ok\ntest_floor_passivity_and_positive_transmission (test_transmission.TransmissionTests) ... ok\ntest_monotonic_and_zero_transmission (test_transmission.TransmissionTests) ... ok\ntest_tiny_aperture_retains_small_flow (test_transmission.TransmissionTests) ... ok\ntest_unknown_curvature_and_indicators (test_transmission.TransmissionTests) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.036s\n\nOK\n"
+    },
+    {
+      "component": "integration",
+      "tests": 18,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_combined_exchanger_and_ledger (test_heat_delivery.HeatTests) ... ok\ntest_infinite_floor_exhausts_water_heat (test_heat_delivery.HeatTests) ... ok\ntest_no_heat_without_water_or_exchange (test_heat_delivery.HeatTests) ... ok\ntest_no_latent_heat_no_geometric_change (test_predict_cliff.PredictorTests) ... ok\ntest_provenance_and_time_required (test_predict_cliff.PredictorTests) ... ok\ntest_total_volume_from_independent_energy_sum (test_predict_cliff.PredictorTests) ... ok\ntest_energy_threshold_and_cold_storage (test_recovery_certificate.BoundTests) ... ok\ntest_high_initial_storage_controls_bound (test_recovery_certificate.BoundTests) ... ok\ntest_invalid_inputs (test_recovery_certificate.BoundTests) ... ok\ntest_stationary_bypass_barrier (test_recovery_certificate.BoundTests) ... ok\ntest_uncertainty_only_weakens_exclusion (test_recovery_certificate.BoundTests) ... ok\ntest_exposure_partition (test_stepped_cliff.StepTests) ... ok\ntest_floor_is_not_face_retreat (test_stepped_cliff.StepTests) ... ok\ntest_invalid_energy_and_domain (test_stepped_cliff.StepTests) ... ok\ntest_nonconvex_area_independently (test_stepped_cliff.StepTests) ... ok\ntest_translation_invariance_at_map_coordinates (test_stepped_cliff.StepTests) ... ok\ntest_two_energy_channels_disjoint (test_stepped_cliff.StepTests) ... ok\ntest_zero_exhaustion_and_mask_extremes (test_stepped_cliff.StepTests) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.004s\n\nOK\n"
+    }
+  ]
+}

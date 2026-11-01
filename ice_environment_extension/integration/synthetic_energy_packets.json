@@ -1,0 +1,16 @@
+{
+  "geometry": {
+    "upstream_edge_x_m": -2.0,
+    "ice_back_edge_x_m": 5.0,
+    "ice_bottom_z_m": -4.0,
+    "face_x_m": 0.0,
+    "floor_z_m": 0.0,
+    "crest_z_m": 3.0,
+    "extrusion_width_m": 2.0
+  },
+  "energy_provenance": "Synthetic demonstration only: externally supplied NET latent-energy packets after any cold/storage deductions. Not derived from Himalayan meteorology or CFD.",
+  "intervals": [
+    {"end_time_s": 3600.0, "face_net_latent_J": 1200000.0, "floor_net_latent_J": 400000.0, "water_stage_m": 0.1, "debris_top_m": 0.2},
+    {"end_time_s": 7200.0, "face_net_latent_J": 1200000.0, "floor_net_latent_J": 200000.0, "water_stage_m": 0.08, "debris_top_m": 0.2}
+  ]
+}

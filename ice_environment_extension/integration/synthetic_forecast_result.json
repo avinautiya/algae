@@ -1,0 +1,75 @@
+{
+  "input_sha256": "c0264f136bac51ef6956f293a740e16c4721a5268d8aeb92a79d32b055a77606",
+  "evidence": "conditional planar-step forecast; not validated Himalayan cliff survival",
+  "energy_provenance": "Synthetic demonstration only: externally supplied NET latent-energy packets after any cold/storage deductions. Not derived from Himalayan meteorology or CFD.",
+  "series": [
+    {
+      "time_s": 3600.0,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -4.0,
+        "face_x_m": 0.0006530015214935451,
+        "floor_z_m": -0.0003263941927945218,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 2.0
+      },
+      "face_retreat_m": 0.0006530015214935451,
+      "floor_lowering_m": 0.0003263941927945218,
+      "face_melt_m3": 0.0039180091289612706,
+      "floor_melt_m3": 0.0013060030429870903,
+      "total_melt_m3": 0.005224012171948361,
+      "polygon_volume_loss_m3": 0.005224012171950676,
+      "volume_residual_m3": 2.315205319125546e-15,
+      "phase_energy_J": 1600000.0,
+      "note": "prescribed uniform planar melt; not a fracture or survival model",
+      "debris_area_m2": 0.40065278838558904,
+      "bare_water_area_m2": 0.0,
+      "bare_air_area_m2": 5.6000000000000005,
+      "total_face_area_m2": 6.000652788385589,
+      "cumulative_face_melt_m3": 0.0039180091289612706,
+      "cumulative_floor_melt_m3": 0.0013060030429870903
+    },
+    {
+      "time_s": 7200.0,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -4.0,
+        "face_x_m": 0.00130593200541434,
+        "floor_z_m": -0.0004895380457783589,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 2.0
+      },
+      "face_retreat_m": 0.000652930483920795,
+      "floor_lowering_m": 0.00016314385298383716,
+      "face_melt_m3": 0.0039180091289612706,
+      "floor_melt_m3": 0.0006530015214935451,
+      "total_melt_m3": 0.004571010650454815,
+      "polygon_volume_loss_m3": 0.0045710106504515124,
+      "volume_residual_m3": -3.3032387589115864e-15,
+      "phase_energy_J": 1400000.0,
+      "note": "prescribed uniform planar melt; not a fracture or survival model",
+      "debris_area_m2": 0.40097907609155675,
+      "bare_water_area_m2": 0.0,
+      "bare_air_area_m2": 5.6000000000000005,
+      "total_face_area_m2": 6.000979076091557,
+      "cumulative_face_melt_m3": 0.007836018257922541,
+      "cumulative_floor_melt_m3": 0.0019590045644806353
+    }
+  ],
+  "cumulative": {
+    "face_melt_m3": 0.007836018257922541,
+    "floor_melt_m3": 0.0019590045644806353,
+    "total_melt_m3": 0.009795022822403177,
+    "polygon_volume_loss_m3": 0.009795022822402188,
+    "volume_residual_m3": -9.879250195687916e-16,
+    "phase_energy_J": 3000000.0
+  },
+  "scope": [
+    "uniform normal face retreat and horizontal floor lowering",
+    "fixed crest and extrusion width; no overhang or collapse",
+    "prescribed stage, debris elevation and net latent energies",
+    "no atmospheric face energy assigned to floor incision"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "source_doi": "10.5281/zenodo.13073856",
+  "source_archive": {
+    "id": "f37c3b07-a03b-4ea4-ae55-6c8b17ce5e4f",
+    "key": "supplementary-data-to-article.tar",
+    "size": 463867904,
+    "checksum": "md5:661be5c27fc7ae05f39105c18919cd21",
+    "links": {
+      "self": "https://zenodo.org/api/records/13073856/files/supplementary-data-to-article.tar/content"
+    }
+  },
+  "archive_checksum_verified": false,
+  "verification": "HTTP byte-range, tar-header checksum and member length; locally computed SHA256. Full archive MD5 NOT verified.",
+  "members": [
+    {
+      "member": "README.txt",
+      "bytes": 4313,
+      "local_file": "README.txt",
+      "sha256": "fee7ad541f0103fefdd0ae8e3172784937b2620ecc03017c9a5f52d5676b72ce",
+      "content_range": "bytes 458077184-458081496/463867904"
+    },
+    {
+      "member": "cliff-profiles/cliff_profile_point_clouds.csv",
+      "bytes": 26831944,
+      "local_file": "cliff_profile_point_clouds.csv",
+      "sha256": "19b9af2fa14a567a23f0d285b3d416690725fa234e54405614759d1998e88dda",
+      "content_range": "bytes 169984-27001927/463867904"
+    },
+    {
+      "member": "cliff-profiles/cliff_profile_lines.gpkg",
+      "bytes": 98304,
+      "local_file": "cliff_profile_lines.gpkg",
+      "sha256": "f15d2442c8b9781d55140b3affabfc61bbcae01c97c4fc37441776cc745b023f",
+      "content_range": "bytes 71168-169471/463867904"
+    },
+    {
+      "member": "accuracy/survey-error-statistics.csv",
+      "bytes": 2080,
+      "local_file": "survey-error-statistics.csv",
+      "sha256": "f750d2fcc499d48594797abfc3546c8e7747ccd54c6a541dfff92cc5f6f3b6b0",
+      "content_range": "bytes 1024-3103/463867904"
+    }
+  ]
+}

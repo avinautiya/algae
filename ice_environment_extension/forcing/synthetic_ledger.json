@@ -1,0 +1,4837 @@
+{
+  "label": "SYNTHETIC illustrative fixed-area scenarios; not site predictions",
+  "assumptions": "Departed meltwater; lumped cold reserve; zero-C debris interface; unlimited ice.",
+  "parameters": {
+    "debris_capacity_j_m2_k": 100000.0,
+    "conductance_w_m2_k": 5.0,
+    "latent_heat_j_kg": 334000.0
+  },
+  "initial_states": {
+    "warm_bare": {
+      "cold_reserve_j_m2": 0,
+      "melted_kg_m2": 0.0
+    },
+    "cold_bare": {
+      "cold_reserve_j_m2": 2000000.0,
+      "melted_kg_m2": 0.0
+    },
+    "warm_debris": {
+      "debris_temperature_c": 0,
+      "cold_reserve_j_m2": 0,
+      "melted_kg_m2": 0.0
+    },
+    "cold_debris": {
+      "debris_temperature_c": 0,
+      "cold_reserve_j_m2": 2000000.0,
+      "melted_kg_m2": 0.0
+    }
+  },
+  "final_states": {
+    "warm_bare": {
+      "cold_reserve_j_m2": 1080000.0,
+      "melted_kg_m2": 57.5568862275449
+    },
+    "cold_bare": {
+      "cold_reserve_j_m2": 1080000.0,
+      "melted_kg_m2": 51.5688622754491
+    },
+    "warm_debris": {
+      "debris_temperature_c": 3.6352277537283806,
+      "cold_reserve_j_m2": 0.0,
+      "melted_kg_m2": 53.23496175038071
+    },
+    "cold_debris": {
+      "debris_temperature_c": 3.6352277537283806,
+      "cold_reserve_j_m2": 0.0,
+      "melted_kg_m2": 47.2469377982849
+    }
+  },
+  "integrated_ledgers_j_m2": {
+    "warm_bare": {
+      "atmospheric_j_m2": 15552000.0,
+      "water_j_m2": 2592000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -1080000.0,
+      "latent_j_m2": 19224000.0,
+      "residual_j_m2": 0.0
+    },
+    "cold_bare": {
+      "atmospheric_j_m2": 15552000.0,
+      "water_j_m2": 2592000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 920000.0,
+      "latent_j_m2": 17224000.0,
+      "residual_j_m2": 0.0
+    },
+    "warm_debris": {
+      "atmospheric_j_m2": 15552000.0,
+      "water_j_m2": 2592000.0,
+      "debris_storage_j_m2": 363522.77537283755,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 17780477.224627163,
+      "residual_j_m2": 3.433342499192804e-10
+    },
+    "cold_debris": {
+      "atmospheric_j_m2": 15552000.0,
+      "water_j_m2": 2592000.0,
+      "debris_storage_j_m2": 363522.77537283755,
+      "cold_storage_j_m2": 2000000.0,
+      "latent_j_m2": 15780477.224627156,
+      "residual_j_m2": 5.384208634495735e-10
+    }
+  },
+  "records": [
+    {
+      "hour_end": 1,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 180000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 1,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2180000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 1,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -1.8305084745762712,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 0.009134273825230889
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -183050.84745762713,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 3050.847457627117,
+      "residual_j_m2": 8.640199666842818e-12
+    },
+    {
+      "hour_end": 1,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -1.8305084745762712,
+        "cold_reserve_j_m2": 1996949.152542373,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -183050.84745762713,
+      "cold_storage_j_m2": 3050.8474576270673,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 2,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 360000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 2,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2360000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 2,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -3.381786842861247,
+        "cold_reserve_j_m2": 24872.16317150245,
+        "melted_kg_m2": 0.009134273825230889
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -155127.8368284976,
+      "cold_storage_j_m2": -24872.16317150245,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 3.637978807091713e-11
+    },
+    {
+      "hour_end": 2,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -3.381786842861247,
+        "cold_reserve_j_m2": 2021821.3157138755,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -155127.8368284976,
+      "cold_storage_j_m2": -24872.16317150253,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 3,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 540000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 3,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2540000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 3,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -4.696429527848515,
+        "cold_reserve_j_m2": 73407.89467277573,
+        "melted_kg_m2": 0.009134273825230889
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -131464.26849872683,
+      "cold_storage_j_m2": -48535.73150127328,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.0913936421275139e-10
+    },
+    {
+      "hour_end": 3,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -4.696429527848515,
+        "cold_reserve_j_m2": 2070357.0472151488,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -131464.26849872683,
+      "cold_storage_j_m2": -48535.731501273345,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.7462298274040222e-10
+    },
+    {
+      "hour_end": 4,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 720000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 4,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2720000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 4,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -5.810533498176708,
+        "cold_reserve_j_m2": 141997.49763995648,
+        "melted_kg_m2": 0.009134273825230889
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -111410.3970328193,
+      "cold_storage_j_m2": -68589.60296718075,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 4.3655745685100555e-11
+    },
+    {
+      "hour_end": 4,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -5.810533498176708,
+        "cold_reserve_j_m2": 2138946.6501823296,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -111410.3970328193,
+      "cold_storage_j_m2": -68589.60296718078,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 7.275957614183426e-11
+    },
+    {
+      "hour_end": 5,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 900000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 5,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2900000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 5,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -6.754689405234499,
+        "cold_reserve_j_m2": 227581.90693417747,
+        "melted_kg_m2": 0.009134273825230889
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -94415.59070577909,
+      "cold_storage_j_m2": -85584.409294221,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 8.731149137020111e-11
+    },
+    {
+      "hour_end": 5,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -6.754689405234499,
+        "cold_reserve_j_m2": 2224531.0594765507,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -94415.59070577909,
+      "cold_storage_j_m2": -85584.40929422108,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.7462298274040222e-10
+    },
+    {
+      "hour_end": 6,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1080000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 6,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 3080000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 6,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -7.554821529859745,
+        "cold_reserve_j_m2": 327568.6944716529,
+        "melted_kg_m2": 0.009134273825230889
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -80013.21246252458,
+      "cold_storage_j_m2": -99986.78753747544,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.4551915228366852e-11
+    },
+    {
+      "hour_end": 6,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -7.554821529859745,
+        "cold_reserve_j_m2": 2324517.8470140263,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -80013.21246252458,
+      "cold_storage_j_m2": -99986.78753747558,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.6007106751203537e-10
+    },
+    {
+      "hour_end": 7,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 396000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 7,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2396000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 7,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -0.9108657032709699,
+        "cold_reserve_j_m2": 307964.2771305304,
+        "melted_kg_m2": 0.009134273825230889
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 664395.5826588775,
+      "cold_storage_j_m2": 19604.41734112252,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 7,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -0.9108657032709699,
+        "cold_reserve_j_m2": 2304913.429672904,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 664395.5826588775,
+      "cold_storage_j_m2": 19604.417341122404,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 8,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 0.8622754491017964
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 396000.0,
+      "latent_j_m2": 288000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 8,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1712000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 8,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 4.719605336211043,
+        "cold_reserve_j_m2": 187011.38107873162,
+        "melted_kg_m2": 0.009134273825230889
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 563047.1039482013,
+      "cold_storage_j_m2": 120952.89605179877,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -5.820766091346741e-11
+    },
+    {
+      "hour_end": 8,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 4.719605336211043,
+        "cold_reserve_j_m2": 2183960.533621105,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 563047.1039482013,
+      "cold_storage_j_m2": 120952.89605179895,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -2.3283064365386963e-10
+    },
+    {
+      "hour_end": 9,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 2.910179640718563
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 9,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1028000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 9,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 9.491190962890714,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 0.06850569973331844
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 477158.56266796717,
+      "cold_storage_j_m2": 187011.38107873162,
+      "latent_j_m2": 19830.05625330124,
+      "residual_j_m2": -2.9103830456733704e-11
+    },
+    {
+      "hour_end": 9,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 9.491190962890714,
+        "cold_reserve_j_m2": 1977119.096289072,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 477158.56266796717,
+      "cold_storage_j_m2": 206841.43733203295,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -1.1641532182693481e-10
+    },
+    {
+      "hour_end": 10,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 4.95808383233533
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 10,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 344000.0,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 10,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 13.534907595670095,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 0.9057162887215271
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 404371.6632779381,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 279628.3367220617,
+      "residual_j_m2": 2.3283064365386963e-10
+    },
+    {
+      "hour_end": 10,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 13.534907595670095,
+        "cold_reserve_j_m2": 1697490.7595670102,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 404371.6632779381,
+      "cold_storage_j_m2": 279628.33672206174,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.7462298274040222e-10
+    },
+    {
+      "hour_end": 11,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 7.005988023952096
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 11,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 1.0179640718562875
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 344000.0,
+      "latent_j_m2": 340000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 11,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 16.961786098025506,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 1.9276089526869733
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 342687.8502355411,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 341312.14976445906,
+      "residual_j_m2": -1.7462298274040222e-10
+    },
+    {
+      "hour_end": 11,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 16.961786098025506,
+        "cold_reserve_j_m2": 1356178.609802551,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 342687.8502355411,
+      "cold_storage_j_m2": 341312.1497644591,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -2.3283064365386963e-10
+    },
+    {
+      "hour_end": 12,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 9.053892215568862
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 12,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 3.065868263473054
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 12,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 19.865920422055513,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 3.106011849683977
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 290413.4324030007,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 393586.56759699923,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 12,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 19.865920422055513,
+        "cold_reserve_j_m2": 962592.0422055519,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 290413.4324030007,
+      "cold_storage_j_m2": 393586.56759699923,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 13,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 11.101796407185628
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 13,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 5.113772455089821
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 13,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 22.327051205131795,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 4.41705053738569
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 246113.0783076282,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 437886.9216923723,
+      "residual_j_m2": -4.656612873077393e-10
+    },
+    {
+      "hour_end": 13,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 22.327051205131795,
+        "cold_reserve_j_m2": 524705.1205131796,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 246113.0783076282,
+      "cold_storage_j_m2": 437886.9216923723,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -4.656612873077393e-10
+    },
+    {
+      "hour_end": 14,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 13.149700598802394
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 14,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 7.161676646706587
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 14,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 24.412755258586266,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 5.840492437549022
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 208570.4053454471,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 475429.59465455275,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 14,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 24.412755258586266,
+        "cold_reserve_j_m2": 49275.52585862682,
+        "melted_kg_m2": 0.0
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 208570.4053454471,
+      "cold_storage_j_m2": 475429.59465455275,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 15,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 15.19760479041916
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 15,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 9.209580838323353
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 15,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 26.18030106659853,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 7.35919129742559
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 176754.58080122652,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 507245.41919877357,
+      "residual_j_m2": -1.1641532182693481e-10
+    },
+    {
+      "hour_end": 15,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 26.18030106659853,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 1.3711673453297808
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 176754.58080122652,
+      "cold_storage_j_m2": 49275.52585862682,
+      "latent_j_m2": 457969.89334014675,
+      "residual_j_m2": -1.1641532182693481e-10
+    },
+    {
+      "hour_end": 16,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 17.245508982035926
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 16,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 11.257485029940119
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 16,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 27.67822124288011,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 8.958616394347272
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 149792.01762815783,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 534207.9823718419,
+      "residual_j_m2": 2.3283064365386963e-10
+    },
+    {
+      "hour_end": 16,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 27.67822124288011,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 2.970592442251463
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 149792.01762815783,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 534207.9823718419,
+      "residual_j_m2": 2.3283064365386963e-10
+    },
+    {
+      "hour_end": 17,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 19.29341317365269
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 17,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 13.305389221556885
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 17,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 28.94764512108484,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 10.626453556561426
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 126942.387820473,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 557057.6121795271,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 17,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 28.94764512108484,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 4.638429604465616
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 126942.387820473,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 557057.6121795271,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 18,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 18,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 18,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 30.023428068715965,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 12.35226704529462
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 107578.29476311259,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 576421.7052368873,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 18,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 30.023428068715965,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 6.364243093198811
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 107578.29476311259,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 576421.7052368873,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 19,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 180000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 19,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 180000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 19,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 23.613074634505058,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 13.732612384878726
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -641035.3434210907,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 461035.34342109103,
+      "residual_j_m2": -2.9103830456733704e-10
+    },
+    {
+      "hour_end": 19,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 23.613074634505058,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 7.744588432782916
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -641035.3434210907,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 461035.34342109103,
+      "residual_j_m2": -2.9103830456733704e-10
+    },
+    {
+      "hour_end": 20,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 360000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 20,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 360000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 20,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 18.18057172415683,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 14.820188106539872
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -543250.2910348227,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 363250.291034823,
+      "residual_j_m2": -2.9103830456733704e-10
+    },
+    {
+      "hour_end": 20,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 18.18057172415683,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 8.832164154444063
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -543250.2910348227,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 363250.291034823,
+      "residual_j_m2": -2.9103830456733704e-10
+    },
+    {
+      "hour_end": 21,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 540000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 21,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 540000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 21,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 13.576755698437992,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 15.659653982503595
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -460381.6025718839,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 280381.6025718839,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 21,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 13.576755698437992,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 9.671630030407787
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -460381.6025718839,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 280381.6025718839,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 22,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 720000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 22,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 720000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 22,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 9.675216693591517,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 16.28885727736781
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -390153.9004846475,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 210153.9004846473,
+      "residual_j_m2": 1.7462298274040222e-10
+    },
+    {
+      "hour_end": 22,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 9.675216693591517,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 10.300833325272
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -390153.9004846475,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 210153.9004846473,
+      "residual_j_m2": 1.7462298274040222e-10
+    },
+    {
+      "hour_end": 23,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 900000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 23,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 900000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 23,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 6.368827706433489,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 16.73987194418159
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -330638.8987158028,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 150638.89871580282,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 23,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 6.368827706433489,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 10.751847992085782
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -330638.8987158028,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 150638.89871580282,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 24,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1080000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 24,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1080000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 24,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 3.56680314104533,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 17.039879299088224
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -280202.4565388159,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 100202.45653881592,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 24,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 3.56680314104533,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 11.051855346992417
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -280202.4565388159,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 100202.45653881592,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 25,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1260000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 25,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1260000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 25,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 1.1922060517333304,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 17.211914355768464
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -237459.70893119992,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 57459.708931199944,
+      "residual_j_m2": -2.9103830456733704e-11
+    },
+    {
+      "hour_end": 25,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 1.1922060517333304,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 11.223890403672657
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -237459.70893119992,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 57459.708931199944,
+      "residual_j_m2": -2.9103830456733704e-11
+    },
+    {
+      "hour_end": 26,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1440000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 26,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1440000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 26,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -0.8201643629378556,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 17.275498312256843
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -201237.0414671186,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 21237.0414671186,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 26,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -0.8201643629378556,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 11.287474360161037
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -201237.0414671186,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 21237.0414671186,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 27,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1620000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 27,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1620000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 27,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -2.5255630194388607,
+        "cold_reserve_j_m2": 9460.134349899496,
+        "melted_kg_m2": 17.275498312256843
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -170539.86565010052,
+      "cold_storage_j_m2": -9460.134349899496,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.2732925824820995e-11
+    },
+    {
+      "hour_end": 27,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -2.5255630194388607,
+        "cold_reserve_j_m2": 9460.134349899496,
+        "melted_kg_m2": 11.287474360161037
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -170539.86565010052,
+      "cold_storage_j_m2": -9460.134349899496,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 1.2732925824820995e-11
+    },
+    {
+      "hour_end": 28,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1800000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 28,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1800000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 28,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -3.970816118168526,
+        "cold_reserve_j_m2": 44934.82447693297,
+        "melted_kg_m2": 17.275498312256843
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -144525.30987296655,
+      "cold_storage_j_m2": -35474.69012703347,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 2.1827872842550278e-11
+    },
+    {
+      "hour_end": 28,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -3.970816118168526,
+        "cold_reserve_j_m2": 44934.82447693297,
+        "melted_kg_m2": 11.287474360161037
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -144525.30987296655,
+      "cold_storage_j_m2": -35474.69012703347,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 2.1827872842550278e-11
+    },
+    {
+      "hour_end": 29,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1980000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 29,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1980000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 29,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -5.195606879803836,
+        "cold_reserve_j_m2": 102455.74831340201,
+        "melted_kg_m2": 17.275498312256843
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -122479.07616353095,
+      "cold_storage_j_m2": -57520.92383646905,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -7.275957614183426e-12
+    },
+    {
+      "hour_end": 29,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -5.195606879803836,
+        "cold_reserve_j_m2": 102455.74831340201,
+        "melted_kg_m2": 11.287474360161037
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -122479.07616353095,
+      "cold_storage_j_m2": -57520.92383646905,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -7.275957614183426e-12
+    },
+    {
+      "hour_end": 30,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2160000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 30,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2160000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 30,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -6.233565152376133,
+        "cold_reserve_j_m2": 178659.9210561724,
+        "melted_kg_m2": 17.275498312256843
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -103795.82725722968,
+      "cold_storage_j_m2": -76204.17274277039,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 7.275957614183426e-11
+    },
+    {
+      "hour_end": 30,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -6.233565152376133,
+        "cold_reserve_j_m2": 178659.9210561724,
+        "melted_kg_m2": 11.287474360161037
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -103795.82725722968,
+      "cold_storage_j_m2": -76204.17274277039,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 7.275957614183426e-11
+    },
+    {
+      "hour_end": 31,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1476000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 31,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1476000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 31,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 0.20884309120666752,
+        "cold_reserve_j_m2": 138900.7454144524,
+        "melted_kg_m2": 17.275498312256843
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 644240.82435828,
+      "cold_storage_j_m2": 39759.17564172001,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -5.820766091346741e-11
+    },
+    {
+      "hour_end": 31,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 0.20884309120666752,
+        "cold_reserve_j_m2": 138900.7454144524,
+        "melted_kg_m2": 11.287474360161037
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 644240.82435828,
+      "cold_storage_j_m2": 39759.17564172001,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -5.820766091346741e-11
+    },
+    {
+      "hour_end": 32,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 792000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 32,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 792000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 32,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 5.668511094242938,
+        "cold_reserve_j_m2": 867.545718079491,
+        "melted_kg_m2": 17.275498312256843
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 545966.800303627,
+      "cold_storage_j_m2": 138033.1996963729,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 32,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 5.668511094242938,
+        "cold_reserve_j_m2": 867.545718079491,
+        "melted_kg_m2": 11.287474360161037
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 545966.800303627,
+      "cold_storage_j_m2": 138033.1996963729,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 33,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 108000.0,
+        "melted_kg_m2": 21.341317365269457
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 33,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 108000.0,
+        "melted_kg_m2": 15.35329341317365
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 33,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 10.295348384951645,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 17.93552443564322
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 462683.7290708706,
+      "cold_storage_j_m2": 867.545718079491,
+      "latent_j_m2": 220448.7252110501,
+      "residual_j_m2": -2.0372681319713593e-10
+    },
+    {
+      "hour_end": 33,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 10.295348384951645,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 11.947500483547413
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 462683.7290708706,
+      "cold_storage_j_m2": 867.545718079491,
+      "latent_j_m2": 220448.7252110501,
+      "residual_j_m2": -2.0372681319713593e-10
+    },
+    {
+      "hour_end": 34,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 23.06586826347305
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 108000.0,
+      "latent_j_m2": 576000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 34,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 17.077844311377245
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 108000.0,
+      "latent_j_m2": 576000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 34,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 14.216396936399699,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 18.80946199508991
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 392104.8551448054,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 291895.14485519455,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 34,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 14.216396936399699,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 12.821438042994103
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 392104.8551448054,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 291895.14485519455,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 35,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 25.113772455089816
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 35,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 19.12574850299401
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 35,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 17.539319437626865,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 19.862479210291358
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 332292.25012271665,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 351707.7498772835,
+      "residual_j_m2": -1.7462298274040222e-10
+    },
+    {
+      "hour_end": 35,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 17.539319437626865,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 13.874455258195551
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 332292.25012271665,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 351707.7498772835,
+      "residual_j_m2": -1.7462298274040222e-10
+    },
+    {
+      "hour_end": 36,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 27.16167664670658
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 36,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 21.173652694610777
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 36,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 20.35535545561599,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 21.067258845623957
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 281603.60179891234,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 402396.39820108784,
+      "residual_j_m2": -1.7462298274040222e-10
+    },
+    {
+      "hour_end": 36,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 20.35535545561599,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 15.079234893528149
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 281603.60179891234,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 402396.39820108784,
+      "residual_j_m2": -1.7462298274040222e-10
+    },
+    {
+      "hour_end": 37,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 29.209580838323348
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 37,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 23.221556886227543
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 37,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 22.741826657301683,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 22.400650701406683
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 238647.1201685694,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 445352.8798314303,
+      "residual_j_m2": 2.9103830456733704e-10
+    },
+    {
+      "hour_end": 37,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 22.741826657301683,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 16.412626749310874
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 238647.1201685694,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 445352.8798314303,
+      "residual_j_m2": 2.9103830456733704e-10
+    },
+    {
+      "hour_end": 38,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 31.257485029940113
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 38,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 25.26946107784431
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 38,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 24.764259879069222,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 23.843035964350534
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 202243.3221767539,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 481756.677823246,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 38,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 24.764259879069222,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 17.855012012254726
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 202243.3221767539,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 481756.677823246,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 39,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 33.30538922155688
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 39,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 27.317365269461074
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 39,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 26.478186338194256,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 25.37778852149873
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 171392.6459125034,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 512607.35408749664,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 39,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 26.478186338194256,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 19.38976456940292
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 171392.6459125034,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 512607.35408749664,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 40,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 35.353293413173645
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 40,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 29.36526946107784
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 40,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 27.930666388300217,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 26.990818446616704
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 145248.00501059616,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 538751.9949894039,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 40,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 27.930666388300217,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 21.002794494520895
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 145248.00501059616,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 538751.9949894039,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 41,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 37.40119760479041
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 41,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 31.413173652694606
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 41,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 29.161581685000186,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 28.670185124251443
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 123091.5296699969,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 560908.4703300033,
+      "residual_j_m2": -2.3283064365386963e-10
+    },
+    {
+      "hour_end": 41,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 29.161581685000186,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 22.682161172155634
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 123091.5296699969,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 560908.4703300033,
+      "residual_j_m2": -2.3283064365386963e-10
+    },
+    {
+      "hour_end": 42,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 42,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 42,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 30.20473024152558,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 30.405769388764796
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 104314.85565253951,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 579685.1443474604,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 42,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 30.20473024152558,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 24.417745436668987
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 104314.85565253951,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 579685.1443474604,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 43,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 180000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 43,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 180000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 43,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 23.76672054366575,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 31.794395046806663
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -643800.9697859833,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 463800.96978598344,
+      "residual_j_m2": -1.1641532182693481e-10
+    },
+    {
+      "hour_end": 43,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 23.76672054366575,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 25.806371094710855
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -643800.9697859833,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 463800.96978598344,
+      "residual_j_m2": -1.1641532182693481e-10
+    },
+    {
+      "hour_end": 44,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 360000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 44,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 360000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 44,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 18.310780121750632,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 32.88898798749981
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -545594.0421915116,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 365594.0421915114,
+      "residual_j_m2": 1.7462298274040222e-10
+    },
+    {
+      "hour_end": 44,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 18.310780121750632,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 26.900964035404
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -545594.0421915116,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 365594.0421915114,
+      "residual_j_m2": 1.7462298274040222e-10
+    },
+    {
+      "hour_end": 45,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 540000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 45,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 540000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 45,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 13.687101798093755,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 33.73440065925337
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -462367.8323656877,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 282367.8323656876,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 45,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 13.687101798093755,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 27.74637670715756
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -462367.8323656877,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 282367.8323656876,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 46,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 720000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 46,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 720000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 46,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 9.768730337367588,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 34.36864361156659
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -391837.1460726167,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 211837.14607261657,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 46,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 9.768730337367588,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 28.38061965947078
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -391837.1460726167,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 211837.14607261657,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 47,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 900000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 47,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 900000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 47,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 6.448076557091176,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 34.8239291745236
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -332065.37802764116,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 152065.37802764116,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 47,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 6.448076557091176,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 28.83590522242779
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -332065.37802764116,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 152065.37802764116,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 48,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1080000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 48,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1080000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 48,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 3.6339631839755735,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 35.12755593294144
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -281411.3373115603,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 101411.33731156032,
+      "residual_j_m2": -2.9103830456733704e-11
+    },
+    {
+      "hour_end": 48,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 3.6339631839755735,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 29.139531980845636
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -281411.3373115603,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 101411.33731156032,
+      "residual_j_m2": -2.9103830456733704e-11
+    },
+    {
+      "hour_end": 49,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1260000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 49,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1260000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 49,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 1.249121342352181,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 35.30265828073288
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -238484.18416233925,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 58484.18416233926,
+      "residual_j_m2": -7.275957614183426e-12
+    },
+    {
+      "hour_end": 49,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 1.249121342352181,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 29.31463432863707
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -238484.18416233925,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 58484.18416233926,
+      "residual_j_m2": -7.275957614183426e-12
+    },
+    {
+      "hour_end": 50,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1440000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 50,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1440000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 50,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -0.7719310658032364,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 35.368841636468034
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -202105.24081554177,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 22105.240815541743,
+      "residual_j_m2": 2.1827872842550278e-11
+    },
+    {
+      "hour_end": 50,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -0.7719310658032364,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 29.380817684372225
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -202105.24081554177,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 22105.240815541743,
+      "residual_j_m2": 2.1827872842550278e-11
+    },
+    {
+      "hour_end": 51,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1620000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 51,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1620000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 51,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -2.4846873439010477,
+        "cold_reserve_j_m2": 8724.372190218857,
+        "melted_kg_m2": 35.368841636468034
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -171275.62780978112,
+      "cold_storage_j_m2": -8724.372190218857,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -2.7284841053187847e-11
+    },
+    {
+      "hour_end": 51,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -2.4846873439010477,
+        "cold_reserve_j_m2": 8724.372190218857,
+        "melted_kg_m2": 29.380817684372225
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -171275.62780978112,
+      "cold_storage_j_m2": -8724.372190218857,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -2.7284841053187847e-11
+    },
+    {
+      "hour_end": 52,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1800000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 52,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1800000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 52,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -3.9361757151703793,
+        "cold_reserve_j_m2": 43575.53506328568,
+        "melted_kg_m2": 35.368841636468034
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -145148.83712693315,
+      "cold_storage_j_m2": -34851.16287306682,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -2.1827872842550278e-11
+    },
+    {
+      "hour_end": 52,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -3.9361757151703793,
+        "cold_reserve_j_m2": 43575.53506328568,
+        "melted_kg_m2": 29.380817684372225
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -145148.83712693315,
+      "cold_storage_j_m2": -34851.16287306682,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -2.1827872842550278e-11
+    },
+    {
+      "hour_end": 53,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1980000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 53,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1980000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 53,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -5.166250606076592,
+        "cold_reserve_j_m2": 100568.04597266435,
+        "melted_kg_m2": 35.368841636468034
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -123007.4890906213,
+      "cold_storage_j_m2": -56992.51090937867,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -3.637978807091713e-11
+    },
+    {
+      "hour_end": 53,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -5.166250606076592,
+        "cold_reserve_j_m2": 100568.04597266435,
+        "melted_kg_m2": 29.380817684372225
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -123007.4890906213,
+      "cold_storage_j_m2": -56992.51090937867,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -3.637978807091713e-11
+    },
+    {
+      "hour_end": 54,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2160000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 54,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 2160000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 54,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -6.2086869543021965,
+        "cold_reserve_j_m2": 176324.41115010387,
+        "melted_kg_m2": 35.368841636468034
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -104243.63482256043,
+      "cold_storage_j_m2": -75756.36517743953,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -4.3655745685100555e-11
+    },
+    {
+      "hour_end": 54,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": -6.2086869543021965,
+        "cold_reserve_j_m2": 176324.41115010387,
+        "melted_kg_m2": 29.380817684372225
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -104243.63482256043,
+      "cold_storage_j_m2": -75756.36517743953,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": -4.3655745685100555e-11
+    },
+    {
+      "hour_end": 55,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1476000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 55,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1476000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 55,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 0.22992630991339288,
+        "cold_reserve_j_m2": 136185.73757166282,
+        "melted_kg_m2": 35.368841636468034
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 643861.3264215589,
+      "cold_storage_j_m2": 40138.673578441056,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 8.731149137020111e-11
+    },
+    {
+      "hour_end": 55,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 0.22992630991339288,
+        "cold_reserve_j_m2": 136185.73757166282,
+        "melted_kg_m2": 29.380817684372225
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 643861.3264215589,
+      "cold_storage_j_m2": 40138.673578441056,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 8.731149137020111e-11
+    },
+    {
+      "hour_end": 56,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 792000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 56,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 792000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 56,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 5.686378228740164,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 35.375335859658634
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 545645.1918826771,
+      "cold_storage_j_m2": 136185.73757166282,
+      "latent_j_m2": 2169.070545660157,
+      "residual_j_m2": -1.1641532182693481e-10
+    },
+    {
+      "hour_end": 56,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 5.686378228740164,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 29.387311907562825
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 545645.1918826771,
+      "cold_storage_j_m2": 136185.73757166282,
+      "latent_j_m2": 2169.070545660157,
+      "residual_j_m2": -1.1641532182693481e-10
+    },
+    {
+      "hour_end": 57,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 108000.0,
+        "melted_kg_m2": 39.44910179640718
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 57,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 108000.0,
+        "melted_kg_m2": 33.461077844311376
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 684000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 57,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 10.31049002435607,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 36.03877544180956
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 462411.17956159066,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 221588.82043840928,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 57,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 10.31049002435607,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 30.05075148971375
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 462411.17956159066,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 221588.82043840928,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 58,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 41.17365269461077
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 108000.0,
+      "latent_j_m2": 576000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 58,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 35.18562874251497
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 108000.0,
+      "latent_j_m2": 576000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 58,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 14.22922883420006,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 36.91340454065867
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 391873.8809843989,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 292126.1190156011,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 58,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 14.22922883420006,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 30.925380588562856
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 391873.8809843989,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 292126.1190156011,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 59,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 43.22155688622754
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 59,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 37.23353293413174
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 59,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 17.550193927288184,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 37.967007806201146
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 332096.5093088125,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 351903.49069118727,
+      "residual_j_m2": 2.3283064365386963e-10
+    },
+    {
+      "hour_end": 59,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 17.550193927288184,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 31.978983854105334
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 332096.5093088125,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 351903.49069118727,
+      "residual_j_m2": 2.3283064365386963e-10
+    },
+    {
+      "hour_end": 60,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 45.269461077844305
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 60,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 39.2814371257485
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 60,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 20.364571124820497,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 39.172284094365125
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 281437.7197532313,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 402562.28024676896,
+      "residual_j_m2": -2.3283064365386963e-10
+    },
+    {
+      "hour_end": 60,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 20.364571124820497,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 33.18426014226931
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 281437.7197532313,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 402562.28024676896,
+      "residual_j_m2": -2.3283064365386963e-10
+    },
+    {
+      "hour_end": 61,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 47.31736526946107
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 61,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 41.32934131736527
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 61,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 22.749636546458046,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 40.506096842377836
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 238506.5421637549,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 445493.45783624484,
+      "residual_j_m2": 2.3283064365386963e-10
+    },
+    {
+      "hour_end": 61,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 22.749636546458046,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 34.51807289028202
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 238506.5421637549,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 445493.45783624484,
+      "residual_j_m2": 2.3283064365386963e-10
+    },
+    {
+      "hour_end": 62,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 49.36526946107784
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 62,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 43.377245508982035
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 62,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 24.770878429201737,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 41.94883879365218
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 202124.18827436914,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 481875.81172563124,
+      "residual_j_m2": -3.4924596548080444e-10
+    },
+    {
+      "hour_end": 62,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 24.770878429201737,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 35.96081484155636
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 202124.18827436914,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 481875.81172563124,
+      "residual_j_m2": -3.4924596548080444e-10
+    },
+    {
+      "hour_end": 63,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 51.4131736526946
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 63,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 45.4251497005988
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 63,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 26.483795278984523,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 43.483893629046555
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 171291.68497827862,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 512708.3150217215,
+      "residual_j_m2": -5.820766091346741e-11
+    },
+    {
+      "hour_end": 63,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 26.483795278984523,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 37.49586967695074
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 171291.68497827862,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 512708.3150217215,
+      "residual_j_m2": -5.820766091346741e-11
+    },
+    {
+      "hour_end": 64,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 53.46107784431137
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 64,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 47.47305389221557
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 64,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 27.935419727952986,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 45.09717972216977
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 145162.4448968463,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 538837.5551031537,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 64,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 27.935419727952986,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 39.109155770073954
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 145162.4448968463,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 538837.5551031537,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 65,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 55.508982035928135
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 65,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 49.52095808383233
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 65,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 29.16560993894321,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 46.77676349133437
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 123019.0210990223,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 560980.9789009778,
+      "residual_j_m2": -1.1641532182693481e-10
+    },
+    {
+      "hour_end": 65,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 29.16560993894321,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 40.788739539238556
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 123019.0210990223,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 560980.9789009778,
+      "residual_j_m2": -1.1641532182693481e-10
+    },
+    {
+      "hour_end": 66,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 57.5568862275449
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 66,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 51.5688622754491
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 684000.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 66,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 30.208144016053566,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 48.51253173172049
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 104253.4077110357,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 579746.5922889642,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 66,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": 180.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 30.208144016053566,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 42.52450777962468
+      },
+      "atmospheric_j_m2": 648000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 104253.4077110357,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 579746.5922889642,
+      "residual_j_m2": 1.1641532182693481e-10
+    },
+    {
+      "hour_end": 67,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 180000.0,
+        "melted_kg_m2": 57.5568862275449
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 67,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 180000.0,
+        "melted_kg_m2": 51.5688622754491
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 67,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 23.76961357292675,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 49.90131330151894
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -643853.0443126815,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 463853.0443126815,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 67,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 23.76961357292675,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 43.913289349423124
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -643853.0443126815,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 463853.0443126815,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 68,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 360000.0,
+        "melted_kg_m2": 57.5568862275449
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 68,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 360000.0,
+        "melted_kg_m2": 51.5688622754491
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 68,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 18.313231841463345,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 50.996038370819356
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -545638.1731463405,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 365638.17314634024,
+      "residual_j_m2": 2.9103830456733704e-10
+    },
+    {
+      "hour_end": 68,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 18.313231841463345,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 45.00801441872354
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -545638.1731463405,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 365638.17314634024,
+      "residual_j_m2": 2.9103830456733704e-10
+    },
+    {
+      "hour_end": 69,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 540000.0,
+        "melted_kg_m2": 57.5568862275449
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 69,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 540000.0,
+        "melted_kg_m2": 51.5688622754491
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 69,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 13.689179526663851,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 51.8415630159689
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -462405.2314799494,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 282405.2314799493,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 69,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 13.689179526663851,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 45.853539063873086
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -462405.2314799494,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 282405.2314799493,
+      "residual_j_m2": 5.820766091346741e-11
+    },
+    {
+      "hour_end": 70,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 720000.0,
+        "melted_kg_m2": 57.5568862275449
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 70,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 720000.0,
+        "melted_kg_m2": 51.5688622754491
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 70,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 9.770491124291398,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 52.47590086099059
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -391868.8402372453,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 211868.84023724517,
+      "residual_j_m2": 1.4551915228366852e-10
+    },
+    {
+      "hour_end": 70,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 9.770491124291398,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 46.487876908894776
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -391868.8402372453,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 211868.84023724517,
+      "residual_j_m2": 1.4551915228366852e-10
+    },
+    {
+      "hour_end": 71,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 900000.0,
+        "melted_kg_m2": 57.5568862275449
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 71,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 900000.0,
+        "melted_kg_m2": 51.5688622754491
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 71,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 6.449568749399489,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 52.93126684149715
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -332092.2374891909,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 152092.2374891908,
+      "residual_j_m2": 8.731149137020111e-11
+    },
+    {
+      "hour_end": 71,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 6.449568749399489,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 46.94324288940133
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -332092.2374891909,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 152092.2374891908,
+      "residual_j_m2": 8.731149137020111e-11
+    },
+    {
+      "hour_end": 72,
+      "scenario": "warm_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1080000.0,
+        "melted_kg_m2": 57.5568862275449
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 72,
+      "scenario": "cold_bare",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "cold_reserve_j_m2": 1080000.0,
+        "melted_kg_m2": 51.5688622754491
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": 0.0,
+      "cold_storage_j_m2": -180000.0,
+      "latent_j_m2": 0.0,
+      "residual_j_m2": 0.0
+    },
+    {
+      "hour_end": 72,
+      "scenario": "warm_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 3.6352277537283806,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 53.23496175038071
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -281434.0995671109,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 101434.09956711085,
+      "residual_j_m2": 2.9103830456733704e-11
+    },
+    {
+      "hour_end": 72,
+      "scenario": "cold_debris",
+      "atmospheric_w_m2": -60.0,
+      "water_w_m2": 10.0,
+      "state": {
+        "debris_temperature_c": 3.6352277537283806,
+        "cold_reserve_j_m2": 0.0,
+        "melted_kg_m2": 47.2469377982849
+      },
+      "atmospheric_j_m2": -216000.0,
+      "water_j_m2": 36000.0,
+      "debris_storage_j_m2": -281434.0995671109,
+      "cold_storage_j_m2": 0.0,
+      "latent_j_m2": 101434.09956711085,
+      "residual_j_m2": 2.9103830456733704e-11
+    }
+  ]
+}
