@@ -13,10 +13,10 @@ def predictions():
     from . import reduced as R, metrics as M
     out = {}
     for n, lay, rem in EVAL:
-        if lay == "bare": ms = [R.connectivity("strip", None, 21.0), R.fractional(None, 21.0), R.fixed(None, 21.0)]; ms[0]["method"] = "connectivity_reduced(bare: no deposit; strip-free control uses cover=0.5 deposit => NOT applicable)"; ms = ms[1:]
+        if lay == "bare": ms = [R.fractional(None, 21.0, cover=0.0), R.fixed(None, 21.0, cover=0.0)]; ms[0]["method"] = "bare_reduced(evolving)"; ms[1]["method"] = "bare_fixed_geometry"
         elif lay == "porous_strip": ms = []        # reduced models have no seepage closure: no prediction made (stated, not invented)
         else: ms = R.all_methods("corridor" if lay == "corridor" else "strip", rem, 21.0)
-        out[n] = [dict(method=m["method"], loss=M.events(np.array([x["day"] for x in m["series"]]), np.array([x["f_toe"] for x in m["series"]]), 1e-3)["loss"], sustained_reconnection=M.events(np.array([x["day"] for x in m["series"]]), np.array([x["f_toe"] for x in m["series"]]), 1e-3)["sustained_reconnection"], f0=m["series"][0]["f_toe"], f_end=m["series"][-1]["f_toe"], toe_melt_m3=m["toe_melt_m3"], series_days=[x["day"] for x in m["series"]][::4], series_f=[x["f_toe"] for x in m["series"]][::4]) for m in ms]
+        out[n] = [dict(method=m["method"], loss=M.events(np.array([x["day"] for x in m["series"]]), np.array([x["f_toe"] for x in m["series"]]), 1e-3, rem)["loss"], sustained_reconnection=M.events(np.array([x["day"] for x in m["series"]]), np.array([x["f_toe"] for x in m["series"]]), 1e-3, rem)["sustained_reconnection"], f0=m["series"][0]["f_toe"], f_end=m["series"][-1]["f_toe"], toe_melt_m3=m["toe_melt_m3"], series_days=[x["day"] for x in m["series"]][::4], series_f=[x["f_toe"] for x in m["series"]][::4]) for m in ms]
     return out
 def main(out):
     os.makedirs(out, exist_ok=True); unc = json.load(open(os.path.join(HERE, "results", "numerical_uncertainty.json")))
