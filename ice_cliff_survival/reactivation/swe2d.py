@@ -104,7 +104,7 @@ def advance(h, hu, hv, hT, zs, zdp, heff, iceMask, manning, qin_w, Tin, dx, nx, 
 
 class Sim:
     """cfg keys: dx, Lpool, Lr, Ltail, Wl (lane width), Q, Tw, z_toe, z_byp, deposit: array spec via set_deposit(), heff, k_deb, manning."""
-    def __init__(self, dx=0.05, Lpool=2.0, Lr=2.0, Ltail=1.0, Wl=0.5, Q=0.07, Tw=0.5, z_toe=-0.08, z_byp=0.0, heff=200.0, k_deb=2.0, manning=0.02, cfl=0.4, dz=1.0, porous=None, closed_out=False, wall_h=5.0, tail_slope=0.5, ramp=0.0, pool_floor=-0.7, tail_drop=1.5, ramp_ratio=3.0):
+    def __init__(self, dx=0.05, Lpool=3.0, Lr=2.0, Ltail=1.0, Wl=0.5, Q=0.07, Tw=0.5, z_toe=-0.08, z_byp=0.0, heff=200.0, k_deb=2.0, manning=0.02, cfl=0.4, dz=1.0, porous=None, closed_out=False, wall_h=5.0, tail_slope=0.5, ramp=0.0, pool_floor=-1.0, tail_drop=1.5, ramp_ratio=3.0):
         self.dx = dx; self.nx = int(round((Lpool + Lr + Ltail) / dx)); self.nw = int(round(Wl / dx)); self.ny = 2 * self.nw + 1
         self.Lpool, self.Lr, self.Wl, self.Q, self.Tw, self.heff0, self.k_deb, self.manning, self.cfl = Lpool, Lr, Wl, Q, Tw, heff, k_deb, manning, cfl
         nx, ny = self.nx, self.ny; self.i0 = int(round(Lpool / dx)) + 1; self.i1 = int(round((Lpool + Lr) / dx))      # route cells i0..i1 (1-based padded)
@@ -172,7 +172,7 @@ class Sim:
         d.update(heat_in_W=P_in, heat_out_W=P_out, melt_heat_W=melt_rate, energy_resid_rel=(P_in - P_out - melt_rate - self._dE) / max(P_in, 1e-300), storage_rate_W=self._dE)
         d["melt_heat_toe_W"] = float((self.last_qacc * self.toe).sum() * self.dx ** 2); d["melt_heat_byp_W"] = float((self.last_qacc * self.byp).sum() * self.dx ** 2); return d
     def lower_bed(self, dtm):
-        dz = self.last_qacc * dtm / (RHO_I * LF) * self.ice; self.zb = np.maximum(self.zb - dz, self.pool_floor); vol = float(dz.sum() * self.dx ** 2); return vol, float((dz * self.toe).sum() * self.dx ** 2), float((dz * self.byp).sum() * self.dx ** 2)
+        dz = self.last_qacc * dtm / (RHO_I * LF) * self.ice; self.zb = np.maximum(self.zb - dz, self.pool_floor); vol = float(dz.sum() * self.dx ** 2); rm = np.zeros_like(self.ice); rm[self.i0:self.i1 + 1] = True; self.last_reach = (float((dz * (self.toe & rm)).sum() * self.dx ** 2), float((dz * (self.byp & rm)).sum() * self.dx ** 2)); return vol, float((dz * self.toe).sum() * self.dx ** 2), float((dz * self.byp).sum() * self.dx ** 2)
     def remove_debris(self):
         """prescribed complete removal; exported solid volume logged; debris assumed at T_m so exported enthalpy relative to T_m is zero (declared); water in the vacated cells keeps its own heat via the (continuing) flow solution."""
         v = float((np.where(self.solid, self.zd, 0.0) + self.pdep).sum() * self.dx ** 2); self.solid[:] = False; self.zd[:] = 0; self.pdep[:] = 0; self.removed = True; self.export_log.append(dict(t=self.t, volume_m3=v, enthalpy_J_rel_Tm=0.0)); return v

@@ -23,3 +23,10 @@ class TestFlowStefan(unittest.TestCase):
     def test_unsupported_shield_with_density_jump_refused(self):
         from ice_cliff_survival.cfd.cli_flow import main
         self.assertEqual(main(["--workdir", tempfile.mkdtemp(), "--shield", "--rho-i", "917"]), 2)
+class TestReactivationMetrics(unittest.TestCase):
+    def test_event_definitions(self):
+        import numpy as np
+        from ice_cliff_survival.reactivation import metrics as M
+        d = np.arange(0, 10.25, 0.25); f = np.where(d < 2, 0.3, 0.0); f = np.where(d >= 8, 0.1, f); e = M.events(d, f, 1e-3, 8.0)
+        self.assertAlmostEqual(e["loss"], 1.75 + 0.25 * (0.3 - 1e-3) / 0.3, 6); self.assertEqual(e["sustained_reconnection"], 8.0); self.assertEqual(e["rewet_episodes"], 0)
+        f2 = np.where((d > 3) & (d < 3.5), 0.01, np.where(d < 2, 0.3, 0.0)); e2 = M.events(d, f2, 1e-3, None); self.assertEqual(e2["rewet_episodes"], 1); self.assertIsNone(e2["sustained_reconnection"])      # brief rewetting is not reconnection

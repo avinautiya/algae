@@ -48,9 +48,9 @@ def partition(dxs=(0.1, 0.05, 0.025), layouts=("bare", "strip", "corridor"), **k
 def plug(dxs=(0.1, 0.05, 0.025)):
     out = []
     for dx in dxs:
-        s = Sim(dx=dx, z_toe=0.0, z_byp=0.0, heff=20000.0, Tw=0.5, tail_slope=0.5); r = s.hydraulics(tmax=4000.0); d = s.diagnostics(); rows = []
+        s = Sim(dx=dx, z_toe=0.0, z_byp=0.0, heff=20000.0, Tw=0.5, tail_slope=0.5, ramp_ratio=0.0, pool_floor=-0.3); r = s.hydraulics(tmax=4000.0); d = s.diagnostics(); rows = []
         for ys, nm in ((s.toe_cols(), "toe"), (s.byp_cols(), "byp")):
-            Qj = s.Qsec(ys); ntu = s.heff0 * 0.5 * 2.0 / (RHO_W * CP * Qj); P = RHO_W * CP * Qj * 0.5 * (1 - math.exp(-ntu)); Pm = d["melt_heat_" + nm + "_W"]
+            Qj = s.Qsec(ys); ntu = s.heff0 * 0.5 * 2.0 / (RHO_W * CP * Qj); P = RHO_W * CP * Qj * 0.5 * (1 - math.exp(-ntu)); Pm = float((s.last_qacc[s.i0:s.i1 + 1, ys]).sum() * dx * dx)
             # bed lowering profile after dt: analytic dz(x) = heff T(x) dt/(rho_i L), T = Tw exp(-heff x/(rho cp q_w))
             dt = 3600.0; qw = Qj / 0.5; xs = (np.arange(s.i0, s.i1 + 1) - s.i0 + 0.5) * dx; dz_an = s.heff0 * 0.5 * np.exp(-s.heff0 * xs / (RHO_W * CP * qw)) * dt / (RHO_I * LF)
             dzn = (s.last_qacc[s.i0:s.i1 + 1, ys] * dt / (RHO_I * LF)).mean(axis=1); rows.append(dict(lane=nm, NTU=ntu, melt_W=Pm, analytic_W=P, rel_err=(Pm - P) / P, lowering_profile_max_rel_err=float(np.max(np.abs(dzn / dz_an - 1)))))
@@ -59,6 +59,9 @@ def plug(dxs=(0.1, 0.05, 0.025)):
 def bed_vs_water(dx=0.05):
     s = cases.build("strip", dx=dx); s.hydraulics(tmax=4000.0); d = s.diagnostics(); dtm = 3600.0; vol, vt, vb = s.lower_bed(dtm); latent_W = RHO_I * LF * vol / dtm
     water_W = d["heat_in_W"] - d["heat_out_W"] - d["storage_rate_W"]; return dict(latent_W=latent_W, water_side_W=water_W, rel_diff=(latent_W - water_W) / water_W, storage_W=d["storage_rate_W"], sensible_in_W=d["heat_in_W"], sensible_out_W=d["heat_out_W"])
+def symmetric():
+    from .diagnose import single_lane
+    return [single_lane(dx=dx, n=n) for dx in (0.1, 0.05, 0.025) for n in (0.02, 0.001)]
 def outlet():
     out = []
     for Lt in (0.5, 1.0, 1.5):
@@ -66,7 +69,7 @@ def outlet():
     return out
 def order(a, b, c): return float(math.log2(abs(a - b) / abs(b - c))) if abs(b - c) > 0 and abs(a - b) > 0 else float("nan")
 if __name__ == "__main__":
-    t = time.time(); R = dict(rest=rest(), partition=partition(), plug=plug(), bed_vs_water=bed_vs_water(), outlet=outlet())
+    t = time.time(); R = dict(rest=rest(), symmetric=symmetric(), partition=partition(), plug=plug(), bed_vs_water=bed_vs_water(), outlet=outlet())
     P = R["partition"]
     for lay in ("bare", "strip", "corridor"):
         f = [p["f_toe"] for p in P if p["layout"] == lay]; R.setdefault("order_f_toe", {})[lay] = order(*f)

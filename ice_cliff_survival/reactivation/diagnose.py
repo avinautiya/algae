@@ -4,7 +4,9 @@ import json, math, sys, time
 import numpy as np
 from . import cases, verify_swe as V
 from .swe2d import Sim, G
-def stage(s): return float(s.h[s.i0 - 3, s.nw + 1] + s.zb[s.i0 - 3, s.nw + 1])      # pool stage at the pool/lane junction row
+def stage(s):
+    """pool stage sampled at a FIXED distance (x = 0.5 m) from the inlet. (v1 sampled 3 cells upstream of the lane entrance, which moves into the entrance drawdown as dx shrinks: diagnostic artifact, preserved in verify_swe_v5/diagnose_v1)"""
+    i = int(round(0.5 / s.dx)); return float(s.h[i, s.nw + 1] + s.zb[i, s.nw + 1])
 def steady(s, tmax=4000.0): r = s.hydraulics(tmax=tmax, tol=1e-4, cool=False); return r
 def single_lane(dx=0.05, pool_floor=-1.5, n=0.02, ztoe=0.0, zbyp=0.0, **kw):
     s = Sim(dx=dx, z_toe=ztoe, z_byp=zbyp, pool_floor=pool_floor, manning=n, **kw); steady(s); d = s.diagnostics(); eta = stage(s); Qt, Qb = d["Q_toe"], d["Q_byp"]
