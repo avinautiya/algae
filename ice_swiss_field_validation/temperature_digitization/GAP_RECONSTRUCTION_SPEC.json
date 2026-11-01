@@ -1,0 +1,20 @@
+{
+  "method_selection": "linear primary because controlled-mask audit lowerMAE than both persistence methods in all six predefined groups; no incision targets used",
+  "primary": "linear_endpoint_bridge",
+  "sensitivity_methods": [
+    "constant_previous_endpoint",
+    "constant_next_endpoint"
+  ],
+  "observed_support": "Original consecutive finite endpoints separated by <=60 seconds, unchanged native class",
+  "reconstructed_support": "Successive finite valid endpoints bounding missing or acquisition-gap portions, endpoint separation <=86400 seconds. Larger gaps remain unsupported; no extrapolation before first/after last finite point.",
+  "final_offsets_C": {
+    "P3": 0.035,
+    "P5": 0.04
+  },
+  "offset_semantics": "Apply exactly once to raw-suffix input; original daily/hourly already corrected",
+  "physical_melt_scenario": "Exact max(T+scenario_shift,0) piecewise-linear integration; signed original integral retained",
+  "reporting": "Measured-support and reconstructed-support integrals/durations/fractions retained separately; unknown bulk offset and timezone unchanged",
+  "code_sha256": "673e52d42fb8e1e7bcae2139b0d6226360f7992f60d222b501455923a5af84da",
+  "native_code_sha256": "f39a8109c89a1d0b3d8896a4a7a5212bcde8c1c0c2f7145ba8c9f3a46eebe2df",
+  "no_melt_target_tuning": true
+}

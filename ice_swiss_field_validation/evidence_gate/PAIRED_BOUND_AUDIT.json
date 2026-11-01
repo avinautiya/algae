@@ -1,0 +1,86 @@
+{
+  "nominal": {
+    "candidate": "db04_scale_fitted",
+    "groups": [
+      {
+        "history": "P3",
+        "target_type": "direct_bed_lowering",
+        "unit": "m",
+        "baselines": {
+          "constant_h_fitted": {
+            "n_observations": 5,
+            "lower_bound_mean_absolute_error_advantage": 0.03569945236364719,
+            "robustly_better": true
+          },
+          "gnielinski_smooth_unfitted": {
+            "n_observations": 5,
+            "lower_bound_mean_absolute_error_advantage": 0.2487204253735368,
+            "robustly_better": true
+          }
+        }
+      },
+      {
+        "history": "P5",
+        "target_type": "direct_bed_lowering",
+        "unit": "m",
+        "baselines": {
+          "constant_h_fitted": {
+            "n_observations": 4,
+            "lower_bound_mean_absolute_error_advantage": 0.0717323757684622,
+            "robustly_better": true
+          },
+          "gnielinski_smooth_unfitted": {
+            "n_observations": 4,
+            "lower_bound_mean_absolute_error_advantage": -0.2730479927008956,
+            "robustly_better": false
+          }
+        }
+      }
+    ],
+    "consistent_within_supplied_bounds": false,
+    "interpretation": "conditional bound comparison; not a confidence interval, independent-site test, or full-system validation"
+  },
+  "endpoint_sum_engineering_scenario": {
+    "candidate": "db04_scale_fitted",
+    "groups": [
+      {
+        "history": "P3",
+        "target_type": "direct_bed_lowering",
+        "unit": "m",
+        "baselines": {
+          "constant_h_fitted": {
+            "n_observations": 5,
+            "lower_bound_mean_absolute_error_advantage": -0.014763832326695115,
+            "robustly_better": false
+          },
+          "gnielinski_smooth_unfitted": {
+            "n_observations": 5,
+            "lower_bound_mean_absolute_error_advantage": 0.16230131058284175,
+            "robustly_better": true
+          }
+        }
+      },
+      {
+        "history": "P5",
+        "target_type": "direct_bed_lowering",
+        "unit": "m",
+        "baselines": {
+          "constant_h_fitted": {
+            "n_observations": 4,
+            "lower_bound_mean_absolute_error_advantage": -0.12125854946223531,
+            "robustly_better": false
+          },
+          "gnielinski_smooth_unfitted": {
+            "n_observations": 4,
+            "lower_bound_mean_absolute_error_advantage": -0.3932477061796003,
+            "robustly_better": false
+          }
+        }
+      }
+    ],
+    "consistent_within_supplied_bounds": false,
+    "interpretation": "conditional bound comparison; not a confidence interval, independent-site test, or full-system validation"
+  },
+  "source_sha256": "35171bc92e3ed268ec1abc3fb503b2ff4fe5d96915dbce7f6a84db48b41ead17",
+  "caveat": "Endpoint-summed source standard deviations are used ONLY as analyst engineering ranges, not hard truth bounds or confidence intervals. Shared systematic uncertainty makes independently extremized targets conservative. P3/P5 share one channel event."
+}

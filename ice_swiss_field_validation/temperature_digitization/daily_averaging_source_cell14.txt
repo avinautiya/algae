@@ -1,0 +1,118 @@
+using Statistics
+"""
+function upscale_timeseries(temp, t, period="period")
+
+Up scale the time series : daily and hourly. The function returns the time serie averaged on each interval
+specified (day or hours).
+The mean for daily scale is associated at noon of the same day.
+
+The mean for hourly scale is associated at the beginnng of the hour.
+
+Achtung when there is NaN the mean dosn't take it, thus we should check if there is enough value in the time period
+considered to make the mean relevant
+
+"""
+
+
+function upscale_timeseries(A, t, period="period")
+    
+    if period == "day"
+
+A_daily = Float64[]
+A_daily_mean = []
+time_day = []
+
+d = day(t[1])
+mon = month(t[1])
+
+for i in 1:length(A)
+
+    if day(t[i]) == d && i !== length(A)
+        if !isnan(A[i])   
+        push!(A_daily, A[i])     
+        end
+                
+    elseif i == length(A) #To record daily mean even if the day is not complete - 
+                                         #I made it to compute daily Q_lake until 27th July
+        avg = mean(A_daily)
+        push!(A_daily_mean, avg)
+        push!(time_day, DateTime(2019,mon,d))
+        empty!(A_daily)
+              
+
+    elseif day(t[i]) !== d && month(t[i]) == mon
+        
+        avg = mean(A_daily)
+        push!(A_daily_mean, avg)
+        push!(time_day, DateTime(2019,mon,d))
+        empty!(A_daily)
+        d = d + 1
+                
+        
+    elseif day(t[i]) !== d && month(t[i]) !== mon
+        
+        avg = mean(A_daily)
+        push!(A_daily_mean, avg)
+        push!(time_day, DateTime(2019,mon,d))
+        empty!(A_daily)
+        d = 1
+        mon = mon + 1
+    
+    end
+end
+    
+    return (time_day .+ Hour(12),A_daily_mean);
+    
+elseif period == "hour"
+        
+        A_hour = Float64[]
+        A_hour_mean = []
+        time_hour = []
+
+h = hour(t[1])
+d = day(t[1])
+mon = month(t[1])
+
+for i in 1:length(A)
+
+    if hour(t[i]) == h && day(t[i]) == d && month(t[i]) == mon
+        if !isnan(A[i])   
+        push!(A_hour, A[i])
+            
+        end
+    
+    elseif hour(t[i]) !== h && day(t[i]) == d && month(t[i]) == mon
+        
+        avg = mean(A_hour)
+        push!(A_hour_mean, avg)
+        push!(time_hour, DateTime(2019,mon,d,h))
+        empty!(A_hour)
+        h = h + 1
+        
+    elseif hour(t[i]) !== h && day(t[i]) !== d && month(t[i]) == mon
+        
+        avg = mean(A_hour)
+        push!(A_hour_mean, avg)
+        push!(time_hour, DateTime(2019,mon,d,h))
+        empty!(A_hour)
+        h = 0        
+        d = d + 1
+                
+    elseif hour(t[i]) !== h && day(t[i]) !== d && month(t[i]) !== mon
+        
+        avg = mean(A_hour)
+        push!(A_hour_mean, avg)
+        push!(time_hour, DateTime(2019,mon,d,h))
+        empty!(A_hour)
+        h = 0        
+        d = 1
+        mon = mon + 1
+                
+    end
+end
+    
+    return (time_hour,A_hour_mean);
+        
+end
+    
+end

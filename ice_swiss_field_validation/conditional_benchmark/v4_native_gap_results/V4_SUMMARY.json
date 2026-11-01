@@ -1,0 +1,859 @@
+{
+  "freeze": {
+    "protocol_sha256": "130b8a7acac193bab31dddbb98711353b9f8ed699dc158bc9e6343b42008483d",
+    "source_manifest_sha256": "2b44003699c15643e3104a7534b44ce97e085d5b3bc647c13e93dceb91ede447",
+    "v4_scores_seen": false,
+    "earlier_test_scores_seen": true,
+    "models_unchanged_from_v2": true,
+    "scenarios": 81,
+    "primary_imputer": "linear",
+    "imputer_selection_response": "temperature_only_masked_data",
+    "sensitivity_imputers": [
+      "left",
+      "right"
+    ]
+  },
+  "availability_identical_across_imputers": true,
+  "nominal": {
+    "linear": {
+      "status": "completed",
+      "calibration": {
+        "training_ids": [
+          "P3:0",
+          "P3:1",
+          "P3:2",
+          "P3:3",
+          "P3:4",
+          "P5:0",
+          "P5:1",
+          "P5:2"
+        ],
+        "constant_rate_m_s": 3.759182599376706e-06,
+        "constant_h_W_m2_K": 3840.8547365953264,
+        "db04_scale": 2.577176194277922
+      },
+      "test_metrics": {
+        "P3": {
+          "constant_rate_fitted": {
+            "n": 4,
+            "MAE_m": 0.7733461870875237,
+            "RMSE_m": 1.0682030458776992,
+            "bias_m": 0.7733461870875237,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 6.523384748350385
+          },
+          "constant_h_fitted": {
+            "n": 4,
+            "MAE_m": 0.21397927863532465,
+            "RMSE_m": 0.26049713300789906,
+            "bias_m": -0.14855127203550642,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 2.8357949118582653
+          },
+          "db04_unfitted": {
+            "n": 4,
+            "MAE_m": 0.5639031340528174,
+            "RMSE_m": 0.679356216175012,
+            "bias_m": -0.5639031340528174,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.1743874637890215
+          },
+          "db03_unfitted": {
+            "n": 4,
+            "MAE_m": 0.6311825513863167,
+            "RMSE_m": 0.7571771999694825,
+            "bias_m": -0.6311825513863167,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 0.9052697944550243
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 4,
+            "MAE_m": 0.43262416160271494,
+            "RMSE_m": 0.5258168223551667,
+            "bias_m": -0.43262416160271494,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.6995033535894313
+          },
+          "db04_scale_fitted": {
+            "n": 4,
+            "MAE_m": 0.12755310845464116,
+            "RMSE_m": 0.1579127710005126,
+            "bias_m": -0.10084914636619997,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 3.026603414535491
+          }
+        },
+        "P5": {
+          "constant_rate_fitted": {
+            "n": 2,
+            "MAE_m": 0.23037881357300305,
+            "RMSE_m": 0.23556436564251,
+            "bias_m": 0.04915457880252505,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.9483091576049592
+          },
+          "constant_h_fitted": {
+            "n": 2,
+            "MAE_m": 0.3371463495269974,
+            "RMSE_m": 0.3400009854245876,
+            "bias_m": 0.3371463495269974,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 2.5242926990539036
+          },
+          "db04_unfitted": {
+            "n": 2,
+            "MAE_m": 0.47909749731342577,
+            "RMSE_m": 0.606506120787739,
+            "bias_m": -0.3719075995741462,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.1061848008516166
+          },
+          "db03_unfitted": {
+            "n": 2,
+            "MAE_m": 0.5835701886096565,
+            "RMSE_m": 0.7675987881461186,
+            "bias_m": -0.4986519172022503,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 0.8526961655954084
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 2,
+            "MAE_m": 0.2680038468189633,
+            "RMSE_m": 0.2938528355732762,
+            "bias_m": -0.12051318212001773,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.6089736357598736
+          },
+          "db04_scale_fitted": {
+            "n": 2,
+            "MAE_m": 0.5004165676134706,
+            "RMSE_m": 0.5549670814518539,
+            "bias_m": 0.5004165676134706,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 2.8508331352268503
+          }
+        },
+        "pooled": {
+          "constant_rate_fitted": {
+            "n": 6,
+            "MAE_m": 0.5923570625826834,
+            "RMSE_m": 0.882724204721827,
+            "bias_m": 0.5319489843258575,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 8.471693905955345
+          },
+          "constant_h_fitted": {
+            "n": 6,
+            "MAE_m": 0.2550349689325489,
+            "RMSE_m": 0.2894351871607648,
+            "bias_m": 0.013347935151994858,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 5.360087610912169
+          },
+          "db04_unfitted": {
+            "n": 6,
+            "MAE_m": 0.5356345884730201,
+            "RMSE_m": 0.6559724108690982,
+            "bias_m": -0.499904622559927,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 2.280572264640638
+          },
+          "db03_unfitted": {
+            "n": 6,
+            "MAE_m": 0.6153117637940966,
+            "RMSE_m": 0.7606669275205457,
+            "bias_m": -0.5870056733249612,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 1.7579659600504327
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 6,
+            "MAE_m": 0.37775072334146437,
+            "RMSE_m": 0.4616333864001551,
+            "bias_m": -0.32858716844181585,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 3.308476989349305
+          },
+          "db04_scale_fitted": {
+            "n": 6,
+            "MAE_m": 0.25184092817425097,
+            "RMSE_m": 0.34537966934245434,
+            "bias_m": 0.09957275829369022,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 5.877436549762342
+          }
+        }
+      },
+      "excluded_intervals": [
+        {
+          "id": "P3:9",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-14T11:50:00",
+          "end": "2019-08-23T12:46:00",
+          "observed_lowering_m": 0.38999999999987267,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing derived daily Reynolds forcing"
+          }
+        },
+        {
+          "id": "P3:10",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-23T12:46:00",
+          "end": "2019-09-04T09:43:00",
+          "observed_lowering_m": 0.21000000000003638,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1025820.0,
+              "covered_seconds": 1021485.0,
+              "coverage_fraction": 0.9957741124173831,
+              "max_daily_uncovered_gap_seconds": 4320.0
+            }
+          }
+        },
+        {
+          "id": "P5:5",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-07-31T10:26:00",
+          "end": "2019-08-08T12:57:00",
+          "observed_lowering_m": 0.8200000000001637,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 700260.0,
+              "covered_seconds": 697500.0,
+              "coverage_fraction": 0.9960586068031874,
+              "max_daily_uncovered_gap_seconds": 2760.0
+            }
+          }
+        },
+        {
+          "id": "P5:6",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-08T12:57:00",
+          "end": "2019-08-14T11:19:00",
+          "observed_lowering_m": 1.069999999999709,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 512520.0,
+              "covered_seconds": 0.0,
+              "coverage_fraction": 0.0,
+              "max_daily_uncovered_gap_seconds": 86400.0
+            }
+          }
+        },
+        {
+          "id": "P5:7",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-14T11:19:00",
+          "end": "2019-08-23T13:50:00",
+          "observed_lowering_m": 0.09000000000014552,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing derived daily Reynolds forcing"
+          }
+        },
+        {
+          "id": "P5:8",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-23T13:50:00",
+          "end": "2019-09-04T10:02:00",
+          "observed_lowering_m": 0.11999999999989086,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1023120.0,
+              "covered_seconds": 1015860.0,
+              "coverage_fraction": 0.9929040581749942,
+              "max_daily_uncovered_gap_seconds": 7260.0
+            }
+          }
+        }
+      ]
+    },
+    "left": {
+      "status": "completed",
+      "calibration": {
+        "training_ids": [
+          "P3:0",
+          "P3:1",
+          "P3:2",
+          "P3:3",
+          "P3:4",
+          "P5:0",
+          "P5:1",
+          "P5:2"
+        ],
+        "constant_rate_m_s": 3.759182599376706e-06,
+        "constant_h_W_m2_K": 3858.6395585056325,
+        "db04_scale": 2.590822129554807
+      },
+      "test_metrics": {
+        "P3": {
+          "constant_rate_fitted": {
+            "n": 4,
+            "MAE_m": 0.7733461870875237,
+            "RMSE_m": 1.0682030458776992,
+            "bias_m": 0.7733461870875237,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 6.523384748350385
+          },
+          "constant_h_fitted": {
+            "n": 4,
+            "MAE_m": 0.2135391477294335,
+            "RMSE_m": 0.25892459723728334,
+            "bias_m": -0.1464291363596224,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 2.8442834545618014
+          },
+          "db04_unfitted": {
+            "n": 4,
+            "MAE_m": 0.5643766802400925,
+            "RMSE_m": 0.679968606662547,
+            "bias_m": -0.5643766802400925,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.1724932790399214
+          },
+          "db03_unfitted": {
+            "n": 4,
+            "MAE_m": 0.631547581730081,
+            "RMSE_m": 0.7576512456981772,
+            "bias_m": -0.631547581730081,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 0.903809673079967
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 4,
+            "MAE_m": 0.43330751300951076,
+            "RMSE_m": 0.5266886120003922,
+            "bias_m": -0.43330751300951076,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.696769947962248
+          },
+          "db04_scale_fitted": {
+            "n": 4,
+            "MAE_m": 0.12487321628160358,
+            "RMSE_m": 0.1551412226721877,
+            "bias_m": -0.09806961647734586,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 3.0377215340909074
+          }
+        },
+        "P5": {
+          "constant_rate_fitted": {
+            "n": 2,
+            "MAE_m": 0.23037881357300305,
+            "RMSE_m": 0.23556436564251,
+            "bias_m": 0.04915457880252505,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.9483091576049592
+          },
+          "constant_h_fitted": {
+            "n": 2,
+            "MAE_m": 0.34154369780050203,
+            "RMSE_m": 0.3447833340656916,
+            "bias_m": 0.34154369780050203,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 2.533087395600913
+          },
+          "db04_unfitted": {
+            "n": 2,
+            "MAE_m": 0.4796810553047028,
+            "RMSE_m": 0.6073473446290577,
+            "bias_m": -0.37252769321183893,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.104944613576231
+          },
+          "db03_unfitted": {
+            "n": 2,
+            "MAE_m": 0.5840200209172252,
+            "RMSE_m": 0.7682512965727792,
+            "bias_m": -0.49912991280186786,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 0.8517401743961733
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 2,
+            "MAE_m": 0.2688511705136825,
+            "RMSE_m": 0.2949948182830306,
+            "bias_m": -0.12141248258420971,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.6071750348314897
+          },
+          "db04_scale_fitted": {
+            "n": 2,
+            "MAE_m": 0.5063574783928877,
+            "RMSE_m": 0.5623626171146057,
+            "bias_m": 0.5063574783928877,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 2.8627149567856844
+          }
+        },
+        "pooled": {
+          "constant_rate_fitted": {
+            "n": 6,
+            "MAE_m": 0.5923570625826834,
+            "RMSE_m": 0.882724204721827,
+            "bias_m": 0.5319489843258575,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 8.471693905955345
+          },
+          "constant_h_fitted": {
+            "n": 6,
+            "MAE_m": 0.2562073310864563,
+            "RMSE_m": 0.2903787420814599,
+            "bias_m": 0.01622847502708574,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 5.377370850162714
+          },
+          "db04_unfitted": {
+            "n": 6,
+            "MAE_m": 0.5361448052616292,
+            "RMSE_m": 0.6566545030483886,
+            "bias_m": -0.5004270178973412,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 2.2774378926161525
+          },
+          "db03_unfitted": {
+            "n": 6,
+            "MAE_m": 0.6157050614591291,
+            "RMSE_m": 0.761200997306615,
+            "bias_m": -0.58740835875401,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 1.7555498474761402
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 6,
+            "MAE_m": 0.378488732177568,
+            "RMSE_m": 0.46253782938466687,
+            "bias_m": -0.32934250286774375,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 3.3039449827937375
+          },
+          "db04_scale_fitted": {
+            "n": 6,
+            "MAE_m": 0.25203463698536493,
+            "RMSE_m": 0.34851557166188485,
+            "bias_m": 0.10340608181273198,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 5.900436490876592
+          }
+        }
+      },
+      "excluded_intervals": [
+        {
+          "id": "P3:9",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-14T11:50:00",
+          "end": "2019-08-23T12:46:00",
+          "observed_lowering_m": 0.38999999999987267,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing derived daily Reynolds forcing"
+          }
+        },
+        {
+          "id": "P3:10",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-23T12:46:00",
+          "end": "2019-09-04T09:43:00",
+          "observed_lowering_m": 0.21000000000003638,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1025820.0,
+              "covered_seconds": 1021485.0,
+              "coverage_fraction": 0.9957741124173831,
+              "max_daily_uncovered_gap_seconds": 4320.0
+            }
+          }
+        },
+        {
+          "id": "P5:5",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-07-31T10:26:00",
+          "end": "2019-08-08T12:57:00",
+          "observed_lowering_m": 0.8200000000001637,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 700260.0,
+              "covered_seconds": 697500.0,
+              "coverage_fraction": 0.9960586068031874,
+              "max_daily_uncovered_gap_seconds": 2760.0
+            }
+          }
+        },
+        {
+          "id": "P5:6",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-08T12:57:00",
+          "end": "2019-08-14T11:19:00",
+          "observed_lowering_m": 1.069999999999709,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 512520.0,
+              "covered_seconds": 0.0,
+              "coverage_fraction": 0.0,
+              "max_daily_uncovered_gap_seconds": 86400.0
+            }
+          }
+        },
+        {
+          "id": "P5:7",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-14T11:19:00",
+          "end": "2019-08-23T13:50:00",
+          "observed_lowering_m": 0.09000000000014552,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing derived daily Reynolds forcing"
+          }
+        },
+        {
+          "id": "P5:8",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-23T13:50:00",
+          "end": "2019-09-04T10:02:00",
+          "observed_lowering_m": 0.11999999999989086,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1023120.0,
+              "covered_seconds": 1015860.0,
+              "coverage_fraction": 0.9929040581749942,
+              "max_daily_uncovered_gap_seconds": 7260.0
+            }
+          }
+        }
+      ]
+    },
+    "right": {
+      "status": "completed",
+      "calibration": {
+        "training_ids": [
+          "P3:0",
+          "P3:1",
+          "P3:2",
+          "P3:3",
+          "P3:4",
+          "P5:0",
+          "P5:1",
+          "P5:2"
+        ],
+        "constant_rate_m_s": 3.759182599376706e-06,
+        "constant_h_W_m2_K": 3822.958550379817,
+        "db04_scale": 2.563582374001605
+      },
+      "test_metrics": {
+        "P3": {
+          "constant_rate_fitted": {
+            "n": 4,
+            "MAE_m": 0.7733461870875237,
+            "RMSE_m": 1.0682030458776992,
+            "bias_m": 0.7733461870875237,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 6.523384748350385
+          },
+          "constant_h_fitted": {
+            "n": 4,
+            "MAE_m": 0.21437198137956012,
+            "RMSE_m": 0.2620602750173008,
+            "bias_m": -0.15070469560117652,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 2.827181217595585
+          },
+          "db04_unfitted": {
+            "n": 4,
+            "MAE_m": 0.5634295878655423,
+            "RMSE_m": 0.6787132856113449,
+            "bias_m": -0.5634295878655423,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.1762816485381218
+          },
+          "db03_unfitted": {
+            "n": 4,
+            "MAE_m": 0.6308175210425523,
+            "RMSE_m": 0.7566792657010942,
+            "bias_m": -0.6308175210425523,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 0.9067299158300818
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 4,
+            "MAE_m": 0.43194081019591907,
+            "RMSE_m": 0.5249033558927912,
+            "bias_m": -0.43194081019591907,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.7022367592166148
+          },
+          "db04_scale_fitted": {
+            "n": 4,
+            "MAE_m": 0.1300887164762037,
+            "RMSE_m": 0.16065522262808557,
+            "bias_m": -0.10362627473660282,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 3.01549490105388
+          }
+        },
+        "P5": {
+          "constant_rate_fitted": {
+            "n": 2,
+            "MAE_m": 0.23037881357300305,
+            "RMSE_m": 0.23556436564251,
+            "bias_m": 0.04915457880252505,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.9483091576049592
+          },
+          "constant_h_fitted": {
+            "n": 2,
+            "MAE_m": 0.33269902585708766,
+            "RMSE_m": 0.33519186883106666,
+            "bias_m": 0.33269902585708766,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 2.5153980517140844
+          },
+          "db04_unfitted": {
+            "n": 2,
+            "MAE_m": 0.47848990674545366,
+            "RMSE_m": 0.6056459385827537,
+            "bias_m": -0.3712875059364532,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.1074249881270026
+          },
+          "db03_unfitted": {
+            "n": 2,
+            "MAE_m": 0.5831018309291288,
+            "RMSE_m": 0.7669322013045536,
+            "bias_m": -0.49817392160263274,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 0.8536521567946435
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 2,
+            "MAE_m": 0.2671223336183435,
+            "RMSE_m": 0.29268040898304665,
+            "bias_m": -0.11961388165582565,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.6107722366882578
+          },
+          "db04_scale_fitted": {
+            "n": 2,
+            "MAE_m": 0.49448759004570575,
+            "RMSE_m": 0.5476172430630503,
+            "bias_m": 0.49448759004570575,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 2.8389751800913205
+          }
+        },
+        "pooled": {
+          "constant_rate_fitted": {
+            "n": 6,
+            "MAE_m": 0.5923570625826834,
+            "RMSE_m": 0.882724204721827,
+            "bias_m": 0.5319489843258575,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 8.471693905955345
+          },
+          "constant_h_fitted": {
+            "n": 6,
+            "MAE_m": 0.25381432953873595,
+            "RMSE_m": 0.28850462989626907,
+            "bias_m": 0.010429878218244861,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 5.342579269309669
+          },
+          "db04_unfitted": {
+            "n": 6,
+            "MAE_m": 0.5351163608255128,
+            "RMSE_m": 0.6552634205804764,
+            "bias_m": -0.49938222722251263,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 2.283706636665124
+          },
+          "db03_unfitted": {
+            "n": 6,
+            "MAE_m": 0.6149122910047445,
+            "RMSE_m": 0.7601122776015271,
+            "bias_m": -0.5866029878959125,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 1.7603820726247252
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 6,
+            "MAE_m": 0.3770013180033939,
+            "RMSE_m": 0.4606911068736882,
+            "bias_m": -0.32783183401588795,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 3.3130089959048723
+          },
+          "db04_scale_fitted": {
+            "n": 6,
+            "MAE_m": 0.2515550076660377,
+            "RMSE_m": 0.3422985276116621,
+            "bias_m": 0.0957450135241667,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 5.8544700811452
+          }
+        }
+      },
+      "excluded_intervals": [
+        {
+          "id": "P3:9",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-14T11:50:00",
+          "end": "2019-08-23T12:46:00",
+          "observed_lowering_m": 0.38999999999987267,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing derived daily Reynolds forcing"
+          }
+        },
+        {
+          "id": "P3:10",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-23T12:46:00",
+          "end": "2019-09-04T09:43:00",
+          "observed_lowering_m": 0.21000000000003638,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1025820.0,
+              "covered_seconds": 1021485.0,
+              "coverage_fraction": 0.9957741124173831,
+              "max_daily_uncovered_gap_seconds": 4320.0
+            }
+          }
+        },
+        {
+          "id": "P5:5",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-07-31T10:26:00",
+          "end": "2019-08-08T12:57:00",
+          "observed_lowering_m": 0.8200000000001637,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 700260.0,
+              "covered_seconds": 697500.0,
+              "coverage_fraction": 0.9960586068031874,
+              "max_daily_uncovered_gap_seconds": 2760.0
+            }
+          }
+        },
+        {
+          "id": "P5:6",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-08T12:57:00",
+          "end": "2019-08-14T11:19:00",
+          "observed_lowering_m": 1.069999999999709,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 512520.0,
+              "covered_seconds": 0.0,
+              "coverage_fraction": 0.0,
+              "max_daily_uncovered_gap_seconds": 86400.0
+            }
+          }
+        },
+        {
+          "id": "P5:7",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-14T11:19:00",
+          "end": "2019-08-23T13:50:00",
+          "observed_lowering_m": 0.09000000000014552,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing derived daily Reynolds forcing"
+          }
+        },
+        {
+          "id": "P5:8",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-23T13:50:00",
+          "end": "2019-09-04T10:02:00",
+          "observed_lowering_m": 0.11999999999989086,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1023120.0,
+              "covered_seconds": 1015860.0,
+              "coverage_fraction": 0.9929040581749942,
+              "max_daily_uncovered_gap_seconds": 7260.0
+            }
+          }
+        }
+      ]
+    }
+  }
+}

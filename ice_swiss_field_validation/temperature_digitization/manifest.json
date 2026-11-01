@@ -1,0 +1,65 @@
+{
+  "source_png_sha256": "3474fcd55ae569d9d3723feec37fab3a07e959fb07c7a2a69f74d694dac63e62",
+  "source_repository": "christopheogier/PlaineMorteLake_hydro_thermodynamics.jl",
+  "source_commit": "9116f98dc7fef42be82dc4de50316f4a676ca8e9",
+  "source_notebook": "Temperature_visualization.ipynb",
+  "source_cell_zero_based": 9,
+  "source_output": 0,
+  "axes": {
+    "x_anchors": [
+      [
+        0,
+        86
+      ],
+      [
+        7,
+        142
+      ],
+      [
+        14,
+        197
+      ],
+      [
+        24,
+        276
+      ]
+    ],
+    "y_anchors": [
+      [
+        0,
+        326
+      ],
+      [
+        0.1,
+        267
+      ],
+      [
+        0.2,
+        208
+      ],
+      [
+        0.3,
+        148
+      ],
+      [
+        0.4,
+        89
+      ],
+      [
+        0.5,
+        30
+      ]
+    ],
+    "x_scale": 7.910246227164416,
+    "x_intercept": 86.25972994440032,
+    "y_scale": -592.5714285714287,
+    "y_intercept": 326.14285714285717
+  },
+  "curve_samples": 30,
+  "visible_vertices": 23,
+  "time_convention": "helper-functions.ipynb cell14: calendar-day average, labelled same-day noon; timezone unstated",
+  "sensor_source": "https://tc.copernicus.org/articles/15/5133/2021/ section 3.1.2",
+  "bounds": "graphical halfwidth and instrument accuracy are separate analyst/source bounds, not confidence intervals",
+  "no_bulk_representation_bound": true,
+  "model_fit": false
+}
