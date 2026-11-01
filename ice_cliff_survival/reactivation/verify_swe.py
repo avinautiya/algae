@@ -34,20 +34,16 @@ def gvf_ref(Q, lanes, L=2.0, n=0.02):
         return W * brentq(f, 1e-9, qmax) if f(1e-9) < 0 < f(qmax) else W * qmax
     tot = lambda eta: sum(lane_q(eta, z, W) for z, W in lanes) - Q
     zmin = min(z for z, _ in lanes); eta = brentq(tot, zmin + 1e-4, zmin + 2.0, xtol=1e-12); qs = np.array([lane_q(eta, z, W) for z, W in lanes]); return float(eta), qs / Q
-def partition(dxs=(0.1, 0.05, 0.025)):
+def column_ref(s, Q=0.07):
+    """independent reference: every y-column of both lanes is a parallel broad-crested weir with crest = max over the reach of (floor + solid deposit height) in that column, width dx; shared pool stage; lateral exchange and friction ignored (friction checked separately by gvf_ref)."""
+    zs = s.zs(); cols = list(range(1, s.nw + 1)) + list(range(s.nw + 2, s.ny + 1)); crests = [float(zs[s.i0:s.i1 + 1, j].max()) for j in cols]
+    eta, f = weir_ref(Q, crests, [s.dx] * len(cols)); ft = float(f[:s.nw].sum()); return eta, ft
+def partition(dxs=(0.1, 0.05, 0.025), layouts=("bare", "strip", "corridor"), **kw):
     out = []
-    for lay in ("bare", "strip", "corridor"):
+    for lay in layouts:
         for dx in dxs:
-            s = cases.build(lay, dx=dx); r = s.hydraulics(tmax=4000.0); d = s.diagnostics(); zs = s.zs()
-            if lay == "corridor": crests = [-0.08, 0.0]; widths = [s.nw * dx - s.deposit_cells / (s.i1 - s.i0 + 1) * dx, 0.5]
-            else: crests = [cases.crest(s, "toe"), 0.0]; widths = [0.5, 0.5]
-            eta, f = weir_ref(0.07, crests, widths)
-            if lay == "corridor":      # corridor lane: bare strip floor -0.08, width = bare part; covered part solid at 0.12 (adds a third control)
-                eta, f = weir_ref(0.07, [-0.08, 0.12, 0.0], [widths[0], s.deposit_cells / (s.i1 - s.i0 + 1) * dx, 0.5]); f = [f[0] + f[1], f[2]]
-            if lay == "bare": fg = gvf_ref(0.07, [(-0.08, 0.5), (0.0, 0.5)])[1][0]
-            elif lay == "corridor": wc = s.deposit_cells / (s.i1 - s.i0 + 1) * dx; fg = gvf_ref(0.07, [(-0.08, 0.5 - wc), (0.12, wc), (0.0, 0.5)])[1]; fg = fg[0] + fg[1]
-            else: fg = float(f[0])
-            out.append(dict(layout=lay, dx=dx, f_toe=d["f_toe"], f_ref_weir=float(f[0]), f_ref=float(fg), err=float(d["f_toe"] - fg), converged=r["converged"], hyd_time=r["hyd_time"], dt_limit=r["dt_limit"], water_resid=d["water_resid"], energy_resid=d["energy_resid_rel"]))
+            s = cases.build(lay, dx=dx, **kw); r = s.hydraulics(tmax=4000.0, cool=False); d = s.diagnostics(); eta_ref, fr = column_ref(s)
+            out.append(dict(layout=lay, dx=dx, f_toe=d["f_toe"], f_ref=fr, err=float(d["f_toe"] - fr), eta_ref=eta_ref, converged=r["converged"], hyd_time=r["hyd_time"], dt_limit=r["dt_limit"], water_resid=float(d["water_resid"]), energy_resid=float(d["energy_resid_rel"])))
     return out
 def plug(dxs=(0.1, 0.05, 0.025)):
     out = []

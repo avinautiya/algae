@@ -104,7 +104,7 @@ def advance(h, hu, hv, hT, zs, zdp, heff, iceMask, manning, qin_w, Tin, dx, nx, 
 
 class Sim:
     """cfg keys: dx, Lpool, Lr, Ltail, Wl (lane width), Q, Tw, z_toe, z_byp, deposit: array spec via set_deposit(), heff, k_deb, manning."""
-    def __init__(self, dx=0.05, Lpool=1.0, Lr=2.0, Ltail=1.0, Wl=0.5, Q=0.07, Tw=0.5, z_toe=-0.08, z_byp=0.0, heff=200.0, k_deb=2.0, manning=0.02, cfl=0.4, dz=1.0, porous=None, closed_out=False, wall_h=5.0, tail_slope=0.5, ramp=0.0, pool_floor=-1.5, tail_drop=1.5):
+    def __init__(self, dx=0.05, Lpool=2.0, Lr=2.0, Ltail=1.0, Wl=0.5, Q=0.07, Tw=0.5, z_toe=-0.08, z_byp=0.0, heff=200.0, k_deb=2.0, manning=0.02, cfl=0.4, dz=1.0, porous=None, closed_out=False, wall_h=5.0, tail_slope=0.5, ramp=0.0, pool_floor=-0.7, tail_drop=1.5, ramp_ratio=3.0):
         self.dx = dx; self.nx = int(round((Lpool + Lr + Ltail) / dx)); self.nw = int(round(Wl / dx)); self.ny = 2 * self.nw + 1
         self.Lpool, self.Lr, self.Wl, self.Q, self.Tw, self.heff0, self.k_deb, self.manning, self.cfl = Lpool, Lr, Wl, Q, Tw, heff, k_deb, manning, cfl
         nx, ny = self.nx, self.ny; self.i0 = int(round(Lpool / dx)) + 1; self.i1 = int(round((Lpool + Lr) / dx))      # route cells i0..i1 (1-based padded)
@@ -117,20 +117,27 @@ class Sim:
                 self.zb[i, tl] = z_toe; self.zb[i, bl] = z_byp; self.wall[i, self.nw + 1] = True
                 if i > self.i1: dd = tail_drop + tail_slope * (i - self.i1 - 0.5) * dx; self.zb[i, tl] -= dd; self.zb[i, bl] -= dd      # free overfall (drop 1.5 m, no fixed downstream sill so incision can lower the control) then slope 0.5: critical control at the brink, supercritical tail -> zero-gradient outlet admissible (checked by outlet-length study)
                 if i <= self.i1: self.toe[i, tl] = True; self.byp[i, bl] = True; self.ice[i, tl] = True; self.ice[i, bl] = True
-        if ramp > 0:      # smooth entrance: toe-lane floor ramps down over the last `ramp` m of the pool (ice floors are not vertical steps)
+        self.ramp_ratio = ramp_ratio; self.pool_floor = pool_floor
+        if ramp_ratio:      # entrance ramps (run:rise = ramp_ratio) from the lane floors down to the deep reservoir; they are ICE (they incise with the lanes) so no fixed sill can form; abrupt steps were found to dissipate energy artificially (diagnose_v1.json)
             for i in range(1, self.i0):
-                x = (i - 0.5) * dx; f = min(1.0, max(0.0, (x - (Lpool - ramp)) / ramp)); self.zb[i, tl] = z_byp + (z_toe - z_byp) * f
+                x = (i - 0.5) * dx
+                for rows, zl, nm in ((tl, z_toe, "toe"), (bl, z_byp, "byp")):
+                    z = max(pool_floor, zl - (Lpool - x) / ramp_ratio); self.zb[i, rows] = z
+                    if z > pool_floor + 1e-9:
+                        self.ice[i, rows] = True; (self.toe if nm == "toe" else self.byp)[i, rows] = True
+                self.zb[i, self.nw + 1] = 0.5 * (self.zb[i, 1] + self.zb[i, ny])
         self.zb[:, 0] = self.zb[:, 1]; self.zb[:, ny + 1] = self.zb[:, ny]; self.zb[0] = self.zb[1]; self.zb[nx + 1] = self.zb[nx]
         self.porous = porous; self.closed_out = closed_out; self.wall_h = wall_h; self.t = 0.0
         self.h = np.zeros((nx + 2, ny + 2)); self.hu = np.zeros_like(self.h); self.hv = np.zeros_like(self.h); self.hT = np.zeros_like(self.h)
         self.solid = np.zeros((nx + 2, ny + 2), bool); self.pdep = np.zeros((nx + 2, ny + 2))     # solid-raised-bed debris height / porous debris height
         self.removed = False; self.export_log = []
         self.reset_state(0.15)
-    def set_deposit(self, mask, depth, mode="solid"):
-        m = np.zeros_like(self.zb, bool); m[1:-1, 1:-1] = mask
-        if mode == "solid": self.solid[m] = True; self.zd[m] = depth
-        else: self.pdep[m] = depth
-        self.deposit_volume = float(depth * m.sum() * self.dx ** 2)
+    def set_deposit(self, height, mode="solid"):
+        """height: array (nx, ny) of deposit height [m] (0 = none); solid raised bed or porous drag layer."""
+        H = np.zeros_like(self.zb); H[1:-1, 1:-1] = height; m = H > 0
+        if mode == "solid": self.solid[m] = True; self.zd[m] = H[m]
+        else: self.pdep[m] = H[m]
+        self.deposit_volume = float(H.sum() * self.dx ** 2); self.deposit_footprint = float(m.sum() * self.dx ** 2)
     def zs(self):
         z = self.zb + np.where(self.solid, self.zd, 0.0); z = np.where(self.wall, self.wall_h, z); z[:, 0] = z[:, 1]; z[:, -1] = z[:, -2]; z[0] = z[1]; z[-1] = z[-2]; return z      # ghost layers copy the interior (otherwise deposits at the lateral boundary leak water)
     def reset_state(self, eta):
@@ -165,7 +172,7 @@ class Sim:
         d.update(heat_in_W=P_in, heat_out_W=P_out, melt_heat_W=melt_rate, energy_resid_rel=(P_in - P_out - melt_rate - self._dE) / max(P_in, 1e-300), storage_rate_W=self._dE)
         d["melt_heat_toe_W"] = float((self.last_qacc * self.toe).sum() * self.dx ** 2); d["melt_heat_byp_W"] = float((self.last_qacc * self.byp).sum() * self.dx ** 2); return d
     def lower_bed(self, dtm):
-        dz = self.last_qacc * dtm / (RHO_I * LF) * self.ice; self.zb -= dz; vol = float(dz.sum() * self.dx ** 2); return vol, float((dz * self.toe).sum() * self.dx ** 2), float((dz * self.byp).sum() * self.dx ** 2)
+        dz = self.last_qacc * dtm / (RHO_I * LF) * self.ice; self.zb = np.maximum(self.zb - dz, self.pool_floor); vol = float(dz.sum() * self.dx ** 2); return vol, float((dz * self.toe).sum() * self.dx ** 2), float((dz * self.byp).sum() * self.dx ** 2)
     def remove_debris(self):
         """prescribed complete removal; exported solid volume logged; debris assumed at T_m so exported enthalpy relative to T_m is zero (declared); water in the vacated cells keeps its own heat via the (continuing) flow solution."""
         v = float((np.where(self.solid, self.zd, 0.0) + self.pdep).sum() * self.dx ** 2); self.solid[:] = False; self.zd[:] = 0; self.pdep[:] = 0; self.removed = True; self.export_log.append(dict(t=self.t, volume_m3=v, enthalpy_J_rel_Tm=0.0)); return v

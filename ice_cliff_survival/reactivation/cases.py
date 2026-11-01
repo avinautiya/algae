@@ -2,17 +2,23 @@
 import json, math, os, time, resource
 import numpy as np
 from .swe2d import Sim, RHO_I, LF
-def build(layout, dx=0.05, depth=0.2, cover=0.5, Q=0.07, Tw=0.5, **kw):
+V_TARGET = 0.1      # equal solid volume [m3] for every deposit layout (= 0.2 m x 0.5 m x 1.0 m rectangle); equal footprint 0.5 m2
+def deposit_shape(layout, s, taper=0.3):
+    """unit-height shape (nx, ny): trapezoidal (side slope taper/height); strip: spans the lane width, centred, footprint 1.0 m x 0.5 m; corridor: full reach length (tapered at both ends), width 0.25 m at the lane side wall, tapered on the free edge."""
+    nw, dx = s.nw, s.dx; i0, i1 = s.i0, s.i1; nxr = i1 - i0 + 1; H = np.zeros((s.nx, s.ny)); ramp = lambda d: np.clip(d / taper, 0.0, 1.0)
+    if layout == "corridor":
+        ncor = int(round(0.5 * nw)); xs = (np.arange(nxr) + 0.5) * dx; fx = np.minimum(ramp(xs), ramp(nxr * dx - xs)); ys = (np.arange(ncor) + 0.5) * dx; fy = ramp(ncor * dx - ys)
+        H[i0 - 1:i1, 0:ncor] = np.outer(fx, fy)
+    else:
+        L = int(round(0.5 * nxr)); a = i0 - 1 + (nxr - L) // 2; xs = (np.arange(L) + 0.5) * dx; fx = np.minimum(ramp(xs), ramp(L * dx - xs)); H[a:a + L, 0:nw] = fx[:, None]
+    return H
+def build(layout, dx=0.05, cover=0.5, Q=0.07, Tw=0.5, taper=0.1, **kw):
     if layout == 'porous_strip': kw.setdefault('porous', (1.0, 0.4, 0.2))
-    s = Sim(dx=dx, Q=Q, Tw=Tw, **kw); nw = s.nw; i0, i1 = s.i0, s.i1; nxr = i1 - i0 + 1; M = np.zeros((s.nx, s.ny), bool)          # M indexed [i-1, j-1]
+    s = Sim(dx=dx, Q=Q, Tw=Tw, **kw)
     if layout == "bare": return s
-    ncor = int(round(cover * nw))            # corridor: deposit covers `cover` of the toe-lane width over the whole reach
-    if layout == "corridor": M[i0 - 1:i1, 0:ncor] = True; s.set_deposit(M, depth, "solid")
-    elif layout in ("strip", "porous_strip"):
-        L = int(round(cover * nxr)); a = i0 - 1 + (nxr - L) // 2; M[a:a + L, 0:nw] = True
-        s.set_deposit(M, depth, "solid" if layout == "strip" else "porous")
-    else: raise ValueError(layout)
-    s.deposit_cells = int(M.sum()); s.reset_state(0.15); return s
+    if layout not in ("corridor", "strip", "porous_strip"): raise ValueError(layout)
+    sh = deposit_shape("corridor" if layout == "corridor" else "strip", s, taper); scale = V_TARGET / (sh.sum() * dx ** 2)
+    s.set_deposit(sh * scale, "solid" if layout != "porous_strip" else "porous"); s.deposit_cells = int((sh > 0).sum()); s.deposit_scale = float(scale); s.reset_state(0.15); return s
 def crest(s, lane):
     zs = s.zs(); sl = s.toe_cols() if lane == "toe" else s.byp_cols(); r = zs[s.i0:s.i1 + 1, sl]; return float(r.max(axis=0).min())      # lowest lane-wise controlling crest (a bare corridor lane gives its floor max)
 def run(layout, dx=0.05, dtm=6 * 3600.0, days=45.0, removal_day=None, spin=400.0, log=None, hyd_max=60.0, **kw):
