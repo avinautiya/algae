@@ -1,0 +1,60 @@
+{
+  "pinned_commit": "f3602e35e1595bcdbee4208a354a34944f1ae974",
+  "source_sha256": "0e1e8154dc30be87c44496853e40e1254dbeb06f396dd697119ee5b57b37e052",
+  "evidence": "direct pinned-source operator reproduction; uniform heat fixture is synthetic, not measured campaign data",
+  "results": {
+    "0.1": {
+      "zero_time_update": {
+        "changed_nonice_cells": 132,
+        "maximum_nonice_bed_raise_m": 1.0550000000000002,
+        "changed_interior_nonice_volume_m3": 0.79,
+        "declared_melt_m3": 0.0
+      },
+      "illustrative_uniform_100W_m2_6h": {
+        "declared_melt_m3": 0.03455684051743842,
+        "actual_ice_lowering_volume_m3": 0.03437088636249855,
+        "declared_minus_actual_m3": 0.00018595415493986855,
+        "capped_ice_cells": 5,
+        "corrected_operator_volume_m3": 0.034556840517438396,
+        "corrected_nonice_unchanged": true
+      }
+    },
+    "0.05": {
+      "zero_time_update": {
+        "changed_nonice_cells": 462,
+        "maximum_nonice_bed_raise_m": 1.0675,
+        "changed_interior_nonice_volume_m3": 0.7900000000000001,
+        "declared_melt_m3": 0.0
+      },
+      "illustrative_uniform_100W_m2_6h": {
+        "declared_melt_m3": 0.03438053010663516,
+        "actual_ice_lowering_volume_m3": 0.03438053010663514,
+        "declared_minus_actual_m3": 2.0816681711721685e-17,
+        "capped_ice_cells": 0,
+        "corrected_operator_volume_m3": 0.03438053010663514,
+        "corrected_nonice_unchanged": true
+      }
+    },
+    "0.025": {
+      "zero_time_update": {
+        "changed_nonice_cells": 1722,
+        "maximum_nonice_bed_raise_m": 1.07375,
+        "changed_interior_nonice_volume_m3": 0.7900000000000003,
+        "declared_melt_m3": 0.0
+      },
+      "illustrative_uniform_100W_m2_6h": {
+        "declared_melt_m3": 0.034380530106635145,
+        "actual_ice_lowering_volume_m3": 0.03434445823456684,
+        "declared_minus_actual_m3": 3.607187206830509e-05,
+        "capped_ice_cells": 20,
+        "corrected_operator_volume_m3": 0.03438053010663514,
+        "corrected_nonice_unchanged": true
+      }
+    }
+  },
+  "consequences": [
+    "Zero-time update changes non-ice geometry.",
+    "Counted latent volume can exceed actual ice lowering where floor clipping activates.",
+    "Actual campaign impact requires original field/state exports or a versioned rerun; this fixture does not quantify it."
+  ]
+}

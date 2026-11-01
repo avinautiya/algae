@@ -1,0 +1,994 @@
+{
+  "pinned_commit": "f3602e35e1595bcdbee4208a354a34944f1ae974",
+  "source_sha256": {
+    "frozen/production_spec.json": "5b4938c64b9994410ab4394e8267881e294b765e1039808dc8e70f22dae649b4",
+    "REPORT_M3_FINAL.md": "ae0639202a514ad561ef54c40687b07c218d6273ec810dc72cb726dda2d79838"
+  },
+  "raw_cfd_records_available_in_snapshot": false,
+  "report_derived_CFD_classes": [
+    {
+      "name": "E01_bare_none",
+      "layout": "bare",
+      "removal_day": null,
+      "loss_day_reported": null,
+      "recovery_day_reported": null,
+      "classification_report_derived": "maintained_contact",
+      "evidence": "published report table, NOT recomputed from raw CFD time series"
+    },
+    {
+      "name": "E02_corridor_none",
+      "layout": "corridor",
+      "removal_day": null,
+      "loss_day_reported": null,
+      "recovery_day_reported": null,
+      "classification_report_derived": "maintained_contact",
+      "evidence": "published report table, NOT recomputed from raw CFD time series"
+    },
+    {
+      "name": "E03_corridor_r12",
+      "layout": "corridor",
+      "removal_day": 12.0,
+      "loss_day_reported": null,
+      "recovery_day_reported": null,
+      "classification_report_derived": "maintained_contact",
+      "evidence": "published report table, NOT recomputed from raw CFD time series"
+    },
+    {
+      "name": "E04_strip_none",
+      "layout": "strip",
+      "removal_day": null,
+      "loss_day_reported": 2.478,
+      "recovery_day_reported": null,
+      "classification_report_derived": "lost_contact_no_intervention",
+      "evidence": "published report table, NOT recomputed from raw CFD time series",
+      "pre_loss_history_group": "57ed4357257dda683d8b4a447d5ebbe059656ac7db87e609c041a8c6c9f798fd"
+    },
+    {
+      "name": "E05_strip_r1",
+      "layout": "strip",
+      "removal_day": 1.0,
+      "loss_day_reported": null,
+      "recovery_day_reported": null,
+      "classification_report_derived": "maintained_contact",
+      "evidence": "published report table, NOT recomputed from raw CFD time series"
+    },
+    {
+      "name": "E06_strip_r8",
+      "layout": "strip",
+      "removal_day": 8.0,
+      "loss_day_reported": 2.478,
+      "recovery_day_reported": 8.0,
+      "classification_report_derived": "genuine_reconnection",
+      "evidence": "published report table, NOT recomputed from raw CFD time series",
+      "pre_loss_history_group": "57ed4357257dda683d8b4a447d5ebbe059656ac7db87e609c041a8c6c9f798fd"
+    },
+    {
+      "name": "E07_strip_r12",
+      "layout": "strip",
+      "removal_day": 12.0,
+      "loss_day_reported": 2.478,
+      "recovery_day_reported": null,
+      "classification_report_derived": "failed_recovery_by_observed_horizon",
+      "evidence": "published report table, NOT recomputed from raw CFD time series",
+      "pre_loss_history_group": "57ed4357257dda683d8b4a447d5ebbe059656ac7db87e609c041a8c6c9f798fd"
+    },
+    {
+      "name": "E08_porous_none",
+      "layout": "porous_strip",
+      "removal_day": null,
+      "loss_day_reported": 10.455,
+      "recovery_day_reported": null,
+      "classification_report_derived": "lost_contact_no_intervention",
+      "evidence": "published report table, NOT recomputed from raw CFD time series",
+      "pre_loss_history_group": "13526c3bdbb6414e486ead36f4784242c9923caf78a5cf87bc9b1e7f054a4bc3"
+    },
+    {
+      "name": "E09_porous_r1",
+      "layout": "porous_strip",
+      "removal_day": 1.0,
+      "loss_day_reported": null,
+      "recovery_day_reported": null,
+      "classification_report_derived": "maintained_contact",
+      "evidence": "published report table, NOT recomputed from raw CFD time series"
+    },
+    {
+      "name": "E10_porous_r12",
+      "layout": "porous_strip",
+      "removal_day": 12.0,
+      "loss_day_reported": 10.455,
+      "recovery_day_reported": null,
+      "classification_report_derived": "failed_recovery_by_observed_horizon",
+      "evidence": "published report table, NOT recomputed from raw CFD time series",
+      "pre_loss_history_group": "13526c3bdbb6414e486ead36f4784242c9923caf78a5cf87bc9b1e7f054a4bc3"
+    }
+  ],
+  "post_removal_report_class_counts": {
+    "maintained_contact": 3,
+    "genuine_reconnection": 1,
+    "failed_recovery_by_observed_horizon": 2
+  },
+  "distinct_reported_loss_histories": {
+    "number_of_reported_loss_cases": 5,
+    "distinct_physical_input_history_groups": 2,
+    "groups": {
+      "57ed4357257dda683d8b4a447d5ebbe059656ac7db87e609c041a8c6c9f798fd": [
+        "E04_strip_none",
+        "E06_strip_r8",
+        "E07_strip_r12"
+      ],
+      "13526c3bdbb6414e486ead36f4784242c9923caf78a5cf87bc9b1e7f054a4bc3": [
+        "E08_porous_none",
+        "E10_porous_r12"
+      ]
+    },
+    "warning": "deterministic shared-history accounting, NOT a statistical independence claim"
+  },
+  "recomputed_frozen_daily_predictions": [
+    {
+      "run": "E01_bare_none",
+      "method": "bare_reduced(evolving)",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": null,
+        "requested_removal_day": null,
+        "removal_delay_days": null,
+        "assessment_start_day": 0.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E01_bare_none",
+      "method": "bare_fixed_geometry",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": null,
+        "requested_removal_day": null,
+        "removal_delay_days": null,
+        "assessment_start_day": 0.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E02_corridor_none",
+      "method": "connectivity_reduced",
+      "classification": {
+        "classification": "unresolved_truncated",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 20.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              20.0,
+              20.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": null,
+        "requested_removal_day": null,
+        "removal_delay_days": null,
+        "assessment_start_day": 0.0,
+        "observed_end_day": 20.0,
+        "expected_horizon_day": 21.0,
+        "truncated": true,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E02_corridor_none",
+      "method": "fractional_cover",
+      "classification": {
+        "classification": "lost_contact_no_intervention",
+        "initially_wet": true,
+        "loss": {
+          "kind": "dry",
+          "estimate_day": 12.84838059319687,
+          "bracket_day": [
+            12.0,
+            13.0
+          ]
+        },
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 12.84838059319687,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              12.0,
+              13.0
+            ],
+            "right_censored": false
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": null,
+        "requested_removal_day": null,
+        "removal_delay_days": null,
+        "assessment_start_day": 0.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": 12.406339275897666,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E02_corridor_none",
+      "method": "fixed_geometry",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": null,
+        "requested_removal_day": null,
+        "removal_delay_days": null,
+        "assessment_start_day": 0.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E03_corridor_r12",
+      "method": "connectivity_reduced",
+      "classification": {
+        "classification": "unresolved_truncated",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 20.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              20.0,
+              20.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 12.0,
+        "requested_removal_day": 12.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 12.0,
+        "observed_end_day": 20.0,
+        "expected_horizon_day": 21.0,
+        "truncated": true,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E03_corridor_r12",
+      "method": "fractional_cover",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 12.0,
+        "requested_removal_day": 12.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 12.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E03_corridor_r12",
+      "method": "fixed_geometry",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 12.0,
+        "requested_removal_day": 12.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 12.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E04_strip_none",
+      "method": "connectivity_reduced",
+      "classification": {
+        "classification": "unresolved_truncated",
+        "initially_wet": true,
+        "loss": {
+          "kind": "dry",
+          "estimate_day": 2.944249358491744,
+          "bracket_day": [
+            2.0,
+            3.0
+          ]
+        },
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 2.944249358491744,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              2.0,
+              3.0
+            ],
+            "right_censored": false
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": null,
+        "requested_removal_day": null,
+        "removal_delay_days": null,
+        "assessment_start_day": 0.0,
+        "observed_end_day": 20.0,
+        "expected_horizon_day": 21.0,
+        "truncated": true,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": 2.4942055609477523,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E04_strip_none",
+      "method": "fractional_cover",
+      "classification": {
+        "classification": "lost_contact_no_intervention",
+        "initially_wet": true,
+        "loss": {
+          "kind": "dry",
+          "estimate_day": 12.84838059319687,
+          "bracket_day": [
+            12.0,
+            13.0
+          ]
+        },
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 12.84838059319687,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              12.0,
+              13.0
+            ],
+            "right_censored": false
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": null,
+        "requested_removal_day": null,
+        "removal_delay_days": null,
+        "assessment_start_day": 0.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": 12.406339275897666,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E04_strip_none",
+      "method": "fixed_geometry",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": null,
+        "requested_removal_day": null,
+        "removal_delay_days": null,
+        "assessment_start_day": 0.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E05_strip_r1",
+      "method": "connectivity_reduced",
+      "classification": {
+        "classification": "unresolved_truncated",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 20.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              20.0,
+              20.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 1.0,
+        "requested_removal_day": 1.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 1.0,
+        "observed_end_day": 20.0,
+        "expected_horizon_day": 21.0,
+        "truncated": true,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E05_strip_r1",
+      "method": "fractional_cover",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 1.0,
+        "requested_removal_day": 1.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 1.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E05_strip_r1",
+      "method": "fixed_geometry",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 1.0,
+        "requested_removal_day": 1.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 1.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E06_strip_r8",
+      "method": "connectivity_reduced",
+      "classification": {
+        "classification": "genuine_reconnection",
+        "initially_wet": true,
+        "loss": {
+          "kind": "dry",
+          "estimate_day": 2.944249358491744,
+          "bracket_day": [
+            2.0,
+            3.0
+          ]
+        },
+        "loss_before_actual_removal": true,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 2.944249358491744,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              2.0,
+              3.0
+            ],
+            "right_censored": false
+          },
+          {
+            "start_day": 7.011975073574522,
+            "end_day": 20.0,
+            "start_bracket_day": [
+              7.0,
+              8.0
+            ],
+            "end_bracket_day": [
+              20.0,
+              20.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": true,
+        "sustained_recovery_candidates": [
+          {
+            "start_estimate_day": 8.0,
+            "onset_bracket_day": [
+              7.0,
+              8.0
+            ],
+            "onset_order_relative_to_removal": "straddles_removal",
+            "estimated_persistence_days": 12.0,
+            "bracket_confirmed_persistence_days": 12.0,
+            "persistence_confirmed_by_brackets": true
+          }
+        ],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 8.0,
+        "requested_removal_day": 8.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 8.0,
+        "observed_end_day": 20.0,
+        "expected_horizon_day": 21.0,
+        "truncated": true,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": 2.4942055609477523,
+      "frozen_full_resolution_reconnection_day": 8.0
+    },
+    {
+      "run": "E06_strip_r8",
+      "method": "fractional_cover",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 8.0,
+        "requested_removal_day": 8.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 8.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E06_strip_r8",
+      "method": "fixed_geometry",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 8.0,
+        "requested_removal_day": 8.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 8.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E07_strip_r12",
+      "method": "connectivity_reduced",
+      "classification": {
+        "classification": "unresolved_truncated",
+        "initially_wet": true,
+        "loss": {
+          "kind": "dry",
+          "estimate_day": 2.944249358491744,
+          "bracket_day": [
+            2.0,
+            3.0
+          ]
+        },
+        "loss_before_actual_removal": true,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 2.944249358491744,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              2.0,
+              3.0
+            ],
+            "right_censored": false
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": true,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 12.0,
+        "requested_removal_day": 12.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 12.0,
+        "observed_end_day": 20.0,
+        "expected_horizon_day": 21.0,
+        "truncated": true,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": 2.4942055609477523,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E07_strip_r12",
+      "method": "fractional_cover",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 12.0,
+        "requested_removal_day": 12.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 12.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    },
+    {
+      "run": "E07_strip_r12",
+      "method": "fixed_geometry",
+      "classification": {
+        "classification": "maintained_contact",
+        "initially_wet": true,
+        "loss": null,
+        "loss_before_actual_removal": false,
+        "wet_intervals": [
+          {
+            "start_day": 0.0,
+            "end_day": 21.0,
+            "start_bracket_day": [
+              0.0,
+              0.0
+            ],
+            "end_bracket_day": [
+              21.0,
+              21.0
+            ],
+            "right_censored": true
+          }
+        ],
+        "loss_before_actual_removal_confirmed_by_bracket": false,
+        "sustained_recovery_candidates": [],
+        "preintervention_rewet_intervals": [],
+        "actual_removal_day": 12.0,
+        "requested_removal_day": 12.0,
+        "removal_delay_days": 0.0,
+        "assessment_start_day": 12.0,
+        "observed_end_day": 21.0,
+        "expected_horizon_day": 21.0,
+        "truncated": false,
+        "threshold": 0.001,
+        "persistence_days": 1.0,
+        "scope": "sampled operational contact; piecewise-linear interpolation, brackets not confidence intervals"
+      },
+      "frozen_full_resolution_loss_day": null,
+      "frozen_full_resolution_reconnection_day": null
+    }
+  ],
+  "warnings": [
+    "CFD classes are transcribed from report event summaries; raw time-series are required for independent reclassification.",
+    "Stored frozen prediction series are downsampled to daily observations; bracketed recomputation cannot replace full-resolution frozen event times.",
+    "Loss-time matches in E04/E06/E07 are one shared pre-removal strip history, not three independent loss tests.",
+    "The four nonporous removal configurations contain two maintained-contact cases, one genuine recovery and one failed recovery."
+  ]
+}
