@@ -1,0 +1,11 @@
+onedlimit done 68.6 s
+Traceback (most recent call last):
+  File "/home/user/algae/.worktrees/ice-cliff-survival/ice_cliff_survival/cfd/verify_cfd.py", line 82, in <module>
+    for s in subs: t = time.time(); globals()[s](wd); print(s, "done", round(time.time() - t, 1), "s", flush=True)
+                                    ~~~~~~~~~~~~^^^^
+  File "/home/user/algae/.worktrees/ice-cliff-survival/ice_cliff_survival/cfd/verify_cfd.py", line 28, in mass
+    out[tag] = dict(liquid_mass_resid_rel=float(mass_resid), Vin_over_Vsw=float(Vin / Vsw), expected_Vin_over_Vsw=1 - rho_ratio, Vsw_energy_over_geom=float(Vsw_energy / Vsw), Vsw_meshphi_over_geom=float(L["Vsw_meshphi"][-1] / Vsw), gcl_abs=float(L["gcl_resid"][-1]),
+               ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    mean_uw_x=float(uw_mean_run), expected_uw_n_times_minus1=float(-uwn_expected), **ledgers(r))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'gcl_abs'

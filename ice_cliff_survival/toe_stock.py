@@ -8,7 +8,7 @@ SOURCES = ("S_up", "S_mantle", "S_eng", "S_ext")
 class ToeStock:
     Vs: float = 0.0                                   # solid volume in the toe control volume [m3]
     t: float = 0.0
-    cum: dict = field(default_factory=lambda: {k: 0.0 for k in SOURCES + ("Q_out_actual", "Q_out_capacity_unused")})
+    cum: dict = field(default_factory=lambda: {k: 0.0 for k in SOURCES + ("Q_out_actual", "Q_out_capacity_unused", "roundoff_correction")})
     def __post_init__(self): require(self.Vs, "Vs", 0.0); require(self.t, "t")
     def step(self, dt, sources, capacity, mantle_double_counted_in_ext=0.0):
         """sources: dict of the four source rates [m3/s]; capacity: admissible export rate [m3/s] (>= 0, from a declared transport closure);
@@ -20,11 +20,13 @@ class ToeStock:
         s["S_ext"] -= dbl; cap = require(capacity, "capacity", 0.0); S = sum(s.values())
         q = min(cap, S + self.Vs / dt)                 # actual export: cannot remove more than is available during the step
         self.Vs = self.Vs + dt * (S - q)
-        if self.Vs < 0 and self.Vs > -1e-12 * max(1.0, S * dt): self.Vs = 0.0
+        tol = 1e-12 * max(1.0, S * dt, abs(self.Vs))
+        if self.Vs < -tol: raise ArithmeticError(f"negative stock {self.Vs} after step (export logic violated)")
+        if self.Vs < 0: self.cum["roundoff_correction"] += -self.Vs; self.Vs = 0.0      # recorded, not silent (included in budget_residual)
         for k in SOURCES: self.cum[k] += s[k] * dt
         self.cum["Q_out_actual"] += q * dt; self.cum["Q_out_capacity_unused"] += (cap - q) * dt; self.t += dt
         return dict(Q_out=q, S=S, Vs=self.Vs, removed_double_count=dbl)
     def budget_residual(self, Vs0):
         """independent reconstruction: Vs(t) - Vs0 - (sum of recorded sources - recorded export)."""
-        return self.Vs - Vs0 - (sum(self.cum[k] for k in SOURCES) - self.cum["Q_out_actual"])
+        return self.Vs - Vs0 - (sum(self.cum[k] for k in SOURCES) - self.cum["Q_out_actual"] + self.cum["roundoff_correction"])
     def state(self): return dict(Vs=self.Vs, t=self.t, cum=dict(self.cum))

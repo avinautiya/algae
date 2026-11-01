@@ -19,3 +19,11 @@ def exposure(Vs_solid, W, porosity, H_cliff, theta_deg, beta_deg, water_depth_at
 def critical_solid_volume(W, porosity, H_cliff, theta_deg, beta_deg):
     """solid volume at which the face is geometrically fully covered: (1 - phi) W 1/2 H^2 (cot beta - cot theta). A geometric covering volume, not a universal burial threshold."""
     return (1.0 - porosity) * W * wedge_area(H_cliff, theta_deg, beta_deg)
+def debris_normal_thickness(z, z_f, theta_deg, beta_deg):
+    """normal (to the face) thickness of the STATIC debris wedge at height z on the face: horizontal width (z_f - z)(cot beta - cot theta) times sin(theta); zero above the pile (z >= z_f)."""
+    th, be = math.radians(theta_deg), math.radians(beta_deg)
+    return 0.0 if z >= z_f else (z_f - z) * (1.0 / math.tan(be) - 1.0 / math.tan(th)) * math.sin(th)
+def shield_conductance(z, z_f, theta_deg, beta_deg, k_deb, d_min=1e-4):
+    """static-shield interface conductance h_eff = k_deb / d [W m-2 K-1] for the 2-D heat/moving-ice solver (hShield list; 1e30 = bare). d floored at d_min to avoid unbounded h at the pile crest. Debris heat capacity and pore water are ignored (quasi-steady dry layer; k_deb is an assumed input)."""
+    d = debris_normal_thickness(z, z_f, theta_deg, beta_deg)
+    return 1e30 if d <= 0 else k_deb / max(d, d_min)

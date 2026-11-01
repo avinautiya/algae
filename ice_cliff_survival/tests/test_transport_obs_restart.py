@@ -55,3 +55,28 @@ class TestRunner(unittest.TestCase):
     def test_config_validation(self):
         with self.assertRaises(ValueError): ToeConfig(W=10.0, porosity=1.0, H_cliff=15.0, theta_deg=60.0, beta_deg=35.0)
         with self.assertRaises(ValueError): ToeConfig(W=10.0, porosity=0.3, H_cliff=15.0, theta_deg=30.0, beta_deg=35.0)
+class TestSafeguards(unittest.TestCase):
+    def test_measured_closure_refused_in_synthetic_run(self):
+        cfg = ToeConfig(W=10.0, porosity=0.3, H_cliff=15.0, theta_deg=60.0, beta_deg=35.0)
+        with self.assertRaises(UnsupportedRun): ToeRun(cfg, lambda t: {}, lambda t, V: 0.0, dict(sources=Provenance("c", "measured"), capacity=Provenance("c", "synthetic")), "x", 600.0)
+    def test_closure_params_enter_fingerprint(self):
+        cfg = ToeConfig(W=10.0, porosity=0.3, H_cliff=15.0, theta_deg=60.0, beta_deg=35.0)
+        a = ToeRun(cfg, lambda t: {}, lambda t, V: 0.0, dict(sources=Provenance("c", "synthetic", params=(("S", 1e-5),)), capacity=Provenance("c", "synthetic")), "x", 600.0)
+        b = ToeRun(cfg, lambda t: {}, lambda t, V: 0.0, dict(sources=Provenance("c", "synthetic", params=(("S", 2e-5),)), capacity=Provenance("c", "synthetic")), "x", 600.0); self.assertNotEqual(a.ident(), b.ident())
+    def test_cli_run_exits_cleanly_with_message(self):
+        import subprocess, sys
+        r = subprocess.run([sys.executable, "-m", "ice_cliff_survival", "run"], cwd=os.path.join(os.path.dirname(__file__), "..", ".."), capture_output=True, text=True); self.assertEqual(r.returncode, 2); self.assertIn("UnsupportedRun", r.stderr); self.assertNotIn("Traceback", r.stderr)
+    @unittest.skipUnless(HAVE, "pinned archives not downloaded")
+    def test_corrupted_archive_refused(self):
+        import shutil, tempfile
+        d = tempfile.mkdtemp(); src = os.path.join(forcing.RAW, forcing.KENN); dst = os.path.join(d, forcing.KENN); shutil.copy(src, dst)
+        with open(dst, "r+b") as f: f.seek(1000); f.write(b"\x00\x01\x02\x03")
+        old = forcing.RAW; forcing.RAW = d; forcing._VERIFIED.clear()
+        try:
+            with self.assertRaises(ValueError): forcing.open_zip(forcing.KENN)
+        finally: forcing.RAW = old; forcing._VERIFIED.clear()
+    def test_exchange_records_validated_on_parse(self):
+        import tempfile
+        from ice_cliff_survival import cfd_contract
+        p = os.path.join(tempfile.mkdtemp(), "bad.csv"); open(p, "w").write("t0,t1,q_wall_W,wetted_area_m2,melt_volume_ice_m3,meltwater_volume_m3,sensible_in_J,sensible_out_J,storage_change_J\n0,10,100,1,1e-3,1e-3,5000,3000,0\n")
+        with self.assertRaises(ValueError): cfd_contract.parse_exchange_csv(p)

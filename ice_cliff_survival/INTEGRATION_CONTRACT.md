@@ -1,5 +1,8 @@
 # CFD/Stefan/grain/exposure integration contract and status (inspected at base b566446; nothing newer on `claude/ice-network-v2` at inspection)
 
+## Update (milestone 1)
+Implemented and verified since: `cfd/stefan2DFoam` — 2-D heat conduction coupled to a moving ice interface (ALE), with static debris shielding (see `cfd/VERIFICATION.md`). Still NOT implemented: coupling to flow or free surface, mobile grains (`coupling.MobileGrainCoupling` raises `UnsupportedRun`), dynamic shield, remeshing.
+
 ## Status of the existing pieces (file-level)
 | piece | what exists | what it is not |
 |---|---|---|

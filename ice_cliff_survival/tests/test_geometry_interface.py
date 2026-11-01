@@ -49,8 +49,17 @@ class TestContractIO(unittest.TestCase):
     def test_csv_roundtrip_and_grain_inputs_match_englacial_source(self):
         import os, tempfile
         from ice_cliff_survival import grains
-        rec = cfd_contract.ExchangeRecord(0.0, 3600.0, 120.0, 4.0, 120.0 * 3600 / (RHO_I * LF), RHO_I / RHO_W * 120.0 * 3600 / (RHO_I * LF), 5e5, 4.4e5, 1e3, 0.0)
+        rec = cfd_contract.ExchangeRecord(0.0, 3600.0, 120.0, 4.0, 120.0 * 3600 / (RHO_I * LF), RHO_I / RHO_W * 120.0 * 3600 / (RHO_I * LF), 5e5, 5e5 - 120.0 * 3600 - 1e3, 1e3, 0.0)
         p = os.path.join(tempfile.mkdtemp(), "x.csv"); open(p, "w").write("t0,t1,q_wall_W,wetted_area_m2,melt_volume_ice_m3,meltwater_volume_m3,sensible_in_J,sensible_out_J,storage_change_J\n" + ",".join(repr(v) for v in (rec.t0, rec.t1, rec.q_wall_W, rec.wetted_area_m2, rec.melt_volume_ice_m3, rec.meltwater_volume_m3, rec.sensible_in_J, rec.sensible_out_J, rec.storage_change_J)) + "\n")
         r2 = cfd_contract.parse_exchange_csv(p)[0]; self.assertEqual(r2, rec)
         # englacial release from PURE-ICE volume lost vs mixture-sweep bookkeeping: pure-ice volume V_ice corresponds to mixture volume V_ice/(1-c_mix)
         c = 0.06; V_mix = rec.melt_volume_ice_m3 / (1 - c); self.assertAlmostEqual(cfd_contract.volume_to_grain_inputs(rec, c), c * V_mix, 15)
+class TestShieldProfile(unittest.TestCase):
+    def test_wedge_thickness_integrates_to_wedge_area(self):
+        th, be, zf = 62.0, 33.0, 4.0; N = 200000; area = 0.0
+        for i in range(N):
+            z = (i + 0.5) / N * zf; area += geometry.debris_normal_thickness(z, zf, th, be) / math.sin(math.radians(th)) * (zf / N)      # horizontal width = normal thickness / sin(theta); integrate over height
+        self.assertAlmostEqual(area / geometry.wedge_area(zf, th, be), 1.0, 6)
+    def test_bare_above_pile_and_monotone_below(self):
+        th, be, zf = 62.0, 33.0, 4.0; self.assertEqual(geometry.shield_conductance(4.5, zf, th, be, 0.5), 1e30)
+        h = [geometry.shield_conductance(z, zf, th, be, 0.5) for z in (0.0, 1.0, 2.0, 3.0, 3.9)]; self.assertTrue(all(h[i] < h[i + 1] for i in range(4)))

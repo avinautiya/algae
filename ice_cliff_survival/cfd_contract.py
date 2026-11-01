@@ -22,11 +22,23 @@ class ExchangeRecord:
         heat = self.q_wall_W * (self.t1 - self.t0); latent = RHO_I * LF * self.melt_volume_ice_m3
         return dict(latent_minus_heat_J=latent - heat, latent_over_heat=(latent - heat) / max(abs(heat), 1e-300))
     def water_energy_residual(self): return self.sensible_in_J + self.dissipation_J - self.sensible_out_J - self.q_wall_W * (self.t1 - self.t0) - self.storage_change_J
-def parse_exchange_csv(path):
+def validate_records(records, rtol=1e-6, latent_rtol=1e-3, energy_rtol=1e-6):
+    """raise on the first inconsistent record: time order/contiguity, phase-change mass, water energy residual (relative to the sum of |terms|), and latent-vs-heat residual (reported by validate(); bounded by latent_rtol)."""
+    prev = None
+    for i, r in enumerate(records):
+        v = r.validate(rtol)
+        if prev is not None and abs(r.t0 - prev.t1) > 1e-9 * max(1.0, abs(r.t1)): raise ValueError(f"record {i}: gap/overlap in time")
+        den = abs(r.sensible_in_J) + abs(r.sensible_out_J) + abs(r.q_wall_W * (r.t1 - r.t0)) + abs(r.storage_change_J) + 1e-300
+        if abs(r.water_energy_residual()) > energy_rtol * den: raise ValueError(f"record {i}: water energy residual {r.water_energy_residual():.3e} J exceeds {energy_rtol} of terms")
+        if abs(v["latent_over_heat"]) > latent_rtol: raise ValueError(f"record {i}: latent/heat mismatch {v['latent_over_heat']:.3e}")
+        prev = r
+    return True
+def parse_exchange_csv(path, validate=True):
     """columns: t0,t1,q_wall_W,wetted_area_m2,melt_volume_ice_m3,meltwater_volume_m3,sensible_in_J,sensible_out_J,storage_change_J[,dissipation_J]"""
     out = []
     with open(path) as f:
         for r in csv.DictReader(f): out.append(ExchangeRecord(**{k: float(v) for k, v in r.items()}))
+    if validate: validate_records(out)
     return out
 def neumann_fixture(Ste, n=200, t_end=3600.0, rho_w=RHO_W, rho_i=RHO_I, cp=4217.0, k=0.561, Lf=LF):
     """analytic one-phase Stefan solution (equal-density limit, liquid velocity 0) as exchange records per unit area: s = 2 lam sqrt(kappa t), lam e^{lam^2} erf lam = Ste/sqrt(pi).

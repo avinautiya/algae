@@ -5,7 +5,7 @@
   Stefan condition (energy):  rho_i L sdot = - k dT/dx |_{x = s}   (heat conducted from the liquid into the interface; ice has no conduction so no ice-side term),
   Mass (normal convention n points from ice into liquid, i.e. -x):  rho_w (u_w - sdot) = rho_i (0 - sdot)  =>  u_w = (1 - rho_i/rho_w) sdot  (liquid velocity in +x, toward the interface; in the packet's convention u_w.n = (rho_i/rho_w - 1) m_n with m_n = sdot).
   Interface motion: the 'ice' patch moves with sdot; interior points are stretched linearly (x = xi s); Heun predictor-corrector for s (two evaluations of the interface heat flux per step).
-  Interface heat flux uses the second-order one-sided wall gradient through the first two cell values. Ledger written every step: sensible storage, hot-boundary conductive+advective supply, latent energy rho_i L (s - s0).
+  Interface heat flux: default fluxMode 'discrete' = the same first-order flux the temperature equation removes through the interface face (energy-consistent); fluxMode 'quadratic' = second-order one-sided gradient through the first two cell values (less conservative). Ledger written every step: sensible storage, hot-boundary conductive+advective supply, latent energy rho_i L (s - s0).
   Properties are the physical ones (rho_w, cp_w, k_w, rho_i, L) read from constant/stefanProperties; nothing is rescaled.
 \*---------------------------------------------------------------------------*/
 #include "fvCFD.H"

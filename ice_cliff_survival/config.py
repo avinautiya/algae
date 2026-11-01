@@ -16,6 +16,6 @@ class ToeConfig:
 @dataclass(frozen=True)
 class Provenance:
     """Every injectable closure declares where its numbers come from. kind in {'measured','published','structural','assumed','synthetic'}."""
-    name: str; kind: str; source: str = ""
+    name: str; kind: str; source: str = ""; params: tuple = ()     # params: tuple of (key, value) pairs fixing the closure's numbers; included in the restart fingerprint
     def __post_init__(self):
         if self.kind not in ("measured", "published", "structural", "assumed", "synthetic"): raise ValueError("bad provenance kind")
