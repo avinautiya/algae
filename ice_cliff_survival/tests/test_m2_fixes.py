@@ -64,6 +64,21 @@ class TestNeumannFixture(unittest.TestCase):
         self.assertTrue(C.validate_records(recs, latent_rtol=1e-9, energy_rtol=1e-9))
     def test_no_rescale_emits_own_analytic_heat(self):
         lam, Tw, recs = C.neumann_fixture(0.05); self.assertAlmostEqual(sum(r.heat_J() for r in recs) / (RHO_W * LF * sum(r.melt_volume_ice_m3 for r in recs)), 1.0, 12)
+    def test_hot_wall_heat_and_liquid_storage_independent(self):
+        Ste = 0.2; lam, Tw, recs = C.neumann_fixture(Ste, n=4, t_end=3600.0); rho, cp = RHO_W, 4217.0; kap = K_W / (rho * cp)
+        T = lambda x, t: Tw * (1 - math.erf(x / (2 * math.sqrt(kap * t))) / math.erf(lam))
+        def U(t):       # independent midpoint integration of rho cp T over the liquid 0<x<s(t)
+            if t == 0: return 0.0
+            s_ = 2 * lam * math.sqrt(kap * t); N = 200000; return rho * cp * sum(T((i + 0.5) / N * s_, t) for i in range(N)) * s_ / N
+        def hot(r):     # integrate analytic wall conductive flux  -k dT/dx|_0 = k Tw/(erf(lam) sqrt(pi kap t)), substitution to remove the t^-1/2 singularity
+            N = 200000; q = 0.0
+            for i in range(N):
+                u = (i + 0.5) / N; t = r.t0 + (r.t1 - r.t0) * u if r.t0 > 0 else r.t1 * u * u; w = (r.t1 - r.t0) / N if r.t0 > 0 else 2 * r.t1 * u / N
+                q += K_W * Tw / (math.erf(lam) * math.sqrt(math.pi * kap * t)) * w
+            return q
+        for r in recs:
+            self.assertAlmostEqual(r.sensible_in_J / hot(r), 1.0, 5); self.assertAlmostEqual(r.storage_change_J / (U(r.t1) - U(r.t0)), 1.0, 5)
+            self.assertNotEqual(r.sensible_in_J, r.heat_J()); self.assertAlmostEqual(r.water_energy_residual() / r.sensible_in_J, 0.0, 12)
 class TestSolveLambda(unittest.TestCase):
     """independent check of cfd/stefan2d.solve_lambda: build the similarity solution T(x,t) and test the PDE (with liquid velocity u=(1-r) sdot), both boundary values and the Stefan condition by finite differences."""
     def test_solution_satisfies_pde_and_stefan_condition(self):

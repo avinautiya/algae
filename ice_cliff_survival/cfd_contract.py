@@ -74,7 +74,7 @@ def neumann_fixture(Ste, n=200, t_end=3600.0, rho=RHO_W, cp=4217.0, k=0.561, Lf=
     """analytic one-phase Stefan solution for an EQUAL-DENSITY ice/water pair (zero liquid velocity): s = 2 lam sqrt(kappa t), lam e^{lam^2} erf lam = Ste/sqrt(pi), Ste = cp Tw/Lf.
     M2 CORRECTION: the previous default (rho_w=1000, rho_i=917) paired the equal-density similarity solution with unequal densities, so emitted heat was rho_i/rho_w = 0.917 of its own analytic conductive heat. Now one density `rho` is used throughout;
     passing rho_w / rho_i that differ raises (a genuine unequal-density reference needs the density-jump similarity solution, see cfd/stefan2d.solve_lambda; not offered as a contract fixture).
-    Records per unit area: ice volume lost dV=s(t1)-s(t0); heat from the ANALYTIC front conductive flux q_f(t)=k Tw e^{-lam^2}/(sqrt(pi kappa t) erf lam) integrated exactly (= rho Lf dV by the Stefan condition; see neumann_front_heat for the independent quadrature)."""
+    Records per unit area: sensible_in = hot-wall heat E_hot, q_wall = interface (front) heat, storage = liquid enthalpy gain dU = E_hot - E_front (each from its own analytic expression; the ledger closes only because the solution does). ice volume lost dV=s(t1)-s(t0); heat from the ANALYTIC front conductive flux q_f(t)=k Tw e^{-lam^2}/(sqrt(pi kappa t) erf lam) integrated exactly (= rho Lf dV by the Stefan condition; see neumann_front_heat for the independent quadrature)."""
     from math import erf, exp, sqrt, pi
     for nm, v in (("rho_w", rho_w), ("rho_i", rho_i)):
         if v is not None and abs(v - rho) > 1e-12 * rho: raise ValueError(f"neumann_fixture is an equal-density solution: {nm}={v} != rho={rho}")
@@ -84,8 +84,8 @@ def neumann_fixture(Ste, n=200, t_end=3600.0, rho=RHO_W, cp=4217.0, k=0.561, Lf=
     s = lambda t: 2 * lam * sqrt(kap * t)
     for i, t1 in enumerate(ts):
         t0 = 0.0 if i == 0 else ts[i - 1]; dV = s(t1) - s(t0)
-        heat = k * Tw * exp(-lam * lam) / (sqrt(pi * kap) * erf(lam)) * 2.0 * (sqrt(t1) - sqrt(t0))     # exact integral of the analytic front flux
-        recs.append(ExchangeRecord(t0, t1, heat / (t1 - t0), 1.0, dV, dV, heat, 0.0, 0.0, 0.0, rho, rho))   # sensible_in = heat supplied at the hot wall; liquid-layer storage not modelled in this contract fixture
+        D = sqrt(t1) - sqrt(t0); E_hot = 2.0 * k * Tw * D / (sqrt(pi * kap) * erf(lam)); E_front = exp(-lam * lam) * E_hot; dU = (1.0 - exp(-lam * lam)) * E_hot      # hot-wall heat, interface (latent) heat, liquid-layer enthalpy gain
+        recs.append(ExchangeRecord(t0, t1, E_front / (t1 - t0), 1.0, dV, dV, E_hot, 0.0, dU, 0.0, rho, rho))
     return lam, Tw, recs
 def volume_to_grain_inputs(rec: ExchangeRecord, c_mix):
     """S_eng over the step from the ice volume lost: grains released = c_mix/(1-c_mix) per pure-ice volume melted... here melt_volume_ice is PURE-ICE volume, so solid released = c_ice * V_ice with c_ice = c_mix/(1-c_mix)."""
