@@ -4,6 +4,7 @@
   verify          run the component verification suite (no data, no CFD)
   demo            SYNTHETIC toe-stock demonstration with illustrative coefficients (never an environmental forecast)
   heat-ice-2d     2-D heat + moving-ice component run (needs the built OpenFOAM app; NOT environmental)
+  flow-stefan     flow + heat + moving-ice coupled channel case (needs the built flowStefanFoam; COMPONENT run, NOT environmental)
   run             environmental run: NOT SUPPORTED in milestone 0 (exits with an explicit error)"""
 import json, os, subprocess, sys, unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -18,7 +19,9 @@ def main(argv):
         from .demo import main as dm; return dm(argv[2:])
     if c == "heat-ice-2d":
         from .cfd.cli2d import main as m2; return m2(argv[2:])
+    if c == "flow-stefan":
+        from .cfd.cli_flow import main as mf; return mf(argv[2:])
     if c == "run":
-        sys.stderr.write("UnsupportedRun: environmental ice-cliff survival runs are not supported. Implemented/verified: 2-D heat-moving-ice (rigid-lid, fixed flow) with static debris shielding (ice_cliff_survival/cfd); NOT implemented: free-surface flow coupling, mobile-grain transport, burial dynamics, environmental forcing. See INTEGRATION_CONTRACT.md.\n"); return 2
+        sys.stderr.write("UnsupportedRun: environmental ice-cliff survival runs are not supported. Implemented/verified components: 2-D heat-moving-ice with static shielding and the laminar rigid-lid flow-heat-moving-ice channel (ice_cliff_survival/cfd); NOT implemented: free-surface flow coupling, mobile-grain transport, burial dynamics, environmental forcing. See INTEGRATION_CONTRACT.md.\n"); return 2
     print(__doc__); return 2
 if __name__ == "__main__": sys.exit(main(sys.argv))

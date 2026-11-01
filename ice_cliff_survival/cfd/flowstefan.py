@@ -8,7 +8,7 @@ _out = subprocess.run(["bash", "-c", "source /tmp/claude-0/ofenv.sh && env -0"],
 ENV.update(dict(kv.split("=", 1) for kv in _out.split("\0") if "=" in kv))
 RHO_W, CP_W, K_W, LF, MU = 1000.0, 4217.0, 0.561, 3.34e5, 1.0e-3
 PARAM_DEFAULTS = dict(H=0.02, dz=0.01, Lu=0.04, Li=0.20, Ld=0.04, dx=0.004, ny=24, ygrade=1.0, Ubar=0.01, Tin=1.0, Tlid_fixed=None, rho_i=RHO_W, melt=True, Lmult=1.0, dt=0.5, tend=100.0, closedEnds=False,
-                      lidClosure=False, maxCoupling=12, tolCoupling=1e-6, nPiso=3, dump=False, tdiv="linearUpwind grad(T)", udiv="linearUpwind grad(U)", writeEvery=None, ddtCorr=True, jumpBC=True, slopeMax=0.3, Tinit=None, neumann=None, hShield=None, floorBC="isothermal")
+                      lidClosure=False, maxCoupling=12, tolCoupling=1e-6, nPiso=3, dump=False, tdiv="linearUpwind grad(T)", udiv="linearUpwind grad(U)", writeEvery=None, ddtCorr=True, jumpBC=True, slopeMax=1.0, convU=True, momPred=False, outletOpen=False, nuMult=1.0, dumpEvery=1, Tinit=None, neumann=None, hShield=None, floorBC="isothermal")
 def W(p, cls, obj, body):
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, "w").write(f"FoamFile {{version 2.0; format ascii; class {cls}; object {obj};}}\n{body}\n")
@@ -40,15 +40,15 @@ def make_case(case, **kw):
     hs = "" if P["hShield"] is None else "hShield %d(%s);" % (len(P["hShield"]), " ".join("%.15g" % x for x in P["hShield"]))
     nm = "" if P["neumann"] is None else "neumannTw %.15g; neumannLam %.15g; neumannB %.15g; neumannT0 %.15g;" % tuple(P["neumann"])
     rho_i = P["rho_i"]; Lm = LF * P["Lmult"]
-    W(f"{case}/constant/flowProperties", "dictionary", "flowProperties", f"rhoW {RHO_W}; cpW {CP_W}; kW {K_W}; nu {MU/RHO_W}; rhoI {rho_i}; L {Lm}; H {H}; dz {dz}; Lu {P['Lu']}; Li {P['Li']}; Ltot {Ltot}; Ubar {P['Ubar']}; Tin {P['Tin']}; melt {'true' if P['melt'] else 'false'}; closedEnds {'true' if P['closedEnds'] else 'false'}; lidClosure {'true' if P['lidClosure'] else 'false'}; dump {'true' if P['dump'] else 'false'}; nx {nx}; ny {P['ny']}; maxCoupling {P['maxCoupling']}; tolCoupling {P['tolCoupling']}; nPiso {P['nPiso']}; ddtCorr {'true' if P['ddtCorr'] else 'false'}; jumpBC {'true' if P['jumpBC'] else 'false'}; slopeMax {P['slopeMax']}; {hs} {nm}")
+    W(f"{case}/constant/flowProperties", "dictionary", "flowProperties", f"rhoW {RHO_W}; cpW {CP_W}; kW {K_W}; nu {MU/RHO_W*P['nuMult']}; rhoI {rho_i}; L {Lm}; H {H}; dz {dz}; Lu {P['Lu']}; Li {P['Li']}; Ltot {Ltot}; Ubar {P['Ubar']}; Tin {P['Tin']}; melt {'true' if P['melt'] else 'false'}; closedEnds {'true' if P['closedEnds'] else 'false'}; lidClosure {'true' if P['lidClosure'] else 'false'}; dump {'true' if P['dump'] else 'false'}; nx {nx}; ny {P['ny']}; maxCoupling {P['maxCoupling']}; tolCoupling {P['tolCoupling']}; nPiso {P['nPiso']}; ddtCorr {'true' if P['ddtCorr'] else 'false'}; jumpBC {'true' if P['jumpBC'] else 'false'}; slopeMax {P['slopeMax']}; convU {'true' if P['convU'] else 'false'}; momPred {'true' if P['momPred'] else 'false'}; dumpEvery {P['dumpEvery']}; {hs} {nm}")
     W(f"{case}/constant/transportProperties", "dictionary", "transportProperties", "")
     wall0 = "type fixedValue; value uniform (0 0 0);"; zg = "type zeroGradient;"
     fl = {n: wall0 for n in ("floorUp", "floorDown", "lid")}
     ub = "inlet {type fixedValue; value uniform (0 0 0);} outlet {type zeroGradient;} lid {%s} ice {type fixedValue; value uniform (0 0 0);} floorUp {%s} floorDown {%s} frontAndBack {type empty;}" % (wall0, wall0, wall0)
-    if P["closedEnds"]: ub = ub.replace("outlet {type zeroGradient;}", "outlet {type fixedValue; value uniform (0 0 0);}")
+    if P["closedEnds"] and not P["outletOpen"]: ub = ub.replace("outlet {type zeroGradient;}", "outlet {type fixedValue; value uniform (0 0 0);}")
     W(f"{case}/0/U", "volVectorField", "U", f"dimensions [0 1 -1 0 0 0 0]; internalField uniform (0 0 0); boundaryField {{ {ub} }}")
     pb = "inlet {type zeroGradient;} outlet {type fixedValue; value uniform 0;} lid {type zeroGradient;} ice {type zeroGradient;} floorUp {type zeroGradient;} floorDown {type zeroGradient;} frontAndBack {type empty;}"
-    if P["closedEnds"]: pb = pb.replace("outlet {type fixedValue; value uniform 0;}", "outlet {type zeroGradient;}")
+    if P["closedEnds"] and not P["outletOpen"]: pb = pb.replace("outlet {type fixedValue; value uniform 0;}", "outlet {type zeroGradient;}")
     W(f"{case}/0/p", "volScalarField", "p", f"dimensions [0 2 -2 0 0 0 0]; internalField uniform 0; boundaryField {{ {pb} }}")
     lidT = f"type fixedValue; value uniform {P['Tlid_fixed']};" if P["Tlid_fixed"] is not None else zg
     flT = "type fixedValue; value uniform 0;" if P["floorBC"] == "isothermal" else zg

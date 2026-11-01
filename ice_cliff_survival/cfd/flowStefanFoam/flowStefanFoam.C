@@ -27,7 +27,10 @@ int main(int argc, char *argv[])
     const label nx = readLabel(prop.lookup("nx")), ny = readLabel(prop.lookup("ny")), maxCoup = readLabel(prop.lookup("maxCoupling")), nPiso = readLabel(prop.lookup("nPiso"));
     const bool useDdtCorr = prop.found("ddtCorr") ? readBool(prop.lookup("ddtCorr")) : true;
     const bool jumpBC = prop.found("jumpBC") ? readBool(prop.lookup("jumpBC")) : true;
-    const scalar slopeMax = prop.found("slopeMax") ? readScalar(prop.lookup("slopeMax")) : 0.3;
+    const scalar slopeMax = prop.found("slopeMax") ? readScalar(prop.lookup("slopeMax")) : 1.0;
+    const label dumpEvery = prop.found("dumpEvery") ? readLabel(prop.lookup("dumpEvery")) : 1;
+    const bool convU = prop.found("convU") ? readBool(prop.lookup("convU")) : true;
+    const bool momPred = prop.found("momPred") ? readBool(prop.lookup("momPred")) : true;
     const scalar tolC = readScalar(prop.lookup("tolCoupling")), r = rhoI/rhoW, alpha = kW/(rhoW*cpW), Dx = Ltot/nx, hBare = 1e30; (void)hBare;
     const label icePatch = mesh.boundaryMesh().findPatchID("ice"), inletP = mesh.boundaryMesh().findPatchID("inlet"), outletP = mesh.boundaryMesh().findPatchID("outlet"), lidP = mesh.boundaryMesh().findPatchID("lid");
     const label fuP = mesh.boundaryMesh().findPatchID("floorUp"), fdP = mesh.boundaryMesh().findPatchID("floorDown"); labelList kinP; kinP.append(icePatch); if (fuP >= 0) kinP.append(fuP); if (fdP >= 0) kinP.append(fdP);      // faces that can move: ice + the junction faces of the inert walls (shared nodes)
@@ -100,8 +103,8 @@ int main(int argc, char *argv[])
               const vectorField& Sfl = mesh.Sf().boundaryField()[lidP]; vectorField& Ul = Ulid; forAll(Ul, fi) Ul[fi] = -(N/Alid)*Sfl[fi]/mag(Sfl[fi]); }
             U.correctBoundaryConditions();
             surfaceScalarField phiRel("phiRel", phi - mesh.phi());
-            fvVectorMatrix UEqn(fvm::ddt(U) + fvm::div(phiRel, U) - fvm::laplacian(dimensionedScalar("nu", dimViscosity, nuS), U));
-            solve(UEqn == -fvc::grad(p));
+            fvVectorMatrix UEqn(fvm::ddt(U) + fvm::div(convU ? phiRel : surfaceScalarField("phiRel", 0.0*phiRel), U) - fvm::laplacian(dimensionedScalar("nu", dimViscosity, nuS), U));
+            if (momPred) solve(UEqn == -fvc::grad(p));
             for (int c = 0; c < nPiso; c++)
             {
                 volScalarField rAU(1.0/UEqn.A()); volVectorField HbyA(constrainHbyA(rAU*UEqn.H(), U, p));
@@ -135,6 +138,7 @@ int main(int argc, char *argv[])
         { const fvPatchScalarField& Tp = T.boundaryField()[lidP]; const scalarField sg = Tp.snGrad(); const scalarField& Ab = mesh.magSf().boundaryField()[lidP]; forAll(sg, fi) elid += kW*sg[fi]*Ab[fi]; }      // heat INTO the domain through the lid (snGrad outward = T_f - T_P)
         forAll(mesh.boundary(), pi) gclSum += gSum(mesh.phi().boundaryField()[pi]);
         scalar efl = 0; forAll(kinP, kp) { if (kinP[kp] == icePatch) continue; const fvPatchScalarField& Tp = T.boundaryField()[kinP[kp]]; const scalarField sg = Tp.snGrad(); const scalarField& Ab = mesh.magSf().boundaryField()[kinP[kp]]; forAll(sg, fi) efl += kW*sg[fi]*Ab[fi]; }      // heat INTO the domain through inert (isothermal-T_m or adiabatic) floor walls
+        { const scalarField& pf = phi.boundaryField()[lidP]; const fvPatchScalarField& Tp = T.boundaryField()[lidP]; forAll(pf, fi) ein -= rhoW*cpW*pf[fi]*Tp[fi]; }      // advective heat through the lid (inflow in the lid-closure test)
         Ein += ein*dt; Eout += eout*dt; Elid += elid*dt; Efl += efl*dt;
         const scalar Esens = gSum(rhoW*cpW*T.primitiveField()*mesh.V()), Elat = rhoI*Lf*Vsw;       // lat uses ice volume lost == swept volume
         // mass: local interface residual  max |phi_b - (1-r) meshPhi_b| / (|meshPhi_b| + tiny) ; global: Qout - Qin - Qfloor-type
@@ -142,13 +146,13 @@ int main(int argc, char *argv[])
         led << runTime.value() << "," << dt << "," << k << "," << defect << "," << Vl << "," << Vsw << "," << Vface << "," << (dV - dt*gclSum) << "," << Qin << "," << Qout << "," << Qfl << "," << Qlid << "," << Esens << "," << Ein << "," << Eout << "," << Elid << "," << Efl << "," << Eif << "," << Elat << ","
             << ((Esens - Esens0) + Eif - (Ein - Eout + Elid + Efl)) << "," << ((Esens - Esens0) + Elat - (Ein - Eout + Elid + Efl)) << "," << mloc << "," << qmax << "," << max(mag(U)).value() << endl;
         VliqLast = Vl;
-        if (dump)
+        if (dump && (runTime.timeIndex() % dumpEvery == 0 || runTime.value() > runTime.endTime().value() - 0.5*dt || runTime.timeIndex() == 1))
         {
             dmp << "S " << runTime.timeIndex() << " " << runTime.value() << endl; dmp << "B"; forAll(bNode, i) dmp << " " << bNode[i]; dmp << endl;
             forAll(U, ci) dmp << "C " << cI[ci] << " " << cJ[ci] << " " << T[ci] << " " << U[ci].x() << " " << U[ci].y() << endl;
             { const vectorField& Ub = U.boundaryField()[inletP]; const scalarField& Tb = T.boundaryField()[inletP]; forAll(Ub, fi) dmp << "I " << fi << " " << Ub[fi].x() << " " << Ub[fi].y() << " " << Tb[fi] << endl; }
             { const vectorField& Ub = U.boundaryField()[outletP]; const scalarField& Tb = T.boundaryField()[outletP]; forAll(Ub, fi) dmp << "O " << fi << " " << Ub[fi].x() << " " << Ub[fi].y() << " " << Tb[fi] << endl; }
-            { const vectorField& Ub = U.boundaryField()[icePatch]; const scalarField& Tb = T.boundaryField()[icePatch]; const scalarField& mp = mesh.phi().boundaryField()[icePatch]; forAll(Ub, fi) dmp << "F " << iceCol[fi] << " " << Ub[fi].x() << " " << Ub[fi].y() << " " << Tb[fi] << " " << mp[fi]*dt << endl; }
+            { const vectorField& Ub = U.boundaryField()[icePatch]; const scalarField& Tb = T.boundaryField()[icePatch]; const scalarField& mp = mesh.phi().boundaryField()[icePatch]; forAll(Ub, fi) dmp << "F " << iceCol[fi] << " " << Ub[fi].x() << " " << Ub[fi].y() << " " << Tb[fi] << " " << mp[fi]*dt << " " << qNew[fi] << endl; }
         }
         if (runTime.writeTime()) runTime.write();
     }
