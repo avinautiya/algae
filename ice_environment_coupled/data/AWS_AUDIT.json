@@ -1,0 +1,57 @@
+{
+  "source": "CliffEBM published Lirung AWS example",
+  "file_sha256": "0b35a49696a5bcc4dc431a59a0d224c0810045cedcb9568301e80772a8dd98ab",
+  "rows": 4969,
+  "first": "2013-05-08T00:00:00",
+  "last": "2013-12-01T00:00:00",
+  "negative_shortwave_rows": 1435,
+  "fields": {
+    "TA": {
+      "valid": 4969,
+      "missing": 0,
+      "min": -4.485,
+      "max": 19.460833
+    },
+    "RH": {
+      "valid": 4969,
+      "missing": 0,
+      "min": -2.065752,
+      "max": 100.0
+    },
+    "WS": {
+      "valid": 4969,
+      "missing": 0,
+      "min": 0.0,
+      "max": 3.063833
+    },
+    "SWIN": {
+      "valid": 4969,
+      "missing": 0,
+      "min": -4.827333,
+      "max": 1302.916667
+    },
+    "LWIN": {
+      "valid": 4969,
+      "missing": 0,
+      "min": 146.929413,
+      "max": 383.834264
+    },
+    "PRECIP": {
+      "valid": 4043,
+      "missing": 926,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  "humidity_out_of_bounds_rows": 4,
+  "incomplete_date_labels": {
+    "2013-12-01": 1
+  },
+  "policy": [
+    "Timezone is unspecified here: labels are not converted to UTC.",
+    "Negative observed shortwave is retained and flagged, not silently clipped.",
+    "Missing values are preserved; no imputation or automatic field forecast.",
+    "Station radiation is not face radiation; slope/aspect/shading and radiation partition required.",
+    "Stream runoff, water temperature, pressure and observation geometry are not supplied by these fields."
+  ]
+}

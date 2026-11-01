@@ -1,0 +1,52 @@
+{
+  "tests": 16,
+  "passed": true,
+  "vendor_hashes_verified": true,
+  "scope": "component/integration checks, not environmental validation",
+  "results": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "-v",
+        "energy_ports.test_energy"
+      ],
+      "tests": 6,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_bare_ports (energy_ports.test_energy.EnergyTests) ... ok\ntest_cold_first_and_signed_ports (energy_ports.test_energy.EnergyTests) ... ok\ntest_contraction_exports_all_content (energy_ports.test_energy.EnergyTests) ... ok\ntest_expansion_requires_declared_content (energy_ports.test_energy.EnergyTests) ... ok\ntest_invalid_numeric (energy_ports.test_energy.EnergyTests) ... ok\ntest_reference_constant_area (energy_ports.test_energy.EnergyTests) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.003s\n\nOK\n"
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/Users/avinautiya/Documents/Codex/2026-10-09/a/research/environment_coupled_2026_11_01",
+        "-p",
+        "test_model.py",
+        "-v"
+      ],
+      "tests": 8,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_bulk_cold_energy_against_constant_flux_solution (test_model.CoupledTests) ... ok\ntest_coupled_energy_geometry_and_routing (test_model.CoupledTests) ... ok\ntest_downstream_rating_is_not_upstream_stage (test_model.CoupledTests) ... ok\ntest_incompatible_head_is_refused (test_model.CoupledTests) ... ok\ntest_scope_refusals (test_model.CoupledTests) ... ok\ntest_timestep_refinement_of_melt (test_model.CoupledTests) ... ok\ntest_tiny_positive_period_is_not_silently_skipped (test_model.CoupledTests) ... ok\ntest_zero_flux_identity (test_model.CoupledTests) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.196s\n\nOK\n"
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/Users/avinautiya/Documents/Codex/2026-10-09/a/research/environment_coupled_2026_11_01/data",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "tests": 2,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_bad_timestamp_is_not_guessed (test_meteorology.MeteorologyTests) ... ok\ntest_missing_and_negative_are_preserved (test_meteorology.MeteorologyTests) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nOK\n"
+    }
+  ]
+}

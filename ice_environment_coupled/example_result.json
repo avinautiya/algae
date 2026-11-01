@@ -1,0 +1,3206 @@
+{
+  "schema_version": 1,
+  "input_sha256": "449a56ecf7dfccbc09d2733800f59de68f2ff9d6e021991186496fa9f61b4dba",
+  "evidence": "conditional coupled reduced-model forecast; not spatial CFD or field validation",
+  "provenance": "SYNTHETIC 24-hour development case. Geometry, runoff, water superheat, net atmospheric flux and closure coefficients are assumed inputs, not a Himalayan field prediction.",
+  "series": [
+    {
+      "time_s": 1800.0,
+      "stage_m": 0.20416338640126924,
+      "toe_flow_m3_s": 0.014649946967626242,
+      "bypass_flow_m3_s": 0.05535005303151393,
+      "upstream_stage_m": 0.20416338640126924,
+      "contact_stage_m": -0.030802285057488485,
+      "contact_depth_m": 0.04919771494251152,
+      "contact_required_head_m": 0.007275417223145269,
+      "hydraulic_sample_time_s": 0.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.02459885747125576,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.857409542603048,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20928495668037486,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.0802570183678126,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.0002577082498164695,
+      "wet_bare_face_area_m2": 0.02459885747125576,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.0002570183678125918,
+      "bypass_melt_m3": 0.0002577082498164695,
+      "global_energy_residual_J": -1.2001237337244675e-08,
+      "routing_residual_m3_s": -8.598399769965681e-13,
+      "meltwater_to_inflow_ratio": 3.746065939411501e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0780899564287343,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 198201.79102040347,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 78719.071656905
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 78930.36733728864
+        },
+        "face_debris": {
+          "area_m2": 0.46203855275517186,
+          "debris_energy_j": -38146.788990825684,
+          "cold_debt_j": 49637.06628469151,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 3600.0,
+      "stage_m": 0.20390594790092836,
+      "toe_flow_m3_s": 0.01464983727185756,
+      "bypass_flow_m3_s": 0.055350162727867726,
+      "upstream_stage_m": 0.20390594790092836,
+      "contact_stage_m": -0.03105954001620341,
+      "contact_depth_m": 0.04919747835160919,
+      "contact_required_head_m": 0.007018065410585878,
+      "hydraulic_sample_time_s": 1800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024598739175804595,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574093073888194,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092833895979651,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08083648277854479,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.000837862550064624,
+      "wet_bare_face_area_m2": 0.024598739175804595,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.0008364827785447795,
+      "bypass_melt_m3": 0.000837862550064624,
+      "global_energy_residual_J": -5.463425623020157e-08,
+      "routing_residual_m3_s": -2.74724687443495e-13,
+      "meltwater_to_inflow_ratio": 8.439447285468045e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0782927689724906,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 288622.99570845225,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 256196.27244713798
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 256618.8661086929
+        },
+        "face_debris": {
+          "area_m2": 0.4621254724167817,
+          "debris_energy_j": -73147.02636586344,
+          "cold_debt_j": 56228.990623780206,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 5400.0,
+      "stage_m": 0.20332606335166525,
+      "toe_flow_m3_s": 0.014649727574795398,
+      "bypass_flow_m3_s": 0.05535027242490782,
+      "upstream_stage_m": 0.20332606335166525,
+      "contact_stage_m": -0.031639241021194545,
+      "contact_depth_m": 0.04919724175735024,
+      "contact_required_head_m": 0.006438267550352709,
+      "hydraulic_sample_time_s": 3600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.02459862087867512,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574090721683703,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092818224970771,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08141594718225723,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.0014180168508053101,
+      "wet_bare_face_area_m2": 0.02459862087867512,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.001415947182257221,
+      "bypass_melt_m3": 0.0014180168508053101,
+      "global_energy_residual_J": -3.488275979179889e-08,
+      "routing_residual_m3_s": -2.9679037005791997e-13,
+      "meltwater_to_inflow_ratio": 8.439447237964428e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.07849558151379,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 379062.4855032045,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 433673.4710873771
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 434307.3650309488
+        },
+        "face_debris": {
+          "area_m2": 0.46221239207733855,
+          "debris_energy_j": -105264.51273704016,
+          "cold_debt_j": 65711.48873616953,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 7200.0,
+      "stage_m": 0.20274617880341936,
+      "toe_flow_m3_s": 0.0146496178764398,
+      "bypass_flow_m3_s": 0.055350382122634344,
+      "upstream_stage_m": 0.20274617880341936,
+      "contact_stage_m": -0.032218942022522526,
+      "contact_depth_m": 0.0491970051597347,
+      "contact_required_head_m": 0.005858469692385175,
+      "hydraulic_sample_time_s": 5400.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.02459850257986735,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574088369417019,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092802553777114,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08199541157894974,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.001998171152038529,
+      "wet_bare_face_area_m2": 0.02459850257986735,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.0019954115789497283,
+      "bypass_melt_m3": 0.001998171152038529,
+      "global_energy_residual_J": -1.1451265891082585e-07,
+      "routing_residual_m3_s": -9.258704913861493e-13,
+      "meltwater_to_inflow_ratio": 8.43944719045945e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0786983940526322,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 469520.26040489296,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 611150.6675775648
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 611995.8641040566
+        },
+        "face_debris": {
+          "area_m2": 0.4622993117368424,
+          "debris_energy_j": -134737.2734165143,
+          "cold_debt_j": 77846.53530960625,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 9000.0,
+      "stage_m": 0.20216629426019242,
+      "toe_flow_m3_s": 0.01464950817783557,
+      "bypass_flow_m3_s": 0.055350491822674645,
+      "upstream_stage_m": 0.20216629426019242,
+      "contact_stage_m": -0.032798643017933726,
+      "contact_depth_m": 0.04919676856101601,
+      "contact_required_head_m": 0.005278671839859375,
+      "hydraulic_sample_time_s": 7200.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024598384280508007,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574086017110533,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20927868825479384,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08257487596862219,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.002578325453764289,
+      "wet_bare_face_area_m2": 0.024598384280508007,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.0025748759686221806,
+      "bypass_melt_m3": 0.002578325453764289,
+      "global_energy_residual_J": -3.064233169425279e-07,
+      "routing_residual_m3_s": 5.102029909664907e-13,
+      "meltwater_to_inflow_ratio": 8.439447142953657e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0789012065890178,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 559996.320413446,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 788627.8619176642
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 789684.3633280189
+        },
+        "face_debris": {
+          "area_m2": 0.46238623139529333,
+          "debris_energy_j": -161783.68025030286,
+          "cold_debt_j": 92415.7584979786,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 10800.0,
+      "stage_m": 0.20158640971598182,
+      "toe_flow_m3_s": 0.014649398477415419,
+      "bypass_flow_m3_s": 0.055350601522587695,
+      "upstream_stage_m": 0.20158640971598182,
+      "contact_stage_m": -0.03337834401080836,
+      "contact_depth_m": 0.04919653195781383,
+      "contact_required_head_m": 0.004698873988011252,
+      "hydraulic_sample_time_s": 9000.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024598265978906915,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574083664730635,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20927712110593455,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08315434035127436,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.003158479755982588,
+      "wet_bare_face_area_m2": 0.024598265978906915,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.0031543403512743567,
+      "bypass_melt_m3": 0.003158479755982588,
+      "global_energy_residual_J": -2.497945388313383e-07,
+      "routing_residual_m3_s": 3.1086244689504383e-15,
+      "meltwater_to_inflow_ratio": 8.439447095446228e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.079104019122946,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 650490.6655292488,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 966105.0541076073
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 967372.862702835
+        },
+        "face_debris": {
+          "area_m2": 0.4624731510526911,
+          "debris_energy_j": -186604.0743815406,
+          "cold_debt_j": 109218.81715805705,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 12600.0,
+      "stage_m": 0.20100652517478995,
+      "toe_flow_m3_s": 0.014649288776224314,
+      "bypass_flow_m3_s": 0.05535071122400111,
+      "upstream_stage_m": 0.20100652517478995,
+      "contact_stage_m": -0.03395804499889246,
+      "contact_depth_m": 0.0491962953523819,
+      "contact_required_head_m": 0.004119076140017424,
+      "hydraulic_sample_time_s": 10800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.02459814767619095,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574081312299738,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092755539460616,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08373380472690611,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.0037386340586934297,
+      "wet_bare_face_area_m2": 0.02459814767619095,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.003733804726906102,
+      "bypass_melt_m3": 0.0037386340586934297,
+      "global_energy_residual_J": -3.903878678102046e-07,
+      "routing_residual_m3_s": 2.2541690736233022e-13,
+      "meltwater_to_inflow_ratio": 8.439447047937717e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.079306831654417,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 741003.2957523818,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1143582.244147347
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1145061.3622285062
+        },
+        "face_debris": {
+          "area_m2": 0.4625600707090359,
+          "debris_energy_j": -209382.25502411264,
+          "cold_debt_j": 128071.91207586168,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 14400.0,
+      "stage_m": 0.2004266406346158,
+      "toe_flow_m3_s": 0.01464917907373977,
+      "bypass_flow_m3_s": 0.05535082092610116,
+      "upstream_stage_m": 0.2004266406346158,
+      "contact_stage_m": -0.0345377459833128,
+      "contact_depth_m": 0.04919605874359331,
+      "contact_required_head_m": 0.0035392782942897695,
+      "hydraulic_sample_time_s": 12600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024598029371796656,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.857407895980663,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20927398676771097,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08431326909551724,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.004318788361896817,
+      "wet_bare_face_area_m2": 0.024598029371796656,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.0043132690955172285,
+      "bypass_melt_m3": 0.004318788361896817,
+      "global_energy_residual_J": -5.460606189444661e-08,
+      "routing_residual_m3_s": -1.590672038531693e-13,
+      "meltwater_to_inflow_ratio": 8.43944700042785e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0795096441834309,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 831534.211083078,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1321059.4320368257
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1322749.8619050332
+        },
+        "face_debris": {
+          "area_m2": 0.46264699036432755,
+          "debris_energy_j": -230286.84531002372,
+          "cold_debt_j": 148806.420119293,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 16200.0,
+      "stage_m": 0.19984675609746028,
+      "toe_flow_m3_s": 0.014649069370484177,
+      "bypass_flow_m3_s": 0.055350930629701554,
+      "upstream_stage_m": 0.19984675609746028,
+      "contact_stage_m": -0.03511744696294253,
+      "contact_depth_m": 0.049195822132574715,
+      "contact_required_head_m": 0.0029594804524164103,
+      "hydraulic_sample_time_s": 14400.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024597911066287358,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574076607262522,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20927241957834536,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.0848927334571076,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.004898942665592753,
+      "wet_bare_face_area_m2": 0.024597911066287358,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.0048927334571075825,
+      "bypass_melt_m3": 0.004898942665592753,
+      "global_energy_residual_J": -1.64101948030293e-07,
+      "routing_residual_m3_s": 1.8572643423198087e-13,
+      "meltwater_to_inflow_ratio": 8.439446952916889e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0797124567099876,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 922083.4115214178,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1498536.6177759962
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1500438.3617324173
+        },
+        "face_debris": {
+          "area_m2": 0.4627339100185661,
+          "debris_energy_j": -249472.54536037904,
+          "cold_debt_j": 171267.641167151,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 18000.0,
+      "stage_m": 0.19926687156132322,
+      "toe_flow_m3_s": 0.014648959665935272,
+      "bypass_flow_m3_s": 0.05535104033398891,
+      "upstream_stage_m": 0.19926687156132322,
+      "contact_stage_m": -0.03569714793890791,
+      "contact_depth_m": 0.04919558551819969,
+      "contact_required_head_m": 0.0023796826128098976,
+      "hydraulic_sample_time_s": 16200.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024597792759099846,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574074254656202,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20927085237050386,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08547219781167699,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.005479096969781239,
+      "wet_bare_face_area_m2": 0.024597792759099846,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.0054721978116769755,
+      "bypass_melt_m3": 0.005479096969781239,
+      "global_energy_residual_J": -4.668254405260086e-08,
+      "routing_residual_m3_s": -7.582823258189819e-14,
+      "meltwater_to_inflow_ratio": 8.439446905404573e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.079915269234087,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 1012650.897067634,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1676013.801364801
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1678126.8617106585
+        },
+        "face_debris": {
+          "area_m2": 0.46282082967175153,
+          "debris_energy_j": -267081.28189178894,
+          "cold_debt_j": 195313.64850273062,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 19800.0,
+      "stage_m": 0.198686987028205,
+      "toe_flow_m3_s": 0.014648849960615298,
+      "bypass_flow_m3_s": 0.055351150039776684,
+      "upstream_stage_m": 0.198686987028205,
+      "contact_stage_m": -0.036276848910082385,
+      "contact_depth_m": 0.049195348901594604,
+      "contact_required_head_m": 0.0017998847770579092,
+      "hydraulic_sample_time_s": 18000.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024597674450797302,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.857407190199887,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20926928515164708,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08605166215922527,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.006059251274462281,
+      "wet_bare_face_area_m2": 0.024597674450797302,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.006051662159225254,
+      "bypass_melt_m3": 0.006059251274462281,
+      "global_energy_residual_J": -1.4648685464635491e-07,
+      "routing_residual_m3_s": 3.9197811663171933e-13,
+      "meltwater_to_inflow_ratio": 8.439446857891164e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0801180817557288,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 1103236.6677218073,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1853490.9828031925
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1855815.3618397587
+        },
+        "face_debris": {
+          "area_m2": 0.46290774932388373,
+          "debris_energy_j": -283243.26290114364,
+          "cold_debt_j": 220814.2341290468,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 21600.0,
+      "stage_m": 0.19810710249610541,
+      "toe_flow_m3_s": 0.014648740254001988,
+      "bypass_flow_m3_s": 0.05535125974625147,
+      "upstream_stage_m": 0.19810710249610541,
+      "contact_stage_m": -0.03685654987759231,
+      "contact_depth_m": 0.049195112281632966,
+      "contact_required_head_m": 0.0012200869435729546,
+      "hydraulic_sample_time_s": 19800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024597556140816483,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.857406954927933,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092677179143141,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08663112649975224,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.006639405579635879,
+      "wet_bare_face_area_m2": 0.024597556140816483,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.006631126499752229,
+      "bypass_melt_m3": 0.006639405579635879,
+      "global_energy_residual_J": -2.6767520466819406e-07,
+      "routing_residual_m3_s": 2.534500387341154e-13,
+      "meltwater_to_inflow_ratio": 8.439446810376397e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0803208942749132,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 1193840.7234841704,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2030968.1620911134
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2033503.862119718
+        },
+        "face_debris": {
+          "area_m2": 0.4629946689749628,
+          "debris_energy_j": -298077.945266324,
+          "cold_debt_j": 247649.94116812389,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 23400.0,
+      "stage_m": 0.19752721796702546,
+      "toe_flow_m3_s": 0.014648630546617754,
+      "bypass_flow_m3_s": 0.055351369454227035,
+      "upstream_stage_m": 0.19752721796702546,
+      "contact_stage_m": -0.037436250840310714,
+      "contact_depth_m": 0.04919487565944153,
+      "contact_required_head_m": 0.0006402891139432425,
+      "hydraulic_sample_time_s": 21600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024597437829720764,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574067196508777,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092661506659679,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08721059083325776,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.007219559885302039,
+      "wet_bare_face_area_m2": 0.024597437829720764,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.007210590833257748,
+      "bypass_melt_m3": 0.007219559885302039,
+      "global_energy_residual_J": -2.37843778450042e-07,
+      "routing_residual_m3_s": 8.447825772250894e-13,
+      "meltwater_to_inflow_ratio": 8.439446762860542e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.08052370679164,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 847393.5533864942,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2208445.3392285164
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2211192.362550538
+        },
+        "face_debris": {
+          "area_m2": 0.4630815886249886,
+          "debris_energy_j": -135841.90139306057,
+          "cold_debt_j": 259884.40425850195,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 25200.0,
+      "stage_m": 0.19694733343896417,
+      "toe_flow_m3_s": 0.014648520837940122,
+      "bypass_flow_m3_s": 0.05535147916288962,
+      "upstream_stage_m": 0.19694733343896417,
+      "contact_stage_m": -0.038015951799364386,
+      "contact_depth_m": 0.04919463903389337,
+      "contact_required_head_m": 6.049128658066477e-05,
+      "hydraulic_sample_time_s": 23400.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024597319516946686,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574064843676008,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20926458339914458,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08779005515974163,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.007799714191460761,
+      "wet_bare_face_area_m2": 0.024597319516946686,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.007790055159741621,
+      "bypass_melt_m3": 0.007799714191460761,
+      "global_energy_residual_J": -6.295013008639216e-07,
+      "routing_residual_m3_s": 8.297390552414186e-13,
+      "meltwater_to_inflow_ratio": 8.439446715343332e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0807265193059095,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 500880.6550339079,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2385922.514215344
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2388880.8631322193
+        },
+        "face_debris": {
+          "area_m2": 0.4631685082739612,
+          "debris_energy_j": 13024.342496730034,
+          "cold_debt_j": 258720.90539869352,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 27000.0,
+      "stage_m": 0.19636744891192187,
+      "toe_flow_m3_s": 0.014648411127969144,
+      "bypass_flow_m3_s": 0.055351588872239385,
+      "upstream_stage_m": 0.19636744891192187,
+      "contact_stage_m": -0.038595652754753046,
+      "contact_depth_m": 0.04919440240498858,
+      "contact_required_head_m": -0.0005193065385144628,
+      "hydraulic_sample_time_s": 25200.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.02459720120249429,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574062490781023,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092630161138449,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08836951947920367,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.008379868498112047,
+      "wet_bare_face_area_m2": 0.02459720120249429,
+      "face_melt_m3": 0.0,
+      "floor_melt_m3": 0.00836951947920366,
+      "bypass_melt_m3": 0.008379868498112047,
+      "global_energy_residual_J": -4.86397766508162e-07,
+      "routing_residual_m3_s": 2.0852763960022003e-13,
+      "meltwater_to_inflow_ratio": 8.439446667824759e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0809293318177213,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 154302.02842696672,
+          "cumulative_latent_j": 0.0
+        },
+        "floor": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2563399.687051539
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2566569.363864762
+        },
+        "face_debris": {
+          "area_m2": 0.46325542792188057,
+          "debris_energy_j": 149624.71484173712,
+          "cold_debt_j": 245263.3730277291,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 28800.0,
+      "stage_m": 0.19578756438789957,
+      "toe_flow_m3_s": 0.014648301417227227,
+      "bypass_flow_m3_s": 0.055351698583090074,
+      "upstream_stage_m": 0.19578756438789957,
+      "contact_stage_m": -0.039175353705349775,
+      "contact_depth_m": 0.049194165773853896,
+      "contact_required_head_m": -0.0010991043597539663,
+      "hydraulic_sample_time_s": 27000.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024597082886926948,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574060137835022,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092614488175318,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.00040167837826843517,
+        "floor_z_m": -0.08894886743586988,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.0089600228052559,
+      "wet_bare_face_area_m2": 0.024597082886926948,
+      "face_melt_m3": 0.0006202656300390364,
+      "floor_melt_m3": 0.008948983791643713,
+      "bypass_melt_m3": 0.0089600228052559,
+      "global_energy_residual_J": -2.1740561351180077e-07,
+      "routing_residual_m3_s": 3.1730174043786974e-13,
+      "meltwater_to_inflow_ratio": 1.2953602038922527e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0811321036025545,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.27717848331889,
+          "cumulative_latent_j": 189973.71663709602
+        },
+        "floor": {
+          "area_m2": 1.0002008391891342,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.0839189134161,
+          "cumulative_latent_j": 2740876.857737053
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2744257.864748167
+        },
+        "face_debris": {
+          "area_m2": 0.4633423301153805,
+          "debris_energy_j": 274971.99402607925,
+          "cold_debt_j": 220524.58378473192,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 30600.0,
+      "stage_m": 0.19520772535920977,
+      "toe_flow_m3_s": 0.014648173204125106,
+      "bypass_flow_m3_s": 0.05535182679554137,
+      "upstream_stage_m": 0.19520772535920977,
+      "contact_stage_m": -0.03975497820094141,
+      "contact_depth_m": 0.04919388923492847,
+      "contact_required_head_m": -0.0016748252794487953,
+      "hydraulic_sample_time_s": 28800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024592005579004567,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574057388028627,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092596172017872,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0011255187435800298,
+        "floor_z_m": -0.08952805722661936,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.009540177112975386,
+      "wet_bare_face_area_m2": 0.024596944617464235,
+      "face_melt_m3": 0.0017382185683558447,
+      "floor_melt_m3": 0.00952849952687597,
+      "bypass_melt_m3": 0.009540177112975386,
+      "global_energy_residual_J": 3.742461558431387e-07,
+      "routing_residual_m3_s": -3.3353875217301265e-13,
+      "meltwater_to_inflow_ratio": 1.657603391923223e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0813348200293167,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.271642676217283,
+          "cumulative_latent_j": 532378.1066788915
+        },
+        "floor": {
+          "area_m2": 1.00056275937179,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 36.1920182655906,
+          "cumulative_latent_j": 2918369.778092518
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 2921946.3658078755
+        },
+        "face_debris": {
+          "area_m2": 0.4634292085839929,
+          "debris_energy_j": 389995.32934262615,
+          "cold_debt_j": 185433.69199075675,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 32400.0,
+      "stage_m": 0.19462794817367188,
+      "toe_flow_m3_s": 0.014648019842778713,
+      "bypass_flow_m3_s": 0.0553519801577509,
+      "upstream_stage_m": 0.19462794817367188,
+      "contact_stage_m": -0.04033449877311386,
+      "contact_depth_m": 0.049193558453505495,
+      "contact_required_head_m": -0.002247242861372064,
+      "hydraulic_sample_time_s": 30600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024582944944099256,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.857405409880206,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20925742632541017,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0018493605591357908,
+        "floor_z_m": -0.09010719487517287,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.010120331421383416,
+      "wet_bare_face_area_m2": 0.024596779226752748,
+      "face_melt_m3": 0.0028563833674325346,
+      "floor_melt_m3": 0.010108172692592256,
+      "bypass_melt_m3": 0.010120331421383416,
+      "global_energy_residual_J": 5.044712452217937e-07,
+      "routing_residual_m3_s": 5.296041383218153e-13,
+      "meltwater_to_inflow_ratio": 1.657872154385177e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0815375182063105,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.269817699380965,
+          "cumulative_latent_j": 874847.3850105018
+        },
+        "floor": {
+          "area_m2": 1.000924680279568,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 36.192090777786845,
+          "cumulative_latent_j": 3095910.915941771
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 3099634.86707847
+        },
+        "face_debris": {
+          "area_m2": 0.4635160792312759,
+          "debris_energy_j": 495547.1494714127,
+          "cold_debt_j": 140843.1356030579,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 34200.0,
+      "stage_m": 0.19404819137223006,
+      "toe_flow_m3_s": 0.01464785819037371,
+      "bypass_flow_m3_s": 0.05535214180988233,
+      "upstream_stage_m": 0.19404819137223006,
+      "contact_stage_m": -0.04091398508707618,
+      "contact_depth_m": 0.04919320978809669,
+      "contact_required_head_m": -0.0028196334918760106,
+      "hydraulic_sample_time_s": 32400.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024573881910053684,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574050631679581,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.2092551170053387,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0025732038192029794,
+        "floor_z_m": -0.09068633229139188,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.010700485730517203,
+      "wet_bare_face_area_m2": 0.024596604894048343,
+      "face_melt_m3": 0.003974760000380295,
+      "floor_melt_m3": 0.010688055228116899,
+      "bypass_melt_m3": 0.010700485730517203,
+      "global_energy_residual_J": 2.2868334781378508e-07,
+      "routing_residual_m3_s": 2.560313072663689e-13,
+      "meltwater_to_inflow_ratio": 1.658178697591171e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0817402163019871,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.269809567663444,
+          "cumulative_latent_j": 1217381.543396476
+        },
+        "floor": {
+          "area_m2": 1.0012866019096014,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 36.19216300334571,
+          "cumulative_latent_j": 3273516.179157187
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 3277323.368571348
+        },
+        "face_debris": {
+          "area_m2": 0.46360294984370876,
+          "debris_energy_j": 592409.5038003174,
+          "cold_debt_j": 87534.96732227248,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 36000.0,
+      "stage_m": 0.19346843465905886,
+      "toe_flow_m3_s": 0.014647696500950448,
+      "bypass_flow_m3_s": 0.05535230349836289,
+      "upstream_stage_m": 0.19346843465905886,
+      "contact_stage_m": -0.04149347124977973,
+      "contact_depth_m": 0.04919286104161215,
+      "contact_required_head_m": -0.0033920239899173296,
+      "hydraulic_sample_time_s": 34200.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024564825369576552,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574047163688239,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20925280715643496,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.003297048519460776,
+        "floor_z_m": -0.0912654694751835,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.011280640040376906,
+      "wet_bare_face_area_m2": 0.024596430520806074,
+      "face_melt_m3": 0.005093348461274461,
+      "floor_melt_m3": 0.011268147133605721,
+      "bypass_melt_m3": 0.011280640040376906,
+      "global_energy_residual_J": 4.864414222538471e-07,
+      "routing_residual_m3_s": -6.866729407306593e-13,
+      "meltwater_to_inflow_ratio": 1.6584852365988476e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0819429143163142,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.26980143270407,
+          "cumulative_latent_j": 1559980.5800222193
+        },
+        "floor": {
+          "area_m2": 1.0016485242597304,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 36.19223501289959,
+          "cumulative_latent_j": 3451185.567786493
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 3455011.8702865583
+        },
+        "face_debris": {
+          "area_m2": 0.4636898204212775,
+          "debris_energy_j": 681299.8711464945,
+          "cold_debt_j": 26226.66597684484,
+          "cumulative_latent_j": 0.0
+        }
+      }
+    },
+    {
+      "time_s": 37800.0,
+      "stage_m": 0.19288867803625181,
+      "toe_flow_m3_s": 0.014647534775031687,
+      "bypass_flow_m3_s": 0.055352465224044106,
+      "upstream_stage_m": 0.19288867803625181,
+      "contact_stage_m": -0.04207295726000497,
+      "contact_depth_m": 0.049192512215178535,
+      "contact_required_head_m": -0.00396441435385848,
+      "hydraulic_sample_time_s": 36000.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.02455577531626392,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574043694839201,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20925049678616695,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.004109415695369548,
+        "floor_z_m": -0.09184458084611234,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.01186079435096269,
+      "wet_bare_face_area_m2": 0.024596256107589268,
+      "face_melt_m3": 0.0063489697609853905,
+      "floor_melt_m3": 0.011848448409213092,
+      "bypass_melt_m3": 0.01186079435096269,
+      "global_energy_residual_J": -1.7449201550334692e-07,
+      "routing_residual_m3_s": -9.242190346370194e-13,
+      "meltwater_to_inflow_ratio": 1.758367066963527e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0821456032961392,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.268897982500533,
+          "cumulative_latent_j": 1902644.4948673325
+        },
+        "floor": {
+          "area_m2": 1.0020547078476847,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 40.618358795430076,
+          "cumulative_latent_j": 3628919.081876967
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 3632700.3722241507
+        },
+        "face_debris": {
+          "area_m2": 0.4637766871269168,
+          "debris_energy_j": 762876.48895687,
+          "cold_debt_j": 8.6866705639288,
+          "cumulative_latent_j": 41905.26558775089
+        }
+      }
+    },
+    {
+      "time_s": 39600.0,
+      "stage_m": 0.19230893150732892,
+      "toe_flow_m3_s": 0.014647368945749483,
+      "bypass_flow_m3_s": 0.05535263105502054,
+      "upstream_stage_m": 0.19230893150732892,
+      "contact_stage_m": -0.04265242630918664,
+      "contact_depth_m": 0.0491921545369257,
+      "contact_required_head_m": -0.0045359061557633425,
+      "hydraulic_sample_time_s": 37800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024545643142870725,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574040137899563,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20924812779642116,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.004990506813938487,
+        "floor_z_m": -0.09242365788187461,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.01244094866229298,
+      "wet_bare_face_area_m2": 0.02459607726846285,
+      "face_melt_m3": 0.007711068161074897,
+      "floor_melt_m3": 0.012428970388921738,
+      "bypass_melt_m3": 0.01244094866229298,
+      "global_energy_residual_J": -1.217500539496541e-06,
+      "routing_residual_m3_s": 7.700229343043929e-13,
+      "meltwater_to_inflow_ratio": 1.8360193585434775e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.082348280258656,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.267696251674572,
+          "cumulative_latent_j": 2245373.285928606
+        },
+        "floor": {
+          "area_m2": 1.0024952534069693,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 44.0545559284633,
+          "cumulative_latent_j": 3806720.192778172
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 3810388.874389769
+        },
+        "face_debris": {
+          "area_m2": 0.46386354868228113,
+          "debris_energy_j": 837743.2436568725,
+          "cold_debt_j": 8.686155536435924,
+          "cumulative_latent_j": 116357.24830909105
+        }
+      }
+    },
+    {
+      "time_s": 41400.0,
+      "stage_m": 0.1917291983962859,
+      "toe_flow_m3_s": 0.014647197655965586,
+      "bypass_flow_m3_s": 0.05535280234307045,
+      "upstream_stage_m": 0.1917291983962859,
+      "contact_stage_m": -0.04323187280235366,
+      "contact_depth_m": 0.04919178507952095,
+      "contact_required_head_m": -0.005106692984371785,
+      "hydraulic_sample_time_s": 39600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024534672315077402,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8574036463752678,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.20924568079950837,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.005884465968640214,
+        "floor_z_m": -0.09300271990076926,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.01302110297439227,
+      "wet_bare_face_area_m2": 0.024595892539760474,
+      "face_melt_m3": 0.00909331838066475,
+      "floor_melt_m3": 0.013009736143188358,
+      "bypass_melt_m3": 0.01302110297439227,
+      "global_energy_residual_J": -1.3294629752635956e-07,
+      "routing_residual_m3_s": -9.639788967064078e-13,
+      "meltwater_to_inflow_ratio": 1.8508628192233607e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0825509519652692,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.26717066132555,
+          "cumulative_latent_j": 2588166.9500061506
+        },
+        "floor": {
+          "area_m2": 1.00294223298432,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 44.69795773507368,
+          "cumulative_latent_j": 3984595.966463444
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 3988077.3767909156
+        },
+        "face_debris": {
+          "area_m2": 0.4639504079851154,
+          "debris_energy_j": 906454.159110029,
+          "cold_debt_j": 8.685930283425236,
+          "cumulative_latent_j": 196916.41698708723
+        }
+      }
+    },
+    {
+      "time_s": 43200.0,
+      "stage_m": 0.19114947115805053,
+      "toe_flow_m3_s": 0.014647023979509252,
+      "bypass_flow_m3_s": 0.05535297601988763,
+      "upstream_stage_m": 0.19114947115805053,
+      "contact_stage_m": -0.04381130942791284,
+      "contact_depth_m": 0.049191410472856426,
+      "contact_required_head_m": -0.0056773433730476185,
+      "hydraulic_sample_time_s": 41400.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.024523551235091662,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.857403273832611,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.209243199707275,
+      "removed": false,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.006790228574284562,
+        "floor_z_m": -0.09358177619423529,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.013601257287271282,
+      "wet_bare_face_area_m2": 0.024595705236428213,
+      "face_melt_m3": 0.010494081482085938,
+      "floor_melt_m3": 0.013590758398949387,
+      "bypass_melt_m3": 0.013601257287271282,
+      "global_energy_residual_J": -1.3632234185934067e-07,
+      "routing_residual_m3_s": -6.031286581276163e-13,
+      "meltwater_to_inflow_ratio": 1.864522759877895e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0827536216679823,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.26697027130986,
+          "cumulative_latent_j": 2931025.4850249523
+        },
+        "floor": {
+          "area_m2": 1.0033951142871422,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 45.28813028221723,
+          "cumulative_latent_j": 4162550.3009134205
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 4165765.879430874
+        },
+        "face_debris": {
+          "area_m2": 0.4640372664291353,
+          "debris_energy_j": 969517.5149515655,
+          "cold_debt_j": 8.68584440198994,
+          "cumulative_latent_j": 283080.8031453645
+        }
+      }
+    },
+    {
+      "time_s": 45000.0,
+      "stage_m": 0.09411175969621963,
+      "toe_flow_m3_s": 0.04878937157126456,
+      "bypass_flow_m3_s": 0.021210628429571447,
+      "upstream_stage_m": 0.09411175969621963,
+      "contact_stage_m": 0.015322969789592147,
+      "contact_depth_m": 0.10890474598382743,
+      "contact_required_head_m": 0.07630919486438603,
+      "hydraulic_sample_time_s": 43200.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05426812650029612,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111298095549,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969910224466366,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0076978654153192425,
+        "floor_z_m": -0.09416148839032723,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.014181011768519733,
+      "wet_bare_face_area_m2": 0.05445237299191372,
+      "face_melt_m3": 0.011898005877499633,
+      "floor_melt_m3": 0.014172701868273904,
+      "bypass_melt_m3": 0.014181011768519733,
+      "global_energy_residual_J": -4.946195986121893e-07,
+      "routing_residual_m3_s": 8.359979375427429e-13,
+      "meltwater_to_inflow_ratio": 1.8672029295791816e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0829565209366143,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.289926863203966,
+          "cumulative_latent_j": 3269707.558800652
+        },
+        "floor": {
+          "area_m2": 1.0038489327076596,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 45.38184205173934,
+          "cumulative_latent_j": 4340786.782811195
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 4343331.922438687
+        },
+        "face_debris": {
+          "area_m2": 0.464124223258549,
+          "debris_energy_j": 1027399.6231877112,
+          "cold_debt_j": 8.695682941373128,
+          "cumulative_latent_j": 374389.88534818054
+        }
+      }
+    },
+    {
+      "time_s": 46800.0,
+      "stage_m": 0.09353202927213725,
+      "toe_flow_m3_s": 0.048789364463943274,
+      "bypass_flow_m3_s": 0.021210635535504226,
+      "upstream_stage_m": 0.09353202927213725,
+      "contact_stage_m": 0.014743246759845119,
+      "contact_depth_m": 0.10890473515017235,
+      "contact_required_head_m": 0.07573854442258127,
+      "hydraulic_sample_time_s": 45000.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05424358765637475,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111328821004,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969909209134753,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.008615435026903172,
+        "floor_z_m": -0.0947411974751408,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.01476076624998525,
+      "wet_bare_face_area_m2": 0.054452367575086175,
+      "face_melt_m3": 0.013317560155039767,
+      "floor_melt_m3": 0.014754908176064835,
+      "bypass_melt_m3": 0.01476076624998525,
+      "global_energy_residual_J": -2.2811582311987877e-07,
+      "routing_residual_m3_s": -5.525024882047092e-13,
+      "meltwater_to_inflow_ratio": 1.878769298613068e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0831594191162992,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.2898179684885,
+          "cumulative_latent_j": 3608454.529375322
+        },
+        "floor": {
+          "area_m2": 1.0043077175134516,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 45.878480579197856,
+          "cumulative_latent_j": 4519103.766348786
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 4520897.965512983
+        },
+        "face_debris": {
+          "area_m2": 0.46421117962127106,
+          "debris_energy_j": 1080528.3224986065,
+          "cold_debt_j": 8.695636272204599,
+          "cumulative_latent_j": 470421.15978994785
+        }
+      }
+    },
+    {
+      "time_s": 48600.0,
+      "stage_m": 0.0929523006215138,
+      "toe_flow_m3_s": 0.04878935683498984,
+      "bypass_flow_m3_s": 0.021210643165340933,
+      "upstream_stage_m": 0.0929523006215138,
+      "contact_stage_m": 0.014163526046254662,
+      "contact_depth_m": 0.10890472352139546,
+      "contact_required_head_m": 0.075167995347176,
+      "hydraulic_sample_time_s": 46800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05421880247571472,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111361801508,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969908119284263,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.009542115887340063,
+        "floor_z_m": -0.09532090239598162,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.015340520731683837,
+      "wet_bare_face_area_m2": 0.05445236176069773,
+      "face_melt_m3": 0.014751478872892645,
+      "floor_melt_m3": 0.015337378902673225,
+      "bypass_melt_m3": 0.015340520731683837,
+      "global_energy_residual_J": -7.905473466962576e-07,
+      "routing_residual_m3_s": 3.3076319461144976e-13,
+      "meltwater_to_inflow_ratio": 1.8894158573718937e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0833623158385934,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.28967222942324,
+          "cumulative_latent_j": 3947266.419189392
+        },
+        "floor": {
+          "area_m2": 1.00477105794367,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 46.33404302183397,
+          "cumulative_latent_j": 4697501.73555295
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 4698464.008658662
+        },
+        "face_debris": {
+          "area_m2": 0.46429813535939723,
+          "debris_energy_j": 1129296.096051283,
+          "cold_debt_j": 8.695573812617097,
+          "cumulative_latent_j": 570787.0270424216
+        }
+      }
+    },
+    {
+      "time_s": 50400.0,
+      "stage_m": 0.09237257433781351,
+      "toe_flow_m3_s": 0.0487893485053448,
+      "bypass_flow_m3_s": 0.0212106514943822,
+      "upstream_stage_m": 0.09237257433781351,
+      "contact_stage_m": 0.013583808428575622,
+      "contact_depth_m": 0.10890471082455724,
+      "contact_required_head_m": 0.07459754010746411,
+      "hydraulic_sample_time_s": 48600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05419379368243244,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111397811137,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.696990692933497,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.010477154385928833,
+        "floor_z_m": -0.09590060350623428,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.015920275213636852,
+      "wet_bare_face_area_m2": 0.05445235541227862,
+      "face_melt_m3": 0.016198600977506035,
+      "floor_melt_m3": 0.01592011682194079,
+      "bypass_melt_m3": 0.015920275213636852,
+      "global_energy_residual_J": -9.420327842235565e-07,
+      "routing_residual_m3_s": -2.73003841755326e-13,
+      "meltwater_to_inflow_ratio": 1.8992194459125008e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0835652112271819,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.289538858841993,
+          "cumulative_latent_j": 4286143.227846001
+        },
+        "floor": {
+          "area_m2": 1.0052385771929644,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 46.75192492944458,
+          "cumulative_latent_j": 4875981.539990382
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 4876030.051882268
+        },
+        "face_debris": {
+          "area_m2": 0.46438509052593513,
+          "debris_energy_j": 1174063.0200988327,
+          "cold_debt_j": 8.695516653789426,
+          "cumulative_latent_j": 675131.8823425916
+        }
+      }
+    },
+    {
+      "time_s": 52200.0,
+      "stage_m": 0.09179285022213277,
+      "toe_flow_m3_s": 0.04878933953524232,
+      "bypass_flow_m3_s": 0.02121066046388303,
+      "upstream_stage_m": 0.09179285022213277,
+      "contact_stage_m": 0.013004093645237913,
+      "contact_depth_m": 0.10890469715147219,
+      "contact_required_head_m": 0.07402717093780772,
+      "hydraulic_sample_time_s": 50400.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.054168582276049565,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111436589494,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969905647891759,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.011419859266516244,
+        "floor_z_m": -0.09648030112992555,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.016500029695863862,
+      "wet_bare_face_area_m2": 0.054452348575736095,
+      "face_melt_m3": 0.017657861281875454,
+      "floor_melt_m3": 0.0165031244782719,
+      "bypass_melt_m3": 0.016500029695863862,
+      "global_energy_residual_J": -4.733155947178602e-07,
+      "routing_residual_m3_s": -8.74661454375314e-13,
+      "meltwater_to_inflow_ratio": 1.9082496667972633e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.083768105395474,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.28941682921115,
+          "cumulative_latent_j": 4625084.95493628
+        },
+        "floor": {
+          "area_m2": 1.0057099296332581,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 47.135244029372636,
+          "cumulative_latent_j": 5054543.9589561615
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5053596.095189791
+        },
+        "face_debris": {
+          "area_m2": 0.4644720451694888,
+          "debris_energy_j": 1215159.4398433354,
+          "cold_debt_j": 8.695464355368276,
+          "cumulative_latent_j": 783129.4827539704
+        }
+      }
+    },
+    {
+      "time_s": 54000.0,
+      "stage_m": 0.0912131280919469,
+      "toe_flow_m3_s": 0.04878932997985594,
+      "bypass_flow_m3_s": 0.021210670019935863,
+      "upstream_stage_m": 0.0912131280919469,
+      "contact_stage_m": 0.012424381456315428,
+      "contact_depth_m": 0.10890468258624098,
+      "contact_required_head_m": 0.07345688071506655,
+      "hydraulic_sample_time_s": 52200.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.0541431875023617,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111477898058,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969904282836562,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.012369596468307917,
+        "floor_z_m": -0.09705999556414793,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.01707978417838278,
+      "wet_bare_face_area_m2": 0.05445234129312049,
+      "face_melt_m3": 0.01912828255017454,
+      "floor_melt_m3": 0.017086404205607416,
+      "bypass_melt_m3": 0.01707978417838278,
+      "global_energy_residual_J": -1.3199460227042437e-06,
+      "routing_residual_m3_s": -2.082084504806403e-13,
+      "meltwater_to_inflow_ratio": 1.9165703757672845e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0839709984474517,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.28930519777372,
+          "cumulative_latent_j": 4964091.600085933
+        },
+        "floor": {
+          "area_m2": 1.0061847982341539,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 47.48686008957392,
+          "cumulative_latent_j": 5233189.707285029
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5231162.13858672
+        },
+        "face_debris": {
+          "area_m2": 0.46455899933462214,
+          "debris_energy_j": 1252888.424291972,
+          "cold_debt_j": 8.695416513332388,
+          "cumulative_latent_j": 894480.5228164248
+        }
+      }
+    },
+    {
+      "time_s": 55800.0,
+      "stage_m": 0.09063340777628676,
+      "toe_flow_m3_s": 0.048789319888362846,
+      "bypass_flow_m3_s": 0.021210680112045858,
+      "upstream_stage_m": 0.09063340777628676,
+      "contact_stage_m": 0.011844671639676063,
+      "contact_depth_m": 0.108904667203824,
+      "contact_required_head_m": 0.07288666290265841,
+      "hydraulic_sample_time_s": 54000.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05411762699801806,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.867011152152423,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969902841194692,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.013325784393425064,
+        "floor_z_m": -0.09763968708129318,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.017659538661209985,
+      "wet_bare_face_area_m2": 0.054452333601912,
+      "face_melt_m3": 0.020608968235735443,
+      "floor_melt_m3": 0.017669958144838748,
+      "bypass_melt_m3": 0.017659538661209985,
+      "global_energy_residual_J": -1.2139498721808195e-06,
+      "routing_residual_m3_s": 4.0870085094013575e-13,
+      "meltwater_to_inflow_ratio": 1.9242401561008115e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0841738904784526,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.28920310008786,
+          "cumulative_latent_j": 5303163.162952522
+        },
+        "floor": {
+          "area_m2": 1.0066628921967125,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 47.809396255860115,
+          "cumulative_latent_j": 5411919.440684923
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5408728.18207807
+        },
+        "face_debris": {
+          "area_m2": 0.464645953062194,
+          "debris_energy_j": 1287528.018418706,
+          "cold_debt_j": 8.695372757183684,
+          "cumulative_latent_j": 1008910.4103520572
+        }
+      }
+    },
+    {
+      "time_s": 57600.0,
+      "stage_m": 0.09005368911856368,
+      "toe_flow_m3_s": 0.04878930930591619,
+      "bypass_flow_m3_s": 0.021210690693965396,
+      "upstream_stage_m": 0.09005368911856368,
+      "contact_stage_m": 0.011264963991754653,
+      "contact_depth_m": 0.10890465107304784,
+      "contact_required_head_m": 0.07231651150505679,
+      "hydraulic_sample_time_s": 55800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05409191692533687,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111567272814,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969901329416598,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.014287889566033628,
+        "floor_z_m": -0.09821937593110111,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.018239293144360434,
+      "wet_bare_face_area_m2": 0.05445232553652392,
+      "face_melt_m3": 0.022099095818644686,
+      "floor_melt_m3": 0.01825378825978104,
+      "bypass_melt_m3": 0.018239293144360434,
+      "global_energy_residual_J": -6.672344170510769e-07,
+      "routing_residual_m3_s": -1.1841916336408076e-13,
+      "meltwater_to_inflow_ratio": 1.931312753951443e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0843767815758854,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.28910974327669,
+          "cumulative_latent_j": 5642299.64322281
+        },
+        "floor": {
+          "area_m2": 1.0071439447830168,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 48.105258630437575,
+          "cumulative_latent_j": 5590733.760629218
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5586294.225668423
+        },
+        "face_debris": {
+          "area_m2": 0.46473290638966513,
+          "debris_energy_j": 1319333.3093677585,
+          "cold_debt_j": 8.695332747116202,
+          "cumulative_latent_j": 1126167.2259200464
+        }
+      }
+    },
+    {
+      "time_s": 59400.0,
+      "stage_m": 0.08947397197947421,
+      "toe_flow_m3_s": 0.04878929827557658,
+      "bypass_flow_m3_s": 0.021210701724552052,
+      "upstream_stage_m": 0.08947397197947421,
+      "contact_stage_m": 0.01068525832844841,
+      "contact_depth_m": 0.10890463425954952,
+      "contact_required_head_m": 0.07174642102630491,
+      "hydraulic_sample_time_s": 57600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.054066072096085716,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.867011161495765,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969899753653797,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.015255422650646028,
+        "floor_z_m": -0.09879906234253913,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.018819047627847835,
+      "wet_bare_face_area_m2": 0.05445231712977476,
+      "face_melt_m3": 0.023597910693444947,
+      "floor_melt_m3": 0.018837896351824722,
+      "bypass_melt_m3": 0.018819047627847835,
+      "global_energy_residual_J": -1.2488744687289e-06,
+      "routing_residual_m3_s": 1.2861933740282439e-13,
+      "meltwater_to_inflow_ratio": 1.9378374777411453e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0845796718198886,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.289024400321765,
+          "cumulative_latent_j": 5981501.040610154
+        },
+        "floor": {
+          "area_m2": 1.007627711325323,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 48.37665423060855,
+          "cumulative_latent_j": 5769633.2188441735
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5763860.2693619765
+        },
+        "face_debris": {
+          "area_m2": 0.46481985935138087,
+          "debris_energy_j": 1348538.3220532201,
+          "cold_debt_j": 8.695296171573608,
+          "cumulative_latent_j": 1246019.850756777
+        }
+      }
+    },
+    {
+      "time_s": 61200.0,
+      "stage_m": 0.08889425622673502,
+      "toe_flow_m3_s": 0.04878928683504242,
+      "bypass_flow_m3_s": 0.021210713164736616,
+      "upstream_stage_m": 0.08889425622673502,
+      "contact_stage_m": 0.010105554478253342,
+      "contact_depth_m": 0.10890461682079247,
+      "contact_required_head_m": 0.07117638642159603,
+      "hydraulic_sample_time_s": 59400.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05404010608121887,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111664415757,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969898119291773,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.016227934799877757,
+        "floor_z_m": -0.09937874652552614,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.0193988021116847,
+      "wet_bare_face_area_m2": 0.054452308410396236,
+      "face_melt_m3": 0.02510472056152295,
+      "floor_melt_m3": 0.019422284073374756,
+      "bypass_melt_m3": 0.0193988021116847,
+      "global_energy_residual_J": -3.5666744224727154e-07,
+      "routing_residual_m3_s": -2.209760152638296e-13,
+      "meltwater_to_inflow_ratio": 1.9438595645772342e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0847825612839341,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.288946404556363,
+          "cumulative_latent_j": 6320767.354852488
+        },
+        "floor": {
+          "area_m2": 1.0081139673999389,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 48.62560746159428,
+          "cumulative_latent_j": 5948618.321425075
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5941426.313162563
+        },
+        "face_debris": {
+          "area_m2": 0.4649068119788289,
+          "debris_energy_j": 1375357.758241346,
+          "cold_debt_j": 8.695262744801147,
+          "cumulative_latent_j": 1368256.2492896381
+        }
+      }
+    },
+    {
+      "time_s": 63000.0,
+      "stage_m": 0.08831454174380202,
+      "toe_flow_m3_s": 0.04878927502072179,
+      "bypass_flow_m3_s": 0.0212107249800985,
+      "upstream_stage_m": 0.08831454174380202,
+      "contact_stage_m": 0.009525852286747072,
+      "contact_depth_m": 0.10890459881227321,
+      "contact_required_head_m": 0.07060640306739983,
+      "hydraulic_sample_time_s": 61200.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.054014031316892065,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111715489749,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969896431531684,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.01720501430439727,
+        "floor_z_m": -0.09995842867251382,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.019978556595882487,
+      "wet_bare_face_area_m2": 0.054452299406136606,
+      "face_melt_m3": 0.026618890286509683,
+      "floor_melt_m3": 0.020006952940177895,
+      "bypass_melt_m3": 0.019978556595882487,
+      "global_energy_residual_J": -7.790804374963045e-07,
+      "routing_residual_m3_s": 8.202882817442969e-13,
+      "meltwater_to_inflow_ratio": 1.9494205164132404e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0849854500353797,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.28887514455846,
+          "cumulative_latent_j": 6660098.585710079
+        },
+        "floor": {
+          "area_m2": 1.0086025071521987,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 48.853975225982005,
+          "cumulative_latent_j": 6127689.532611807
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 6118992.357073693
+        },
+        "face_debris": {
+          "area_m2": 0.4649937643008771,
+          "debris_energy_j": 1399988.5920389786,
+          "cold_debt_j": 8.695232204819492,
+          "cumulative_latent_j": 1492681.8934615334
+        }
+      }
+    },
+    {
+      "time_s": 64800.0,
+      "stage_m": 0.08773482841594943,
+      "toe_flow_m3_s": 0.04878926286292107,
+      "bypass_flow_m3_s": 0.02121073713675391,
+      "upstream_stage_m": 0.08773482841594943,
+      "contact_stage_m": 0.008946151607673716,
+      "contact_depth_m": 0.10890458028018754,
+      "contact_required_head_m": 0.07003646671648732,
+      "hydraulic_sample_time_s": 63000.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05398785919523487,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111768048601,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969894694703009,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.01818628352006686,
+        "floor_z_m": -0.10053810895993685,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.020558311080451624,
+      "wet_bare_face_area_m2": 0.05445229014009377,
+      "face_melt_m3": 0.02813983717446559,
+      "floor_melt_m3": 0.020591904342629953,
+      "bypass_melt_m3": 0.020558311080451624,
+      "global_energy_residual_J": -1.700245775282383e-07,
+      "routing_residual_m3_s": -3.250316682468224e-13,
+      "meltwater_to_inflow_ratio": 1.9545584084555566e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.085188338135978,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 20.28881005982086,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.0090931417600335,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 49.06346078348278,
+          "cumulative_latent_j": 6306847.278252019
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 6296558.401098558
+        },
+        "face_debris": {
+          "area_m2": 0.4650807163439905,
+          "debris_energy_j": 1422611.5336444613,
+          "cold_debt_j": 8.695204311343074,
+          "cumulative_latent_j": 1619118.3171569682
+        }
+      }
+    },
+    {
+      "time_s": 66600.0,
+      "stage_m": 0.08715511614667416,
+      "toe_flow_m3_s": 0.04878925039280665,
+      "bypass_flow_m3_s": 0.021210749606201264,
+      "upstream_stage_m": 0.08715511614667416,
+      "contact_stage_m": 0.008366452312105324,
+      "contact_depth_m": 0.10890456127204218,
+      "contact_required_head_m": 0.0694665734800669,
+      "hydraulic_sample_time_s": 64800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.053961600156202494,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111821957577,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969892913258092,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.018423393189388137,
+        "floor_z_m": -0.10111800237129175,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.02113806556540166,
+      "wet_bare_face_area_m2": 0.05445228063602109,
+      "face_melt_m3": 0.028507420957332347,
+      "floor_melt_m3": 0.021177139556147515,
+      "bypass_melt_m3": 0.02113806556540166,
+      "global_energy_residual_J": -9.728246368467808e-07,
+      "routing_residual_m3_s": -9.920952948050399e-13,
+      "meltwater_to_inflow_ratio": 1.1153729225266707e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.085391300829952,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 83015.28856897532,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.009211696594694,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 11.855483466050032,
+          "cumulative_latent_j": 6486091.94897775
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 6474124.445240086
+        },
+        "face_debris": {
+          "area_m2": 0.4651677003556937,
+          "debris_energy_j": 1266747.0359389929,
+          "cold_debt_j": 8.698401170320613,
+          "cumulative_latent_j": 1731701.143005833
+        }
+      }
+    },
+    {
+      "time_s": 68400.0,
+      "stage_m": 0.08657528261695835,
+      "toe_flow_m3_s": 0.04878927374138927,
+      "bypass_flow_m3_s": 0.021210726258159097,
+      "upstream_stage_m": 0.08657528261695835,
+      "contact_stage_m": 0.007786594490900203,
+      "contact_depth_m": 0.10890459686219195,
+      "contact_required_head_m": 0.06888909917495534,
+      "hydraulic_sample_time_s": 66600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05395527877335371,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111721020377,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969896248769896,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.018633694342931623,
+        "floor_z_m": -0.1016980223452472,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.021717820049638487,
+      "wet_bare_face_area_m2": 0.054452298431095975,
+      "face_melt_m3": 0.028833505303918924,
+      "floor_melt_m3": 0.02176256348755672,
+      "bypass_melt_m3": 0.021717820049638487,
+      "global_energy_residual_J": -5.071633495390415e-07,
+      "routing_residual_m3_s": -4.516387264175137e-13,
+      "meltwater_to_inflow_ratio": 1.0853078991803983e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0855943078208365,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 166028.55572238317,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.0093168471714657,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 10.515057677173978,
+          "cumulative_latent_j": 6665394.419841898
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 6651690.489163173
+        },
+        "face_debris": {
+          "area_m2": 0.4652547033517871,
+          "debris_energy_j": 1123744.9017495231,
+          "cold_debt_j": 8.700299609337714,
+          "cumulative_latent_j": 1831573.6045096766
+        }
+      }
+    },
+    {
+      "time_s": 70200.0,
+      "stage_m": 0.08599537707584341,
+      "toe_flow_m3_s": 0.048789318360162114,
+      "bypass_flow_m3_s": 0.021210681639385914,
+      "upstream_stage_m": 0.08599537707584341,
+      "contact_stage_m": 0.007206642529147281,
+      "contact_depth_m": 0.10890466487439449,
+      "contact_required_head_m": 0.06831127395800746,
+      "hydraulic_sample_time_s": 68400.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05394969140740669,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111528130742,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969902622880302,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.01881940512831184,
+        "floor_z_m": -0.10227805364689528,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.022297574532512344,
+      "wet_bare_face_area_m2": 0.05445233243719724,
+      "face_melt_m3": 0.029121514691789925,
+      "floor_melt_m3": 0.022348052711231206,
+      "bypass_melt_m3": 0.022297574532512344,
+      "global_energy_residual_J": -3.686291165649891e-07,
+      "routing_residual_m3_s": -4.5197179332490123e-13,
+      "meltwater_to_inflow_ratio": 1.0576453076051913e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0857973187764134,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 249060.08571793672,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.009409702564156,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 9.285539269021648,
+          "cumulative_latent_j": 6844716.888290471
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 6829256.532668813
+        },
+        "face_debris": {
+          "area_m2": 0.4653417080470343,
+          "debris_energy_j": 992543.0994934515,
+          "cold_debt_j": 8.700469524719479,
+          "cumulative_latent_j": 1919784.5438080316
+        }
+      }
+    },
+    {
+      "time_s": 72000.0,
+      "stage_m": 0.08541546509078082,
+      "toe_flow_m3_s": 0.04878936488318171,
+      "bypass_flow_m3_s": 0.02121063511684758,
+      "upstream_stage_m": 0.08541546509078082,
+      "contact_stage_m": 0.006626682142320164,
+      "contact_depth_m": 0.10890473578921545,
+      "contact_required_head_m": 0.06773319542518413,
+      "hydraulic_sample_time_s": 70200.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05394476371317309,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111327008608,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969909269025958,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.018982560170514518,
+        "floor_z_m": -0.10285809533791153,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.022877329013965074,
+      "wet_bare_face_area_m2": 0.05445236789460772,
+      "face_melt_m3": 0.029374590845173524,
+      "floor_melt_m3": 0.02293359974039801,
+      "bypass_melt_m3": 0.022877329013965074,
+      "global_energy_residual_J": -2.1309242583811283e-06,
+      "routing_residual_m3_s": 2.9282132274488504e-14,
+      "meltwater_to_inflow_ratio": 1.0322637443578332e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.086000333368269,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 332109.87837062014,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.0094912800852573,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 8.157752110138361,
+          "cumulative_latent_j": 7024057.0612896215
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 7006822.575739192
+        },
+        "face_debris": {
+          "area_m2": 0.4654287143006867,
+          "debris_energy_j": 872167.2896965306,
+          "cold_debt_j": 8.700625365243297,
+          "cumulative_latent_j": 1997296.2019140532
+        }
+      }
+    },
+    {
+      "time_s": 73800.0,
+      "stage_m": 0.08483554719297015,
+      "toe_flow_m3_s": 0.048789413151706755,
+      "bypass_flow_m3_s": 0.021210586847435108,
+      "upstream_stage_m": 0.08483554719297015,
+      "contact_stage_m": 0.006046714026772718,
+      "contact_depth_m": 0.10890480936468425,
+      "contact_required_head_m": 0.06715488453465124,
+      "hydraulic_sample_time_s": 72000.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05394044085030958,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670111118340181,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969916164529536,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.019125025744385675,
+        "floor_z_m": -0.1034381465580001,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.023457083493943303,
+      "wet_bare_face_area_m2": 0.05445240468234212,
+      "face_melt_m3": 0.029595616074770063,
+      "floor_melt_m3": 0.023519197707745205,
+      "bypass_melt_m3": 0.023457083493943303,
+      "global_energy_residual_J": -2.3008324205875397e-06,
+      "routing_residual_m3_s": -8.581468868840147e-13,
+      "meltwater_to_inflow_ratio": 1.0089748648709858e-05,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0862033512953,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 415177.9335109501,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.0095625128721928,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 7.123278693543789,
+          "cumulative_latent_j": 7203412.835532786
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 7184388.618357964
+        },
+        "face_debris": {
+          "area_m2": 0.4655157219837,
+          "debris_energy_j": 761723.5829444666,
+          "cold_debt_j": 8.700768301328488,
+          "cumulative_latent_j": 2064991.367184422
+        }
+      }
+    },
+    {
+      "time_s": 75600.0,
+      "stage_m": 0.08425562387635177,
+      "toe_flow_m3_s": 0.04878946302289229,
+      "bypass_flow_m3_s": 0.02121053697703509,
+      "upstream_stage_m": 0.08425562387635177,
+      "contact_stage_m": 0.0054667388250609905,
+      "contact_depth_m": 0.10890488538306109,
+      "contact_required_head_m": 0.06657636051573104,
+      "hydraulic_sample_time_s": 73800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05393667256583649,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.867011090274296,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969923288984612,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.019248513707392872,
+        "floor_z_m": -0.10401820651837361,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.024036837972398122,
+      "wet_bare_face_area_m2": 0.054452442691530545,
+      "face_melt_m3": 0.029787234702288706,
+      "floor_melt_m3": 0.0241048403141679,
+      "bypass_melt_m3": 0.024036837972398122,
+      "global_energy_residual_J": -4.214351065456867e-06,
+      "routing_residual_m3_s": -7.262246359829305e-14,
+      "meltwater_to_inflow_ratio": 9.876058795772006e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0864063722814306,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 498264.2509831321,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.0096242568536964,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 6.174398150360361,
+          "cumulative_latent_j": 7382782.281742716
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 7361954.660510149
+        },
+        "face_debris": {
+          "area_m2": 0.465602730977756,
+          "debris_energy_j": 660391.8972164528,
+          "cold_debt_j": 8.70089940560037,
+          "cumulative_latent_j": 2123679.937183576
+        }
+      }
+    },
+    {
+      "time_s": 77400.0,
+      "stage_m": 0.08367569558526995,
+      "toe_flow_m3_s": 0.048789514362437156,
+      "bypass_flow_m3_s": 0.021210485636885608,
+      "upstream_stage_m": 0.08367569558526995,
+      "contact_stage_m": 0.0048867571212560384,
+      "contact_depth_m": 0.10890496363962965,
+      "contact_required_head_m": 0.06599764099963173,
+      "hydraulic_sample_time_s": 75600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.053933412802011825,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670110680797499,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969930623205307,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.01935459427630383,
+        "floor_z_m": -0.10459827449578148,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.024616592449284627,
+      "wet_bare_face_area_m2": 0.054452481819814824,
+      "face_melt_m3": 0.029951872710917423,
+      "floor_melt_m3": 0.024690521781753464,
+      "bypass_melt_m3": 0.024616592449284627,
+      "global_energy_residual_J": -5.3004478104412556e-06,
+      "routing_residual_m3_s": -6.772360450213455e-13,
+      "meltwater_to_inflow_ratio": 9.679982658677958e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0866093960735235,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 581368.8306446105,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.009677297138152,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 5.304028445562992,
+          "cumulative_latent_j": 7562163.630271888
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 7539520.702181993
+        },
+        "face_debris": {
+          "area_m2": 0.4656897411743672,
+          "debris_energy_j": 567419.86369583,
+          "cold_debt_j": 8.701019661117027,
+          "cumulative_latent_j": 2174104.9371903627
+        }
+      }
+    },
+    {
+      "time_s": 79200.0,
+      "stage_m": 0.08309576273595232,
+      "toe_flow_m3_s": 0.048789567050630624,
+      "bypass_flow_m3_s": 0.02121043294992063,
+      "upstream_stage_m": 0.08309576273595232,
+      "contact_stage_m": 0.004306769456132439,
+      "contact_depth_m": 0.10890504395191392,
+      "contact_required_head_m": 0.06541874216561885,
+      "hydraulic_sample_time_s": 77400.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05393061934768484,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670110453021284,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969938150090088,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.019444707746705855,
+        "floor_z_m": -0.10517834982704174,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.025196346924561665,
+      "wet_bare_face_area_m2": 0.05445252197595696,
+      "face_melt_m3": 0.030091755773276902,
+      "floor_melt_m3": 0.025276236810657444,
+      "bypass_melt_m3": 0.025196346924561665,
+      "global_energy_residual_J": -3.5990378819406033e-06,
+      "routing_residual_m3_s": 5.512534873020059e-13,
+      "meltwater_to_inflow_ratio": 9.50006590093363e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0868124224394644,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 664491.6723642637,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.0097223538733529,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 4.505673520083242,
+          "cumulative_latent_j": 7741555.257894542
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 7717086.743360894
+        },
+        "face_debris": {
+          "area_m2": 0.4657767524740562,
+          "debris_energy_j": 482117.2357707678,
+          "cold_debt_j": 8.701129968902155,
+          "cumulative_latent_j": 2216948.0417636996
+        }
+      }
+    },
+    {
+      "time_s": 81000.0,
+      "stage_m": 0.08251582569993815,
+      "toe_flow_m3_s": 0.048789620973758864,
+      "bypass_flow_m3_s": 0.02121037902587505,
+      "upstream_stage_m": 0.08251582569993815,
+      "contact_stage_m": 0.0037267763195371895,
+      "contact_depth_m": 0.10890512614657893,
+      "contact_required_head_m": 0.06483967884600852,
+      "hydraulic_sample_time_s": 79200.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05392825350890402,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670110219905883,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969945853394123,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.01952017524283675,
+        "floor_z_m": -0.10575843190403282,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.025776101398191437,
+      "wet_bare_face_area_m2": 0.05445256307328947,
+      "face_melt_m3": 0.03020892579082756,
+      "floor_melt_m3": 0.025861980539547573,
+      "bypass_melt_m3": 0.025776101398191437,
+      "global_energy_residual_J": -3.5195844247937202e-06,
+      "routing_residual_m3_s": -3.6609604237014537e-13,
+      "meltwater_to_inflow_ratio": 9.334974268291318e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0870154511664114,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 747632.7760222689,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.0097600876214183,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 3.7733748065482686,
+          "cumulative_latent_j": 7920955.675691553
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 7894652.784035274
+        },
+        "face_debris": {
+          "area_m2": 0.4658637647856049,
+          "debris_energy_j": 403850.75967715844,
+          "cold_debt_j": 8.701231154867317,
+          "cumulative_latent_j": 2252834.6403990802
+        }
+      }
+    },
+    {
+      "time_s": 82800.0,
+      "stage_m": 0.08193588482892844,
+      "toe_flow_m3_s": 0.048789676031841415,
+      "bypass_flow_m3_s": 0.02121032396862473,
+      "upstream_stage_m": 0.08193588482892844,
+      "contact_stage_m": 0.003146778167190875,
+      "contact_depth_m": 0.1089052100712237,
+      "contact_required_head_m": 0.06426046465458202,
+      "hydraulic_sample_time_s": 81000.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05392627981947663,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670109981883491,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969953718834487,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.019582208577960402,
+        "floor_z_m": -0.10633852016910589,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.026355855870139323,
+      "wet_bare_face_area_m2": 0.05445260503561185,
+      "face_melt_m3": 0.030305256067637266,
+      "floor_melt_m3": 0.02644774850932078,
+      "bypass_melt_m3": 0.026355855870139323,
+      "global_energy_residual_J": -1.9957078620791435e-06,
+      "routing_residual_m3_s": 4.661410146766798e-13,
+      "meltwater_to_inflow_ratio": 9.18348367375192e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.087218482059187,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 830792.1415082818,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.0097911042889802,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 3.1016667561889477,
+          "cumulative_latent_j": 8100363.517937752
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 8072218.824194528
+        },
+        "face_debris": {
+          "area_m2": 0.4659507780253659,
+          "debris_energy_j": 332039.46866647154,
+          "cold_debt_j": 8.70132397610135,
+          "cumulative_latent_j": 2282338.4849198028
+        }
+      }
+    },
+    {
+      "time_s": 84600.0,
+      "stage_m": 0.08135594043594438,
+      "toe_flow_m3_s": 0.04878973212949594,
+      "bypass_flow_m3_s": 0.02121026787062109,
+      "upstream_stage_m": 0.08135594043594438,
+      "contact_stage_m": 0.0025667754113502805,
+      "contact_depth_m": 0.10890529558045617,
+      "contact_required_head_m": 0.0636811120709929,
+      "hydraulic_sample_time_s": 82800.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05392466576398451,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670109739366427,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969961732785134,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.01963191929888176,
+        "floor_z_m": -0.10691861411088202,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.026935610340373516,
+      "wet_bare_face_area_m2": 0.054452647790228084,
+      "face_melt_m3": 0.03038246523126896,
+      "floor_melt_m3": 0.02703353662982227,
+      "bypass_melt_m3": 0.026935610340373516,
+      "global_energy_residual_J": -3.036228008568287e-06,
+      "routing_residual_m3_s": 1.170175067954915e-13,
+      "meltwater_to_inflow_ratio": 9.044471101229252e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0874215149388087,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 913969.7687214119,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.009815959649441,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 2.485536046070713,
+          "cumulative_latent_j": 8279777.531908708
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 8249784.863828916
+        },
+        "face_debris": {
+          "area_m2": 0.46603779211663227,
+          "debris_energy_j": 266150.3657286134,
+          "cold_debt_j": 8.701409126637971,
+          "cumulative_latent_j": 2305985.953138591
+        }
+      }
+    },
+    {
+      "time_s": 86400.0,
+      "stage_m": 0.08077599281415658,
+      "toe_flow_m3_s": 0.048789789181641244,
+      "bypass_flow_m3_s": 0.021210210818452778,
+      "upstream_stage_m": 0.08077599281415658,
+      "contact_stage_m": 0.001986768433704378,
+      "contact_depth_m": 0.1089053825445864,
+      "contact_required_head_m": 0.06310163254714174,
+      "hydraulic_sample_time_s": 84600.0,
+      "hydrostatic_indicators": {
+        "depth_to_length": 0.05392338153498438,
+        "curvature_acceleration_over_g": null,
+        "froude_number": 0.8670109492722484,
+        "bed_slope": 0.0,
+        "warnings": [
+          "Indicators are warnings for review; they do not validate a hydrostatic approximation.",
+          "Curvature radius unknown: vertical acceleration cannot be assessed."
+        ]
+      },
+      "toe_fraction": 0.6969969883091606,
+      "removed": true,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.01967032698210661,
+        "floor_z_m": -0.10749871326040156,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "bypass_floor_m": -0.02751536480886486,
+      "wet_bare_face_area_m2": 0.0544526912722932,
+      "face_melt_m3": 0.03044213000423704,
+      "floor_melt_m3": 0.02761934114931835,
+      "bypass_melt_m3": 0.02751536480886486,
+      "global_energy_residual_J": -1.8774298951029778e-06,
+      "routing_residual_m3_s": 9.400813461013513e-14,
+      "meltwater_to_inflow_ratio": 8.916906260287294e-06,
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.0876245496411405,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 997165.6575689488,
+          "cumulative_latent_j": 6999494.732964003
+        },
+        "floor": {
+          "area_m2": 1.0098351634910534,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 1.9203841612469574,
+          "cumulative_latent_j": 8459196.568530928
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 8427350.902929509
+        },
+        "face_debris": {
+          "area_m2": 0.4661248069890602,
+          "debris_energy_j": 205694.46278726283,
+          "cold_debt_j": 8.701487242795958,
+          "cumulative_latent_j": 2324259.9604737083
+        }
+      }
+    }
+  ],
+  "totals": {
+    "atmospheric_J": 8463983.710343583,
+    "water_in_J": 12752207999.986948,
+    "water_out_J": 12734567214.271011,
+    "latent_J": 26210302.164898153,
+    "fresh_ice_warming_J": 329590.62602566544,
+    "remap_enthalpy_J": -2358.452012125435,
+    "face_melt_m3": 0.03044213000423704,
+    "floor_melt_m3": 0.02761934114931835,
+    "bypass_melt_m3": 0.02751536480886486,
+    "water_in_m3": 6048.000000000001,
+    "water_out_m3": 6048.078473952388,
+    "phase_water_m3": 0.07847395857753936
+  },
+  "checks": {
+    "global_energy_residual_J": -1.8774298951029778e-06,
+    "geometry_phase_volume_residual_m3": -1.5265566588595902e-15,
+    "water_bookkeeping_residual_m3": -6.19058182493859e-09
+  },
+  "scope": [
+    "thin effective upstream obstacle; bare downstream floor",
+    "upper dry face debris; submerged debris rejected",
+    "quasi-steady common stage and uniform planar retreat",
+    "downstream face wetting from imposed-friction-slope rectangular Manning rating, not upstream stage",
+    "prescribed lumped face fractions; no tracked bare/debris boundary advection",
+    "explicit incoming surface reservoirs and bulk fresh-ice sensible heat",
+    "meltwater leaves downstream; small-feedback bound enforced",
+    "prescribed net atmospheric face flux; no inferred runoff or water temperature",
+    "no collapse, glacier advection or resolved cold-ice PDE"
+  ]
+}

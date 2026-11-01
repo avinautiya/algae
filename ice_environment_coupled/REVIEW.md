@@ -1,0 +1,29 @@
+# Independent final code review
+
+Reviewed `model.py`, its extensive energy ports, and the originating geometry, routing and heat-delivery contracts. Review was read-only; this document is the only artifact written during this final review. This is a bounded reduced-model milestone, not a requirement to implement CFD.
+
+## Fix status
+
+- The former `1e-10` time-loop cutoff is removed. Small positive first intervals now execute, and non-advancing individual time steps raise explicitly.
+- Upstream common-stage routing and downstream face contact stage are separate. A rectangular Manning rating with required roughness and imposed friction slope determines contact depth; upstream pond stage no longer directly wets the face.
+- `hydraulic_sample_time_s` identifies the beginning-step hydraulic sample separately from end-step geometry.
+- Fixed face fractions are explicitly labeled lumped reservoirs rather than tracked debris-boundary material.
+- Thermal storage is extensive; added patch area imports declared surface enthalpy/cold debt. Water heat is allocated once through serial floor-to-face depletion. Only net phase energy advances the polygon, with corner volume counted once.
+- Bulk fresh-ice warming is charged per removed volume in addition to finite surface cold debt. These must describe distinct energy inventories: surface debt must not already include the same bulk subcooling. The resulting `rho_i*(L+cp*DeltaT)` removal cost is a declared lumped enthalpy closure, not a moving temperature solution.
+
+The inspected arithmetic is consistent with those definitions. Conservation checks are useful implementation evidence; they do not determine whether parameterized contact or heat transfer describes a particular site.
+
+## Remaining actual limitations
+
+1. **Independent hydraulic closures need a compatible regime.** Route ratings assume free discharge to a prescribed low receiver, while Manning supplies a separate normal-depth/contact closure. These are not a jointly solved water-surface/energy profile. Some allowed inputs can imply downstream contact stage above upstream pool stage, or significant backwater that would change the route discharge. Interpret results only where the assumed free discharge and downstream rating are mutually plausible; a head/backwater screen or explicitly documented parameter-range review would strengthen this boundary. The Manning slope is prescribed forcing, not the geometric horizontal floor slope. Hydrostatic diagnostics report geometric bed slope zero and must not be mistaken for the imposed friction slope.
+2. **Dry melting intervals are currently excluded by the hydraulic-feedback guard.** At zero inflow, any atmospheric/debris-driven melt produces an infinite meltwater-to-inflow ratio and raises. This is coherent as a conservative scope rejection, but prevents simulation of otherwise valid dry melt periods. It is not evidence that dry ice cannot melt. A future dry-state branch could route generated runoff separately; that is beyond the current executable scope.
+3. **Water and patch thermal states remain lumped.** The entire floor is assigned contact for any materially nonzero route flow; width is fixed and wetting does not resolve rivulets. Bare face cold debt mixes across wet and dry fractions. Exchange uses a 0 C reference even while cold debt remains. Upper debris is dry, has a zero-C-reference conductive interface, and cannot become submerged. The rejection is appropriate; the model does not supply a submerged-debris boundary condition.
+4. **Geometry and material transport are restricted.** All face energy produces uniform planar retreat; all floor energy produces uniform lowering. There are no undercuts, overhangs, collapse, glacier advection, or spatial debris transport. Added-area states are prescribed source terms. The obstacle is a separate effective thin routing element, not the thermally resolved debris on the face or downstream floor. Its prescribed removal changes routing and is not a predicted erosion event.
+5. **Time splitting needs convergence evidence.** Beginning-step routing, heat transfer and patch areas drive end-step geometry; face-first/floor-second removal and end-step area imports introduce splitting error. Refine the timestep for each reported prediction and inspect contact/removal events. The final water residual reports accumulated route-solver mismatch; only the per-step flow residual is actively bounded by the routing solver.
+6. **Small input/numerical boundaries remain.** A forcing duration can be lost when added to a much larger accumulated time because period endpoints are summed before stepping; validate each `end+duration > end` if such extreme scales are accepted. The nominal step-count guard uses total duration, so many short forcing periods can exceed that nominal count. These are input-hardening issues rather than failures of the intended moderate-size demonstrations.
+
+## Scientific interpretation
+
+The implementation makes a conditional question executable: under declared geometry, routing, water temperature, atmospheric flux, contact and storage assumptions, how does effective obstruction removal or transmission alter contact, heat allocation and melt over the same modeled ice footprint? It explicitly distinguishes sensible storage, imported cold/debris states, bulk fresh-ice warming, latent melt and polygon loss. That is a meaningful computational integration milestone.
+
+It does not establish that those closures are novel or accurate in the field. Observed geometry alone does not provide coincident discharge, water temperature, net fluxes, heat-transfer coefficients, debris states or an independent melt target. Environmental conclusions require those inputs and appropriate comparison/convergence evidence. Sensitivity experiments can identify mechanism dependence and closure uncertainty without being described as calibrated environmental predictions or cliff-survival forecasts.

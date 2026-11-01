@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0",
+  "created": "2026-11-01",
+  "status": "development_protocol_not_executed",
+  "unseen_test": false,
+  "executed_runs": 0,
+  "dimensional_environmental_ranges": null,
+  "synthetic_values_are_measured": false,
+  "experiments": [
+    {
+      "id": "A",
+      "geometry": "frozen shared geometry",
+      "purpose": "closure allocation"
+    },
+    {
+      "id": "B",
+      "geometry": "same initial geometry; freely evolve under shared update law",
+      "purpose": "contact feedback"
+    }
+  ],
+  "models": {
+    "dynamic": "prognostic contact from storage/head/drainage/geometry",
+    "fixed": "initial contact mask",
+    "measured_history": "optional independently observed contact; more informed comparator",
+    "replay": "dynamic history replay; consistency control",
+    "dry": "no water contact"
+  },
+  "matched": [
+    "mesh",
+    "initial geometry",
+    "timestep",
+    "atmospheric forcing",
+    "upstream volume and enthalpy",
+    "water energy budget",
+    "outlet law except intervention",
+    "surface closures",
+    "ice properties",
+    "debris properties",
+    "lowering and reburial",
+    "calibration information"
+  ],
+  "synthetic_cases": [
+    {
+      "id": "zero_superheat",
+      "superheat_star": 0
+    },
+    {
+      "id": "constant_contact",
+      "contact_star": 0.5
+    },
+    {
+      "id": "pulse",
+      "supply_star": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "disconnect",
+      "outlet_connectivity_star": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "feedback",
+      "geometry": "evolving"
+    }
+  ],
+  "synthetic_warning": "Dimensionless engineering choices only. Define normalization and closures before execution. No measured hydraulic ranges asserted.",
+  "inputs": {
+    "atmosphere": [
+      "air temperature",
+      "relative humidity",
+      "wind",
+      "incoming shortwave",
+      "incoming longwave or documented reconstruction"
+    ],
+    "terrain": [
+      "registered DEM",
+      "aspect",
+      "slope",
+      "shading",
+      "view factors"
+    ],
+    "debris": [
+      "thickness",
+      "temperature",
+      "albedo",
+      "emissivity",
+      "lowering law"
+    ],
+    "hydrology": [
+      "inflow",
+      "water temperature",
+      "head/storage",
+      "outflow",
+      "observed contact"
+    ],
+    "metadata": [
+      "URL/DOI",
+      "version/hash",
+      "units",
+      "timestamps/timezone",
+      "missingness",
+      "observed or closure label",
+      "uncertainty"
+    ],
+    "infer_hydrology_from_meteorology": false
+  },
+  "energy_contract": {
+    "finite_shared_water_budget": true,
+    "debit_water_to_ice_transfer_once": true,
+    "separate_mechanical_loss": true,
+    "log": [
+      "advected enthalpy",
+      "atmospheric exchange",
+      "storage energy change",
+      "outflow energy",
+      "latent heat",
+      "residual"
+    ]
+  },
+  "numerical_gates": {
+    "storage_nonnegative": true,
+    "contact_bounds": [
+      0,
+      1
+    ],
+    "energy_residual_over_absolute_throughput_max": 1e-06,
+    "smooth_case_half_timestep_melt_relative_change_max": 0.01,
+    "discontinuous_case": "report event-time convergence"
+  },
+  "metrics": [
+    "mass and energy residual",
+    "wetted area",
+    "storage",
+    "outflow",
+    "contact heat",
+    "melt volume",
+    "normal and debris-relative retreat",
+    "slope/aspect",
+    "observed footprint precision recall F1",
+    "bias MAE against observations only with uncertainty",
+    "wall time"
+  ],
+  "claim_levels": {
+    "synthetic": "closure consistency and sensitivity only",
+    "professional_agreement": "implementation agreement within reference scope",
+    "independent_skill": "requires independent hydraulic and geometry observations excluded from tuning; not demonstrated"
+  },
+  "references": [
+    {
+      "id": "Buri2016",
+      "url": "https://doi.org/10.1002/2016JF004039"
+    },
+    {
+      "id": "Buri2018",
+      "url": "https://doi.org/10.1073/pnas.1713892115"
+    },
+    {
+      "id": "Evatt2024",
+      "url": "https://doi.org/10.1017/aog.2024.34"
+    },
+    {
+      "id": "Sato2025",
+      "url": "https://doi.org/10.1017/jog.2025.17"
+    }
+  ],
+  "access_evidence": [
+    {
+      "url": "https://github.com/pburi/CliffEBM",
+      "archive": "https://doi.org/10.5281/zenodo.7970338",
+      "license": "GPL-3.0",
+      "scope": "public R gridded energy balance model and one Lirung example; full JGR geometry model not verified"
+    },
+    {
+      "url": "https://esurf.copernicus.org/articles/12/727/2024/",
+      "data": "https://doi.org/10.5281/zenodo.8373145",
+      "scope": "paper links open products; hydraulic time-series suitability not audited"
+    }
+  ],
+  "limits": {
+    "maximum_example_cliffs": 1,
+    "forcing": "one short contiguous segment after metadata inspection",
+    "large_archives": false,
+    "CFD": false
+  }
+}
