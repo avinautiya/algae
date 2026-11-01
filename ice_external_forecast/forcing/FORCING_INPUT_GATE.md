@@ -1,0 +1,11 @@
+# External forcing only — Rochemelon2005
+
+The primary PDF was inspected with the PDF skill. No numerical bed-change target was extracted. Figure6a/c permit recovery of lake temperature and lake-level-derived discharge over approximately0–112h after25August2005,1900h; the numerical package samples the published curves at even hours2–110. Preferred regular-breach window12–108h corresponds to26August0700→30August0700 in the source clock. These are graph samples, not original logger samples. Timezone is unspecified.
+
+The 55 paired graph samples retain exact pixel selections, axis anchors and a source hash. Conservative ±2pixel coordinate bounds are about±0.0087°C,±0.0117m³/s and±0.332h; source measurement accuracies±0.1°C and±0.1m³/s dominate. These are not statistical confidence intervals or a guarantee of interpolation accuracy. Two-hour interpolation can miss shorter features. No extrapolation outside acquired support is justified.
+
+The paper describes a nominal1m excavated channel becoming regular and about1.3m wide12h after onset. Width1.3m is a reported geometry input; alternative widths are engineering scenarios. Local depth measurements are described but no numerical depth time series was recovered. Inferring depth from the measured bed-change target would leak the target. The fitted event-specific discharge coefficient0.18 and fitted Nusselt coefficients must not enter an independent prediction.
+
+Critical depth from suppliedQ and independently reported width is an explicit hydraulic closure only at a verified control section; it cannot be assumed over every downstream reach. Figure6's bed series lacks an explicit station identifier in its caption, so matching it to a selected control/reach is presently unresolved. Lake temperature is inlet forcing, not a measured local downstream water temperature. A local thermal test therefore still needs justified path geometry and heat transport. Cold ice is reported and cannot silently be treated as temperate.
+
+Source: [Vincent et al.2010](https://doi.org/10.3189/002214310791190857), Figures5/6, field-measurement and model sections. This packet makes forcing available; it does not pass the observation-matching gate or support an external accuracy score yet.

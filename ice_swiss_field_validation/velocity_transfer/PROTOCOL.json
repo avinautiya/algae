@@ -1,0 +1,27 @@
+{
+  "title": "Retrospective conditional hydraulic velocity transfer audit",
+  "date": "2026-11-01",
+  "status_at_write": "Written before first prediction scores, after source observations and algebraic head audit were already inspected; not blinded or externally timestamped preregistration",
+  "target": "Printed measured P5-to-P3 salt-tracer mean velocity in m/s, rounded to 0.001 m/s in author notebook cell87",
+  "train_source_times": ["2019-07-11T09:27:05", "2019-07-11T12:51:40", "2019-07-16T14:12:10"],
+  "test_source_times": ["2019-07-25T08:44:25", "2019-07-30T14:47:15", "2019-07-30T18:34:05", "2019-07-31T09:39:30"],
+  "input_rule": "Impose original same-date bed-elevation observations and nearest same-date independent manual station depths. July11 P5 0.8m is author-deduced rather than directly observed. July31 P3 0.38m comes from pressure sensor. No discharge or target velocity enters hydraulic diameter.",
+  "P3_depths_m_in_order": [0.23,0.30,0.35,0.55,0.50,0.50,0.38],
+  "P5_depths_m_in_order": [0.80,0.80,0.60,0.65,0.60,0.60,0.45],
+  "hydraulic_diameter": "hbar=(h3+h5)/2; D=4*w*hbar/(w+2*hbar), rectangular open channel",
+  "distance_m": 253.7,
+  "width_scenarios_m": [1.5,2.0,2.5],
+  "primary_width_m": 2.0,
+  "candidate_heads": {
+    "piezometric": "(z5+h5)-(z3+h3)",
+    "archived_plus": "z5+h5-z3+h3"
+  },
+  "velocity_model": "v=sqrt(2*g*D*head/(f*L)); g=9.81. Refuse nonpositive head or inputs; no clipping to favorable values.",
+  "fit": "For each width and head expression, fit one positive amplitude a=1/sqrt(f) by equal-weight training squared error in velocity. Closed form a=sum(x_i*v_i)/sum(x_i^2), x_i=sqrt(2*g*D_i*head_i/L). No test target participates.",
+  "baselines": ["Training arithmetic-mean velocity", "Fixed f=0.3 using piezometric head", "Fixed f=0.3 using archived-plus head"],
+  "metrics": ["test MAE m/s", "test RMSE m/s", "test mean signed error m/s", "per-case signed and absolute errors", "paired MAE reduction of piezometric fitted versus archived-plus fitted"],
+  "decision": "Report every model and width. Superiority across the tested widths requires lower MAE and RMSE than archived-plus fitted at every width, plus lower absolute error on each of four test experiments. Otherwise no consistent-superiority conclusion. This rule is descriptive for this retrospective small sample, not a statistical significance rule.",
+  "uncertainty": "No confidence interval from four dependent cases. Original floor errors ~0.1m each and depth errors ~0.05m each; corrected late-July heads are comparable to these uncertainties. Width variation alone is not full uncertainty propagation.",
+  "scope": "Conditional quasi-steady hydraulic hindcast at one channel segment, with externally supplied observed/deduced head and depth. No contact prediction, melt accuracy, discharge forecast, glacier transfer, full coupled model validation, or causal accuracy claim.",
+  "preserve": "Do not modify author products, original field benchmarks or solver worktree. Save protocol SHA256 with results. Do not tune split, matching, width, objective, or coefficients after scores. Failed outcomes remain reported."
+}

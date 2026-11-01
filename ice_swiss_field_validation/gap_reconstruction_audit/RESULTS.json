@@ -1,0 +1,339 @@
+{
+  "protocol_sha256": "1a1c5534e1733db621c3912c80dd7fcca001924b2d0ab6c7c905b06ce1545128",
+  "source_manifest_sha256": "2b44003699c15643e3104a7534b44ce97e085d5b3bc647c13e93dceb91ede447",
+  "code_sha256": "5cea5c2bf698307f95b949b498e9559df290976b9921586b018438b11f8609be",
+  "counts": {
+    "P3_1h": {
+      "candidate_blocks": 576,
+      "retained_blocks": 534,
+      "excluded_incomplete_support_start_times": [
+        "2019-07-16T13:00:00",
+        "2019-07-16T14:00:00",
+        "2019-07-16T16:00:00",
+        "2019-07-16T17:00:00",
+        "2019-07-23T15:00:00",
+        "2019-07-23T16:00:00",
+        "2019-07-23T17:00:00",
+        "2019-07-23T18:00:00",
+        "2019-07-23T19:00:00",
+        "2019-07-23T20:00:00",
+        "2019-07-23T21:00:00",
+        "2019-07-23T22:00:00",
+        "2019-07-23T23:00:00",
+        "2019-07-24T00:00:00",
+        "2019-07-24T01:00:00",
+        "2019-07-24T02:00:00",
+        "2019-07-24T03:00:00",
+        "2019-07-24T04:00:00",
+        "2019-07-24T05:00:00",
+        "2019-07-24T06:00:00",
+        "2019-07-24T07:00:00",
+        "2019-07-24T08:00:00",
+        "2019-07-24T09:00:00",
+        "2019-07-24T10:00:00",
+        "2019-07-24T11:00:00",
+        "2019-07-24T12:00:00",
+        "2019-07-24T13:00:00",
+        "2019-07-24T14:00:00",
+        "2019-07-24T15:00:00",
+        "2019-07-25T10:00:00",
+        "2019-07-25T11:00:00",
+        "2019-07-25T12:00:00",
+        "2019-07-25T13:00:00",
+        "2019-07-25T14:00:00",
+        "2019-07-30T12:00:00",
+        "2019-07-30T13:00:00",
+        "2019-07-30T18:00:00",
+        "2019-07-31T12:00:00",
+        "2019-08-08T11:00:00",
+        "2019-08-08T12:00:00",
+        "2019-08-08T13:00:00",
+        "2019-08-08T14:00:00"
+      ]
+    },
+    "P3_6h": {
+      "candidate_blocks": 96,
+      "retained_blocks": 83,
+      "excluded_incomplete_support_start_times": [
+        "2019-07-16T12:00:00",
+        "2019-07-23T12:00:00",
+        "2019-07-23T18:00:00",
+        "2019-07-24T00:00:00",
+        "2019-07-24T06:00:00",
+        "2019-07-24T12:00:00",
+        "2019-07-25T06:00:00",
+        "2019-07-25T12:00:00",
+        "2019-07-30T12:00:00",
+        "2019-07-30T18:00:00",
+        "2019-07-31T12:00:00",
+        "2019-08-08T06:00:00",
+        "2019-08-08T12:00:00"
+      ]
+    },
+    "P3_24h": {
+      "candidate_blocks": 24,
+      "retained_blocks": 17,
+      "excluded_incomplete_support_start_times": [
+        "2019-07-16T00:00:00",
+        "2019-07-23T00:00:00",
+        "2019-07-24T00:00:00",
+        "2019-07-25T00:00:00",
+        "2019-07-30T00:00:00",
+        "2019-07-31T00:00:00",
+        "2019-08-08T00:00:00"
+      ]
+    },
+    "P5_1h": {
+      "candidate_blocks": 576,
+      "retained_blocks": 542,
+      "excluded_incomplete_support_start_times": [
+        "2019-07-16T13:00:00",
+        "2019-07-16T14:00:00",
+        "2019-07-16T15:00:00",
+        "2019-07-16T16:00:00",
+        "2019-07-16T17:00:00",
+        "2019-07-24T08:00:00",
+        "2019-07-24T09:00:00",
+        "2019-07-24T10:00:00",
+        "2019-07-24T11:00:00",
+        "2019-07-24T12:00:00",
+        "2019-07-24T13:00:00",
+        "2019-07-24T15:00:00",
+        "2019-07-25T10:00:00",
+        "2019-07-25T11:00:00",
+        "2019-07-25T12:00:00",
+        "2019-07-25T13:00:00",
+        "2019-07-25T14:00:00",
+        "2019-07-25T15:00:00",
+        "2019-07-30T14:00:00",
+        "2019-07-30T18:00:00",
+        "2019-07-31T12:00:00",
+        "2019-07-31T13:00:00",
+        "2019-08-08T12:00:00",
+        "2019-08-08T13:00:00",
+        "2019-08-08T14:00:00",
+        "2019-08-08T15:00:00",
+        "2019-08-08T16:00:00",
+        "2019-08-08T17:00:00",
+        "2019-08-08T18:00:00",
+        "2019-08-08T19:00:00",
+        "2019-08-08T20:00:00",
+        "2019-08-08T21:00:00",
+        "2019-08-08T22:00:00",
+        "2019-08-08T23:00:00"
+      ]
+    },
+    "P5_6h": {
+      "candidate_blocks": 96,
+      "retained_blocks": 86,
+      "excluded_incomplete_support_start_times": [
+        "2019-07-16T12:00:00",
+        "2019-07-24T06:00:00",
+        "2019-07-24T12:00:00",
+        "2019-07-25T06:00:00",
+        "2019-07-25T12:00:00",
+        "2019-07-30T12:00:00",
+        "2019-07-30T18:00:00",
+        "2019-07-31T12:00:00",
+        "2019-08-08T12:00:00",
+        "2019-08-08T18:00:00"
+      ]
+    },
+    "P5_24h": {
+      "candidate_blocks": 24,
+      "retained_blocks": 18,
+      "excluded_incomplete_support_start_times": [
+        "2019-07-16T00:00:00",
+        "2019-07-24T00:00:00",
+        "2019-07-25T00:00:00",
+        "2019-07-30T00:00:00",
+        "2019-07-31T00:00:00",
+        "2019-08-08T00:00:00"
+      ]
+    }
+  },
+  "scores": {
+    "P3_1h": {
+      "linear_endpoint_bridge": {
+        "blocks": 534,
+        "MAE_C": 0.0011609056387712857,
+        "MAE_integral_C_s": 4.179260299576629,
+        "bias_C": 0.00011987879735016549,
+        "RMSE_C": 0.0018358402398078503,
+        "median_absolute_error_C": 0.0007333333333202398,
+        "max_absolute_error_C": 0.014487500000030403
+      },
+      "constant_previous_endpoint": {
+        "blocks": 534,
+        "MAE_C": 0.0036479998959808553,
+        "MAE_integral_C_s": 13.13279962553108,
+        "bias_C": 0.000335234602593611,
+        "RMSE_C": 0.005070302302729024,
+        "median_absolute_error_C": 0.0025583333332631613,
+        "max_absolute_error_C": 0.02498750000003039
+      },
+      "constant_next_endpoint": {
+        "blocks": 534,
+        "MAE_C": 0.003417090615878763,
+        "MAE_integral_C_s": 12.301526217163547,
+        "bias_C": -9.547700789328063e-05,
+        "RMSE_C": 0.004736193591443515,
+        "median_absolute_error_C": 0.002414236110845699,
+        "max_absolute_error_C": 0.019729166666673133
+      }
+    },
+    "P3_6h": {
+      "linear_endpoint_bridge": {
+        "blocks": 83,
+        "MAE_C": 0.0041156138442569054,
+        "MAE_integral_C_s": 88.89725903594916,
+        "bias_C": 0.0011322024208085418,
+        "RMSE_C": 0.005326551936233892,
+        "median_absolute_error_C": 0.0037194444445388746,
+        "max_absolute_error_C": 0.017329861111076324
+      },
+      "constant_previous_endpoint": {
+        "blocks": 83,
+        "MAE_C": 0.01581281933289089,
+        "MAE_integral_C_s": 341.5568975904432,
+        "bias_C": 0.002523768685868786,
+        "RMSE_C": 0.020749100437658933,
+        "median_absolute_error_C": 0.012641666666739382,
+        "max_absolute_error_C": 0.0730916666666635
+      },
+      "constant_next_endpoint": {
+        "blocks": 83,
+        "MAE_C": 0.014803038543038728,
+        "MAE_integral_C_s": 319.7456325296365,
+        "bias_C": -0.000259363844251696,
+        "RMSE_C": 0.018965945636692225,
+        "median_absolute_error_C": 0.010401388888947946,
+        "max_absolute_error_C": 0.05290833333333648
+      }
+    },
+    "P3_24h": {
+      "linear_endpoint_bridge": {
+        "blocks": 17,
+        "MAE_C": 0.014499183006523373,
+        "MAE_integral_C_s": 1252.7294117636193,
+        "bias_C": -0.01176080473855589,
+        "RMSE_C": 0.017698938897809043,
+        "median_absolute_error_C": 0.014397222222084324,
+        "max_absolute_error_C": 0.03711718750001751
+      },
+      "constant_previous_endpoint": {
+        "blocks": 17,
+        "MAE_C": 0.016776797385606466,
+        "MAE_integral_C_s": 1449.5152941163985,
+        "bias_C": -0.011525510620908827,
+        "RMSE_C": 0.02115928994206928,
+        "median_absolute_error_C": 0.015749999999928852,
+        "max_absolute_error_C": 0.05039722222208432
+      },
+      "constant_next_endpoint": {
+        "blocks": 17,
+        "MAE_C": 0.017379677287605814,
+        "MAE_integral_C_s": 1501.6041176491424,
+        "bias_C": -0.011996098856202946,
+        "RMSE_C": 0.022874875160304058,
+        "median_absolute_error_C": 0.013497048611115812,
+        "max_absolute_error_C": 0.06261718750001749
+      }
+    },
+    "P5_1h": {
+      "linear_endpoint_bridge": {
+        "blocks": 542,
+        "MAE_C": 0.0014566343788170524,
+        "MAE_integral_C_s": 5.243883763741389,
+        "bias_C": 7.156877816532993e-05,
+        "RMSE_C": 0.002108233340916311,
+        "median_absolute_error_C": 0.001069791666715929,
+        "max_absolute_error_C": 0.013375000000084028
+      },
+      "constant_previous_endpoint": {
+        "blocks": 542,
+        "MAE_C": 0.0062935552480420445,
+        "MAE_integral_C_s": 22.65679889295136,
+        "bias_C": 0.00042765733905093887,
+        "RMSE_C": 0.008421428019660273,
+        "median_absolute_error_C": 0.00473333333320383,
+        "max_absolute_error_C": 0.02812083333338762
+      },
+      "constant_next_endpoint": {
+        "blocks": 542,
+        "MAE_C": 0.00622389298889736,
+        "MAE_integral_C_s": 22.406014760030494,
+        "bias_C": -0.00028451978272027906,
+        "RMSE_C": 0.008281165487885388,
+        "median_absolute_error_C": 0.004556249999200316,
+        "max_absolute_error_C": 0.026070833333354023
+      }
+    },
+    "P5_6h": {
+      "linear_endpoint_bridge": {
+        "blocks": 86,
+        "MAE_C": 0.00960711940135078,
+        "MAE_integral_C_s": 207.51377906917685,
+        "bias_C": 0.0007973245047179431,
+        "RMSE_C": 0.012664469798544338,
+        "median_absolute_error_C": 0.006906307869732018,
+        "max_absolute_error_C": 0.032695138888938075
+      },
+      "constant_previous_endpoint": {
+        "blocks": 86,
+        "MAE_C": 0.03021833548663431,
+        "MAE_integral_C_s": 652.7160465113011,
+        "bias_C": 0.002291510551229568,
+        "RMSE_C": 0.03798332890511368,
+        "median_absolute_error_C": 0.027731597222198624,
+        "max_absolute_error_C": 0.11210138888890099
+      },
+      "constant_next_endpoint": {
+        "blocks": 86,
+        "MAE_C": 0.033358241817380625,
+        "MAE_integral_C_s": 720.5380232554215,
+        "bias_C": -0.0006968615417936878,
+        "RMSE_C": 0.0429717742897577,
+        "median_absolute_error_C": 0.023204166666708333,
+        "max_absolute_error_C": 0.117898611111099
+      }
+    },
+    "P5_24h": {
+      "linear_endpoint_bridge": {
+        "blocks": 18,
+        "MAE_C": 0.035328761574089415,
+        "MAE_integral_C_s": 3052.4050000013253,
+        "bias_C": -0.03259346064814534,
+        "RMSE_C": 0.04000421708843139,
+        "median_absolute_error_C": 0.03567118055552623,
+        "max_absolute_error_C": 0.07261440972209703
+      },
+      "constant_previous_endpoint": {
+        "blocks": 18,
+        "MAE_C": 0.0421940393518662,
+        "MAE_integral_C_s": 3645.5650000012397,
+        "bias_C": -0.0321490162037009,
+        "RMSE_C": 0.05075465602902709,
+        "median_absolute_error_C": 0.04513237847220761,
+        "max_absolute_error_C": 0.11202343750002804
+      },
+      "constant_next_endpoint": {
+        "blocks": 18,
+        "MAE_C": 0.04047974537036445,
+        "MAE_integral_C_s": 3497.4499999994887,
+        "bias_C": -0.03303790509258979,
+        "RMSE_C": 0.048510316142063525,
+        "median_absolute_error_C": 0.03678263888896725,
+        "max_absolute_error_C": 0.10060642361108332
+      }
+    }
+  },
+  "scope": "Controlled measured-floor-temperature reconstruction, not new field model validation",
+  "notes": [
+    "Conditional masking over observed support is not random missingness in actual gaps. Actual gaps may coincide with sensor handling/calibration and cannot be guaranteed reconstructed by these errors.",
+    "No confidence interval inferred from correlated blocks.",
+    "Linear bridge and next endpoint require future observations and are retrospective gap reconstruction, not causal forecasting.",
+    "No reconstruction of unknown bulk-minus-floor offset.",
+    "No duration pooling or independent-block confidence interval."
+  ]
+}

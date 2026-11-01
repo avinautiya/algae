@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "all_used_secondary_inputs_match_verified_archive_members": true,
+  "checks": [
+    {
+      "path": "products/temp3_daily.csv",
+      "sha256": "38e7ec94866caa5cd67d72126420a5c6a2e3d2ec13a1d410cae8427b86c3b48d",
+      "bytes": 1803
+    },
+    {
+      "path": "products/temp5_daily.csv",
+      "sha256": "48b27d4e2db03b17dbfc0cd499dfff3ca86044e9dcbbe71dfada063bc9abf062",
+      "bytes": 1519
+    },
+    {
+      "path": "products/Reynold_daily.csv",
+      "sha256": "644b4ee387a9ae8f6a4f691c359602b24e748fafe03a34f8d317cfc68b1d955c",
+      "bytes": 2267
+    },
+    {
+      "path": "data/Channel_elevation/P3_channel_elevation.csv",
+      "sha256": "1c4b62bd489c17bcff4184c81fba2a1f272a3c8bd5e04104bf0768aa0bd7b24a",
+      "bytes": 478
+    },
+    {
+      "path": "data/Channel_elevation/P5_channel_elevation.csv",
+      "sha256": "ac7210492a66e60e42a581f49f058fa6171eafd493fed42bd0302f74f40f9576",
+      "bytes": 411
+    }
+  ]
+}

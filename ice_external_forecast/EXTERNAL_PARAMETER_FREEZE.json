@@ -1,0 +1,39 @@
+{
+  "classification": "external event parameters fixed before numerical target digitization; not externally preregistered",
+  "study": "Rochemelon 2005, Vincent et al. 2010",
+  "primary_family": "local-geometry scaled DB04 with finite water-heat depletion",
+  "source_swiss_v5_sha256": "380bc98374f21650779f60f4a3b80f99eb9bef5cfa588b325045c378fc29a62d",
+  "calibration": {
+    "training_ids": [
+      "P3:0",
+      "P3:1",
+      "P3:2",
+      "P3:3",
+      "P3:4",
+      "P5:0"
+    ],
+    "constant_rate_m_s": 3.4944254768079555e-06,
+    "constant_h_W_m2_K": 6431.4136285363775,
+    "db04_scale": 4.3956164544491925
+  },
+  "all_families": [
+    "constant_rate_fitted_uncapped_reference",
+    "constant_rate_fitted_heat_limited",
+    "constant_h_fitted",
+    "db04_unfitted",
+    "db03_unfitted",
+    "gnielinski_smooth_unfitted",
+    "db04_scale_fitted"
+  ],
+  "rules": [
+    "No Rochemelon-fitted coefficient is an independent comparator on this event.",
+    "No station-specific new gain and no refitting to external bed targets.",
+    "Shared geometry and forcing assumptions across thermal families.",
+    "Missing numerical Q, depth, width or spatial alignment is a gate, not a silent default.",
+    "Lake inlet temperature needs explicit downstream finite heat depletion before it predicts local bed loss.",
+    "All imposed observed forcings imply retrospective hindcast, not advance prediction.",
+    "All declared engineering scenarios retained; no winning scenario selected by target error.",
+    "No inference of general consistent field superiority from one additional event."
+  ],
+  "comparison_criterion": "Lower MAE against every declared comparator at each matched cross-section, with common accepted intervals; report input/measurement sensitivity separately. No target accuracy threshold chosen after scores."
+}

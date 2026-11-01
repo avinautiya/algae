@@ -1,0 +1,919 @@
+{
+  "freeze": {
+    "protocol_sha256": "5fb22b5eff597217d00550fb930e10f5f16c7c6ebb484d5a785f3d471638c6dd",
+    "v5_scores_seen": false,
+    "v3_v4_scores_seen": true,
+    "classification": "target_exposed_development_reanalysis",
+    "new_inputs_verified_sha256": {
+      "products/stage3_full_daily.csv": "b89252894f5c83d3b6d70fc0404b20dad9f0c59e79c24b2940c3a332aac6ed50",
+      "products/stage5_daily.csv": "6c8746a7ee7193fac166af00214c1a7835de8cb6b3aa078549218150f4efd279",
+      "products/discharge_channel_full_daily.csv": "705c4bba5e7cfb379e8b178da760998967022dc2dd94c902f84f419653152ff8"
+    },
+    "scenarios": 81,
+    "prior_pre_execution_protocol_sha256": "2a058629c9857c80d56a4232684225e04c43bbbe528d38a360a0244d3e6b9c00",
+    "quality_audit_added_before_v5_execution": true
+  },
+  "availability_identical_across_imputers": true,
+  "nominal": {
+    "linear": {
+      "status": "completed",
+      "calibration": {
+        "training_ids": [
+          "P3:0",
+          "P3:1",
+          "P3:2",
+          "P3:3",
+          "P3:4",
+          "P5:0"
+        ],
+        "constant_rate_m_s": 3.4944254768079555e-06,
+        "constant_h_W_m2_K": 6431.4136285363775,
+        "db04_scale": 4.3956164544491925
+      },
+      "test_metrics": {
+        "P3": {
+          "constant_rate_fitted": {
+            "n": 4,
+            "MAE_m": 0.6584866046035226,
+            "RMSE_m": 0.9547651060373634,
+            "bias_m": 0.6584866046035226,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 6.063946418414382
+          },
+          "constant_h_fitted": {
+            "n": 4,
+            "MAE_m": 0.32961662472460646,
+            "RMSE_m": 0.3691383031211075,
+            "bias_m": 0.32961662472460646,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 4.748466498898717
+          },
+          "db04_unfitted": {
+            "n": 4,
+            "MAE_m": 0.5774295353726223,
+            "RMSE_m": 0.7013327396203118,
+            "bias_m": -0.5774295353726223,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.1202818585098018
+          },
+          "db03_unfitted": {
+            "n": 4,
+            "MAE_m": 0.6416092997296521,
+            "RMSE_m": 0.7740442697936438,
+            "bias_m": -0.6416092997296521,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 0.8635628010816829
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 4,
+            "MAE_m": 0.45418829887308904,
+            "RMSE_m": 0.5597755478800679,
+            "bias_m": -0.45399863157449033,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.6140054737023297
+          },
+          "db04_scale_fitted": {
+            "n": 4,
+            "MAE_m": 0.37358234272157886,
+            "RMSE_m": 0.41271548618604853,
+            "bias_m": 0.37358234272157886,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 4.924329370886607
+          }
+        },
+        "P5": {
+          "constant_rate_fitted": {
+            "n": 2,
+            "MAE_m": 0.28000488862728956,
+            "RMSE_m": 0.2806799216432104,
+            "bias_m": -0.019454581939940874,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.8110908361200273
+          },
+          "constant_h_fitted": {
+            "n": 2,
+            "MAE_m": 1.188431980703024,
+            "RMSE_m": 1.381428181826247,
+            "bias_m": 1.188431980703024,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 4.226863961405957
+          },
+          "db04_unfitted": {
+            "n": 2,
+            "MAE_m": 0.5804273937779818,
+            "RMSE_m": 0.7566228190201871,
+            "bias_m": -0.48536803645703186,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 0.8792639270858453
+          },
+          "db03_unfitted": {
+            "n": 2,
+            "MAE_m": 0.6616797541261842,
+            "RMSE_m": 0.8839387165420354,
+            "bias_m": -0.5861122397472119,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 0.6777755205054853
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 2,
+            "MAE_m": 0.4201682655846153,
+            "RMSE_m": 0.5110249859312791,
+            "bias_m": -0.29086966985521223,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.2682606602894846
+          },
+          "db04_scale_fitted": {
+            "n": 2,
+            "MAE_m": 1.0074534928511238,
+            "RMSE_m": 1.1848190058902703,
+            "bias_m": 1.0074534928511238,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 3.8649069857021567
+          }
+        },
+        "pooled": {
+          "constant_rate_fitted": {
+            "n": 6,
+            "MAE_m": 0.532326032611445,
+            "RMSE_m": 0.79622736154667,
+            "bias_m": 0.4325062090890348,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 7.8750372545344085
+          },
+          "constant_h_fitted": {
+            "n": 6,
+            "MAE_m": 0.6158884100507457,
+            "RMSE_m": 0.8526175373921635,
+            "bias_m": 0.6158884100507457,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 8.975330460304674
+          },
+          "db04_unfitted": {
+            "n": 6,
+            "MAE_m": 0.5784288215077421,
+            "RMSE_m": 0.7202345251348616,
+            "bias_m": -0.5467423690674255,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 1.999545785595647
+          },
+          "db03_unfitted": {
+            "n": 6,
+            "MAE_m": 0.6482994511951627,
+            "RMSE_m": 0.8123293087992356,
+            "bias_m": -0.6231102797355054,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 1.541338321587168
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 6,
+            "MAE_m": 0.4428482877769311,
+            "RMSE_m": 0.544010987712235,
+            "bias_m": -0.39962231100139767,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 2.8822661339918145
+          },
+          "db04_scale_fitted": {
+            "n": 6,
+            "MAE_m": 0.5848727260980938,
+            "RMSE_m": 0.7625536531493771,
+            "bias_m": 0.5848727260980938,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 8.789236356588763
+          }
+        }
+      },
+      "excluded_intervals": [
+        {
+          "id": "P3:9",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-14T11:50:00",
+          "end": "2019-08-23T12:46:00",
+          "observed_lowering_m": 0.38999999999987267,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P3:10",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-23T12:46:00",
+          "end": "2019-09-04T09:43:00",
+          "observed_lowering_m": 0.21000000000003638,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1025820.0,
+              "covered_seconds": 1021485.0,
+              "coverage_fraction": 0.9957741124173831,
+              "max_daily_uncovered_gap_seconds": 4320.0
+            }
+          }
+        },
+        {
+          "id": "P5:1",
+          "station": "P5",
+          "role": "train",
+          "start": "2019-07-11T09:15:00",
+          "end": "2019-07-16T14:00:00",
+          "observed_lowering_m": 0.8000000000001819,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:2",
+          "station": "P5",
+          "role": "train",
+          "start": "2019-07-16T14:00:00",
+          "end": "2019-07-25T10:28:00",
+          "observed_lowering_m": 3.6399999999998727,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:5",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-07-31T10:26:00",
+          "end": "2019-08-08T12:57:00",
+          "observed_lowering_m": 0.8200000000001637,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 700260.0,
+              "covered_seconds": 697500.0,
+              "coverage_fraction": 0.9960586068031874,
+              "max_daily_uncovered_gap_seconds": 2760.0
+            }
+          }
+        },
+        {
+          "id": "P5:6",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-08T12:57:00",
+          "end": "2019-08-14T11:19:00",
+          "observed_lowering_m": 1.069999999999709,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:7",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-14T11:19:00",
+          "end": "2019-08-23T13:50:00",
+          "observed_lowering_m": 0.09000000000014552,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:8",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-23T13:50:00",
+          "end": "2019-09-04T10:02:00",
+          "observed_lowering_m": 0.11999999999989086,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1023120.0,
+              "covered_seconds": 1015860.0,
+              "coverage_fraction": 0.9929040581749942,
+              "max_daily_uncovered_gap_seconds": 7260.0
+            }
+          }
+        }
+      ]
+    },
+    "left": {
+      "status": "completed",
+      "calibration": {
+        "training_ids": [
+          "P3:0",
+          "P3:1",
+          "P3:2",
+          "P3:3",
+          "P3:4",
+          "P5:0"
+        ],
+        "constant_rate_m_s": 3.4944254768079555e-06,
+        "constant_h_W_m2_K": 6541.039450634005,
+        "db04_scale": 4.477435626330977
+      },
+      "test_metrics": {
+        "P3": {
+          "constant_rate_fitted": {
+            "n": 4,
+            "MAE_m": 0.6584866046035226,
+            "RMSE_m": 0.9547651060373634,
+            "bias_m": 0.6584866046035226,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 6.063946418414382
+          },
+          "constant_h_fitted": {
+            "n": 4,
+            "MAE_m": 0.3478840481202097,
+            "RMSE_m": 0.3878935042918963,
+            "bias_m": 0.3478840481202097,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 4.82153619248113
+          },
+          "db04_unfitted": {
+            "n": 4,
+            "MAE_m": 0.5778835969655031,
+            "RMSE_m": 0.7019186823242075,
+            "bias_m": -0.5778835969655031,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.1184656121382788
+          },
+          "db03_unfitted": {
+            "n": 4,
+            "MAE_m": 0.6419593104863497,
+            "RMSE_m": 0.7744966178062519,
+            "bias_m": -0.6419593104863497,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 0.8621627580548923
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 4,
+            "MAE_m": 0.45471477801996985,
+            "RMSE_m": 0.5606139619741336,
+            "bias_m": -0.45465181126328835,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.6113927549471376
+          },
+          "db04_scale_fitted": {
+            "n": 4,
+            "MAE_m": 0.3944644446534309,
+            "RMSE_m": 0.43555090671199626,
+            "bias_m": 0.3944644446534309,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 5.007857778614015
+          }
+        },
+        "P5": {
+          "constant_rate_fitted": {
+            "n": 2,
+            "MAE_m": 0.28000488862728956,
+            "RMSE_m": 0.2806799216432104,
+            "bias_m": -0.019454581939940874,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.8110908361200273
+          },
+          "constant_h_fitted": {
+            "n": 2,
+            "MAE_m": 1.2220034108273248,
+            "RMSE_m": 1.423399938058601,
+            "bias_m": 1.2220034108273248,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 4.294006821654559
+          },
+          "db04_unfitted": {
+            "n": 2,
+            "MAE_m": 0.5808882833360064,
+            "RMSE_m": 0.7572915247523802,
+            "bias_m": -0.48585929624195956,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 0.8782814075159899
+          },
+          "db03_unfitted": {
+            "n": 2,
+            "MAE_m": 0.6620350281803821,
+            "RMSE_m": 0.8844557552963096,
+            "bias_m": -0.586490924515432,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 0.6770181509690449
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 2,
+            "MAE_m": 0.42083193157144916,
+            "RMSE_m": 0.5119728154655557,
+            "bias_m": -0.29157614639330676,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.2668477072132955
+          },
+          "db04_scale_fitted": {
+            "n": 2,
+            "MAE_m": 1.0412242319781497,
+            "RMSE_m": 1.2277272923942344,
+            "bias_m": 1.0412242319781497,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 3.9324484639562085
+          }
+        },
+        "pooled": {
+          "constant_rate_fitted": {
+            "n": 6,
+            "MAE_m": 0.532326032611445,
+            "RMSE_m": 0.79622736154667,
+            "bias_m": 0.4325062090890348,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 7.8750372545344085
+          },
+          "constant_h_fitted": {
+            "n": 6,
+            "MAE_m": 0.6392571690225813,
+            "RMSE_m": 0.8807175341748197,
+            "bias_m": 0.6392571690225813,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 9.115543014135689
+          },
+          "db04_unfitted": {
+            "n": 6,
+            "MAE_m": 0.5788851590890042,
+            "RMSE_m": 0.7208490657211786,
+            "bias_m": -0.5472088300576552,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 1.996747019654269
+          },
+          "db03_unfitted": {
+            "n": 6,
+            "MAE_m": 0.6486512163843605,
+            "RMSE_m": 0.8128042005024769,
+            "bias_m": -0.6234698484960438,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 1.5391809090239372
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 6,
+            "MAE_m": 0.443420495870463,
+            "RMSE_m": 0.5448829209094368,
+            "bias_m": -0.40029325630662776,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 2.8782404621604334
+          },
+          "db04_scale_fitted": {
+            "n": 6,
+            "MAE_m": 0.6100510404283371,
+            "RMSE_m": 0.7930370922735291,
+            "bias_m": 0.6100510404283371,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 8.940306242570223
+          }
+        }
+      },
+      "excluded_intervals": [
+        {
+          "id": "P3:9",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-14T11:50:00",
+          "end": "2019-08-23T12:46:00",
+          "observed_lowering_m": 0.38999999999987267,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P3:10",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-23T12:46:00",
+          "end": "2019-09-04T09:43:00",
+          "observed_lowering_m": 0.21000000000003638,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1025820.0,
+              "covered_seconds": 1021485.0,
+              "coverage_fraction": 0.9957741124173831,
+              "max_daily_uncovered_gap_seconds": 4320.0
+            }
+          }
+        },
+        {
+          "id": "P5:1",
+          "station": "P5",
+          "role": "train",
+          "start": "2019-07-11T09:15:00",
+          "end": "2019-07-16T14:00:00",
+          "observed_lowering_m": 0.8000000000001819,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:2",
+          "station": "P5",
+          "role": "train",
+          "start": "2019-07-16T14:00:00",
+          "end": "2019-07-25T10:28:00",
+          "observed_lowering_m": 3.6399999999998727,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:5",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-07-31T10:26:00",
+          "end": "2019-08-08T12:57:00",
+          "observed_lowering_m": 0.8200000000001637,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 700260.0,
+              "covered_seconds": 697500.0,
+              "coverage_fraction": 0.9960586068031874,
+              "max_daily_uncovered_gap_seconds": 2760.0
+            }
+          }
+        },
+        {
+          "id": "P5:6",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-08T12:57:00",
+          "end": "2019-08-14T11:19:00",
+          "observed_lowering_m": 1.069999999999709,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:7",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-14T11:19:00",
+          "end": "2019-08-23T13:50:00",
+          "observed_lowering_m": 0.09000000000014552,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:8",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-23T13:50:00",
+          "end": "2019-09-04T10:02:00",
+          "observed_lowering_m": 0.11999999999989086,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1023120.0,
+              "covered_seconds": 1015860.0,
+              "coverage_fraction": 0.9929040581749942,
+              "max_daily_uncovered_gap_seconds": 7260.0
+            }
+          }
+        }
+      ]
+    },
+    "right": {
+      "status": "completed",
+      "calibration": {
+        "training_ids": [
+          "P3:0",
+          "P3:1",
+          "P3:2",
+          "P3:3",
+          "P3:4",
+          "P5:0"
+        ],
+        "constant_rate_m_s": 3.4944254768079555e-06,
+        "constant_h_W_m2_K": 6321.759328313691,
+        "db04_scale": 4.315753166468622
+      },
+      "test_metrics": {
+        "P3": {
+          "constant_rate_fitted": {
+            "n": 4,
+            "MAE_m": 0.6584866046035226,
+            "RMSE_m": 0.9547651060373634,
+            "bias_m": 0.6584866046035226,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 6.063946418414382
+          },
+          "constant_h_fitted": {
+            "n": 4,
+            "MAE_m": 0.3112779895881521,
+            "RMSE_m": 0.35066741386217276,
+            "bias_m": 0.3112779895881521,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 4.6751119583528995
+          },
+          "db04_unfitted": {
+            "n": 4,
+            "MAE_m": 0.5769754737797417,
+            "RMSE_m": 0.700715707695491,
+            "bias_m": -0.5769754737797417,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.1220981048813246
+          },
+          "db03_unfitted": {
+            "n": 4,
+            "MAE_m": 0.6412592889729544,
+            "RMSE_m": 0.7735676280236491,
+            "bias_m": -0.6412592889729544,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 0.8649628441084736
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 4,
+            "MAE_m": 0.4535824569215487,
+            "RMSE_m": 0.5588946133209491,
+            "bias_m": -0.45334545188569225,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 1.616618192457522
+          },
+          "db04_scale_fitted": {
+            "n": 4,
+            "MAE_m": 0.3531746123074313,
+            "RMSE_m": 0.3906603321763395,
+            "bias_m": 0.3531746123074313,
+            "observed_total_m": 3.430000000000291,
+            "predicted_total_m": 4.842698449230016
+          }
+        },
+        "P5": {
+          "constant_rate_fitted": {
+            "n": 2,
+            "MAE_m": 0.28000488862728956,
+            "RMSE_m": 0.2806799216432104,
+            "bias_m": -0.019454581939940874,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.8110908361200273
+          },
+          "constant_h_fitted": {
+            "n": 2,
+            "MAE_m": 1.1547689653561743,
+            "RMSE_m": 1.3394082266605287,
+            "bias_m": 1.1547689653561743,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 4.159537930712258
+          },
+          "db04_unfitted": {
+            "n": 2,
+            "MAE_m": 0.5799465271597737,
+            "RMSE_m": 0.755938795750431,
+            "bias_m": -0.4848767766721042,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 0.8802464466557007
+          },
+          "db03_unfitted": {
+            "n": 2,
+            "MAE_m": 0.6613090808705101,
+            "RMSE_m": 0.8834101526868064,
+            "bias_m": -0.5857335549789918,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 0.6785328900419253
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 2,
+            "MAE_m": 0.41947643948683605,
+            "RMSE_m": 0.5100540775648599,
+            "bias_m": -0.29016319331711754,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 1.269673613365674
+          },
+          "db04_scale_fitted": {
+            "n": 2,
+            "MAE_m": 0.9744631947135921,
+            "RMSE_m": 1.1429669562112579,
+            "bias_m": 0.9744631947135921,
+            "observed_total_m": 1.849999999999909,
+            "predicted_total_m": 3.798926389427093
+          }
+        },
+        "pooled": {
+          "constant_rate_fitted": {
+            "n": 6,
+            "MAE_m": 0.532326032611445,
+            "RMSE_m": 0.79622736154667,
+            "bias_m": 0.4325062090890348,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 7.8750372545344085
+          },
+          "constant_h_fitted": {
+            "n": 6,
+            "MAE_m": 0.5924416481774929,
+            "RMSE_m": 0.824610952295176,
+            "bias_m": 0.5924416481774929,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 8.834649889065156
+          },
+          "db04_unfitted": {
+            "n": 6,
+            "MAE_m": 0.577965824906419,
+            "RMSE_m": 0.7195944387739058,
+            "bias_m": -0.5462759080771958,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 2.0023445515370253
+          },
+          "db03_unfitted": {
+            "n": 6,
+            "MAE_m": 0.6479425529388062,
+            "RMSE_m": 0.8118348042392196,
+            "bias_m": -0.6227507109749668,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 1.543495734150399
+          },
+          "gnielinski_smooth_unfitted": {
+            "n": 6,
+            "MAE_m": 0.44221378444331116,
+            "RMSE_m": 0.5431026728096283,
+            "bias_m": -0.39895136569616735,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 2.886291805823196
+          },
+          "db04_scale_fitted": {
+            "n": 6,
+            "MAE_m": 0.5602708064428182,
+            "RMSE_m": 0.7329403007210258,
+            "bias_m": 0.5602708064428182,
+            "observed_total_m": 5.2800000000002,
+            "predicted_total_m": 8.64162483865711
+          }
+        }
+      },
+      "excluded_intervals": [
+        {
+          "id": "P3:9",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-14T11:50:00",
+          "end": "2019-08-23T12:46:00",
+          "observed_lowering_m": 0.38999999999987267,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P3:10",
+          "station": "P3",
+          "role": "test",
+          "start": "2019-08-23T12:46:00",
+          "end": "2019-09-04T09:43:00",
+          "observed_lowering_m": 0.21000000000003638,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1025820.0,
+              "covered_seconds": 1021485.0,
+              "coverage_fraction": 0.9957741124173831,
+              "max_daily_uncovered_gap_seconds": 4320.0
+            }
+          }
+        },
+        {
+          "id": "P5:1",
+          "station": "P5",
+          "role": "train",
+          "start": "2019-07-11T09:15:00",
+          "end": "2019-07-16T14:00:00",
+          "observed_lowering_m": 0.8000000000001819,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:2",
+          "station": "P5",
+          "role": "train",
+          "start": "2019-07-16T14:00:00",
+          "end": "2019-07-25T10:28:00",
+          "observed_lowering_m": 3.6399999999998727,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:5",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-07-31T10:26:00",
+          "end": "2019-08-08T12:57:00",
+          "observed_lowering_m": 0.8200000000001637,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 700260.0,
+              "covered_seconds": 697500.0,
+              "coverage_fraction": 0.9960586068031874,
+              "max_daily_uncovered_gap_seconds": 2760.0
+            }
+          }
+        },
+        {
+          "id": "P5:6",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-08T12:57:00",
+          "end": "2019-08-14T11:19:00",
+          "observed_lowering_m": 1.069999999999709,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.1,
+          "summed_epoch_error_scenario_m": 0.2,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:7",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-14T11:19:00",
+          "end": "2019-08-23T13:50:00",
+          "observed_lowering_m": 0.09000000000014552,
+          "epoch0_std_m": 0.1,
+          "epoch1_std_m": 0.2,
+          "summed_epoch_error_scenario_m": 0.30000000000000004,
+          "reason": {
+            "excluded": "missing or nonpositive imposed local daily depth/discharge"
+          }
+        },
+        {
+          "id": "P5:8",
+          "station": "P5",
+          "role": "test",
+          "start": "2019-08-23T13:50:00",
+          "end": "2019-09-04T10:02:00",
+          "observed_lowering_m": 0.11999999999989086,
+          "epoch0_std_m": 0.2,
+          "epoch1_std_m": 0.3,
+          "summed_epoch_error_scenario_m": 0.5,
+          "reason": {
+            "excluded": "incomplete selected temperature forcing support",
+            "coverage": {
+              "requested_seconds": 1023120.0,
+              "covered_seconds": 1015860.0,
+              "coverage_fraction": 0.9929040581749942,
+              "max_daily_uncovered_gap_seconds": 7260.0
+            }
+          }
+        }
+      ]
+    }
+  }
+}

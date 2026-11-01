@@ -1,0 +1,41 @@
+{
+  "purpose": "synthetic_verification",
+  "clock_convention": "UTC",
+  "alignment": {
+    "path_alignment_verified": true,
+    "geometry_independent_of_bed_target": true,
+    "source": "synthetic fixture"
+  },
+  "records": [
+    {
+      "start": "2000-01-01T00:00:00Z",
+      "end": "2000-01-01T01:00:00Z",
+      "Q_m3_s": 0.5,
+      "inlet_temperature_C": 1.0,
+      "ice_temperature_C": 0.0,
+      "forcing_source": "synthetic fixture",
+      "forcing_basis": "synthetic_fixture",
+      "sections": [
+        {
+          "name": "reach",
+          "width_m": 2.0,
+          "depth_m": 0.5,
+          "length_m": 25.0,
+          "source": "synthetic fixture",
+          "geometry_basis": "synthetic_fixture"
+        },
+        {
+          "name": "synthetic point control",
+          "kind": "point_control",
+          "width_m": 2.0,
+          "length_m": 0.0,
+          "depth_mode": "critical_control",
+          "critical_control_verified": true,
+          "critical_control_source": "synthetic verification fixture only",
+          "source": "synthetic fixture",
+          "geometry_basis": "synthetic_fixture"
+        }
+      ]
+    }
+  ]
+}

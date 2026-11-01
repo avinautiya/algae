@@ -1,0 +1,71 @@
+{
+  "source_pdf_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C183D075F0E9ABCD7CE5251D6096FCA4/S0022143000206357a.pdf/outburst-flood-hazard-for-glacier-dammed-lac-de-rochemelon-france.pdf",
+  "pdf_sha256": "3ebd438caa17a6b6a8daf936cf228d528ac1fc65f73cffb529d0da68f86a507b",
+  "original_jpeg_sha256": "ff830a8079c357088a37348003858e1e1acc856e135f6bd6094ec0639606d587",
+  "pdf_page_zero_based": 3,
+  "pdf_image_xref": 91,
+  "graph_size_px": [
+    799,
+    708
+  ],
+  "x_time_anchors": [
+    [
+      59,
+      0
+    ],
+    [
+      782,
+      120
+    ]
+  ],
+  "temperature_anchors": [
+    [
+      53,
+      1.2
+    ],
+    [
+      191,
+      0.6
+    ]
+  ],
+  "discharge_anchors": [
+    [
+      655,
+      0
+    ],
+    [
+      449,
+      1.2
+    ]
+  ],
+  "foreground_threshold_gray": 135,
+  "point_method": "At prespecified even-hour x columns, choose longest connected dark vertical run within panel a/c ROIs; median y. These are samples of published plotted lines, not original logger timestamps.",
+  "sampled_regions_y": [
+    [
+      57,
+      188
+    ],
+    [
+      430,
+      640
+    ]
+  ],
+  "withheld_target_region_y": [
+    214,
+    414
+  ],
+  "n_graph_samples": 55,
+  "temperature_pixel_error_C": 0.008695652173913044,
+  "discharge_pixel_error_m3_s": 0.011650485436893204,
+  "time_pixel_error_h": 0.33195020746887965,
+  "error_status": "Conservative graph-coordinate engineering bounds from +/-2 pixels, additional unknown interpolation/line-rendering/axis-anchor errors. Not statistical confidence intervals.",
+  "source_temperature_accuracy_C": 0.1,
+  "source_discharge_accuracy_m3_s": 0.1,
+  "timezone": "not established; retain source-naive clock",
+  "preferred_window_hours": [
+    12,
+    108
+  ],
+  "raw_numerical_source_available": false,
+  "bed_target_values_extracted": false
+}

@@ -1,0 +1,156 @@
+{
+  "protocol_sha256": "713b5035c19644bcf32ff21668d4fd63454a939ddf134fddaffa48bbe1edaa34",
+  "code_sha256": "19ec1e15055f79cfcc11b6f51e4af42b07a8c106634a3dbe1b8c2b2fefee882e",
+  "scope": "Conditional quasi-steady hydraulic hindcast at one channel segment, with externally supplied observed/deduced head and depth. No contact prediction, melt accuracy, discharge forecast, glacier transfer, full coupled model validation, or causal accuracy claim.",
+  "status": "Retrospective conditional comparison; source targets previously inspected",
+  "all_width_consistent_superiority": false,
+  "widths": {
+    "1.5": {
+      "fitted_parameters": {
+        "piezometric": {
+          "amplitude": 2.4927094383538817,
+          "Darcy_f": 0.16093728991698106,
+          "training_objective_velocity_SSE": 0.04223104828636811
+        },
+        "archived_plus": {
+          "amplitude": 1.8587802570764427,
+          "Darcy_f": 0.28943023551429053,
+          "training_objective_velocity_SSE": 0.09958217356382457
+        }
+      },
+      "training_constant_velocity_m_s": 0.627,
+      "test_metrics": {
+        "piezometric_fit": {
+          "MAE_m_s": 0.3180267146956168,
+          "RMSE_m_s": 0.34074897487600947,
+          "bias_m_s": -0.3180267146956168,
+          "cases": 4
+        },
+        "piezometric_fixed_f03": {
+          "MAE_m_s": 0.4332072972929802,
+          "RMSE_m_s": 0.45411353429958756,
+          "bias_m_s": -0.4332072972929802,
+          "cases": 4
+        },
+        "archived_plus_fit": {
+          "MAE_m_s": 0.12908638910172626,
+          "RMSE_m_s": 0.15859686465007133,
+          "bias_m_s": -0.09765506380144268,
+          "cases": 4
+        },
+        "archived_plus_fixed_f03": {
+          "MAE_m_s": 0.134914802967894,
+          "RMSE_m_s": 0.16667457451805198,
+          "bias_m_s": -0.10922333521437139,
+          "cases": 4
+        },
+        "training_constant_velocity": {
+          "MAE_m_s": 0.175,
+          "RMSE_m_s": 0.22275210436716414,
+          "bias_m_s": -0.12149999999999994,
+          "cases": 4
+        }
+      },
+      "paired_MAE_reduction_piezometric_vs_archived_plus": -0.1889403255938905,
+      "consistent_superiority_within_width": false
+    },
+    "2.0": {
+      "fitted_parameters": {
+        "piezometric": {
+          "amplitude": 2.3647537128440157,
+          "Darcy_f": 0.1788249729277072,
+          "training_objective_velocity_SSE": 0.043010524878783055
+        },
+        "archived_plus": {
+          "amplitude": 1.762191832261156,
+          "Darcy_f": 0.3220279979876416,
+          "training_objective_velocity_SSE": 0.1009695595362313
+        }
+      },
+      "training_constant_velocity_m_s": 0.627,
+      "test_metrics": {
+        "piezometric_fit": {
+          "MAE_m_s": 0.31707706863329027,
+          "RMSE_m_s": 0.3393377784126148,
+          "bias_m_s": -0.31707706863329027,
+          "cases": 4
+        },
+        "piezometric_fixed_f03": {
+          "MAE_m_s": 0.41541376773389327,
+          "RMSE_m_s": 0.43609728055894775,
+          "bias_m_s": -0.41541376773389327,
+          "cases": 4
+        },
+        "archived_plus_fit": {
+          "MAE_m_s": 0.12893675567382873,
+          "RMSE_m_s": 0.15674244736300258,
+          "bias_m_s": -0.09668621434533337,
+          "cases": 4
+        },
+        "archived_plus_fixed_f03": {
+          "MAE_m_s": 0.11710579189666209,
+          "RMSE_m_s": 0.14182434634651642,
+          "bias_m_s": -0.0731798160489393,
+          "cases": 4
+        },
+        "training_constant_velocity": {
+          "MAE_m_s": 0.175,
+          "RMSE_m_s": 0.22275210436716414,
+          "bias_m_s": -0.12149999999999994,
+          "cases": 4
+        }
+      },
+      "paired_MAE_reduction_piezometric_vs_archived_plus": -0.18814031295946154,
+      "consistent_superiority_within_width": false
+    },
+    "2.5": {
+      "fitted_parameters": {
+        "piezometric": {
+          "amplitude": 2.284515479200062,
+          "Darcy_f": 0.19160718474185306,
+          "training_objective_velocity_SSE": 0.04357440771216351
+        },
+        "archived_plus": {
+          "amplitude": 1.7015862330022045,
+          "Darcy_f": 0.34537593501249436,
+          "training_objective_velocity_SSE": 0.1019688366747667
+        }
+      },
+      "training_constant_velocity_m_s": 0.627,
+      "test_metrics": {
+        "piezometric_fit": {
+          "MAE_m_s": 0.3163834127785818,
+          "RMSE_m_s": 0.3383209700008491,
+          "bias_m_s": -0.3163834127785818,
+          "cases": 4
+        },
+        "piezometric_fixed_f03": {
+          "MAE_m_s": 0.40316054042497385,
+          "RMSE_m_s": 0.42368501110196005,
+          "bias_m_s": -0.40316054042497385,
+          "cases": 4
+        },
+        "archived_plus_fit": {
+          "MAE_m_s": 0.1288119246597097,
+          "RMSE_m_s": 0.15542324734233934,
+          "bias_m_s": -0.09597538008539425,
+          "cases": 4
+        },
+        "archived_plus_fixed_f03": {
+          "MAE_m_s": 0.111878712406556,
+          "RMSE_m_s": 0.1279626634908356,
+          "bias_m_s": -0.04836415670487054,
+          "cases": 4
+        },
+        "training_constant_velocity": {
+          "MAE_m_s": 0.175,
+          "RMSE_m_s": 0.22275210436716414,
+          "bias_m_s": -0.12149999999999994,
+          "cases": 4
+        }
+      },
+      "paired_MAE_reduction_piezometric_vs_archived_plus": -0.1875714881188721,
+      "consistent_superiority_within_width": false
+    }
+  }
+}

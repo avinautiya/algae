@@ -1,0 +1,43 @@
+{
+  "purpose": "Controlled measured-temperature masking only; no incision/melt target used",
+  "source": "/private/tmp/ogier-author-original-data-20261101",
+  "source_manifest_sha256": "2b44003699c15643e3104a7534b44ce97e085d5b3bc647c13e93dceb91ede447",
+  "station_ids": [
+    3,
+    5
+  ],
+  "source_clock": "naive unchanged, timezone unresolved",
+  "selection_window_start": "2019-07-16T00:00:00",
+  "selection_window_end_exclusive": "2019-08-09T00:00:00",
+  "mask_duration_hours": [
+    1,
+    6,
+    24
+  ],
+  "block_selector": "For each duration separately, consecutive nonoverlapping calendar blocks from window_start, start increment exactly duration; retain only 100% native supported intervals and finite supported endpoints. No outcome/error-based selection.",
+  "max_native_gap_seconds": 60,
+  "truth": "Exact piecewise-linear native temperature time integral over fully supported mask",
+  "methods": [
+    "linear_endpoint_bridge",
+    "constant_previous_endpoint",
+    "constant_next_endpoint"
+  ],
+  "methods_definition": "Use only temperatures exactly at left/right mask endpoints. Interior temperature readings withheld from reconstruction; true integral evaluated separately.",
+  "primary_metric": "Mean absolute error of mask-average temperature in degrees C",
+  "secondary_metrics": [
+    "mean absolute integrated error C*s",
+    "mean signed error C",
+    "root mean squared average-temperature error C",
+    "median absolute mean-temperature error C",
+    "maximum absolute mean-temperature error C"
+  ],
+  "overlap": "Blocks nonoverlapping within station/duration. Different durations overlap each other; stations share environment. Not independent replications.",
+  "no_model_targets": true,
+  "no_method_tuning": true,
+  "limitations": [
+    "Conditional masking over observed support is not random missingness in actual gaps. Actual gaps may coincide with sensor handling/calibration and cannot be guaranteed reconstructed by these errors.",
+    "No confidence interval inferred from correlated blocks.",
+    "Linear bridge and next endpoint require future observations and are retrospective gap reconstruction, not causal forecasting.",
+    "No reconstruction of unknown bulk-minus-floor offset."
+  ]
+}

@@ -1,0 +1,34 @@
+# Integrated evaluation specification (frozen before any integrated scoring)
+
+Status: written and committed BEFORE `ice_integration/score_integrated.py` was run. All Swiss P3/P5 cases are **inspected development data / retrospective evaluation** (the V2–V5 target errors were seen by the data package's authors before this spec). This evaluation cannot create a blind test, and it must not be described as one. Source packages: `ice_swiss_field_validation/`, `ice_external_forecast/` (pinned 67f9b6ee…, unmodified).
+
+## 1. Model version and permitted calibration
+Integrated model = the frozen Codex V5 local-geometry thermal families accessed THROUGH `ice_integration/` (forcing support accounting, section hydraulics with labelled provenance, finite-heat allocation, restart metadata) at the git commit recorded in `results/EVALUATION_RECORD.json`. Families (unchanged): constant rate (fitted, statistical reference), constant h (fitted), DB0.4 unfitted, DB0.3 unfitted, smooth Gnielinski unfitted, DB0.4 with one fitted scale. **Primary candidate: fitted scaled DB0.4 with local geometry** (selected before this evaluation: it is the family whose geometry feature was the subject of the V5 analysis). Permitted calibration: exactly one scalar per fitted family (rate, h, DB scale) fitted on the training intervals listed below; no other parameter may be tuned. Nominal configuration fixed a priori: linear endpoint-bridge imputer (selected on a temperature-only mask experiment), shared rectangular width 2.00 m, clock shift 0 h, temperature shift 0.00 °C, offsets P3 +0.035 °C / P5 +0.040 °C applied once.
+Not part of the model: moving geometry, cold-ice PDE, atmospheric exchange, dissipation (reported as not implemented). Floor-point temperature is not bulk temperature.
+
+## 2. Membership
+Training (calibration only): P3:0–4 and P5:0 (six intervals) — i.e. the intervals whose local stage/discharge inputs exist. Evaluation (retrospective): P3 (4 intervals) and P5 (2 intervals) exactly as saved by the V5 run; identical membership for all models, imputers and metrics. Intervals excluded by the data rules in §4 are listed, never dropped silently.
+
+## 3. Targets and units
+Observed bed lowering over each manual survey interval at the station [m] (survey lowering with its epoch standard deviations kept as source uncertainty, not as a model confidence interval). Metrics: MAE, RMSE, bias [m] per station (P3, P5) and pooled over the six test intervals; totals (observed vs predicted sum). Footprint: the station's floor point/local strip; time interval: the survey interval after the declared clock shift. No cliff melt volume, glacier mass loss or coupled-model prediction is scored.
+
+## 4. Input availability and exclusion
+An interval is scored only if (a) selected temperature support is complete after the declared reconstruction (gaps ≤ 24 h bridged; strict-native support reported separately, zero scored intervals expected), (b) local daily depth and discharge exist and are positive, (c) station-specific geometry is used (no P3→P5 substitution). Exclusions are those already recorded by the saved V5 run. Missing or purged records mean 'unsupported', never zero flow or lost contact. Pressure-derived depths are labelled proxies (zero sensor clearance assumed) and reconstructed discharge is labelled.
+
+## 5. Baselines and calibration budgets
+Constant-rate (fitted), constant-h (fitted), unfitted DB0.4, DB0.3, smooth Gnielinski. Equal calibration-data budget: every fitted model (baselines and candidate) uses the same six training intervals and one fitted scalar. Every station is reported separately and pooled.
+
+## 6. Numerical and integration checks (all must pass before scoring is interpreted)
+(i) `ice_integration` tests (conservation, zero heat, strong depletion, section subdivision, time-mean exactness, restart equivalence, offsets-once, support accounting, hydraulic refusals, plug-limit equality with the coupled solver); (ii) **equivalence**: every saved V5 prediction for every scenario/imputer is reproduced from its saved hydraulic cells and support by the integrated interface to relative 1e-9; (iii) independent recomputation of all saved MAE/RMSE/bias to 1e-12 m; (iv) time-resolution invariance: integrating each interval as the sum of its hydraulic cells equals the interval integral (exact by linearity); (v) coupled-model resolution: coarse/medium grid pair for the engineering coupled case (§7) with the loss-day criterion from the M3 convergence study.
+
+## 7. Engineering sensitivity cases
+(a) The 27 saved scenarios (clock {−2, 0, +2} h × temperature {−0.05, 0, +0.05} °C × width {1.5, 2.0, 2.5} m) × 3 imputers (linear, previous, next): reported as engineering ranges, NOT confidence intervals or independent replicates; no scenario is selected by test error. (b) One coupled-model demonstration (plan-view swe2d driven by the P5 native forcing through `CoupledDriver`, constant Q, strip deposit) used only for timing/resource estimation and to show support-aware stepping; it has no observed target and carries no accuracy claim.
+
+## 8. Acceptance and failure criteria (fixed now)
+The candidate **consistently improves the declared target** only if its MAE is strictly lower than that of EACH of the five baselines at P3, at P5 and pooled, in the nominal configuration AND in all 27 scenarios for each of the three imputers. Otherwise the answer is 'no consistent improvement' and the failing station/regime is reported with counts (scenarios won / lost per baseline and station). Partial wins are reported but cannot upgrade the verdict. A failed equivalence or independent-recomputation check invalidates the scoring (it is reported as an integration failure, not a model result). An improvement over its own global-geometry family (matched cohort) is a feature effect, not superiority.
+
+## 9. Independent-data gate (Rochemelon 2005)
+Not scored. Readiness report + input template only; scoring requires, simultaneously: the measured section corresponding to the prediction; survey date/hour with uncertainty; the inlet-to-target thermal path; independently justified geometry or an explicitly qualified closure. Rochemelon-fitted coefficients may not be used as independent predictions on that event.
+
+## 10. Cost
+Scoring from saved predictions and the equivalence check cost seconds; the coupled demonstration is timed in a pilot first; no parameter search will be run.
