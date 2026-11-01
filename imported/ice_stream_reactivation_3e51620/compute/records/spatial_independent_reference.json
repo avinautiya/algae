@@ -1,0 +1,375 @@
+[
+  {
+    "pulse": null,
+    "reference": {
+      "final_state": [
+        -0.2062705770907105,
+        -1.2689944214691302,
+        -1.3731725331426734e-37,
+        5.206536411688751e-16,
+        0.096,
+        0.1262705770907104,
+        1.2689944214691302
+      ],
+      "toe_melt_m3": 0.1262705770907104,
+      "bypass_melt_m3": 1.2689944214691302,
+      "events_days": [
+        8.3405730775047
+      ],
+      "minimum_numerical_stock_m3": -5.605605734459322e-16,
+      "nfev": 10344
+    },
+    "fixed": {
+      "cases": [
+        {
+          "discharge": 0.07,
+          "water_temperature": 0.5,
+          "width": 0.5,
+          "length": 2.0,
+          "initial_toe_ice_z": -0.08,
+          "initial_bypass_z": 0.0,
+          "initial_debris_depth": 0.2,
+          "mantle_thickness": 0.3,
+          "source_width": 10.0,
+          "face_heat_W_m2": 200.0,
+          "grain_sizes": [
+            0.02,
+            0.08,
+            0.2
+          ],
+          "source_fractions": [
+            0.1,
+            0.1,
+            0.8
+          ],
+          "friction": 0.05,
+          "drag": 1.05,
+          "porosity": 0.4,
+          "grain_density": 2700.0,
+          "water_density": 1000.0,
+          "ice_density": 917.0,
+          "latent": 334000.0,
+          "water_cp": 4217.0,
+          "gravity": 9.81,
+          "h_water": 200.0,
+          "debris_k": 2.0,
+          "export_efficiency": 1.0,
+          "extra_toe_heat_W_m2": 0.0,
+          "allow_export": true,
+          "evolve_routing": true,
+          "allow_shield": true,
+          "footprint_shield": true,
+          "allow_ice_incision": true,
+          "allow_supply": false
+        }
+      ],
+      "days": 45,
+      "dt": 112.5,
+      "toe_melt_m3": [
+        0.12624444625183845
+      ],
+      "bypass_melt_m3": [
+        1.268994427354244
+      ],
+      "wet_days": [
+        8.33984375
+      ],
+      "first_dry_day": [
+        8.33984375
+      ],
+      "final_stock_m3": [
+        [
+          0.0,
+          0.0,
+          0.096
+        ]
+      ],
+      "input_solid_m3": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "export_solid_m3": [
+        [
+          0.012,
+          0.012000000000000002,
+          0.0
+        ]
+      ],
+      "final_toe_z": [
+        -0.04624444625183799
+      ],
+      "final_bypass_z": [
+        -1.268994427354244
+      ],
+      "max_solid_ledger_residual_m3": 1.734723475976807e-18,
+      "energy_input_J": [
+        573849360000.0001
+      ],
+      "external_toe_heat_J": [
+        0.0
+      ],
+      "energy_advected_out_J": [
+        573422029028.2878
+      ],
+      "latent_J": [
+        427330971.7303237
+      ],
+      "history": [],
+      "warning": "exploratory reduced-model predictions; no independent environmental validation"
+    }
+  },
+  {
+    "pulse": {
+      "start_day": 1.0,
+      "multiplier": 2.0,
+      "duration_day": 0.25
+    },
+    "reference": {
+      "final_state": [
+        -1.3359261440401644,
+        -1.2679796251939135,
+        3.656263364454984e-71,
+        -4.0831646447847103e-72,
+        2.5571416717232065e-41,
+        1.2559261440401646,
+        1.2679796251939135
+      ],
+      "toe_melt_m3": 1.2559261440401646,
+      "bypass_melt_m3": 1.2679796251939135,
+      "events_days": [],
+      "minimum_numerical_stock_m3": -1.61358129044457e-17,
+      "nfev": 12796
+    },
+    "fixed": {
+      "cases": [
+        {
+          "discharge": 0.07,
+          "water_temperature": 0.5,
+          "width": 0.5,
+          "length": 2.0,
+          "initial_toe_ice_z": -0.08,
+          "initial_bypass_z": 0.0,
+          "initial_debris_depth": 0.2,
+          "mantle_thickness": 0.3,
+          "source_width": 10.0,
+          "face_heat_W_m2": 200.0,
+          "grain_sizes": [
+            0.02,
+            0.08,
+            0.2
+          ],
+          "source_fractions": [
+            0.1,
+            0.1,
+            0.8
+          ],
+          "friction": 0.05,
+          "drag": 1.05,
+          "porosity": 0.4,
+          "grain_density": 2700.0,
+          "water_density": 1000.0,
+          "ice_density": 917.0,
+          "latent": 334000.0,
+          "water_cp": 4217.0,
+          "gravity": 9.81,
+          "h_water": 200.0,
+          "debris_k": 2.0,
+          "export_efficiency": 1.0,
+          "extra_toe_heat_W_m2": 0.0,
+          "allow_export": true,
+          "evolve_routing": true,
+          "allow_shield": true,
+          "footprint_shield": true,
+          "allow_ice_incision": true,
+          "allow_supply": false
+        }
+      ],
+      "days": 45,
+      "dt": 112.5,
+      "toe_melt_m3": [
+        1.2558802284115569
+      ],
+      "bypass_melt_m3": [
+        1.2679803348050762
+      ],
+      "wet_days": [
+        45.0
+      ],
+      "first_dry_day": [
+        null
+      ],
+      "final_stock_m3": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "input_solid_m3": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "export_solid_m3": [
+        [
+          0.012,
+          0.012000000000000002,
+          0.09599999999999997
+        ]
+      ],
+      "final_toe_z": [
+        -1.3358802284115572
+      ],
+      "final_bypass_z": [
+        -1.2679803348050762
+      ],
+      "max_solid_ledger_residual_m3": 2.7755575615628914e-17,
+      "energy_input_J": [
+        577037412000.0001
+      ],
+      "external_toe_heat_J": [
+        0.0
+      ],
+      "energy_advected_out_J": [
+        576264409034.4196
+      ],
+      "latent_J": [
+        773002965.5808641
+      ],
+      "history": [],
+      "warning": "exploratory reduced-model predictions; no independent environmental validation"
+    }
+  },
+  {
+    "pulse": {
+      "start_day": 14.0,
+      "multiplier": 8.0,
+      "duration_day": 0.25
+    },
+    "reference": {
+      "final_state": [
+        -0.21334655900050536,
+        -1.2689963488565017,
+        7.635353981935253e-61,
+        -2.904689033980493e-39,
+        -2.4207355095146234e-24,
+        0.13334655900050527,
+        1.2689963488565017
+      ],
+      "toe_melt_m3": 0.13334655900050527,
+      "bypass_melt_m3": 1.2689963488565017,
+      "events_days": [
+        8.3405730775047,
+        14.265161518249641
+      ],
+      "minimum_numerical_stock_m3": -5.605605734459322e-16,
+      "nfev": 12857
+    },
+    "fixed": {
+      "cases": [
+        {
+          "discharge": 0.07,
+          "water_temperature": 0.5,
+          "width": 0.5,
+          "length": 2.0,
+          "initial_toe_ice_z": -0.08,
+          "initial_bypass_z": 0.0,
+          "initial_debris_depth": 0.2,
+          "mantle_thickness": 0.3,
+          "source_width": 10.0,
+          "face_heat_W_m2": 200.0,
+          "grain_sizes": [
+            0.02,
+            0.08,
+            0.2
+          ],
+          "source_fractions": [
+            0.1,
+            0.1,
+            0.8
+          ],
+          "friction": 0.05,
+          "drag": 1.05,
+          "porosity": 0.4,
+          "grain_density": 2700.0,
+          "water_density": 1000.0,
+          "ice_density": 917.0,
+          "latent": 334000.0,
+          "water_cp": 4217.0,
+          "gravity": 9.81,
+          "h_water": 200.0,
+          "debris_k": 2.0,
+          "export_efficiency": 1.0,
+          "extra_toe_heat_W_m2": 0.0,
+          "allow_export": true,
+          "evolve_routing": true,
+          "allow_shield": true,
+          "footprint_shield": true,
+          "allow_ice_incision": true,
+          "allow_supply": false
+        }
+      ],
+      "days": 45,
+      "dt": 112.5,
+      "toe_melt_m3": [
+        0.1332996148034708
+      ],
+      "bypass_melt_m3": [
+        1.2689963551452645
+      ],
+      "wet_days": [
+        8.604166666666666
+      ],
+      "first_dry_day": [
+        8.33984375
+      ],
+      "final_stock_m3": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "input_solid_m3": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "export_solid_m3": [
+        [
+          0.012,
+          0.012000000000000002,
+          0.09599999999999999
+        ]
+      ],
+      "final_toe_z": [
+        -0.21329961480347034
+      ],
+      "final_bypass_z": [
+        -1.2689963551452645
+      ],
+      "max_solid_ledger_residual_m3": 1.3877787807814457e-17,
+      "energy_input_J": [
+        596165724000.0001
+      ],
+      "external_toe_heat_J": [
+        0.0
+      ],
+      "energy_advected_out_J": [
+        595736231595.0178
+      ],
+      "latent_J": [
+        429492405.0839588
+      ],
+      "history": [],
+      "warning": "exploratory reduced-model predictions; no independent environmental validation"
+    }
+  }
+]

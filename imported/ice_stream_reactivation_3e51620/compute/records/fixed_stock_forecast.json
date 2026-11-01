@@ -1,0 +1,72 @@
+[
+  {
+    "coarse_fraction": 0.2,
+    "forecast": {
+      "status": "finite loss in fixed-stock autonomous model",
+      "loss_time_days": 68.69147625315931,
+      "mathematical_time_bracket_days": [
+        8.117837404870999,
+        71.30594180103846
+      ],
+      "quadrature_error_estimate_days": 1.0296285730540636e-06,
+      "initial_coverage": 0.12,
+      "scope": "fixed stock, heat transfer, width, forcing and mean-crest hydraulic model"
+    }
+  },
+  {
+    "coarse_fraction": 0.4,
+    "forecast": {
+      "status": "finite loss in fixed-stock autonomous model",
+      "loss_time_days": 28.70365917662845,
+      "mathematical_time_bracket_days": [
+        6.699403294032454,
+        29.335149170396853
+      ],
+      "quadrature_error_estimate_days": 1.3413867975584917e-07,
+      "initial_coverage": 0.24,
+      "scope": "fixed stock, heat transfer, width, forcing and mean-crest hydraulic model"
+    }
+  },
+  {
+    "coarse_fraction": 0.6,
+    "forecast": {
+      "status": "finite loss in fixed-stock autonomous model",
+      "loss_time_days": 15.163607292548965,
+      "mathematical_time_bracket_days": [
+        5.2809691831939105,
+        15.40439629387522
+      ],
+      "quadrature_error_estimate_days": 6.851003789358849e-09,
+      "initial_coverage": 0.35999999999999993,
+      "scope": "fixed stock, heat transfer, width, forcing and mean-crest hydraulic model"
+    }
+  },
+  {
+    "coarse_fraction": 0.8,
+    "forecast": {
+      "status": "finite loss in fixed-stock autonomous model",
+      "loss_time_days": 8.341198252893726,
+      "mathematical_time_bracket_days": [
+        3.862535072355366,
+        8.44751908441997
+      ],
+      "quadrature_error_estimate_days": 4.795207084819693e-07,
+      "initial_coverage": 0.48,
+      "scope": "fixed stock, heat transfer, width, forcing and mean-crest hydraulic model"
+    }
+  },
+  {
+    "coarse_fraction": 1.0,
+    "forecast": {
+      "status": "finite loss in fixed-stock autonomous model",
+      "loss_time_days": 4.227226077094664,
+      "mathematical_time_bracket_days": [
+        2.4441009615168223,
+        4.27534527926083
+      ],
+      "quadrature_error_estimate_days": 2.709568882691693e-07,
+      "initial_coverage": 0.6,
+      "scope": "fixed stock, heat transfer, width, forcing and mean-crest hydraulic model"
+    }
+  }
+]
