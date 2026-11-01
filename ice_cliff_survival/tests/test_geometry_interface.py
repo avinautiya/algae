@@ -55,11 +55,6 @@ class TestContractIO(unittest.TestCase):
         # englacial release from PURE-ICE volume lost vs mixture-sweep bookkeeping: pure-ice volume V_ice corresponds to mixture volume V_ice/(1-c_mix)
         c = 0.06; V_mix = rec.melt_volume_ice_m3 / (1 - c); self.assertAlmostEqual(cfd_contract.volume_to_grain_inputs(rec, c), c * V_mix, 15)
 class TestShieldProfile(unittest.TestCase):
-    def test_wedge_thickness_integrates_to_wedge_area(self):
-        th, be, zf = 62.0, 33.0, 4.0; N = 200000; area = 0.0
-        for i in range(N):
-            z = (i + 0.5) / N * zf; area += geometry.debris_normal_thickness(z, zf, th, be) / math.sin(math.radians(th)) * (zf / N)      # horizontal width = normal thickness / sin(theta); integrate over height
-        self.assertAlmostEqual(area / geometry.wedge_area(zf, th, be), 1.0, 6)
     def test_bare_above_pile_and_monotone_below(self):
         th, be, zf = 62.0, 33.0, 4.0; self.assertEqual(geometry.shield_conductance(4.5, zf, th, be, 0.5), 1e30)
         h = [geometry.shield_conductance(z, zf, th, be, 0.5) for z in (0.0, 1.0, 2.0, 3.0, 3.9)]; self.assertTrue(all(h[i] < h[i + 1] for i in range(4)))

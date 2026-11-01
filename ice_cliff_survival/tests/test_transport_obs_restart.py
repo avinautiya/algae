@@ -2,6 +2,7 @@ import datetime as dt, math, os, unittest
 from ice_cliff_survival import transport, observation, forcing, UnsupportedRun
 from ice_cliff_survival.config import ToeConfig, Provenance
 from ice_cliff_survival.runner import ToeRun
+from ice_cliff_survival.closures import ConstantSources, ConstantCapacity
 HAVE = os.path.exists(os.path.join(forcing.RAW, forcing.KENN)) and os.path.exists(os.path.join(forcing.RAW, forcing.STREAMS))
 class TestTransport(unittest.TestCase):
     def test_reproduces_published_petersen_clast_sizes(self):
@@ -41,28 +42,28 @@ class TestObservation(unittest.TestCase):
 class TestRunner(unittest.TestCase):
     def mk(self):
         cfg = ToeConfig(W=10.0, porosity=0.3, H_cliff=15.0, theta_deg=60.0, beta_deg=35.0); P = Provenance("c", "synthetic")
-        return ToeRun(cfg, lambda t: {"S_mantle": 3e-5}, lambda t, V: 1e-5, dict(sources=P, capacity=P), "const", 600.0)
+        return ToeRun(cfg, ConstantSources({"S_mantle": 3e-5}), ConstantCapacity(1e-5), dict(sources=P, capacity=P), 600.0)
     def test_deterministic_restart_equivalence(self):
         a = self.mk(); a.advance(60 * 600.0); b = self.mk(); b.advance(30 * 600.0); p = "/tmp/_icsv_ck.json"; b.save(p); c = self.mk(); c.load(p); c.advance(60 * 600.0)
         self.assertEqual(a.stock.Vs, c.stock.Vs); self.assertEqual(a.stock.cum, c.stock.cum)
     def test_restart_refused_on_mismatch(self):
         b = self.mk(); b.advance(1200.0); p = "/tmp/_icsv_ck2.json"; b.save(p); cfg = ToeConfig(W=11.0, porosity=0.3, H_cliff=15.0, theta_deg=60.0, beta_deg=35.0); P = Provenance("c", "synthetic")
-        c = ToeRun(cfg, lambda t: {"S_mantle": 3e-5}, lambda t, V: 1e-5, dict(sources=P, capacity=P), "const", 600.0)
+        c = ToeRun(cfg, ConstantSources({"S_mantle": 3e-5}), ConstantCapacity(1e-5), dict(sources=P, capacity=P), 600.0)
         with self.assertRaises(ValueError): c.load(p)
     def test_environmental_run_refused(self):
         cfg = ToeConfig(W=10.0, porosity=0.3, H_cliff=15.0, theta_deg=60.0, beta_deg=35.0); P = Provenance("c", "measured")
-        with self.assertRaises(UnsupportedRun): ToeRun(cfg, lambda t: {}, lambda t, V: 0.0, dict(sources=P, capacity=P), "x", 600.0, label="environmental")
+        with self.assertRaises(UnsupportedRun): ToeRun(cfg, ConstantSources({}), ConstantCapacity(0.0), dict(sources=P, capacity=P), 600.0, label="environmental")
     def test_config_validation(self):
         with self.assertRaises(ValueError): ToeConfig(W=10.0, porosity=1.0, H_cliff=15.0, theta_deg=60.0, beta_deg=35.0)
         with self.assertRaises(ValueError): ToeConfig(W=10.0, porosity=0.3, H_cliff=15.0, theta_deg=30.0, beta_deg=35.0)
 class TestSafeguards(unittest.TestCase):
     def test_measured_closure_refused_in_synthetic_run(self):
         cfg = ToeConfig(W=10.0, porosity=0.3, H_cliff=15.0, theta_deg=60.0, beta_deg=35.0)
-        with self.assertRaises(UnsupportedRun): ToeRun(cfg, lambda t: {}, lambda t, V: 0.0, dict(sources=Provenance("c", "measured"), capacity=Provenance("c", "synthetic")), "x", 600.0)
+        with self.assertRaises(UnsupportedRun): ToeRun(cfg, ConstantSources({}), ConstantCapacity(0.0), dict(sources=Provenance("c", "measured"), capacity=Provenance("c", "synthetic")), 600.0)
     def test_closure_params_enter_fingerprint(self):
         cfg = ToeConfig(W=10.0, porosity=0.3, H_cliff=15.0, theta_deg=60.0, beta_deg=35.0)
-        a = ToeRun(cfg, lambda t: {}, lambda t, V: 0.0, dict(sources=Provenance("c", "synthetic", params=(("S", 1e-5),)), capacity=Provenance("c", "synthetic")), "x", 600.0)
-        b = ToeRun(cfg, lambda t: {}, lambda t, V: 0.0, dict(sources=Provenance("c", "synthetic", params=(("S", 2e-5),)), capacity=Provenance("c", "synthetic")), "x", 600.0); self.assertNotEqual(a.ident(), b.ident())
+        a = ToeRun(cfg, ConstantSources({}), ConstantCapacity(0.0), dict(sources=Provenance("c", "synthetic", params=(("S", 1e-5),)), capacity=Provenance("c", "synthetic")), 600.0)
+        b = ToeRun(cfg, ConstantSources({}), ConstantCapacity(0.0), dict(sources=Provenance("c", "synthetic", params=(("S", 2e-5),)), capacity=Provenance("c", "synthetic")), 600.0); self.assertNotEqual(a.ident(), b.ident())
     def test_cli_run_exits_cleanly_with_message(self):
         import subprocess, sys
         r = subprocess.run([sys.executable, "-m", "ice_cliff_survival", "run"], cwd=os.path.join(os.path.dirname(__file__), "..", ".."), capture_output=True, text=True); self.assertEqual(r.returncode, 2); self.assertIn("UnsupportedRun", r.stderr); self.assertNotIn("Traceback", r.stderr)
