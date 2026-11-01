@@ -1,0 +1,91 @@
+{
+  "evidence": "Synthetic reduced model only; known time-reparameterization test",
+  "assumptions": "Fixed Q, ideal parallel hydraulic controls, homogeneous steady passive heat",
+  "counterexample": "Prescribed stock decay in real time; illustrative export rate 1/day",
+  "fixed_stock": {
+    "constant": {
+      "final_state_m": [
+        -0.06256131291671421,
+        -0.056382587335031174,
+        0.03
+      ],
+      "rhs_evaluations": 1214,
+      "dose_K_s": 86400.0
+    },
+    "early_heat": {
+      "final_state_m": [
+        -0.06256131291671424,
+        -0.056382587335031195,
+        0.03
+      ],
+      "rhs_evaluations": 1336,
+      "dose_K_s": 86400.0
+    },
+    "late_heat": {
+      "final_state_m": [
+        -0.06256131291671423,
+        -0.056382587335031195,
+        0.03
+      ],
+      "rhs_evaluations": 1336,
+      "dose_K_s": 86400.0
+    },
+    "four_pulses": {
+      "final_state_m": [
+        -0.06256131291671423,
+        -0.056382587335031174,
+        0.03
+      ],
+      "rhs_evaluations": 1888,
+      "dose_K_s": 86400.0
+    }
+  },
+  "real_time_stock_export": {
+    "constant": {
+      "final_state_m": [
+        -0.07577019981416688,
+        -0.05637723709313316,
+        0.004060058497098382
+      ],
+      "rhs_evaluations": 1214,
+      "dose_K_s": 86400.0
+    },
+    "early_heat": {
+      "final_state_m": [
+        -0.06950477069849291,
+        -0.056379497702577566,
+        0.004060058497098381
+      ],
+      "rhs_evaluations": 1276,
+      "dose_K_s": 86400.0
+    },
+    "late_heat": {
+      "final_state_m": [
+        -0.08203609340207962,
+        -0.056373994425592454,
+        0.0040600584970983825
+      ],
+      "rhs_evaluations": 1276,
+      "dose_K_s": 86400.0
+    },
+    "four_pulses": {
+      "final_state_m": [
+        -0.0742478896590643,
+        -0.05637791642548601,
+        0.0040600584970983756
+      ],
+      "rhs_evaluations": 1648,
+      "dose_K_s": 86400.0
+    }
+  },
+  "fixed_stock_max_schedule_difference_m": 2.7755575615628914e-17,
+  "export_early_minus_late_geometry_m": [
+    0.012531322703586714,
+    -5.503276985112382e-06
+  ],
+  "assertions": {
+    "dose_collapse": true,
+    "extra_clock_breaks_collapse": true,
+    "export_final_stock_schedule_invariant": true
+  }
+}

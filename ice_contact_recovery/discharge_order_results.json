@@ -1,0 +1,321 @@
+{
+  "primary_environmental_scale_baseline": {
+    "evidence": "Synthetic smooth two-route implementation mechanism; not environmental novelty",
+    "protocol": "AB vs BA, each state same duration, common inlet superheat 0.5 K",
+    "QA_m3_s": 0.035,
+    "QB_m3_s": 0.105,
+    "ordinary_Q_m3_s": 0.07,
+    "initial_state_m": [
+      -0.04,
+      0.0,
+      0.03
+    ],
+    "budget_note": "AB and BA have identical water, inlet heat and joint Q,T distribution",
+    "ordinary_return_note": "Quasi-steady repartition immediately at common Q, then 600 s common evolution",
+    "finite_difference_brackets": {
+      "1e-05": [
+        -9.406852577650657e-17,
+        9.122226141122195e-16,
+        0.0
+      ],
+      "1e-06": [
+        -9.406852292766466e-17,
+        9.122226047777177e-16,
+        0.0
+      ],
+      "1e-07": [
+        -9.406847972056259e-17,
+        9.12222558148066e-16,
+        0.0
+      ]
+    },
+    "cases": [
+      {
+        "block_seconds": 600.0,
+        "AB_minus_BA_m": [
+          -3.3946706556875483e-11,
+          3.274903651213912e-10,
+          0.0
+        ],
+        "bracket_prediction_m": [
+          -3.386465269940253e-11,
+          3.2840012093330374e-10,
+          0.0
+        ],
+        "relative_bracket_error": 0.0027668393256399413,
+        "difference_fraction_of_total_incision": 7.80935248206022e-07,
+        "difference_divided_by_h_squared": [
+          -9.42964071024319e-17,
+          9.096954586705311e-16,
+          0.0
+        ],
+        "minimum_route_fraction_during_protocol": 0.4500201358259972,
+        "ordinary_flow_initial_toe_fraction_difference": 1.1378832320829702e-09,
+        "after_common_600s_geometry_difference_m": [
+          -3.394674819023891e-11,
+          3.2749070751243725e-10,
+          0.0
+        ],
+        "after_common_600s_toe_fraction_difference": 1.137907212900302e-09,
+        "minimum_route_fraction_during_common_return": 0.46923955347026985
+      },
+      {
+        "block_seconds": 300.0,
+        "AB_minus_BA_m": [
+          -8.47639319845328e-12,
+          8.198618991822268e-11,
+          0.0
+        ],
+        "bracket_prediction_m": [
+          -8.466163174850633e-12,
+          8.210003023332593e-11,
+          0.0
+        ],
+        "relative_bracket_error": 0.001384848831942853,
+        "difference_fraction_of_total_incision": 3.9099873705648685e-07,
+        "difference_divided_by_h_squared": [
+          -9.418214664948089e-17,
+          9.109576657580298e-16,
+          0.0
+        ],
+        "minimum_route_fraction_during_protocol": 0.4500201358259972,
+        "ordinary_flow_initial_toe_fraction_difference": 2.8479030245165404e-10,
+        "after_common_600s_geometry_difference_m": [
+          -8.476414015134992e-12,
+          8.198627578703474e-11,
+          0.0
+        ],
+        "after_common_600s_toe_fraction_difference": 2.847964086782895e-10,
+        "minimum_route_fraction_during_common_return": 0.4688700420159471
+      },
+      {
+        "block_seconds": 150.0,
+        "AB_minus_BA_m": [
+          -2.117819808411525e-12,
+          2.0510770314704878e-11,
+          0.0
+        ],
+        "bracket_prediction_m": [
+          -2.116540793712658e-12,
+          2.0525007558331484e-11,
+          0.0
+        ],
+        "relative_bracket_error": 0.0006927732969757468,
+        "difference_fraction_of_total_incision": 1.9563237590162718e-07,
+        "difference_divided_by_h_squared": [
+          -9.412532481829001e-17,
+          9.115897917646613e-16,
+          0.0
+        ],
+        "minimum_route_fraction_during_protocol": 0.4500201358259972,
+        "ordinary_flow_initial_toe_fraction_difference": 7.123746037507317e-11,
+        "after_common_600s_geometry_difference_m": [
+          -2.117840625093237e-12,
+          2.0510791687040203e-11,
+          0.0
+        ],
+        "after_common_600s_toe_fraction_difference": 7.123923673191257e-11,
+        "minimum_route_fraction_during_common_return": 0.4686852893086068
+      },
+      {
+        "block_seconds": 75.0,
+        "AB_minus_BA_m": [
+          -5.292849492022356e-13,
+          5.129471873025881e-12,
+          0.0
+        ],
+        "bracket_prediction_m": [
+          -5.291351984281645e-13,
+          5.131251889582871e-12,
+          0.0
+        ],
+        "relative_bracket_error": 0.0003462862842155428,
+        "difference_fraction_of_total_incision": 9.784944777805469e-08,
+        "difference_divided_by_h_squared": [
+          -9.409510208039744e-17,
+          9.119061107601566e-16,
+          0.0
+        ],
+        "minimum_route_fraction_during_protocol": 0.4500201358259972,
+        "ordinary_flow_initial_toe_fraction_difference": 1.78145276308328e-11,
+        "after_common_600s_geometry_difference_m": [
+          -5.292918880961395e-13,
+          5.1294771923927895e-12,
+          0.0
+        ],
+        "after_common_600s_toe_fraction_difference": 1.7814638653135262e-11,
+        "minimum_route_fraction_during_common_return": 0.46859291371486733
+      }
+    ],
+    "observed_halving_orders": [
+      1.9980393983177702,
+      1.999019008222665,
+      1.9995096365686444
+    ],
+    "assertions": {
+      "all_routes_remain_wet": true,
+      "bracket_error_decreases": true,
+      "smallest_block_bracket_error_below_5percent": true
+    }
+  },
+  "additional_low_Q_sensitivity_not_environmental_validation": {
+    "evidence": "Synthetic smooth two-route implementation mechanism; not environmental novelty",
+    "protocol": "AB vs BA, each state same duration, common inlet superheat 0.5 K",
+    "QA_m3_s": 0.0002,
+    "QB_m3_s": 0.003,
+    "ordinary_Q_m3_s": 0.001,
+    "initial_state_m": [
+      -0.03,
+      0.0,
+      0.03
+    ],
+    "budget_note": "AB and BA have identical water, inlet heat and joint Q,T distribution",
+    "ordinary_return_note": "Quasi-steady repartition immediately at common Q, then 600 s common evolution",
+    "finite_difference_brackets": {
+      "1e-05": [
+        -6.493744691581467e-13,
+        3.3695435831758385e-12,
+        0.0
+      ],
+      "1e-06": [
+        -6.493693588119832e-13,
+        3.3695224469100597e-12,
+        0.0
+      ],
+      "1e-07": [
+        -6.493693076773761e-13,
+        3.3695222355723e-12,
+        0.0
+      ]
+    },
+    "cases": [
+      {
+        "block_seconds": 600.0,
+        "AB_minus_BA_m": [
+          -2.499108491191282e-07,
+          1.1576311246784543e-06,
+          0.0
+        ],
+        "bracket_prediction_m": [
+          -2.3377295076385539e-07,
+          1.213028004806028e-06,
+          0.0
+        ],
+        "relative_bracket_error": 0.04670714706903493,
+        "difference_fraction_of_total_incision": 0.003118131465520288,
+        "difference_divided_by_h_squared": [
+          -6.941968031086894e-13,
+          3.2156420129957063e-12,
+          0.0
+        ],
+        "minimum_route_fraction_during_protocol": 0.46846841680052537,
+        "ordinary_flow_initial_toe_fraction_difference": 7.532048123548574e-05,
+        "after_common_600s_geometry_difference_m": [
+          -2.5014162679734553e-07,
+          1.1588788320491443e-06,
+          0.0
+        ],
+        "after_common_600s_toe_fraction_difference": 7.538875407786527e-05,
+        "minimum_route_fraction_during_common_return": 0.48331271116466823
+      },
+      {
+        "block_seconds": 300.0,
+        "AB_minus_BA_m": [
+          -6.040703608503617e-08,
+          2.9623155347422857e-07,
+          0.0
+        ],
+        "bracket_prediction_m": [
+          -5.8443237690963847e-08,
+          3.03257001201507e-07,
+          0.0
+        ],
+        "relative_bracket_error": 0.02362005847111674,
+        "difference_fraction_of_total_incision": 0.001592814629380269,
+        "difference_divided_by_h_squared": [
+          -6.711892898337352e-13,
+          3.2914617052692063e-12,
+          0.0
+        ],
+        "minimum_route_fraction_during_protocol": 0.4843069061375907,
+        "ordinary_flow_initial_toe_fraction_difference": 1.9085941829255493e-05,
+        "after_common_600s_geometry_difference_m": [
+          -6.04642567021696e-08,
+          2.965542658300629e-07,
+          0.0
+        ],
+        "after_common_600s_toe_fraction_difference": 1.9104610647358022e-05,
+        "minimum_route_fraction_during_common_return": 0.4887369666230952
+      },
+      {
+        "block_seconds": 150.0,
+        "AB_minus_BA_m": [
+          -1.4853077556081784e-08,
+          7.492968856486089e-08,
+          0.0
+        ],
+        "bracket_prediction_m": [
+          -1.4610809422740962e-08,
+          7.581425030037676e-08,
+          0.0
+        ],
+        "relative_bracket_error": 0.01187860312563953,
+        "difference_fraction_of_total_incision": 0.0008051066000368468,
+        "difference_divided_by_h_squared": [
+          -6.601367802703015e-13,
+          3.3302083806604842e-12,
+          0.0
+        ],
+        "minimum_route_fraction_during_protocol": 0.49217236950814314,
+        "ordinary_flow_initial_toe_fraction_difference": 4.80492445886771e-06,
+        "after_common_600s_geometry_difference_m": [
+          -1.4867329183737565e-08,
+          7.501177161855317e-08,
+          0.0
+        ],
+        "after_common_600s_toe_fraction_difference": 4.809796715743442e-06,
+        "minimum_route_fraction_during_common_return": 0.49142989976154483
+      },
+      {
+        "block_seconds": 75.0,
+        "AB_minus_BA_m": [
+          -3.6827894206448164e-09,
+          1.8842591150225268e-08,
+          0.0
+        ],
+        "bracket_prediction_m": [
+          -3.6527023556852404e-09,
+          1.895356257509419e-08,
+          0.0
+        ],
+        "relative_bracket_error": 0.005956679913137685,
+        "difference_fraction_of_total_incision": 0.0004047608283013654,
+        "difference_divided_by_h_squared": [
+          -6.547181192257452e-13,
+          3.3497939822622696e-12,
+          0.0
+        ],
+        "minimum_route_fraction_during_protocol": 0.49609100722474875,
+        "ordinary_flow_initial_toe_fraction_difference": 1.205501603485093e-06,
+        "after_common_600s_geometry_difference_m": [
+          -3.6863459854097336e-09,
+          1.8863291160168714e-08,
+          0.0
+        ],
+        "after_common_600s_toe_fraction_difference": 1.2067456231501517e-06,
+        "minimum_route_fraction_during_common_return": 0.49277146354760265
+      }
+    ],
+    "observed_halving_orders": [
+      1.9698480435891037,
+      1.9847027987829022,
+      1.992299165794582
+    ],
+    "assertions": {
+      "all_routes_remain_wet": true,
+      "bracket_error_decreases": true,
+      "smallest_block_bracket_error_below_5percent": true
+    }
+  },
+  "interpretation": "Baseline first, fixed h=200 W/m2/K. Lower-Q case probes finite heat-depletion sensitivity, not an improved environmental prediction."
+}

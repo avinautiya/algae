@@ -1,0 +1,132 @@
+{
+  "evidence": "synthetic declared scalar model only",
+  "parameters": {
+    "area_m2": 10.0,
+    "coefficient": 0.7,
+    "exponent": 1.5,
+    "bypass_m": 0.0,
+    "toe_m": 0.2,
+    "initial_stage_m": 0.05
+  },
+  "near_threshold": [
+    {
+      "excess_peak_fraction": 0.001,
+      "minimum_time_s": 154.43662801194648,
+      "minimum_volume_m3": 9.678931618972308
+    },
+    {
+      "excess_peak_fraction": 0.003,
+      "minimum_time_s": 131.00176969929436,
+      "minimum_volume_m3": 8.226614166597555
+    },
+    {
+      "excess_peak_fraction": 0.01,
+      "minimum_time_s": 105.28413177023897,
+      "minimum_volume_m3": 6.657747609693673
+    },
+    {
+      "excess_peak_fraction": 0.03,
+      "minimum_time_s": 81.82452047342743,
+      "minimum_volume_m3": 5.276716079741518
+    },
+    {
+      "excess_peak_fraction": 0.1,
+      "minimum_time_s": 56.49506885254009,
+      "minimum_volume_m3": 3.89086588191257
+    },
+    {
+      "excess_peak_fraction": 0.3,
+      "minimum_time_s": 35.04398792153958,
+      "minimum_volume_m3": 2.8523309067068845
+    },
+    {
+      "excess_peak_fraction": 1.0,
+      "minimum_time_s": 16.6765390938191,
+      "minimum_volume_m3": 2.088233002419886
+    },
+    {
+      "excess_peak_fraction": 3.0,
+      "minimum_time_s": 6.915699963079602,
+      "minimum_volume_m3": 1.731965225697143
+    },
+    {
+      "excess_peak_fraction": 10.0,
+      "minimum_time_s": 2.286691401264096,
+      "minimum_volume_m3": 1.5748648043715565
+    }
+  ],
+  "independent_ode_checks": [
+    {
+      "duration_ratio": 0.5,
+      "bypass_erosion_m_s": 0.0,
+      "reached": false,
+      "final_stage_m": 0.141758150213546
+    },
+    {
+      "duration_ratio": 0.5,
+      "bypass_erosion_m_s": 0.0001,
+      "reached": false,
+      "final_stage_m": 0.14154150605222818
+    },
+    {
+      "duration_ratio": 0.5,
+      "bypass_erosion_m_s": 0.001,
+      "reached": false,
+      "final_stage_m": 0.13956685785286213
+    },
+    {
+      "duration_ratio": 0.9,
+      "bypass_erosion_m_s": 0.0,
+      "reached": false,
+      "final_stage_m": 0.19065903400974013
+    },
+    {
+      "duration_ratio": 0.9,
+      "bypass_erosion_m_s": 0.0001,
+      "reached": false,
+      "final_stage_m": 0.18994718910476238
+    },
+    {
+      "duration_ratio": 0.9,
+      "bypass_erosion_m_s": 0.001,
+      "reached": false,
+      "final_stage_m": 0.18345851753325249
+    },
+    {
+      "duration_ratio": 1.1,
+      "bypass_erosion_m_s": 0.0,
+      "reached": true,
+      "final_stage_m": 0.2
+    },
+    {
+      "duration_ratio": 1.1,
+      "bypass_erosion_m_s": 0.0001,
+      "reached": true,
+      "final_stage_m": 0.20000000000000004
+    },
+    {
+      "duration_ratio": 1.1,
+      "bypass_erosion_m_s": 0.001,
+      "reached": false,
+      "final_stage_m": 0.1978158515025962
+    },
+    {
+      "duration_ratio": 2.0,
+      "bypass_erosion_m_s": 0.0,
+      "reached": true,
+      "final_stage_m": 0.2
+    },
+    {
+      "duration_ratio": 2.0,
+      "bypass_erosion_m_s": 0.0001,
+      "reached": true,
+      "final_stage_m": 0.20000000000000004
+    },
+    {
+      "duration_ratio": 2.0,
+      "bypass_erosion_m_s": 0.001,
+      "reached": true,
+      "final_stage_m": 0.2
+    }
+  ]
+}
