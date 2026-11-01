@@ -3,7 +3,7 @@ Problem: debris layer -d<x<0 (k_d, rho c_d, alpha_d), initial T=0 (= T_m everywh
 interface stays at T_m); fixed geometry (interface motion and thickness change neglected). Heat delivered to the ice per unit area:
   resolved  q(t) = (k_d T_w/d) [1 + 2 sum_{n>=1} (-1)^n exp(-n^2 pi^2 alpha t/d^2)],   Q(t) = int q
   massless  q = k_d T_w/d   (the M1 shield h=k/d), Q_m = k_d T_w t/d
-  deficit   Q_m - Q -> rho c d^2 T_w/6 = t_lag * q_inf   with  t_lag = d^2/(6 alpha)  [exact late-time limit of the series: sum (-1)^n/n^2 = -pi^2/12]
+  deficit   Q_m - Q -> rho c d T_w/6 = t_lag * q_inf   with  t_lag = d^2/(6 alpha)  [exact late-time limit of the series: sum (-1)^n/n^2 = -pi^2/12]
 The resolved reference is checked against an independent implicit finite-volume solution (fine grid, Crank-Nicolson) in the tests."""
 import math
 import numpy as np
