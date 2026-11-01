@@ -7,10 +7,10 @@ interface stays at T_m); fixed geometry (interface motion and thickness change n
 The resolved reference is checked against an independent implicit finite-volume solution (fine grid, Crank-Nicolson) in the tests."""
 import math
 import numpy as np
-def q_series(t, d, k, rhoc, Tw, nterms=400):
+def q_series(t, d, k, rhoc, Tw, nterms=20000):
     a = k / rhoc; n = np.arange(1, nterms + 1); t = np.asarray(t, float)[..., None]
     return k * Tw / d * (1.0 + 2.0 * np.sum((-1.0) ** n * np.exp(-(n * math.pi) ** 2 * a * t / d ** 2), axis=-1))
-def Q_series(t, d, k, rhoc, Tw, nterms=400):
+def Q_series(t, d, k, rhoc, Tw, nterms=20000):
     a = k / rhoc; n = np.arange(1, nterms + 1); t = np.asarray(t, float)[..., None]; lam = (n * math.pi) ** 2 * a / d ** 2
     return k * Tw / d * (t[..., 0] + 2.0 * np.sum((-1.0) ** n * (1 - np.exp(-lam * t)) / lam, axis=-1))
 def Q_massless(t, d, k, Tw): return k * Tw / d * np.asarray(t, float)
