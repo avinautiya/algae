@@ -1,0 +1,19 @@
+{
+  "status": "secondary held-out-year component test, fixed before2023 scores;2022 results already inspected",
+  "task": "same10cm-marker event-time retrospective hindcast",
+  "melt_calibration": "all four original model formulas and2021 melt calibrations unchanged; do not select2022winner",
+  "test_year": 2023,
+  "test_sites": ["P_IC_E","P_IC_N","P_IC_W","P_IC_W2"],
+  "forcing_window": ["2023-06-03", "2023-08-31"],
+  "pre_execution_QC_amendment": "Whole-year forcing contains January power-loss missing data. Before any2023model scores, restrict to post-June2maintenance summer window covering all audited stake dates, with ample post-observation forcing; no imputation or target-based exclusions.",
+  "weather_source": "Amazon_Creek original verifiedCSV, mapped to DebrisEB by fieldwise affine OLS fit on paired2021+2022 weather only",
+  "weather_pairs": {"T_2m":"T_3m","RH_2m":"RH_3m","Wspd":"Wspd_3m","SWin":"SWin","LWin":"LWin"},
+  "weather_QC": "clip derivedRH to0..100 and derivedwind/SW/LW to>=0, logcounts; no retreat used in weather fit",
+  "weather_caveat": "offglacier Amazon682m→EB559m transfer;2023 radiometer tilted8deg/arm17deg bySep5 withunknownonset, no correction invented",
+  "sensitivity": "repeat all models with derivedSW multiplied0.85 and1.15 as engineering scenarios, not confidence bounds; no calibrationchanges",
+  "eligibility": "exact10cm markers withpositiveelapsedtime andcompleteforcing endpoints; preserveexclusions/censoring",
+  "metrics": "sameeventtime MAE/RMSE/bias/MAPE,2h/20percent coverage andpairedMAEskill; groupbysite pluspooled",
+  "interpretation": "withheldfrommeltfitting, notfullyblind audit: datasetcoverage/geometry/rowcounts previously inspected; repeatedsites notindependentnewglaciers",
+  "claims": "fieldhindcast of incomplete atmosphericcomponent withuncertainweathertransfer; notoperationalforecast, notcoupled hydraulicmodelvalidation",
+  "post_test": "no changes based on2023errors; anylatermodel nowneeds other independentdata"
+}

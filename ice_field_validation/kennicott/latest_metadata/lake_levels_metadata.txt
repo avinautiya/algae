@@ -1,0 +1,10 @@
+Metadata for Water Depth Data Measured via Pressure TransducersData for Petersen, E., R. Hock, M. Loso, W. Guo, C. Markovsky, R. Yang, H. Han, D. Shangguan, and S. Kang, “Multi-year glaciological and meteorological observations on debris-covered Kennicott Glacier, Alaska, 2008-2023,” Geoscience Data Journal, Submitted January 2025.Two Onset Hobo U20L Pressure Transducers were deployed in summer 2021.
+"Lake" site: within the eastern proglacial lake growing at Kennicott Glacier's terminus.
+    Latitude: 61.4466 N    Longitude: 142.9214 W
+"Pond" site: within a supraglacial pond on Kennicott Glacier's stagnant debris-covered terminus. This pond is connected to a drainage system which drains the glacier and the eastern proglacial lake into the western proglacial lake.
+    Latitude: 61.4535 N    Longitude: 142.9227 WDATA FIELDS:Datetime: UTC date and time presented in YYYY-mm-dd HH:MM:SS. 
+
+Datetime_ADT: localized date and time (Alaska Daylight Time (ADT, -08:00),
+Presented in YYYY-mm-dd HH:MM:SS.Pond_T_C: water temperature at the supraglacial pond, reported in degrees Celsius.
+Measured using Onset Hobo U20L, which has a manufacturer reported accuracy of ±0.44 degrees Celsius.Pond_Depth_m: water depth in m measured at the supraglacial pond. Calculated using the pressure measured by the U20L instrument and calibrated using air pressure measured at Amazon Creek AWS. Manufacturer stated accuracy of ±2 cm.Lake_T_C: water temperature at the proglacial lake, reported in degrees Celsius.
+Measured using Onset Hobo U20L, which has a manufacturer reported accuracy of ±0.44 degrees Celsius.Lake_Depth_m: water depth in m measured at the proglacial lake. Calculated using the pressure measured by the U20L instrument and calibrated using air pressure measured at Amazon Creek AWS. Manufacturer stated accuracy of ±2 cm.

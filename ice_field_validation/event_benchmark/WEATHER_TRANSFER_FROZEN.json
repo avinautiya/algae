@@ -1,0 +1,47 @@
+{
+  "coefficients": {
+    "T_2m": {
+      "source": "T_3m",
+      "intercept": -0.8706888795038247,
+      "slope": 0.9260458908114844,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 2.065039377964023
+    },
+    "RH_2m": {
+      "source": "RH_3m",
+      "intercept": 9.196747469235413,
+      "slope": 0.8368320865666035,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 5.773555139520311
+    },
+    "Wspd": {
+      "source": "Wspd_3m",
+      "intercept": 2.322595012490728,
+      "slope": 0.4912630884860264,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 0.8962234801933646
+    },
+    "SWin": {
+      "source": "SWin",
+      "intercept": 31.23918194964315,
+      "slope": 1.0759938365703885,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 144.38740206193253
+    },
+    "LWin": {
+      "source": "LWin",
+      "intercept": 40.519182346802054,
+      "slope": 0.8686917130375635,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 9.647936801246589
+    }
+  },
+  "qc": {
+    "T_2m": 0,
+    "RH_2m": 0,
+    "Wspd": 0,
+    "SWin": 0,
+    "LWin": 0
+  },
+  "protocol_sha256": "4f831b1535c8bef253a6f9439883ab72ba064f865445a85c62614e441f5f2c5e"
+}

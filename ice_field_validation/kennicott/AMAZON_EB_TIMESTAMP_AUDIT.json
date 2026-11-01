@@ -1,0 +1,105 @@
+{
+  "amazon": {
+    "rows": 43942,
+    "first": "2018-08-31 22:00:00",
+    "last": "2023-09-05 19:00:00",
+    "header": [
+      "Date_Time",
+      "T_1m",
+      "RH_1m",
+      "T_3m",
+      "RH_3m",
+      "Wspd_3m",
+      "SWin",
+      "SWout",
+      "LWin",
+      "LWout",
+      "Pressure",
+      "RainSnow_Rate",
+      "RainSnow_Cum",
+      "Date_Time_ADT"
+    ],
+    "first_rows": [
+      {
+        "Date_Time": "2018-08-31 22:00:00",
+        "T_1m": "12.16",
+        "RH_1m": "58.95",
+        "T_3m": "10.99",
+        "RH_3m": "62.22",
+        "Wspd_3m": "0.66",
+        "SWin": "755.0",
+        "SWout": "130.48",
+        "LWin": "302.44",
+        "LWout": "429.24",
+        "Pressure": "934.18",
+        "RainSnow_Rate": "",
+        "RainSnow_Cum": "",
+        "Date_Time_ADT": "2018-08-31 14:00:00"
+      },
+      {
+        "Date_Time": "2018-08-31 23:00:00",
+        "T_1m": "12.44",
+        "RH_1m": "54.1",
+        "T_3m": "11.56",
+        "RH_3m": "56.2",
+        "Wspd_3m": "0.543",
+        "SWin": "638.44",
+        "SWout": "112.17",
+        "LWin": "300.62",
+        "LWout": "426.64",
+        "Pressure": "933.84",
+        "RainSnow_Rate": "",
+        "RainSnow_Cum": "",
+        "Date_Time_ADT": "2018-08-31 15:00:00"
+      }
+    ]
+  },
+  "overlap": {
+    "2021": {
+      "eb_rows": 2401,
+      "eb_first": "2021-06-03 23:00:00",
+      "eb_last": "2021-09-11 23:00:00",
+      "matched_timestamp_count": 2401,
+      "matched_first": "2021-06-03 23:00:00",
+      "matched_last": "2021-09-11 23:00:00",
+      "field_map": {
+        "T_2m": "T_3m",
+        "RH_2m": "RH_3m",
+        "Wspd": "Wspd_3m",
+        "SWin": "SWin",
+        "LWin": "LWin"
+      },
+      "nonblank_pair_count_by_EB_field": {
+        "T_2m": 2401,
+        "RH_2m": 2401,
+        "Wspd": 2401,
+        "SWin": 2401,
+        "LWin": 2401
+      },
+      "all_core_nonblank_pairs": 2401
+    },
+    "2022": {
+      "eb_rows": 2538,
+      "eb_first": "2022-05-30 02:00:00",
+      "eb_last": "2022-09-12 19:00:00",
+      "matched_timestamp_count": 2538,
+      "matched_first": "2022-05-30 02:00:00",
+      "matched_last": "2022-09-12 19:00:00",
+      "field_map": {
+        "T_2m": "T_3m",
+        "RH_2m": "RH_3m",
+        "Wspd": "Wspd_3m",
+        "SWin": "SWin",
+        "LWin": "LWin"
+      },
+      "nonblank_pair_count_by_EB_field": {
+        "T_2m": 2538,
+        "RH_2m": 2538,
+        "Wspd": 2538,
+        "SWin": 2538,
+        "LWin": 2538
+      },
+      "all_core_nonblank_pairs": 2538
+    }
+  }
+}

@@ -1,0 +1,1096 @@
+{
+  "status": "PASS: saved-event metrics independently recomputed; no model rerun or retuning",
+  "input_sha256": {
+    "FIELD_RESULTS.json": "c2f6be0873191ca60610366ad4d9feb1c53bdb5b949cff1207a9819dc373ce8a",
+    "FIELD_RESULTS_2023.json": "832f172559beb0556114b44ba77d32c6eb0e434902f6f132109b2789f7c9f60a",
+    "CALIBRATION_2021.json": "d73890653e5a02f7e61e41dc00c7816bfe75f53b6ba7b5debd7154af955b07b5",
+    "protocol.json": "b0db9a1f909ec78725d2c489b1d85d5a2918872a05caa994304824202586227b",
+    "protocol2023.json": "4f831b1535c8bef253a6f9439883ab72ba064f865445a85c62614e441f5f2c5e",
+    "WEATHER_TRANSFER_FROZEN.json": "f6d6de8aca52df930b059db23f8593cd144b3da6fcf278fb02c7da31068940a1"
+  },
+  "year2022": {
+    "complete_events": 105,
+    "models": [
+      "training_calibrated_neutral_energy_balance",
+      "training_pooled_constant_normal_rate",
+      "training_positive_degree_day",
+      "uncalibrated_neutral_energy_balance"
+    ],
+    "no_model_censoring": true,
+    "identical_complete_event_support": true,
+    "exclusions_retained": 4,
+    "site_weights": {
+      "P_IC_E": 0.3619047619047619,
+      "P_IC_W": 0.638095238095238
+    },
+    "maximum_absolute_saved_metric_difference": 2.6645352591003757e-15,
+    "recomputed": {
+      "P_IC_E": {
+        "n": 38,
+        "models": {
+          "training_calibrated_neutral_energy_balance": {
+            "MAE_h": 7.5280371560635615,
+            "median_absolute_error_h": 6.019353939592839,
+            "RMSE_h": 8.86082152307732,
+            "bias_h": -7.26839982801885,
+            "MAPE": 0.3458435149460126,
+            "fraction_within_2h": 0.05263157894736842,
+            "fraction_within20percent": 0.2631578947368421,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": -0.11236893527293401
+          },
+          "training_pooled_constant_normal_rate": {
+            "MAE_h": 6.7675722661353,
+            "median_absolute_error_h": 5.25,
+            "RMSE_h": 8.672291685341753,
+            "bias_h": -4.695330064655746,
+            "MAPE": 0.3250542093324089,
+            "fraction_within_2h": 0.13157894736842105,
+            "fraction_within20percent": 0.3157894736842105,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": 0.0
+          },
+          "training_positive_degree_day": {
+            "MAE_h": 8.318000376116464,
+            "median_absolute_error_h": 8.573745021720727,
+            "RMSE_h": 9.88716784322201,
+            "bias_h": -8.178699045815662,
+            "MAPE": 0.3580957709090765,
+            "fraction_within_2h": 0.18421052631578946,
+            "fraction_within20percent": 0.23684210526315788,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": -0.22909664633201676
+          },
+          "uncalibrated_neutral_energy_balance": {
+            "MAE_h": 7.623811727971361,
+            "median_absolute_error_h": 5.265465182430215,
+            "RMSE_h": 9.17869455522487,
+            "bias_h": -7.442408701725173,
+            "MAPE": 0.3596209590411119,
+            "fraction_within_2h": 0.05263157894736842,
+            "fraction_within20percent": 0.23684210526315788,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": -0.12652091890036465
+          }
+        }
+      },
+      "P_IC_W": {
+        "n": 67,
+        "models": {
+          "training_calibrated_neutral_energy_balance": {
+            "MAE_h": 8.27135928580417,
+            "median_absolute_error_h": 5.173382043772271,
+            "RMSE_h": 11.511241360656555,
+            "bias_h": -4.937370263958847,
+            "MAPE": 0.2562588026594122,
+            "fraction_within_2h": 0.208955223880597,
+            "fraction_within20percent": 0.5223880597014925,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": 0.19343117729063808
+          },
+          "training_pooled_constant_normal_rate": {
+            "MAE_h": 10.254995051779558,
+            "median_absolute_error_h": 6.86155615641011,
+            "RMSE_h": 14.052900097402139,
+            "bias_h": -4.131478669460537,
+            "MAPE": 0.3483558039811026,
+            "fraction_within_2h": 0.1791044776119403,
+            "fraction_within20percent": 0.373134328358209,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": 0.0
+          },
+          "training_positive_degree_day": {
+            "MAE_h": 8.439478216308663,
+            "median_absolute_error_h": 5.471453768478501,
+            "RMSE_h": 11.482554400403222,
+            "bias_h": -6.224703261940238,
+            "MAPE": 0.2629550261491527,
+            "fraction_within_2h": 0.22388059701492538,
+            "fraction_within20percent": 0.5223880597014925,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": 0.17703731950176282
+          },
+          "uncalibrated_neutral_energy_balance": {
+            "MAE_h": 4.862527213823143,
+            "median_absolute_error_h": 2.9178387321366195,
+            "RMSE_h": 6.840725831028452,
+            "bias_h": 0.6705146253593327,
+            "MAPE": 0.20576857282141217,
+            "fraction_within_2h": 0.3880597014925373,
+            "fraction_within20percent": 0.7313432835820896,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": 0.5258381706406241
+          }
+        }
+      },
+      "pooled": {
+        "n": 105,
+        "models": {
+          "training_calibrated_neutral_energy_balance": {
+            "MAE_h": 8.002347467421854,
+            "median_absolute_error_h": 5.545519655545551,
+            "RMSE_h": 10.628631327856173,
+            "bias_h": -5.780980963332943,
+            "MAPE": 0.2886799366298009,
+            "fraction_within_2h": 0.1523809523809524,
+            "fraction_within20percent": 0.42857142857142855,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": 0.110146321997045
+          },
+          "training_pooled_constant_normal_rate": {
+            "MAE_h": 8.992880138879732,
+            "median_absolute_error_h": 6.089628310269781,
+            "RMSE_h": 12.378690027532327,
+            "bias_h": -4.335539174388327,
+            "MAPE": 0.33992284591776584,
+            "fraction_within_2h": 0.1619047619047619,
+            "fraction_within20percent": 0.3523809523809524,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": 0.0
+          },
+          "training_positive_degree_day": {
+            "MAE_h": 8.3955148074772,
+            "median_absolute_error_h": 6.870088151958257,
+            "RMSE_h": 10.932092582711451,
+            "bias_h": -6.931863640866582,
+            "MAPE": 0.2973869147289347,
+            "fraction_within_2h": 0.20952380952380953,
+            "fraction_within20percent": 0.41904761904761906,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": 0.06642647540912816
+          },
+          "uncalibrated_neutral_energy_balance": {
+            "MAE_h": 5.8618492284672605,
+            "median_absolute_error_h": 4.295582862628834,
+            "RMSE_h": 7.76852071781853,
+            "bias_h": -2.265590959680774,
+            "MAPE": 0.2614484840247321,
+            "fraction_within_2h": 0.26666666666666666,
+            "fraction_within20percent": 0.5523809523809524,
+            "censored": 0,
+            "MAE_skill_vs_training_constant": 0.3481677573879588
+          }
+        }
+      }
+    },
+    "equal_site_weighted": {
+      "training_calibrated_neutral_energy_balance": {
+        "MAE_h": 7.899698220933866,
+        "bias_h": -6.102885045988849,
+        "RMSE_h": 10.271875089951212
+      },
+      "training_pooled_constant_normal_rate": {
+        "MAE_h": 8.511283658957428,
+        "bias_h": -4.413404367058142,
+        "RMSE_h": 11.67674278690793
+      },
+      "training_positive_degree_day": {
+        "MAE_h": 8.378739296212563,
+        "bias_h": -7.20170115387795,
+        "RMSE_h": 10.71459620140355
+      },
+      "uncalibrated_neutral_energy_balance": {
+        "MAE_h": 6.243169470897252,
+        "bias_h": -3.38594703818292,
+        "RMSE_h": 8.094564955370195
+      }
+    }
+  },
+  "year2023": {
+    "base": {
+      "complete_events": 71,
+      "models": [
+        "training_calibrated_neutral_energy_balance",
+        "training_pooled_constant_normal_rate",
+        "training_positive_degree_day",
+        "uncalibrated_neutral_energy_balance"
+      ],
+      "no_model_censoring": true,
+      "identical_complete_event_support": true,
+      "exclusions_retained": 2,
+      "site_weights": {
+        "P_IC_E": 0.09859154929577464,
+        "P_IC_N": 0.29577464788732394,
+        "P_IC_W": 0.38028169014084506,
+        "P_IC_W2": 0.22535211267605634
+      },
+      "maximum_absolute_saved_metric_difference": 2.6645352591003757e-15,
+      "recomputed": {
+        "P_IC_E": {
+          "n": 7,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.0437072366665285,
+              "median_absolute_error_h": 4.29087379925781,
+              "RMSE_h": 9.282072573307483,
+              "bias_h": -6.07124162771399,
+              "MAPE": 0.20537756548054983,
+              "fraction_within_2h": 0.2857142857142857,
+              "fraction_within20percent": 0.7142857142857143,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.4399861050329493
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 12.577736552556356,
+              "median_absolute_error_h": 9.077736552556356,
+              "RMSE_h": 14.448906026303197,
+              "bias_h": -12.577736552556356,
+              "MAPE": 0.38273636249506576,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.14285714285714285,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.754747949526423,
+              "median_absolute_error_h": 4.403635711073875,
+              "RMSE_h": 10.169889137554945,
+              "bias_h": -6.4965663177910296,
+              "MAPE": 0.22729813734822316,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5714285714285714,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.3834544143039542
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 7.123752468360796,
+              "median_absolute_error_h": 4.5101177363925515,
+              "RMSE_h": 9.41828808962701,
+              "bias_h": -7.123752468360796,
+              "MAPE": 0.20815656673567431,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5714285714285714,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.4336220639863114
+            }
+          }
+        },
+        "P_IC_N": {
+          "n": 21,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.86560130331882,
+              "median_absolute_error_h": 7.7603445488876766,
+              "RMSE_h": 11.083262684111048,
+              "bias_h": -5.596558246663008,
+              "MAPE": 0.23267390777246172,
+              "fraction_within_2h": 0.09523809523809523,
+              "fraction_within20percent": 0.42857142857142855,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.27648995180166636
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.945296585222401,
+              "median_absolute_error_h": 7.165438376996249,
+              "RMSE_h": 8.874856482130037,
+              "bias_h": -3.5956727341148618,
+              "MAPE": 0.18021190488553934,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.47619047619047616,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 8.867852921239914,
+              "median_absolute_error_h": 6.865551348527273,
+              "RMSE_h": 11.578225827004598,
+              "bias_h": -6.456355281412287,
+              "MAPE": 0.23021684165706352,
+              "fraction_within_2h": 0.19047619047619047,
+              "fraction_within20percent": 0.42857142857142855,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.27681414500111634
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.241668884820409,
+              "median_absolute_error_h": 4.750996949474018,
+              "RMSE_h": 8.70752736497405,
+              "bias_h": -2.3594666104499624,
+              "MAPE": 0.16900986753771413,
+              "fraction_within_2h": 0.3333333333333333,
+              "fraction_within20percent": 0.6666666666666666,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.10130995728808911
+            }
+          }
+        },
+        "P_IC_W": {
+          "n": 27,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.463643126713396,
+              "median_absolute_error_h": 5.1478267803457065,
+              "RMSE_h": 9.80361395056545,
+              "bias_h": -7.09930844418306,
+              "MAPE": 0.26423045933347056,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.48148148148148145,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.21160428489597005
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.16013266027219,
+              "median_absolute_error_h": 3.715916550821728,
+              "RMSE_h": 8.992150090824792,
+              "bias_h": -3.827644945883456,
+              "MAPE": 0.2629096050949045,
+              "fraction_within_2h": 0.3333333333333333,
+              "fraction_within20percent": 0.5925925925925926,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 6.345493198481116,
+              "median_absolute_error_h": 4.971230625510216,
+              "RMSE_h": 8.154671065507188,
+              "bias_h": -4.5652171913243125,
+              "MAPE": 0.24346602989378374,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.4074074074074074,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.030090348444011594
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 8.981359069391532,
+              "median_absolute_error_h": 6.866356021960577,
+              "RMSE_h": 11.142980836580396,
+              "bias_h": -8.938219373834476,
+              "MAPE": 0.34192971612737416,
+              "fraction_within_2h": 0.1111111111111111,
+              "fraction_within20percent": 0.4444444444444444,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.4579814372040949
+            }
+          }
+        },
+        "P_IC_W2": {
+          "n": 16,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.362271641575628,
+              "median_absolute_error_h": 4.092591416471533,
+              "RMSE_h": 11.416109716743941,
+              "bias_h": -7.047721856873896,
+              "MAPE": 0.22096837341505882,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.625,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.15855405703803283
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 8.74954796936777,
+              "median_absolute_error_h": 3.8115959387355396,
+              "RMSE_h": 12.376233523941902,
+              "bias_h": -4.71784593873554,
+              "MAPE": 0.43974997947688316,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.5625,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.536589910060995,
+              "median_absolute_error_h": 5.22265583227078,
+              "RMSE_h": 10.664663601875768,
+              "bias_h": -3.852415300065444,
+              "MAPE": 0.31935197627678447,
+              "fraction_within_2h": 0.1875,
+              "fraction_within20percent": 0.5,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.1386309399700819
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 9.538661277732915,
+              "median_absolute_error_h": 5.2344914781385,
+              "RMSE_h": 13.270309166133254,
+              "bias_h": -9.382941556837823,
+              "MAPE": 0.31390770230728193,
+              "fraction_within_2h": 0.125,
+              "fraction_within20percent": 0.4375,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.09018903732259509
+            }
+          }
+        },
+        "pooled": {
+          "n": 71,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.814060404406094,
+              "median_absolute_error_h": 4.883686891264386,
+              "RMSE_h": 10.523578407443546,
+              "bias_h": -6.5418491869978315,
+              "MAPE": 0.2393452309609886,
+              "fraction_within_2h": 0.19718309859154928,
+              "fraction_within20percent": 0.5211267605633803,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.027001552009374707
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 7.6086159647154705,
+              "median_absolute_error_h": 4.834561623003751,
+              "RMSE_h": 10.447282775231622,
+              "bias_h": -4.822327209055332,
+              "MAPE": 0.2901149795669625,
+              "fraction_within_2h": 0.23943661971830985,
+              "fraction_within20percent": 0.5070422535211268,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.498900026939285,
+              "median_absolute_error_h": 5.579999698201814,
+              "RMSE_h": 10.0382176155607,
+              "bias_h": -5.15435118452111,
+              "MAPE": 0.2550542966731916,
+              "fraction_within_2h": 0.18309859154929578,
+              "fraction_within20percent": 0.4507042253521127,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.014419959988122288
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 8.113473087000735,
+              "median_absolute_error_h": 4.9842293314139035,
+              "RMSE_h": 10.86619711430794,
+              "bias_h": -6.913719071843815,
+              "MAPE": 0.27128068672953987,
+              "fraction_within_2h": 0.18309859154929578,
+              "fraction_within20percent": 0.5211267605633803,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.0663533452899332
+            }
+          }
+        }
+      },
+      "equal_site_weighted": {
+        "training_calibrated_neutral_energy_balance": {
+          "MAE_h": 7.683805827068593,
+          "bias_h": -6.4537075438584885,
+          "RMSE_h": 10.433527573855503
+        },
+        "training_pooled_constant_normal_rate": {
+          "MAE_h": 8.60817844185468,
+          "bias_h": -6.179725042822553,
+          "RMSE_h": 11.41888657477613
+        },
+        "training_positive_degree_day": {
+          "MAE_h": 7.6261709948271115,
+          "bias_h": -5.342638522648269,
+          "RMSE_h": 10.219046779165222
+        },
+        "uncalibrated_neutral_energy_balance": {
+          "MAE_h": 7.971360425076413,
+          "bias_h": -6.9510950023707645,
+          "RMSE_h": 10.779521216642
+        }
+      }
+    },
+    "SW_minus15percent": {
+      "complete_events": 71,
+      "models": [
+        "training_calibrated_neutral_energy_balance",
+        "training_pooled_constant_normal_rate",
+        "training_positive_degree_day",
+        "uncalibrated_neutral_energy_balance"
+      ],
+      "no_model_censoring": true,
+      "identical_complete_event_support": true,
+      "exclusions_retained": 2,
+      "site_weights": {
+        "P_IC_E": 0.09859154929577464,
+        "P_IC_N": 0.29577464788732394,
+        "P_IC_W": 0.38028169014084506,
+        "P_IC_W2": 0.22535211267605634
+      },
+      "maximum_absolute_saved_metric_difference": 1.7763568394002505e-15,
+      "recomputed": {
+        "P_IC_E": {
+          "n": 7,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 6.846321452818221,
+              "median_absolute_error_h": 3.6760196340084086,
+              "RMSE_h": 8.551362303321591,
+              "bias_h": -4.918450894507152,
+              "MAPE": 0.20323291495876866,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.7142857142857143,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.45567937249991586
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 12.577736552556356,
+              "median_absolute_error_h": 9.077736552556356,
+              "RMSE_h": 14.448906026303197,
+              "bias_h": -12.577736552556356,
+              "MAPE": 0.38273636249506576,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.14285714285714285,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.754747949526423,
+              "median_absolute_error_h": 4.403635711073875,
+              "RMSE_h": 10.169889137554945,
+              "bias_h": -6.4965663177910296,
+              "MAPE": 0.22729813734822316,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5714285714285714,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.3834544143039542
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 5.153931531641218,
+              "median_absolute_error_h": 3.380931999352242,
+              "RMSE_h": 6.9643248737612655,
+              "bias_h": -5.067140222428336,
+              "MAPE": 0.14884139659178372,
+              "fraction_within_2h": 0.2857142857142857,
+              "fraction_within20percent": 0.7142857142857143,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.5902337825167987
+            }
+          }
+        },
+        "P_IC_N": {
+          "n": 21,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.399206304944382,
+              "median_absolute_error_h": 7.168348290059303,
+              "RMSE_h": 10.854648717921878,
+              "bias_h": -4.560257167604865,
+              "MAPE": 0.22083340676807175,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5238095238095238,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.20933731222011231
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.945296585222401,
+              "median_absolute_error_h": 7.165438376996249,
+              "RMSE_h": 8.874856482130037,
+              "bias_h": -3.5956727341148618,
+              "MAPE": 0.18021190488553934,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.47619047619047616,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 8.867852921239914,
+              "median_absolute_error_h": 6.865551348527273,
+              "RMSE_h": 11.578225827004598,
+              "bias_h": -6.456355281412287,
+              "MAPE": 0.23021684165706352,
+              "fraction_within_2h": 0.19047619047619047,
+              "fraction_within20percent": 0.42857142857142855,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.27681414500111634
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 5.9676877543882085,
+              "median_absolute_error_h": 2.605084420243898,
+              "RMSE_h": 8.571646668217218,
+              "bias_h": 1.2322391716670738,
+              "MAPE": 0.17236935850094187,
+              "fraction_within_2h": 0.38095238095238093,
+              "fraction_within20percent": 0.7142857142857143,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.14075839942015778
+            }
+          }
+        },
+        "P_IC_W": {
+          "n": 27,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 6.731007394498759,
+              "median_absolute_error_h": 4.5256010158194435,
+              "RMSE_h": 8.737101756522163,
+              "bias_h": -5.821877222387388,
+              "MAPE": 0.24058731452223403,
+              "fraction_within_2h": 0.2222222222222222,
+              "fraction_within20percent": 0.5185185185185185,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.09267247406995693
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.16013266027219,
+              "median_absolute_error_h": 3.715916550821728,
+              "RMSE_h": 8.992150090824792,
+              "bias_h": -3.827644945883456,
+              "MAPE": 0.2629096050949045,
+              "fraction_within_2h": 0.3333333333333333,
+              "fraction_within20percent": 0.5925925925925926,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 6.345493198481116,
+              "median_absolute_error_h": 4.971230625510216,
+              "RMSE_h": 8.154671065507188,
+              "bias_h": -4.5652171913243125,
+              "MAPE": 0.24346602989378374,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.4074074074074074,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.030090348444011594
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.097672350995334,
+              "median_absolute_error_h": 2.851199569238556,
+              "RMSE_h": 8.185185888193205,
+              "bias_h": -5.9169182763570625,
+              "MAPE": 0.22191135262563558,
+              "fraction_within_2h": 0.2222222222222222,
+              "fraction_within20percent": 0.5925925925925926,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.010139442236313023
+            }
+          }
+        },
+        "P_IC_W2": {
+          "n": 16,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 6.597872373031245,
+              "median_absolute_error_h": 3.5250547439522197,
+              "RMSE_h": 10.565470920703875,
+              "bias_h": -5.638959966558549,
+              "MAPE": 0.2144102905138494,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.625,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.24591848674577899
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 8.74954796936777,
+              "median_absolute_error_h": 3.8115959387355396,
+              "RMSE_h": 12.376233523941902,
+              "bias_h": -4.71784593873554,
+              "MAPE": 0.43974997947688316,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.5625,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.536589910060995,
+              "median_absolute_error_h": 5.22265583227078,
+              "RMSE_h": 10.664663601875768,
+              "bias_h": -3.852415300065444,
+              "MAPE": 0.31935197627678447,
+              "fraction_within_2h": 0.1875,
+              "fraction_within20percent": 0.5,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.1386309399700819
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.5172429878885545,
+              "median_absolute_error_h": 2.810049389534525,
+              "RMSE_h": 10.400134132690132,
+              "bias_h": -6.222293456192645,
+              "MAPE": 0.2015992285190733,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.625,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.2551337496856445
+            }
+          }
+        },
+        "pooled": {
+          "n": 71,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.2057850731482525,
+              "median_absolute_error_h": 4.5060110996166856,
+              "RMSE_h": 9.810411499819308,
+              "bias_h": -5.31843100353026,
+              "MAPE": 0.22516273362201122,
+              "fraction_within_2h": 0.19718309859154928,
+              "fraction_within20percent": 0.5633802816901409,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.05294404309999656
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 7.6086159647154705,
+              "median_absolute_error_h": 4.834561623003751,
+              "RMSE_h": 10.447282775231622,
+              "bias_h": -4.822327209055332,
+              "MAPE": 0.2901149795669625,
+              "fraction_within_2h": 0.23943661971830985,
+              "fraction_within20percent": 0.5070422535211268,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.498900026939285,
+              "median_absolute_error_h": 5.579999698201814,
+              "RMSE_h": 10.0382176155607,
+              "bias_h": -5.15435118452111,
+              "MAPE": 0.2550542966731916,
+              "fraction_within_2h": 0.18309859154929578,
+              "fraction_within20percent": 0.4507042253521127,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.014419959988122288
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.060732462630025,
+              "median_absolute_error_h": 2.9384072474638607,
+              "RMSE_h": 8.738758800603271,
+              "bias_h": -3.787414756517082,
+              "MAPE": 0.19547662650506475,
+              "fraction_within_2h": 0.29577464788732394,
+              "fraction_within20percent": 0.647887323943662,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.2034382480681991
+            }
+          }
+        }
+      },
+      "equal_site_weighted": {
+        "training_calibrated_neutral_energy_balance": {
+          "MAE_h": 7.143601881323152,
+          "bias_h": -5.2348863127644885,
+          "RMSE_h": 9.732873662390446
+        },
+        "training_pooled_constant_normal_rate": {
+          "MAE_h": 8.60817844185468,
+          "bias_h": -6.179725042822553,
+          "RMSE_h": 11.41888657477613
+        },
+        "training_positive_degree_day": {
+          "MAE_h": 7.6261709948271115,
+          "bias_h": -5.342638522648269,
+          "RMSE_h": 10.219046779165222
+        },
+        "uncalibrated_neutral_energy_balance": {
+          "MAE_h": 5.934133656228329,
+          "bias_h": -3.9935281958277424,
+          "RMSE_h": 8.618802201499243
+        }
+      }
+    },
+    "SW_plus15percent": {
+      "complete_events": 71,
+      "models": [
+        "training_calibrated_neutral_energy_balance",
+        "training_pooled_constant_normal_rate",
+        "training_positive_degree_day",
+        "uncalibrated_neutral_energy_balance"
+      ],
+      "no_model_censoring": true,
+      "identical_complete_event_support": true,
+      "exclusions_retained": 2,
+      "site_weights": {
+        "P_IC_E": 0.09859154929577464,
+        "P_IC_N": 0.29577464788732394,
+        "P_IC_W": 0.38028169014084506,
+        "P_IC_W2": 0.22535211267605634
+      },
+      "maximum_absolute_saved_metric_difference": 3.552713678800501e-15,
+      "recomputed": {
+        "P_IC_E": {
+          "n": 7,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.21381540792329,
+              "median_absolute_error_h": 4.849915875726275,
+              "RMSE_h": 9.939360832793364,
+              "bias_h": -7.0234798766128606,
+              "MAPE": 0.2076198891905884,
+              "fraction_within_2h": 0.2857142857142857,
+              "fraction_within20percent": 0.42857142857142855,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.4264615594562504
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 12.577736552556356,
+              "median_absolute_error_h": 9.077736552556356,
+              "RMSE_h": 14.448906026303197,
+              "bias_h": -12.577736552556356,
+              "MAPE": 0.38273636249506576,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.14285714285714285,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.754747949526423,
+              "median_absolute_error_h": 4.403635711073875,
+              "RMSE_h": 10.169889137554945,
+              "bias_h": -6.4965663177910296,
+              "MAPE": 0.22729813734822316,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5714285714285714,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.3834544143039542
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 8.79876491296859,
+              "median_absolute_error_h": 5.354742637674015,
+              "RMSE_h": 10.848882200987925,
+              "bias_h": -8.79876491296859,
+              "MAPE": 0.2636994937101792,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.42857142857142855,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.3004492599918315
+            }
+          }
+        },
+        "P_IC_N": {
+          "n": 21,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 9.453934274211761,
+              "median_absolute_error_h": 8.378635718226434,
+              "RMSE_h": 11.498730088265678,
+              "bias_h": -6.667170092706327,
+              "MAPE": 0.24788728825762496,
+              "fraction_within_2h": 0.09523809523809523,
+              "fraction_within20percent": 0.47619047619047616,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.3611995050473469
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.945296585222401,
+              "median_absolute_error_h": 7.165438376996249,
+              "RMSE_h": 8.874856482130037,
+              "bias_h": -3.5956727341148618,
+              "MAPE": 0.18021190488553934,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.47619047619047616,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 8.867852921239914,
+              "median_absolute_error_h": 6.865551348527273,
+              "RMSE_h": 11.578225827004598,
+              "bias_h": -6.456355281412287,
+              "MAPE": 0.23021684165706352,
+              "fraction_within_2h": 0.19047619047619047,
+              "fraction_within20percent": 0.42857142857142855,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.27681414500111634
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.941467644871858,
+              "median_absolute_error_h": 4.77978378534317,
+              "RMSE_h": 9.587935561838494,
+              "bias_h": -4.595800974854717,
+              "MAPE": 0.1854772154621599,
+              "fraction_within_2h": 0.23809523809523808,
+              "fraction_within20percent": 0.5714285714285714,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0005512997614370851
+            }
+          }
+        },
+        "P_IC_W": {
+          "n": 27,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.309965308936535,
+              "median_absolute_error_h": 5.783758898509873,
+              "RMSE_h": 10.664327526370064,
+              "bias_h": -8.164536282680162,
+              "MAPE": 0.29822523935316414,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.4074074074074074,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.348991290809207
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.16013266027219,
+              "median_absolute_error_h": 3.715916550821728,
+              "RMSE_h": 8.992150090824792,
+              "bias_h": -3.827644945883456,
+              "MAPE": 0.2629096050949045,
+              "fraction_within_2h": 0.3333333333333333,
+              "fraction_within20percent": 0.5925925925925926,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 6.345493198481116,
+              "median_absolute_error_h": 4.971230625510216,
+              "RMSE_h": 8.154671065507188,
+              "bias_h": -4.5652171913243125,
+              "MAPE": 0.24346602989378374,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.4074074074074074,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.030090348444011594
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 10.850615808107726,
+              "median_absolute_error_h": 9.432908882829878,
+              "RMSE_h": 12.734339360774008,
+              "bias_h": -10.850615808107726,
+              "MAPE": 0.4196853677046225,
+              "fraction_within_2h": 0.1111111111111111,
+              "fraction_within20percent": 0.25925925925925924,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.7614256715744632
+            }
+          }
+        },
+        "P_IC_W2": {
+          "n": 16,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.929027213168641,
+              "median_absolute_error_h": 5.258402702444128,
+              "RMSE_h": 13.1166522561554,
+              "bias_h": -8.861186432552834,
+              "MAPE": 0.2699047152043424,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.5,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.020512973290646608
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 8.74954796936777,
+              "median_absolute_error_h": 3.8115959387355396,
+              "RMSE_h": 12.376233523941902,
+              "bias_h": -4.71784593873554,
+              "MAPE": 0.43974997947688316,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.5625,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.536589910060995,
+              "median_absolute_error_h": 5.22265583227078,
+              "RMSE_h": 10.664663601875768,
+              "bias_h": -3.852415300065444,
+              "MAPE": 0.31935197627678447,
+              "fraction_within_2h": 0.1875,
+              "fraction_within20percent": 0.5,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.1386309399700819
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 11.82364676475525,
+              "median_absolute_error_h": 8.718803293307623,
+              "RMSE_h": 15.71745442508895,
+              "bias_h": -11.776980386624734,
+              "MAPE": 0.39866629213258237,
+              "fraction_within_2h": 0.125,
+              "fraction_within20percent": 0.25,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.35134372725881624
+            }
+          }
+        },
+        "pooled": {
+          "n": 71,
+          "models": {
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.679758117829504,
+              "median_absolute_error_h": 5.819337331321503,
+              "RMSE_h": 11.439720022867958,
+              "bias_h": -7.766146389244121,
+              "MAPE": 0.268021537796467,
+              "fraction_within_2h": 0.19718309859154928,
+              "fraction_within20percent": 0.4507042253521127,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.14078015740068817
+            },
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 7.6086159647154705,
+              "median_absolute_error_h": 4.834561623003751,
+              "RMSE_h": 10.447282775231622,
+              "bias_h": -4.822327209055332,
+              "MAPE": 0.2901149795669625,
+              "fraction_within_2h": 0.23943661971830985,
+              "fraction_within20percent": 0.5070422535211268,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.498900026939285,
+              "median_absolute_error_h": 5.579999698201814,
+              "RMSE_h": 10.0382176155607,
+              "bias_h": -5.15435118452111,
+              "MAPE": 0.2550542966731916,
+              "fraction_within_2h": 0.18309859154929578,
+              "fraction_within20percent": 0.4507042253521127,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": 0.014419959988122288
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 9.711368309691293,
+              "median_absolute_error_h": 7.309914308786393,
+              "RMSE_h": 12.49530173093485,
+              "bias_h": -9.007063209403288,
+              "MAPE": 0.33029695187074276,
+              "fraction_within_2h": 0.14084507042253522,
+              "fraction_within20percent": 0.36619718309859156,
+              "censored": 0,
+              "MAE_skill_vs_training_constant": -0.276364631192745
+            }
+          }
+        }
+      },
+      "equal_site_weighted": {
+        "training_calibrated_neutral_energy_balance": {
+          "MAE_h": 8.476685551060058,
+          "bias_h": -7.679093171138046,
+          "RMSE_h": 11.366465319151047
+        },
+        "training_pooled_constant_normal_rate": {
+          "MAE_h": 8.60817844185468,
+          "bias_h": -6.179725042822553,
+          "RMSE_h": 11.41888657477613
+        },
+        "training_positive_degree_day": {
+          "MAE_h": 7.6261709948271115,
+          "bias_h": -5.342638522648269,
+          "RMSE_h": 10.219046779165222
+        },
+        "uncalibrated_neutral_energy_balance": {
+          "MAE_h": 9.603623782675855,
+          "bias_h": -9.005540520638942,
+          "RMSE_h": 12.438132153874495
+        }
+      }
+    }
+  },
+  "calibration_check": {
+    "identical_saved_melt_calibration": true,
+    "training_year": 2021,
+    "training_intervals": 94,
+    "training_sites": [
+      "P_IC_E",
+      "P_IC_N",
+      "P_IC_S",
+      "P_IC_W"
+    ],
+    "temporal_holdout_years": [
+      2022,
+      2023
+    ],
+    "spatial_holdout": false,
+    "weather_transfer_training_years": [
+      2021,
+      2022
+    ],
+    "weather_transfer_test_year": 2023,
+    "limits": "Saved calibration and protocol agree; this arithmetic audit does not independently reconstruct fitting from raw observations or establish preregistration."
+  },
+  "interpretation": [
+    "Pooled metrics weight events equally, not sites equally; adjacent events share endpoints and weather.",
+    "2022 has two site-year histories; 2023 has four, with repeated sites. These are not 176 independent glaciers or validations.",
+    "2023 weather transfer uses 2021+2022 meteorology, not 2023 melt fitting; 2022 results were already inspected before secondary 2023 evaluation.",
+    "All results are retrospective observed-weather atmospheric-component hindcasts, not issued forecasts.",
+    "Missing hydrological heat is unknown, not measured zero. These models do not validate the new coupled hydraulic-memory/debris/stream system.",
+    "SW +/-15 percent are engineering scenarios, not uncertainty intervals. No confidence interval or accuracy guarantee is inferred.",
+    "Saved events retain no 2023 timestamps; 2023 temporal membership relies on protocol and reviewed evaluation code rather than event-level dates."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "status": "development-era protocol fixed before computing 2022 model scores; not independently timestamped preregistration",
+  "task": "retrospective weather-forced time to next 0.10 m horizontal stake marker",
+  "measurement_protocol": "273 of 291 increments are exactly 10 cm; distance over event-conditioned intervals is not a valid accuracy headline",
+  "training_year": 2021,
+  "test_year": 2022,
+  "test_sites": ["P_IC_E", "P_IC_W"],
+  "models": ["training_pooled_constant_normal_rate", "training_positive_degree_day", "uncalibrated_neutral_energy_balance", "training_calibrated_neutral_energy_balance"],
+  "energy_balance": {
+    "solar": "pvlib0.11.2 NREL solar position; Erbs horizontal diffuse split; isotropic tilted plane; ground albedo0.2",
+    "atmosphere": "neutral heat and moisture exchange, surface0C, epsilon0.97; station pressure standard atmosphere at559m; no terrain shading/neighbor radiation/water heat",
+    "fixed_parameters": {"ice_albedo": 0.2, "exchange": 0.002},
+    "calibration": "pooled2021 positive weather-covered interval normal-displacement residuals only, bounded albedo[0.05,0.6],exchange[0.0001,0.02], starts[0.2,0.002],[0.4,0.005],[0.1,0.01]; choose lowest TRAIN cost",
+    "missing_hydrology": "unknown, never assumed zero observationally; atmosphere-only prediction is an incomplete component baseline"
+  },
+  "geometry": "annual observed slope/aspect by site and year; horizontal displacement converts to normal by sin(slope)",
+  "test_eligibility": "exact10cm observed increments, monotone timestamps, both endpoints within actual hourly forcing support; all exclusions retained with reasons",
+  "temporal_forcing": "hourly mean assumed centered on UTC timestamp; piecewise constant flux; no extrapolation; report +/-30min timestamp sensitivity separately if performed",
+  "metrics": ["event-time MAE hours", "median absolute error hours", "RMSE hours", "bias hours", "MAPE", "fraction within2h", "fraction within20percent", "censored counts per model", "paired MAE skill vs training constant normal-rate baseline"],
+  "independence": "two held-out site-year histories, not105 independent field validations; adjacent events share endpoints and forcing",
+  "censor_policy": "record all predictions not reaching the marker by last available weather time; primary paired errors only on full common support and no superiority headline if censoring materially selects cases",
+  "claims": "field hindcast evidence for atmospheric component baselines only; not a test of the coupled hydraulic-memory model, not operational forecast, not professional CliffEBM reproduction",
+  "post_test_policy": "do not tune parameters, model family or exclusions based on2022 errors; any later model is development on exposed2022 and needs a new holdout"
+}

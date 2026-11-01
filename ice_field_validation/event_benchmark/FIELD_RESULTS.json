@@ -1,0 +1,2105 @@
+{
+  "evaluation": "retrospective observed-weather hindcast, not an issued forecast",
+  "calibration": {
+    "protocol_sha256": "b0db9a1f909ec78725d2c489b1d85d5a2918872a05caa994304824202586227b",
+    "training_year": 2021,
+    "training_intervals": 94,
+    "excluded": [
+      {
+        "id": "P_IC_N:32",
+        "reason": "no complete forcing or nonpositive retreat"
+      }
+    ],
+    "training_sites": [
+      "P_IC_E",
+      "P_IC_N",
+      "P_IC_S",
+      "P_IC_W"
+    ],
+    "albedo": 0.5999999999999999,
+    "neutral_exchange": 0.0048117017990167215,
+    "training_squared_error_m2": 0.17891952802545738,
+    "constant_normal_rate_m_s": 8.21323690792335e-07,
+    "degree_factor_m_per_Kday": 0.00788885649408678,
+    "fit_success": true,
+    "model_scope": "atmosphere-only component baselines; unknown hydrological heat is not observed zero"
+  },
+  "test_year": 2022,
+  "metrics": {
+    "P_IC_E": {
+      "eligible": 38,
+      "paired_complete": 38,
+      "models": {
+        "training_pooled_constant_normal_rate": {
+          "MAE_h": 6.7675722661353,
+          "median_absolute_error_h": 5.25,
+          "RMSE_h": 8.672291685341753,
+          "bias_h": -4.695330064655744,
+          "MAPE": 0.3250542093324089,
+          "fraction_within_2h": 0.13157894736842105,
+          "fraction_within20percent": 0.3157894736842105,
+          "MAE_skill_vs_training_constant": 0.0,
+          "censored": 0
+        },
+        "training_positive_degree_day": {
+          "MAE_h": 8.318000376116462,
+          "median_absolute_error_h": 8.573745021720727,
+          "RMSE_h": 9.88716784322201,
+          "bias_h": -8.178699045815664,
+          "MAPE": 0.35809577090907657,
+          "fraction_within_2h": 0.18421052631578946,
+          "fraction_within20percent": 0.23684210526315788,
+          "MAE_skill_vs_training_constant": -0.22909664633201654,
+          "censored": 0
+        },
+        "uncalibrated_neutral_energy_balance": {
+          "MAE_h": 7.623811727971361,
+          "median_absolute_error_h": 5.265465182430215,
+          "RMSE_h": 9.17869455522487,
+          "bias_h": -7.442408701725174,
+          "MAPE": 0.3596209590411119,
+          "fraction_within_2h": 0.05263157894736842,
+          "fraction_within20percent": 0.23684210526315788,
+          "MAE_skill_vs_training_constant": -0.12652091890036465,
+          "censored": 0
+        },
+        "training_calibrated_neutral_energy_balance": {
+          "MAE_h": 7.528037156063564,
+          "median_absolute_error_h": 6.019353939592839,
+          "RMSE_h": 8.86082152307732,
+          "bias_h": -7.26839982801885,
+          "MAPE": 0.34584351494601256,
+          "fraction_within_2h": 0.05263157894736842,
+          "fraction_within20percent": 0.2631578947368421,
+          "MAE_skill_vs_training_constant": -0.11236893527293446,
+          "censored": 0
+        }
+      }
+    },
+    "P_IC_W": {
+      "eligible": 67,
+      "paired_complete": 67,
+      "models": {
+        "training_pooled_constant_normal_rate": {
+          "MAE_h": 10.25499505177956,
+          "median_absolute_error_h": 6.86155615641011,
+          "RMSE_h": 14.052900097402139,
+          "bias_h": -4.131478669460536,
+          "MAPE": 0.3483558039811026,
+          "fraction_within_2h": 0.1791044776119403,
+          "fraction_within20percent": 0.373134328358209,
+          "MAE_skill_vs_training_constant": 0.0,
+          "censored": 0
+        },
+        "training_positive_degree_day": {
+          "MAE_h": 8.439478216308661,
+          "median_absolute_error_h": 5.471453768478501,
+          "RMSE_h": 11.48255440040322,
+          "bias_h": -6.224703261940238,
+          "MAPE": 0.2629550261491527,
+          "fraction_within_2h": 0.22388059701492538,
+          "fraction_within20percent": 0.5223880597014925,
+          "MAE_skill_vs_training_constant": 0.17703731950176316,
+          "censored": 0
+        },
+        "uncalibrated_neutral_energy_balance": {
+          "MAE_h": 4.862527213823142,
+          "median_absolute_error_h": 2.9178387321366195,
+          "RMSE_h": 6.840725831028451,
+          "bias_h": 0.6705146253593326,
+          "MAPE": 0.20576857282141217,
+          "fraction_within_2h": 0.3880597014925373,
+          "fraction_within20percent": 0.7313432835820896,
+          "MAE_skill_vs_training_constant": 0.5258381706406242,
+          "censored": 0
+        },
+        "training_calibrated_neutral_energy_balance": {
+          "MAE_h": 8.271359285804168,
+          "median_absolute_error_h": 5.173382043772271,
+          "RMSE_h": 11.511241360656555,
+          "bias_h": -4.937370263958847,
+          "MAPE": 0.2562588026594122,
+          "fraction_within_2h": 0.208955223880597,
+          "fraction_within20percent": 0.5223880597014925,
+          "MAE_skill_vs_training_constant": 0.1934311772906384,
+          "censored": 0
+        }
+      }
+    },
+    "pooled": {
+      "eligible": 105,
+      "paired_complete": 105,
+      "models": {
+        "training_pooled_constant_normal_rate": {
+          "MAE_h": 8.992880138879732,
+          "median_absolute_error_h": 6.089628310269781,
+          "RMSE_h": 12.378690027532327,
+          "bias_h": -4.335539174388327,
+          "MAPE": 0.33992284591776584,
+          "fraction_within_2h": 0.1619047619047619,
+          "fraction_within20percent": 0.3523809523809524,
+          "MAE_skill_vs_training_constant": 0.0,
+          "censored": 0
+        },
+        "training_positive_degree_day": {
+          "MAE_h": 8.395514807477198,
+          "median_absolute_error_h": 6.870088151958257,
+          "RMSE_h": 10.932092582711451,
+          "bias_h": -6.931863640866581,
+          "MAPE": 0.29738691472893475,
+          "fraction_within_2h": 0.20952380952380953,
+          "fraction_within20percent": 0.41904761904761906,
+          "MAE_skill_vs_training_constant": 0.06642647540912838,
+          "censored": 0
+        },
+        "uncalibrated_neutral_energy_balance": {
+          "MAE_h": 5.86184922846726,
+          "median_absolute_error_h": 4.295582862628834,
+          "RMSE_h": 7.76852071781853,
+          "bias_h": -2.2655909596807744,
+          "MAPE": 0.26144848402473203,
+          "fraction_within_2h": 0.26666666666666666,
+          "fraction_within20percent": 0.5523809523809524,
+          "MAE_skill_vs_training_constant": 0.3481677573879589,
+          "censored": 0
+        },
+        "training_calibrated_neutral_energy_balance": {
+          "MAE_h": 8.002347467421854,
+          "median_absolute_error_h": 5.545519655545551,
+          "RMSE_h": 10.628631327856173,
+          "bias_h": -5.780980963332943,
+          "MAPE": 0.2886799366298009,
+          "fraction_within_2h": 0.1523809523809524,
+          "fraction_within20percent": 0.42857142857142855,
+          "MAE_skill_vs_training_constant": 0.110146321997045,
+          "censored": 0
+        }
+      }
+    }
+  },
+  "exclusions": [
+    {
+      "id": "P_IC_E:2-3",
+      "reason": "not an exact10cm marker interval"
+    },
+    {
+      "id": "P_IC_E:41-42",
+      "reason": "not an exact10cm marker interval"
+    },
+    {
+      "id": "P_IC_W:26-27",
+      "reason": "not an exact10cm marker interval"
+    },
+    {
+      "id": "P_IC_W:70-71",
+      "reason": "not an exact10cm marker interval"
+    }
+  ],
+  "events": [
+    {
+      "id": "P_IC_E:3-4",
+      "site": "P_IC_E",
+      "source_rows": [
+        "3",
+        "4"
+      ],
+      "start_utc": "2022-05-31 18:35:00",
+      "observed_end_utc": "2022-06-01 04:05:00",
+      "observed_duration_h": 9.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 9.414617602361574,
+        "uncalibrated_neutral_energy_balance": 6.08981001622147,
+        "training_calibrated_neutral_energy_balance": 8.63650642659929
+      }
+    },
+    {
+      "id": "P_IC_E:4-5",
+      "site": "P_IC_E",
+      "source_rows": [
+        "4",
+        "5"
+      ],
+      "start_utc": "2022-06-01 04:05:00",
+      "observed_end_utc": "2022-06-01 23:05:00",
+      "observed_duration_h": 19.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 16.480513888729945,
+        "uncalibrated_neutral_energy_balance": 15.171017548176977,
+        "training_calibrated_neutral_energy_balance": 16.835851518842908
+      }
+    },
+    {
+      "id": "P_IC_E:5-6",
+      "site": "P_IC_E",
+      "source_rows": [
+        "5",
+        "6"
+      ],
+      "start_utc": "2022-06-01 23:05:00",
+      "observed_end_utc": "2022-06-02 22:05:00",
+      "observed_duration_h": 23.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 13.405046033263206,
+        "uncalibrated_neutral_energy_balance": 18.362025397817295,
+        "training_calibrated_neutral_energy_balance": 18.08431059539318
+      }
+    },
+    {
+      "id": "P_IC_E:6-7",
+      "site": "P_IC_E",
+      "source_rows": [
+        "6",
+        "7"
+      ],
+      "start_utc": "2022-06-02 22:05:00",
+      "observed_end_utc": "2022-06-03 20:05:00",
+      "observed_duration_h": 22.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 10.839782023827235,
+        "uncalibrated_neutral_energy_balance": 18.535058594081136,
+        "training_calibrated_neutral_energy_balance": 18.189864490694468
+      }
+    },
+    {
+      "id": "P_IC_E:7-8",
+      "site": "P_IC_E",
+      "source_rows": [
+        "7",
+        "8"
+      ],
+      "start_utc": "2022-06-03 20:05:00",
+      "observed_end_utc": "2022-06-04 02:35:00",
+      "observed_duration_h": 6.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 8.307384727464783,
+        "uncalibrated_neutral_energy_balance": 9.946657498677572,
+        "training_calibrated_neutral_energy_balance": 7.93904421918922
+      }
+    },
+    {
+      "id": "P_IC_E:8-9",
+      "site": "P_IC_E",
+      "source_rows": [
+        "8",
+        "9"
+      ],
+      "start_utc": "2022-06-04 02:35:00",
+      "observed_end_utc": "2022-06-05 03:05:00",
+      "observed_duration_h": 24.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 15.708539634214507,
+        "uncalibrated_neutral_energy_balance": 18.91364318039682,
+        "training_calibrated_neutral_energy_balance": 18.401003241207864
+      }
+    },
+    {
+      "id": "P_IC_E:9-10",
+      "site": "P_IC_E",
+      "source_rows": [
+        "9",
+        "10"
+      ],
+      "start_utc": "2022-06-05 03:05:00",
+      "observed_end_utc": "2022-06-05 23:05:00",
+      "observed_duration_h": 20.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 15.912841539051797,
+        "uncalibrated_neutral_energy_balance": 15.597000838915507,
+        "training_calibrated_neutral_energy_balance": 16.5359421542618
+      }
+    },
+    {
+      "id": "P_IC_E:10-11",
+      "site": "P_IC_E",
+      "source_rows": [
+        "10",
+        "11"
+      ],
+      "start_utc": "2022-06-05 23:05:00",
+      "observed_end_utc": "2022-06-06 18:05:00",
+      "observed_duration_h": 19.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 11.79373472849528,
+        "uncalibrated_neutral_energy_balance": 17.558251740998692,
+        "training_calibrated_neutral_energy_balance": 16.51059520939986
+      }
+    },
+    {
+      "id": "P_IC_E:11-12",
+      "site": "P_IC_E",
+      "source_rows": [
+        "11",
+        "12"
+      ],
+      "start_utc": "2022-06-06 18:05:00",
+      "observed_end_utc": "2022-06-07 12:05:00",
+      "observed_duration_h": 18.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 8.836303546826045,
+        "uncalibrated_neutral_energy_balance": 5.340725737611453,
+        "training_calibrated_neutral_energy_balance": 6.659134245912234
+      }
+    },
+    {
+      "id": "P_IC_E:12-13",
+      "site": "P_IC_E",
+      "source_rows": [
+        "12",
+        "13"
+      ],
+      "start_utc": "2022-06-07 12:05:00",
+      "observed_end_utc": "2022-06-08 19:05:00",
+      "observed_duration_h": 31.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 26.89115673005581,
+        "uncalibrated_neutral_energy_balance": 27.80640298744043,
+        "training_calibrated_neutral_energy_balance": 27.380308384961552
+      }
+    },
+    {
+      "id": "P_IC_E:13-14",
+      "site": "P_IC_E",
+      "source_rows": [
+        "13",
+        "14"
+      ],
+      "start_utc": "2022-06-08 19:05:00",
+      "observed_end_utc": "2022-06-09 04:35:00",
+      "observed_duration_h": 9.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 10.33934054825041,
+        "uncalibrated_neutral_energy_balance": 8.624004582961401,
+        "training_calibrated_neutral_energy_balance": 12.994065013660325
+      }
+    },
+    {
+      "id": "P_IC_E:14-15",
+      "site": "P_IC_E",
+      "source_rows": [
+        "14",
+        "15"
+      ],
+      "start_utc": "2022-06-09 04:35:00",
+      "observed_end_utc": "2022-06-11 00:05:00",
+      "observed_duration_h": 43.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 21.514756023950046,
+        "uncalibrated_neutral_energy_balance": 37.2039892682102,
+        "training_calibrated_neutral_energy_balance": 37.103127274049655
+      }
+    },
+    {
+      "id": "P_IC_E:15-16",
+      "site": "P_IC_E",
+      "source_rows": [
+        "15",
+        "16"
+      ],
+      "start_utc": "2022-06-11 00:05:00",
+      "observed_end_utc": "2022-06-12 03:05:00",
+      "observed_duration_h": 27.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 19.95647952152623,
+        "uncalibrated_neutral_energy_balance": 18.970631161199677,
+        "training_calibrated_neutral_energy_balance": 20.892316086358495
+      }
+    },
+    {
+      "id": "P_IC_E:16-17",
+      "site": "P_IC_E",
+      "source_rows": [
+        "16",
+        "17"
+      ],
+      "start_utc": "2022-06-12 03:05:00",
+      "observed_end_utc": "2022-06-13 04:05:00",
+      "observed_duration_h": 25.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 18.40603783435292,
+        "uncalibrated_neutral_energy_balance": 18.754809052679274,
+        "training_calibrated_neutral_energy_balance": 19.45448034445445
+      }
+    },
+    {
+      "id": "P_IC_E:17-18",
+      "site": "P_IC_E",
+      "source_rows": [
+        "17",
+        "18"
+      ],
+      "start_utc": "2022-06-13 04:05:00",
+      "observed_end_utc": "2022-06-13 23:05:00",
+      "observed_duration_h": 19.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 17.53841377953688,
+        "uncalibrated_neutral_energy_balance": 15.036550427476564,
+        "training_calibrated_neutral_energy_balance": 16.82338006661998
+      }
+    },
+    {
+      "id": "P_IC_E:18-19",
+      "site": "P_IC_E",
+      "source_rows": [
+        "18",
+        "19"
+      ],
+      "start_utc": "2022-06-13 23:05:00",
+      "observed_end_utc": "2022-06-14 23:36:00",
+      "observed_duration_h": 24.516666666666666,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 10.83450929529137,
+        "uncalibrated_neutral_energy_balance": 21.51423399719927,
+        "training_calibrated_neutral_energy_balance": 19.908475952545803
+      }
+    },
+    {
+      "id": "P_IC_E:19-20",
+      "site": "P_IC_E",
+      "source_rows": [
+        "19",
+        "20"
+      ],
+      "start_utc": "2022-06-14 23:36:00",
+      "observed_end_utc": "2022-06-16 02:36:00",
+      "observed_duration_h": 27.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 20.010164108276367,
+        "uncalibrated_neutral_energy_balance": 19.33645221200254,
+        "training_calibrated_neutral_energy_balance": 19.999969022803835
+      }
+    },
+    {
+      "id": "P_IC_E:20-21",
+      "site": "P_IC_E",
+      "source_rows": [
+        "20",
+        "21"
+      ],
+      "start_utc": "2022-06-16 02:36:00",
+      "observed_end_utc": "2022-06-17 06:36:00",
+      "observed_duration_h": 28.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 16.882122467822498,
+        "uncalibrated_neutral_energy_balance": 15.699158121479883,
+        "training_calibrated_neutral_energy_balance": 15.911338984966278
+      }
+    },
+    {
+      "id": "P_IC_E:21-22",
+      "site": "P_IC_E",
+      "source_rows": [
+        "21",
+        "22"
+      ],
+      "start_utc": "2022-06-17 06:36:00",
+      "observed_end_utc": "2022-06-18 05:36:00",
+      "observed_duration_h": 23.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 14.643970322344039,
+        "uncalibrated_neutral_energy_balance": 12.078361765609847,
+        "training_calibrated_neutral_energy_balance": 13.545840148925782
+      }
+    },
+    {
+      "id": "P_IC_E:22-23",
+      "site": "P_IC_E",
+      "source_rows": [
+        "22",
+        "23"
+      ],
+      "start_utc": "2022-06-18 05:36:00",
+      "observed_end_utc": "2022-06-19 18:06:00",
+      "observed_duration_h": 36.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 17.015270947681532,
+        "uncalibrated_neutral_energy_balance": 16.835769506759114,
+        "training_calibrated_neutral_energy_balance": 18.310918136172823
+      }
+    },
+    {
+      "id": "P_IC_E:23-24",
+      "site": "P_IC_E",
+      "source_rows": [
+        "23",
+        "24"
+      ],
+      "start_utc": "2022-06-19 18:06:00",
+      "observed_end_utc": "2022-06-20 23:06:00",
+      "observed_duration_h": 29.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 11.140493774612745,
+        "uncalibrated_neutral_energy_balance": 10.033424139287737,
+        "training_calibrated_neutral_energy_balance": 14.691342093878323
+      }
+    },
+    {
+      "id": "P_IC_E:24-25",
+      "site": "P_IC_E",
+      "source_rows": [
+        "24",
+        "25"
+      ],
+      "start_utc": "2022-06-20 23:06:00",
+      "observed_end_utc": "2022-06-22 07:06:00",
+      "observed_duration_h": 32.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 21.565722412599456,
+        "uncalibrated_neutral_energy_balance": 20.05903274781174,
+        "training_calibrated_neutral_energy_balance": 21.41090895983908
+      }
+    },
+    {
+      "id": "P_IC_E:25-26",
+      "site": "P_IC_E",
+      "source_rows": [
+        "25",
+        "26"
+      ],
+      "start_utc": "2022-06-22 07:06:00",
+      "observed_end_utc": "2022-06-22 23:36:00",
+      "observed_duration_h": 16.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 14.954136894345284,
+        "uncalibrated_neutral_energy_balance": 11.484673718942537,
+        "training_calibrated_neutral_energy_balance": 13.322113998134931
+      }
+    },
+    {
+      "id": "P_IC_E:26-27",
+      "site": "P_IC_E",
+      "source_rows": [
+        "26",
+        "27"
+      ],
+      "start_utc": "2022-06-22 23:36:00",
+      "observed_end_utc": "2022-06-23 21:06:00",
+      "observed_duration_h": 21.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 10.638751663565635,
+        "uncalibrated_neutral_energy_balance": 17.209774486687447,
+        "training_calibrated_neutral_energy_balance": 15.560288879606459
+      }
+    },
+    {
+      "id": "P_IC_E:27-28",
+      "site": "P_IC_E",
+      "source_rows": [
+        "27",
+        "28"
+      ],
+      "start_utc": "2022-06-23 21:06:00",
+      "observed_end_utc": "2022-06-24 16:36:00",
+      "observed_duration_h": 19.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 9.980508957637682,
+        "uncalibrated_neutral_energy_balance": 17.173631549013987,
+        "training_calibrated_neutral_energy_balance": 9.210017056067784
+      }
+    },
+    {
+      "id": "P_IC_E:28-29",
+      "site": "P_IC_E",
+      "source_rows": [
+        "28",
+        "29"
+      ],
+      "start_utc": "2022-06-24 16:36:00",
+      "observed_end_utc": "2022-06-25 05:06:00",
+      "observed_duration_h": 12.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 9.48140598628256,
+        "uncalibrated_neutral_energy_balance": 5.058917888469166,
+        "training_calibrated_neutral_energy_balance": 7.72246816555659
+      }
+    },
+    {
+      "id": "P_IC_E:29-30",
+      "site": "P_IC_E",
+      "source_rows": [
+        "29",
+        "30"
+      ],
+      "start_utc": "2022-06-25 05:06:00",
+      "observed_end_utc": "2022-06-25 23:36:00",
+      "observed_duration_h": 18.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 15.027935060130226,
+        "uncalibrated_neutral_energy_balance": 13.565607530209753,
+        "training_calibrated_neutral_energy_balance": 14.103614956405428
+      }
+    },
+    {
+      "id": "P_IC_E:30-31",
+      "site": "P_IC_E",
+      "source_rows": [
+        "30",
+        "31"
+      ],
+      "start_utc": "2022-06-25 23:36:00",
+      "observed_end_utc": "2022-06-26 19:06:00",
+      "observed_duration_h": 19.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 13.011920922531022,
+        "uncalibrated_neutral_energy_balance": 16.928350713385477,
+        "training_calibrated_neutral_energy_balance": 14.1027471309238
+      }
+    },
+    {
+      "id": "P_IC_E:31-32",
+      "site": "P_IC_E",
+      "source_rows": [
+        "31",
+        "32"
+      ],
+      "start_utc": "2022-06-26 19:06:00",
+      "observed_end_utc": "2022-06-27 16:36:00",
+      "observed_duration_h": 21.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 8.009302223788367,
+        "uncalibrated_neutral_energy_balance": 5.915402386188507,
+        "training_calibrated_neutral_energy_balance": 7.15121648894416
+      }
+    },
+    {
+      "id": "P_IC_E:32-33",
+      "site": "P_IC_E",
+      "source_rows": [
+        "32",
+        "33"
+      ],
+      "start_utc": "2022-06-27 16:36:00",
+      "observed_end_utc": "2022-06-28 10:36:00",
+      "observed_duration_h": 18.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 8.371177803609106,
+        "uncalibrated_neutral_energy_balance": 4.643174183103773,
+        "training_calibrated_neutral_energy_balance": 6.802554710507393
+      }
+    },
+    {
+      "id": "P_IC_E:33-34",
+      "site": "P_IC_E",
+      "source_rows": [
+        "33",
+        "34"
+      ],
+      "start_utc": "2022-06-28 10:36:00",
+      "observed_end_utc": "2022-06-28 23:36:00",
+      "observed_duration_h": 13.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 11.577508152723313,
+        "uncalibrated_neutral_energy_balance": 8.244668447441525,
+        "training_calibrated_neutral_energy_balance": 9.49399240374565
+      }
+    },
+    {
+      "id": "P_IC_E:34-35",
+      "site": "P_IC_E",
+      "source_rows": [
+        "34",
+        "35"
+      ],
+      "start_utc": "2022-06-28 23:36:00",
+      "observed_end_utc": "2022-06-29 21:36:00",
+      "observed_duration_h": 22.0,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 9.345068306790457,
+        "uncalibrated_neutral_energy_balance": 17.05374968290329,
+        "training_calibrated_neutral_energy_balance": 9.85338573495547
+      }
+    },
+    {
+      "id": "P_IC_E:35-36",
+      "site": "P_IC_E",
+      "source_rows": [
+        "35",
+        "36"
+      ],
+      "start_utc": "2022-06-29 21:36:00",
+      "observed_end_utc": "2022-06-30 20:06:00",
+      "observed_duration_h": 22.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 11.531175169414944,
+        "uncalibrated_neutral_energy_balance": 16.984395916197034,
+        "training_calibrated_neutral_energy_balance": 8.5913479890426
+      }
+    },
+    {
+      "id": "P_IC_E:36-37",
+      "site": "P_IC_E",
+      "source_rows": [
+        "36",
+        "37"
+      ],
+      "start_utc": "2022-06-30 20:06:00",
+      "observed_end_utc": "2022-07-01 17:36:00",
+      "observed_duration_h": 21.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 8.245044184327126,
+        "uncalibrated_neutral_energy_balance": 7.594219984809557,
+        "training_calibrated_neutral_energy_balance": 6.90976712319586
+      }
+    },
+    {
+      "id": "P_IC_E:37-38",
+      "site": "P_IC_E",
+      "source_rows": [
+        "37",
+        "38"
+      ],
+      "start_utc": "2022-07-01 17:36:00",
+      "observed_end_utc": "2022-07-02 13:06:00",
+      "observed_duration_h": 19.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 8.042985030147765,
+        "uncalibrated_neutral_energy_balance": 4.734646213319566,
+        "training_calibrated_neutral_energy_balance": 6.409540096653832
+      }
+    },
+    {
+      "id": "P_IC_E:38-39",
+      "site": "P_IC_E",
+      "source_rows": [
+        "38",
+        "39"
+      ],
+      "start_utc": "2022-07-02 13:06:00",
+      "observed_end_utc": "2022-07-03 07:36:00",
+      "observed_duration_h": 18.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 10.317143585946825,
+        "uncalibrated_neutral_energy_balance": 6.082581389016576,
+        "training_calibrated_neutral_energy_balance": 8.3383756491873
+      }
+    },
+    {
+      "id": "P_IC_E:39-40",
+      "site": "P_IC_E",
+      "source_rows": [
+        "39",
+        "40"
+      ],
+      "start_utc": "2022-07-03 07:36:00",
+      "observed_end_utc": "2022-07-04 12:06:00",
+      "observed_duration_h": 28.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 13.694100718100866,
+        "uncalibrated_neutral_energy_balance": 11.22956207798587,
+        "training_calibrated_neutral_energy_balance": 12.445337932639651
+      }
+    },
+    {
+      "id": "P_IC_E:40-41",
+      "site": "P_IC_E",
+      "source_rows": [
+        "40",
+        "41"
+      ],
+      "start_utc": "2022-07-04 12:06:00",
+      "observed_end_utc": "2022-07-04 23:36:00",
+      "observed_duration_h": 11.5,
+      "normal_target_m": 0.049999999999999996,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 16.91037168973022,
+        "training_positive_degree_day": 10.560736775795618,
+        "uncalibrated_neutral_energy_balance": 6.834769310421414,
+        "training_calibrated_neutral_energy_balance": 8.581982315646277
+      }
+    },
+    {
+      "id": "P_IC_W:2-3",
+      "site": "P_IC_W",
+      "source_rows": [
+        "2",
+        "3"
+      ],
+      "start_utc": "2022-06-06 02:24:00",
+      "observed_end_utc": "2022-06-07 00:24:00",
+      "observed_duration_h": 22.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 21.150840754906337,
+        "uncalibrated_neutral_energy_balance": 24.91783873213662,
+        "training_calibrated_neutral_energy_balance": 23.340570094452964
+      }
+    },
+    {
+      "id": "P_IC_W:3-4",
+      "site": "P_IC_W",
+      "source_rows": [
+        "3",
+        "4"
+      ],
+      "start_utc": "2022-06-07 00:24:00",
+      "observed_end_utc": "2022-06-08 03:24:00",
+      "observed_duration_h": 27.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 27.668798240158292,
+        "uncalibrated_neutral_energy_balance": 25.857686227361363,
+        "training_calibrated_neutral_energy_balance": 25.541546648409632
+      }
+    },
+    {
+      "id": "P_IC_W:4-5",
+      "site": "P_IC_W",
+      "source_rows": [
+        "4",
+        "5"
+      ],
+      "start_utc": "2022-06-08 03:24:00",
+      "observed_end_utc": "2022-06-09 02:54:00",
+      "observed_duration_h": 23.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 26.074219362603294,
+        "uncalibrated_neutral_energy_balance": 33.83339895122581,
+        "training_calibrated_neutral_energy_balance": 38.11656603356202
+      }
+    },
+    {
+      "id": "P_IC_W:5-6",
+      "site": "P_IC_W",
+      "source_rows": [
+        "5",
+        "6"
+      ],
+      "start_utc": "2022-06-09 02:54:00",
+      "observed_end_utc": "2022-06-11 13:24:00",
+      "observed_duration_h": 58.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 39.68742509709464,
+        "uncalibrated_neutral_energy_balance": 45.93148125469685,
+        "training_calibrated_neutral_energy_balance": 46.77220599737432
+      }
+    },
+    {
+      "id": "P_IC_W:6-7",
+      "site": "P_IC_W",
+      "source_rows": [
+        "6",
+        "7"
+      ],
+      "start_utc": "2022-06-11 13:24:00",
+      "observed_end_utc": "2022-06-12 18:54:00",
+      "observed_duration_h": 29.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 25.479378877944416,
+        "uncalibrated_neutral_energy_balance": 27.7169816568825,
+        "training_calibrated_neutral_energy_balance": 31.52029626501931
+      }
+    },
+    {
+      "id": "P_IC_W:7-8",
+      "site": "P_IC_W",
+      "source_rows": [
+        "7",
+        "8"
+      ],
+      "start_utc": "2022-06-12 18:54:00",
+      "observed_end_utc": "2022-06-13 20:54:00",
+      "observed_duration_h": 26.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 24.327138077682918,
+        "uncalibrated_neutral_energy_balance": 24.88560054467784,
+        "training_calibrated_neutral_energy_balance": 26.9958429472314
+      }
+    },
+    {
+      "id": "P_IC_W:8-9",
+      "site": "P_IC_W",
+      "source_rows": [
+        "8",
+        "9"
+      ],
+      "start_utc": "2022-06-13 20:54:00",
+      "observed_end_utc": "2022-06-14 08:54:00",
+      "observed_duration_h": 12.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 22.13861775252554,
+        "uncalibrated_neutral_energy_balance": 23.211968270805148,
+        "training_calibrated_neutral_energy_balance": 24.41979859318998
+      }
+    },
+    {
+      "id": "P_IC_W:9-10",
+      "site": "P_IC_W",
+      "source_rows": [
+        "9",
+        "10"
+      ],
+      "start_utc": "2022-06-14 08:54:00",
+      "observed_end_utc": "2022-06-16 00:24:00",
+      "observed_duration_h": 39.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 32.62991184804174,
+        "uncalibrated_neutral_energy_balance": 37.84365461150805,
+        "training_calibrated_neutral_energy_balance": 37.119465824829206
+      }
+    },
+    {
+      "id": "P_IC_W:10-11",
+      "site": "P_IC_W",
+      "source_rows": [
+        "10",
+        "11"
+      ],
+      "start_utc": "2022-06-16 00:24:00",
+      "observed_end_utc": "2022-06-16 20:54:00",
+      "observed_duration_h": 20.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 22.35601351996263,
+        "uncalibrated_neutral_energy_balance": 24.047997297909525,
+        "training_calibrated_neutral_energy_balance": 23.88758187095324
+      }
+    },
+    {
+      "id": "P_IC_W:11-12",
+      "site": "P_IC_W",
+      "source_rows": [
+        "11",
+        "12"
+      ],
+      "start_utc": "2022-06-16 20:54:00",
+      "observed_end_utc": "2022-06-17 23:54:00",
+      "observed_duration_h": 27.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 21.229527990619342,
+        "uncalibrated_neutral_energy_balance": 24.529350494874848,
+        "training_calibrated_neutral_energy_balance": 23.833569797873498
+      }
+    },
+    {
+      "id": "P_IC_W:12-13",
+      "site": "P_IC_W",
+      "source_rows": [
+        "12",
+        "13"
+      ],
+      "start_utc": "2022-06-17 23:54:00",
+      "observed_end_utc": "2022-06-18 21:54:00",
+      "observed_duration_h": 22.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 22.28206261833509,
+        "uncalibrated_neutral_energy_balance": 24.425340268347,
+        "training_calibrated_neutral_energy_balance": 24.635570813947254
+      }
+    },
+    {
+      "id": "P_IC_W:13-14",
+      "site": "P_IC_W",
+      "source_rows": [
+        "13",
+        "14"
+      ],
+      "start_utc": "2022-06-18 21:54:00",
+      "observed_end_utc": "2022-06-19 23:54:00",
+      "observed_duration_h": 26.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 23.189593470361498,
+        "uncalibrated_neutral_energy_balance": 26.445320206748114,
+        "training_calibrated_neutral_energy_balance": 27.394105949136947
+      }
+    },
+    {
+      "id": "P_IC_W:14-15",
+      "site": "P_IC_W",
+      "source_rows": [
+        "14",
+        "15"
+      ],
+      "start_utc": "2022-06-19 23:54:00",
+      "observed_end_utc": "2022-06-21 18:24:00",
+      "observed_duration_h": 42.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 28.19769206252363,
+        "uncalibrated_neutral_energy_balance": 43.85448476023144,
+        "training_calibrated_neutral_energy_balance": 40.054644017219545
+      }
+    },
+    {
+      "id": "P_IC_W:15-16",
+      "site": "P_IC_W",
+      "source_rows": [
+        "15",
+        "16"
+      ],
+      "start_utc": "2022-06-21 18:24:00",
+      "observed_end_utc": "2022-06-22 06:54:00",
+      "observed_duration_h": 12.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 24.180390928122733,
+        "uncalibrated_neutral_energy_balance": 26.3199812426832,
+        "training_calibrated_neutral_energy_balance": 27.038083466092747
+      }
+    },
+    {
+      "id": "P_IC_W:16-17",
+      "site": "P_IC_W",
+      "source_rows": [
+        "16",
+        "17"
+      ],
+      "start_utc": "2022-06-22 06:54:00",
+      "observed_end_utc": "2022-06-23 06:24:00",
+      "observed_duration_h": 23.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 19.834580817222594,
+        "uncalibrated_neutral_energy_balance": 21.059274311198127,
+        "training_calibrated_neutral_energy_balance": 21.79762383957704
+      }
+    },
+    {
+      "id": "P_IC_W:17-18",
+      "site": "P_IC_W",
+      "source_rows": [
+        "17",
+        "18"
+      ],
+      "start_utc": "2022-06-23 06:24:00",
+      "observed_end_utc": "2022-06-24 11:54:00",
+      "observed_duration_h": 29.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 19.5192301754819,
+        "uncalibrated_neutral_energy_balance": 27.57024308509297,
+        "training_calibrated_neutral_energy_balance": 21.395265844861665
+      }
+    },
+    {
+      "id": "P_IC_W:18-19",
+      "site": "P_IC_W",
+      "source_rows": [
+        "18",
+        "19"
+      ],
+      "start_utc": "2022-06-24 11:54:00",
+      "observed_end_utc": "2022-06-25 16:54:00",
+      "observed_duration_h": 29.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 18.788633094827333,
+        "uncalibrated_neutral_energy_balance": 32.17929273936483,
+        "training_calibrated_neutral_energy_balance": 21.880921737353006
+      }
+    },
+    {
+      "id": "P_IC_W:19-20",
+      "site": "P_IC_W",
+      "source_rows": [
+        "19",
+        "20"
+      ],
+      "start_utc": "2022-06-25 16:54:00",
+      "observed_end_utc": "2022-06-26 19:54:00",
+      "observed_duration_h": 27.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 16.26126173608833,
+        "uncalibrated_neutral_energy_balance": 23.000979343056677,
+        "training_calibrated_neutral_energy_balance": 15.094148609704442
+      }
+    },
+    {
+      "id": "P_IC_W:20-21",
+      "site": "P_IC_W",
+      "source_rows": [
+        "20",
+        "21"
+      ],
+      "start_utc": "2022-06-26 19:54:00",
+      "observed_end_utc": "2022-06-27 10:24:00",
+      "observed_duration_h": 14.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 18.484342086646294,
+        "uncalibrated_neutral_energy_balance": 18.71059569882022,
+        "training_calibrated_neutral_energy_balance": 14.0925467389822
+      }
+    },
+    {
+      "id": "P_IC_W:21-22",
+      "site": "P_IC_W",
+      "source_rows": [
+        "21",
+        "22"
+      ],
+      "start_utc": "2022-06-27 10:24:00",
+      "observed_end_utc": "2022-06-28 01:54:00",
+      "observed_duration_h": 15.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 17.44605004787445,
+        "uncalibrated_neutral_energy_balance": 21.238321262134445,
+        "training_calibrated_neutral_energy_balance": 18.05599369234509
+      }
+    },
+    {
+      "id": "P_IC_W:22-23",
+      "site": "P_IC_W",
+      "source_rows": [
+        "22",
+        "23"
+      ],
+      "start_utc": "2022-06-28 01:54:00",
+      "observed_end_utc": "2022-06-29 01:24:00",
+      "observed_duration_h": 23.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 19.814407919247945,
+        "uncalibrated_neutral_energy_balance": 22.782027195029787,
+        "training_calibrated_neutral_energy_balance": 21.15130820300844
+      }
+    },
+    {
+      "id": "P_IC_W:23-24",
+      "site": "P_IC_W",
+      "source_rows": [
+        "23",
+        "24"
+      ],
+      "start_utc": "2022-06-29 01:24:00",
+      "observed_end_utc": "2022-06-29 22:24:00",
+      "observed_duration_h": 21.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 19.48357797059748,
+        "uncalibrated_neutral_energy_balance": 23.06850668456819,
+        "training_calibrated_neutral_energy_balance": 19.699605295326975
+      }
+    },
+    {
+      "id": "P_IC_W:24-25",
+      "site": "P_IC_W",
+      "source_rows": [
+        "24",
+        "25"
+      ],
+      "start_utc": "2022-06-29 22:24:00",
+      "observed_end_utc": "2022-07-01 00:24:00",
+      "observed_duration_h": 26.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 20.99601023760107,
+        "uncalibrated_neutral_energy_balance": 24.65363023062547,
+        "training_calibrated_neutral_energy_balance": 20.998737490110926
+      }
+    },
+    {
+      "id": "P_IC_W:25-26",
+      "site": "P_IC_W",
+      "source_rows": [
+        "25",
+        "26"
+      ],
+      "start_utc": "2022-07-01 00:24:00",
+      "observed_end_utc": "2022-07-01 18:24:00",
+      "observed_duration_h": 18.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 20.113663344780605,
+        "uncalibrated_neutral_energy_balance": 22.44462553779284,
+        "training_calibrated_neutral_energy_balance": 20.048682969808578
+      }
+    },
+    {
+      "id": "P_IC_W:27-28",
+      "site": "P_IC_W",
+      "source_rows": [
+        "27",
+        "28"
+      ],
+      "start_utc": "2022-07-03 08:24:00",
+      "observed_end_utc": "2022-07-04 02:24:00",
+      "observed_duration_h": 18.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 17.85811797367202,
+        "uncalibrated_neutral_energy_balance": 19.271180793642998,
+        "training_calibrated_neutral_energy_balance": 18.600264395011795
+      }
+    },
+    {
+      "id": "P_IC_W:28-29",
+      "site": "P_IC_W",
+      "source_rows": [
+        "28",
+        "29"
+      ],
+      "start_utc": "2022-07-04 02:24:00",
+      "observed_end_utc": "2022-07-04 23:24:00",
+      "observed_duration_h": 21.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 19.512030880914793,
+        "uncalibrated_neutral_energy_balance": 22.86524753842089,
+        "training_calibrated_neutral_energy_balance": 21.15283059053951
+      }
+    },
+    {
+      "id": "P_IC_W:29-30",
+      "site": "P_IC_W",
+      "source_rows": [
+        "29",
+        "30"
+      ],
+      "start_utc": "2022-07-04 23:24:00",
+      "observed_end_utc": "2022-07-05 21:24:00",
+      "observed_duration_h": 22.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 19.394873426357904,
+        "uncalibrated_neutral_energy_balance": 22.646197245783277,
+        "training_calibrated_neutral_energy_balance": 19.87115070104599
+      }
+    },
+    {
+      "id": "P_IC_W:30-31",
+      "site": "P_IC_W",
+      "source_rows": [
+        "30",
+        "31"
+      ],
+      "start_utc": "2022-07-05 21:24:00",
+      "observed_end_utc": "2022-07-06 03:54:00",
+      "observed_duration_h": 6.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 18.892937503324614,
+        "uncalibrated_neutral_energy_balance": 20.338173532883328,
+        "training_calibrated_neutral_energy_balance": 13.273205875754357
+      }
+    },
+    {
+      "id": "P_IC_W:31-32",
+      "site": "P_IC_W",
+      "source_rows": [
+        "31",
+        "32"
+      ],
+      "start_utc": "2022-07-06 03:54:00",
+      "observed_end_utc": "2022-07-07 02:24:00",
+      "observed_duration_h": 22.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 19.601361987657018,
+        "uncalibrated_neutral_energy_balance": 22.187275019354292,
+        "training_calibrated_neutral_energy_balance": 20.78777777671814
+      }
+    },
+    {
+      "id": "P_IC_W:32-33",
+      "site": "P_IC_W",
+      "source_rows": [
+        "32",
+        "33"
+      ],
+      "start_utc": "2022-07-07 02:24:00",
+      "observed_end_utc": "2022-07-08 00:54:00",
+      "observed_duration_h": 22.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 20.81506381061342,
+        "uncalibrated_neutral_energy_balance": 25.039496847457357,
+        "training_calibrated_neutral_energy_balance": 23.733001850909655
+      }
+    },
+    {
+      "id": "P_IC_W:33-34",
+      "site": "P_IC_W",
+      "source_rows": [
+        "33",
+        "34"
+      ],
+      "start_utc": "2022-07-08 00:54:00",
+      "observed_end_utc": "2022-07-09 01:54:00",
+      "observed_duration_h": 25.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 20.181863817307683,
+        "uncalibrated_neutral_energy_balance": 24.209127797219487,
+        "training_calibrated_neutral_energy_balance": 23.709375003708733
+      }
+    },
+    {
+      "id": "P_IC_W:34-35",
+      "site": "P_IC_W",
+      "source_rows": [
+        "34",
+        "35"
+      ],
+      "start_utc": "2022-07-09 01:54:00",
+      "observed_end_utc": "2022-07-09 23:54:00",
+      "observed_duration_h": 22.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 21.074386652708053,
+        "uncalibrated_neutral_energy_balance": 22.603740433189603,
+        "training_calibrated_neutral_energy_balance": 21.402933752603
+      }
+    },
+    {
+      "id": "P_IC_W:35-36",
+      "site": "P_IC_W",
+      "source_rows": [
+        "35",
+        "36"
+      ],
+      "start_utc": "2022-07-09 23:54:00",
+      "observed_end_utc": "2022-07-10 23:54:00",
+      "observed_duration_h": 24.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 22.006731394463117,
+        "uncalibrated_neutral_energy_balance": 23.40477308458752,
+        "training_calibrated_neutral_energy_balance": 21.930161804358164
+      }
+    },
+    {
+      "id": "P_IC_W:36-37",
+      "site": "P_IC_W",
+      "source_rows": [
+        "36",
+        "37"
+      ],
+      "start_utc": "2022-07-10 23:54:00",
+      "observed_end_utc": "2022-07-11 17:25:00",
+      "observed_duration_h": 17.516666666666666,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 25.166276740034423,
+        "uncalibrated_neutral_energy_balance": 36.09865256369114,
+        "training_calibrated_neutral_energy_balance": 23.4448292384545
+      }
+    },
+    {
+      "id": "P_IC_W:37-38",
+      "site": "P_IC_W",
+      "source_rows": [
+        "37",
+        "38"
+      ],
+      "start_utc": "2022-07-11 17:25:00",
+      "observed_end_utc": "2022-07-13 14:55:00",
+      "observed_duration_h": 45.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 30.247086930539872,
+        "uncalibrated_neutral_energy_balance": 37.794466598762405,
+        "training_calibrated_neutral_energy_balance": 31.87890218363868
+      }
+    },
+    {
+      "id": "P_IC_W:38-39",
+      "site": "P_IC_W",
+      "source_rows": [
+        "38",
+        "39"
+      ],
+      "start_utc": "2022-07-13 14:55:00",
+      "observed_end_utc": "2022-07-15 02:55:00",
+      "observed_duration_h": 36.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 30.5285462315215,
+        "uncalibrated_neutral_energy_balance": 33.167356553210155,
+        "training_calibrated_neutral_energy_balance": 29.707360943423378
+      }
+    },
+    {
+      "id": "P_IC_W:39-40",
+      "site": "P_IC_W",
+      "source_rows": [
+        "39",
+        "40"
+      ],
+      "start_utc": "2022-07-15 02:55:00",
+      "observed_end_utc": "2022-07-17 13:55:00",
+      "observed_duration_h": 59.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 26.366401300032933,
+        "uncalibrated_neutral_energy_balance": 39.254409997132086,
+        "training_calibrated_neutral_energy_balance": 23.73601935048898
+      }
+    },
+    {
+      "id": "P_IC_W:40-41",
+      "site": "P_IC_W",
+      "source_rows": [
+        "40",
+        "41"
+      ],
+      "start_utc": "2022-07-17 13:55:00",
+      "observed_end_utc": "2022-07-19 00:55:00",
+      "observed_duration_h": 35.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 33.301282349030174,
+        "uncalibrated_neutral_energy_balance": 35.00125090572569,
+        "training_calibrated_neutral_energy_balance": 30.34705041302575
+      }
+    },
+    {
+      "id": "P_IC_W:41-42",
+      "site": "P_IC_W",
+      "source_rows": [
+        "41",
+        "42"
+      ],
+      "start_utc": "2022-07-19 00:55:00",
+      "observed_end_utc": "2022-07-20 20:55:00",
+      "observed_duration_h": 44.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 29.496286413139767,
+        "uncalibrated_neutral_energy_balance": 40.611863289475444,
+        "training_calibrated_neutral_energy_balance": 24.88536741428905
+      }
+    },
+    {
+      "id": "P_IC_W:42-43",
+      "site": "P_IC_W",
+      "source_rows": [
+        "42",
+        "43"
+      ],
+      "start_utc": "2022-07-20 20:55:00",
+      "observed_end_utc": "2022-07-21 17:25:00",
+      "observed_duration_h": 20.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 25.955193982786604,
+        "uncalibrated_neutral_energy_balance": 25.70966064400143,
+        "training_calibrated_neutral_energy_balance": 25.827237091263136
+      }
+    },
+    {
+      "id": "P_IC_W:43-44",
+      "site": "P_IC_W",
+      "source_rows": [
+        "43",
+        "44"
+      ],
+      "start_utc": "2022-07-21 17:25:00",
+      "observed_end_utc": "2022-07-23 06:25:00",
+      "observed_duration_h": 37.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 25.783394512931505,
+        "uncalibrated_neutral_energy_balance": 31.222322279347313,
+        "training_calibrated_neutral_energy_balance": 28.647418873906137
+      }
+    },
+    {
+      "id": "P_IC_W:44-45",
+      "site": "P_IC_W",
+      "source_rows": [
+        "44",
+        "45"
+      ],
+      "start_utc": "2022-07-23 06:25:00",
+      "observed_end_utc": "2022-07-24 06:25:00",
+      "observed_duration_h": 24.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 23.934599999321833,
+        "uncalibrated_neutral_energy_balance": 34.66892758250236,
+        "training_calibrated_neutral_energy_balance": 30.637151953313086
+      }
+    },
+    {
+      "id": "P_IC_W:45-46",
+      "site": "P_IC_W",
+      "source_rows": [
+        "45",
+        "46"
+      ],
+      "start_utc": "2022-07-24 06:25:00",
+      "observed_end_utc": "2022-07-25 11:25:00",
+      "observed_duration_h": 29.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 22.066910114420786,
+        "uncalibrated_neutral_energy_balance": 30.805273108945954,
+        "training_calibrated_neutral_energy_balance": 27.03154753903548
+      }
+    },
+    {
+      "id": "P_IC_W:46-47",
+      "site": "P_IC_W",
+      "source_rows": [
+        "46",
+        "47"
+      ],
+      "start_utc": "2022-07-25 11:25:00",
+      "observed_end_utc": "2022-07-26 11:25:00",
+      "observed_duration_h": 24.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 26.940619401401943,
+        "uncalibrated_neutral_energy_balance": 32.960073721143935,
+        "training_calibrated_neutral_energy_balance": 17.845067400137584
+      }
+    },
+    {
+      "id": "P_IC_W:47-48",
+      "site": "P_IC_W",
+      "source_rows": [
+        "47",
+        "48"
+      ],
+      "start_utc": "2022-07-26 11:25:00",
+      "observed_end_utc": "2022-07-27 11:25:00",
+      "observed_duration_h": 24.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 17.467358054055108,
+        "uncalibrated_neutral_energy_balance": 22.440250363018777,
+        "training_calibrated_neutral_energy_balance": 17.72764299419191
+      }
+    },
+    {
+      "id": "P_IC_W:48-49",
+      "site": "P_IC_W",
+      "source_rows": [
+        "48",
+        "49"
+      ],
+      "start_utc": "2022-07-27 11:25:00",
+      "observed_end_utc": "2022-07-28 07:55:00",
+      "observed_duration_h": 20.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 23.356294096774526,
+        "uncalibrated_neutral_energy_balance": 33.474069511956635,
+        "training_calibrated_neutral_energy_balance": 34.54260040958722
+      }
+    },
+    {
+      "id": "P_IC_W:49-50",
+      "site": "P_IC_W",
+      "source_rows": [
+        "49",
+        "50"
+      ],
+      "start_utc": "2022-07-28 07:55:00",
+      "observed_end_utc": "2022-07-29 11:25:00",
+      "observed_duration_h": 27.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 22.160670823322402,
+        "uncalibrated_neutral_energy_balance": 36.457197966112034,
+        "training_calibrated_neutral_energy_balance": 32.67338204377227
+      }
+    },
+    {
+      "id": "P_IC_W:50-51",
+      "site": "P_IC_W",
+      "source_rows": [
+        "50",
+        "51"
+      ],
+      "start_utc": "2022-07-29 11:25:00",
+      "observed_end_utc": "2022-07-30 16:25:00",
+      "observed_duration_h": 29.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 19.176491576963002,
+        "uncalibrated_neutral_energy_balance": 28.60079238527351,
+        "training_calibrated_neutral_energy_balance": 21.380494934254223
+      }
+    },
+    {
+      "id": "P_IC_W:51-52",
+      "site": "P_IC_W",
+      "source_rows": [
+        "51",
+        "52"
+      ],
+      "start_utc": "2022-07-30 16:25:00",
+      "observed_end_utc": "2022-07-31 21:55:00",
+      "observed_duration_h": 29.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 25.720360588033994,
+        "uncalibrated_neutral_energy_balance": 30.38980773018466,
+        "training_calibrated_neutral_energy_balance": 27.115144191583
+      }
+    },
+    {
+      "id": "P_IC_W:52-53",
+      "site": "P_IC_W",
+      "source_rows": [
+        "52",
+        "53"
+      ],
+      "start_utc": "2022-07-31 21:55:00",
+      "observed_end_utc": "2022-08-02 13:25:00",
+      "observed_duration_h": 39.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 23.782341673506632,
+        "uncalibrated_neutral_energy_balance": 29.939847356147236,
+        "training_calibrated_neutral_energy_balance": 22.857189992401334
+      }
+    },
+    {
+      "id": "P_IC_W:53-54",
+      "site": "P_IC_W",
+      "source_rows": [
+        "53",
+        "54"
+      ],
+      "start_utc": "2022-08-02 13:25:00",
+      "observed_end_utc": "2022-08-03 23:25:00",
+      "observed_duration_h": 34.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 27.68534831682841,
+        "uncalibrated_neutral_energy_balance": 32.9810701613956,
+        "training_calibrated_neutral_energy_balance": 29.628920063442653
+      }
+    },
+    {
+      "id": "P_IC_W:54-55",
+      "site": "P_IC_W",
+      "source_rows": [
+        "54",
+        "55"
+      ],
+      "start_utc": "2022-08-03 23:25:00",
+      "observed_end_utc": "2022-08-04 23:55:00",
+      "observed_duration_h": 24.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 22.12348008910815,
+        "uncalibrated_neutral_energy_balance": 23.745310735702514,
+        "training_calibrated_neutral_energy_balance": 21.43092091129886
+      }
+    },
+    {
+      "id": "P_IC_W:55-56",
+      "site": "P_IC_W",
+      "source_rows": [
+        "55",
+        "56"
+      ],
+      "start_utc": "2022-08-04 23:55:00",
+      "observed_end_utc": "2022-08-07 01:25:00",
+      "observed_duration_h": 49.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 27.404614823857944,
+        "uncalibrated_neutral_energy_balance": 43.59671480907334,
+        "training_calibrated_neutral_energy_balance": 22.585163267850877
+      }
+    },
+    {
+      "id": "P_IC_W:56-57",
+      "site": "P_IC_W",
+      "source_rows": [
+        "56",
+        "57"
+      ],
+      "start_utc": "2022-08-07 01:25:00",
+      "observed_end_utc": "2022-08-09 00:26:00",
+      "observed_duration_h": 47.016666666666666,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 33.503777693973646,
+        "uncalibrated_neutral_energy_balance": 41.43416534927156,
+        "training_calibrated_neutral_energy_balance": 27.507205397221778
+      }
+    },
+    {
+      "id": "P_IC_W:57-58",
+      "site": "P_IC_W",
+      "source_rows": [
+        "57",
+        "58"
+      ],
+      "start_utc": "2022-08-09 00:26:00",
+      "observed_end_utc": "2022-08-11 12:56:00",
+      "observed_duration_h": 60.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 42.251478295988505,
+        "uncalibrated_neutral_energy_balance": 49.076049279769265,
+        "training_calibrated_neutral_energy_balance": 44.94885691490438
+      }
+    },
+    {
+      "id": "P_IC_W:58-59",
+      "site": "P_IC_W",
+      "source_rows": [
+        "58",
+        "59"
+      ],
+      "start_utc": "2022-08-11 12:56:00",
+      "observed_end_utc": "2022-08-12 23:56:00",
+      "observed_duration_h": 35.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 31.288992496331534,
+        "uncalibrated_neutral_energy_balance": 34.92621478597323,
+        "training_calibrated_neutral_energy_balance": 31.46602595388889
+      }
+    },
+    {
+      "id": "P_IC_W:59-60",
+      "site": "P_IC_W",
+      "source_rows": [
+        "59",
+        "60"
+      ],
+      "start_utc": "2022-08-12 23:56:00",
+      "observed_end_utc": "2022-08-14 19:26:00",
+      "observed_duration_h": 43.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 23.178498785363303,
+        "uncalibrated_neutral_energy_balance": 29.176315067211785,
+        "training_calibrated_neutral_energy_balance": 22.380478706757227
+      }
+    },
+    {
+      "id": "P_IC_W:60-61",
+      "site": "P_IC_W",
+      "source_rows": [
+        "60",
+        "61"
+      ],
+      "start_utc": "2022-08-14 19:26:00",
+      "observed_end_utc": "2022-08-16 14:56:00",
+      "observed_duration_h": 43.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 30.151985378662744,
+        "uncalibrated_neutral_energy_balance": 47.795582862628834,
+        "training_calibrated_neutral_energy_balance": 30.716167273720107
+      }
+    },
+    {
+      "id": "P_IC_W:61-62",
+      "site": "P_IC_W",
+      "source_rows": [
+        "61",
+        "62"
+      ],
+      "start_utc": "2022-08-16 14:56:00",
+      "observed_end_utc": "2022-08-18 16:56:00",
+      "observed_duration_h": 50.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 29.68839332713021,
+        "uncalibrated_neutral_energy_balance": 44.23230865478516,
+        "training_calibrated_neutral_energy_balance": 30.52858837140931
+      }
+    },
+    {
+      "id": "P_IC_W:62-63",
+      "site": "P_IC_W",
+      "source_rows": [
+        "62",
+        "63"
+      ],
+      "start_utc": "2022-08-18 16:56:00",
+      "observed_end_utc": "2022-08-20 20:56:00",
+      "observed_duration_h": 52.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 36.51228940811422,
+        "uncalibrated_neutral_energy_balance": 57.308513129883345,
+        "training_calibrated_neutral_energy_balance": 36.9300554520554
+      }
+    },
+    {
+      "id": "P_IC_W:63-64",
+      "site": "P_IC_W",
+      "source_rows": [
+        "63",
+        "64"
+      ],
+      "start_utc": "2022-08-20 20:56:00",
+      "observed_end_utc": "2022-08-22 23:26:00",
+      "observed_duration_h": 50.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 28.511818159951105,
+        "uncalibrated_neutral_energy_balance": 46.3834529189931,
+        "training_calibrated_neutral_energy_balance": 30.962140339149368
+      }
+    },
+    {
+      "id": "P_IC_W:64-65",
+      "site": "P_IC_W",
+      "source_rows": [
+        "64",
+        "65"
+      ],
+      "start_utc": "2022-08-22 23:26:00",
+      "observed_end_utc": "2022-08-25 00:56:00",
+      "observed_duration_h": 49.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 28.041518927150303,
+        "uncalibrated_neutral_energy_balance": 47.41061920139525,
+        "training_calibrated_neutral_energy_balance": 24.977387481000687
+      }
+    },
+    {
+      "id": "P_IC_W:65-66",
+      "site": "P_IC_W",
+      "source_rows": [
+        "65",
+        "66"
+      ],
+      "start_utc": "2022-08-25 00:56:00",
+      "observed_end_utc": "2022-08-26 04:56:00",
+      "observed_duration_h": 28.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 29.67666528304418,
+        "uncalibrated_neutral_energy_balance": 42.52847536835406,
+        "training_calibrated_neutral_energy_balance": 31.556705734199948
+      }
+    },
+    {
+      "id": "P_IC_W:66-67",
+      "site": "P_IC_W",
+      "source_rows": [
+        "66",
+        "67"
+      ],
+      "start_utc": "2022-08-26 04:56:00",
+      "observed_end_utc": "2022-08-29 00:26:00",
+      "observed_duration_h": 67.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 40.158223486807614,
+        "uncalibrated_neutral_energy_balance": 62.8092982402775,
+        "training_calibrated_neutral_energy_balance": 41.233475441998905
+      }
+    },
+    {
+      "id": "P_IC_W:67-68",
+      "site": "P_IC_W",
+      "source_rows": [
+        "67",
+        "68"
+      ],
+      "start_utc": "2022-08-29 00:26:00",
+      "observed_end_utc": "2022-08-30 02:56:00",
+      "observed_duration_h": 26.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 32.47948272963365,
+        "uncalibrated_neutral_energy_balance": 26.99162154469225,
+        "training_calibrated_neutral_energy_balance": 30.810997019939954
+      }
+    },
+    {
+      "id": "P_IC_W:68-69",
+      "site": "P_IC_W",
+      "source_rows": [
+        "68",
+        "69"
+      ],
+      "start_utc": "2022-08-30 02:56:00",
+      "observed_end_utc": "2022-08-31 23:26:00",
+      "observed_duration_h": 44.5,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 36.256445646749604,
+        "uncalibrated_neutral_energy_balance": 43.64933207074801,
+        "training_calibrated_neutral_energy_balance": 34.641010278662044
+      }
+    },
+    {
+      "id": "P_IC_W:69-70",
+      "site": "P_IC_W",
+      "source_rows": [
+        "69",
+        "70"
+      ],
+      "start_utc": "2022-08-31 23:26:00",
+      "observed_end_utc": "2022-09-03 14:26:00",
+      "observed_duration_h": 63.0,
+      "normal_target_m": 0.08090169943749476,
+      "predicted_duration_h": {
+        "training_pooled_constant_normal_rate": 27.36155615641011,
+        "training_positive_degree_day": 31.944351668556532,
+        "uncalibrated_neutral_energy_balance": 69.22275359531244,
+        "training_calibrated_neutral_energy_balance": 37.29563558280468
+      }
+    }
+  ],
+  "test_histories": 2,
+  "claims": "partial atmospheric component benchmark, not validated coupled model or professional-code reproduction",
+  "unknowns": [
+    "stream heat",
+    "terrain radiation/shading",
+    "changing slope/aspect within season",
+    "stake spatial continuity",
+    "hourly averaging convention"
+  ],
+  "code_sha256": "7ebf1493abea17f7e98419eeb02d4ddb9671b1f0f6d05f3b1224b3d8a5f135b5",
+  "runtime_versions": {
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "pvlib": "0.11.2"
+  }
+}

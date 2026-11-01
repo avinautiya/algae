@@ -1,0 +1,24 @@
+{
+  "protocol_sha256": "b0db9a1f909ec78725d2c489b1d85d5a2918872a05caa994304824202586227b",
+  "training_year": 2021,
+  "training_intervals": 94,
+  "excluded": [
+    {
+      "id": "P_IC_N:32",
+      "reason": "no complete forcing or nonpositive retreat"
+    }
+  ],
+  "training_sites": [
+    "P_IC_E",
+    "P_IC_N",
+    "P_IC_S",
+    "P_IC_W"
+  ],
+  "albedo": 0.5999999999999999,
+  "neutral_exchange": 0.0048117017990167215,
+  "training_squared_error_m2": 0.17891952802545738,
+  "constant_normal_rate_m_s": 8.21323690792335e-07,
+  "degree_factor_m_per_Kday": 0.00788885649408678,
+  "fit_success": true,
+  "model_scope": "atmosphere-only component baselines; unknown hydrological heat is not observed zero"
+}

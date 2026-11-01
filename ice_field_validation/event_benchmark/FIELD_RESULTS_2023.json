@@ -1,0 +1,3188 @@
+{
+  "evaluation": "secondary retrospective field hindcast; uncertain offglacier meteorological transfer",
+  "original_melt_calibration": {
+    "protocol_sha256": "b0db9a1f909ec78725d2c489b1d85d5a2918872a05caa994304824202586227b",
+    "training_year": 2021,
+    "training_intervals": 94,
+    "excluded": [
+      {
+        "id": "P_IC_N:32",
+        "reason": "no complete forcing or nonpositive retreat"
+      }
+    ],
+    "training_sites": [
+      "P_IC_E",
+      "P_IC_N",
+      "P_IC_S",
+      "P_IC_W"
+    ],
+    "albedo": 0.5999999999999999,
+    "neutral_exchange": 0.0048117017990167215,
+    "training_squared_error_m2": 0.17891952802545738,
+    "constant_normal_rate_m_s": 8.21323690792335e-07,
+    "degree_factor_m_per_Kday": 0.00788885649408678,
+    "fit_success": true,
+    "model_scope": "atmosphere-only component baselines; unknown hydrological heat is not observed zero"
+  },
+  "weather_transfer": {
+    "T_2m": {
+      "source": "T_3m",
+      "intercept": -0.8706888795038247,
+      "slope": 0.9260458908114844,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 2.065039377964023
+    },
+    "RH_2m": {
+      "source": "RH_3m",
+      "intercept": 9.196747469235413,
+      "slope": 0.8368320865666035,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 5.773555139520311
+    },
+    "Wspd": {
+      "source": "Wspd_3m",
+      "intercept": 2.322595012490728,
+      "slope": 0.4912630884860264,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 0.8962234801933646
+    },
+    "SWin": {
+      "source": "SWin",
+      "intercept": 31.23918194964315,
+      "slope": 1.0759938365703885,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 144.38740206193253
+    },
+    "LWin": {
+      "source": "LWin",
+      "intercept": 40.519182346802054,
+      "slope": 0.8686917130375635,
+      "paired_rows": 4939,
+      "calibration_weather_RMSE": 9.647936801246589
+    }
+  },
+  "weather_qc_clips": {
+    "T_2m": 0,
+    "RH_2m": 0,
+    "Wspd": 0,
+    "SWin": 0,
+    "LWin": 0
+  },
+  "scenarios": {
+    "base": {
+      "metrics": {
+        "P_IC_E": {
+          "eligible": 7,
+          "paired_complete": 7,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 12.577736552556358,
+              "RMSE_h": 14.448906026303197,
+              "bias_h": -12.577736552556358,
+              "MAPE": 0.38273636249506576,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.14285714285714285,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.754747949526425,
+              "RMSE_h": 10.169889137554945,
+              "bias_h": -6.496566317791031,
+              "MAPE": 0.22729813734822316,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5714285714285714,
+              "MAE_skill_vs_training_constant": 0.3834544143039541,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 7.123752468360796,
+              "RMSE_h": 9.41828808962701,
+              "bias_h": -7.123752468360796,
+              "MAPE": 0.20815656673567431,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5714285714285714,
+              "MAE_skill_vs_training_constant": 0.43362206398631153,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.0437072366665285,
+              "RMSE_h": 9.282072573307484,
+              "bias_h": -6.0712416277139925,
+              "MAPE": 0.20537756548054983,
+              "fraction_within_2h": 0.2857142857142857,
+              "fraction_within20percent": 0.7142857142857143,
+              "MAE_skill_vs_training_constant": 0.43998610503294944,
+              "censored": 0
+            }
+          }
+        },
+        "P_IC_N": {
+          "eligible": 21,
+          "paired_complete": 21,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.945296585222401,
+              "RMSE_h": 8.874856482130037,
+              "bias_h": -3.5956727341148618,
+              "MAPE": 0.18021190488553934,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.47619047619047616,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 8.867852921239916,
+              "RMSE_h": 11.578225827004598,
+              "bias_h": -6.456355281412287,
+              "MAPE": 0.23021684165706352,
+              "fraction_within_2h": 0.19047619047619047,
+              "fraction_within20percent": 0.42857142857142855,
+              "MAE_skill_vs_training_constant": -0.2768141450011168,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.241668884820409,
+              "RMSE_h": 8.70752736497405,
+              "bias_h": -2.359466610449962,
+              "MAPE": 0.16900986753771416,
+              "fraction_within_2h": 0.3333333333333333,
+              "fraction_within20percent": 0.6666666666666666,
+              "MAE_skill_vs_training_constant": 0.10130995728808911,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.86560130331882,
+              "RMSE_h": 11.083262684111048,
+              "bias_h": -5.596558246663007,
+              "MAPE": 0.2326739077724617,
+              "fraction_within_2h": 0.09523809523809523,
+              "fraction_within20percent": 0.42857142857142855,
+              "MAE_skill_vs_training_constant": -0.27648995180166636,
+              "censored": 0
+            }
+          }
+        },
+        "P_IC_W": {
+          "eligible": 27,
+          "paired_complete": 27,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.160132660272189,
+              "RMSE_h": 8.992150090824792,
+              "bias_h": -3.827644945883456,
+              "MAPE": 0.2629096050949045,
+              "fraction_within_2h": 0.3333333333333333,
+              "fraction_within20percent": 0.5925925925925926,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 6.345493198481116,
+              "RMSE_h": 8.154671065507188,
+              "bias_h": -4.565217191324312,
+              "MAPE": 0.24346602989378374,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.4074074074074074,
+              "MAE_skill_vs_training_constant": -0.030090348444011816,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 8.981359069391534,
+              "RMSE_h": 11.142980836580396,
+              "bias_h": -8.938219373834476,
+              "MAPE": 0.34192971612737405,
+              "fraction_within_2h": 0.1111111111111111,
+              "fraction_within20percent": 0.4444444444444444,
+              "MAE_skill_vs_training_constant": -0.45798143720409534,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.463643126713396,
+              "RMSE_h": 9.80361395056545,
+              "bias_h": -7.099308444183059,
+              "MAPE": 0.26423045933347056,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.48148148148148145,
+              "MAE_skill_vs_training_constant": -0.21160428489597005,
+              "censored": 0
+            }
+          }
+        },
+        "P_IC_W2": {
+          "eligible": 16,
+          "paired_complete": 16,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 8.74954796936777,
+              "RMSE_h": 12.376233523941904,
+              "bias_h": -4.71784593873554,
+              "MAPE": 0.43974997947688316,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.5625,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.536589910060995,
+              "RMSE_h": 10.664663601875768,
+              "bias_h": -3.8524153000654437,
+              "MAPE": 0.31935197627678447,
+              "fraction_within_2h": 0.1875,
+              "fraction_within20percent": 0.5,
+              "MAE_skill_vs_training_constant": 0.1386309399700819,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 9.538661277732915,
+              "RMSE_h": 13.270309166133254,
+              "bias_h": -9.382941556837824,
+              "MAPE": 0.31390770230728193,
+              "fraction_within_2h": 0.125,
+              "fraction_within20percent": 0.4375,
+              "MAE_skill_vs_training_constant": -0.09018903732259509,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.362271641575628,
+              "RMSE_h": 11.416109716743941,
+              "bias_h": -7.047721856873896,
+              "MAPE": 0.22096837341505882,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.625,
+              "MAE_skill_vs_training_constant": 0.15855405703803283,
+              "censored": 0
+            }
+          }
+        },
+        "pooled": {
+          "eligible": 71,
+          "paired_complete": 71,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 7.608615964715469,
+              "RMSE_h": 10.447282775231622,
+              "bias_h": -4.822327209055332,
+              "MAPE": 0.2901149795669625,
+              "fraction_within_2h": 0.23943661971830985,
+              "fraction_within20percent": 0.5070422535211268,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.498900026939284,
+              "RMSE_h": 10.0382176155607,
+              "bias_h": -5.15435118452111,
+              "MAPE": 0.2550542966731917,
+              "fraction_within_2h": 0.18309859154929578,
+              "fraction_within20percent": 0.4507042253521127,
+              "MAE_skill_vs_training_constant": 0.014419959988122288,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 8.113473087000736,
+              "RMSE_h": 10.86619711430794,
+              "bias_h": -6.913719071843815,
+              "MAPE": 0.2712806867295398,
+              "fraction_within_2h": 0.18309859154929578,
+              "fraction_within20percent": 0.5211267605633803,
+              "MAE_skill_vs_training_constant": -0.06635334528993364,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.814060404406094,
+              "RMSE_h": 10.523578407443546,
+              "bias_h": -6.54184918699783,
+              "MAPE": 0.23934523096098864,
+              "fraction_within_2h": 0.19718309859154928,
+              "fraction_within20percent": 0.5211267605633803,
+              "MAE_skill_vs_training_constant": -0.02700155200937493,
+              "censored": 0
+            }
+          }
+        }
+      },
+      "events": [
+        {
+          "id": "P_IC_E:2-3",
+          "site": "P_IC_E",
+          "observed_duration_h": 40.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 20.249203181465468,
+            "uncalibrated_neutral_energy_balance": 21.79418125814862,
+            "training_calibrated_neutral_energy_balance": 23.00694999549124
+          }
+        },
+        {
+          "id": "P_IC_E:3-4",
+          "site": "P_IC_E",
+          "observed_duration_h": 42.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 26.879075249698428,
+            "uncalibrated_neutral_energy_balance": 27.752634433507918,
+            "training_calibrated_neutral_energy_balance": 26.72358521256182
+          }
+        },
+        {
+          "id": "P_IC_E:4-5",
+          "site": "P_IC_E",
+          "observed_duration_h": 27.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 31.403635711073875,
+            "uncalibrated_neutral_energy_balance": 26.022648921608926,
+            "training_calibrated_neutral_energy_balance": 28.703399676349427
+          }
+        },
+        {
+          "id": "P_IC_E:5-6",
+          "site": "P_IC_E",
+          "observed_duration_h": 26.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 25.067466046214104,
+            "uncalibrated_neutral_energy_balance": 23.65465732243326,
+            "training_calibrated_neutral_energy_balance": 27.700229954984454
+          }
+        },
+        {
+          "id": "P_IC_E:6-7",
+          "site": "P_IC_E",
+          "observed_duration_h": 29.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 26.14037304494116,
+            "uncalibrated_neutral_energy_balance": 24.884701341787974,
+            "training_calibrated_neutral_energy_balance": 25.54170445713732
+          }
+        },
+        {
+          "id": "P_IC_E:7-8",
+          "site": "P_IC_E",
+          "observed_duration_h": 26.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 20.520299403733677,
+            "uncalibrated_neutral_energy_balance": 21.98988226360745,
+            "training_calibrated_neutral_energy_balance": 21.616313108735614
+          }
+        },
+        {
+          "id": "P_IC_E:8-9",
+          "site": "P_IC_E",
+          "observed_duration_h": 22.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 17.763983138336076,
+            "uncalibrated_neutral_energy_balance": 17.53502718038029,
+            "training_calibrated_neutral_energy_balance": 17.70912620074219
+          }
+        },
+        {
+          "id": "P_IC_N:2-3",
+          "site": "P_IC_N",
+          "observed_duration_h": 46.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 54.16801806939973,
+            "uncalibrated_neutral_energy_balance": 52.67695416940583,
+            "training_calibrated_neutral_energy_balance": 55.725726389686265
+          }
+        },
+        {
+          "id": "P_IC_N:3-4",
+          "site": "P_IC_N",
+          "observed_duration_h": 32.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 44.62132586889797,
+            "uncalibrated_neutral_energy_balance": 36.10585792548127,
+            "training_calibrated_neutral_energy_balance": 50.30133839507898
+          }
+        },
+        {
+          "id": "P_IC_N:4-5",
+          "site": "P_IC_N",
+          "observed_duration_h": 40.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 41.23918328550127,
+            "uncalibrated_neutral_energy_balance": 27.780258481634988,
+            "training_calibrated_neutral_energy_balance": 37.13184807697932
+          }
+        },
+        {
+          "id": "P_IC_N:5-6",
+          "site": "P_IC_N",
+          "observed_duration_h": 30.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 28.50354671213362,
+            "uncalibrated_neutral_energy_balance": 30.567996698949074,
+            "training_calibrated_neutral_energy_balance": 29.707832952075535
+          }
+        },
+        {
+          "id": "P_IC_N:6-7",
+          "site": "P_IC_N",
+          "observed_duration_h": 29.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 22.93924619442887,
+            "uncalibrated_neutral_energy_balance": 26.312211974130737,
+            "training_calibrated_neutral_energy_balance": 24.531175272067387
+          }
+        },
+        {
+          "id": "P_IC_N:7-8",
+          "site": "P_IC_N",
+          "observed_duration_h": 40.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 27.231206991738745,
+            "uncalibrated_neutral_energy_balance": 41.547706692549916,
+            "training_calibrated_neutral_energy_balance": 31.719701872865357
+          }
+        },
+        {
+          "id": "P_IC_N:8-9",
+          "site": "P_IC_N",
+          "observed_duration_h": 29.483333333333334,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 28.662471296721034,
+            "uncalibrated_neutral_energy_balance": 31.011267943316035,
+            "training_calibrated_neutral_energy_balance": 25.652250743375884
+          }
+        },
+        {
+          "id": "P_IC_N:9-10",
+          "site": "P_IC_N",
+          "observed_duration_h": 39.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 23.458939723703597,
+            "uncalibrated_neutral_energy_balance": 24.26500495645735,
+            "training_calibrated_neutral_energy_balance": 22.237236707210542
+          }
+        },
+        {
+          "id": "P_IC_N:10-11",
+          "site": "P_IC_N",
+          "observed_duration_h": 30.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 27.00844121237596,
+            "uncalibrated_neutral_energy_balance": 30.676294245653683,
+            "training_calibrated_neutral_energy_balance": 25.76534777316782
+          }
+        },
+        {
+          "id": "P_IC_N:11-12",
+          "site": "P_IC_N",
+          "observed_duration_h": 43.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 29.21207210878531,
+            "uncalibrated_neutral_energy_balance": 43.17766704771254,
+            "training_calibrated_neutral_energy_balance": 32.956871496107844
+          }
+        },
+        {
+          "id": "P_IC_N:12-13",
+          "site": "P_IC_N",
+          "observed_duration_h": 26.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 25.280022915932868,
+            "uncalibrated_neutral_energy_balance": 35.96008854839537,
+            "training_calibrated_neutral_energy_balance": 28.60671456999249
+          }
+        },
+        {
+          "id": "P_IC_N:13-14",
+          "site": "P_IC_N",
+          "observed_duration_h": 46.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 26.084524700972768,
+            "uncalibrated_neutral_energy_balance": 36.999209007753265,
+            "training_calibrated_neutral_energy_balance": 28.941158590250545
+          }
+        },
+        {
+          "id": "P_IC_N:14-15",
+          "site": "P_IC_N",
+          "observed_duration_h": 41.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 36.86454098595513,
+            "uncalibrated_neutral_energy_balance": 33.34487858010663,
+            "training_calibrated_neutral_energy_balance": 32.20740762975481
+          }
+        },
+        {
+          "id": "P_IC_N:15-16",
+          "site": "P_IC_N",
+          "observed_duration_h": 56.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 23.47884189758036,
+            "uncalibrated_neutral_energy_balance": 30.863615613712206,
+            "training_calibrated_neutral_energy_balance": 27.973730705777804
+          }
+        },
+        {
+          "id": "P_IC_N:16-17",
+          "site": "P_IC_N",
+          "observed_duration_h": 37.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 27.405233311255774,
+            "uncalibrated_neutral_energy_balance": 30.261256259348656,
+            "training_calibrated_neutral_energy_balance": 29.239655451112323
+          }
+        },
+        {
+          "id": "P_IC_N:17-18",
+          "site": "P_IC_N",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 19.760284955302875,
+            "uncalibrated_neutral_energy_balance": 30.55524591485659,
+            "training_calibrated_neutral_energy_balance": 21.434382769399217
+          }
+        },
+        {
+          "id": "P_IC_N:18-19",
+          "site": "P_IC_N",
+          "observed_duration_h": 28.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 17.002400847276053,
+            "uncalibrated_neutral_energy_balance": 23.74900305052598,
+            "training_calibrated_neutral_energy_balance": 16.71030544506179
+          }
+        },
+        {
+          "id": "P_IC_N:19-20",
+          "site": "P_IC_N",
+          "observed_duration_h": 31.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 25.348374128871495,
+            "uncalibrated_neutral_energy_balance": 31.371906368202634,
+            "training_calibrated_neutral_energy_balance": 29.59268024623394
+          }
+        },
+        {
+          "id": "P_IC_N:21-22",
+          "site": "P_IC_N",
+          "observed_duration_h": 41.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 32.70455057097806,
+            "uncalibrated_neutral_energy_balance": 36.807907275160154,
+            "training_calibrated_neutral_energy_balance": 28.96056478732162
+          }
+        },
+        {
+          "id": "P_IC_N:22-23",
+          "site": "P_IC_N",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 29.292197994391124,
+            "uncalibrated_neutral_energy_balance": 35.96737802790271,
+            "training_calibrated_neutral_energy_balance": 29.191172740128305
+          }
+        },
+        {
+          "id": "P_IC_N:23-24",
+          "site": "P_IC_N",
+          "observed_duration_h": 32.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 25.134448651472727,
+            "uncalibrated_neutral_energy_balance": 31.432825732628505,
+            "training_calibrated_neutral_energy_balance": 24.86850753976239
+          }
+        },
+        {
+          "id": "P_IC_W:2-3",
+          "site": "P_IC_W",
+          "observed_duration_h": 30.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.39619438118405,
+            "uncalibrated_neutral_energy_balance": 12.848086041145855,
+            "training_calibrated_neutral_energy_balance": 14.039101632502344
+          }
+        },
+        {
+          "id": "P_IC_W:3-4",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 26.286121292710305,
+            "uncalibrated_neutral_energy_balance": 21.524306307435037,
+            "training_calibrated_neutral_energy_balance": 25.690899826221997
+          }
+        },
+        {
+          "id": "P_IC_W:4-5",
+          "site": "P_IC_W",
+          "observed_duration_h": 48.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 34.67757804532846,
+            "uncalibrated_neutral_energy_balance": 26.939195948971644,
+            "training_calibrated_neutral_energy_balance": 29.414966531991958
+          }
+        },
+        {
+          "id": "P_IC_W:5-6",
+          "site": "P_IC_W",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 28.971230625510216,
+            "uncalibrated_neutral_energy_balance": 20.72932754735152,
+            "training_calibrated_neutral_energy_balance": 24.76632885283894
+          }
+        },
+        {
+          "id": "P_IC_W:6-7",
+          "site": "P_IC_W",
+          "observed_duration_h": 22.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 29.064723576903344,
+            "uncalibrated_neutral_energy_balance": 6.186156402230263,
+            "training_calibrated_neutral_energy_balance": 25.695226407580904
+          }
+        },
+        {
+          "id": "P_IC_W:7-8",
+          "site": "P_IC_W",
+          "observed_duration_h": 27.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 28.414535345037777,
+            "uncalibrated_neutral_energy_balance": 22.515770668586097,
+            "training_calibrated_neutral_energy_balance": 25.156268421941334
+          }
+        },
+        {
+          "id": "P_IC_W:8-9",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 22.907097224791844,
+            "uncalibrated_neutral_energy_balance": 14.61833288013935,
+            "training_calibrated_neutral_energy_balance": 19.633193716804186
+          }
+        },
+        {
+          "id": "P_IC_W:9-10",
+          "site": "P_IC_W",
+          "observed_duration_h": 17.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.05409672598044,
+            "uncalibrated_neutral_energy_balance": 6.032095135052999,
+            "training_calibrated_neutral_energy_balance": 16.74702984293302
+          }
+        },
+        {
+          "id": "P_IC_W:10-11",
+          "site": "P_IC_W",
+          "observed_duration_h": 9.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 13.152520812484953,
+            "uncalibrated_neutral_energy_balance": 7.736630972094006,
+            "training_calibrated_neutral_energy_balance": 9.2660631275177
+          }
+        },
+        {
+          "id": "P_IC_W:11-12",
+          "site": "P_IC_W",
+          "observed_duration_h": 20.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 17.19973103000058,
+            "uncalibrated_neutral_energy_balance": 16.544033520354166,
+            "training_calibrated_neutral_energy_balance": 17.128860086070166
+          }
+        },
+        {
+          "id": "P_IC_W:12-13",
+          "site": "P_IC_W",
+          "observed_duration_h": 30.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 15.127062286337218,
+            "uncalibrated_neutral_energy_balance": 20.51743258330557,
+            "training_calibrated_neutral_energy_balance": 17.634821055134136
+          }
+        },
+        {
+          "id": "P_IC_W:13-14",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.95862615909841,
+            "uncalibrated_neutral_energy_balance": 23.582385890020266,
+            "training_calibrated_neutral_energy_balance": 18.72283728857835
+          }
+        },
+        {
+          "id": "P_IC_W:14-15",
+          "site": "P_IC_W",
+          "observed_duration_h": 37.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.172146798438497,
+            "uncalibrated_neutral_energy_balance": 20.674168017903963,
+            "training_calibrated_neutral_energy_balance": 18.004214385416773
+          }
+        },
+        {
+          "id": "P_IC_W:15-16",
+          "site": "P_IC_W",
+          "observed_duration_h": 9.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 13.090497717989816,
+            "uncalibrated_neutral_energy_balance": 8.083466201292143,
+            "training_calibrated_neutral_energy_balance": 8.944416298270225
+          }
+        },
+        {
+          "id": "P_IC_W:16-17",
+          "site": "P_IC_W",
+          "observed_duration_h": 20.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 17.63947392013338,
+            "uncalibrated_neutral_energy_balance": 13.633643978039423,
+            "training_calibrated_neutral_energy_balance": 13.458855854868888
+          }
+        },
+        {
+          "id": "P_IC_W:17-18",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 17.4947158422735,
+            "uncalibrated_neutral_energy_balance": 10.404244881338544,
+            "training_calibrated_neutral_energy_balance": 12.22921109047201
+          }
+        },
+        {
+          "id": "P_IC_W:18-19",
+          "site": "P_IC_W",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.06792792710993,
+            "uncalibrated_neutral_energy_balance": 20.186144210629994,
+            "training_calibrated_neutral_energy_balance": 20.380357386867207
+          }
+        },
+        {
+          "id": "P_IC_W:19-20",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.080689959128698,
+            "uncalibrated_neutral_energy_balance": 21.27948774960306,
+            "training_calibrated_neutral_energy_balance": 19.852173219654293
+          }
+        },
+        {
+          "id": "P_IC_W:20-21",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.516666666666666,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 18.16217190457715,
+            "uncalibrated_neutral_energy_balance": 18.466539915137822,
+            "training_calibrated_neutral_energy_balance": 18.1216459600793
+          }
+        },
+        {
+          "id": "P_IC_W:21-22",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 19.19537364423275,
+            "uncalibrated_neutral_energy_balance": 22.78689636508624,
+            "training_calibrated_neutral_energy_balance": 19.875912102924453
+          }
+        },
+        {
+          "id": "P_IC_W:22-23",
+          "site": "P_IC_W",
+          "observed_duration_h": 43.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 23.757340989245307,
+            "uncalibrated_neutral_energy_balance": 25.34942827264468,
+            "training_calibrated_neutral_energy_balance": 23.737109987470838
+          }
+        },
+        {
+          "id": "P_IC_W:23-24",
+          "site": "P_IC_W",
+          "observed_duration_h": 27.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.527739221188757,
+            "uncalibrated_neutral_energy_balance": 6.660498849550883,
+            "training_calibrated_neutral_energy_balance": 11.470734753542477
+          }
+        },
+        {
+          "id": "P_IC_W:24-25",
+          "site": "P_IC_W",
+          "observed_duration_h": 22.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 15.541806209153599,
+            "uncalibrated_neutral_energy_balance": 5.677280076742172,
+            "training_calibrated_neutral_energy_balance": 14.04544688211547
+          }
+        },
+        {
+          "id": "P_IC_W:25-26",
+          "site": "P_IC_W",
+          "observed_duration_h": 31.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.04030026409361,
+            "uncalibrated_neutral_energy_balance": 22.20531192448404,
+            "training_calibrated_neutral_energy_balance": 18.99309111740854
+          }
+        },
+        {
+          "id": "P_IC_W:26-27",
+          "site": "P_IC_W",
+          "observed_duration_h": 21.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 19.742873195740913,
+            "uncalibrated_neutral_energy_balance": 18.35346513622337,
+            "training_calibrated_neutral_energy_balance": 18.707436657216814
+          }
+        },
+        {
+          "id": "P_IC_W:27-28",
+          "site": "P_IC_W",
+          "observed_duration_h": 19.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 16.978305831684008,
+            "uncalibrated_neutral_energy_balance": 16.85980490134822,
+            "training_calibrated_neutral_energy_balance": 16.7915688119332
+          }
+        },
+        {
+          "id": "P_IC_W:28-29",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 11.05492157055272,
+            "uncalibrated_neutral_energy_balance": 6.290609196424485,
+            "training_calibrated_neutral_energy_balance": 7.827567375368542
+          }
+        },
+        {
+          "id": "P_IC_W2:2-3",
+          "site": "P_IC_W2",
+          "observed_duration_h": 29.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 22.098327181140583,
+            "uncalibrated_neutral_energy_balance": 23.059949827657807,
+            "training_calibrated_neutral_energy_balance": 22.075726739962896
+          }
+        },
+        {
+          "id": "P_IC_W2:3-4",
+          "site": "P_IC_W2",
+          "observed_duration_h": 41.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 28.852639748255413,
+            "uncalibrated_neutral_energy_balance": 17.762100602851973,
+            "training_calibrated_neutral_energy_balance": 30.11253576947583
+          }
+        },
+        {
+          "id": "P_IC_W2:4-5",
+          "site": "P_IC_W2",
+          "observed_duration_h": 45.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 41.5182092833519,
+            "uncalibrated_neutral_energy_balance": 29.050921648608313,
+            "training_calibrated_neutral_energy_balance": 37.79923557526536
+          }
+        },
+        {
+          "id": "P_IC_W2:5-6",
+          "site": "P_IC_W2",
+          "observed_duration_h": 25.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 29.923044154312876,
+            "uncalibrated_neutral_energy_balance": 20.72144465936555,
+            "training_calibrated_neutral_energy_balance": 25.047018279234567
+          }
+        },
+        {
+          "id": "P_IC_W2:6-7",
+          "site": "P_IC_W2",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 30.636923232343463,
+            "uncalibrated_neutral_energy_balance": 19.309572384357452,
+            "training_calibrated_neutral_energy_balance": 27.18490804115931
+          }
+        },
+        {
+          "id": "P_IC_W2:7-8",
+          "site": "P_IC_W2",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 27.742353133625453,
+            "uncalibrated_neutral_energy_balance": 21.551501557363405,
+            "training_calibrated_neutral_energy_balance": 23.03726163460149
+          }
+        },
+        {
+          "id": "P_IC_W2:8-9",
+          "site": "P_IC_W2",
+          "observed_duration_h": 22.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 23.497632705171903,
+            "uncalibrated_neutral_energy_balance": 18.43965811252594,
+            "training_calibrated_neutral_energy_balance": 20.886291668282613
+          }
+        },
+        {
+          "id": "P_IC_W2:9-10",
+          "site": "P_IC_W2",
+          "observed_duration_h": 22.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 20.700174493524763,
+            "uncalibrated_neutral_energy_balance": 6.448916512926419,
+            "training_calibrated_neutral_energy_balance": 17.934980084763634
+          }
+        },
+        {
+          "id": "P_IC_W2:10-11",
+          "site": "P_IC_W2",
+          "observed_duration_h": 7.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 15.444912586344612,
+            "uncalibrated_neutral_energy_balance": 5.016304447187318,
+            "training_calibrated_neutral_energy_balance": 7.423905146519343
+          }
+        },
+        {
+          "id": "P_IC_W2:11-12",
+          "site": "P_IC_W2",
+          "observed_duration_h": 37.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 17.594430581331252,
+            "uncalibrated_neutral_energy_balance": 18.83059212876691,
+            "training_calibrated_neutral_energy_balance": 18.330030080609852
+          }
+        },
+        {
+          "id": "P_IC_W2:12-13",
+          "site": "P_IC_W2",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 20.233063629137146,
+            "uncalibrated_neutral_energy_balance": 25.245757767160732,
+            "training_calibrated_neutral_energy_balance": 19.8798370822933
+          }
+        },
+        {
+          "id": "P_IC_W2:13-14",
+          "site": "P_IC_W2",
+          "observed_duration_h": 26.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 21.634688033660254,
+            "uncalibrated_neutral_energy_balance": 24.372998474703895,
+            "training_calibrated_neutral_energy_balance": 17.17814353466034
+          }
+        },
+        {
+          "id": "P_IC_W2:14-15",
+          "site": "P_IC_W2",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 17.420000301798186,
+            "uncalibrated_neutral_energy_balance": 10.705054559575187,
+            "training_calibrated_neutral_energy_balance": 11.85684894627995
+          }
+        },
+        {
+          "id": "P_IC_W2:15-16",
+          "site": "P_IC_W2",
+          "observed_duration_h": 7.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 13.728531068166097,
+            "uncalibrated_neutral_energy_balance": 5.660624547600746,
+            "training_calibrated_neutral_energy_balance": 7.33149023645454
+          }
+        },
+        {
+          "id": "P_IC_W2:16-17",
+          "site": "P_IC_W2",
+          "observed_duration_h": 20.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 18.649089912308586,
+            "uncalibrated_neutral_energy_balance": 17.656562091112136,
+            "training_calibrated_neutral_energy_balance": 16.527368729578125
+          }
+        },
+        {
+          "id": "P_IC_W2:17-18",
+          "site": "P_IC_W2",
+          "observed_duration_h": 50.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 19.187335154480404,
+            "uncalibrated_neutral_energy_balance": 16.540975768831043,
+            "training_calibrated_neutral_energy_balance": 15.130868740876515
+          }
+        }
+      ],
+      "exclusions": [
+        {
+          "id": "P_IC_N:20-21",
+          "reason": "not exact10cm marker"
+        },
+        {
+          "id": "P_IC_W:29-30",
+          "reason": "not exact10cm marker"
+        }
+      ]
+    },
+    "SW_minus15percent": {
+      "metrics": {
+        "P_IC_E": {
+          "eligible": 7,
+          "paired_complete": 7,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 12.577736552556358,
+              "RMSE_h": 14.448906026303197,
+              "bias_h": -12.577736552556358,
+              "MAPE": 0.38273636249506576,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.14285714285714285,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.754747949526425,
+              "RMSE_h": 10.169889137554945,
+              "bias_h": -6.496566317791031,
+              "MAPE": 0.22729813734822316,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5714285714285714,
+              "MAE_skill_vs_training_constant": 0.3834544143039541,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 5.153931531641218,
+              "RMSE_h": 6.964324873761266,
+              "bias_h": -5.067140222428336,
+              "MAPE": 0.14884139659178378,
+              "fraction_within_2h": 0.2857142857142857,
+              "fraction_within20percent": 0.7142857142857143,
+              "MAE_skill_vs_training_constant": 0.5902337825167987,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 6.846321452818221,
+              "RMSE_h": 8.55136230332159,
+              "bias_h": -4.918450894507152,
+              "MAPE": 0.20323291495876866,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.7142857142857143,
+              "MAE_skill_vs_training_constant": 0.45567937249991597,
+              "censored": 0
+            }
+          }
+        },
+        "P_IC_N": {
+          "eligible": 21,
+          "paired_complete": 21,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.945296585222401,
+              "RMSE_h": 8.874856482130037,
+              "bias_h": -3.5956727341148618,
+              "MAPE": 0.18021190488553934,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.47619047619047616,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 8.867852921239916,
+              "RMSE_h": 11.578225827004598,
+              "bias_h": -6.456355281412287,
+              "MAPE": 0.23021684165706352,
+              "fraction_within_2h": 0.19047619047619047,
+              "fraction_within20percent": 0.42857142857142855,
+              "MAE_skill_vs_training_constant": -0.2768141450011168,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 5.9676877543882085,
+              "RMSE_h": 8.571646668217216,
+              "bias_h": 1.232239171667074,
+              "MAPE": 0.17236935850094184,
+              "fraction_within_2h": 0.38095238095238093,
+              "fraction_within20percent": 0.7142857142857143,
+              "MAE_skill_vs_training_constant": 0.14075839942015778,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.399206304944382,
+              "RMSE_h": 10.85464871792188,
+              "bias_h": -4.560257167604865,
+              "MAPE": 0.22083340676807175,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5238095238095238,
+              "MAE_skill_vs_training_constant": -0.20933731222011231,
+              "censored": 0
+            }
+          }
+        },
+        "P_IC_W": {
+          "eligible": 27,
+          "paired_complete": 27,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.160132660272189,
+              "RMSE_h": 8.992150090824792,
+              "bias_h": -3.827644945883456,
+              "MAPE": 0.2629096050949045,
+              "fraction_within_2h": 0.3333333333333333,
+              "fraction_within20percent": 0.5925925925925926,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 6.345493198481116,
+              "RMSE_h": 8.154671065507188,
+              "bias_h": -4.565217191324312,
+              "MAPE": 0.24346602989378374,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.4074074074074074,
+              "MAE_skill_vs_training_constant": -0.030090348444011816,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.097672350995334,
+              "RMSE_h": 8.185185888193205,
+              "bias_h": -5.9169182763570625,
+              "MAPE": 0.22191135262563558,
+              "fraction_within_2h": 0.2222222222222222,
+              "fraction_within20percent": 0.5925925925925926,
+              "MAE_skill_vs_training_constant": 0.010139442236312912,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 6.73100739449876,
+              "RMSE_h": 8.737101756522163,
+              "bias_h": -5.82187722238739,
+              "MAPE": 0.24058731452223403,
+              "fraction_within_2h": 0.2222222222222222,
+              "fraction_within20percent": 0.5185185185185185,
+              "MAE_skill_vs_training_constant": -0.09267247406995716,
+              "censored": 0
+            }
+          }
+        },
+        "P_IC_W2": {
+          "eligible": 16,
+          "paired_complete": 16,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 8.74954796936777,
+              "RMSE_h": 12.376233523941904,
+              "bias_h": -4.71784593873554,
+              "MAPE": 0.43974997947688316,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.5625,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.536589910060995,
+              "RMSE_h": 10.664663601875768,
+              "bias_h": -3.8524153000654437,
+              "MAPE": 0.31935197627678447,
+              "fraction_within_2h": 0.1875,
+              "fraction_within20percent": 0.5,
+              "MAE_skill_vs_training_constant": 0.1386309399700819,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.517242987888554,
+              "RMSE_h": 10.400134132690132,
+              "bias_h": -6.222293456192645,
+              "MAPE": 0.2015992285190733,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.625,
+              "MAE_skill_vs_training_constant": 0.2551337496856445,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 6.597872373031245,
+              "RMSE_h": 10.565470920703875,
+              "bias_h": -5.638959966558549,
+              "MAPE": 0.2144102905138494,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.625,
+              "MAE_skill_vs_training_constant": 0.24591848674577899,
+              "censored": 0
+            }
+          }
+        },
+        "pooled": {
+          "eligible": 71,
+          "paired_complete": 71,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 7.608615964715469,
+              "RMSE_h": 10.447282775231622,
+              "bias_h": -4.822327209055332,
+              "MAPE": 0.2901149795669625,
+              "fraction_within_2h": 0.23943661971830985,
+              "fraction_within20percent": 0.5070422535211268,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.498900026939284,
+              "RMSE_h": 10.0382176155607,
+              "bias_h": -5.15435118452111,
+              "MAPE": 0.2550542966731917,
+              "fraction_within_2h": 0.18309859154929578,
+              "fraction_within20percent": 0.4507042253521127,
+              "MAE_skill_vs_training_constant": 0.014419959988122288,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.060732462630024,
+              "RMSE_h": 8.738758800603271,
+              "bias_h": -3.787414756517082,
+              "MAPE": 0.1954766265050647,
+              "fraction_within_2h": 0.29577464788732394,
+              "fraction_within20percent": 0.647887323943662,
+              "MAE_skill_vs_training_constant": 0.203438248068199,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.205785073148253,
+              "RMSE_h": 9.810411499819308,
+              "bias_h": -5.318431003530261,
+              "MAPE": 0.22516273362201122,
+              "fraction_within_2h": 0.19718309859154928,
+              "fraction_within20percent": 0.5633802816901409,
+              "MAE_skill_vs_training_constant": 0.05294404309999623,
+              "censored": 0
+            }
+          }
+        }
+      },
+      "events": [
+        {
+          "id": "P_IC_E:2-3",
+          "site": "P_IC_E",
+          "observed_duration_h": 40.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 20.249203181465468,
+            "uncalibrated_neutral_energy_balance": 27.820641204449867,
+            "training_calibrated_neutral_energy_balance": 24.91119619283411
+          }
+        },
+        {
+          "id": "P_IC_E:3-4",
+          "site": "P_IC_E",
+          "observed_duration_h": 42.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 26.879075249698428,
+            "uncalibrated_neutral_energy_balance": 30.067424614694385,
+            "training_calibrated_neutral_energy_balance": 27.771429917348755
+          }
+        },
+        {
+          "id": "P_IC_E:4-5",
+          "site": "P_IC_E",
+          "observed_duration_h": 27.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 31.403635711073875,
+            "uncalibrated_neutral_energy_balance": 27.303769582245085,
+            "training_calibrated_neutral_energy_balance": 30.07152732008033
+          }
+        },
+        {
+          "id": "P_IC_E:5-6",
+          "site": "P_IC_E",
+          "observed_duration_h": 26.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 25.067466046214104,
+            "uncalibrated_neutral_energy_balance": 25.130438267919754,
+            "training_calibrated_neutral_energy_balance": 29.67601963400841
+          }
+        },
+        {
+          "id": "P_IC_E:6-7",
+          "site": "P_IC_E",
+          "observed_duration_h": 29.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 26.14037304494116,
+            "uncalibrated_neutral_energy_balance": 25.72974125067393,
+            "training_calibrated_neutral_energy_balance": 26.108395138515366
+          }
+        },
+        {
+          "id": "P_IC_E:7-8",
+          "site": "P_IC_E",
+          "observed_duration_h": 26.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 20.520299403733677,
+            "uncalibrated_neutral_energy_balance": 23.358935522370867,
+            "training_calibrated_neutral_energy_balance": 22.180824906759792
+          }
+        },
+        {
+          "id": "P_IC_E:8-9",
+          "site": "P_IC_E",
+          "observed_duration_h": 22.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 17.763983138336076,
+            "uncalibrated_neutral_energy_balance": 18.619068000647758,
+            "training_calibrated_neutral_energy_balance": 18.351450628903176
+          }
+        },
+        {
+          "id": "P_IC_N:2-3",
+          "site": "P_IC_N",
+          "observed_duration_h": 46.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 54.16801806939973,
+            "uncalibrated_neutral_energy_balance": 54.67824514865875,
+            "training_calibrated_neutral_energy_balance": 57.36045508709219
+          }
+        },
+        {
+          "id": "P_IC_N:3-4",
+          "site": "P_IC_N",
+          "observed_duration_h": 32.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 44.62132586889797,
+            "uncalibrated_neutral_energy_balance": 47.22828043964174,
+            "training_calibrated_neutral_energy_balance": 52.50093698402246
+          }
+        },
+        {
+          "id": "P_IC_N:4-5",
+          "site": "P_IC_N",
+          "observed_duration_h": 40.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 41.23918328550127,
+            "uncalibrated_neutral_energy_balance": 38.94992160558701,
+            "training_calibrated_neutral_energy_balance": 40.53713396509488
+          }
+        },
+        {
+          "id": "P_IC_N:5-6",
+          "site": "P_IC_N",
+          "observed_duration_h": 30.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 28.50354671213362,
+            "uncalibrated_neutral_energy_balance": 31.89743772937192,
+            "training_calibrated_neutral_energy_balance": 30.574421367446583
+          }
+        },
+        {
+          "id": "P_IC_N:6-7",
+          "site": "P_IC_N",
+          "observed_duration_h": 29.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 22.93924619442887,
+            "uncalibrated_neutral_energy_balance": 28.475002836849953,
+            "training_calibrated_neutral_energy_balance": 25.186289430393114
+          }
+        },
+        {
+          "id": "P_IC_N:7-8",
+          "site": "P_IC_N",
+          "observed_duration_h": 40.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 27.231206991738745,
+            "uncalibrated_neutral_energy_balance": 43.631570104161895,
+            "training_calibrated_neutral_energy_balance": 32.606100308762656
+          }
+        },
+        {
+          "id": "P_IC_N:8-9",
+          "site": "P_IC_N",
+          "observed_duration_h": 29.483333333333334,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 28.662471296721034,
+            "uncalibrated_neutral_energy_balance": 31.86224801666207,
+            "training_calibrated_neutral_energy_balance": 25.95004665368133
+          }
+        },
+        {
+          "id": "P_IC_N:9-10",
+          "site": "P_IC_N",
+          "observed_duration_h": 39.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 23.458939723703597,
+            "uncalibrated_neutral_energy_balance": 25.070236129032242,
+            "training_calibrated_neutral_energy_balance": 22.667732587191793
+          }
+        },
+        {
+          "id": "P_IC_N:10-11",
+          "site": "P_IC_N",
+          "observed_duration_h": 30.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 27.00844121237596,
+            "uncalibrated_neutral_energy_balance": 32.244153920875654,
+            "training_calibrated_neutral_energy_balance": 26.761076593531502
+          }
+        },
+        {
+          "id": "P_IC_N:11-12",
+          "site": "P_IC_N",
+          "observed_duration_h": 43.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 29.21207210878531,
+            "uncalibrated_neutral_energy_balance": 45.6050844202439,
+            "training_calibrated_neutral_energy_balance": 34.233218787974785
+          }
+        },
+        {
+          "id": "P_IC_N:12-13",
+          "site": "P_IC_N",
+          "observed_duration_h": 26.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 25.280022915932868,
+            "uncalibrated_neutral_energy_balance": 41.471909063193536,
+            "training_calibrated_neutral_energy_balance": 29.24153127147092
+          }
+        },
+        {
+          "id": "P_IC_N:13-14",
+          "site": "P_IC_N",
+          "observed_duration_h": 46.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 26.084524700972768,
+            "uncalibrated_neutral_energy_balance": 42.4441537449095,
+            "training_calibrated_neutral_energy_balance": 29.35789429505666
+          }
+        },
+        {
+          "id": "P_IC_N:14-15",
+          "site": "P_IC_N",
+          "observed_duration_h": 41.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 36.86454098595513,
+            "uncalibrated_neutral_energy_balance": 40.590907116002505,
+            "training_calibrated_neutral_energy_balance": 33.11707481443882
+          }
+        },
+        {
+          "id": "P_IC_N:15-16",
+          "site": "P_IC_N",
+          "observed_duration_h": 56.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 23.47884189758036,
+            "uncalibrated_neutral_energy_balance": 33.58687607804934,
+            "training_calibrated_neutral_energy_balance": 29.12409032093154
+          }
+        },
+        {
+          "id": "P_IC_N:16-17",
+          "site": "P_IC_N",
+          "observed_duration_h": 37.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 27.405233311255774,
+            "uncalibrated_neutral_energy_balance": 31.160692370997534,
+            "training_calibrated_neutral_energy_balance": 29.831651709940697
+          }
+        },
+        {
+          "id": "P_IC_N:17-18",
+          "site": "P_IC_N",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 19.760284955302875,
+            "uncalibrated_neutral_energy_balance": 32.30240912920899,
+            "training_calibrated_neutral_energy_balance": 22.16981515414185
+          }
+        },
+        {
+          "id": "P_IC_N:18-19",
+          "site": "P_IC_N",
+          "observed_duration_h": 28.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 17.002400847276053,
+            "uncalibrated_neutral_energy_balance": 29.53771082878113,
+            "training_calibrated_neutral_energy_balance": 16.915498059921795
+          }
+        },
+        {
+          "id": "P_IC_N:19-20",
+          "site": "P_IC_N",
+          "observed_duration_h": 31.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 25.348374128871495,
+            "uncalibrated_neutral_energy_balance": 33.02281735698382,
+            "training_calibrated_neutral_energy_balance": 30.485444985495672
+          }
+        },
+        {
+          "id": "P_IC_N:21-22",
+          "site": "P_IC_N",
+          "observed_duration_h": 41.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 32.70455057097806,
+            "uncalibrated_neutral_energy_balance": 42.246775982048774,
+            "training_calibrated_neutral_energy_balance": 29.619691936506165
+          }
+        },
+        {
+          "id": "P_IC_N:22-23",
+          "site": "P_IC_N",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 29.292197994391124,
+            "uncalibrated_neutral_energy_balance": 37.52025600360499,
+            "training_calibrated_neutral_energy_balance": 30.094487266937893
+          }
+        },
+        {
+          "id": "P_IC_N:23-24",
+          "site": "P_IC_N",
+          "observed_duration_h": 32.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 25.134448651472727,
+            "uncalibrated_neutral_energy_balance": 33.333667913476624,
+            "training_calibrated_neutral_energy_balance": 26.88334123359786
+          }
+        },
+        {
+          "id": "P_IC_W:2-3",
+          "site": "P_IC_W",
+          "observed_duration_h": 30.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.39619438118405,
+            "uncalibrated_neutral_energy_balance": 13.638487798836497,
+            "training_calibrated_neutral_energy_balance": 15.015060233937369
+          }
+        },
+        {
+          "id": "P_IC_W:3-4",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 26.286121292710305,
+            "uncalibrated_neutral_energy_balance": 24.065827481415536,
+            "training_calibrated_neutral_energy_balance": 28.174739030136003
+          }
+        },
+        {
+          "id": "P_IC_W:4-5",
+          "site": "P_IC_W",
+          "observed_duration_h": 48.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 34.67757804532846,
+            "uncalibrated_neutral_energy_balance": 35.773381444613136,
+            "training_calibrated_neutral_energy_balance": 35.65494401494662
+          }
+        },
+        {
+          "id": "P_IC_W:5-6",
+          "site": "P_IC_W",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 28.971230625510216,
+            "uncalibrated_neutral_energy_balance": 22.66794385737843,
+            "training_calibrated_neutral_energy_balance": 25.779234302573734
+          }
+        },
+        {
+          "id": "P_IC_W:6-7",
+          "site": "P_IC_W",
+          "observed_duration_h": 22.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 29.064723576903344,
+            "uncalibrated_neutral_energy_balance": 19.840174642999965,
+            "training_calibrated_neutral_energy_balance": 28.02151614010334
+          }
+        },
+        {
+          "id": "P_IC_W:7-8",
+          "site": "P_IC_W",
+          "observed_duration_h": 27.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 28.414535345037777,
+            "uncalibrated_neutral_energy_balance": 24.809026399652165,
+            "training_calibrated_neutral_energy_balance": 26.099833208388752
+          }
+        },
+        {
+          "id": "P_IC_W:8-9",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 22.907097224791844,
+            "uncalibrated_neutral_energy_balance": 18.220837062398594,
+            "training_calibrated_neutral_energy_balance": 20.84934471329053
+          }
+        },
+        {
+          "id": "P_IC_W:9-10",
+          "site": "P_IC_W",
+          "observed_duration_h": 17.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.05409672598044,
+            "uncalibrated_neutral_energy_balance": 15.17225595427884,
+            "training_calibrated_neutral_energy_balance": 18.468631737033526
+          }
+        },
+        {
+          "id": "P_IC_W:10-11",
+          "site": "P_IC_W",
+          "observed_duration_h": 9.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 13.152520812484953,
+            "uncalibrated_neutral_energy_balance": 8.288746276497841,
+            "training_calibrated_neutral_energy_balance": 9.829136113656892
+          }
+        },
+        {
+          "id": "P_IC_W:11-12",
+          "site": "P_IC_W",
+          "observed_duration_h": 20.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 17.19973103000058,
+            "uncalibrated_neutral_energy_balance": 17.817781481610403,
+            "training_calibrated_neutral_energy_balance": 17.710178263783455
+          }
+        },
+        {
+          "id": "P_IC_W:12-13",
+          "site": "P_IC_W",
+          "observed_duration_h": 30.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 15.127062286337218,
+            "uncalibrated_neutral_energy_balance": 22.391176896029048,
+            "training_calibrated_neutral_energy_balance": 18.68512965116236
+          }
+        },
+        {
+          "id": "P_IC_W:13-14",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.95862615909841,
+            "uncalibrated_neutral_energy_balance": 25.44018000761668,
+            "training_calibrated_neutral_energy_balance": 19.042778588996992
+          }
+        },
+        {
+          "id": "P_IC_W:14-15",
+          "site": "P_IC_W",
+          "observed_duration_h": 37.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.172146798438497,
+            "uncalibrated_neutral_energy_balance": 21.285743008057278,
+            "training_calibrated_neutral_energy_balance": 18.27378978656398
+          }
+        },
+        {
+          "id": "P_IC_W:15-16",
+          "site": "P_IC_W",
+          "observed_duration_h": 9.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 13.090497717989816,
+            "uncalibrated_neutral_energy_balance": 8.59574481440915,
+            "training_calibrated_neutral_energy_balance": 9.383982650703855
+          }
+        },
+        {
+          "id": "P_IC_W:16-17",
+          "site": "P_IC_W",
+          "observed_duration_h": 20.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 17.63947392013338,
+            "uncalibrated_neutral_energy_balance": 16.468315662145613,
+            "training_calibrated_neutral_energy_balance": 14.555859038498667
+          }
+        },
+        {
+          "id": "P_IC_W:17-18",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 17.4947158422735,
+            "uncalibrated_neutral_energy_balance": 17.49245107061333,
+            "training_calibrated_neutral_energy_balance": 14.535313572353786
+          }
+        },
+        {
+          "id": "P_IC_W:18-19",
+          "site": "P_IC_W",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.06792792710993,
+            "uncalibrated_neutral_energy_balance": 21.553425701260565,
+            "training_calibrated_neutral_energy_balance": 21.16940902729829
+          }
+        },
+        {
+          "id": "P_IC_W:19-20",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.080689959128698,
+            "uncalibrated_neutral_energy_balance": 22.148800430761444,
+            "training_calibrated_neutral_energy_balance": 20.474398984180556
+          }
+        },
+        {
+          "id": "P_IC_W:20-21",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.516666666666666,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 18.16217190457715,
+            "uncalibrated_neutral_energy_balance": 19.99537935660945,
+            "training_calibrated_neutral_energy_balance": 19.01065556704998
+          }
+        },
+        {
+          "id": "P_IC_W:21-22",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 19.19537364423275,
+            "uncalibrated_neutral_energy_balance": 23.809651311569745,
+            "training_calibrated_neutral_energy_balance": 20.154703648686407
+          }
+        },
+        {
+          "id": "P_IC_W:22-23",
+          "site": "P_IC_W",
+          "observed_duration_h": 43.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 23.757340989245307,
+            "uncalibrated_neutral_energy_balance": 29.18975062833892,
+            "training_calibrated_neutral_energy_balance": 24.864993613031174
+          }
+        },
+        {
+          "id": "P_IC_W:23-24",
+          "site": "P_IC_W",
+          "observed_duration_h": 27.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.527739221188757,
+            "uncalibrated_neutral_energy_balance": 8.998267477485868,
+            "training_calibrated_neutral_energy_balance": 13.93518344256613
+          }
+        },
+        {
+          "id": "P_IC_W:24-25",
+          "site": "P_IC_W",
+          "observed_duration_h": 22.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 15.541806209153599,
+            "uncalibrated_neutral_energy_balance": 12.368955059713787,
+            "training_calibrated_neutral_energy_balance": 15.878125088347328
+          }
+        },
+        {
+          "id": "P_IC_W:25-26",
+          "site": "P_IC_W",
+          "observed_duration_h": 31.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.04030026409361,
+            "uncalibrated_neutral_energy_balance": 22.72725200480885,
+            "training_calibrated_neutral_energy_balance": 19.5358928605583
+          }
+        },
+        {
+          "id": "P_IC_W:26-27",
+          "site": "P_IC_W",
+          "observed_duration_h": 21.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 19.742873195740913,
+            "uncalibrated_neutral_energy_balance": 18.876782180931833,
+            "training_calibrated_neutral_energy_balance": 19.095149746073616
+          }
+        },
+        {
+          "id": "P_IC_W:27-28",
+          "site": "P_IC_W",
+          "observed_duration_h": 19.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 16.978305831684008,
+            "uncalibrated_neutral_energy_balance": 17.86153369711505,
+            "training_calibrated_neutral_energy_balance": 17.349398329257966
+          }
+        },
+        {
+          "id": "P_IC_W:28-29",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 11.05492157055272,
+            "uncalibrated_neutral_energy_balance": 8.762001497877968,
+            "training_calibrated_neutral_energy_balance": 9.278600309027565
+          }
+        },
+        {
+          "id": "P_IC_W2:2-3",
+          "site": "P_IC_W2",
+          "observed_duration_h": 29.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 22.098327181140583,
+            "uncalibrated_neutral_energy_balance": 24.20099405527115,
+            "training_calibrated_neutral_energy_balance": 22.676229524215064
+          }
+        },
+        {
+          "id": "P_IC_W2:3-4",
+          "site": "P_IC_W2",
+          "observed_duration_h": 41.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 28.852639748255413,
+            "uncalibrated_neutral_energy_balance": 21.3142867287,
+            "training_calibrated_neutral_energy_balance": 34.39472672025363
+          }
+        },
+        {
+          "id": "P_IC_W2:4-5",
+          "site": "P_IC_W2",
+          "observed_duration_h": 45.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 41.5182092833519,
+            "uncalibrated_neutral_energy_balance": 41.07562289569113,
+            "training_calibrated_neutral_energy_balance": 41.48665684958299
+          }
+        },
+        {
+          "id": "P_IC_W2:5-6",
+          "site": "P_IC_W2",
+          "observed_duration_h": 25.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 29.923044154312876,
+            "uncalibrated_neutral_energy_balance": 22.81830846839481,
+            "training_calibrated_neutral_energy_balance": 26.146870016058287
+          }
+        },
+        {
+          "id": "P_IC_W2:6-7",
+          "site": "P_IC_W2",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 30.636923232343463,
+            "uncalibrated_neutral_energy_balance": 22.06159275253614,
+            "training_calibrated_neutral_energy_balance": 29.220622285074658
+          }
+        },
+        {
+          "id": "P_IC_W2:7-8",
+          "site": "P_IC_W2",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 27.742353133625453,
+            "uncalibrated_neutral_energy_balance": 22.503618483410943,
+            "training_calibrated_neutral_energy_balance": 23.862932422823377
+          }
+        },
+        {
+          "id": "P_IC_W2:8-9",
+          "site": "P_IC_W2",
+          "observed_duration_h": 22.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 23.497632705171903,
+            "uncalibrated_neutral_energy_balance": 20.2236825695965,
+            "training_calibrated_neutral_energy_balance": 21.608083417481847
+          }
+        },
+        {
+          "id": "P_IC_W2:9-10",
+          "site": "P_IC_W2",
+          "observed_duration_h": 22.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 20.700174493524763,
+            "uncalibrated_neutral_energy_balance": 17.103905618919267,
+            "training_calibrated_neutral_energy_balance": 19.301634556253752
+          }
+        },
+        {
+          "id": "P_IC_W2:10-11",
+          "site": "P_IC_W2",
+          "observed_duration_h": 7.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 15.444912586344612,
+            "uncalibrated_neutral_energy_balance": 5.80629297680325,
+            "training_calibrated_neutral_energy_balance": 9.13562028242482
+          }
+        },
+        {
+          "id": "P_IC_W2:11-12",
+          "site": "P_IC_W2",
+          "observed_duration_h": 37.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 17.594430581331252,
+            "uncalibrated_neutral_energy_balance": 20.049443332221774,
+            "training_calibrated_neutral_energy_balance": 18.87045565492577
+          }
+        },
+        {
+          "id": "P_IC_W2:12-13",
+          "site": "P_IC_W2",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 20.233063629137146,
+            "uncalibrated_neutral_energy_balance": 26.359596253567272,
+            "training_calibrated_neutral_energy_balance": 20.463233662512568
+          }
+        },
+        {
+          "id": "P_IC_W2:13-14",
+          "site": "P_IC_W2",
+          "observed_duration_h": 26.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 21.634688033660254,
+            "uncalibrated_neutral_energy_balance": 25.468944378230308,
+            "training_calibrated_neutral_energy_balance": 17.745130841930706
+          }
+        },
+        {
+          "id": "P_IC_W2:14-15",
+          "site": "P_IC_W2",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 17.420000301798186,
+            "uncalibrated_neutral_energy_balance": 16.864452214572164,
+            "training_calibrated_neutral_energy_balance": 13.463384460144573
+          }
+        },
+        {
+          "id": "P_IC_W2:15-16",
+          "site": "P_IC_W2",
+          "observed_duration_h": 7.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 13.728531068166097,
+            "uncalibrated_neutral_energy_balance": 6.334054060379664,
+            "training_calibrated_neutral_energy_balance": 8.168186668223806
+          }
+        },
+        {
+          "id": "P_IC_W2:16-17",
+          "site": "P_IC_W2",
+          "observed_duration_h": 20.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 18.649089912308586,
+            "uncalibrated_neutral_energy_balance": 18.384933634731503,
+            "training_calibrated_neutral_energy_balance": 17.05675162401464
+          }
+        },
+        {
+          "id": "P_IC_W2:17-18",
+          "site": "P_IC_W2",
+          "observed_duration_h": 50.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 19.187335154480404,
+            "uncalibrated_neutral_energy_balance": 20.373576277891797,
+            "training_calibrated_neutral_energy_balance": 16.67612154914273
+          }
+        }
+      ],
+      "exclusions": [
+        {
+          "id": "P_IC_N:20-21",
+          "reason": "not exact10cm marker"
+        },
+        {
+          "id": "P_IC_W:29-30",
+          "reason": "not exact10cm marker"
+        }
+      ]
+    },
+    "SW_plus15percent": {
+      "metrics": {
+        "P_IC_E": {
+          "eligible": 7,
+          "paired_complete": 7,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 12.577736552556358,
+              "RMSE_h": 14.448906026303197,
+              "bias_h": -12.577736552556358,
+              "MAPE": 0.38273636249506576,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.14285714285714285,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.754747949526425,
+              "RMSE_h": 10.169889137554945,
+              "bias_h": -6.496566317791031,
+              "MAPE": 0.22729813734822316,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.5714285714285714,
+              "MAE_skill_vs_training_constant": 0.3834544143039541,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 8.798764912968592,
+              "RMSE_h": 10.848882200987925,
+              "bias_h": -8.798764912968592,
+              "MAPE": 0.2636994937101792,
+              "fraction_within_2h": 0.0,
+              "fraction_within20percent": 0.42857142857142855,
+              "MAE_skill_vs_training_constant": 0.30044925999183136,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 7.21381540792329,
+              "RMSE_h": 9.939360832793364,
+              "bias_h": -7.023479876612861,
+              "MAPE": 0.2076198891905884,
+              "fraction_within_2h": 0.2857142857142857,
+              "fraction_within20percent": 0.42857142857142855,
+              "MAE_skill_vs_training_constant": 0.4264615594562504,
+              "censored": 0
+            }
+          }
+        },
+        "P_IC_N": {
+          "eligible": 21,
+          "paired_complete": 21,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.945296585222401,
+              "RMSE_h": 8.874856482130037,
+              "bias_h": -3.5956727341148618,
+              "MAPE": 0.18021190488553934,
+              "fraction_within_2h": 0.14285714285714285,
+              "fraction_within20percent": 0.47619047619047616,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 8.867852921239916,
+              "RMSE_h": 11.578225827004598,
+              "bias_h": -6.456355281412287,
+              "MAPE": 0.23021684165706352,
+              "fraction_within_2h": 0.19047619047619047,
+              "fraction_within20percent": 0.42857142857142855,
+              "MAE_skill_vs_training_constant": -0.2768141450011168,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 6.941467644871857,
+              "RMSE_h": 9.587935561838494,
+              "bias_h": -4.5958009748547175,
+              "MAPE": 0.18547721546215987,
+              "fraction_within_2h": 0.23809523809523808,
+              "fraction_within20percent": 0.5714285714285714,
+              "MAE_skill_vs_training_constant": 0.0005512997614373072,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 9.453934274211763,
+              "RMSE_h": 11.498730088265678,
+              "bias_h": -6.667170092706327,
+              "MAPE": 0.24788728825762496,
+              "fraction_within_2h": 0.09523809523809523,
+              "fraction_within20percent": 0.47619047619047616,
+              "MAE_skill_vs_training_constant": -0.3611995050473471,
+              "censored": 0
+            }
+          }
+        },
+        "P_IC_W": {
+          "eligible": 27,
+          "paired_complete": 27,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 6.160132660272189,
+              "RMSE_h": 8.992150090824792,
+              "bias_h": -3.827644945883456,
+              "MAPE": 0.2629096050949045,
+              "fraction_within_2h": 0.3333333333333333,
+              "fraction_within20percent": 0.5925925925925926,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 6.345493198481116,
+              "RMSE_h": 8.154671065507188,
+              "bias_h": -4.565217191324312,
+              "MAPE": 0.24346602989378374,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.4074074074074074,
+              "MAE_skill_vs_training_constant": -0.030090348444011816,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 10.850615808107726,
+              "RMSE_h": 12.73433936077401,
+              "bias_h": -10.850615808107726,
+              "MAPE": 0.4196853677046225,
+              "fraction_within_2h": 0.1111111111111111,
+              "fraction_within20percent": 0.25925925925925924,
+              "MAE_skill_vs_training_constant": -0.7614256715744634,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.309965308936535,
+              "RMSE_h": 10.664327526370064,
+              "bias_h": -8.164536282680162,
+              "MAPE": 0.29822523935316414,
+              "fraction_within_2h": 0.18518518518518517,
+              "fraction_within20percent": 0.4074074074074074,
+              "MAE_skill_vs_training_constant": -0.3489912908092072,
+              "censored": 0
+            }
+          }
+        },
+        "P_IC_W2": {
+          "eligible": 16,
+          "paired_complete": 16,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 8.74954796936777,
+              "RMSE_h": 12.376233523941904,
+              "bias_h": -4.71784593873554,
+              "MAPE": 0.43974997947688316,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.5625,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.536589910060995,
+              "RMSE_h": 10.664663601875768,
+              "bias_h": -3.8524153000654437,
+              "MAPE": 0.31935197627678447,
+              "fraction_within_2h": 0.1875,
+              "fraction_within20percent": 0.5,
+              "MAE_skill_vs_training_constant": 0.1386309399700819,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 11.82364676475525,
+              "RMSE_h": 15.71745442508895,
+              "bias_h": -11.776980386624734,
+              "MAPE": 0.3986662921325823,
+              "fraction_within_2h": 0.125,
+              "fraction_within20percent": 0.25,
+              "MAE_skill_vs_training_constant": -0.35134372725881624,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.929027213168641,
+              "RMSE_h": 13.1166522561554,
+              "bias_h": -8.861186432552834,
+              "MAPE": 0.26990471520434245,
+              "fraction_within_2h": 0.3125,
+              "fraction_within20percent": 0.5,
+              "MAE_skill_vs_training_constant": -0.020512973290646608,
+              "censored": 0
+            }
+          }
+        },
+        "pooled": {
+          "eligible": 71,
+          "paired_complete": 71,
+          "models": {
+            "training_pooled_constant_normal_rate": {
+              "MAE_h": 7.608615964715469,
+              "RMSE_h": 10.447282775231622,
+              "bias_h": -4.822327209055332,
+              "MAPE": 0.2901149795669625,
+              "fraction_within_2h": 0.23943661971830985,
+              "fraction_within20percent": 0.5070422535211268,
+              "MAE_skill_vs_training_constant": 0.0,
+              "censored": 0
+            },
+            "training_positive_degree_day": {
+              "MAE_h": 7.498900026939284,
+              "RMSE_h": 10.0382176155607,
+              "bias_h": -5.15435118452111,
+              "MAPE": 0.2550542966731917,
+              "fraction_within_2h": 0.18309859154929578,
+              "fraction_within20percent": 0.4507042253521127,
+              "MAE_skill_vs_training_constant": 0.014419959988122288,
+              "censored": 0
+            },
+            "uncalibrated_neutral_energy_balance": {
+              "MAE_h": 9.711368309691293,
+              "RMSE_h": 12.495301730934846,
+              "bias_h": -9.00706320940329,
+              "MAPE": 0.3302969518707428,
+              "fraction_within_2h": 0.14084507042253522,
+              "fraction_within20percent": 0.36619718309859156,
+              "MAE_skill_vs_training_constant": -0.27636463119274524,
+              "censored": 0
+            },
+            "training_calibrated_neutral_energy_balance": {
+              "MAE_h": 8.6797581178295,
+              "RMSE_h": 11.439720022867958,
+              "bias_h": -7.766146389244121,
+              "MAPE": 0.2680215377964671,
+              "fraction_within_2h": 0.19718309859154928,
+              "fraction_within20percent": 0.4507042253521127,
+              "MAE_skill_vs_training_constant": -0.14078015740068817,
+              "censored": 0
+            }
+          }
+        }
+      },
+      "events": [
+        {
+          "id": "P_IC_E:2-3",
+          "site": "P_IC_E",
+          "observed_duration_h": 40.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 20.249203181465468,
+            "uncalibrated_neutral_energy_balance": 19.29652774029308,
+            "training_calibrated_neutral_energy_balance": 21.704476550420125
+          }
+        },
+        {
+          "id": "P_IC_E:3-4",
+          "site": "P_IC_E",
+          "observed_duration_h": 42.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 26.879075249698428,
+            "uncalibrated_neutral_energy_balance": 26.108592521150907,
+            "training_calibrated_neutral_energy_balance": 25.698798162473572
+          }
+        },
+        {
+          "id": "P_IC_E:4-5",
+          "site": "P_IC_E",
+          "observed_duration_h": 27.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 31.403635711073875,
+            "uncalibrated_neutral_energy_balance": 22.575631283455426,
+            "training_calibrated_neutral_energy_balance": 27.666174359586503
+          }
+        },
+        {
+          "id": "P_IC_E:5-6",
+          "site": "P_IC_E",
+          "observed_duration_h": 26.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 25.067466046214104,
+            "uncalibrated_neutral_energy_balance": 22.024682741032706,
+            "training_calibrated_neutral_energy_balance": 25.92682395822472
+          }
+        },
+        {
+          "id": "P_IC_E:6-7",
+          "site": "P_IC_E",
+          "observed_duration_h": 29.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 26.14037304494116,
+            "uncalibrated_neutral_energy_balance": 24.03837777548366,
+            "training_calibrated_neutral_energy_balance": 25.063400413658883
+          }
+        },
+        {
+          "id": "P_IC_E:7-8",
+          "site": "P_IC_E",
+          "observed_duration_h": 26.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 20.520299403733677,
+            "uncalibrated_neutral_energy_balance": 21.145257362325985,
+            "training_calibrated_neutral_energy_balance": 21.125883295072448
+          }
+        },
+        {
+          "id": "P_IC_E:8-9",
+          "site": "P_IC_E",
+          "observed_duration_h": 22.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 17.922263447443644,
+            "training_positive_degree_day": 17.763983138336076,
+            "uncalibrated_neutral_energy_balance": 16.719576185478104,
+            "training_calibrated_neutral_energy_balance": 17.150084124273725
+          }
+        },
+        {
+          "id": "P_IC_N:2-3",
+          "site": "P_IC_N",
+          "observed_duration_h": 46.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 54.16801806939973,
+            "uncalibrated_neutral_energy_balance": 47.70316145353847,
+            "training_calibrated_neutral_energy_balance": 54.378635718226434
+          }
+        },
+        {
+          "id": "P_IC_N:3-4",
+          "site": "P_IC_N",
+          "observed_duration_h": 32.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 44.62132586889797,
+            "uncalibrated_neutral_energy_balance": 34.70332242257065,
+            "training_calibrated_neutral_energy_balance": 47.9378778746393
+          }
+        },
+        {
+          "id": "P_IC_N:4-5",
+          "site": "P_IC_N",
+          "observed_duration_h": 40.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 41.23918328550127,
+            "uncalibrated_neutral_energy_balance": 27.078449738290576,
+            "training_calibrated_neutral_energy_balance": 33.069856029285326
+          }
+        },
+        {
+          "id": "P_IC_N:5-6",
+          "site": "P_IC_N",
+          "observed_duration_h": 30.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 28.50354671213362,
+            "uncalibrated_neutral_energy_balance": 28.96250069446034,
+            "training_calibrated_neutral_energy_balance": 28.894342330561745
+          }
+        },
+        {
+          "id": "P_IC_N:6-7",
+          "site": "P_IC_N",
+          "observed_duration_h": 29.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 22.93924619442887,
+            "uncalibrated_neutral_energy_balance": 24.22021621465683,
+            "training_calibrated_neutral_energy_balance": 23.77449206908544
+          }
+        },
+        {
+          "id": "P_IC_N:7-8",
+          "site": "P_IC_N",
+          "observed_duration_h": 40.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 27.231206991738745,
+            "uncalibrated_neutral_energy_balance": 39.9816143469678,
+            "training_calibrated_neutral_energy_balance": 30.900484515560997
+          }
+        },
+        {
+          "id": "P_IC_N:8-9",
+          "site": "P_IC_N",
+          "observed_duration_h": 29.483333333333334,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 28.662471296721034,
+            "uncalibrated_neutral_energy_balance": 30.294791278640428,
+            "training_calibrated_neutral_energy_balance": 25.325784374607935
+          }
+        },
+        {
+          "id": "P_IC_N:9-10",
+          "site": "P_IC_N",
+          "observed_duration_h": 39.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 23.458939723703597,
+            "uncalibrated_neutral_energy_balance": 23.543173003130487,
+            "training_calibrated_neutral_energy_balance": 21.888438800904485
+          }
+        },
+        {
+          "id": "P_IC_N:10-11",
+          "site": "P_IC_N",
+          "observed_duration_h": 30.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 27.00844121237596,
+            "uncalibrated_neutral_energy_balance": 28.692868117292722,
+            "training_calibrated_neutral_energy_balance": 24.759958253569074
+          }
+        },
+        {
+          "id": "P_IC_N:11-12",
+          "site": "P_IC_N",
+          "observed_duration_h": 43.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 29.21207210878531,
+            "uncalibrated_neutral_energy_balance": 40.14088223377863,
+            "training_calibrated_neutral_energy_balance": 31.00621667265892
+          }
+        },
+        {
+          "id": "P_IC_N:12-13",
+          "site": "P_IC_N",
+          "observed_duration_h": 26.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 25.280022915932868,
+            "uncalibrated_neutral_energy_balance": 32.61456133219931,
+            "training_calibrated_neutral_energy_balance": 27.884767221543523
+          }
+        },
+        {
+          "id": "P_IC_N:13-14",
+          "site": "P_IC_N",
+          "observed_duration_h": 46.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 26.084524700972768,
+            "uncalibrated_neutral_energy_balance": 31.897330306834643,
+            "training_calibrated_neutral_energy_balance": 28.466085793044833
+          }
+        },
+        {
+          "id": "P_IC_N:14-15",
+          "site": "P_IC_N",
+          "observed_duration_h": 41.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 36.86454098595513,
+            "uncalibrated_neutral_energy_balance": 32.20610725575023,
+            "training_calibrated_neutral_energy_balance": 31.411883046362135
+          }
+        },
+        {
+          "id": "P_IC_N:15-16",
+          "site": "P_IC_N",
+          "observed_duration_h": 56.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 23.47884189758036,
+            "uncalibrated_neutral_energy_balance": 28.041452362471155,
+            "training_calibrated_neutral_energy_balance": 26.660265550282265
+          }
+        },
+        {
+          "id": "P_IC_N:16-17",
+          "site": "P_IC_N",
+          "observed_duration_h": 37.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 27.405233311255774,
+            "uncalibrated_neutral_energy_balance": 29.421822884149023,
+            "training_calibrated_neutral_energy_balance": 28.672457562420103
+          }
+        },
+        {
+          "id": "P_IC_N:17-18",
+          "site": "P_IC_N",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 19.760284955302875,
+            "uncalibrated_neutral_energy_balance": 28.166144496798516,
+            "training_calibrated_neutral_energy_balance": 20.70208061516285
+          }
+        },
+        {
+          "id": "P_IC_N:18-19",
+          "site": "P_IC_N",
+          "observed_duration_h": 28.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 17.002400847276053,
+            "uncalibrated_neutral_energy_balance": 18.3567502235704,
+            "training_calibrated_neutral_energy_balance": 16.467862025764255
+          }
+        },
+        {
+          "id": "P_IC_N:19-20",
+          "site": "P_IC_N",
+          "observed_duration_h": 31.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 25.348374128871495,
+            "uncalibrated_neutral_energy_balance": 28.501238503257433,
+            "training_calibrated_neutral_energy_balance": 28.470477425257364
+          }
+        },
+        {
+          "id": "P_IC_N:21-22",
+          "site": "P_IC_N",
+          "observed_duration_h": 41.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 32.70455057097806,
+            "uncalibrated_neutral_energy_balance": 35.09337276948823,
+            "training_calibrated_neutral_energy_balance": 28.283101988103656
+          }
+        },
+        {
+          "id": "P_IC_N:22-23",
+          "site": "P_IC_N",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 29.292197994391124,
+            "uncalibrated_neutral_energy_balance": 35.130852384765944,
+            "training_calibrated_neutral_energy_balance": 28.559743091397817
+          }
+        },
+        {
+          "id": "P_IC_N:23-24",
+          "site": "P_IC_N",
+          "observed_duration_h": 32.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 32.16543837699625,
+            "training_positive_degree_day": 25.134448651472727,
+            "uncalibrated_neutral_energy_balance": 29.720900838772454,
+            "training_calibrated_neutral_energy_balance": 23.457950428062016
+          }
+        },
+        {
+          "id": "P_IC_W:2-3",
+          "site": "P_IC_W",
+          "observed_duration_h": 30.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.39619438118405,
+            "uncalibrated_neutral_energy_balance": 12.269849070840412,
+            "training_calibrated_neutral_energy_balance": 13.435689375532998
+          }
+        },
+        {
+          "id": "P_IC_W:3-4",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 26.286121292710305,
+            "uncalibrated_neutral_energy_balance": 16.067091117170122,
+            "training_calibrated_neutral_energy_balance": 24.092937056952053
+          }
+        },
+        {
+          "id": "P_IC_W:4-5",
+          "site": "P_IC_W",
+          "observed_duration_h": 48.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 34.67757804532846,
+            "uncalibrated_neutral_energy_balance": 24.93231483373377,
+            "training_calibrated_neutral_energy_balance": 27.143790331284205
+          }
+        },
+        {
+          "id": "P_IC_W:5-6",
+          "site": "P_IC_W",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 28.971230625510216,
+            "uncalibrated_neutral_energy_balance": 16.544049844874277,
+            "training_calibrated_neutral_energy_balance": 23.804474154114722
+          }
+        },
+        {
+          "id": "P_IC_W:6-7",
+          "site": "P_IC_W",
+          "observed_duration_h": 22.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 29.064723576903344,
+            "uncalibrated_neutral_energy_balance": 5.074835653106372,
+            "training_calibrated_neutral_energy_balance": 23.963291854461033
+          }
+        },
+        {
+          "id": "P_IC_W:7-8",
+          "site": "P_IC_W",
+          "observed_duration_h": 27.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 28.414535345037777,
+            "uncalibrated_neutral_energy_balance": 19.412845197783575,
+            "training_calibrated_neutral_energy_balance": 24.12591646903091
+          }
+        },
+        {
+          "id": "P_IC_W:8-9",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 22.907097224791844,
+            "uncalibrated_neutral_energy_balance": 7.035998385945956,
+            "training_calibrated_neutral_energy_balance": 18.21815487643083
+          }
+        },
+        {
+          "id": "P_IC_W:9-10",
+          "site": "P_IC_W",
+          "observed_duration_h": 17.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.05409672598044,
+            "uncalibrated_neutral_energy_balance": 4.9419031552473704,
+            "training_calibrated_neutral_energy_balance": 14.27766707526313
+          }
+        },
+        {
+          "id": "P_IC_W:10-11",
+          "site": "P_IC_W",
+          "observed_duration_h": 9.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 13.152520812484953,
+            "uncalibrated_neutral_energy_balance": 7.308422097431289,
+            "training_calibrated_neutral_energy_balance": 8.807709100312657
+          }
+        },
+        {
+          "id": "P_IC_W:11-12",
+          "site": "P_IC_W",
+          "observed_duration_h": 20.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 17.19973103000058,
+            "uncalibrated_neutral_energy_balance": 14.208892980350388,
+            "training_calibrated_neutral_energy_balance": 16.38135241223706
+          }
+        },
+        {
+          "id": "P_IC_W:12-13",
+          "site": "P_IC_W",
+          "observed_duration_h": 30.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 15.127062286337218,
+            "uncalibrated_neutral_energy_balance": 18.505097643136978,
+            "training_calibrated_neutral_energy_balance": 16.440011244548693
+          }
+        },
+        {
+          "id": "P_IC_W:13-14",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.95862615909841,
+            "uncalibrated_neutral_energy_balance": 22.1185718287362,
+            "training_calibrated_neutral_energy_balance": 18.424824344383346
+          }
+        },
+        {
+          "id": "P_IC_W:14-15",
+          "site": "P_IC_W",
+          "observed_duration_h": 37.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.172146798438497,
+            "uncalibrated_neutral_energy_balance": 20.191443107790416,
+            "training_calibrated_neutral_energy_balance": 17.744758951266608
+          }
+        },
+        {
+          "id": "P_IC_W:15-16",
+          "site": "P_IC_W",
+          "observed_duration_h": 9.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 13.090497717989816,
+            "uncalibrated_neutral_energy_balance": 7.724243257045746,
+            "training_calibrated_neutral_energy_balance": 8.60569380429056
+          }
+        },
+        {
+          "id": "P_IC_W:16-17",
+          "site": "P_IC_W",
+          "observed_duration_h": 20.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 17.63947392013338,
+            "uncalibrated_neutral_energy_balance": 10.166089959475729,
+            "training_calibrated_neutral_energy_balance": 12.37560897005929
+          }
+        },
+        {
+          "id": "P_IC_W:17-18",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 17.4947158422735,
+            "uncalibrated_neutral_energy_balance": 6.625896422995462,
+            "training_calibrated_neutral_energy_balance": 10.197885833846199
+          }
+        },
+        {
+          "id": "P_IC_W:18-19",
+          "site": "P_IC_W",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.06792792710993,
+            "uncalibrated_neutral_energy_balance": 18.377190942896735,
+            "training_calibrated_neutral_energy_balance": 19.589945764872763
+          }
+        },
+        {
+          "id": "P_IC_W:19-20",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.080689959128698,
+            "uncalibrated_neutral_energy_balance": 20.460621966984537,
+            "training_calibrated_neutral_energy_balance": 19.216241101490127
+          }
+        },
+        {
+          "id": "P_IC_W:20-21",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.516666666666666,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 18.16217190457715,
+            "uncalibrated_neutral_energy_balance": 16.21603905763891,
+            "training_calibrated_neutral_energy_balance": 17.05045813679695
+          }
+        },
+        {
+          "id": "P_IC_W:21-22",
+          "site": "P_IC_W",
+          "observed_duration_h": 25.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 19.19537364423275,
+            "uncalibrated_neutral_energy_balance": 21.98878520137734,
+            "training_calibrated_neutral_energy_balance": 19.595787617233064
+          }
+        },
+        {
+          "id": "P_IC_W:22-23",
+          "site": "P_IC_W",
+          "observed_duration_h": 43.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 23.757340989245307,
+            "uncalibrated_neutral_energy_balance": 23.52775844342179,
+            "training_calibrated_neutral_energy_balance": 22.808853437503178
+          }
+        },
+        {
+          "id": "P_IC_W:23-24",
+          "site": "P_IC_W",
+          "observed_duration_h": 27.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 20.527739221188757,
+            "uncalibrated_neutral_energy_balance": 5.744985446863704,
+            "training_calibrated_neutral_energy_balance": 9.260745697021484
+          }
+        },
+        {
+          "id": "P_IC_W:24-25",
+          "site": "P_IC_W",
+          "observed_duration_h": 22.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 15.541806209153599,
+            "uncalibrated_neutral_energy_balance": 4.681007868647575,
+            "training_calibrated_neutral_energy_balance": 12.100436372094684
+          }
+        },
+        {
+          "id": "P_IC_W:25-26",
+          "site": "P_IC_W",
+          "observed_duration_h": 31.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 21.04030026409361,
+            "uncalibrated_neutral_energy_balance": 21.762789805928865,
+            "training_calibrated_neutral_energy_balance": 18.34441869914532
+          }
+        },
+        {
+          "id": "P_IC_W:26-27",
+          "site": "P_IC_W",
+          "observed_duration_h": 21.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 19.742873195740913,
+            "uncalibrated_neutral_energy_balance": 17.921599917941624,
+            "training_calibrated_neutral_energy_balance": 18.366268832153743
+          }
+        },
+        {
+          "id": "P_IC_W:27-28",
+          "site": "P_IC_W",
+          "observed_duration_h": 19.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 16.978305831684008,
+            "uncalibrated_neutral_energy_balance": 15.680640916956795,
+            "training_calibrated_neutral_energy_balance": 16.239978807899686
+          }
+        },
+        {
+          "id": "P_IC_W:28-29",
+          "site": "P_IC_W",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 21.284083449178272,
+            "training_positive_degree_day": 11.05492157055272,
+            "uncalibrated_neutral_energy_balance": 5.561075723436144,
+            "training_calibrated_neutral_energy_balance": 6.961286714076996
+          }
+        },
+        {
+          "id": "P_IC_W2:2-3",
+          "site": "P_IC_W2",
+          "observed_duration_h": 29.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 22.098327181140583,
+            "uncalibrated_neutral_energy_balance": 22.190085691213607,
+            "training_calibrated_neutral_energy_balance": 21.33691097703245
+          }
+        },
+        {
+          "id": "P_IC_W2:3-4",
+          "site": "P_IC_W2",
+          "observed_duration_h": 41.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 28.852639748255413,
+            "uncalibrated_neutral_energy_balance": 17.10066137274106,
+            "training_calibrated_neutral_energy_balance": 21.374102000395457
+          }
+        },
+        {
+          "id": "P_IC_W2:4-5",
+          "site": "P_IC_W2",
+          "observed_duration_h": 45.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 41.5182092833519,
+            "uncalibrated_neutral_energy_balance": 25.07232363435957,
+            "training_calibrated_neutral_energy_balance": 31.135560390551884
+          }
+        },
+        {
+          "id": "P_IC_W2:5-6",
+          "site": "P_IC_W2",
+          "observed_duration_h": 25.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 29.923044154312876,
+            "uncalibrated_neutral_energy_balance": 10.644554981788,
+            "training_calibrated_neutral_energy_balance": 24.084693063762455
+          }
+        },
+        {
+          "id": "P_IC_W2:6-7",
+          "site": "P_IC_W2",
+          "observed_duration_h": 25.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 30.636923232343463,
+            "uncalibrated_neutral_energy_balance": 14.872307722171147,
+            "training_calibrated_neutral_energy_balance": 25.542726244926452
+          }
+        },
+        {
+          "id": "P_IC_W2:7-8",
+          "site": "P_IC_W2",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 27.742353133625453,
+            "uncalibrated_neutral_energy_balance": 20.70037857313951,
+            "training_calibrated_neutral_energy_balance": 22.37428490532769
+          }
+        },
+        {
+          "id": "P_IC_W2:8-9",
+          "site": "P_IC_W2",
+          "observed_duration_h": 22.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 23.497632705171903,
+            "uncalibrated_neutral_energy_balance": 16.184839458664257,
+            "training_calibrated_neutral_energy_balance": 20.053746729162004
+          }
+        },
+        {
+          "id": "P_IC_W2:9-10",
+          "site": "P_IC_W2",
+          "observed_duration_h": 22.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 20.700174493524763,
+            "uncalibrated_neutral_energy_balance": 5.352800011502372,
+            "training_calibrated_neutral_energy_balance": 16.180662668678497
+          }
+        },
+        {
+          "id": "P_IC_W2:10-11",
+          "site": "P_IC_W2",
+          "observed_duration_h": 7.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 15.444912586344612,
+            "uncalibrated_neutral_energy_balance": 4.438600596123272,
+            "training_calibrated_neutral_energy_balance": 6.659698400100072
+          }
+        },
+        {
+          "id": "P_IC_W2:11-12",
+          "site": "P_IC_W2",
+          "observed_duration_h": 37.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 17.594430581331252,
+            "uncalibrated_neutral_energy_balance": 17.893825683726206,
+            "training_calibrated_neutral_energy_balance": 17.893996189700232
+          }
+        },
+        {
+          "id": "P_IC_W2:12-13",
+          "site": "P_IC_W2",
+          "observed_duration_h": 24.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 20.233063629137146,
+            "uncalibrated_neutral_energy_balance": 24.373331025044124,
+            "training_calibrated_neutral_energy_balance": 19.302531926433247
+          }
+        },
+        {
+          "id": "P_IC_W2:13-14",
+          "site": "P_IC_W2",
+          "observed_duration_h": 26.5,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 21.634688033660254,
+            "uncalibrated_neutral_energy_balance": 23.250720560881827,
+            "training_calibrated_neutral_energy_balance": 16.617932922376525
+          }
+        },
+        {
+          "id": "P_IC_W2:14-15",
+          "site": "P_IC_W2",
+          "observed_duration_h": 23.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 17.420000301798186,
+            "uncalibrated_neutral_energy_balance": 7.955890642470783,
+            "training_calibrated_neutral_energy_balance": 10.33612645400895
+          }
+        },
+        {
+          "id": "P_IC_W2:15-16",
+          "site": "P_IC_W2",
+          "observed_duration_h": 7.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 13.728531068166097,
+            "uncalibrated_neutral_energy_balance": 5.159397358695666,
+            "training_calibrated_neutral_energy_balance": 6.727071672148175
+          }
+        },
+        {
+          "id": "P_IC_W2:16-17",
+          "site": "P_IC_W2",
+          "observed_duration_h": 20.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 18.649089912308586,
+            "uncalibrated_neutral_energy_balance": 17.035998302168316,
+            "training_calibrated_neutral_energy_balance": 16.018770816259913
+          }
+        },
+        {
+          "id": "P_IC_W2:17-18",
+          "site": "P_IC_W2",
+          "observed_duration_h": 50.0,
+          "predicted_duration_h": {
+            "training_pooled_constant_normal_rate": 22.18840406126446,
+            "training_positive_degree_day": 19.187335154480404,
+            "uncalibrated_neutral_energy_balance": 9.84259819931454,
+            "training_calibrated_neutral_energy_balance": 13.082201718290646
+          }
+        }
+      ],
+      "exclusions": [
+        {
+          "id": "P_IC_N:20-21",
+          "reason": "not exact10cm marker"
+        },
+        {
+          "id": "P_IC_W:29-30",
+          "reason": "not exact10cm marker"
+        }
+      ]
+    }
+  },
+  "limitations": {
+    "status": "secondary held-out-year component test, fixed before2023 scores;2022 results already inspected",
+    "task": "same10cm-marker event-time retrospective hindcast",
+    "melt_calibration": "all four original model formulas and2021 melt calibrations unchanged; do not select2022winner",
+    "test_year": 2023,
+    "test_sites": [
+      "P_IC_E",
+      "P_IC_N",
+      "P_IC_W",
+      "P_IC_W2"
+    ],
+    "forcing_window": [
+      "2023-06-03",
+      "2023-08-31"
+    ],
+    "pre_execution_QC_amendment": "Whole-year forcing contains January power-loss missing data. Before any2023model scores, restrict to post-June2maintenance summer window covering all audited stake dates, with ample post-observation forcing; no imputation or target-based exclusions.",
+    "weather_source": "Amazon_Creek original verifiedCSV, mapped to DebrisEB by fieldwise affine OLS fit on paired2021+2022 weather only",
+    "weather_pairs": {
+      "T_2m": "T_3m",
+      "RH_2m": "RH_3m",
+      "Wspd": "Wspd_3m",
+      "SWin": "SWin",
+      "LWin": "LWin"
+    },
+    "weather_QC": "clip derivedRH to0..100 and derivedwind/SW/LW to>=0, logcounts; no retreat used in weather fit",
+    "weather_caveat": "offglacier Amazon682m\u2192EB559m transfer;2023 radiometer tilted8deg/arm17deg bySep5 withunknownonset, no correction invented",
+    "sensitivity": "repeat all models with derivedSW multiplied0.85 and1.15 as engineering scenarios, not confidence bounds; no calibrationchanges",
+    "eligibility": "exact10cm markers withpositiveelapsedtime andcompleteforcing endpoints; preserveexclusions/censoring",
+    "metrics": "sameeventtime MAE/RMSE/bias/MAPE,2h/20percent coverage andpairedMAEskill; groupbysite pluspooled",
+    "interpretation": "withheldfrommeltfitting, notfullyblind audit: datasetcoverage/geometry/rowcounts previously inspected; repeatedsites notindependentnewglaciers",
+    "claims": "fieldhindcast of incomplete atmosphericcomponent withuncertainweathertransfer; notoperationalforecast, notcoupled hydraulicmodelvalidation",
+    "post_test": "no changes based on2023errors; anylatermodel nowneeds other independentdata"
+  },
+  "code_sha256": "33b1f28d3bbe78d56a7ead8f543c21e8f81d181a4fcfe6004c9d1dc6f771c22b"
+}
