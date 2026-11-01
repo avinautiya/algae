@@ -1,0 +1,38 @@
+{
+  "reference_report_commit": "f3602e35e1595bcdbee4208a354a34944f1ae974",
+  "source_hashes": {
+    "swe2d.py": "0e1e8154dc30be87c44496853e40e1254dbeb06f396dd697119ee5b57b37e052",
+    "cases.py": "edb73fcad621cd6bd6063a394ff04d56655bda9ce1a1dba194494eaef64a5030"
+  },
+  "source_identification": "content hashes; report pin does not authenticate arbitrary --snapshot directories",
+  "plan": {
+    "dx_m": 0.0125,
+    "days": 3.5,
+    "removal_day": null,
+    "workers": 1,
+    "medium_case_reference_wall_s": 2028.0,
+    "estimated_compute_wall_s": 2704.0,
+    "estimate_scope": "single-worker cubic grid-cost extrapolation; excludes uncertain startup, contention and changed toolchain",
+    "supports": "early contact-loss refinement only",
+    "does_not_support": "short early-loss run does not establish day12 recovery or21d melt convergence",
+    "checkpoint_support": false,
+    "checkpoint_note": "stock cases.run has no checkpoint API; timeout preserves progress metadata, not a resumable state"
+  },
+  "preflight": {
+    "passed": false,
+    "zero_dt": {
+      "nonice_changed_cells": 132,
+      "total_changed_cells": 132,
+      "maximum_upward_change_m": 1.0550000000000002,
+      "reported_volume_m3": 0.0
+    },
+    "cap_activation": {
+      "reported_volume_m3": 0.0011666666666666661,
+      "actual_ice_lowering_m3": 0.00016666666666666612,
+      "reported_minus_actual_m3": 0.001,
+      "forced_proposed_lowering_m": 0.11666666666666661
+    },
+    "scope": "geometry/volume operator checks only; not the full verification gate"
+  },
+  "status": "blocked_geometry_operator"
+}

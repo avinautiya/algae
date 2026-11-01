@@ -1,0 +1,79 @@
+{
+  "snapshot_commit": "f3602e35e1595bcdbee4208a354a34944f1ae974",
+  "observation": "central1m x full0.5m toe width, x3.5..4.5m",
+  "results": [
+    {
+      "run": "E01_bare_none",
+      "layout": "bare",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    },
+    {
+      "run": "E02_corridor_none",
+      "layout": "corridor",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    },
+    {
+      "run": "E03_corridor_r12",
+      "layout": "corridor",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    },
+    {
+      "run": "E04_strip_none",
+      "layout": "strip",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    },
+    {
+      "run": "E05_strip_r1",
+      "layout": "strip",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    },
+    {
+      "run": "E06_strip_r8",
+      "layout": "strip",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    },
+    {
+      "run": "E07_strip_r12",
+      "layout": "strip",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    },
+    {
+      "run": "E08_porous_none",
+      "layout": "porous_strip",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    },
+    {
+      "run": "E09_porous_r1",
+      "layout": "porous_strip",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    },
+    {
+      "run": "E10_porous_r12",
+      "layout": "porous_strip",
+      "status": "unavailable",
+      "comparisons": [],
+      "reason": "raw medium CFD record not supplied"
+    }
+  ],
+  "scope": "corrected footprint comparison; no new CFD or external validation",
+  "warning": "Do not call unavailable rows zero error or aggregate shared trajectories as independent",
+  "provenance_limit": "Filename and matching dx/layout/removal/day/dtm are not authentication. Raw runs omit Q,T and complete solver/config identity; production hash manifest and original execution provenance remain required."
+}

@@ -1,0 +1,27 @@
+{
+  "values": [
+    3.165,
+    2.721,
+    2.478
+  ],
+  "spacings": [
+    0.1,
+    0.05,
+    0.025
+  ],
+  "refinement_ratio": 2.0,
+  "scope": "conditional numerical extrapolation; not a confidence interval",
+  "assumes": "same observable and problem, asymptotic single-power leading error; not established by three points",
+  "status": "conditional_estimate",
+  "observed_order": 0.8696033627443256,
+  "extrapolated_value": 2.1842238805970156,
+  "fine_grid_absolute_error_estimate": 0.29377611940298465,
+  "safety_factor": 1.25,
+  "gci_absolute": 0.3672201492537308,
+  "gci_relative": 0.14819215062701,
+  "numerical_estimate_band": [
+    2.1107798507462694,
+    2.845220149253731
+  ],
+  "next_halving_prediction": 2.345006756756757
+}
