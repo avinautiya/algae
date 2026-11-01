@@ -75,6 +75,35 @@ def fig6(analysis, out):
     ax[1].axhline(0, color="k", lw=0.8); ax[1].set_xticks(range(len(pts))); ax[1].set_xticklabels([f"{p[0][:3]}\n{p[1][:4]}" for p in pts], fontsize=6); ax[1].set(ylabel="loss-time error pred − CFD [d] (± CFD U)", title="contact-loss timing"); save(fig, out, "fig6_prediction_errors")
 if __name__ == "__main__":
     ev, spec, out = sys.argv[1:4]; os.makedirs(out, exist_ok=True)
-    for f, a in ((fig1, (out,)), (fig2, (out,)), (fig3, (ev, out)), (fig4, (ev, out)), (fig5, (ev, out)), (fig6, (os.path.join(RES, "analysis", "eval_analysis.json"), out))):
+    for f, a in ((fig1, (out,)), (fig2, (out,)), (fig3, (ev, out)), (fig4, (ev, out)), (fig5, (ev, out)), (fig6, (os.path.join(RES, "analysis_v3E" if "v3_as_E" in ev else "analysis", "eval_analysis.json"), out))):
         try: f(*a); print(f.__name__, "ok")
         except Exception as e: import traceback; print(f.__name__, "FAILED", repr(e)); traceback.print_exc()
+
+def fig7(R3, out):
+    """addendum figure: (a) removal-time bracket (CFD vs reduced vs static fine-grid), (b) counterfactual f(t), (c) identical-footprint heat by region, (d) local melt vs contact"""
+    A = json.load(open(os.path.join(RES, "analysis_v3", "analysis_v2.json"))); spec = json.load(open(os.path.join(HERE, "frozen", "production_spec_v3.json"))); P = spec["predictions"]
+    fig, ax = plt.subplots(2, 2, figsize=(11, 7)); a = ax[0, 0]
+    br = [b for b in A["bracket"] if "f_plus1d" in b]; a.plot([b["removal_day"] for b in br], [b["f_plus1d"] for b in br], "o-", color=C["cfd"], label="CFD medium: f at removal+1 d"); a.plot([b["removal_day"] for b in br], [b["pred_f_plus1d"] for b in br], "s--", color=C["cn"], label="reduced (frozen)")
+    for dx, col, mk in ((0.05, "#888", "^"), (0.025, C["fr"], "v"), (0.0125, C["fx"], "d")):
+        p = os.path.join(RES, "v3", f"boundary_dx{dx}.json")
+        if os.path.exists(p): B = json.load(open(p)); a.plot([b["removal_day"] for b in B], [b["f_toe"] for b in B], mk + ":", color=col, label=f"fixed-bed steady, dx={dx}")
+    fw = [json.load(open(os.path.join(RES, "v3", f"fine_warm_day{d}.json"))) for d in (9.5, 10, 10.5) if os.path.exists(os.path.join(RES, "v3", f"fine_warm_day{d}.json"))]
+    if fw: a.plot([x["removal_day"] for x in fw], [max(x["fine"]["f_toe"], 0.0) for x in fw], "d:", color=C["fx"], label="fixed-bed steady, dx=0.0125 (warm start)")
+    a.axhline(1e-3, color="k", lw=0.6, ls=":"); a.axvline(P["reduced_boundary_day"], color=C["cn"], lw=0.6); a.set(xlabel="prescribed removal day", ylabel="toe-route flow fraction", title="EVALUATION: removal-time boundary (idealised solid strip)", yscale="symlog", yticks=[0, 1e-3, 1e-2, 0.1]); a.legend(frameon=False, fontsize=6)
+    a = ax[0, 1]
+    for n, lab, col, ls in (("V3M_strip_none", "differential incision (none removed)", C["strip"], "-"), ("V3M_CF_strip_none_uniform", "uniform incision (counterfactual)", C["strip"], "--"), ("V3M_strip_r8.5", "differential, removal 8.5 d", C["corridor"], "-"), ("V3M_CF_strip_r8_uniform", "uniform, removal 8 d", C["corridor"], "--")):
+        p = os.path.join(RES, "v3", n + ".json")
+        if os.path.exists(p): x = M.arrays(json.load(open(p))); a.plot(x["day"], x["f"], color=col, ls=ls, label=lab)
+    a.set(xlabel="day", ylabel="f_toe", title="counterfactual: differential incision disabled"); a.legend(frameon=False, fontsize=6)
+    a = ax[1, 0]; fp = A["identical_footprint"]; names = [r["run"][:3] + r["run"][3:].split("_")[1][:4] for r in fp if not r.get("status")]; w = 0.27
+    for k, key in enumerate(("toe_fp", "toe_open", "byp")): a.bar(np.arange(len(names)) + (k - 1) * w, [r["cfd_mean_heat_W"][key] for r in fp if not r.get("status")], w, label=key)
+    a.set_xticks(range(len(names))); a.set_xticklabels(names, fontsize=6, rotation=45); a.set(ylabel="mean heat delivered to ice [W], 21 d", title="local heat delivery by region (CFD, coarse)"); a.legend(frameon=False, fontsize=7)
+    a = ax[1, 1]
+    for r in fp:
+        if r.get("status") or "reduced_melt_m3" not in r: continue
+        for key, mk in (("toe_fp", "o"), ("toe_open", "s"), ("byp", "^")):
+            if key in r["reduced_melt_m3"] and r["cfd_melt_m3"][key] > 1e-3: a.plot(r["cfd_melt_m3"][key], r["reduced_melt_m3"][key], mk, color={"toe_fp": C["strip"], "toe_open": C["corridor"], "byp": C["bare"]}[key])
+    a.plot([0, 0.65], [0, 0.65], "k", lw=0.6); a.set(xlabel="CFD melt over identical footprint [m³]", ylabel="reduced melt [m³]", title="identical-footprint melt (21 d; footprint 0.5, open 0.5, bypass 1.0 m²)"); save(fig, out, "fig7_boundary_counterfactual_footprint")
+if __name__ == "__main__" and len(sys.argv) > 4 and sys.argv[4] == "fig7":
+    try: fig7(None, sys.argv[3]); print("fig7 ok")
+    except Exception as e: import traceback; traceback.print_exc()
