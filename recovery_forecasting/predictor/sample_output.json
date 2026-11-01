@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "tool": "ice-contact-first-contact-forecast",
+  "tool_version": "1.0.0",
+  "evidence_label": "SYNTHETIC EXAMPLE \u2014 NOT A GLACIER FORECAST",
+  "scope": "Static reservoir and bypass; freely selectable bounded inflow; first zero-depth contact only. Not a prescribed flood, positive contact flux, sustained recovery, cliff lifetime, or field validation.",
+  "provenance": {
+    "input_canonical_sha256": "fd37c4fcb7e8283c709b5a88467baef75a967d471dec0d5e5c01fc009e72d896",
+    "kernel_sha256": "43c3a459cd70722c754d9c63aa78f2f80950a7733c096710180546b35289cc78",
+    "wrapper_sha256": "4d13bf67f83dfcdc10853ff88a3897c35816658e05d0e5df7b185821c24d9ce7",
+    "kernel_source_commit": "0b8b7565f869dd5ff456ac309b266257fe71faaa"
+  },
+  "nominal_parameters": {
+    "area_m2": 10.0,
+    "coefficient": 0.7,
+    "exponent": 1.5,
+    "bypass_m": 0.0,
+    "toe_m": 0.2,
+    "initial_stage_m": 0.05,
+    "peak_m3_s": 0.1
+  },
+  "budgets": {
+    "available_volume_m3": 3.0,
+    "available_time_s": 30.0
+  },
+  "nominal": {
+    "classification": "feasible_static_model",
+    "first_contact_feasible": true,
+    "failure_reasons": [],
+    "critical_peak_m3_s": 0.06260990336999411,
+    "minimum_time_s": 23.632193139860757,
+    "minimum_volume_m3": 2.3632193139860758,
+    "time_margin_s": 6.367806860139243,
+    "volume_margin_m3": 0.6367806860139242,
+    "peak_margin_m3_s": 0.03739009663000589,
+    "numerical_note": "No safety margin is inferred. Equality and near-threshold decisions require numerical and parameter error assessment."
+  },
+  "corner_sensitivity": {
+    "count": 8,
+    "interpretation": "Deterministic corner samples only; not a confidence interval, probability, or guaranteed interior extrema.",
+    "classifications": [
+      "excluded_static_model",
+      "feasible_static_model"
+    ],
+    "ranges": {
+      "minimum_time_s": {
+        "minimum_finite_sample": 14.082100814826914,
+        "maximum_finite_sample": 42.27320921114902,
+        "nonfinite_or_unreachable_count": 0
+      },
+      "minimum_volume_m3": {
+        "minimum_finite_sample": 1.4082100814826914,
+        "maximum_finite_sample": 4.227320921114902,
+        "nonfinite_or_unreachable_count": 0
+      },
+      "critical_peak_m3_s": {
+        "minimum_finite_sample": 0.04582051942088827,
+        "maximum_finite_sample": 0.08255131737289237,
+        "nonfinite_or_unreachable_count": 0
+      }
+    },
+    "samples": [
+      {
+        "parameters": {
+          "area_m2": 8.0,
+          "coefficient": 0.6,
+          "exponent": 1.5,
+          "bypass_m": 0.0,
+          "toe_m": 0.18,
+          "initial_stage_m": 0.05,
+          "peak_m3_s": 0.1
+        },
+        "prediction": {
+          "classification": "feasible_static_model",
+          "first_contact_feasible": true,
+          "failure_reasons": [],
+          "critical_peak_m3_s": 0.04582051942088827,
+          "minimum_time_s": 14.082100814826914,
+          "minimum_volume_m3": 1.4082100814826914,
+          "time_margin_s": 15.917899185173086,
+          "volume_margin_m3": 1.5917899185173086,
+          "peak_margin_m3_s": 0.05417948057911173,
+          "numerical_note": "No safety margin is inferred. Equality and near-threshold decisions require numerical and parameter error assessment."
+        }
+      },
+      {
+        "parameters": {
+          "area_m2": 8.0,
+          "coefficient": 0.6,
+          "exponent": 1.5,
+          "bypass_m": 0.0,
+          "toe_m": 0.22,
+          "initial_stage_m": 0.05,
+          "peak_m3_s": 0.1
+        },
+        "prediction": {
+          "classification": "feasible_static_model",
+          "first_contact_feasible": true,
+          "failure_reasons": [],
+          "critical_peak_m3_s": 0.06191348802966927,
+          "minimum_time_s": 21.069752313163942,
+          "minimum_volume_m3": 2.1069752313163943,
+          "time_margin_s": 8.930247686836058,
+          "volume_margin_m3": 0.8930247686836057,
+          "peak_margin_m3_s": 0.038086511970330736,
+          "numerical_note": "No safety margin is inferred. Equality and near-threshold decisions require numerical and parameter error assessment."
+        }
+      },
+      {
+        "parameters": {
+          "area_m2": 8.0,
+          "coefficient": 0.8,
+          "exponent": 1.5,
+          "bypass_m": 0.0,
+          "toe_m": 0.18,
+          "initial_stage_m": 0.05,
+          "peak_m3_s": 0.1
+        },
+        "prediction": {
+          "classification": "feasible_static_model",
+          "first_contact_feasible": true,
+          "failure_reasons": [],
+          "critical_peak_m3_s": 0.061094025894517706,
+          "minimum_time_s": 16.301705796799688,
+          "minimum_volume_m3": 1.6301705796799688,
+          "time_margin_s": 13.698294203200312,
+          "volume_margin_m3": 1.3698294203200312,
+          "peak_margin_m3_s": 0.0389059741054823,
+          "numerical_note": "No safety margin is inferred. Equality and near-threshold decisions require numerical and parameter error assessment."
+        }
+      },
+      {
+        "parameters": {
+          "area_m2": 8.0,
+          "coefficient": 0.8,
+          "exponent": 1.5,
+          "bypass_m": 0.0,
+          "toe_m": 0.22,
+          "initial_stage_m": 0.05,
+          "peak_m3_s": 0.1
+        },
+        "prediction": {
+          "classification": "feasible_static_model",
+          "first_contact_feasible": true,
+          "failure_reasons": [],
+          "critical_peak_m3_s": 0.08255131737289237,
+          "minimum_time_s": 28.182139474099348,
+          "minimum_volume_m3": 2.818213947409935,
+          "time_margin_s": 1.8178605259006524,
+          "volume_margin_m3": 0.18178605259006497,
+          "peak_margin_m3_s": 0.017448682627107637,
+          "numerical_note": "No safety margin is inferred. Equality and near-threshold decisions require numerical and parameter error assessment."
+        }
+      },
+      {
+        "parameters": {
+          "area_m2": 12.0,
+          "coefficient": 0.6,
+          "exponent": 1.5,
+          "bypass_m": 0.0,
+          "toe_m": 0.18,
+          "initial_stage_m": 0.05,
+          "peak_m3_s": 0.1
+        },
+        "prediction": {
+          "classification": "feasible_static_model",
+          "first_contact_feasible": true,
+          "failure_reasons": [],
+          "critical_peak_m3_s": 0.04582051942088827,
+          "minimum_time_s": 21.123151222240367,
+          "minimum_volume_m3": 2.112315122224037,
+          "time_margin_s": 8.876848777759633,
+          "volume_margin_m3": 0.8876848777759632,
+          "peak_margin_m3_s": 0.05417948057911173,
+          "numerical_note": "No safety margin is inferred. Equality and near-threshold decisions require numerical and parameter error assessment."
+        }
+      },
+      {
+        "parameters": {
+          "area_m2": 12.0,
+          "coefficient": 0.6,
+          "exponent": 1.5,
+          "bypass_m": 0.0,
+          "toe_m": 0.22,
+          "initial_stage_m": 0.05,
+          "peak_m3_s": 0.1
+        },
+        "prediction": {
+          "classification": "excluded_static_model",
+          "first_contact_feasible": false,
+          "failure_reasons": [
+            "insufficient_deadline",
+            "insufficient_total_inflow_volume"
+          ],
+          "critical_peak_m3_s": 0.06191348802966927,
+          "minimum_time_s": 31.604628469745915,
+          "minimum_volume_m3": 3.1604628469745917,
+          "time_margin_s": -1.604628469745915,
+          "volume_margin_m3": -0.16046284697459168,
+          "peak_margin_m3_s": 0.038086511970330736,
+          "numerical_note": "No safety margin is inferred. Equality and near-threshold decisions require numerical and parameter error assessment."
+        }
+      },
+      {
+        "parameters": {
+          "area_m2": 12.0,
+          "coefficient": 0.8,
+          "exponent": 1.5,
+          "bypass_m": 0.0,
+          "toe_m": 0.18,
+          "initial_stage_m": 0.05,
+          "peak_m3_s": 0.1
+        },
+        "prediction": {
+          "classification": "feasible_static_model",
+          "first_contact_feasible": true,
+          "failure_reasons": [],
+          "critical_peak_m3_s": 0.061094025894517706,
+          "minimum_time_s": 24.45255869519953,
+          "minimum_volume_m3": 2.4452558695199533,
+          "time_margin_s": 5.5474413048004685,
+          "volume_margin_m3": 0.5547441304800467,
+          "peak_margin_m3_s": 0.0389059741054823,
+          "numerical_note": "No safety margin is inferred. Equality and near-threshold decisions require numerical and parameter error assessment."
+        }
+      },
+      {
+        "parameters": {
+          "area_m2": 12.0,
+          "coefficient": 0.8,
+          "exponent": 1.5,
+          "bypass_m": 0.0,
+          "toe_m": 0.22,
+          "initial_stage_m": 0.05,
+          "peak_m3_s": 0.1
+        },
+        "prediction": {
+          "classification": "excluded_static_model",
+          "first_contact_feasible": false,
+          "failure_reasons": [
+            "insufficient_deadline",
+            "insufficient_total_inflow_volume"
+          ],
+          "critical_peak_m3_s": 0.08255131737289237,
+          "minimum_time_s": 42.27320921114902,
+          "minimum_volume_m3": 4.227320921114902,
+          "time_margin_s": -12.273209211149023,
+          "volume_margin_m3": -1.2273209211149023,
+          "peak_margin_m3_s": 0.017448682627107637,
+          "numerical_note": "No safety margin is inferred. Equality and near-threshold decisions require numerical and parameter error assessment."
+        }
+      }
+    ]
+  },
+  "assumptions": [
+    "All water sources counted in total inflow.",
+    "Toe activation elevation and reservoir geometry stay fixed.",
+    "Static monotone bypass law C*max(H-z_b,0)^p.",
+    "No waves, inertia, uncounted storage release, toe lowering or grain failure.",
+    "Parameters and bounds supplied independently; no calibration performed.",
+    "Coefficient units depend on exponent; varied exponent/coefficient corners require physical justification."
+  ]
+}

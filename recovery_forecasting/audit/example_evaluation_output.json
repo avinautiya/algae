@@ -1,0 +1,80 @@
+{
+  "target": {
+    "toe_fraction_threshold": 0.001,
+    "persistence_s": 86400,
+    "after_ordinary_flow_return": true
+  },
+  "case_count": 2,
+  "scores": {
+    "geometry": {
+      "tp": 1,
+      "tn": 1,
+      "fp": 0,
+      "fn": 0,
+      "abstentions": 0,
+      "unresolved_labels": 0,
+      "event_scores": [
+        {
+          "kind": "interval",
+          "missed_observed_event": false,
+          "interval_distance_s": 0.0,
+          "qualification": "distance to observed bracket, not error against a known exact event time",
+          "case_id": "a"
+        },
+        {
+          "kind": "right_censored",
+          "early_prediction_violation": false,
+          "qualification": "event-free through lower_s; later event time is unobserved and has no MAE",
+          "case_id": "b"
+        }
+      ],
+      "scored_classifications": 2,
+      "accuracy_on_nonabstained": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "mean_distance_to_observed_event_bracket_s": 0.0,
+      "event_distance_count": 1
+    },
+    "debris": {
+      "tp": 0,
+      "tn": 0,
+      "fp": 1,
+      "fn": 1,
+      "abstentions": 0,
+      "unresolved_labels": 0,
+      "event_scores": [
+        {
+          "kind": "interval",
+          "missed_observed_event": true,
+          "interval_distance_s": null,
+          "case_id": "a"
+        },
+        {
+          "kind": "right_censored",
+          "early_prediction_violation": true,
+          "qualification": "event-free through lower_s; later event time is unobserved and has no MAE",
+          "case_id": "b"
+        }
+      ],
+      "scored_classifications": 2,
+      "accuracy_on_nonabstained": 0.0,
+      "sensitivity": 0.0,
+      "specificity": 0.0,
+      "mean_distance_to_observed_event_bracket_s": null,
+      "event_distance_count": 0
+    }
+  },
+  "paired_comparisons": [
+    {
+      "model_a": "geometry",
+      "model_b": "debris",
+      "paired_cases": 2,
+      "a_better": 2,
+      "b_better": 0,
+      "ties": 0,
+      "accuracy_difference": 1.0
+    }
+  ],
+  "input_sha256": "d9d229120322c9d4252376781c875b3b9463403cc26b3aae3f1aac6b73122952",
+  "qualification": "Descriptive paired scores only; no independence assumed, no confidence interval, no readiness approval"
+}

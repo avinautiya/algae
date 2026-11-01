@@ -1,0 +1,55 @@
+{
+  "study_id": "synthetic",
+  "claim_scope": "conditional_computational",
+  "freeze": {
+    "configuration_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "predictions_frozen_before_test": true
+  },
+  "gates": {
+    "hydraulic_partition": {
+      "status": "fail",
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "water_conservation": {
+      "status": "pass",
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "thermal_latent_conservation": {
+      "status": "pass",
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "spatial_convergence": {
+      "status": "pass",
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "temporal_convergence": {
+      "status": "pass",
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "event_timing": {
+      "status": "pass",
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "closure_sensitivity": {
+      "status": "pass",
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "boundary_applicability": {
+      "status": "pass",
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    }
+  },
+  "campaign": {
+    "expected_case_ids": [
+      "a",
+      "b"
+    ],
+    "completed_case_ids": [
+      "b",
+      "a"
+    ],
+    "unresolved_failure_ids": []
+  },
+  "evidence": "SYNTHETIC CHECKLIST FIXTURE; hashes are placeholders, not actual evidence"
+}

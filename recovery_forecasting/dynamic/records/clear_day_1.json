@@ -1,0 +1,1824 @@
+{
+  "schema_version": 1,
+  "input_sha256": "99c125feb2c5adfe92dec898f1a26af2c0f0afd9e33ead976070f4fcc18d4ae1",
+  "model_sha256": "819c963e59931e22823c442ba0625a1d023ca3a9f954968d8f6cca2e92ec390c",
+  "evidence": "conditional reduced-model forecast; not spatial CFD or externally validated",
+  "scope": [
+    "well-mixed fixed-hypsometry reservoir",
+    "ideal broad-crested parallel controls",
+    "quasi-steady plug-flow heat loss",
+    "uniform prescribed debris cover/removal",
+    "meltwater joins downstream and does not feed back into reservoir"
+  ],
+  "series": [
+    {
+      "time_s": 0.0,
+      "stage_m": 0.18900000000000006,
+      "reservoir_volume_m3": 11.89,
+      "reservoir_sensible_energy_J": 25070065.0,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5,
+      "ice_z_m": [
+        0.0,
+        0.0
+      ],
+      "route_flow_m3_s": [
+        0.0,
+        0.07004228822647075
+      ],
+      "ice_power_W": [
+        0.0,
+        99.96615160693862
+      ],
+      "downstream_route_flow_m3_s": [
+        0.0,
+        0.07004258752632586
+      ],
+      "downstream_route_temperature_K": [
+        0.0,
+        0.4996594191541282
+      ],
+      "toe_fraction": 0.0
+    },
+    {
+      "time_s": 21600.0,
+      "stage_m": 0.1818797641319363,
+      "reservoir_volume_m3": 11.818797641319362,
+      "reservoir_sensible_energy_J": 24919934.82672187,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999999994,
+      "ice_z_m": [
+        0.0,
+        -0.007050027973165257
+      ],
+      "route_flow_m3_s": [
+        0.0,
+        0.07000326390183888
+      ],
+      "ice_power_W": [
+        0.0,
+        99.96613274192669
+      ],
+      "downstream_route_flow_m3_s": [
+        0.0,
+        0.0700035632016375
+      ],
+      "downstream_route_temperature_K": [
+        0.0,
+        0.4996592293575649
+      ],
+      "toe_fraction": 0.0
+    },
+    {
+      "time_s": 43200.0,
+      "stage_m": 0.1748297361598794,
+      "reservoir_volume_m3": 11.748297361598794,
+      "reservoir_sensible_energy_J": 24771284.986931056,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999999994,
+      "ice_z_m": [
+        0.0,
+        -0.014100055945222062
+      ],
+      "route_flow_m3_s": [
+        0.0,
+        0.07000326390183885
+      ],
+      "ice_power_W": [
+        0.0,
+        99.96613274192669
+      ],
+      "downstream_route_flow_m3_s": [
+        0.0,
+        0.07000356320163748
+      ],
+      "downstream_route_temperature_K": [
+        0.0,
+        0.4996592293575649
+      ],
+      "toe_fraction": 0.0
+    },
+    {
+      "time_s": 64800.0,
+      "stage_m": 0.16777970818782273,
+      "reservoir_volume_m3": 11.677797081878227,
+      "reservoir_sensible_energy_J": 24622635.147140242,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5,
+      "ice_z_m": [
+        0.0,
+        -0.021150083917278864
+      ],
+      "route_flow_m3_s": [
+        0.0,
+        0.0700032639018389
+      ],
+      "ice_power_W": [
+        0.0,
+        99.9661327419267
+      ],
+      "downstream_route_flow_m3_s": [
+        0.0,
+        0.07000356320163753
+      ],
+      "downstream_route_temperature_K": [
+        0.0,
+        0.49965922935756496
+      ],
+      "toe_fraction": 0.0
+    },
+    {
+      "time_s": 86400.0,
+      "stage_m": 0.16072968021576584,
+      "reservoir_volume_m3": 11.60729680215766,
+      "reservoir_sensible_energy_J": 24473985.30734942,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999999994,
+      "ice_z_m": [
+        0.0,
+        -0.028200111889335706
+      ],
+      "route_flow_m3_s": [
+        0.05493027084557897,
+        0.07000326390183888
+      ],
+      "ice_power_W": [
+        99.95684216236039,
+        99.96613274192669
+      ],
+      "downstream_route_flow_m3_s": [
+        0.05493057011756149,
+        0.0700035632016375
+      ],
+      "downstream_route_temperature_K": [
+        0.4995657619769735,
+        0.4996592293575649
+      ],
+      "toe_fraction": 0.43967595215034355
+    },
+    {
+      "time_s": 108000.0,
+      "stage_m": 0.09745162995844092,
+      "reservoir_volume_m3": 10.97451629958441,
+      "reservoir_sensible_energy_J": 23139767.617673725,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999999994,
+      "ice_z_m": [
+        -0.00704661375584847,
+        -0.03524847244460435
+      ],
+      "route_flow_m3_s": [
+        0.0287959298248392,
+        0.04120733292417296
+      ],
+      "ice_power_W": [
+        99.91769487163579,
+        99.94247517671617
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028796228979614265,
+        0.04120763215314056
+      ],
+      "downstream_route_temperature_K": [
+        0.49917198879144525,
+        0.4994212355212614
+      ],
+      "toe_fraction": 0.4113512526992258
+    },
+    {
+      "time_s": 129600.0,
+      "stage_m": 0.09040409209734124,
+      "reservoir_volume_m3": 10.904040920973411,
+      "reservoir_sensible_energy_J": 22991170.28187243,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999999983,
+      "ice_z_m": [
+        -0.014093225649027208,
+        -0.04229683200547798
+      ],
+      "route_flow_m3_s": [
+        0.02879554708087257,
+        0.04120771566813418
+      ],
+      "ice_power_W": [
+        99.91769377825487,
+        99.94247571081111
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02879584623564436,
+        0.04120801489710337
+      ],
+      "downstream_route_temperature_K": [
+        0.49917197779488065,
+        0.4994212408937881
+      ],
+      "toe_fraction": 0.41134578518315046
+    },
+    {
+      "time_s": 151200.0,
+      "stage_m": 0.0833565542492627,
+      "reservoir_volume_m3": 10.833565542492627,
+      "reservoir_sensible_energy_J": 22842572.946345694,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999998,
+      "ice_z_m": [
+        -0.021139837465092626,
+        -0.049345191604019074
+      ],
+      "route_flow_m3_s": [
+        0.028795164312109725,
+        0.041208098436891015
+      ],
+      "ice_power_W": [
+        99.91769268477407,
+        99.94247624493076
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02879546346687824,
+        0.04120839766586181
+      ],
+      "downstream_route_temperature_K": [
+        0.49917196679731163,
+        0.49942124626656287
+      ],
+      "toe_fraction": 0.4113403173128636
+    },
+    {
+      "time_s": 172800.0,
+      "stage_m": 0.07630901641420773,
+      "reservoir_volume_m3": 10.763090164142078,
+      "reservoir_sensible_energy_J": 22693975.61109357,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5,
+      "ice_z_m": [
+        -0.028186449204037713,
+        -0.05639355124022938
+      ],
+      "route_flow_m3_s": [
+        0.02879478151854914,
+        0.04120848123044567
+      ],
+      "ice_power_W": [
+        99.91769159119342,
+        99.94247677907514
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028795080673314384,
+        0.04120878045941806
+      ],
+      "downstream_route_temperature_K": [
+        0.499171955798738,
+        0.49942125163958645
+      ],
+      "toe_fraction": 0.4113348490883392
+    },
+    {
+      "time_s": 194400.0,
+      "stage_m": 0.0692614785921779,
+      "reservoir_volume_m3": 10.69261478592178,
+      "reservoir_sensible_energy_J": 22545378.27611608,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000001,
+      "ice_z_m": [
+        -0.03523306086585543,
+        -0.06344191091411064
+      ],
+      "route_flow_m3_s": [
+        0.028794398700188906,
+        0.04120886404879985
+      ],
+      "ice_power_W": [
+        99.91769049751282,
+        99.94247731324417
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028794697854950875,
+        0.041209163277773846
+      ],
+      "downstream_route_temperature_K": [
+        0.4991719447991597,
+        0.499421257012858
+      ],
+      "toe_fraction": 0.4113293805095515
+    },
+    {
+      "time_s": 216000.0,
+      "stage_m": 0.062213940783175214,
+      "reservoir_volume_m3": 10.622139407831751,
+      "reservoir_sensible_energy_J": 22396780.94141327,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000004,
+      "ice_z_m": [
+        -0.04227967245053873,
+        -0.0704902706256646
+      ],
+      "route_flow_m3_s": [
+        0.028794015857027292,
+        0.04120924689195554
+      ],
+      "ice_power_W": [
+        99.91768940373237,
+        99.94247784743794
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028794315011785986,
+        0.04120954612093113
+      ],
+      "downstream_route_temperature_K": [
+        0.4991719337985767,
+        0.4994212623863784
+      ],
+      "toe_fraction": 0.411323911576474
+    },
+    {
+      "time_s": 237600.0,
+      "stage_m": 0.05516640298720121,
+      "reservoir_volume_m3": 10.551664029872011,
+      "reservoir_sensible_energy_J": 22248183.60698516,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000006,
+      "ice_z_m": [
+        -0.049326283958080544,
+        -0.07753863037489298
+      ],
+      "route_flow_m3_s": [
+        0.028793632989062377,
+        0.041209629759914476
+      ],
+      "ice_power_W": [
+        99.91768830985193,
+        99.94247838165637
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028793932143817796,
+        0.04120992898889167
+      ],
+      "downstream_route_temperature_K": [
+        0.4991719227969884,
+        0.4994212677601467
+      ],
+      "toe_fraction": 0.41131844228908054
+    },
+    {
+      "time_s": 259200.0,
+      "stage_m": 0.048118865204257455,
+      "reservoir_volume_m3": 10.481188652042574,
+      "reservoir_sensible_energy_J": 22099586.272831786,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000004,
+      "ice_z_m": [
+        -0.05637289538847383,
+        -0.08458699016179752
+      ],
+      "route_flow_m3_s": [
+        0.028793250096292262,
+        0.041210012652678416
+      ],
+      "ice_power_W": [
+        99.91768721587148,
+        99.94247891589941
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028793549251044406,
+        0.041210311881657205
+      ],
+      "downstream_route_temperature_K": [
+        0.4991719117943948,
+        0.49942127313416323
+      ],
+      "toe_fraction": 0.41131297264734473
+    },
+    {
+      "time_s": 280800.0,
+      "stage_m": 0.04107132743434594,
+      "reservoir_volume_m3": 10.41071327434346,
+      "reservoir_sensible_energy_J": 21950988.938953187,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000001,
+      "ice_z_m": [
+        -0.06341950674171153,
+        -0.09163534998638
+      ],
+      "route_flow_m3_s": [
+        0.028792867178715202,
+        0.041210395570249324
+      ],
+      "ice_power_W": [
+        99.91768612179106,
+        99.94247945016711
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02879316633346407,
+        0.041210694799229716
+      ],
+      "downstream_route_temperature_K": [
+        0.4991719007907957,
+        0.4994212785084278
+      ],
+      "toe_fraction": 0.41130750265124033
+    },
+    {
+      "time_s": 302400.0,
+      "stage_m": 0.03402378967746844,
+      "reservoir_volume_m3": 10.340237896774685,
+      "reservoir_sensible_energy_J": 21802391.60534939,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999999933,
+      "ice_z_m": [
+        -0.0704661180177866,
+        -0.09868370984864214
+      ],
+      "route_flow_m3_s": [
+        0.0287924842363294,
+        0.041210778512629054
+      ],
+      "ice_power_W": [
+        99.91768502761057,
+        99.94247998445941
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02879278339107499,
+        0.04121107774161104
+      ],
+      "downstream_route_temperature_K": [
+        0.4991718897861909,
+        0.4994212838829404
+      ],
+      "toe_fraction": 0.4113020323007414
+    },
+    {
+      "time_s": 324000.0,
+      "stage_m": 0.026976251933626738,
+      "reservoir_volume_m3": 10.269762519336268,
+      "reservoir_sensible_energy_J": 21653794.27202043,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999999784,
+      "ice_z_m": [
+        -0.07751272921669197,
+        -0.10573206974858565
+      ],
+      "route_flow_m3_s": [
+        0.028792101269133015,
+        0.04121116147981943
+      ],
+      "ice_power_W": [
+        99.91768393332994,
+        99.94248051877625
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02879240042387533,
+        0.04121146070880302
+      ],
+      "downstream_route_temperature_K": [
+        0.4991718787805798,
+        0.4994212892577006
+      ],
+      "toe_fraction": 0.4112965615958218
+    },
+    {
+      "time_s": 345600.0,
+      "stage_m": 0.019928714202822384,
+      "reservoir_volume_m3": 10.199287142028224,
+      "reservoir_sensible_energy_J": 21505196.938966334,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999999595,
+      "ice_z_m": [
+        -0.08455934033842062,
+        -0.11278042968621232
+      ],
+      "route_flow_m3_s": [
+        0.02879171827712414,
+        0.041211544471822244
+      ],
+      "ice_power_W": [
+        99.91768283894925,
+        99.94248105311772
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02879201743186318,
+        0.04121184370080743
+      ],
+      "downstream_route_temperature_K": [
+        0.49917186777396266,
+        0.49942129463270885
+      ],
+      "toe_fraction": 0.4112910905364548
+    },
+    {
+      "time_s": 367200.0,
+      "stage_m": 0.012881176485057155,
+      "reservoir_volume_m3": 10.128811764850571,
+      "reservoir_sensible_energy_J": 21356599.606187142,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999933,
+      "ice_z_m": [
+        -0.09160595138296548,
+        -0.11982878966152388
+      ],
+      "route_flow_m3_s": [
+        0.028791335260300963,
+        0.04121192748863933
+      ],
+      "ice_power_W": [
+        99.91768174446837,
+        99.94248158748371
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028791634415036724,
+        0.04121222671762612
+      ],
+      "downstream_route_temperature_K": [
+        0.4991718567663391,
+        0.4994213000079647
+      ],
+      "toe_fraction": 0.41128561912261447
+    },
+    {
+      "time_s": 388800.0,
+      "stage_m": 0.00583363878033305,
+      "reservoir_volume_m3": 10.05833638780333,
+      "reservoir_sensible_energy_J": 21208002.27368288,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999896,
+      "ice_z_m": [
+        -0.0986525623503195,
+        -0.12687714967452204
+      ],
+      "route_flow_m3_s": [
+        0.028790952218661743,
+        0.04121231053027265
+      ],
+      "ice_power_W": [
+        99.9176806498873,
+        99.94248212187419
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02879125137339423,
+        0.04121260975926103
+      ],
+      "downstream_route_temperature_K": [
+        0.4991718457577085,
+        0.4994213053834679
+      ],
+      "toe_fraction": 0.41128014735427465
+    },
+    {
+      "time_s": 410400.0,
+      "stage_m": -0.0012138989113488208,
+      "reservoir_volume_m3": 9.987861010886512,
+      "reservoir_sensible_energy_J": 21059404.941453587,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999998523,
+      "ice_z_m": [
+        -0.1056991732404756,
+        -0.13392550972520859
+      ],
+      "route_flow_m3_s": [
+        0.028790569152204386,
+        0.04121269359672375
+      ],
+      "ice_power_W": [
+        99.91767955520605,
+        99.94248265628922
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028790868306933594,
+        0.04121299282571374
+      ],
+      "downstream_route_temperature_K": [
+        0.4991718347480714,
+        0.4994213107592188
+      ],
+      "toe_fraction": 0.41127467523140865
+    },
+    {
+      "time_s": 432000.0,
+      "stage_m": -0.008261436589985904,
+      "reservoir_volume_m3": 9.91738563410014,
+      "reservoir_sensible_energy_J": 20910807.60949929,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999795,
+      "ice_z_m": [
+        -0.11274578405342678,
+        -0.14097386981358523
+      ],
+      "route_flow_m3_s": [
+        0.028790186060927404,
+        0.04121307668799484
+      ],
+      "ice_power_W": [
+        99.91767846042448,
+        99.94248319072868
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028790485215653333,
+        0.041213375916986435
+      ],
+      "downstream_route_temperature_K": [
+        0.49917182373742675,
+        0.4994213161352168
+      ],
+      "toe_fraction": 0.411269202753991
+    },
+    {
+      "time_s": 453600.0,
+      "stage_m": -0.01530897425557709,
+      "reservoir_volume_m3": 9.846910257444229,
+      "reservoir_sensible_energy_J": 20762210.277820025,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999997274,
+      "ice_z_m": [
+        -0.11979239478916595,
+        -0.14802222993965372
+      ],
+      "route_flow_m3_s": [
+        0.028789802944828694,
+        0.04121345980408748
+      ],
+      "ice_power_W": [
+        99.91767736554263,
+        99.94248372519263
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028790102099551344,
+        0.041213759033080666
+      ],
+      "downstream_route_temperature_K": [
+        0.49917181272577493,
+        0.4994213215114622
+      ],
+      "toe_fraction": 0.4112637299219947
+    },
+    {
+      "time_s": 475200.0,
+      "stage_m": -0.02235651190812027,
+      "reservoir_volume_m3": 9.776434880918798,
+      "reservoir_sensible_energy_J": 20613612.946416248,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999997485,
+      "ice_z_m": [
+        -0.12683900544768553,
+        -0.15507059010341598
+      ],
+      "route_flow_m3_s": [
+        0.02878941980390635,
+        0.041213842945003736
+      ],
+      "ice_power_W": [
+        99.9176762705625,
+        99.94248425968307
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028789718958625723,
+        0.041214142173998526
+      ],
+      "downstream_route_temperature_K": [
+        0.49917180171312553,
+        0.499421326887965
+      ],
+      "toe_fraction": 0.4112582567353918
+    },
+    {
+      "time_s": 496800.0,
+      "stage_m": -0.029404049547613775,
+      "reservoir_volume_m3": 9.705959504523863,
+      "reservoir_sensible_energy_J": 20465015.615287706,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999791,
+      "ice_z_m": [
+        -0.13388561602897894,
+        -0.16211895030487344
+      ],
+      "route_flow_m3_s": [
+        0.028789036638158703,
+        0.041214226110745295
+      ],
+      "ice_power_W": [
+        99.91767517548271,
+        99.94248479419859
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028789335792874796,
+        0.04121452533974168
+      ],
+      "downstream_route_temperature_K": [
+        0.4991717906994718,
+        0.49942133226471824
+      ],
+      "toe_fraction": 0.4112527831941581
+    },
+    {
+      "time_s": 518400.0,
+      "stage_m": -0.03645158717405583,
+      "reservoir_volume_m3": 9.635484128259442,
+      "reservoir_sensible_energy_J": 20316418.284434352,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999998324,
+      "ice_z_m": [
+        -0.14093222653303936,
+        -0.16916731054402795
+      ],
+      "route_flow_m3_s": [
+        0.028788653447584023,
+        0.04121460930131405
+      ],
+      "ice_power_W": [
+        99.91767408030283,
+        99.94248532873881
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028788952602296837,
+        0.04121490853031204
+      ],
+      "downstream_route_temperature_K": [
+        0.4991717796848114,
+        0.49942133764171986
+      ],
+      "toe_fraction": 0.41124730929826825
+    },
+    {
+      "time_s": 540000.0,
+      "stage_m": -0.043499124787445,
+      "reservoir_volume_m3": 9.56500875212555,
+      "reservoir_sensible_energy_J": 20167820.953856222,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999876,
+      "ice_z_m": [
+        -0.14797883695985967,
+        -0.1762156708208813
+      ],
+      "route_flow_m3_s": [
+        0.028788270232180335,
+        0.04121499251671172
+      ],
+      "ice_power_W": [
+        99.91767298502288,
+        99.94248586330379
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02878856938688987,
+        0.04121529174571131
+      ],
+      "downstream_route_temperature_K": [
+        0.49917176866914453,
+        0.4994213430189703
+      ],
+      "toe_fraction": 0.41124183504769524
+    },
+    {
+      "time_s": 561600.0,
+      "stage_m": -0.050546662387779384,
+      "reservoir_volume_m3": 9.494533376122206,
+      "reservoir_sensible_energy_J": 20019223.623553347,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999919,
+      "ice_z_m": [
+        -0.1550254473094328,
+        -0.18326403113543516
+      ],
+      "route_flow_m3_s": [
+        0.02878788699194585,
+        0.04121537575694018
+      ],
+      "ice_power_W": [
+        99.91767188964279,
+        99.94248639789342
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028788186146652107,
+        0.04121567498594137
+      ],
+      "downstream_route_temperature_K": [
+        0.49917175765247074,
+        0.499421348396469
+      ],
+      "toe_fraction": 0.41123636044241313
+    },
+    {
+      "time_s": 583200.0,
+      "stage_m": -0.057594199975057214,
+      "reservoir_volume_m3": 9.424058000249428,
+      "reservoir_sensible_energy_J": 19870626.293525755,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999959,
+      "ice_z_m": [
+        -0.16207205758175167,
+        -0.19031239148769133
+      ],
+      "route_flow_m3_s": [
+        0.02878750372687874,
+        0.041215759022001315
+      ],
+      "ice_power_W": [
+        99.9176707941625,
+        99.94248693250772
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028787802881581715,
+        0.041216058251004106
+      ],
+      "downstream_route_temperature_K": [
+        0.49917174663478975,
+        0.499421353774216
+      ],
+      "toe_fraction": 0.41123088548239556
+    },
+    {
+      "time_s": 604800.0,
+      "stage_m": -0.06464173754927693,
+      "reservoir_volume_m3": 9.353582624507231,
+      "reservoir_sensible_energy_J": 19722028.963773485,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999997,
+      "ice_z_m": [
+        -0.16911866777680923,
+        -0.19736075187765154
+      ],
+      "route_flow_m3_s": [
+        0.028787120436977093,
+        0.041216142311896874
+      ],
+      "ice_power_W": [
+        99.91766969858207,
+        99.9424874671467
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02878741959167679,
+        0.04121644154090127
+      ],
+      "downstream_route_temperature_K": [
+        0.49917173561610145,
+        0.49942135915221125
+      ],
+      "toe_fraction": 0.411225410167616
+    },
+    {
+      "time_s": 626400.0,
+      "stage_m": -0.07168927511043655,
+      "reservoir_volume_m3": 9.283107248895634,
+      "reservoir_sensible_energy_J": 19573431.634296566,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000031,
+      "ice_z_m": [
+        -0.17616527789459838,
+        -0.2044091123053175
+      ],
+      "route_flow_m3_s": [
+        0.028786737122239166,
+        0.04121652562662879
+      ],
+      "ice_power_W": [
+        99.91766860290136,
+        99.94248800181025
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02878703627693558,
+        0.04121682485563478
+      ],
+      "downstream_route_temperature_K": [
+        0.4991717245964056,
+        0.49942136453045466
+      ],
+      "toe_fraction": 0.4112199344980486
+    },
+    {
+      "time_s": 648000.0,
+      "stage_m": -0.07873681265853438,
+      "reservoir_volume_m3": 9.212631873414656,
+      "reservoir_sensible_energy_J": 19424834.305095028,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000059,
+      "ice_z_m": [
+        -0.18321188793511206,
+        -0.211457472770691
+      ],
+      "route_flow_m3_s": [
+        0.028786353782663088,
+        0.0412169089661989
+      ],
+      "ice_power_W": [
+        99.91766750712038,
+        99.9424885364984
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028786652937356223,
+        0.041217208195206495
+      ],
+      "downstream_route_temperature_K": [
+        0.4991717135757017,
+        0.49942136990894587
+      ],
+      "toe_fraction": 0.4112144584736667
+    },
+    {
+      "time_s": 669600.0,
+      "stage_m": -0.08578435019356889,
+      "reservoir_volume_m3": 9.142156498064312,
+      "reservoir_sensible_energy_J": 19276236.97616891,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.500000000000008,
+      "ice_z_m": [
+        -0.19025849789834315,
+        -0.21850583327377376
+      ],
+      "route_flow_m3_s": [
+        0.028785970418246903,
+        0.041217292330608946
+      ],
+      "ice_power_W": [
+        99.9176664112391,
+        99.94248907121111
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028786269572936757,
+        0.04121759155961814
+      ],
+      "downstream_route_temperature_K": [
+        0.49917170255398985,
+        0.4994213752876849
+      ],
+      "toe_fraction": 0.41120898209444373
+    },
+    {
+      "time_s": 691200.0,
+      "stage_m": -0.09283188771553808,
+      "reservoir_volume_m3": 9.07168112284462,
+      "reservoir_sensible_energy_J": 19127639.64751824,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000093,
+      "ice_z_m": [
+        -0.19730510778428462,
+        -0.22555419381456754
+      ],
+      "route_flow_m3_s": [
+        0.028785587028988924,
+        0.04121767571986088
+      ],
+      "ice_power_W": [
+        99.91766531525747,
+        99.94248960594842
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028785886183675495,
+        0.04121797494887168
+      ],
+      "downstream_route_temperature_K": [
+        0.4991716915312696,
+        0.49942138066667174
+      ],
+      "toe_fraction": 0.41120350536035394
+    },
+    {
+      "time_s": 712800.0,
+      "stage_m": -0.09987942522444015,
+      "reservoir_volume_m3": 9.001205747755598,
+      "reservoir_sensible_energy_J": 18979042.31914305,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000098,
+      "ice_z_m": [
+        -0.2043517175929294,
+        -0.23260255439307406
+      ],
+      "route_flow_m3_s": [
+        0.028785203614887296,
+        0.04121805913395657
+      ],
+      "ice_power_W": [
+        99.91766421917546,
+        99.94249014071025
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028785502769570585,
+        0.041218358362968964
+      ],
+      "downstream_route_temperature_K": [
+        0.4991716805075408,
+        0.49942138604590636
+      ],
+      "toe_fraction": 0.4111980282713708
+    },
+    {
+      "time_s": 734400.0,
+      "stage_m": -0.10692696272027358,
+      "reservoir_volume_m3": 8.930730372797264,
+      "reservoir_sensible_energy_J": 18830444.991043374,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000091,
+      "ice_z_m": [
+        -0.21139832732427039,
+        -0.23965091500929508
+      ],
+      "route_flow_m3_s": [
+        0.02878482017594011,
+        0.04121844257289776
+      ],
+      "ice_power_W": [
+        99.917663122993,
+        99.94249067549651
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02878511933062012,
+        0.041218741801911755
+      ],
+      "downstream_route_temperature_K": [
+        0.499171669482803,
+        0.4994213914253883
+      ],
+      "toe_fraction": 0.411192550827468
+    },
+    {
+      "time_s": 756000.0,
+      "stage_m": -0.11397450020303668,
+      "reservoir_volume_m3": 8.860254997969633,
+      "reservoir_sensible_energy_J": 18681847.663219243,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.5000000000000073,
+      "ice_z_m": [
+        -0.21844493697830047,
+        -0.2466992756632323
+      ],
+      "route_flow_m3_s": [
+        0.028784436712145457,
+        0.04121882603668623
+      ],
+      "ice_power_W": [
+        99.9176620267101,
+        99.9424912103073
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028784735866822182,
+        0.04121912526570183
+      ],
+      "downstream_route_temperature_K": [
+        0.4991716584570563,
+        0.4994213968051177
+      ],
+      "toe_fraction": 0.41118707302861895
+    },
+    {
+      "time_s": 777600.0,
+      "stage_m": -0.12102203767272735,
+      "reservoir_volume_m3": 8.789779623272727,
+      "reservoir_sensible_energy_J": 18533250.335670695,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.500000000000004,
+      "ice_z_m": [
+        -0.22549154655501263,
+        -0.2537476363548875
+      ],
+      "route_flow_m3_s": [
+        0.02878405322350168,
+        0.04121920952532403
+      ],
+      "ice_power_W": [
+        99.91766093032668,
+        99.94249174514246
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028784352378175122,
+        0.04121950875434123
+      ],
+      "downstream_route_temperature_K": [
+        0.4991716474302999,
+        0.4994214021850942
+      ],
+      "toe_fraction": 0.41118159487479783
+    },
+    {
+      "time_s": 799200.0,
+      "stage_m": -0.12806957512934414,
+      "reservoir_volume_m3": 8.719304248706559,
+      "reservoir_sensible_energy_J": 18384653.008397754,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999993,
+      "ice_z_m": [
+        -0.23253815605439976,
+        -0.2607959970842625
+      ],
+      "route_flow_m3_s": [
+        0.028783669710006794,
+        0.04121959303881286
+      ],
+      "ice_power_W": [
+        99.9176598338427,
+        99.94249228000206
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028783968864676955,
+        0.04121989226783166
+      ],
+      "downstream_route_temperature_K": [
+        0.499171636402534,
+        0.49942140756531783
+      ],
+      "toe_fraction": 0.41117611636597784
+    },
+    {
+      "time_s": 820800.0,
+      "stage_m": -0.13511711257288517,
+      "reservoir_volume_m3": 8.648828874271148,
+      "reservoir_sensible_energy_J": 18236055.681400456,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999999284,
+      "ice_z_m": [
+        -0.2395847654764548,
+        -0.26784435785135885
+      ],
+      "route_flow_m3_s": [
+        0.028783286171659025,
+        0.04121997657715458
+      ],
+      "ice_power_W": [
+        99.91765873725814,
+        99.94249281488605
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028783585326325904,
+        0.04122027580617498
+      ],
+      "downstream_route_temperature_K": [
+        0.499171625373758,
+        0.49942141294578823
+      ],
+      "toe_fraction": 0.41117063750213323
+    },
+    {
+      "time_s": 842400.0,
+      "stage_m": -0.14216465000334877,
+      "reservoir_volume_m3": 8.578353499966513,
+      "reservoir_sensible_energy_J": 18087458.354678836,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999847,
+      "ice_z_m": [
+        -0.24663137482117065,
+        -0.2748927186561785
+      ],
+      "route_flow_m3_s": [
+        0.028782902608456493,
+        0.041220360140351055
+      ],
+      "ice_power_W": [
+        99.91765764057294,
+        99.94249334979439
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028783201763120086,
+        0.04122065936937306
+      ],
+      "downstream_route_temperature_K": [
+        0.49917161434397195,
+        0.4994214183265056
+      ],
+      "toe_fraction": 0.4111651582832371
+    },
+    {
+      "time_s": 864000.0,
+      "stage_m": -0.14921218742073317,
+      "reservoir_volume_m3": 8.507878125792669,
+      "reservoir_sensible_energy_J": 17938861.028232925,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999997446,
+      "ice_z_m": [
+        -0.25367798408854025,
+        -0.2819410794987231
+      ],
+      "route_flow_m3_s": [
+        0.028782519020397378,
+        0.04122074372840413
+      ],
+      "ice_power_W": [
+        99.91765654378705,
+        99.94249388472703
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02878281817505769,
+        0.04122104295742774
+      ],
+      "downstream_route_temperature_K": [
+        0.4991716033131753,
+        0.4994214237074696
+      ],
+      "toe_fraction": 0.41115967870926345
+    },
+    {
+      "time_s": 885600.0,
+      "stage_m": -0.15625972482503658,
+      "reservoir_volume_m3": 8.437402751749634,
+      "reservoir_sensible_energy_J": 17790263.702062756,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999621,
+      "ice_z_m": [
+        -0.2607245932785565,
+        -0.2889894403789944
+      ],
+      "route_flow_m3_s": [
+        0.028782135407479828,
+        0.04122112734131563
+      ],
+      "ice_power_W": [
+        99.91765544690043,
+        99.94249441968395
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028782434562136854,
+        0.04122142657034084
+      ],
+      "downstream_route_temperature_K": [
+        0.4991715922813679,
+        0.49942142908868
+      ],
+      "toe_fraction": 0.4111541987801859
+    },
+    {
+      "time_s": 907200.0,
+      "stage_m": -0.16330726221625746,
+      "reservoir_volume_m3": 8.366927377837426,
+      "reservoir_sensible_energy_J": 17641666.37616836,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999994754,
+      "ice_z_m": [
+        -0.2677712023912124,
+        -0.2960378012969941
+      ],
+      "route_flow_m3_s": [
+        0.028781751769701946,
+        0.04122151097908732
+      ],
+      "ice_power_W": [
+        99.91765434991306,
+        99.94249495466515
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02878205092435569,
+        0.041221810208114135
+      ],
+      "downstream_route_temperature_K": [
+        0.49917158124854943,
+        0.49942143447013676
+      ],
+      "toe_fraction": 0.41114871849597806
+    },
+    {
+      "time_s": 928800.0,
+      "stage_m": -0.1703547995943937,
+      "reservoir_volume_m3": 8.296452004056063,
+      "reservoir_sensible_energy_J": 17493069.050549768,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999999303,
+      "ice_z_m": [
+        -0.27481781142650075,
+        -0.303086162252724
+      ],
+      "route_flow_m3_s": [
+        0.028781368107062028,
+        0.04122189464172123
+      ],
+      "ice_power_W": [
+        99.91765325282482,
+        99.94249548967053
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028781667261712485,
+        0.041222193870749636
+      ],
+      "downstream_route_temperature_K": [
+        0.4991715702147195,
+        0.49942143985183957
+      ],
+      "toe_fraction": 0.41114323785661383
+    },
+    {
+      "time_s": 950400.0,
+      "stage_m": -0.17740233695944385,
+      "reservoir_volume_m3": 8.225976630405562,
+      "reservoir_sensible_energy_J": 17344471.725207016,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999991035,
+      "ice_z_m": [
+        -0.28186442038441456,
+        -0.31013452324618573
+      ],
+      "route_flow_m3_s": [
+        0.028780984419558113,
+        0.04122227832921899
+      ],
+      "ice_power_W": [
+        99.91765215563575,
+        99.9424960247001
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028781283574205285,
+        0.041222577558249006
+      ],
+      "downstream_route_temperature_K": [
+        0.49917155917987777,
+        0.49942144523378834
+      ],
+      "toe_fraction": 0.411137756862067
+    },
+    {
+      "time_s": 972000.0,
+      "stage_m": -0.18444987431140603,
+      "reservoir_volume_m3": 8.15550125688594,
+      "reservoir_sensible_energy_J": 17195874.400140133,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999998875,
+      "ice_z_m": [
+        -0.2889110292649468,
+        -0.3171828842773813
+      ],
+      "route_flow_m3_s": [
+        0.02878060070718843,
+        0.04122266204158264
+      ],
+      "ice_power_W": [
+        99.9176510583457,
+        99.94249655975379
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028780899861832316,
+        0.041222961270614256
+      ],
+      "downstream_route_temperature_K": [
+        0.4991715481440239,
+        0.4994214506159827
+      ],
+      "toe_fraction": 0.4111322755123108
+    },
+    {
+      "time_s": 993600.0,
+      "stage_m": -0.19149741165027856,
+      "reservoir_volume_m3": 8.085025883497215,
+      "reservoir_sensible_energy_J": 17047277.075349156,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999986156,
+      "ice_z_m": [
+        -0.29595763806809017,
+        -0.3242312453463122
+      ],
+      "route_flow_m3_s": [
+        0.028780216969951054,
+        0.04122304577881389
+      ],
+      "ice_power_W": [
+        99.91764996095472,
+        99.94249709483158
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028780516124591655,
+        0.041223345007847106
+      ],
+      "downstream_route_temperature_K": [
+        0.49917153710715795,
+        0.49942145599842286
+      ],
+      "toe_fraction": 0.41112679380731887
+    },
+    {
+      "time_s": 1015200.0,
+      "stage_m": -0.19854494897605957,
+      "reservoir_volume_m3": 8.014550510239404,
+      "reservoir_sensible_energy_J": 16898679.750834115,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999983225,
+      "ice_z_m": [
+        -0.30300424679383786,
+        -0.33127960645298016
+      ],
+      "route_flow_m3_s": [
+        0.028779833207844274,
+        0.041223429540914604
+      ],
+      "ice_power_W": [
+        99.91764886346266,
+        99.94249762993343
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02878013236248159,
+        0.041223728769949425
+      ],
+      "downstream_route_temperature_K": [
+        0.49917152606927906,
+        0.49942146138110816
+      ],
+      "toe_fraction": 0.41112131174706606
+    },
+    {
+      "time_s": 1036800.0,
+      "stage_m": -0.2055924862887475,
+      "reservoir_volume_m3": 7.944075137112525,
+      "reservoir_sensible_energy_J": 16750082.42659504,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999979944,
+      "ice_z_m": [
+        -0.3100508554421827,
+        -0.33832796759738715
+      ],
+      "route_flow_m3_s": [
+        0.028779449420866136,
+        0.04122381332788667
+      ],
+      "ice_power_W": [
+        99.91764776586953,
+        99.94249816505928
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028779748575500166,
+        0.04122411255692309
+      ],
+      "downstream_route_temperature_K": [
+        0.49917151503038726,
+        0.4994214667640386
+      ],
+      "toe_fraction": 0.41111582933152463
+    },
+    {
+      "time_s": 1058400.0,
+      "stage_m": -0.21264002358834044,
+      "reservoir_volume_m3": 7.873599764116595,
+      "reservoir_sensible_energy_J": 16601485.102631966,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999997628,
+      "ice_z_m": [
+        -0.3170974640131175,
+        -0.3453763287795347
+      ],
+      "route_flow_m3_s": [
+        0.028779065609014828,
+        0.04122419713973189
+      ],
+      "ice_power_W": [
+        99.91764666817524,
+        99.94249870020909
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028779364763645572,
+        0.04122449636876992
+      ],
+      "downstream_route_temperature_K": [
+        0.49917150399048194,
+        0.4994214721472141
+      ],
+      "toe_fraction": 0.4111103465606689
+    },
+    {
+      "time_s": 1080000.0,
+      "stage_m": -0.21968756087483676,
+      "reservoir_volume_m3": 7.803124391251632,
+      "reservoir_sensible_energy_J": 16452887.778944924,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999972217,
+      "ice_z_m": [
+        -0.32414407250663535,
+        -0.35242468999942467
+      ],
+      "route_flow_m3_s": [
+        0.028778681772288525,
+        0.04122458097645209
+      ],
+      "ice_power_W": [
+        99.91764557037973,
+        99.94249923538284
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02877898092691598,
+        0.04122488020549172
+      ],
+      "downstream_route_temperature_K": [
+        0.4991714929495629,
+        0.4994214775306342
+      ],
+      "toe_fraction": 0.41110486343447283
+    },
+    {
+      "time_s": 1101600.0,
+      "stage_m": -0.22673509814823467,
+      "reservoir_volume_m3": 7.7326490185176535,
+      "reservoir_sensible_energy_J": 16304290.455533952,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999967737,
+      "ice_z_m": [
+        -0.3311906809227291,
+        -0.35947305125705875
+      ],
+      "route_flow_m3_s": [
+        0.028778297910685372,
+        0.041224964838049154
+      ],
+      "ice_power_W": [
+        99.91764447248299,
+        99.9424997705805
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028778597065309542,
+        0.041225264067090386
+      ],
+      "downstream_route_temperature_K": [
+        0.49917148190762983,
+        0.499421482914299
+      ],
+      "toe_fraction": 0.4110993799529095
+    },
+    {
+      "time_s": 1123200.0,
+      "stage_m": -0.2337826354085324,
+      "reservoir_volume_m3": 7.662173645914676,
+      "reservoir_sensible_energy_J": 16155693.132399075,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.499999999999628,
+      "ice_z_m": [
+        -0.3382372892613916,
+        -0.3665214125524388
+      ],
+      "route_flow_m3_s": [
+        0.028777914024203544,
+        0.04122534872452497
+      ],
+      "ice_power_W": [
+        99.91764337448491,
+        99.9425003058019
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028778213178824424,
+        0.0412256479535678
+      ],
+      "downstream_route_temperature_K": [
+        0.4991714708646823,
+        0.4994214882982078
+      ],
+      "toe_fraction": 0.41109389611595276
+    },
+    {
+      "time_s": 1144800.0,
+      "stage_m": -0.24083017265572826,
+      "reservoir_volume_m3": 7.591698273442717,
+      "reservoir_sensible_energy_J": 16007095.80954033,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999957395,
+      "ice_z_m": [
+        -0.34528389752261585,
+        -0.3735697738855664
+      ],
+      "route_flow_m3_s": [
+        0.02877753011284114,
+        0.04122573263588125
+      ],
+      "ice_power_W": [
+        99.91764227638542,
+        99.94250084104715
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028777829267458734,
+        0.04122603186492568
+      ],
+      "downstream_route_temperature_K": [
+        0.4991714598207197,
+        0.49942149368236066
+      ],
+      "toe_fraction": 0.41108841192357637
+    },
+    {
+      "time_s": 1166400.0,
+      "stage_m": -0.24787770988982039,
+      "reservoir_volume_m3": 7.521222901101796,
+      "reservoir_sensible_energy_J": 15858498.486957747,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999995148,
+      "ice_z_m": [
+        -0.3523305057063948,
+        -0.3806181352564433
+      ],
+      "route_flow_m3_s": [
+        0.028777146176596425,
+        0.04122611657211993
+      ],
+      "ice_power_W": [
+        99.91764117818447,
+        99.94250137631606
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02877744533121073,
+        0.04122641580116596
+      ],
+      "downstream_route_temperature_K": [
+        0.49917144877574204,
+        0.49942149906675715
+      ],
+      "toe_fraction": 0.4110829273757545
+    },
+    {
+      "time_s": 1188000.0,
+      "stage_m": -0.2549252471108072,
+      "reservoir_volume_m3": 7.450747528891927,
+      "reservoir_sensible_energy_J": 15709901.16465136,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999994504,
+      "ice_z_m": [
+        -0.3593771138127213,
+        -0.38766649666507136
+      ],
+      "route_flow_m3_s": [
+        0.028776762215467454,
+        0.04122650053324282
+      ],
+      "ice_power_W": [
+        99.917640079882,
+        99.94250191160869
+      ],
+      "downstream_route_flow_m3_s": [
+        0.02877706137007847,
+        0.041226799762290454
+      ],
+      "downstream_route_temperature_K": [
+        0.49917143772974865,
+        0.4994215044513972
+      ],
+      "toe_fraction": 0.4110774424724601
+    },
+    {
+      "time_s": 1209600.0,
+      "stage_m": -0.26197278431868687,
+      "reservoir_volume_m3": 7.380272156813131,
+      "reservoir_sensible_energy_J": 15561303.842621204,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999993804,
+      "ice_z_m": [
+        -0.36642372184158833,
+        -0.39471485811145224
+      ],
+      "route_flow_m3_s": [
+        0.028776378229452455,
+        0.04122688451925177
+      ],
+      "ice_power_W": [
+        99.91763898147796,
+        99.9425024469249
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028776677384060183,
+        0.04122718374830101
+      ],
+      "downstream_route_temperature_K": [
+        0.4991714266827393,
+        0.4994215098362803
+      ],
+      "toe_fraction": 0.41107195721366735
+    },
+    {
+      "time_s": 1231200.0,
+      "stage_m": -0.26902032151345767,
+      "reservoir_volume_m3": 7.309796784865423,
+      "reservoir_sensible_energy_J": 15412706.520867303,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999930445,
+      "ice_z_m": [
+        -0.37347032979298883,
+        -0.4017632195955877
+      ],
+      "route_flow_m3_s": [
+        0.028775994218549556,
+        0.0412272685301486
+      ],
+      "ice_power_W": [
+        99.9176378829722,
+        99.94250298226467
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028776293373153995,
+        0.041227567759199446
+      ],
+      "downstream_route_temperature_K": [
+        0.4991714156347133,
+        0.4994215152214064
+      ],
+      "toe_fraction": 0.41106647159934984
+    },
+    {
+      "time_s": 1252800.0,
+      "stage_m": -0.27606785869511774,
+      "reservoir_volume_m3": 7.239321413048822,
+      "reservoir_sensible_energy_J": 15264109.199389698,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999922223,
+      "ice_z_m": [
+        -0.3805169376669156,
+        -0.4088115811174795
+      ],
+      "route_flow_m3_s": [
+        0.028775610182756924,
+        0.04122765256593523
+      ],
+      "ice_power_W": [
+        99.91763678436472,
+        99.94250351762788
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028775909337358074,
+        0.04122795179498768
+      ],
+      "downstream_route_temperature_K": [
+        0.49917140458567033,
+        0.49942152060677486
+      ],
+      "toe_fraction": 0.4110609856294809
+    },
+    {
+      "time_s": 1274400.0,
+      "stage_m": -0.28311539586366563,
+      "reservoir_volume_m3": 7.168846041363344,
+      "reservoir_sensible_energy_J": 15115511.878188418,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.4999999999991336,
+      "ice_z_m": [
+        -0.3875635454633618,
+        -0.41585994267712945
+      ],
+      "route_flow_m3_s": [
+        0.028775226122072724,
+        0.04122803662661339
+      ],
+      "ice_power_W": [
+        99.91763568565541,
+        99.94250405301455
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028775525276670585,
+        0.04122833585566744
+      ],
+      "downstream_route_temperature_K": [
+        0.49917139353561,
+        0.4994215259923856
+      ],
+      "toe_fraction": 0.411055499304035
+    },
+    {
+      "time_s": 1296000.0,
+      "stage_m": -0.29016293301909923,
+      "reservoir_volume_m3": 7.098370669809007,
+      "reservoir_sensible_energy_J": 14966914.557263497,
+      "roundoff_clipping_applied": false,
+      "reservoir_temperature_K": 0.49999999999903805,
+      "ice_z_m": [
+        -0.39461015318232007,
+        -0.42290830427453907
+      ],
+      "route_flow_m3_s": [
+        0.02877484203649511,
+        0.04122842071218499
+      ],
+      "ice_power_W": [
+        99.91763458684419,
+        99.94250458842461
+      ],
+      "downstream_route_flow_m3_s": [
+        0.028775141191089683,
+        0.041228719941240645
+      ],
+      "downstream_route_temperature_K": [
+        0.49917138248453197,
+        0.49942153137823847
+      ],
+      "toe_fraction": 0.4110500126229853
+    }
+  ],
+  "rhs_evaluations": 871,
+  "checks": {
+    "reservoir_water_closed": true,
+    "total_heat_closed": true,
+    "latent_exchange_closed": true
+  },
+  "numerics": {
+    "method": "Radau",
+    "rtol": 1e-08,
+    "scalar_atol": 1e-10,
+    "note": "mixed SI units; refine solution observables, not just algebraic ledgers"
+  },
+  "applicability": {
+    "meltwater_to_route_inflow_ratio_upper_bound": 0.006312874251497006,
+    "ratio_scope": "passive well-mixed maximum principle and all advected heat assigned to latent melt; not a hydraulic-error estimate"
+  },
+  "ledger": {
+    "reservoir_water_residual_m3": 0.0,
+    "total_heat_residual_J": 6.103515625e-05,
+    "route_latent_residual_J": [
+      -2.9802322387695312e-08,
+      1.4901161193847656e-08
+    ],
+    "inlet_water_m3": 90720.0,
+    "outlet_water_from_reservoir_m3": [
+      34819.30822146758,
+      55905.483407862615
+    ],
+    "downstream_meltwater_m3": [
+      0.3618575104681878,
+      0.38780691501975245
+    ],
+    "ice_latent_energy_J": [
+      120860408.49637473,
+      129527509.61659732
+    ],
+    "inlet_sensible_energy_J": 191283119999.99994,
+    "downstream_sensible_energy_J": 191042835232.32977,
+    "final_reservoir_sensible_energy_J": 14966914.557263492
+  }
+}

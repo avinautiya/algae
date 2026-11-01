@@ -1,0 +1,51 @@
+{
+  "target": {
+    "toe_fraction_threshold": 0.001,
+    "persistence_s": 86400,
+    "after_ordinary_flow_return": true
+  },
+  "models": [
+    "geometry",
+    "debris"
+  ],
+  "cases": [
+    {
+      "case_id": "a",
+      "recovered": true,
+      "event": {
+        "kind": "interval",
+        "lower_s": 100,
+        "upper_s": 120
+      },
+      "predictions": {
+        "geometry": {
+          "recovered": true,
+          "event_time_s": 110
+        },
+        "debris": {
+          "recovered": false,
+          "event_time_s": null
+        }
+      }
+    },
+    {
+      "case_id": "b",
+      "recovered": false,
+      "event": {
+        "kind": "right_censored",
+        "lower_s": 1000
+      },
+      "predictions": {
+        "geometry": {
+          "recovered": false,
+          "event_time_s": null
+        },
+        "debris": {
+          "recovered": true,
+          "event_time_s": 500
+        }
+      }
+    }
+  ],
+  "evidence": "SYNTHETIC PAIRED SCORING FIXTURE; not environmental results"
+}

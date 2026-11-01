@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "model": "conditional_spatial_latent_energy_exclusion_v1",
+  "input_sha256": "490facac322f7b73d24b6b77ee3cd41e96b412741014f753f2e4b3fc3494817e",
+  "source_sha256": "2fa1bd983623d09dd3d2d76c90d0020dae038bb1ee9ad1b9393f6014dc29180b",
+  "classification": "excluded_for_all_declared_box_values",
+  "reconnection_excluded_under_all_declared_bounds": true,
+  "assumption_status": "user_asserted_not_independently_verified",
+  "feasible_class": "fractional_row_width_relaxation",
+  "required_latent_energy_enclosure_J": {
+    "lower": {
+      "value": 1378251.0,
+      "infinite": false
+    },
+    "upper": {
+      "value": 2297085.0000000005,
+      "infinite": false
+    }
+  },
+  "usable_heat_bounds_J": {
+    "lower": 650000.0,
+    "upper": 720000.0
+  },
+  "optimistic_ice_volume_bound_m3": {
+    "value": 0.0045000000000000005,
+    "infinite": false
+  },
+  "optimistic_width_only_volume_m3": {
+    "value": 0.0045000000000000005,
+    "infinite": false
+  },
+  "diagnostic_whole_cell_path_volume_m3": {
+    "value": 0.0028125,
+    "infinite": false
+  },
+  "diagnostic_path_only_optimizer": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      7,
+      0
+    ]
+  ],
+  "minimum_cross_section_width_m": 0.2,
+  "warnings": [
+    "No positive discharge, sustained contact or cliff-survival prediction follows from non-exclusion.",
+    "The parameter box is a deterministic enclosure, not a confidence interval.",
+    "The optional graph path is a whole-cell diagnostic and is not a continuum trench bound.",
+    "Upstream stage alone is not a global local-free-surface upper bound.",
+    "Terrain bounds must bound subcell terrain; cell-centre samples alone are insufficient."
+  ],
+  "provenance": {
+    "evidence": "SYNTHETIC METHOD CHECK ONLY",
+    "description": "2m x 1m post-clearance ice bed with 0.5m long transverse ridge; not environmental calibration"
+  }
+}

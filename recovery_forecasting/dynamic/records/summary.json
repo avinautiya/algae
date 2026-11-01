@@ -1,0 +1,41 @@
+{
+  "no clearing": {
+    "final_toe_fraction": 0.0,
+    "ice_latent_energy_J": [
+      0.0,
+      129556108.03387648
+    ],
+    "rhs_evaluations": 218,
+    "checks": {
+      "reservoir_water_closed": true,
+      "total_heat_closed": true,
+      "latent_exchange_closed": true
+    }
+  },
+  "clear day 1": {
+    "final_toe_fraction": 0.4110500126229853,
+    "ice_latent_energy_J": [
+      120860408.49637473,
+      129527509.61659732
+    ],
+    "rhs_evaluations": 871,
+    "checks": {
+      "reservoir_water_closed": true,
+      "total_heat_closed": true,
+      "latent_exchange_closed": true
+    }
+  },
+  "clear day 10": {
+    "final_toe_fraction": 0.0,
+    "ice_latent_energy_J": [
+      0.0,
+      129556108.03387645
+    ],
+    "rhs_evaluations": 276,
+    "checks": {
+      "reservoir_water_closed": true,
+      "total_heat_closed": true,
+      "latent_exchange_closed": true
+    }
+  }
+}

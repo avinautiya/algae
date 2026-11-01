@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "evidence_label": "SYNTHETIC EXAMPLE — NOT A GLACIER FORECAST",
+  "notes": "All elevation values share a fixed vertical datum. Bounds are illustrative supplied ranges, not fitted uncertainties.",
+  "parameters": {
+    "area_m2": 10,
+    "coefficient": 0.7,
+    "exponent": 1.5,
+    "bypass_m": 0,
+    "toe_m": 0.2,
+    "initial_stage_m": 0.05,
+    "peak_m3_s": 0.1
+  },
+  "budgets": {
+    "available_volume_m3": 3,
+    "available_time_s": 30
+  },
+  "parameter_bounds": {
+    "area_m2": [8, 12],
+    "coefficient": [0.6, 0.8],
+    "toe_m": [0.18, 0.22]
+  }
+}
