@@ -1,0 +1,428 @@
+{
+ "status": "FROZEN v2 BEFORE v2 RUNS (v1 outputs untouched). Development basis: v1 evaluation results are now DEVELOPMENT information for this addendum; the bracket days, counterfactual and finest-grid check are new.",
+ "model_class": "2-D depth-averaged free-surface hydrodynamics (hydrostatic shallow water) with coupled thermal incision; idealised obstacles (solid raised bed / Ergun drag); not natural boulder behaviour.",
+ "solver": {
+  "git_commit": "d9bd9e1959c7605866982e4f485a38f21df722ff",
+  "file_sha256": {
+   "swe2d.py": "c2a1cde46ddb54a207901de7292260da523ed11cb85f81ceff99d7c3b9d03032",
+   "cases.py": "2a47ef04512a60c5c94bcd8490b7da51549b2b98510d1bb883bc41de8811bffb",
+   "metrics.py": "d8a2a17fdcd256b38b15373645fc48064af2b75861611a3d2eb682b050bf84ad",
+   "run_case.py": "3161896968ea3d0862bf5271e5dbd49dc0924d4b1138d03ad84941afc12ba0cb",
+   "queue.py": "043359eb3103461eea8c7b4f98251888d50e1ba11dc4fc1cfd5889c4a66dc02e",
+   "reduced.py": "a2af2f53312d7cad3fa2f6395981c522bb00e28476035511d2f3aa8bdfc64940",
+   "verify_swe.py": "35ac595e4487212cc540215a3fca093a75cfea5fa4c3b0679d29a29418c0ff7f",
+   "diagnose.py": "7a0cc488984be85464731c30397df0f337d87d4c6bb0dbae0fe76343d741e4c0",
+   "campaign2.py": "b80627fc11a617e3e36e72d0116d7de12b76f0af85d3c711a6950e143ea392e9"
+  },
+  "v1_spec_sha256": "5b4938c64b9994410ab4394e8267881e294b765e1039808dc8e70f22dae649b4",
+  "toolchain": {
+   "python": "3.13.16",
+   "numpy": "2.5.3",
+   "scipy": "1.18.1",
+   "numba": "0.68.0"
+  },
+  "code_change_v2": "ADDITIVE: region heat/melt accounting, bed snapshots, optional incision='uniform' counterfactual. Default physics unchanged (verified: v2 coarse strip f_toe series bit-identical to v1 for the first 6 updates; full 21-d identity is checked in analysis and v1 results kept)."
+ },
+ "runs": [
+  {
+   "name": "V2C_E01_bare_none",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "bare",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": null,
+   "extra": {}
+  },
+  {
+   "name": "V2C_E02_corridor_none",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "corridor",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": null,
+   "extra": {}
+  },
+  {
+   "name": "V2C_E03_corridor_r12",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "corridor",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": 12.0,
+   "extra": {}
+  },
+  {
+   "name": "V2C_E04_strip_none",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "strip",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": null,
+   "extra": {}
+  },
+  {
+   "name": "V2C_E05_strip_r1",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "strip",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": 1.0,
+   "extra": {}
+  },
+  {
+   "name": "V2C_E06_strip_r8",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "strip",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": 8.0,
+   "extra": {}
+  },
+  {
+   "name": "V2C_E07_strip_r12",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "strip",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": 12.0,
+   "extra": {}
+  },
+  {
+   "name": "V2C_E08_porous_none",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "porous_strip",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": null,
+   "extra": {}
+  },
+  {
+   "name": "V2C_E09_porous_r1",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "porous_strip",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": 1.0,
+   "extra": {}
+  },
+  {
+   "name": "V2C_E10_porous_r12",
+   "role": "v2_coarse_repeat_with_regions",
+   "layout": "porous_strip",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": 12.0,
+   "extra": {}
+  },
+  {
+   "name": "V2C_CF_corridor_none_uniform",
+   "role": "counterfactual_coarse",
+   "layout": "corridor",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": null,
+   "extra": {
+    "incision": "uniform"
+   }
+  },
+  {
+   "name": "V2C_CF_porous_none_uniform",
+   "role": "counterfactual_coarse",
+   "layout": "porous_strip",
+   "dx": 0.05,
+   "dtm_h": 6.0,
+   "days": 21.0,
+   "removal_day": null,
+   "extra": {
+    "incision": "uniform"
+   }
+  },
+  {
+   "name": "V2M_strip_none",
+   "role": "medium_regions_and_bed_snapshots",
+   "layout": "strip",
+   "dx": 0.025,
+   "dtm_h": 6.0,
+   "days": 15.0,
+   "removal_day": null,
+   "extra": {}
+  },
+  {
+   "name": "V2M_strip_r8.5",
+   "role": "NEW_bracket_test",
+   "layout": "strip",
+   "dx": 0.025,
+   "dtm_h": 6.0,
+   "days": 15.0,
+   "removal_day": 8.5,
+   "extra": {}
+  },
+  {
+   "name": "V2M_strip_r9",
+   "role": "NEW_bracket_test",
+   "layout": "strip",
+   "dx": 0.025,
+   "dtm_h": 6.0,
+   "days": 15.0,
+   "removal_day": 9.0,
+   "extra": {}
+  },
+  {
+   "name": "V2M_strip_r9.5",
+   "role": "NEW_bracket_test",
+   "layout": "strip",
+   "dx": 0.025,
+   "dtm_h": 6.0,
+   "days": 15.0,
+   "removal_day": 9.5,
+   "extra": {}
+  },
+  {
+   "name": "V2M_strip_r10",
+   "role": "NEW_bracket_test",
+   "layout": "strip",
+   "dx": 0.025,
+   "dtm_h": 6.0,
+   "days": 15.0,
+   "removal_day": 10.0,
+   "extra": {}
+  },
+  {
+   "name": "V2M_strip_r10.5",
+   "role": "NEW_bracket_test",
+   "layout": "strip",
+   "dx": 0.025,
+   "dtm_h": 6.0,
+   "days": 15.0,
+   "removal_day": 10.5,
+   "extra": {}
+  },
+  {
+   "name": "V2M_CF_strip_none_uniform",
+   "role": "counterfactual_medium",
+   "layout": "strip",
+   "dx": 0.025,
+   "dtm_h": 6.0,
+   "days": 15.0,
+   "removal_day": null,
+   "extra": {
+    "incision": "uniform"
+   }
+  },
+  {
+   "name": "V2M_CF_strip_r8_uniform",
+   "role": "counterfactual_medium",
+   "layout": "strip",
+   "dx": 0.025,
+   "dtm_h": 6.0,
+   "days": 15.0,
+   "removal_day": 8.0,
+   "extra": {
+    "incision": "uniform"
+   }
+  }
+ ],
+ "geometry_and_physics": "identical to v1 spec (frozen/production_spec.json) except where 'extra' says otherwise",
+ "counterfactual": {
+  "name": "differential incision disabled",
+  "definition": "the same total melt volume of each bed update is spread uniformly over ALL ice cells (reach + entrance ramps) so routes/shielded and open cells lower equally; heat extraction, latent ledger and hydraulics are unchanged. Prediction: no stage-lowering relative to the strip crest => no contact loss and full recovery if removal."
+ },
+ "identical_footprint_comparison": {
+  "regions": "toe_fp = deposit footprint cells of the toe reach (0.5 m2 for strip and corridor), toe_open = other toe-reach cells (corridor: 0.5 m2 = reduced 'bare corridor lane'; strip: not represented in the reduced model), byp = bypass reach (1.0 m2); ramps excluded (ice, in neither reduced model)",
+  "compare": "cumulative melt volume and mean heat delivery per region, CFD vs reduced topology_lanes() (identical to imported topology.run), at 21 d",
+  "note": "reduced and CFD use the SAME insulation closure (series resistance), so melt agreement tests water delivery to the footprint, not the closure"
+ },
+ "recovery_classes": {
+  "definition": "access class relative to the bare-route share f_ref (ordinary access). maintained: never below theta before removal (a removal then cannot 'reconnect' anything); lost-recovered-full: R>=0.5; lost-recovered-partial: 0.05<=R<0.5; lost-not-recovered: R<0.05, where R = mean f over [removal+1 d, end] / f_ref. decline flag: f at end < 0.5 f(removal+1 d).\nFor runs without removal: maintained / lost. (v1 'sustained reconnection' counted any f>=theta as reconnection and labelled runs that never lost contact as reconnected.)",
+  "thresholds": {
+   "full": 0.5,
+   "partial": 0.05
+  },
+  "f_ref": "bare-route share from the bare control run at the same resolution (CFD E01: 0.735-0.738; reduced 0.749)",
+  "applied_to_v1": "E03 maintained; E05 maintained(+decline); E06 lost-recovered-partial; E07/E10 lost-not-recovered; E09 maintained(+decline)"
+ },
+ "bracket_test": {
+  "removal_days": [
+   8.5,
+   9.0,
+   9.5,
+   10.0,
+   10.5
+  ],
+  "horizon_days": 15.0,
+  "grid": "medium dx=0.025",
+  "pass_criteria": "CFD boundary (smallest removal day with f(t_r+1d)<1e-3, linear interpolation over the 5 runs and v1 points 8 d and 12 d) within +-1.0 d of reduced t*=9.50 d; class sequence monotone in removal day"
+ },
+ "finest_grid_boundary_check": {
+  "method": "fixed-bed post-removal steady flows: bed snapshots of V2M_strip_none (medium) at removal days 8..12 step 0.25, deposit removed, resolved at dx = 0.05, 0.025, 0.0125 (bilinear transfer of the bed); records f_toe at removal+0 per grid; boundary = day where f crosses 1e-3",
+  "pass_criteria": "boundary shift between dx=0.025 and 0.0125 < 0.5 d; if not, report the finest-grid boundary and flag unresolved. LIMITATION: the bed history is evolved at dx<=0.025 only (bed history spatial sensitivity <1% in melt and 0.25 d in loss time)"
+ },
+ "predictions": {
+  "reduced_boundary_day": 9.5046,
+  "bracket": {
+   "8.5": {
+    "f_at_removal_plus_1d": 0.05125646301148035,
+    "cls": "lost-recovered-partial",
+    "R": 0.06797941308223439,
+    "f_end": 0.050316816959494776
+   },
+   "9": {
+    "f_at_removal_plus_1d": 0.02332267224627101,
+    "cls": "lost-not-recovered",
+    "R": 0.030109178210342456,
+    "f_end": 0.02165143036749996
+   },
+   "9.5": {
+    "f_at_removal_plus_1d": 0.0012836082354876985,
+    "cls": "lost-not-recovered",
+    "R": 0.0001284675666382666,
+    "f_end": 0.0
+   },
+   "10": {
+    "f_at_removal_plus_1d": 0.0,
+    "cls": "lost-not-recovered",
+    "R": 0.0,
+    "f_end": 0.0
+   },
+   "10.5": {
+    "f_at_removal_plus_1d": 0.0,
+    "cls": "lost-not-recovered",
+    "R": 0.0,
+    "f_end": 0.0
+   }
+  },
+  "footprint": {
+   "E02_corridor_none": {
+    "melt_m3": {
+     "toe_open": 0.29610592805677677,
+     "toe_fp": 0.0,
+     "byp": 0.5919807745062955
+    },
+    "area_m2": {
+     "toe_open": 0.5,
+     "toe_fp": 0.5,
+     "byp": 1.0
+    },
+    "mean_heat_W": {
+     "toe_open": 49.98386873532488,
+     "toe_fp": 0.0,
+     "byp": 99.92872996816533
+    }
+   },
+   "E03_corridor_r12": {
+    "melt_m3": {
+     "toe_open": 0.29610592805677677,
+     "toe_fp": 0.0,
+     "byp": 0.5919807745062954
+    },
+    "area_m2": {
+     "toe_open": 0.5,
+     "toe_fp": 0.5,
+     "byp": 1.0
+    },
+    "mean_heat_W": {
+     "toe_open": 49.98386873532488,
+     "toe_fp": 0.0,
+     "byp": 99.92872996816531
+    }
+   },
+   "E04_strip_none": {
+    "melt_m3": {
+     "toe_fp": 0.0017195299721857395,
+     "byp": 0.5922007284757448
+    },
+    "area_m2": {
+     "toe_fp": 0.5,
+     "byp": 1.0
+    },
+    "mean_heat_W": {
+     "toe_fp": 0.2902635586536067,
+     "byp": 99.96585908073973
+    }
+   },
+   "E05_strip_r1": {
+    "melt_m3": {
+     "toe_fp": 0.28269660420335935,
+     "byp": 0.5918192537499197
+    },
+    "area_m2": {
+     "toe_fp": 0.5,
+     "byp": 1.0
+    },
+    "mean_heat_W": {
+     "toe_fp": 47.720321066025406,
+     "byp": 99.90146461641197
+    }
+   },
+   "E06_strip_r8": {
+    "melt_m3": {
+     "toe_fp": 0.1847076471244885,
+     "byp": 0.5921895221406054
+    },
+    "area_m2": {
+     "toe_fp": 0.5,
+     "byp": 1.0
+    },
+    "mean_heat_W": {
+     "toe_fp": 31.17939194554348,
+     "byp": 99.96396740640449
+    }
+   },
+   "E07_strip_r12": {
+    "melt_m3": {
+     "toe_fp": 0.0017195299721857395,
+     "byp": 0.5922007284757448
+    },
+    "area_m2": {
+     "toe_fp": 0.5,
+     "byp": 1.0
+    },
+    "mean_heat_W": {
+     "toe_fp": 0.2902635586536067,
+     "byp": 99.96585908073973
+    }
+   },
+   "E08_porous_none": null,
+   "E09_porous_r1": null,
+   "E10_porous_r12": null
+  },
+  "counterfactual": {
+   "strip_None": {
+    "f0": 0.1397707590542083,
+    "f_end": 0.13977075905424885,
+    "min_f": 0.13977075905416736,
+    "contact_lost": false
+   },
+   "strip_8.0": {
+    "f0": 0.1397707590542083,
+    "f_end": 0.7471065322766395,
+    "min_f": 0.13977075905416736,
+    "contact_lost": false
+   },
+   "corridor_None": {
+    "f0": 0.524617860947521,
+    "f_end": 0.524617860947521,
+    "min_f": 0.5246178609474064,
+    "contact_lost": false
+   }
+  }
+ },
+ "acceptance": "water/energy residual < 1e-10 per update; failed runs reported, not dropped",
+ "failure_rules": "as v1; wall limit 90 min/run",
+ "runtime": {
+  "workers": 4,
+  "expected_wall_min": "~75",
+  "expected_medium_run_min": "~25-35 under 4 concurrent jobs"
+ }
+}
