@@ -30,3 +30,11 @@ class TestReactivationMetrics(unittest.TestCase):
         d = np.arange(0, 10.25, 0.25); f = np.where(d < 2, 0.3, 0.0); f = np.where(d >= 8, 0.1, f); e = M.events(d, f, 1e-3, 8.0)
         self.assertAlmostEqual(e["loss"], 1.75 + 0.25 * (0.3 - 1e-3) / 0.3, 6); self.assertEqual(e["sustained_reconnection"], 8.0); self.assertEqual(e["rewet_episodes"], 0)
         f2 = np.where((d > 3) & (d < 3.5), 0.01, np.where(d < 2, 0.3, 0.0)); e2 = M.events(d, f2, 1e-3, None); self.assertEqual(e2["rewet_episodes"], 1); self.assertIsNone(e2["sustained_reconnection"])      # brief rewetting is not reconnection
+class TestBedOperatorLedger(unittest.TestCase):
+    def test_lowering_equals_heat_implied_volume_and_never_touches_non_ice(self):
+        import numpy as np
+        from ice_cliff_survival.reactivation import cases
+        s = cases.build("strip", dx=0.1); s.hydraulics(tmax=30.0); z0 = s.zb.copy(); vol, _, _ = s.lower_bed(6 * 3600.0)
+        self.assertAlmostEqual(float((z0 - s.zb)[1:-1, 1:-1].sum() * s.dx ** 2), vol, places=14); self.assertTrue(np.all((z0 == s.zb)[~s.ice]))
+        s.zb[s.ice] = s.pool_floor; z1 = s.zb.copy(); vol, _, _ = s.lower_bed(6 * 3600.0)       # cells sitting exactly at the old clamp level must still lower (v3 discarded this melt)
+        self.assertAlmostEqual(float((z1 - s.zb)[1:-1, 1:-1].sum() * s.dx ** 2), vol, places=14); self.assertGreater(vol, 0.0)

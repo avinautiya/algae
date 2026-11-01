@@ -1,4 +1,4 @@
-"""SOLVER v3 (tail-clip fix; v1/v2 outputs preserved and superseded). Plan-view depth-averaged free-surface solver with advected sensible heat and Stefan-type ice-floor lowering (M3). NOT 3-D VOF CFD.
+"""SOLVER v4 (bed operator without clamp; v3 = tail-clip fix; v1/v2 outputs preserved and superseded). Plan-view depth-averaged free-surface solver with advected sensible heat and Stefan-type ice-floor lowering (M3). NOT 3-D VOF CFD.
 Why this and not the OpenFOAM stack: the repository's free-surface solver (interThermalFoam) has no phase change/ice-motion coupling, and the verified flow-heat-moving-ice solver (flowStefanFoam) is single-phase rigid-lid. A verified VOF+Stefan+moving-mesh solver does not exist here; this depth-averaged model is the supported alternative.
 Physics: shallow-water equations (hydrostatic reconstruction -> exactly well balanced, wetting/drying, HLL), Manning friction, optional Ergun porous drag in debris cells, conservative depth-weighted temperature, bed-exchange heat sink h_eff*T on wet ice cells that is the SAME flux used to lower the ice floor (rho_i L dz/dt = h_eff T, quasi-static ice).
 Hydraulics are advanced to quasi-steady between morphological (bed) updates; the water temperature field too. Bed update uses the time-mean sink accumulated in the last window.
@@ -176,7 +176,8 @@ class Sim:
         dz = self.last_qacc * dtm / (RHO_I * LF) * self.ice
         if self.incision == "uniform": dz = self.ice * (dz.sum() / max(self.ice.sum(), 1))
         elif self.incision != "full": raise ValueError(self.incision)
-        self.zb = np.where(self.ice, np.maximum(self.zb - dz, self.pool_floor), self.zb)      # v3 FIX: clip ONLY ice cells (v1/v2 clipped every cell, lifting the free-overfall tail floor to pool_floor after the first bed update)
+        zb_old = self.zb; self.zb = self.zb - dz      # v4: NO clamp. v1/v2 clipped every cell (lifted the tail); v3 clipped ice cells at pool_floor, which silently discarded part of the melt (18-21 % of the heat-implied volume after 21 d, ramp cells at the floor). Lowering now equals the heat-implied volume cell by cell.
+        self.ledger_gap = float(abs((zb_old - self.zb)[1:-1, 1:-1].sum() - dz[1:-1, 1:-1].sum()) * self.dx ** 2)
         vol = float(dz.sum() * self.dx ** 2); rm = np.zeros_like(self.ice); rm[self.i0:self.i1 + 1] = True
         self.last_reach = (float((dz * (self.toe & rm)).sum() * self.dx ** 2), float((dz * (self.byp & rm)).sum() * self.dx ** 2))
         for k, m in self.regions.items(): self.region_vol[k] = self.region_vol.get(k, 0.0) + float((dz * m).sum() * self.dx ** 2)
