@@ -1,0 +1,32 @@
+{
+  "mass_fixture": [
+    {
+      "adapter": false,
+      "ice_melt_volume_m3": 0.0023508054773767623,
+      "expected_water_added_m3": 0.002155688622754491,
+      "actual_water_added_m3": 0.0,
+      "water_source_error_m3": -0.002155688622754491,
+      "sensible_energy_change_J": 0.0,
+      "heat_contract": "latent supplied externally; geometry update must not remove sensible heat twice"
+    },
+    {
+      "adapter": true,
+      "ice_melt_volume_m3": 0.0023508054773767623,
+      "expected_water_added_m3": 0.002155688622754491,
+      "actual_water_added_m3": 0.0021556886227545036,
+      "water_source_error_m3": 1.2576745200831851e-17,
+      "sensible_energy_change_J": 0.0,
+      "heat_contract": "latent supplied externally; geometry update must not remove sensible heat twice"
+    }
+  ],
+  "reference_benchmark": {
+    "old_stage": 0.08482242531751442,
+    "new_stage": 0.08482241318803382,
+    "old_toe_fraction": 0.7465028616938315,
+    "new_toe_fraction": 0.7465028942871162,
+    "old_median_s": 0.9246612079999998,
+    "new_median_s": 0.002220333000000352,
+    "speedup": 416.4515899191037,
+    "limitation": "same prismatic reference assumptions; not applicable as an exact strip-layout truth"
+  }
+}

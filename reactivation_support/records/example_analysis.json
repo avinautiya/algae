@@ -1,0 +1,37 @@
+{
+  "layout": "strip",
+  "dx": 0.05,
+  "morphology_step_s": 21600,
+  "observed_horizon_days": [
+    0.0,
+    0.5
+  ],
+  "requested_horizon_days": 0.5,
+  "threshold": 0.001,
+  "persistence_hours": 24,
+  "ordinary_from_day": 0.5,
+  "ordinary_time_source": "actual export timestamp (constant forcing assumed)",
+  "requested_removal_day": 0.3,
+  "initially_active": true,
+  "contact_intervals_days": [
+    [
+      0.0,
+      0.5
+    ]
+  ],
+  "total_observed_contact_days": 0.5,
+  "first_loss": null,
+  "sustained_reconnection_start_day": null,
+  "insufficient_followup": false,
+  "active_at_observed_horizon": true,
+  "max_sampling_interval_hours": 6.0,
+  "qualification": "descriptive interpolation; no independent physical validation or final-data eligibility asserted",
+  "post_ordinary_contact_days": 0,
+  "integrated_net_toe_water_m3": 1042.4506422307593,
+  "integrated_net_bypass_water_m3": 1976.5961601060433,
+  "cum_melt_toe_m3": 0.00738260584812699,
+  "cum_melt_byp_m3": 0.01409838011624355,
+  "hydraulic_convergence_recorded": false,
+  "all_recorded_hydraulic_solves_converged": null,
+  "requested_horizon_completed": true
+}

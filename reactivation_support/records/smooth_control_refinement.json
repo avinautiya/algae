@@ -1,0 +1,86 @@
+[
+  {
+    "layout": "strip",
+    "smooth_inlet": false,
+    "smooth_deposit": false,
+    "dx": 0.05,
+    "numerical_face_fraction": 0.24452115850098188,
+    "cell_fraction": 0.24452123166101444,
+    "ideal_reference_fraction": 0.1397707590542154,
+    "pool": {
+      "i": 1,
+      "Q": 0.07000008140676091,
+      "numerical_face_Q": 0.07000004092924945,
+      "stage_min": 0.22423529205677606,
+      "stage_max": 0.22423924115158655,
+      "positive_flux_mean_total_head": 0.22431346148249962,
+      "froude_max": 0.0094014522710879,
+      "reverse_volume_flux": -0.0
+    },
+    "reference_stage": 0.17088203779036493,
+    "convergence": {
+      "converged": true,
+      "hyd_time": 64.0,
+      "steps": 26596,
+      "dt_limit": 0.00240040586057955
+    },
+    "wall_s": 3.9871612499999998,
+    "note": "different verification geometries; not independent physical validation of abrupt-step production case"
+  },
+  {
+    "layout": "bare",
+    "smooth_inlet": true,
+    "smooth_deposit": false,
+    "dx": 0.025,
+    "numerical_face_fraction": 0.7351605388077821,
+    "cell_fraction": 0.735160538808064,
+    "ideal_reference_fraction": 0.7471065322766587,
+    "pool": {
+      "i": 1,
+      "Q": 0.0699999999995891,
+      "numerical_face_Q": 0.06999999999972444,
+      "stage_min": 0.08056278466345157,
+      "stage_max": 0.08056925308971552,
+      "positive_flux_mean_total_head": 0.08066118057001619,
+      "froude_max": 0.010973180076089351,
+      "reverse_volume_flux": -0.0
+    },
+    "reference_stage": 0.07555189377370639,
+    "convergence": {
+      "converged": true,
+      "hyd_time": 144.0,
+      "steps": 114340,
+      "dt_limit": 0.0012196864982040256
+    },
+    "wall_s": 51.585979583000004,
+    "note": "different verification geometries; not independent physical validation of abrupt-step production case"
+  },
+  {
+    "layout": "strip",
+    "smooth_inlet": true,
+    "smooth_deposit": false,
+    "dx": 0.025,
+    "numerical_face_fraction": 0.1359352263653617,
+    "cell_fraction": 0.1359352164561012,
+    "ideal_reference_fraction": 0.1397707590542154,
+    "pool": {
+      "i": 1,
+      "Q": 0.07000000450157952,
+      "numerical_face_Q": 0.07000000225610709,
+      "stage_min": 0.18414094326890984,
+      "stage_max": 0.18414345194307558,
+      "positive_flux_mean_total_head": 0.18422601834658944,
+      "froude_max": 0.009976454347767987,
+      "reverse_volume_flux": -0.0
+    },
+    "reference_stage": 0.17088203779036493,
+    "convergence": {
+      "converged": true,
+      "hyd_time": 76.0,
+      "steps": 62170,
+      "dt_limit": 0.0012133074202415248
+    },
+    "wall_s": 29.410031042000007,
+    "note": "different verification geometries; not independent physical validation of abrupt-step production case"
+  }
+]

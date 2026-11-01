@@ -1,0 +1,4302 @@
+[
+  {
+    "layout": "bare",
+    "dx": 0.05,
+    "manning": 0.0,
+    "geometry": {
+      "tail_drop": 0.0
+    },
+    "convergence": {
+      "converged": true,
+      "hyd_time": 72.0,
+      "steps": 29189,
+      "dt_limit": 0.002407405139027973
+    },
+    "diagnostics": {
+      "Q_toe": 0.047520676873774675,
+      "Q_byp": 0.022501198920091676,
+      "f_toe": 0.6788668124824953,
+      "Q_in": 0.07000003374603794,
+      "Q_out": 0.0700368634348302,
+      "water_resid": 3.96508223080413e-15,
+      "water_storage_rate": -3.6829688792539006e-05,
+      "wet_ice_area_toe": 1.0000000000000002,
+      "wet_ice_area_byp": 1.0000000000000002,
+      "heat_in_W": 147595.07115352034,
+      "heat_out_W": 147672.72655233924,
+      "melt_heat_W": 0.0,
+      "energy_resid_rel": 1.5774960629389303e-15,
+      "storage_rate_W": -77.65539881912991,
+      "melt_heat_toe_W": 0.0,
+      "melt_heat_byp_W": 0.0
+    },
+    "pool": {
+      "i": 18,
+      "Q": 0.06999793857937925,
+      "numerical_face_Q": 0.07000133591268484,
+      "stage_min": 0.12808449358015173,
+      "stage_max": 0.12947636149598196,
+      "positive_flux_mean_total_head": 0.12868592231397688,
+      "froude_max": 0.014255180940614802,
+      "reverse_volume_flux": -0.0
+    },
+    "critical": [
+      {
+        "route": "toe",
+        "measured_Q": 0.047520676873774675,
+        "geometric_crest": -0.08,
+        "ideal_critical_energy_head": 0.06592957994935215,
+        "pool_minus_ideal": 0.06275634236462473
+      },
+      {
+        "route": "bypass",
+        "measured_Q": 0.022501198920091676,
+        "geometric_crest": 0.0,
+        "ideal_critical_energy_head": 0.08865271212703897,
+        "pool_minus_ideal": 0.04003321018693791
+      }
+    ],
+    "profiles": [
+      {
+        "toe": {
+          "i": 18,
+          "Q": 0.04335217449853532,
+          "numerical_face_Q": 0.0429291682480433,
+          "stage_min": 0.12808449358015173,
+          "stage_max": 0.12853659527461359,
+          "positive_flux_mean_total_head": 0.12831914803524241,
+          "froude_max": 0.014255180940614802,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 18,
+          "Q": 0.02388427929372924,
+          "numerical_face_Q": 0.024250648514714302,
+          "stage_min": 0.12913693609411792,
+          "stage_max": 0.1292929011185875,
+          "positive_flux_mean_total_head": 0.1292526003603116,
+          "froude_max": 0.007814132806568558,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 19,
+          "Q": 0.04453683008560791,
+          "numerical_face_Q": 0.04409418899467492,
+          "stage_min": 0.1279011625475006,
+          "stage_max": 0.12815562050379126,
+          "positive_flux_mean_total_head": 0.1281784476743831,
+          "froude_max": 0.014477488846797807,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 19,
+          "Q": 0.023067877446401933,
+          "numerical_face_Q": 0.023410404355237203,
+          "stage_min": 0.12915193017421922,
+          "stage_max": 0.12946768279947185,
+          "positive_flux_mean_total_head": 0.12931690174966512,
+          "froude_max": 0.007131621143894414,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 20,
+          "Q": 0.055762724750240814,
+          "numerical_face_Q": 0.045490869833658715,
+          "stage_min": 0.13023158076769015,
+          "stage_max": 0.13343758397461847,
+          "positive_flux_mean_total_head": 0.13291089095133274,
+          "froude_max": 0.017919421882016305,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 20,
+          "Q": 0.02707190225060424,
+          "numerical_face_Q": 0.02267988035810435,
+          "stage_min": 0.13142926589493054,
+          "stage_max": 0.13236804930716195,
+          "positive_flux_mean_total_head": 0.13170245392889945,
+          "froude_max": 0.008344752864854796,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 21,
+          "Q": 0.03973401552251349,
+          "numerical_face_Q": 0.047509498562313374,
+          "stage_min": 0.06280489506837349,
+          "stage_max": 0.06590210731305267,
+          "positive_flux_mean_total_head": 0.08044104508298326,
+          "froude_max": 0.4604347494908213,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 21,
+          "Q": 0.01859688816750628,
+          "numerical_face_Q": 0.02249206930202059,
+          "stage_min": 0.08889002429825991,
+          "stage_max": 0.08956495765520049,
+          "positive_flux_mean_total_head": 0.09796052553414553,
+          "froude_max": 0.4471363055197463,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 22,
+          "Q": 0.04580097109197995,
+          "numerical_face_Q": 0.047509546279318624,
+          "stage_min": 0.03754547500633225,
+          "stage_max": 0.03984387710398693,
+          "positive_flux_mean_total_head": 0.06932035355555205,
+          "froude_max": 0.7123922028535982,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 22,
+          "Q": 0.02164058315731282,
+          "numerical_face_Q": 0.022492117949979126,
+          "stage_min": 0.07266393769607779,
+          "stage_max": 0.07317512092643974,
+          "positive_flux_mean_total_head": 0.0908295206744352,
+          "froude_max": 0.703680371163667,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 23,
+          "Q": 0.04711259662961655,
+          "numerical_face_Q": 0.04750962256140336,
+          "stage_min": 0.026895015872197045,
+          "stage_max": 0.028341429942332227,
+          "positive_flux_mean_total_head": 0.06677472816413978,
+          "froude_max": 0.8522028062879691,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 23,
+          "Q": 0.022296153847690067,
+          "numerical_face_Q": 0.022492196907335275,
+          "stage_min": 0.06563758785406291,
+          "stage_max": 0.06600993971436324,
+          "positive_flux_mean_total_head": 0.08920171106367354,
+          "froude_max": 0.8448322717831429,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 24,
+          "Q": 0.047417317388148694,
+          "numerical_face_Q": 0.0475097589809591,
+          "stage_min": 0.02223703368036993,
+          "stage_max": 0.02292132679326754,
+          "positive_flux_mean_total_head": 0.06616739368178749,
+          "froude_max": 0.9259944071050629,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 24,
+          "Q": 0.0224481271338138,
+          "numerical_face_Q": 0.022492338908994602,
+          "stage_min": 0.06248758666064207,
+          "stage_max": 0.06272416268199978,
+          "positive_flux_mean_total_head": 0.08881456829893612,
+          "froude_max": 0.9176975595604158,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 25,
+          "Q": 0.04749041736719795,
+          "numerical_face_Q": 0.04751001244257501,
+          "stage_min": 0.02024910300692072,
+          "stage_max": 0.020375268967812207,
+          "positive_flux_mean_total_head": 0.06601963181447765,
+          "froude_max": 0.9626279560876928,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 25,
+          "Q": 0.02248426339986751,
+          "numerical_face_Q": 0.02249260069530884,
+          "stage_min": 0.06117918649995933,
+          "stage_max": 0.06129279579323288,
+          "positive_flux_mean_total_head": 0.08872157473348662,
+          "froude_max": 0.9509704226280015,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 26,
+          "Q": 0.04750767006505752,
+          "numerical_face_Q": 0.047510470763831504,
+          "stage_min": 0.019367729333828854,
+          "stage_max": 0.019527611330017014,
+          "positive_flux_mean_total_head": 0.0659842200036207,
+          "froude_max": 0.9773737225841974,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 26,
+          "Q": 0.02249219646247451,
+          "numerical_face_Q": 0.022493054198264317,
+          "stage_min": 0.060777423737817735,
+          "stage_max": 0.060817124545659455,
+          "positive_flux_mean_total_head": 0.08870111910656578,
+          "froude_max": 0.9620744121117069,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 27,
+          "Q": 0.04751115410353169,
+          "numerical_face_Q": 0.04751119479057084,
+          "stage_min": 0.019148197276482884,
+          "stage_max": 0.019330879631926895,
+          "positive_flux_mean_total_head": 0.06597674312201149,
+          "froude_max": 0.9804389523104023,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 27,
+          "Q": 0.022493670899089366,
+          "numerical_face_Q": 0.022493691238358964,
+          "stage_min": 0.06069639727987223,
+          "stage_max": 0.06071415003688729,
+          "positive_flux_mean_total_head": 0.08869736362585687,
+          "froude_max": 0.9642888596789734,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 28,
+          "Q": 0.047512153957030165,
+          "numerical_face_Q": 0.047512059344556865,
+          "stage_min": 0.019117133418540502,
+          "stage_max": 0.019258251225423656,
+          "positive_flux_mean_total_head": 0.0659743878643088,
+          "froude_max": 0.9806759715252015,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 28,
+          "Q": 0.02249438176855361,
+          "numerical_face_Q": 0.02249437208432611,
+          "stage_min": 0.06065432679161487,
+          "stage_max": 0.06066466962477151,
+          "positive_flux_mean_total_head": 0.08869558775338628,
+          "froude_max": 0.9651868269156842,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 29,
+          "Q": 0.047512995701281764,
+          "numerical_face_Q": 0.04751291225714169,
+          "stage_min": 0.019084628228298137,
+          "stage_max": 0.019194144611682215,
+          "positive_flux_mean_total_head": 0.06597241766029764,
+          "froude_max": 0.9809301813007016,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 29,
+          "Q": 0.022495048620132293,
+          "numerical_face_Q": 0.022495038565008525,
+          "stage_min": 0.06060812622233934,
+          "stage_max": 0.060618482027402346,
+          "positive_flux_mean_total_head": 0.08869392747897051,
+          "froude_max": 0.9660240861290568,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 30,
+          "Q": 0.047513810558710984,
+          "numerical_face_Q": 0.047513738072627584,
+          "stage_min": 0.019044960095552982,
+          "stage_max": 0.019131372767756227,
+          "positive_flux_mean_total_head": 0.0659705504784956,
+          "froude_max": 0.9812864166071422,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 30,
+          "Q": 0.022495697137257582,
+          "numerical_face_Q": 0.02249568739518836,
+          "stage_min": 0.060563462567309934,
+          "stage_max": 0.060573122278262746,
+          "positive_flux_mean_total_head": 0.08869231604385813,
+          "froude_max": 0.9668685944897195,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 31,
+          "Q": 0.047514601725436964,
+          "numerical_face_Q": 0.047514538008778244,
+          "stage_min": 0.01900074795346457,
+          "stage_max": 0.019070084338317347,
+          "positive_flux_mean_total_head": 0.06596876903037495,
+          "froude_max": 0.9817055788510274,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 31,
+          "Q": 0.022496327902424514,
+          "numerical_face_Q": 0.022496318457368106,
+          "stage_min": 0.06051948157916139,
+          "stage_max": 0.06052819013423381,
+          "positive_flux_mean_total_head": 0.08869075175398565,
+          "froude_max": 0.967731300193661,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 32,
+          "Q": 0.04751536952189122,
+          "numerical_face_Q": 0.04751531296305141,
+          "stage_min": 0.018953598873032648,
+          "stage_max": 0.01901024840727071,
+          "positive_flux_mean_total_head": 0.06596706513805725,
+          "froude_max": 0.9821645681383886,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 32,
+          "Q": 0.0224969408925888,
+          "numerical_face_Q": 0.022496931712888402,
+          "stage_min": 0.060475738631892276,
+          "stage_max": 0.06048347314706498,
+          "positive_flux_mean_total_head": 0.08868923450729446,
+          "froude_max": 0.9686155709859648,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 33,
+          "Q": 0.04751611407191771,
+          "numerical_face_Q": 0.04751606348573575,
+          "stage_min": 0.01890447110586474,
+          "stage_max": 0.01895164196100442,
+          "positive_flux_mean_total_head": 0.06596543314825137,
+          "froude_max": 0.9826504346533246,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 33,
+          "Q": 0.022497536064803904,
+          "numerical_face_Q": 0.02249752712218683,
+          "stage_min": 0.06043200196463834,
+          "stage_max": 0.06043884417148582,
+          "positive_flux_mean_total_head": 0.08868776427901487,
+          "froude_max": 0.969521536346053,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 34,
+          "Q": 0.04751683543291026,
+          "numerical_face_Q": 0.04751678992227177,
+          "stage_min": 0.01885394692299311,
+          "stage_max": 0.01889397795058588,
+          "positive_flux_mean_total_head": 0.06596386894610397,
+          "froude_max": 0.983156032807267,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 34,
+          "Q": 0.022498113371703717,
+          "numerical_face_Q": 0.02249810464211619,
+          "stage_min": 0.0603881580626337,
+          "stage_max": 0.060394227188806895,
+          "positive_flux_mean_total_head": 0.08868634108050366,
+          "froude_max": 0.9704479251318782,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 35,
+          "Q": 0.047517533628788904,
+          "numerical_face_Q": 0.047517492494880895,
+          "stage_min": 0.01880238786920012,
+          "stage_max": 0.018836977555021228,
+          "positive_flux_mean_total_head": 0.06596236943343772,
+          "froude_max": 0.9836775345203176,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 35,
+          "Q": 0.02249867276228673,
+          "numerical_face_Q": 0.02249866422558765,
+          "stage_min": 0.06034415658576765,
+          "stage_max": 0.0603496354086629,
+          "positive_flux_mean_total_head": 0.08868496495429795,
+          "froude_max": 0.9713930080250472,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 36,
+          "Q": 0.04751820866395328,
+          "numerical_face_Q": 0.04751817134836274,
+          "stage_min": 0.018750023337680555,
+          "stage_max": 0.018780401096946883,
+          "positive_flux_mean_total_head": 0.06596093220769193,
+          "froude_max": 0.9842130045293725,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 36,
+          "Q": 0.022499214181936573,
+          "numerical_face_Q": 0.02249920582140963,
+          "stage_min": 0.06029997883903105,
+          "stage_max": 0.060304977803012506,
+          "positive_flux_mean_total_head": 0.08868363597073536,
+          "froude_max": 0.9723550557574395,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 37,
+          "Q": 0.04751886052963034,
+          "numerical_face_Q": 0.04751882657625475,
+          "stage_min": 0.018697001200053312,
+          "stage_max": 0.01872405766938655,
+          "positive_flux_mean_total_head": 0.06595955535949641,
+          "froude_max": 0.984761586045748,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 37,
+          "Q": 0.02249973757225488,
+          "numerical_face_Q": 0.02249972937413893,
+          "stage_min": 0.06025562047576381,
+          "stage_max": 0.060260192636145384,
+          "positive_flux_mean_total_head": 0.0886823542252802,
+          "froude_max": 0.9733325330133732,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 38,
+          "Q": 0.04751948920680665,
+          "numerical_face_Q": 0.04751945823611834,
+          "stage_min": 0.01864341838333701,
+          "stage_max": 0.01866780151309863,
+          "positive_flux_mean_total_head": 0.06595823734155795,
+          "froude_max": 0.9853230148473358,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 38,
+          "Q": 0.022500242870785163,
+          "numerical_face_Q": 0.02250023482388122,
+          "stage_min": 0.06021108229415151,
+          "stage_max": 0.06021527971683915,
+          "positive_flux_mean_total_head": 0.08868111983659603,
+          "froude_max": 0.9743241616066534,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 39,
+          "Q": 0.04752009466729602,
+          "numerical_face_Q": 0.0475200663585993,
+          "stage_min": 0.018589338898200844,
+          "stage_max": 0.018611524004993663,
+          "positive_flux_mean_total_head": 0.06595697688157483,
+          "froude_max": 0.9858973402175298,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 39,
+          "Q": 0.022500730010648184,
+          "numerical_face_Q": 0.02250072210601461,
+          "stage_min": 0.06016636562310261,
+          "stage_max": 0.06017023497964271,
+          "positive_flux_mean_total_head": 0.08867993294534121,
+          "froude_max": 0.9753289215026301,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 40,
+          "Q": 0.04752067687377468,
+          "numerical_face_Q": 0.04752065095276142,
+          "stage_min": 0.018534804488750917,
+          "stage_max": 0.018555144994561443,
+          "positive_flux_mean_total_head": 0.06595577292367147,
+          "froude_max": 0.9864847687021135,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 40,
+          "Q": 0.022501198920091676,
+          "numerical_face_Q": 0.022501191150823566,
+          "stage_min": 0.06012147017186862,
+          "stage_max": 0.06012505141267276,
+          "positive_flux_mean_total_head": 0.08867879371362694,
+          "froude_max": 0.9763460271895766,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 41,
+          "Q": 0.04752123577938236,
+          "numerical_face_Q": 0.047521212009241254,
+          "stage_min": 0.018479841302665292,
+          "stage_max": 0.018498604621081285,
+          "positive_flux_mean_total_head": 0.0659546245879712,
+          "froude_max": 0.9870855750571645,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 41,
+          "Q": 0.02250164952194676,
+          "numerical_face_Q": 0.022501641883032296,
+          "stage_min": 0.06007639311386269,
+          "stage_max": 0.06007971973793584,
+          "positive_flux_mean_total_head": 0.08867770232508101,
+          "froude_max": 0.9773748983795287,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 42,
+          "Q": 0.047521771327024696,
+          "numerical_face_Q": 0.047521749501978544,
+          "stage_min": 0.01842446393891596,
+          "stage_max": 0.0184418565405772,
+          "positive_flux_mean_total_head": 0.06595353114226395,
+          "froude_max": 0.9877000568150747,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 42,
+          "Q": 0.0225020817329765,
+          "numerical_face_Q": 0.02250207422122454,
+          "stage_min": 0.06003112872562726,
+          "stage_max": 0.06003422864278428,
+          "positive_flux_mean_total_head": 0.0886766589854812,
+          "froude_max": 0.9784151336567105,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 43,
+          "Q": 0.04752228344843515,
+          "numerical_face_Q": 0.04752226338897705,
+          "stage_min": 0.018368677819074655,
+          "stage_max": 0.0183848625888913,
+          "positive_flux_mean_total_head": 0.06595249198193809,
+          "froude_max": 0.9883285160232924,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 43,
+          "Q": 0.022502495463094147,
+          "numerical_face_Q": 0.022502488077131455,
+          "stage_min": 0.05998566821238254,
+          "stage_max": 0.059988564721817995,
+          "positive_flux_mean_total_head": 0.08867566392395194,
+          "froude_max": 0.9794664905729737,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 44,
+          "Q": 0.04752277206298874,
+          "numerical_face_Q": 0.04752275361234223,
+          "stage_min": 0.018312480432067707,
+          "stage_max": 0.01832758863662025,
+          "positive_flux_mean_total_head": 0.06595150661576882,
+          "froude_max": 0.9889712583878902,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 44,
+          "Q": 0.02250289061441908,
+          "numerical_face_Q": 0.022502883354760805,
+          "stage_min": 0.059939999521709676,
+          "stage_max": 0.059942712205999275,
+          "positive_flux_mean_total_head": 0.0886747173947578,
+          "froude_max": 0.9805288733558861,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 45,
+          "Q": 0.0475232370762152,
+          "numerical_face_Q": 0.04752322009771291,
+          "stage_min": 0.018255861758253278,
+          "stage_max": 0.018270001299455024,
+          "positive_flux_mean_total_head": 0.06595057465606818,
+          "froude_max": 0.9896286042620812,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 45,
+          "Q": 0.022503267080125428,
+          "numerical_face_Q": 0.02250325994932949,
+          "stage_min": 0.05989410703228086,
+          "stage_max": 0.05989665250157688,
+          "positive_flux_mean_total_head": 0.08867381967977188,
+          "froude_max": 0.9816023285911433,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 46,
+          "Q": 0.04752367837792139,
+          "numerical_face_Q": 0.04752366275311636,
+          "stage_min": 0.01819880401698762,
+          "stage_max": 0.018212065152562143,
+          "positive_flux_mean_total_head": 0.0659496958123099,
+          "froude_max": 0.9903009087503752,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 46,
+          "Q": 0.022503624743020013,
+          "numerical_face_Q": 0.022503617745946013,
+          "stage_min": 0.05984797103794422,
+          "stage_max": 0.059850363520467575,
+          "positive_flux_mean_total_head": 0.08867297109175629,
+          "froude_max": 0.9826870492981635,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 47,
+          "Q": 0.04752409583979193,
+          "numerical_face_Q": 0.04752408146720809,
+          "stage_min": 0.01814128075737695,
+          "stage_max": 0.01815374010069526,
+          "positive_flux_mean_total_head": 0.06594886988777017,
+          "froude_max": 0.9909885903638862,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 47,
+          "Q": 0.022503963473759353,
+          "numerical_face_Q": 0.022503956617966562,
+          "stage_min": 0.05980156694621697,
+          "stage_max": 0.05980381874463813,
+          "positive_flux_mean_total_head": 0.08867217197866976,
+          "froude_max": 0.983783388435544,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 48,
+          "Q": 0.04752448931228151,
+          "numerical_face_Q": 0.0475244761067936,
+          "stage_min": 0.018083255191168268,
+          "stage_max": 0.018094978537341003,
+          "positive_flux_mean_total_head": 0.06594809677906881,
+          "froude_max": 0.991692169695887,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 48,
+          "Q": 0.02250428312857447,
+          "numerical_face_Q": 0.02250427642491589,
+          "stage_min": 0.059754864080113906,
+          "stage_max": 0.059756985918772196,
+          "positive_flux_mean_total_head": 0.08867142272933051,
+          "froude_max": 0.9848918840105111,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 49,
+          "Q": 0.04752485862053084,
+          "numerical_face_Q": 0.04752484651346028,
+          "stage_min": 0.018024677514518042,
+          "stage_max": 0.01803572185060856,
+          "positive_flux_mean_total_head": 0.06594737647881216,
+          "froude_max": 0.9924123220482406,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 49,
+          "Q": 0.02250458354630711,
+          "numerical_face_Q": 0.022504577009813446,
+          "stage_min": 0.05970782390834854,
+          "stage_max": 0.05970982519361326,
+          "positive_flux_mean_total_head": 0.08867072378093907,
+          "froude_max": 0.9860132998233072,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 50,
+          "Q": 0.04752520355891025,
+          "numerical_face_Q": 0.047525192499062424,
+          "stage_min": 0.017965480728646954,
+          "stage_max": 0.01797589564914208,
+          "positive_flux_mean_total_head": 0.06594670908190482,
+          "froude_max": 0.9931499516610809,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 50,
+          "Q": 0.022504864544454557,
+          "numerical_face_Q": 0.022504858195666125,
+          "stage_min": 0.0596603974124679,
+          "stage_max": 0.05966228642256915,
+          "positive_flux_mean_total_head": 0.08867007562924684,
+          "froude_max": 0.9871486889832716,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 51,
+          "Q": 0.04752552388358251,
+          "numerical_face_Q": 0.047525513839691676,
+          "stage_min": 0.017905574046737233,
+          "stage_max": 0.0179154026866135,
+          "positive_flux_mean_total_head": 0.06594609479660116,
+          "froude_max": 0.9939063017549323,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 51,
+          "Q": 0.022505125913737753,
+          "numerical_face_Q": 0.022505119780760082,
+          "stage_min": 0.05961252108679563,
+          "stage_max": 0.059614305099559124,
+          "positive_flux_mean_total_head": 0.0886694788426386,
+          "froude_max": 0.9882994928303582,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 52,
+          "Q": 0.04752581930209494,
+          "numerical_face_Q": 0.047525810267616056,
+          "stage_min": 0.01784483214485369,
+          "stage_max": 0.01785411163029184,
+          "positive_flux_mean_total_head": 0.06594553396219684,
+          "froude_max": 0.994683127401502,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 52,
+          "Q": 0.02250536741037871,
+          "numerical_face_Q": 0.022505361532165955,
+          "stage_min": 0.0595641106616856,
+          "stage_max": 0.0595657960175521,
+          "positive_flux_mean_total_head": 0.08866893408225979,
+          "froude_max": 0.9894676982571674,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 53,
+          "Q": 0.04752608945825408,
+          "numerical_face_Q": 0.04752608146046448,
+          "stage_min": 0.017783076749399676,
+          "stage_max": 0.017791837989768425,
+          "positive_flux_mean_total_head": 0.06594502707684503,
+          "froude_max": 0.9954829854513485,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 53,
+          "Q": 0.02250558874464445,
+          "numerical_face_Q": 0.022505583176487234,
+          "stage_min": 0.05951505081981196,
+          "stage_max": 0.059516642897979914,
+          "positive_flux_mean_total_head": 0.08866844213197143,
+          "froude_max": 0.9906560973248648,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 54,
+          "Q": 0.04752633390882137,
+          "numerical_face_Q": 0.04752632702663891,
+          "stage_min": 0.01772004296654346,
+          "stage_max": 0.017728309205551032,
+          "positive_flux_mean_total_head": 0.06594457484251837,
+          "froude_max": 0.9963097587224351,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 54,
+          "Q": 0.022505789562918627,
+          "numerical_face_Q": 0.02250578438617011,
+          "stage_min": 0.059465177384914546,
+          "stage_max": 0.05946668042621362,
+          "positive_flux_mean_total_head": 0.08866800394531112,
+          "froude_max": 0.9918687385886221,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 55,
+          "Q": 0.047526552084056865,
+          "numerical_face_Q": 0.04752654648550489,
+          "stage_min": 0.017655312309501944,
+          "stage_max": 0.01766309464635578,
+          "positive_flux_mean_total_head": 0.06594417824340218,
+          "froude_max": 0.9971696926287354,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 55,
+          "Q": 0.02250596941761547,
+          "numerical_face_Q": 0.022505964758297227,
+          "stage_min": 0.0594142441816174,
+          "stage_max": 0.05941566076895226,
+          "positive_flux_mean_total_head": 0.08866762072435912,
+          "froude_max": 0.9931117683375684,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 56,
+          "Q": 0.04752674321003468,
+          "numerical_face_Q": 0.04752673924040097,
+          "stage_min": 0.017588164099262185,
+          "stage_max": 0.017595447720895663,
+          "positive_flux_mean_total_head": 0.06594383870293703,
+          "froude_max": 0.9980736887402951,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 56,
+          "Q": 0.02250612771162133,
+          "numerical_face_Q": 0.022506123779837652,
+          "stage_min": 0.05936185526802965,
+          "stage_max": 0.059363184859328615,
+          "positive_flux_mean_total_head": 0.08866729406537807,
+          "froude_max": 0.9943951520418386,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 57,
+          "Q": 0.047526906116258136,
+          "numerical_face_Q": 0.047526904543757464,
+          "stage_min": 0.01751711646689165,
+          "stage_max": 0.01752388668564099,
+          "positive_flux_mean_total_head": 0.06594355847631293,
+          "froude_max": 0.9990432013400218,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 57,
+          "Q": 0.022506263580245506,
+          "numerical_face_Q": 0.022506260766404797,
+          "stage_min": 0.059307307290689865,
+          "stage_max": 0.05930854137556999,
+          "positive_flux_mean_total_head": 0.08866702626808168,
+          "froude_max": 0.9957366794407024,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 58,
+          "Q": 0.04752703856223758,
+          "numerical_face_Q": 0.04752704148084133,
+          "stage_min": 0.017438371197008445,
+          "stage_max": 0.01744477535359111,
+          "positive_flux_mean_total_head": 0.06594334202681713,
+          "froude_max": 1.0001297965734932,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 58,
+          "Q": 0.022506375577945933,
+          "numerical_face_Q": 0.022506374742773397,
+          "stage_min": 0.05924914808758201,
+          "stage_max": 0.059250296742581206,
+          "positive_flux_mean_total_head": 0.08866682115536258,
+          "froude_max": 0.9971731760061421,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 59,
+          "Q": 0.04752713229046632,
+          "numerical_face_Q": 0.04752714943885568,
+          "stage_min": 0.017339582429636957,
+          "stage_max": 0.01734560932865066,
+          "positive_flux_mean_total_head": 0.0659432060395262,
+          "froude_max": 1.00153473771023,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 59,
+          "Q": 0.02250646045301813,
+          "numerical_face_Q": 0.02250646417079255,
+          "stage_min": 0.05918352436012113,
+          "stage_max": 0.059184604151741184,
+          "positive_flux_mean_total_head": 0.08866668726991885,
+          "froude_max": 0.9988024429121598,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 60,
+          "Q": 0.047527087156422926,
+          "numerical_face_Q": 0.04752722830419674,
+          "stage_min": 0.01716594799676778,
+          "stage_max": 0.017174266671140664,
+          "positive_flux_mean_total_head": 0.06594327523477907,
+          "froude_max": 1.0039966908357694,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 60,
+          "Q": 0.022506493377760284,
+          "numerical_face_Q": 0.02250652615526814,
+          "stage_min": 0.059088889439718746,
+          "stage_max": 0.05909361245402938,
+          "positive_flux_mean_total_head": 0.08866664389741326,
+          "froude_max": 1.00107678675632,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 61,
+          "Q": 0.04752727753446265,
+          "numerical_face_Q": 0.0475272579086255,
+          "stage_min": -0.017250125779420686,
+          "stage_max": -0.017063881127990482,
+          "positive_flux_mean_total_head": 0.06397360600171673,
+          "froude_max": 1.467612843956841,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 61,
+          "Q": 0.022506572097127718,
+          "numerical_face_Q": 0.022506553201073674,
+          "stage_min": 0.030824182892878322,
+          "stage_max": 0.030856295232608157,
+          "positive_flux_mean_total_head": 0.08581965915468162,
+          "froude_max": 1.5928660444690947,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 62,
+          "Q": 0.04752729481779361,
+          "numerical_face_Q": 0.04752727753446264,
+          "stage_min": -0.05309031277674517,
+          "stage_max": -0.052941682114729466,
+          "positive_flux_mean_total_head": 0.057740837977659595,
+          "froude_max": 1.8535496884450748,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 62,
+          "Q": 0.022506588107543874,
+          "numerical_face_Q": 0.022506572097127718,
+          "stage_min": -0.0008724633440141891,
+          "stage_max": -0.0008474391519645158,
+          "positive_flux_mean_total_head": 0.07606501649790104,
+          "froude_max": 2.0491604240808825,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 63,
+          "Q": 0.04752731071112,
+          "numerical_face_Q": 0.04752729481779361,
+          "stage_min": -0.08429964267742264,
+          "stage_max": -0.08417980477470208,
+          "positive_flux_mean_total_head": 0.05144523872401018,
+          "froude_max": 2.1583424642705578,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 63,
+          "Q": 0.022506602469643155,
+          "numerical_face_Q": 0.022506588107543874,
+          "stage_min": -0.029605878365160612,
+          "stage_max": -0.029585887311238977,
+          "positive_flux_mean_total_head": 0.06578830875469566,
+          "froude_max": 2.407846687765541,
+          "reverse_volume_flux": -0.0
+        }
+      }
+    ],
+    "midsection_numerical_face_toe_fraction": 0.678866442182306,
+    "wall_s": 13.831913999999998,
+    "warning": "Cell-centred total-head diagnostic, not an exact discrete mechanical-energy budget; reference applicability remains to be checked."
+  },
+  {
+    "layout": "strip",
+    "dx": 0.05,
+    "manning": 0.0,
+    "geometry": {
+      "tail_drop": 0.0
+    },
+    "convergence": {
+      "converged": true,
+      "hyd_time": 60.0,
+      "steps": 24963,
+      "dt_limit": 0.0023886429968054492
+    },
+    "diagnostics": {
+      "Q_toe": 0.017143883897186827,
+      "Q_byp": 0.0528759168007016,
+      "f_toe": 0.24491262710266892,
+      "Q_in": 0.07000003277647304,
+      "Q_out": 0.0700344963747809,
+      "water_resid": 9.1196891308495e-15,
+      "water_storage_rate": -3.446359830849843e-05,
+      "wet_ice_area_toe": 1.0000000000000002,
+      "wet_ice_area_byp": 1.0000000000000002,
+      "heat_in_W": 147595.0691091932,
+      "heat_out_W": 147667.73560622544,
+      "melt_heat_W": 0.0,
+      "energy_resid_rel": 7.29591939214773e-15,
+      "storage_rate_W": -72.66649703332223,
+      "melt_heat_toe_W": 0.0,
+      "melt_heat_byp_W": 0.0
+    },
+    "pool": {
+      "i": 18,
+      "Q": 0.0699955091499615,
+      "numerical_face_Q": 0.07000144875968703,
+      "stage_min": 0.2234249116327125,
+      "stage_max": 0.22496072493829034,
+      "positive_flux_mean_total_head": 0.2240768315577449,
+      "froude_max": 0.014417930713019821,
+      "reverse_volume_flux": -0.0
+    },
+    "critical": [
+      {
+        "route": "toe",
+        "measured_Q": 0.017143883897186827,
+        "geometric_crest": 0.12000000000000001,
+        "ideal_critical_energy_head": 0.1939538971506051,
+        "pool_minus_ideal": 0.030122934407139812
+      },
+      {
+        "route": "bypass",
+        "measured_Q": 0.0528759168007016,
+        "geometric_crest": 0.0,
+        "ideal_critical_energy_head": 0.15669682399669513,
+        "pool_minus_ideal": 0.06738000756104978
+      }
+    ],
+    "profiles": [
+      {
+        "toe": {
+          "i": 18,
+          "Q": 0.019957027326140332,
+          "numerical_face_Q": 0.02051383789878298,
+          "stage_min": 0.22479705369465974,
+          "stage_max": 0.22490144443951277,
+          "positive_flux_mean_total_head": 0.22488068981671397,
+          "froude_max": 0.006734014214913345,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 18,
+          "Q": 0.047280159571364,
+          "numerical_face_Q": 0.046668571233088485,
+          "stage_min": 0.2234249116327125,
+          "stage_max": 0.22392886187199412,
+          "positive_flux_mean_total_head": 0.2236820571462673,
+          "froude_max": 0.014417930713019821,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 19,
+          "Q": 0.018671002919857356,
+          "numerical_face_Q": 0.019217503852157418,
+          "stage_min": 0.2248252309485277,
+          "stage_max": 0.225114703627306,
+          "positive_flux_mean_total_head": 0.2249768013436389,
+          "froude_max": 0.0059456575885425975,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 19,
+          "Q": 0.04894129727817999,
+          "numerical_face_Q": 0.04829467928065304,
+          "stage_min": 0.22319767971803395,
+          "stage_max": 0.2234719140424719,
+          "positive_flux_mean_total_head": 0.22351550045575042,
+          "froude_max": 0.014710210443907088,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 20,
+          "Q": 0.023350095134266342,
+          "numerical_face_Q": 0.017975496175457656,
+          "stage_min": 0.2275286208109777,
+          "stage_max": 0.22888133484133433,
+          "positive_flux_mean_total_head": 0.22793100120626403,
+          "froude_max": 0.007047952385507895,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 20,
+          "Q": 0.06165186009961109,
+          "numerical_face_Q": 0.05021293577789538,
+          "stage_min": 0.22538852544010912,
+          "stage_max": 0.2291952570365432,
+          "positive_flux_mean_total_head": 0.2285523057356395,
+          "froude_max": 0.018277396239532673,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 21,
+          "Q": 0.01687557704268787,
+          "numerical_face_Q": 0.017141609241323158,
+          "stage_min": 0.21221819249849816,
+          "stage_max": 0.2131776993478583,
+          "positive_flux_mean_total_head": 0.2130957473259688,
+          "froude_max": 0.07052618883808237,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 21,
+          "Q": 0.04422101366748586,
+          "numerical_face_Q": 0.052860092008128,
+          "stage_min": 0.1529096074276043,
+          "stage_max": 0.15676649329392212,
+          "positive_flux_mean_total_head": 0.17227105956816827,
+          "froude_max": 0.4606661712012664,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 22,
+          "Q": 0.017141513181520497,
+          "numerical_face_Q": 0.017141644819967536,
+          "stage_min": 0.2119244723759447,
+          "stage_max": 0.21252771112663754,
+          "positive_flux_mean_total_head": 0.21278058394418486,
+          "froude_max": 0.07232888462472638,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 22,
+          "Q": 0.050963038751709655,
+          "numerical_face_Q": 0.052860154815815366,
+          "stage_min": 0.12586947226685036,
+          "stage_max": 0.12881918129615982,
+          "positive_flux_mean_total_head": 0.1603448319303902,
+          "froude_max": 0.712284718997099,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 23,
+          "Q": 0.017141716809564354,
+          "numerical_face_Q": 0.017141680227185527,
+          "stage_min": 0.21195465825589888,
+          "stage_max": 0.21233731433757014,
+          "positive_flux_mean_total_head": 0.21277919943760418,
+          "froude_max": 0.07224448652287803,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 23,
+          "Q": 0.05242068622885461,
+          "numerical_face_Q": 0.052860265158822646,
+          "stage_min": 0.11455733495381652,
+          "stage_max": 0.11648521101429822,
+          "positive_flux_mean_total_head": 0.15761508049959758,
+          "froude_max": 0.8518040218938748,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 24,
+          "Q": 0.017141763912622617,
+          "numerical_face_Q": 0.01714171563921602,
+          "stage_min": 0.21198015220663308,
+          "stage_max": 0.21222209880776954,
+          "positive_flux_mean_total_head": 0.21277823916446628,
+          "froude_max": 0.07191518607059283,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 24,
+          "Q": 0.05275923487100623,
+          "numerical_face_Q": 0.05286047167037208,
+          "stage_min": 0.10969709841053576,
+          "stage_max": 0.11067908299559369,
+          "positive_flux_mean_total_head": 0.15696406707040775,
+          "froude_max": 0.9251711681485988,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 25,
+          "Q": 0.017141801861363565,
+          "numerical_face_Q": 0.017141751056269937,
+          "stage_min": 0.2120008870807527,
+          "stage_max": 0.2121750214982447,
+          "positive_flux_mean_total_head": 0.21277755409138638,
+          "froude_max": 0.07151834174148926,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 25,
+          "Q": 0.05284021630203813,
+          "numerical_face_Q": 0.052860862136243386,
+          "stage_min": 0.10771677602840184,
+          "stage_max": 0.10797303243158017,
+          "positive_flux_mean_total_head": 0.15680605314373067,
+          "froude_max": 0.9613512842063544,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 26,
+          "Q": 0.017141835035521247,
+          "numerical_face_Q": 0.01714178647847068,
+          "stage_min": 0.2120171968188383,
+          "stage_max": 0.21215169839715908,
+          "positive_flux_mean_total_head": 0.21277708440183038,
+          "froude_max": 0.07112363040288569,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 26,
+          "Q": 0.052858977286225226,
+          "numerical_face_Q": 0.05286156374923502,
+          "stage_min": 0.106940914317892,
+          "stage_max": 0.10705307452301933,
+          "positive_flux_mean_total_head": 0.15676875084517758,
+          "froude_max": 0.9753541663123616,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 27,
+          "Q": 0.01714186607238965,
+          "numerical_face_Q": 0.01714182190598098,
+          "stage_min": 0.21202953290033238,
+          "stage_max": 0.21213412120407626,
+          "positive_flux_mean_total_head": 0.21277677112071505,
+          "froude_max": 0.07075277811579066,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 27,
+          "Q": 0.05286267736299199,
+          "numerical_face_Q": 0.05286263163809066,
+          "stage_min": 0.10672894879751695,
+          "stage_max": 0.10689496598404666,
+          "positive_flux_mean_total_head": 0.15676093100713898,
+          "froude_max": 0.9780530221020631,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 28,
+          "Q": 0.017141898398321597,
+          "numerical_face_Q": 0.01714185733898167,
+          "stage_min": 0.21203834941091554,
+          "stage_max": 0.2121217806774835,
+          "positive_flux_mean_total_head": 0.2127765706231188,
+          "froude_max": 0.07040587586637209,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 28,
+          "Q": 0.05286398799858601,
+          "numerical_face_Q": 0.052863849803962325,
+          "stage_min": 0.10668473780954835,
+          "stage_max": 0.10682595012510725,
+          "positive_flux_mean_total_head": 0.15675789201249282,
+          "froude_max": 0.9784099152049174,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 29,
+          "Q": 0.017166700960326978,
+          "numerical_face_Q": 0.01714189277766006,
+          "stage_min": 0.21207145555139578,
+          "stage_max": 0.21214112550576186,
+          "positive_flux_mean_total_head": 0.21280571302755474,
+          "froude_max": 0.07016225014514167,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 29,
+          "Q": 0.05286516205269422,
+          "numerical_face_Q": 0.052865042486641825,
+          "stage_min": 0.10663921392587819,
+          "stage_max": 0.10675675765431472,
+          "positive_flux_mean_total_head": 0.15675520608800034,
+          "froude_max": 0.9787774683086167,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 30,
+          "Q": 0.02173239021796384,
+          "numerical_face_Q": 0.017141928239045725,
+          "stage_min": 0.2170223673239181,
+          "stage_max": 0.21715818146421134,
+          "positive_flux_mean_total_head": 0.21817739234849803,
+          "froude_max": 0.08622165565616605,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 30,
+          "Q": 0.05286630124767049,
+          "numerical_face_Q": 0.052866197875928674,
+          "stage_min": 0.1065881329866163,
+          "stage_max": 0.10668566102385761,
+          "positive_flux_mean_total_head": 0.1567526547930995,
+          "froude_max": 0.9792147861504649,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 31,
+          "Q": 0.015129799857555417,
+          "numerical_face_Q": 0.017141965596126064,
+          "stage_min": 0.1896721820233972,
+          "stage_max": 0.1897007162310928,
+          "positive_flux_mean_total_head": 0.19930003054931913,
+          "froude_max": 0.5265006275507618,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 31,
+          "Q": 0.05286740794728562,
+          "numerical_face_Q": 0.05286731753930384,
+          "stage_min": 0.10653326857948073,
+          "stage_max": 0.10661437990481486,
+          "positive_flux_mean_total_head": 0.15675021959618546,
+          "froude_max": 0.9796980934384554,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 32,
+          "Q": 0.016691754042971456,
+          "numerical_face_Q": 0.01714200308682097,
+          "stage_min": 0.1787095570841875,
+          "stage_max": 0.17879613707870573,
+          "positive_flux_mean_total_head": 0.19521283156988237,
+          "froude_max": 0.7502915606920783,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 32,
+          "Q": 0.05286848236613827,
+          "numerical_face_Q": 0.052868402576679956,
+          "stage_min": 0.10647576125751455,
+          "stage_max": 0.10654371347054094,
+          "positive_flux_mean_total_head": 0.15674789005091855,
+          "froude_max": 0.9802130484646807,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 33,
+          "Q": 0.017036322855833924,
+          "numerical_face_Q": 0.017142051509925937,
+          "stage_min": 0.17382210730551567,
+          "stage_max": 0.17395305636579428,
+          "positive_flux_mean_total_head": 0.1942665467327948,
+          "froude_max": 0.8720105643700837,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 33,
+          "Q": 0.05286952457857403,
+          "numerical_face_Q": 0.05286945367404556,
+          "stage_min": 0.10641632770545413,
+          "stage_max": 0.10647387996238927,
+          "positive_flux_mean_total_head": 0.15674565862911002,
+          "froude_max": 0.9807515146243878,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 34,
+          "Q": 0.017117249600634234,
+          "numerical_face_Q": 0.017142125871593084,
+          "stage_min": 0.1715534709006412,
+          "stage_max": 0.17169543191028286,
+          "positive_flux_mean_total_head": 0.19403936800769161,
+          "froude_max": 0.9343565430409096,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 34,
+          "Q": 0.05287053460468408,
+          "numerical_face_Q": 0.05287047126369064,
+          "stage_min": 0.10635543071612794,
+          "stage_max": 0.10640481372579809,
+          "positive_flux_mean_total_head": 0.15674351972510905,
+          "froude_max": 0.9813089833986925,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 35,
+          "Q": 0.0171368468551435,
+          "numerical_face_Q": 0.01714225142257565,
+          "stage_min": 0.17053026731189763,
+          "stage_max": 0.17065050749611704,
+          "positive_flux_mean_total_head": 0.19398387442703027,
+          "froude_max": 0.9638407585756487,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 35,
+          "Q": 0.052871512431699685,
+          "numerical_face_Q": 0.05287145561876229,
+          "stage_min": 0.10629337735395823,
+          "stage_max": 0.10633633723250557,
+          "positive_flux_mean_total_head": 0.15674146906239614,
+          "froude_max": 0.981883070285298,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 36,
+          "Q": 0.017141593342641474,
+          "numerical_face_Q": 0.017142465601381402,
+          "stage_min": 0.17013647741563995,
+          "stage_max": 0.17021670251820997,
+          "positive_flux_mean_total_head": 0.19397044596287327,
+          "froude_max": 0.9754243505560992,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 36,
+          "Q": 0.05287245802453156,
+          "numerical_face_Q": 0.052872406908449486,
+          "stage_min": 0.10623037617962776,
+          "stage_max": 0.1062682493264184,
+          "positive_flux_mean_total_head": 0.15673950330471859,
+          "froude_max": 0.9824726318247594,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 37,
+          "Q": 0.017142719179998656,
+          "numerical_face_Q": 0.01714279082001733,
+          "stage_min": 0.17002555480774587,
+          "stage_max": 0.17007047175974033,
+          "positive_flux_mean_total_head": 0.1939673248386687,
+          "froude_max": 0.9787076656832673,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 37,
+          "Q": 0.05287337133106455,
+          "numerical_face_Q": 0.0528733252307675,
+          "stage_min": 0.10616657072546423,
+          "stage_max": 0.10620036732798356,
+          "positive_flux_mean_total_head": 0.1567376197986634,
+          "froude_max": 0.9830772495685814,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 38,
+          "Q": 0.01714316913449867,
+          "numerical_face_Q": 0.017143170122818286,
+          "stage_min": 0.16997915428508859,
+          "stage_max": 0.1700037471487482,
+          "positive_flux_mean_total_head": 0.19396613203826565,
+          "froude_max": 0.9800840552559618,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 38,
+          "Q": 0.05287425228472081,
+          "numerical_face_Q": 0.052874210632431945,
+          "stage_min": 0.10610206108937283,
+          "stage_max": 0.10613254056709026,
+          "positive_flux_mean_total_head": 0.15673581640026873,
+          "froude_max": 0.9836969050937762,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 39,
+          "Q": 0.017143540220473163,
+          "numerical_face_Q": 0.017143537377190862,
+          "stage_min": 0.16993431340946716,
+          "stage_max": 0.1699479414379657,
+          "positive_flux_mean_total_head": 0.19396516445330686,
+          "froude_max": 0.9814175998516249,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 39,
+          "Q": 0.0528751008056523,
+          "numerical_face_Q": 0.05287506312111999,
+          "stage_min": 0.10603691738077776,
+          "stage_max": 0.10606465091712329,
+          "positive_flux_mean_total_head": 0.15673409135672128,
+          "froude_max": 0.9843317865414187,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 40,
+          "Q": 0.017143883897186827,
+          "numerical_face_Q": 0.017143881001382928,
+          "stage_min": 0.1698868382124515,
+          "stage_max": 0.1698944025549769,
+          "positive_flux_mean_total_head": 0.19396427507436703,
+          "froude_max": 0.9828309522153094,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 40,
+          "Q": 0.0528759168007016,
+          "numerical_face_Q": 0.052875882672924514,
+          "stage_min": 0.10597118791601341,
+          "stage_max": 0.10599660826681857,
+          "positive_flux_mean_total_head": 0.1567324432249688,
+          "froude_max": 0.9849821804272698,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 41,
+          "Q": 0.017144202702908687,
+          "numerical_face_Q": 0.017144200007445865,
+          "stage_min": 0.16983746260828225,
+          "stage_max": 0.16984168645935538,
+          "positive_flux_mean_total_head": 0.19396345664546977,
+          "froude_max": 0.9843016461936178,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 41,
+          "Q": 0.05287670016291841,
+          "numerical_face_Q": 0.05287666923696416,
+          "stage_min": 0.10590490480544083,
+          "stage_max": 0.10592834388282939,
+          "positive_flux_mean_total_head": 0.1567308708144759,
+          "froude_max": 0.9856484074225718,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 42,
+          "Q": 0.017144496480494428,
+          "numerical_face_Q": 0.017144494044844874,
+          "stage_min": 0.1697867418850293,
+          "stage_max": 0.16978914409522655,
+          "positive_flux_mean_total_head": 0.19396270965243959,
+          "froude_max": 0.9858132731477123,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 42,
+          "Q": 0.05287745077072105,
+          "numerical_face_Q": 0.052877422738065186,
+          "stage_min": 0.10583808754496239,
+          "stage_max": 0.10585980398136938,
+          "positive_flux_mean_total_head": 0.1567293731464734,
+          "froude_max": 0.9863307903589509,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 43,
+          "Q": 0.017144764866999836,
+          "numerical_face_Q": 0.01714476275171116,
+          "stage_min": 0.16973494368434172,
+          "stage_max": 0.16973636426626956,
+          "positive_flux_mean_total_head": 0.19396203518844546,
+          "froude_max": 0.9873582996376619,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 43,
+          "Q": 0.05287816848675381,
+          "numerical_face_Q": 0.05287814307810723,
+          "stage_min": 0.10577074522321701,
+          "stage_max": 0.10579094420040462,
+          "positive_flux_mean_total_head": 0.15672794942466262,
+          "froude_max": 0.9870296436052062,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 44,
+          "Q": 0.017145007414992475,
+          "numerical_face_Q": 0.017145005704827944,
+          "stage_min": 0.16968213358441445,
+          "stage_max": 0.16968303163383425,
+          "positive_flux_mean_total_head": 0.19396143459827012,
+          "froude_max": 0.9889353073475757,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 44,
+          "Q": 0.052878853156425265,
+          "numerical_face_Q": 0.05287883013636641,
+          "stage_min": 0.10570287771611772,
+          "stage_max": 0.10572172505956612,
+          "positive_flux_mean_total_head": 0.15672659901411173,
+          "froude_max": 0.9877452770247982,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 45,
+          "Q": 0.017145223571931562,
+          "numerical_face_Q": 0.017145222395413207,
+          "stage_min": 0.16962821450922164,
+          "stage_max": 0.16962883694088998,
+          "positive_flux_mean_total_head": 0.1939609095338938,
+          "froude_max": 0.9905477398757644,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 45,
+          "Q": 0.05287950460605849,
+          "numerical_face_Q": 0.052879483769024065,
+          "stage_min": 0.10563447607847526,
+          "stage_max": 0.10565210821938033,
+          "positive_flux_mean_total_head": 0.15672532142626688,
+          "froude_max": 0.988478010541894,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 46,
+          "Q": 0.017145412624948602,
+          "numerical_face_Q": 0.017145412192129943,
+          "stage_min": 0.16957290950285822,
+          "stage_max": 0.16957338575603192,
+          "positive_flux_mean_total_head": 0.19396046211147966,
+          "froude_max": 0.9922044220577256,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 46,
+          "Q": 0.05288012264053758,
+          "numerical_face_Q": 0.05288010380789459,
+          "stage_min": 0.10556552222127093,
+          "stage_max": 0.10558205323733111,
+          "positive_flux_mean_total_head": 0.1567241163088021,
+          "froude_max": 0.9892281974625143,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 47,
+          "Q": 0.01714557358345109,
+          "numerical_face_Q": 0.017145574275425634,
+          "stage_min": 0.16951565436705135,
+          "stage_max": 0.16951604791493227,
+          "positive_flux_mean_total_head": 0.19396009524754476,
+          "froude_max": 0.9939228471291751,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 47,
+          "Q": 0.05288070704028149,
+          "numerical_face_Q": 0.0528806900583351,
+          "stage_min": 0.10549598785411254,
+          "stage_max": 0.1055115144669069,
+          "positive_flux_mean_total_head": 0.15672298343961324,
+          "froude_max": 0.9899962565415273,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 48,
+          "Q": 0.017145704879114862,
+          "numerical_face_Q": 0.01714570750766348,
+          "stage_min": 0.16945525529956168,
+          "stage_max": 0.1694555831226715,
+          "positive_flux_mean_total_head": 0.19395981351829092,
+          "froude_max": 0.9957396318359576,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 48,
+          "Q": 0.052881257557305134,
+          "numerical_face_Q": 0.05288124229621698,
+          "stage_min": 0.10542583254964957,
+          "stage_max": 0.10544043769288935,
+          "positive_flux_mean_total_head": 0.1567219227247158,
+          "froude_max": 0.9907827147454418,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 49,
+          "Q": 0.017145803283577517,
+          "numerical_face_Q": 0.017145810132472645,
+          "stage_min": 0.16938863445183305,
+          "stage_max": 0.16938892784741075,
+          "positive_flux_mean_total_head": 0.19395962625134175,
+          "froude_max": 0.9977487372124033,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 49,
+          "Q": 0.05288177391002176,
+          "numerical_face_Q": 0.05288176026374957,
+          "stage_min": 0.10535500061593941,
+          "stage_max": 0.1053687559882394,
+          "positive_flux_mean_total_head": 0.15672093420023234,
+          "froude_max": 0.991588265245242,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 50,
+          "Q": 0.017145826835778127,
+          "numerical_face_Q": 0.017145878873218657,
+          "stage_min": 0.16929904075390353,
+          "stage_max": 0.16930414007664624,
+          "positive_flux_mean_total_head": 0.1939594869665413,
+          "froude_max": 1.0003108332455553,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 50,
+          "Q": 0.05288225577627362,
+          "numerical_face_Q": 0.05288224366383919,
+          "stage_min": 0.10528341618451197,
+          "stage_max": 0.1052963840463235,
+          "positive_flux_mean_total_head": 0.15672001803912947,
+          "froude_max": 0.9924138492518464,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 51,
+          "Q": 0.0171459194486767,
+          "numerical_face_Q": 0.017145904380387503,
+          "stage_min": -0.047133037426652244,
+          "stage_max": -0.04712443291406553,
+          "positive_flux_mean_total_head": 0.00834053244001839,
+          "froude_max": 1.8371302225260322,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 51,
+          "Q": 0.05288270278379704,
+          "numerical_face_Q": 0.05288269215252822,
+          "stage_min": 0.10521097541633388,
+          "stage_max": 0.10522320976011029,
+          "positive_flux_mean_total_head": 0.1567191745640193,
+          "froude_max": 0.9932607776123664,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 52,
+          "Q": 0.01714593454945159,
+          "numerical_face_Q": 0.0171459194486767,
+          "stage_min": -0.04713219836556313,
+          "stage_max": -0.0471253008815624,
+          "positive_flux_mean_total_head": 0.008340579977888438,
+          "froude_max": 1.837166061666449,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 52,
+          "Q": 0.05288311449681576,
+          "numerical_face_Q": 0.052883105328871284,
+          "stage_min": 0.10513753372995883,
+          "stage_max": 0.10514908080814968,
+          "positive_flux_mean_total_head": 0.15671840426842287,
+          "froude_max": 0.994130922432717,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 53,
+          "Q": 0.01714594968282265,
+          "numerical_face_Q": 0.017145934549451586,
+          "stage_min": -0.04713132896736023,
+          "stage_max": -0.04712616068552788,
+          "positive_flux_mean_total_head": 0.008340627594539792,
+          "froude_max": 1.83720463468266,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 53,
+          "Q": 0.05288349039641859,
+          "numerical_face_Q": 0.052883482721341274,
+          "stage_min": 0.10506288382963071,
+          "stage_max": 0.10507378178612946,
+          "positive_flux_mean_total_head": 0.1567177078509937,
+          "froude_max": 0.9950270395178488,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 54,
+          "Q": 0.017145964848900064,
+          "numerical_face_Q": 0.01714594968282265,
+          "stage_min": -0.04713045365788797,
+          "stage_max": -0.04712697169943162,
+          "positive_flux_mean_total_head": 0.008340675289574547,
+          "froude_max": 1.837244000600096,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 54,
+          "Q": 0.05288382984999145,
+          "numerical_face_Q": 0.0528838237694637,
+          "stage_min": 0.10498671538893851,
+          "stage_max": 0.10499699217766424,
+          "positive_flux_mean_total_head": 0.15671708627195377,
+          "froude_max": 0.9959533530445511,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 55,
+          "Q": 0.017145980047793698,
+          "numerical_face_Q": 0.017145964848900064,
+          "stage_min": -0.0471295997153317,
+          "stage_max": -0.04712777033789014,
+          "positive_flux_mean_total_head": 0.008340723062674759,
+          "froude_max": 1.8372821760197497,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 55,
+          "Q": 0.05288413205865497,
+          "numerical_face_Q": 0.052884127798791494,
+          "stage_min": 0.10490853467087514,
+          "stage_max": 0.10491820175764711,
+          "positive_flux_mean_total_head": 0.15671654085352557,
+          "froude_max": 0.9969167142562667,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 56,
+          "Q": 0.017145995279613212,
+          "numerical_face_Q": 0.017145980047793698,
+          "stage_min": -0.047129063742439525,
+          "stage_max": -0.047128524883746414,
+          "positive_flux_mean_total_head": 0.008340770913652597,
+          "froude_max": 1.8373173684245627,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 56,
+          "Q": 0.052884395952066135,
+          "numerical_face_Q": 0.05288439398689828,
+          "stage_min": 0.10482748591786704,
+          "stage_max": 0.10483651897231712,
+          "positive_flux_mean_total_head": 0.15671607348496158,
+          "froude_max": 0.9979291685608647,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 57,
+          "Q": 0.017146010544468314,
+          "numerical_face_Q": 0.017145995279613215,
+          "stage_min": -0.04712986450792782,
+          "stage_max": -0.04712805799354916,
+          "positive_flux_mean_total_head": 0.008340818842490702,
+          "froude_max": 1.837348109597667,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 57,
+          "Q": 0.05288461992559295,
+          "numerical_face_Q": 0.05288462132286721,
+          "stage_min": 0.1047417909170469,
+          "stage_max": 0.10475015884422074,
+          "positive_flux_mean_total_head": 0.15671568714001358,
+          "froude_max": 0.9990145726501802,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 58,
+          "Q": 0.017146025842469034,
+          "numerical_face_Q": 0.01714601054446831,
+          "stage_min": -0.0471305442631086,
+          "stage_max": -0.047127412492687884,
+          "positive_flux_mean_total_head": 0.008340866849357094,
+          "froude_max": 1.8373733185074055,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 58,
+          "Q": 0.05288480091120046,
+          "numerical_face_Q": 0.052884808622325474,
+          "stage_min": 0.10464678519136315,
+          "stage_max": 0.10465469673406465,
+          "positive_flux_mean_total_head": 0.15671538770738297,
+          "froude_max": 1.000231323638698,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 59,
+          "Q": 0.017146041173726034,
+          "numerical_face_Q": 0.017146025842469038,
+          "stage_min": -0.047131085334051755,
+          "stage_max": -0.04712687124290549,
+          "positive_flux_mean_total_head": 0.008340914934591256,
+          "froude_max": 1.8373923137464374,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 59,
+          "Q": 0.0528849271162352,
+          "numerical_face_Q": 0.05288495535879106,
+          "stage_min": 0.10452756198476197,
+          "stage_max": 0.10453500037089533,
+          "positive_flux_mean_total_head": 0.15671519816568702,
+          "froude_max": 1.0018071781775728,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 60,
+          "Q": 0.017146056538350843,
+          "numerical_face_Q": 0.017146041173726034,
+          "stage_min": -0.04713147871480648,
+          "stage_max": -0.047126443630171266,
+          "positive_flux_mean_total_head": 0.008340963098665059,
+          "froude_max": 1.837404791638913,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 60,
+          "Q": 0.052884860243659716,
+          "numerical_face_Q": 0.052885060824042825,
+          "stage_min": 0.10431916830308988,
+          "stage_max": 0.10433044261797542,
+          "positive_flux_mean_total_head": 0.15671528761227016,
+          "froude_max": 1.0045389217737966,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 61,
+          "Q": 0.01714607123253003,
+          "numerical_face_Q": 0.017146056538350843,
+          "stage_min": -0.06282670033793072,
+          "stage_max": -0.06282341922332442,
+          "positive_flux_mean_total_head": 0.005237001061807974,
+          "froude_max": 2.1420139925154262,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 61,
+          "Q": 0.05288512170741116,
+          "numerical_face_Q": 0.05288509834715922,
+          "stage_min": 0.06889227056898212,
+          "stage_max": 0.06911994375262928,
+          "positive_flux_mean_total_head": 0.15484336888432368,
+          "froude_max": 1.4514354861156107,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 62,
+          "Q": 0.017146084386660904,
+          "numerical_face_Q": 0.01714607123253003,
+          "stage_min": -0.09073345590439175,
+          "stage_max": -0.09073128651838247,
+          "positive_flux_mean_total_head": -0.007082435995776545,
+          "froude_max": 2.5002251196596466,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 62,
+          "Q": 0.05288514233497365,
+          "numerical_face_Q": 0.05288512170741116,
+          "stage_min": 0.03236075281763105,
+          "stage_max": 0.03254307785804417,
+          "positive_flux_mean_total_head": 0.14898817736785433,
+          "froude_max": 1.825468776340643,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 63,
+          "Q": 0.01714609643255875,
+          "numerical_face_Q": 0.01714608438666091,
+          "stage_min": -0.1177160006821652,
+          "stage_max": -0.11771426991486364,
+          "positive_flux_mean_total_head": -0.020145892871842902,
+          "froude_max": 2.8061275806382198,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 63,
+          "Q": 0.052885161349846,
+          "numerical_face_Q": 0.05288514233497364,
+          "stage_min": 0.000727095419680579,
+          "stage_max": 0.0008741470733905771,
+          "positive_flux_mean_total_head": 0.14311401369964907,
+          "froude_max": 2.1205902634340283,
+          "reverse_volume_flux": -0.0
+        }
+      }
+    ],
+    "midsection_numerical_face_toe_fraction": 0.24491258573404182,
+    "wall_s": 2.108335125,
+    "warning": "Cell-centred total-head diagnostic, not an exact discrete mechanical-energy budget; reference applicability remains to be checked."
+  },
+  {
+    "layout": "bare",
+    "dx": 0.05,
+    "manning": 0.02,
+    "geometry": {
+      "tail_drop": 0.0
+    },
+    "convergence": {
+      "converged": true,
+      "hyd_time": 40.0,
+      "steps": 16269,
+      "dt_limit": 0.0024072141268260783
+    },
+    "diagnostics": {
+      "Q_toe": 0.047479470820146794,
+      "Q_byp": 0.02241423049588344,
+      "f_toe": 0.6782781545735256,
+      "Q_in": 0.06999997465303284,
+      "Q_out": 0.07000258538555877,
+      "water_resid": 4.163336342344336e-15,
+      "water_storage_rate": -2.6107325262203496e-06,
+      "wet_ice_area_toe": 1.0000000000000002,
+      "wet_ice_area_byp": 1.0000000000000002,
+      "heat_in_W": 147594.94655591834,
+      "heat_out_W": 147600.45128545174,
+      "melt_heat_W": 0.0,
+      "energy_resid_rel": -1.3014353505773203e-14,
+      "storage_rate_W": -5.504729531472549,
+      "melt_heat_toe_W": 0.0,
+      "melt_heat_byp_W": 0.0
+    },
+    "pool": {
+      "i": 18,
+      "Q": 0.06999681682531853,
+      "numerical_face_Q": 0.07000028236036335,
+      "stage_min": 0.13381917628427353,
+      "stage_max": 0.13522027780162893,
+      "positive_flux_mean_total_head": 0.13442235201588662,
+      "froude_max": 0.014203379307889015,
+      "reverse_volume_flux": -0.0
+    },
+    "critical": [
+      {
+        "route": "toe",
+        "measured_Q": 0.047479470820146794,
+        "geometric_crest": -0.08,
+        "ideal_critical_energy_head": 0.06584520893654273,
+        "pool_minus_ideal": 0.06857714307934389
+      },
+      {
+        "route": "bypass",
+        "measured_Q": 0.02241423049588344,
+        "geometric_crest": 0.0,
+        "ideal_critical_energy_head": 0.0884241328457337,
+        "pool_minus_ideal": 0.045998219170152926
+      }
+    ],
+    "profiles": [
+      {
+        "toe": {
+          "i": 18,
+          "Q": 0.04339311328481971,
+          "numerical_face_Q": 0.04297028845981195,
+          "stage_min": 0.13381917628427353,
+          "stage_max": 0.13427805076234334,
+          "positive_flux_mean_total_head": 0.13405377002762153,
+          "froude_max": 0.014203379307889015,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 18,
+          "Q": 0.02384659742969686,
+          "numerical_face_Q": 0.02421267058844466,
+          "stage_min": 0.13487746211407492,
+          "stage_max": 0.13503481663317984,
+          "positive_flux_mean_total_head": 0.1349932116830637,
+          "froude_max": 0.007759503767199927,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 19,
+          "Q": 0.04457788650494919,
+          "numerical_face_Q": 0.044135936626795616,
+          "stage_min": 0.13363540390396866,
+          "stage_max": 0.1338990081493665,
+          "positive_flux_mean_total_head": 0.13391260881989067,
+          "froude_max": 0.014425480291259042,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 19,
+          "Q": 0.02303173246656311,
+          "numerical_face_Q": 0.023373010411428995,
+          "stage_min": 0.13489259902198647,
+          "stage_max": 0.13521301061596458,
+          "positive_flux_mean_total_head": 0.13505785682544602,
+          "froude_max": 0.007080359492395248,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 20,
+          "Q": 0.05605468304719183,
+          "numerical_face_Q": 0.045531415928065366,
+          "stage_min": 0.1360767016022082,
+          "stage_max": 0.13929008268827547,
+          "positive_flux_mean_total_head": 0.13876299960514,
+          "froude_max": 0.017928013555986996,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 20,
+          "Q": 0.027204182329215565,
+          "numerical_face_Q": 0.022645139198328015,
+          "stage_min": 0.13724988019034834,
+          "stage_max": 0.13818094504178058,
+          "positive_flux_mean_total_head": 0.13752167013019093,
+          "froude_max": 0.008340972818627999,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 21,
+          "Q": 0.04041951454531376,
+          "numerical_face_Q": 0.04753960284704805,
+          "stage_min": 0.07066652885868872,
+          "stage_max": 0.07357663900923204,
+          "positive_flux_mean_total_head": 0.08715806754597721,
+          "froude_max": 0.4339596760402165,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 21,
+          "Q": 0.019059861251730877,
+          "numerical_face_Q": 0.022460735957956408,
+          "stage_min": 0.09655452068159967,
+          "stage_max": 0.09718597639341844,
+          "positive_flux_mean_total_head": 0.10464020140663567,
+          "froude_max": 0.4047731629971681,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 22,
+          "Q": 0.04639598197662617,
+          "numerical_face_Q": 0.04753961156996774,
+          "stage_min": 0.04979279231526647,
+          "stage_max": 0.051653213846453036,
+          "positive_flux_mean_total_head": 0.07670195785793481,
+          "froude_max": 0.6272044415695601,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 22,
+          "Q": 0.021991173409778714,
+          "numerical_face_Q": 0.02246074526903094,
+          "stage_min": 0.08421138476956443,
+          "stage_max": 0.08462472311546425,
+          "positive_flux_mean_total_head": 0.09820080544304559,
+          "froude_max": 0.5745402420873464,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 23,
+          "Q": 0.04740966948570463,
+          "numerical_face_Q": 0.047539621950404294,
+          "stage_min": 0.045010681185828585,
+          "stage_max": 0.04594878526287334,
+          "positive_flux_mean_total_head": 0.07471124807271838,
+          "froude_max": 0.6851684729457951,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 23,
+          "Q": 0.02240356828726408,
+          "numerical_face_Q": 0.02246075665761472,
+          "stage_min": 0.08175368118823917,
+          "stage_max": 0.08200176062227915,
+          "positive_flux_mean_total_head": 0.09711841975650241,
+          "froude_max": 0.6135735142404238,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 24,
+          "Q": 0.04748699211182489,
+          "numerical_face_Q": 0.04753963408172575,
+          "stage_min": 0.04456481170202019,
+          "stage_max": 0.045066551350103165,
+          "positive_flux_mean_total_head": 0.07438553499944273,
+          "froude_max": 0.6936651299278702,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 24,
+          "Q": 0.02242201894875116,
+          "numerical_face_Q": 0.02246076943188134,
+          "stage_min": 0.08139667962624907,
+          "stage_max": 0.08155618962699629,
+          "positive_flux_mean_total_head": 0.09690547803947064,
+          "froude_max": 0.6188442651993625,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 25,
+          "Q": 0.04748782905721426,
+          "numerical_face_Q": 0.04753964644264478,
+          "stage_min": 0.044374688408113566,
+          "stage_max": 0.044661012593508256,
+          "positive_flux_mean_total_head": 0.07419612040799305,
+          "froude_max": 0.697003077645672,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 25,
+          "Q": 0.022421846282338054,
+          "numerical_face_Q": 0.02246078218674529,
+          "stage_min": 0.08113331853974665,
+          "stage_max": 0.08123901625455558,
+          "positive_flux_mean_total_head": 0.09673214798841766,
+          "froude_max": 0.6221157388668852,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 26,
+          "Q": 0.04748740516802069,
+          "numerical_face_Q": 0.047539658609512654,
+          "stage_min": 0.044066977543115796,
+          "stage_max": 0.044268827394089355,
+          "positive_flux_mean_total_head": 0.07400732303443004,
+          "froude_max": 0.7001438888088003,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 26,
+          "Q": 0.022421468105643806,
+          "numerical_face_Q": 0.022460794754006773,
+          "stage_min": 0.08086199811112682,
+          "stage_max": 0.08093184884011753,
+          "positive_flux_mean_total_head": 0.09655724922279091,
+          "froude_max": 0.6253044212374679,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 27,
+          "Q": 0.04748695410445395,
+          "numerical_face_Q": 0.04753967057862928,
+          "stage_min": 0.04373548003315453,
+          "stage_max": 0.04387895099088465,
+          "positive_flux_mean_total_head": 0.0738168313044291,
+          "froude_max": 0.7032177008248695,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 27,
+          "Q": 0.02242107447675978,
+          "numerical_face_Q": 0.022460807137430535,
+          "stage_min": 0.0805823736603187,
+          "stage_max": 0.08063299625067123,
+          "positive_flux_mean_total_head": 0.0963802868799946,
+          "froude_max": 0.6285054312729892,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 28,
+          "Q": 0.047486489277615236,
+          "numerical_face_Q": 0.04753968235495833,
+          "stage_min": 0.043389247130313335,
+          "stage_max": 0.04348909274540892,
+          "positive_flux_mean_total_head": 0.07362454116056508,
+          "froude_max": 0.7062607053080873,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 28,
+          "Q": 0.02242066645072332,
+          "numerical_face_Q": 0.02246081934211855,
+          "stage_min": 0.08029488990434638,
+          "stage_max": 0.08033123296030721,
+          "positive_flux_mean_total_head": 0.09620118463846823,
+          "froude_max": 0.631764214150326,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 29,
+          "Q": 0.04748601062330733,
+          "numerical_face_Q": 0.0475396939433957,
+          "stage_min": 0.043029384271587104,
+          "stage_max": 0.04310425590621644,
+          "positive_flux_mean_total_head": 0.07343037384102752,
+          "froude_max": 0.7093048693008069,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 29,
+          "Q": 0.022420243294035663,
+          "numerical_face_Q": 0.022460831373034347,
+          "stage_min": 0.0799998343804118,
+          "stage_max": 0.08002565813793314,
+          "positive_flux_mean_total_head": 0.09601986547302348,
+          "froude_max": 0.635109055324739,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 30,
+          "Q": 0.047485517367515585,
+          "numerical_face_Q": 0.04753970534870847,
+          "stage_min": 0.04265694579717509,
+          "stage_max": 0.04272554984056691,
+          "positive_flux_mean_total_head": 0.07323425146247454,
+          "froude_max": 0.7123782903634686,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 30,
+          "Q": 0.0224198041226751,
+          "numerical_face_Q": 0.022460843234995916,
+          "stage_min": 0.07969734946834314,
+          "stage_max": 0.07971548240528642,
+          "positive_flux_mean_total_head": 0.09583624752539804,
+          "froude_max": 0.6385585570022477,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 31,
+          "Q": 0.04748500846907255,
+          "numerical_face_Q": 0.04753971657552925,
+          "stage_min": 0.0422727851540913,
+          "stage_max": 0.04233413260299085,
+          "positive_flux_mean_total_head": 0.07303609501214357,
+          "froude_max": 0.71550523357855,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 31,
+          "Q": 0.022419347923132302,
+          "numerical_face_Q": 0.022460854932675123,
+          "stage_min": 0.07938745161093935,
+          "stage_max": 0.07940000112365632,
+          "positive_flux_mean_total_head": 0.0956502435632503,
+          "froude_max": 0.6421259889992847,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 32,
+          "Q": 0.047484482715823215,
+          "numerical_face_Q": 0.04753972762835339,
+          "stage_min": 0.04187749557511433,
+          "stage_max": 0.04193180608501211,
+          "positive_flux_mean_total_head": 0.0728358231270495,
+          "froude_max": 0.7187065253970751,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 32,
+          "Q": 0.022418873549448666,
+          "numerical_face_Q": 0.02246086647059682,
+          "stage_min": 0.07906994065503732,
+          "stage_max": 0.07907857121283585,
+          "positive_flux_mean_total_head": 0.09546176043272935,
+          "froude_max": 0.6458218646640451,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 33,
+          "Q": 0.04748393874822577,
+          "numerical_face_Q": 0.047539738511537644,
+          "stage_min": 0.04147140740379003,
+          "stage_max": 0.04151938478147915,
+          "positive_flux_mean_total_head": 0.07263335113539185,
+          "froude_max": 0.7220001230082773,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 33,
+          "Q": 0.02241837971380686,
+          "numerical_face_Q": 0.02246087785313785,
+          "stage_min": 0.07874265414479706,
+          "stage_max": 0.07875058939872934,
+          "positive_flux_mean_total_head": 0.09527069844591704,
+          "froude_max": 0.6496554744396636,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 34,
+          "Q": 0.04748337505865507,
+          "numerical_face_Q": 0.04753974922929923,
+          "stage_min": 0.04105461103045936,
+          "stage_max": 0.04109708267601321,
+          "positive_flux_mean_total_head": 0.07242859021342168,
+          "froude_max": 0.7254017404725933,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 34,
+          "Q": 0.022417864971827618,
+          "numerical_face_Q": 0.022460889084525495,
+          "stage_min": 0.07840822392911201,
+          "stage_max": 0.07841547206749684,
+          "positive_flux_mean_total_head": 0.09507695068311559,
+          "froude_max": 0.653635817457849,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 35,
+          "Q": 0.04748278997922063,
+          "numerical_face_Q": 0.04753975978571474,
+          "stage_min": 0.040626781132195075,
+          "stage_max": 0.04066474242138293,
+          "positive_flux_mean_total_head": 0.07222144657737889,
+          "froude_max": 0.7289254658827696,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 35,
+          "Q": 0.02241732770259957,
+          "numerical_face_Q": 0.022460900168835656,
+          "stage_min": 0.07806603742067046,
+          "stage_max": 0.07807263687212206,
+          "positive_flux_mean_total_head": 0.09488040219151367,
+          "froude_max": 0.6577721949225213,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 36,
+          "Q": 0.04748218166110106,
+          "numerical_face_Q": 0.047539770184718826,
+          "stage_min": 0.0401869985089557,
+          "stage_max": 0.040221966499325384,
+          "positive_flux_mean_total_head": 0.07201182065856496,
+          "froude_max": 0.732584339417682,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 36,
+          "Q": 0.0224167660829387,
+          "numerical_face_Q": 0.022460911109990343,
+          "stage_min": 0.07771548498037598,
+          "stage_max": 0.07772148590869563,
+          "positive_flux_mean_total_head": 0.09468092906002933,
+          "froude_max": 0.6620746215693455,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 37,
+          "Q": 0.047481548045730335,
+          "numerical_face_Q": 0.04753978043010208,
+          "stage_min": 0.039735298002570335,
+          "stage_max": 0.03976818873060639,
+          "positive_flux_mean_total_head": 0.07179960622381809,
+          "froude_max": 0.7363908830323377,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 37,
+          "Q": 0.022416178054944787,
+          "numerical_face_Q": 0.022460921911754517,
+          "stage_min": 0.07735593497974623,
+          "stage_max": 0.07736139006588105,
+          "positive_flux_mean_total_head": 0.09447839734616327,
+          "froude_max": 0.6665541473643031,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 38,
+          "Q": 0.04748088682717926,
+          "numerical_face_Q": 0.04753979052550841,
+          "stage_min": 0.03927194530004589,
+          "stage_max": 0.039302709482264137,
+          "positive_flux_mean_total_head": 0.07158468940648136,
+          "froude_max": 0.7403575849360813,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 38,
+          "Q": 0.022415561285446056,
+          "numerical_face_Q": 0.022460932577732125,
+          "stage_min": 0.07698671378289572,
+          "stage_max": 0.0769917528194035,
+          "positive_flux_mean_total_head": 0.09427266182491956,
+          "froude_max": 0.6712231458763016,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 39,
+          "Q": 0.04748019540428702,
+          "numerical_face_Q": 0.04753980047443129,
+          "stage_min": 0.03879606460331325,
+          "stage_max": 0.03882470879375277,
+          "positive_flux_mean_total_head": 0.07136694761360057,
+          "froude_max": 0.7444973513092712,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 39,
+          "Q": 0.022414913115320963,
+          "numerical_face_Q": 0.022460943111361167,
+          "stage_min": 0.07660708792552931,
+          "stage_max": 0.0766119584682069,
+          "positive_flux_mean_total_head": 0.0940635645220558,
+          "froude_max": 0.6760956062306596,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 40,
+          "Q": 0.047479470820146794,
+          "numerical_face_Q": 0.04753981028020915,
+          "stage_min": 0.038306655998857214,
+          "stage_max": 0.038333245419208226,
+          "positive_flux_mean_total_head": 0.07114624827195865,
+          "froude_max": 0.7488239423018972,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 40,
+          "Q": 0.022414230495883432,
+          "numerical_face_Q": 0.022460953515907493,
+          "stage_min": 0.07621624652504497,
+          "stage_max": 0.07622091270405836,
+          "positive_flux_mean_total_head": 0.09385093298357705,
+          "froude_max": 0.681187456152199,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 41,
+          "Q": 0.04747870968539559,
+          "numerical_face_Q": 0.04753981994601938,
+          "stage_min": 0.03780261376382198,
+          "stage_max": 0.03782724596569979,
+          "positive_flux_mean_total_head": 0.07092244736879436,
+          "froude_max": 0.7533524129582373,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 41,
+          "Q": 0.02241350990840532,
+          "numerical_face_Q": 0.022460963794457132,
+          "stage_min": 0.07581328234677766,
+          "stage_max": 0.07581770291214196,
+          "positive_flux_mean_total_head": 0.09363457821961763,
+          "froude_max": 0.6865169406565952,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 42,
+          "Q": 0.04747790808015608,
+          "numerical_face_Q": 0.04753982947487077,
+          "stage_min": 0.03728269774937179,
+          "stage_max": 0.037305485891192924,
+          "positive_flux_mean_total_head": 0.07069538773257515,
+          "froude_max": 0.7580995833506401,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 42,
+          "Q": 0.022412747261263934,
+          "numerical_face_Q": 0.022460973949906756,
+          "stage_min": 0.07539717006824762,
+          "stage_max": 0.07540132375695696,
+          "positive_flux_mean_total_head": 0.0934142922423446,
+          "froude_max": 0.6921050826007433,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 43,
+          "Q": 0.04747706142718236,
+          "numerical_face_Q": 0.04753983886959391,
+          "stage_min": 0.03674550025752449,
+          "stage_max": 0.03676656249539714,
+          "positive_flux_mean_total_head": 0.07046489698408598,
+          "froude_max": 0.7630845670490614,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 43,
+          "Q": 0.022411937756885426,
+          "numerical_face_Q": 0.022460983984951728,
+          "stage_min": 0.07496674017040784,
+          "stage_max": 0.07497061916761283,
+          "positive_flux_mean_total_head": 0.093189845092291,
+          "froude_max": 0.6979762569979145,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 44,
+          "Q": 0.04747616432534959,
+          "numerical_face_Q": 0.047539848132829285,
+          "stage_min": 0.03618940599634307,
+          "stage_max": 0.036208858764863086,
+          "positive_flux_mean_total_head": 0.07023078506678256,
+          "froude_max": 0.7683293943582077,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 44,
+          "Q": 0.022411075717183617,
+          "numerical_face_Q": 0.02246099390207123,
+          "stage_min": 0.07452064654211515,
+          "stage_max": 0.07452425184244871,
+          "positive_flux_mean_total_head": 0.09296098121264099,
+          "froude_max": 0.7041589212144844,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 45,
+          "Q": 0.04747521032740254,
+          "numerical_face_Q": 0.04753985726701185,
+          "stage_min": 0.03561254196476411,
+          "stage_max": 0.035630495698443024,
+          "positive_flux_mean_total_head": 0.06999284123530088,
+          "froude_max": 0.7738597781682894,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 45,
+          "Q": 0.02241015435086916,
+          "numerical_face_Q": 0.022461003703509567,
+          "stage_min": 0.07405732526247492,
+          "stage_max": 0.07406066336877926,
+          "positive_flux_mean_total_head": 0.09272741498194648,
+          "froude_max": 0.7106865594484783,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 46,
+          "Q": 0.0474741916376313,
+          "numerical_face_Q": 0.047539866274351944,
+          "stage_min": 0.03501271293381712,
+          "stage_max": 0.03502926924641672,
+          "positive_flux_mean_total_head": 0.06975083033823169,
+          "froude_max": 0.7797060882798494,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 46,
+          "Q": 0.022409165437619418,
+          "numerical_face_Q": 0.022461013391252647,
+          "stage_min": 0.07357494101216137,
+          "stage_max": 0.073578021565847,
+          "positive_flux_mean_total_head": 0.09248882514558888,
+          "froude_max": 0.7175989252776714,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 47,
+          "Q": 0.0474730986917373,
+          "numerical_face_Q": 0.047539875156810726,
+          "stage_min": 0.03438731629092463,
+          "stage_max": 0.03440256589703994,
+          "positive_flux_mean_total_head": 0.06950448816949784,
+          "froude_max": 0.7859046287805944,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 47,
+          "Q": 0.022408098890517047,
+          "numerical_face_Q": 0.022461022966998184,
+          "stage_min": 0.07307131594616736,
+          "stage_max": 0.07307414998863226,
+          "positive_flux_mean_total_head": 0.09224484778396498,
+          "froude_max": 0.7249437059737903,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 48,
+          "Q": 0.047471919558630275,
+          "numerical_face_Q": 0.04753988391606857,
+          "stage_min": 0.033733226934305846,
+          "stage_max": 0.033747247718868986,
+          "positive_flux_mean_total_head": 0.06925351557195222,
+          "froude_max": 0.7924993595982007,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 48,
+          "Q": 0.022406942135456485,
+          "numerical_face_Q": 0.02246103243211776,
+          "stage_min": 0.07254383325011844,
+          "stage_max": 0.07254643188102057,
+          "positive_flux_mean_total_head": 0.09199506730293959,
+          "froude_max": 0.7327787963661031,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 49,
+          "Q": 0.047470639064664207,
+          "numerical_face_Q": 0.04753989255348435,
+          "stage_min": 0.03304663780151164,
+          "stage_max": 0.033059492429544854,
+          "positive_flux_mean_total_head": 0.06899757084102853,
+          "froude_max": 0.7995442806437056,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 49,
+          "Q": 0.02240567920686298,
+          "numerical_face_Q": 0.022461041787607928,
+          "stage_min": 0.07198930329094742,
+          "stage_max": 0.0719916765222515,
+          "positive_flux_mean_total_head": 0.09173900469970664,
+          "froude_max": 0.7411754759475783,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 50,
+          "Q": 0.0474692374695746,
+          "numerical_face_Q": 0.04753990107004198,
+          "stage_min": 0.03232283289482307,
+          "stage_max": 0.032334565169855556,
+          "positive_flux_mean_total_head": 0.06873625976895802,
+          "froude_max": 0.8071068294157927,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 50,
+          "Q": 0.02240428938801128,
+          "numerical_face_Q": 0.02246105103402644,
+          "stage_min": 0.07140377291606659,
+          "stage_max": 0.07140592851900486,
+          "positive_flux_mean_total_head": 0.09147610199369517,
+          "froude_max": 0.7502229641147821,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 51,
+          "Q": 0.04746768838767072,
+          "numerical_face_Q": 0.047539909466278805,
+          "stage_min": 0.03155585417168942,
+          "stage_max": 0.03156648288491659,
+          "positive_flux_mean_total_head": 0.06846912234719899,
+          "froude_max": 0.8152728789407371,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 51,
+          "Q": 0.022402745089689508,
+          "numerical_face_Q": 0.022461060171407386,
+          "stage_min": 0.07078224539348675,
+          "stage_max": 0.07078418748544381,
+          "positive_flux_mean_total_head": 0.09120570112736383,
+          "froude_max": 0.7600351513236064,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 52,
+          "Q": 0.04746595537443579,
+          "numerical_face_Q": 0.047539917742187895,
+          "stage_min": 0.030737994818382144,
+          "stage_max": 0.030747502813678634,
+          "positive_flux_mean_total_head": 0.0681956146332433,
+          "froude_max": 0.8241543636534922,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 52,
+          "Q": 0.022401008391616718,
+          "numerical_face_Q": 0.022461069199145745,
+          "stage_min": 0.0701182541682255,
+          "stage_max": 0.07011998115451425,
+          "positive_flux_mean_total_head": 0.09092701467174896,
+          "froude_max": 0.7707609076120957,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 53,
+          "Q": 0.04746398601,
+          "numerical_face_Q": 0.047539925897080365,
+          "stage_min": 0.0298589945909854,
+          "stage_max": 0.029867308570294487,
+          "positive_flux_mean_total_head": 0.06791508347096278,
+          "froude_max": 0.833901431765143,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 53,
+          "Q": 0.022399025094894207,
+          "numerical_face_Q": 0.022461078115835406,
+          "stage_min": 0.06940318570473744,
+          "stage_max": 0.06940468689646238,
+          "positive_flux_mean_total_head": 0.09063908401013539,
+          "froude_max": 0.7826005647763398,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 54,
+          "Q": 0.04746170093713402,
+          "numerical_face_Q": 0.047539933929384395,
+          "stage_min": 0.028904384339399042,
+          "stage_max": 0.028911644662054953,
+          "positive_flux_mean_total_head": 0.06762673047181689,
+          "froude_max": 0.84472286618759,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 54,
+          "Q": 0.022396713798359464,
+          "numerical_face_Q": 0.022461086919033778,
+          "stage_min": 0.06862514562706844,
+          "stage_max": 0.06862639520979548,
+          "positive_flux_mean_total_head": 0.09034071773699781,
+          "froude_max": 0.7958337021095939,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 55,
+          "Q": 0.04745897176951411,
+          "numerical_face_Q": 0.04753994183633866,
+          "stage_min": 0.027853111333084796,
+          "stage_max": 0.027859868157740234,
+          "positive_flux_mean_total_head": 0.06732955985828556,
+          "froude_max": 0.8569227646299435,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 55,
+          "Q": 0.0223939440924285,
+          "numerical_face_Q": 0.02246109560490361,
+          "stage_min": 0.06776693040995302,
+          "stage_max": 0.06776803988209616,
+          "positive_flux_mean_total_head": 0.09003039770417436,
+          "froude_max": 0.8108692148874586,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 56,
+          "Q": 0.047455571417352835,
+          "numerical_face_Q": 0.04753994961349688,
+          "stage_min": 0.026673878440602247,
+          "stage_max": 0.026680163730200768,
+          "positive_flux_mean_total_head": 0.0670223034961636,
+          "froude_max": 0.8709723776084264,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 56,
+          "Q": 0.022390488021617055,
+          "numerical_face_Q": 0.022461104167636872,
+          "stage_min": 0.0668020743201131,
+          "stage_max": 0.0668030979026524,
+          "positive_flux_mean_total_head": 0.0897061307004121,
+          "froude_max": 0.8283436868672083,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 57,
+          "Q": 0.04745104443097637,
+          "numerical_face_Q": 0.04753995725386668,
+          "stage_min": 0.025313212669227425,
+          "stage_max": 0.025320007327853916,
+          "positive_flux_mean_total_head": 0.06670332435647566,
+          "froude_max": 0.8876682980967001,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 57,
+          "Q": 0.02238589470932154,
+          "numerical_face_Q": 0.02246111259845669,
+          "stage_min": 0.0656861262745721,
+          "stage_max": 0.06568714055225754,
+          "positive_flux_mean_total_head": 0.08936520981524053,
+          "froude_max": 0.8493386785439095,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 58,
+          "Q": 0.04744428643276148,
+          "numerical_face_Q": 0.04753996474625247,
+          "stage_min": 0.023668740572968777,
+          "stage_max": 0.023682122645546158,
+          "positive_flux_mean_total_head": 0.06637057920210292,
+          "froude_max": 0.9085448037011227,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 58,
+          "Q": 0.022379087594380172,
+          "numerical_face_Q": 0.02246112088370479,
+          "stage_min": 0.06433353154743286,
+          "stage_max": 0.06433551017108452,
+          "positive_flux_mean_total_head": 0.089003857176904,
+          "froude_max": 0.8759486536934459,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 59,
+          "Q": 0.04743158932471535,
+          "numerical_face_Q": 0.047539972071553256,
+          "stage_min": 0.021497249101569707,
+          "stage_max": 0.021525616705690295,
+          "positive_flux_mean_total_head": 0.06602239598777374,
+          "froude_max": 0.9372779198733177,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 59,
+          "Q": 0.02236650149290117,
+          "numerical_face_Q": 0.02246112900058174,
+          "stage_min": 0.06254409488008349,
+          "stage_max": 0.06254807943076719,
+          "positive_flux_mean_total_head": 0.0886170377177958,
+          "froude_max": 0.9132181040916457,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 60,
+          "Q": 0.047376749086846484,
+          "numerical_face_Q": 0.04753997919209034,
+          "stage_min": 0.017889285786582512,
+          "stage_max": 0.017962741925648007,
+          "positive_flux_mean_total_head": 0.0656454719018197,
+          "froude_max": 0.9876073730659406,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 60,
+          "Q": 0.022311623824760752,
+          "numerical_face_Q": 0.022461136904856904,
+          "stage_min": 0.059564830781498046,
+          "stage_max": 0.0595742327536311,
+          "positive_flux_mean_total_head": 0.08817012760730641,
+          "froude_max": 0.9799972478629843,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 61,
+          "Q": 0.04753999233339776,
+          "numerical_face_Q": 0.047539985970599365,
+          "stage_min": -0.015811744975674044,
+          "stage_max": -0.01578044731220718,
+          "positive_flux_mean_total_head": 0.06251896844672393,
+          "froude_max": 1.4295821225835632,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 61,
+          "Q": 0.022461151348697257,
+          "numerical_face_Q": 0.022461144434551803,
+          "stage_min": 0.0320583976814542,
+          "stage_max": 0.03206227808253741,
+          "positive_flux_mean_total_head": 0.08386013696832252,
+          "froude_max": 1.5249020447636108,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 62,
+          "Q": 0.04753999818981055,
+          "numerical_face_Q": 0.04753999233339776,
+          "stage_min": -0.05180087785867926,
+          "stage_max": -0.051769769755036096,
+          "positive_flux_mean_total_head": 0.05491266033175718,
+          "froude_max": 1.8024749701431668,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 62,
+          "Q": 0.02246115758396579,
+          "numerical_face_Q": 0.022461151348697257,
+          "stage_min": 0.0002907336654951534,
+          "stage_max": 0.0002942757877086935,
+          "positive_flux_mean_total_head": 0.07230600259929203,
+          "froude_max": 1.9522818038913226,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 63,
+          "Q": 0.0475400037226334,
+          "numerical_face_Q": 0.04753999818981055,
+          "stage_min": -0.08287478715303154,
+          "stage_max": -0.0828517235963253,
+          "positive_flux_mean_total_head": 0.04669082735687956,
+          "froude_max": 2.0848448363116545,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 63,
+          "Q": 0.02246116337793628,
+          "numerical_face_Q": 0.022461157583965795,
+          "stage_min": -0.028264482237582635,
+          "stage_max": -0.028261991742997664,
+          "positive_flux_mean_total_head": 0.059485452686224155,
+          "froude_max": 2.2641748746482,
+          "reverse_volume_flux": -0.0
+        }
+      }
+    ],
+    "midsection_numerical_face_toe_fraction": 0.6791401468601307,
+    "wall_s": 1.1778297499999972,
+    "warning": "Cell-centred total-head diagnostic, not an exact discrete mechanical-energy budget; reference applicability remains to be checked."
+  },
+  {
+    "layout": "strip",
+    "dx": 0.05,
+    "manning": 0.02,
+    "geometry": {
+      "tail_drop": 0.0
+    },
+    "convergence": {
+      "converged": true,
+      "hyd_time": 36.0,
+      "steps": 14992,
+      "dt_limit": 0.002387961978660752
+    },
+    "diagnostics": {
+      "Q_toe": 0.017451289907680346,
+      "Q_byp": 0.05243464519560768,
+      "f_toe": 0.24930414153829064,
+      "Q_in": 0.0699999736447639,
+      "Q_out": 0.07000221806219709,
+      "water_resid": 8.723180907769087e-15,
+      "water_storage_rate": -2.2444174337943323e-06,
+      "wet_ice_area_toe": 1.0000000000000002,
+      "wet_ice_area_byp": 1.0000000000000002,
+      "heat_in_W": 147594.94442998566,
+      "heat_out_W": 147599.67678414367,
+      "melt_heat_W": 0.0,
+      "energy_resid_rel": 8.281861441146208e-15,
+      "storage_rate_W": -4.732354159234092,
+      "melt_heat_toe_W": 0.0,
+      "melt_heat_byp_W": 0.0
+    },
+    "pool": {
+      "i": 18,
+      "Q": 0.06999448354484065,
+      "numerical_face_Q": 0.07000024801028938,
+      "stage_min": 0.22805379262955738,
+      "stage_max": 0.2295848674680121,
+      "positive_flux_mean_total_head": 0.22870225147424167,
+      "froude_max": 0.014284531360762047,
+      "reverse_volume_flux": -0.0
+    },
+    "critical": [
+      {
+        "route": "toe",
+        "measured_Q": 0.017451289907680346,
+        "geometric_crest": 0.12000000000000001,
+        "ideal_critical_energy_head": 0.19483531812826932,
+        "pool_minus_ideal": 0.03386693334597235
+      },
+      {
+        "route": "bypass",
+        "measured_Q": 0.05243464519560768,
+        "geometric_crest": 0.0,
+        "ideal_critical_energy_head": 0.15582380660210146,
+        "pool_minus_ideal": 0.07287844487214021
+      }
+    ],
+    "profiles": [
+      {
+        "toe": {
+          "i": 18,
+          "Q": 0.020208579712383816,
+          "numerical_face_Q": 0.020751009706807214,
+          "stage_min": 0.2294057512911134,
+          "stage_max": 0.2295133269189611,
+          "positive_flux_mean_total_head": 0.2294909276497362,
+          "froude_max": 0.006727878683641207,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 18,
+          "Q": 0.047031662703051674,
+          "numerical_face_Q": 0.04643413806823561,
+          "stage_min": 0.22805379262955738,
+          "stage_max": 0.22855962177403177,
+          "positive_flux_mean_total_head": 0.22830784204917653,
+          "froude_max": 0.014284531360762047,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 19,
+          "Q": 0.018958843801854516,
+          "numerical_face_Q": 0.01948906532816718,
+          "stage_min": 0.22943325080905375,
+          "stage_max": 0.22972672064154143,
+          "positive_flux_mean_total_head": 0.22958472645070632,
+          "froude_max": 0.005954469433305474,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 19,
+          "Q": 0.04865770330606799,
+          "numerical_face_Q": 0.04802675987351702,
+          "stage_min": 0.2278312152657429,
+          "stage_max": 0.2281113851072396,
+          "positive_flux_mean_total_head": 0.22814310124382245,
+          "froude_max": 0.014570203749790149,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 20,
+          "Q": 0.023779700283453477,
+          "numerical_face_Q": 0.018287508513071482,
+          "stage_min": 0.2321893612868169,
+          "stage_max": 0.2334985104395304,
+          "positive_flux_mean_total_head": 0.23257871743544548,
+          "froude_max": 0.007087038214658951,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 20,
+          "Q": 0.06150505366348711,
+          "numerical_face_Q": 0.049905410384706674,
+          "stage_min": 0.23013598732863394,
+          "stage_max": 0.23389596356555753,
+          "positive_flux_mean_total_head": 0.23326153920892737,
+          "froude_max": 0.018164736095142867,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 21,
+          "Q": 0.017233472660431362,
+          "numerical_face_Q": 0.017503613898929793,
+          "stage_min": 0.21671232309097566,
+          "stage_max": 0.21763244720245406,
+          "positive_flux_mean_total_head": 0.2175902117790087,
+          "froude_max": 0.07024123635758629,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 21,
+          "Q": 0.0445926966388733,
+          "numerical_face_Q": 0.05249668461321942,
+          "stage_min": 0.16001465934263537,
+          "stage_max": 0.16360313345598307,
+          "positive_flux_mean_total_head": 0.17808672319445348,
+          "froude_max": 0.435900347266003,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 22,
+          "Q": 0.017502872276073438,
+          "numerical_face_Q": 0.01750362119727315,
+          "stage_min": 0.21641392187020903,
+          "stage_max": 0.2169928816445031,
+          "positive_flux_mean_total_head": 0.21727204870879943,
+          "froude_max": 0.07200635124342213,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 22,
+          "Q": 0.051203104683165364,
+          "numerical_face_Q": 0.052496692782068706,
+          "stage_min": 0.1375158493805559,
+          "stage_max": 0.13991616864061096,
+          "positive_flux_mean_total_head": 0.16687114952321924,
+          "froude_max": 0.6324809259731383,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 23,
+          "Q": 0.0175030456024784,
+          "numerical_face_Q": 0.017503628470237086,
+          "stage_min": 0.21644166464092968,
+          "stage_max": 0.21680935194711737,
+          "positive_flux_mean_total_head": 0.21726937500034976,
+          "froude_max": 0.07193319539615764,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 23,
+          "Q": 0.05234822801964038,
+          "numerical_face_Q": 0.052496702888343176,
+          "stage_min": 0.1322755941364,
+          "stage_max": 0.13354772024883294,
+          "positive_flux_mean_total_head": 0.1647035237378451,
+          "froude_max": 0.6937374637363375,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 24,
+          "Q": 0.01750306369432298,
+          "numerical_face_Q": 0.017503635748998148,
+          "stage_min": 0.21646486613906746,
+          "stage_max": 0.21669758665142919,
+          "positive_flux_mean_total_head": 0.217267094290016,
+          "froude_max": 0.07162772679046248,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 24,
+          "Q": 0.052441846287149776,
+          "numerical_face_Q": 0.05249671498669534,
+          "stage_min": 0.13183246123575149,
+          "stage_max": 0.13252853910222884,
+          "positive_flux_mean_total_head": 0.1643516589694517,
+          "froude_max": 0.7031923816521536,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 25,
+          "Q": 0.017503073412918048,
+          "numerical_face_Q": 0.017503643034292252,
+          "stage_min": 0.21648347429120907,
+          "stage_max": 0.21665045039988562,
+          "positive_flux_mean_total_head": 0.21726506036951437,
+          "froude_max": 0.0712576438744828,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 25,
+          "Q": 0.05244308551120294,
+          "numerical_face_Q": 0.052496727369938746,
+          "stage_min": 0.13168411690603526,
+          "stage_max": 0.13209146671616284,
+          "positive_flux_mean_total_head": 0.1641600857636308,
+          "froude_max": 0.7066782804269497,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 26,
+          "Q": 0.01750307877592039,
+          "numerical_face_Q": 0.017503650326802858,
+          "stage_min": 0.21649782575694532,
+          "stage_max": 0.21662656927638163,
+          "positive_flux_mean_total_head": 0.21726322059923966,
+          "froude_max": 0.07088915392093616,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 26,
+          "Q": 0.052442663226841435,
+          "numerical_face_Q": 0.052496739524013424,
+          "stage_min": 0.13140219643836173,
+          "stage_max": 0.13167530134896907,
+          "positive_flux_mean_total_head": 0.1639698445601387,
+          "froude_max": 0.7098840938627148,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 27,
+          "Q": 0.017503082189261936,
+          "numerical_face_Q": 0.017503657627212493,
+          "stage_min": 0.2165083687056779,
+          "stage_max": 0.2166081774239415,
+          "positive_flux_mean_total_head": 0.2172615222275715,
+          "froude_max": 0.07054321030791771,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 27,
+          "Q": 0.05244220610699521,
+          "numerical_face_Q": 0.05249675144479099,
+          "stage_min": 0.1310707068664975,
+          "stage_max": 0.13126485755628164,
+          "positive_flux_mean_total_head": 0.16377799393553122,
+          "froude_max": 0.7129784641368013,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 28,
+          "Q": 0.01750308691716193,
+          "numerical_face_Q": 0.017503664936204068,
+          "stage_min": 0.21651555368277264,
+          "stage_max": 0.2165947726591967,
+          "positive_flux_mean_total_head": 0.2172599261463228,
+          "froude_max": 0.07022032515526468,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 28,
+          "Q": 0.05244173392083317,
+          "numerical_face_Q": 0.052496763138722244,
+          "stage_min": 0.13072154729956229,
+          "stage_max": 0.13085694864469477,
+          "positive_flux_mean_total_head": 0.16358441720853448,
+          "froude_max": 0.7160077406879349,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 29,
+          "Q": 0.017528960969585602,
+          "numerical_face_Q": 0.017503672254461564,
+          "stage_min": 0.21654818235626888,
+          "stage_max": 0.2166138391279751,
+          "positive_flux_mean_total_head": 0.2172887330180658,
+          "froude_max": 0.07000280057435691,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 29,
+          "Q": 0.05244124755645217,
+          "numerical_face_Q": 0.05249677461215734,
+          "stage_min": 0.13035642000225706,
+          "stage_max": 0.13044894107053756,
+          "positive_flux_mean_total_head": 0.16338903241011177,
+          "froude_max": 0.7190118884541703,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 30,
+          "Q": 0.022249066698441042,
+          "numerical_face_Q": 0.01750367958701152,
+          "stage_min": 0.22162875027399115,
+          "stage_max": 0.2217575819236054,
+          "positive_flux_mean_total_head": 0.2227984152235009,
+          "froude_max": 0.0862504692295579,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 30,
+          "Q": 0.0524407466617345,
+          "numerical_face_Q": 0.052496785871286276,
+          "stage_min": 0.1299768757269974,
+          "stage_max": 0.1300583105101792,
+          "positive_flux_mean_total_head": 0.16319175998555746,
+          "froude_max": 0.722025339808771,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 31,
+          "Q": 0.01572304728025647,
+          "numerical_face_Q": 0.017503687384577707,
+          "stage_min": 0.19537015704977695,
+          "stage_max": 0.19540081270281967,
+          "positive_flux_mean_total_head": 0.20426303449390626,
+          "froude_max": 0.4863831900002969,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 31,
+          "Q": 0.052440230401907144,
+          "numerical_face_Q": 0.05249679692212712,
+          "stage_min": 0.12958416957722688,
+          "stage_max": 0.1296575608587771,
+          "positive_flux_mean_total_head": 0.16299252022648458,
+          "froude_max": 0.7250772580307451,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 32,
+          "Q": 0.01722438499665505,
+          "numerical_face_Q": 0.017503694392252103,
+          "stage_min": 0.18687621407951327,
+          "stage_max": 0.18697597771943147,
+          "positive_flux_mean_total_head": 0.200435584607561,
+          "froude_max": 0.6370573295618017,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 32,
+          "Q": 0.05243969766536501,
+          "numerical_face_Q": 0.05249680777052016,
+          "stage_min": 0.12917920779229183,
+          "stage_max": 0.1292445188642394,
+          "positive_flux_mean_total_head": 0.1627912318203604,
+          "froude_max": 0.7281921737282949,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 33,
+          "Q": 0.017445754371594683,
+          "numerical_face_Q": 0.017503701760218874,
+          "stage_min": 0.18490160398850494,
+          "stage_max": 0.18500287829985917,
+          "positive_flux_mean_total_head": 0.19966409760435158,
+          "froude_max": 0.6746363738308215,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 33,
+          "Q": 0.05243914713687621,
+          "numerical_face_Q": 0.052496818422125446,
+          "stage_min": 0.12876255732919223,
+          "stage_max": 0.12882045861336117,
+          "positive_flux_mean_total_head": 0.16258781077634063,
+          "froude_max": 0.7313907836794337,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 34,
+          "Q": 0.01745770177735774,
+          "numerical_face_Q": 0.017503709453634546,
+          "stage_min": 0.1844039288193811,
+          "stage_max": 0.18447901755186236,
+          "positive_flux_mean_total_head": 0.19940676610622562,
+          "froude_max": 0.6827166341547666,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 34,
+          "Q": 0.05243857732266298,
+          "numerical_face_Q": 0.05249682888242198,
+          "stage_min": 0.1283344819235049,
+          "stage_max": 0.12838586812083977,
+          "positive_flux_mean_total_head": 0.16238216952027695,
+          "froude_max": 0.7346907764347834,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 35,
+          "Q": 0.01745708496477012,
+          "numerical_face_Q": 0.01750371709639934,
+          "stage_min": 0.18398246759485753,
+          "stage_max": 0.18403732669226996,
+          "positive_flux_mean_total_head": 0.19917577674745712,
+          "froude_max": 0.6892910667610779,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 35,
+          "Q": 0.05243798655308766,
+          "numerical_face_Q": 0.05249683915670763,
+          "stage_min": 0.12789493286559658,
+          "stage_max": 0.12794074983030038,
+          "positive_flux_mean_total_head": 0.16217421605649737,
+          "froude_max": 0.7381076144695708,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 36,
+          "Q": 0.01745611749556595,
+          "numerical_face_Q": 0.01750372464392456,
+          "stage_min": 0.18354216387809663,
+          "stage_max": 0.18358225983913867,
+          "positive_flux_mean_total_head": 0.19894017145206597,
+          "froude_max": 0.6963159469051411,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 36,
+          "Q": 0.052437372970995974,
+          "numerical_face_Q": 0.05249684925009898,
+          "stage_min": 0.12744302337066912,
+          "stage_max": 0.12748479578968228,
+          "positive_flux_mean_total_head": 0.16196385313122424,
+          "froude_max": 0.7416552435546115,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 37,
+          "Q": 0.017455065481746378,
+          "numerical_face_Q": 0.01750373209804377,
+          "stage_min": 0.18307960663945572,
+          "stage_max": 0.18310889710150727,
+          "positive_flux_mean_total_head": 0.19869885275423543,
+          "froude_max": 0.7038640607241663,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 37,
+          "Q": 0.05243673450844079,
+          "numerical_face_Q": 0.052496859167531024,
+          "stage_min": 0.12697824483924913,
+          "stage_max": 0.1270174862507183,
+          "positive_flux_mean_total_head": 0.1617509773571073,
+          "froude_max": 0.7453467250489991,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 38,
+          "Q": 0.017453921895832433,
+          "numerical_face_Q": 0.017503739460465174,
+          "stage_min": 0.18259284637365464,
+          "stage_max": 0.18261424370523233,
+          "positive_flux_mean_total_head": 0.1984513447845851,
+          "froude_max": 0.7119828494119271,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 38,
+          "Q": 0.05243606885246194,
+          "numerical_face_Q": 0.05249686891375612,
+          "stage_min": 0.12650127898522556,
+          "stage_max": 0.12653814111682946,
+          "positive_flux_mean_total_head": 0.16153547826151454,
+          "froude_max": 0.7491947977109429,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 39,
+          "Q": 0.017452670468972614,
+          "numerical_face_Q": 0.01750374673256204,
+          "stage_min": 0.18207928369512755,
+          "stage_max": 0.18209492455964157,
+          "positive_flux_mean_total_head": 0.19819711410516724,
+          "froude_max": 0.7207384229168629,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 39,
+          "Q": 0.05243537339936278,
+          "numerical_face_Q": 0.052496878493342426,
+          "stage_min": 0.12601151047792314,
+          "stage_max": 0.12604594271065994,
+          "positive_flux_mean_total_head": 0.16131723722366872,
+          "froude_max": 0.7532123861317719,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 40,
+          "Q": 0.01745128990768035,
+          "numerical_face_Q": 0.01750375391532698,
+          "stage_min": 0.18153547565765787,
+          "stage_max": 0.18154692169098166,
+          "positive_flux_mean_total_head": 0.19793553732112829,
+          "froude_max": 0.7302203137370183,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 40,
+          "Q": 0.05243464519560767,
+          "numerical_face_Q": 0.05249688791067125,
+          "stage_min": 0.1255078989310511,
+          "stage_max": 0.12553994043395966,
+          "positive_flux_mean_total_head": 0.1610961262639477,
+          "froude_max": 0.7574130766125426,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 41,
+          "Q": 0.0174497518258017,
+          "numerical_face_Q": 0.017503761009304817,
+          "stage_min": 0.18095689117703015,
+          "stage_max": 0.18096527953278452,
+          "positive_flux_mean_total_head": 0.19766587600103325,
+          "froude_max": 0.7405481233311053,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 41,
+          "Q": 0.05243388086214227,
+          "numerical_face_Q": 0.05249689716993325,
+          "stage_min": 0.12498930142172092,
+          "stage_max": 0.12501904306396122,
+          "positive_flux_mean_total_head": 0.1608720066428415,
+          "froude_max": 0.7618115841069973,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 42,
+          "Q": 0.017448017167296662,
+          "numerical_face_Q": 0.017503768014501493,
+          "stage_min": 0.1803375199859238,
+          "stage_max": 0.18034367523386058,
+          "positive_flux_mean_total_head": 0.19738724209454,
+          "froude_max": 0.7518824549669126,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 42,
+          "Q": 0.052433076497222036,
+          "numerical_face_Q": 0.05249690627512327,
+          "stage_min": 0.12445444141354677,
+          "stage_max": 0.12448200137988909,
+          "positive_flux_mean_total_head": 0.16064472721754805,
+          "froude_max": 0.7664242366660414,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 43,
+          "Q": 0.01744603004421833,
+          "numerical_face_Q": 0.01750377493025707,
+          "stage_min": 0.17966923254599135,
+          "stage_max": 0.17967374883522066,
+          "positive_flux_mean_total_head": 0.19709854817900097,
+          "froude_max": 0.764443071912347,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 43,
+          "Q": 0.052432227550468405,
+          "numerical_face_Q": 0.05249691523003297,
+          "stage_min": 0.12390187360498615,
+          "stage_max": 0.12392738178906902,
+          "positive_flux_mean_total_head": 0.16041412249022244,
+          "froude_max": 0.7712695078389785,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 44,
+          "Q": 0.01744370640106758,
+          "numerical_face_Q": 0.017503781755061933,
+          "stage_min": 0.17894068965563648,
+          "stage_max": 0.1789439898267429,
+          "positive_flux_mean_total_head": 0.19679843337137298,
+          "froude_max": 0.778540143015487,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 44,
+          "Q": 0.052431328657422074,
+          "numerical_face_Q": 0.05249692403824145,
+          "stage_min": 0.12332994208104818,
+          "stage_max": 0.12335353010526552,
+          "positive_flux_mean_total_head": 0.16018001026206158,
+          "froude_max": 0.7763686339569542,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 45,
+          "Q": 0.017440911328508984,
+          "numerical_face_Q": 0.01750378848627803,
+          "stage_min": 0.17813537064219817,
+          "stage_max": 0.1781377467470262,
+          "positive_flux_mean_total_head": 0.19648514861532834,
+          "froude_max": 0.7946312580971244,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 45,
+          "Q": 0.052430373418619156,
+          "numerical_face_Q": 0.05249693270310232,
+          "stage_min": 0.12273672843657252,
+          "stage_max": 0.12275852323864012,
+          "positive_flux_mean_total_head": 0.1599421887793923,
+          "froude_max": 0.7817463637306468,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 46,
+          "Q": 0.017437408359486983,
+          "numerical_face_Q": 0.017503795119691155,
+          "stage_min": 0.17722769794297163,
+          "stage_max": 0.17722933483283768,
+          "positive_flux_mean_total_head": 0.1961563713743883,
+          "froude_max": 0.813434552940566,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 46,
+          "Q": 0.052429354098966215,
+          "numerical_face_Q": 0.05249694122772705,
+          "stage_min": 0.12211998535874051,
+          "stage_max": 0.1221401049516915,
+          "positive_flux_mean_total_head": 0.15970043321806543,
+          "froude_max": 0.7874319045183424,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 47,
+          "Q": 0.01743272759162935,
+          "numerical_face_Q": 0.01750380164873606,
+          "stage_min": 0.1761744820252906,
+          "stage_max": 0.17617546050259483,
+          "positive_flux_mean_total_head": 0.1958088948902804,
+          "froude_max": 0.8361811350813516,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 47,
+          "Q": 0.05242826120978898,
+          "numerical_face_Q": 0.052496949614963054,
+          "stage_min": 0.1214770492366499,
+          "stage_max": 0.121495599639838,
+          "positive_flux_mean_total_head": 0.1594544912949828,
+          "froude_max": 0.7934601568806539,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 48,
+          "Q": 0.017425736649298123,
+          "numerical_face_Q": 0.017503808063004903,
+          "stage_min": 0.17489255313913982,
+          "stage_max": 0.17489292849659666,
+          "positive_flux_mean_total_head": 0.19543811176546544,
+          "froude_max": 0.8652836642139617,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 48,
+          "Q": 0.05242708291341286,
+          "numerical_face_Q": 0.05249695786736512,
+          "stage_min": 0.12080472223413127,
+          "stage_max": 0.12082179476400667,
+          "positive_flux_mean_total_head": 0.15920407771135248,
+          "froude_max": 0.7998733734463906,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 49,
+          "Q": 0.017412606781939895,
+          "numerical_face_Q": 0.017503814344849843,
+          "stage_min": 0.17318129216332107,
+          "stage_max": 0.17318240659853734,
+          "positive_flux_mean_total_head": 0.19503739800201284,
+          "froude_max": 0.9066653775166178,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 49,
+          "Q": 0.05242580415088684,
+          "numerical_face_Q": 0.052496965987158216,
+          "stage_min": 0.12009910905791102,
+          "stage_max": 0.12011477717918043,
+          "positive_flux_mean_total_head": 0.15894886700658317,
+          "froude_max": 0.8067234520259035,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 50,
+          "Q": 0.017299730147502433,
+          "numerical_face_Q": 0.01750382045850677,
+          "stage_min": 0.1701824205431609,
+          "stage_max": 0.1701861647715396,
+          "positive_flux_mean_total_head": 0.19441154151562873,
+          "froude_max": 0.9826379376735888,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 50,
+          "Q": 0.05242440532214483,
+          "numerical_face_Q": 0.05249697397618843,
+          "stage_min": 0.11935538474856486,
+          "stage_max": 0.11936969947856974,
+          "positive_flux_mean_total_head": 0.15868848421061799,
+          "froude_max": 0.8140751996901028,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 51,
+          "Q": 0.01750383280560535,
+          "numerical_face_Q": 0.017503826006265502,
+          "stage_min": -0.04575390447961394,
+          "stage_max": -0.04575274621673907,
+          "positive_flux_mean_total_head": 0.007505381692026437,
+          "froude_max": 1.7636552243565853,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 51,
+          "Q": 0.05242286021194275,
+          "numerical_face_Q": 0.05249698183585766,
+          "stage_min": 0.11856745399506653,
+          "stage_max": 0.11858043628997163,
+          "positive_flux_mean_total_head": 0.15842249238663,
+          "froude_max": 0.8220111304774748,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 52,
+          "Q": 0.017503836335753177,
+          "numerical_face_Q": 0.01750383280560535,
+          "stage_min": -0.04487583553073484,
+          "stage_max": -0.044875514815870717,
+          "positive_flux_mean_total_head": 0.005754555745603505,
+          "froude_max": 1.6979846777361003,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 52,
+          "Q": 0.05242113258078503,
+          "numerical_face_Q": 0.05249698956703451,
+          "stage_min": 0.11772743300447824,
+          "stage_max": 0.11773906030019968,
+          "positive_flux_mean_total_head": 0.15815037569135665,
+          "froude_max": 0.8306387812786744,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 53,
+          "Q": 0.0175038398981044,
+          "numerical_face_Q": 0.017503836335753177,
+          "stage_min": -0.043970303087862046,
+          "stage_max": -0.043968821942396076,
+          "positive_flux_mean_total_head": 0.004146167137035577,
+          "froude_max": 1.6343585273520678,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 53,
+          "Q": 0.052419170249300893,
+          "numerical_face_Q": 0.052496997169929754,
+          "stage_min": 0.11682482691198937,
+          "stage_max": 0.1168350082473687,
+          "positive_flux_mean_total_head": 0.15787151584877532,
+          "froude_max": 0.8401023638966107,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 54,
+          "Q": 0.01750384347301153,
+          "numerical_face_Q": 0.0175038398981044,
+          "stage_min": -0.04303043135738159,
+          "stage_max": -0.04302791128353093,
+          "positive_flux_mean_total_head": 0.0026699730000192758,
+          "froude_max": 1.5724177422769245,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 54,
+          "Q": 0.05241689412468925,
+          "numerical_face_Q": 0.05249700464391478,
+          "stage_min": 0.11584471248524786,
+          "stage_max": 0.11585368122057607,
+          "positive_flux_mean_total_head": 0.15758515881633195,
+          "froude_max": 0.8506023347638232,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 55,
+          "Q": 0.01750384703477275,
+          "numerical_face_Q": 0.01750384347301153,
+          "stage_min": -0.04204833730123548,
+          "stage_max": -0.042044973926803196,
+          "positive_flux_mean_total_head": 0.0013170747318142645,
+          "froude_max": 1.5117694574241376,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 55,
+          "Q": 0.05241417605732568,
+          "numerical_face_Q": 0.05249701198724566,
+          "stage_min": 0.11476557945029892,
+          "stage_max": 0.1147739338374514,
+          "positive_flux_mean_total_head": 0.15729036696144585,
+          "froude_max": 0.8624305261899416,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 56,
+          "Q": 0.017503850547293906,
+          "numerical_face_Q": 0.017503847034772747,
+          "stage_min": -0.04101317573751858,
+          "stage_max": -0.0410092303009092,
+          "positive_flux_mean_total_head": 7.986342456476902e-05,
+          "froude_max": 1.4519558612318715,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 56,
+          "Q": 0.052410788983653644,
+          "numerical_face_Q": 0.052497019196618123,
+          "stage_min": 0.11355538650847988,
+          "stage_max": 0.113563164449245,
+          "positive_flux_mean_total_head": 0.15698595157958126,
+          "froude_max": 0.8760389089890609,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 57,
+          "Q": 0.017503853955807135,
+          "numerical_face_Q": 0.01750385054729391,
+          "stage_min": -0.03990926355820068,
+          "stage_max": -0.03990505646165703,
+          "positive_flux_mean_total_head": -0.0010479608016049802,
+          "froude_max": 1.3923993236636687,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 57,
+          "Q": 0.05240627661812065,
+          "numerical_face_Q": 0.05249702626639528,
+          "stage_min": 0.11215931457179278,
+          "stage_max": 0.11216771673084551,
+          "positive_flux_mean_total_head": 0.1566703905487766,
+          "froude_max": 0.8921909132108017,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 58,
+          "Q": 0.017503857169020323,
+          "numerical_face_Q": 0.017503853955807135,
+          "stage_min": -0.03871232925685531,
+          "stage_max": -0.03870822653068486,
+          "positive_flux_mean_total_head": -0.0020712438885726525,
+          "froude_max": 1.332294092531442,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 58,
+          "Q": 0.05239953025645289,
+          "numerical_face_Q": 0.05249703318712322,
+          "stage_min": 0.11047233815642554,
+          "stage_max": 0.11048894473431964,
+          "positive_flux_mean_total_head": 0.15634182195495303,
+          "froude_max": 0.9123556235189753,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 59,
+          "Q": 0.017503860013515924,
+          "numerical_face_Q": 0.017503857169020323,
+          "stage_min": -0.03738092679092997,
+          "stage_max": -0.03737731797984686,
+          "positive_flux_mean_total_head": -0.002992969058135838,
+          "froude_max": 1.2703590404585166,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 59,
+          "Q": 0.05238682063326171,
+          "numerical_face_Q": 0.05249703994219978,
+          "stage_min": 0.10824470707216088,
+          "stage_max": 0.108280212892258,
+          "positive_flux_mean_total_head": 0.1559989102413374,
+          "froude_max": 0.9400494479245455,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 60,
+          "Q": 0.01750386208085434,
+          "numerical_face_Q": 0.017503860013515924,
+          "stage_min": -0.035832171745168624,
+          "stage_max": -0.03582943732589228,
+          "positive_flux_mean_total_head": -0.0038131332864476696,
+          "froude_max": 1.2041369534174033,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 60,
+          "Q": 0.05233198876180155,
+          "numerical_face_Q": 0.05249704649792081,
+          "stage_min": 0.10454232941464794,
+          "stage_max": 0.10463559979530951,
+          "positive_flux_mean_total_head": 0.15563053602517044,
+          "froude_max": 0.9884109534654839,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 61,
+          "Q": 0.017503867647689228,
+          "numerical_face_Q": 0.01750386208085434,
+          "stage_min": -0.05650252208552186,
+          "stage_max": -0.056502397772601506,
+          "positive_flux_mean_total_head": -0.008298445300128384,
+          "froude_max": 1.6365385590867831,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 61,
+          "Q": 0.05249705916530656,
+          "numerical_face_Q": 0.052497052681638026,
+          "stage_min": 0.06990061781913909,
+          "stage_max": 0.0699403352851058,
+          "positive_flux_mean_total_head": 0.15263124616132506,
+          "froude_max": 1.4174126447392374,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 62,
+          "Q": 0.01750387384139272,
+          "numerical_face_Q": 0.017503867647689228,
+          "stage_min": -0.0864166537720929,
+          "stage_max": -0.0864161126741587,
+          "positive_flux_mean_total_head": -0.02176672857086531,
+          "froude_max": 2.039552920273128,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 62,
+          "Q": 0.05249706542898114,
+          "numerical_face_Q": 0.05249705916530655,
+          "stage_min": 0.033260427477822624,
+          "stage_max": 0.03330027080147485,
+          "positive_flux_mean_total_head": 0.14543253913321275,
+          "froude_max": 1.7807086565729535,
+          "reverse_volume_flux": -0.0
+        }
+      },
+      {
+        "toe": {
+          "i": 63,
+          "Q": 0.017503879877785008,
+          "numerical_face_Q": 0.01750387384139272,
+          "stage_min": -0.11408652880613274,
+          "stage_max": -0.11408586773860538,
+          "positive_flux_mean_total_head": -0.0367164631964132,
+          "froude_max": 2.333659486525042,
+          "reverse_volume_flux": -0.0
+        },
+        "bypass": {
+          "i": 63,
+          "Q": 0.05249707149882639,
+          "numerical_face_Q": 0.05249706542898114,
+          "stage_min": 0.0017873566559232223,
+          "stage_max": 0.001816989543307862,
+          "positive_flux_mean_total_head": 0.13768967749177896,
+          "froude_max": 2.0563715550253705,
+          "reverse_volume_flux": -0.0
+        }
+      }
+    ],
+    "midsection_numerical_face_toe_fraction": 0.25005362736181397,
+    "wall_s": 1.0776911249999976,
+    "warning": "Cell-centred total-head diagnostic, not an exact discrete mechanical-energy budget; reference applicability remains to be checked."
+  }
+]
