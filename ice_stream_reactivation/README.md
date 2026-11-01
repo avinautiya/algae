@@ -9,15 +9,16 @@ This independent package contains mathematics, code, exploratory simulations, an
 Python 3.9+, NumPy, SciPy, Matplotlib. From `compute/`:
 
 ```sh
-python3 -m unittest -v test_model test_certificate test_fixed_stock
+python3 -m unittest -v test_model test_certificate test_fixed_stock test_topology
 python3 spatial_check.py
 python3 spatial_reference.py
 python3 spatial_environment.py
 python3 spatial_figures.py
 python3 fixed_stock_forecast.py
+python3 topology.py
 ```
 
-The 21 component tests check hydraulic limits, stock and energy ledgers, melt accommodation, critical-depth force balance, patchy heat transfer and conditional exclusion tests. Separate `test_alternative_budget.py` at the package root tests a sediment-budget necessary condition.
+The 25 component tests check hydraulic limits, stock and energy ledgers, melt accommodation, critical-depth force balance, patchy heat transfer and conditional exclusion tests. Separate `test_alternative_budget.py` at the package root tests a sediment-budget necessary condition.
 
 For the forecasting CLI:
 

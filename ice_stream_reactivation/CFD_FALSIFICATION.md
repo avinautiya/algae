@@ -34,3 +34,9 @@ Compute the activation prediction from independently extracted control geometry.
 If the resolved system reconnects through a bare corridor, the mean-crest model is falsified for that layout. If a blocked layout alone locks out, the result is geometry-dependent and should be reported as such. If late clearing repeatedly fails after the grains are gone, and the prediction follows measured ice relief and survives the controls, that supports the specific reactivation-memory contribution.
 
 The output would improve a stream-access closure for local glacier melt modeling. It would not, by itself, establish improved regional Himalayan glacier forecasts or field-calibrated cliff lifetimes.
+
+## Added topology and permeability gate
+
+A solid transverse strip in `topology.py` is a nonporous limiting geometry, not a default assumption about boulders. Test open corridors, through-debris flow, and under-rock gaps explicitly. Start with solid patches to verify the theorem's limiting conditions, then test porous/grain-resolved arrangements. A generic impermeable occupancy mask would manufacture blockage and is unacceptable as environmental validation.
+
+The supported environmental gap is quantitative prediction of access/recovery from connectivity and evolving ice relief, rather than a claim that preferential thermal channels, heterogeneous debris, or stream–cliff feedback were previously unknown. See TOPOLOGY_PRIORITY_CHECK.md for primary precedents and limitations.
