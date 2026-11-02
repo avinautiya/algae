@@ -1,0 +1,14 @@
+# Model-validity contract for an environmental prediction
+
+An **environmental prediction** (a statement about what will happen at a real glacier channel or cliff) may be issued only if every item below is supplied, source-labelled and uncertain-quantified. Otherwise the output must be labelled **"conditional component hindcast/scenario; not an environmental prediction"**. Executable form: `validity_contract.py` (never infers or fills a field; exit 2 if any item unmet).
+
+| Group | Required before issuing | Why (this study's evidence) |
+|---|---|---|
+| **Geometry** | Dated floor-elevation surveys with σ at the section being predicted; width/cross-section measured at that section; sensor clearance (z_s − z_b) or verified on-bed periods; depth basis (full depth vs pressure head) declared; section-to-station binding documented | Pressure head ≠ depth; clearance absent in public Plaine Morte data; width only assumed 2±0.5 m; proxy differs 0.02–0.58 m from independent depth |
+| **Temperature** | Bulk water temperature, or a floor-to-bulk relation validated for that reach; calibration offsets applied once; resolved clock convention; observed vs reconstructed support fractions; gap rule labelled | Floor-point sensors are not bulk thermometers; source clock naive/UTC/CEST unresolved |
+| **Discharge** | Discharge basis (measured/rating/reconstructed); measured or conservation-justified at the target section; uncertainty | Discharge is an author lake-balance reconstruction; Q assumed conserved P5→P3 |
+| **Contact** | Observed or modelled wetted-contact record; missing/purged records never treated as zero flow or lost contact; ice temperature known or bounded | Cold ice absorbs heat before melting; contact state controls where heat is delivered |
+| **Measurement** | Target definition matches the observation operator; target uncertainty is the source σ (not a scenario envelope); validation data independent of any calibration; heat-transfer closure not fitted to the target event | Rochemelon coefficients were tuned to that event; Swiss intervals were inspected during development |
+| **Numerics (always)** | Grid convergence statement for contact timing, hydraulic convergence flag per interval, conservation residuals, solver version and source fingerprints in restart metadata | Contact timing ±~10 % at dx 0.05; 60 s hydraulics cap left intervals unsettled |
+Current status of the Swiss package against the contract: `swiss_package_contract_result.json` — **not met** (width at sensor section, clearance, bulk temperature, clock, discharge at target and uncertainty, ice temperature, independence from calibration).
+Limits that no metadata can lift in this release: no moving geometry beyond floor lowering, no cold-ice conduction, no atmospheric exchange, no seepage/underflow, no flood removal.

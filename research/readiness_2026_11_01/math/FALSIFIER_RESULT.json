@@ -1,0 +1,84 @@
+{
+  "scope": "exact ideal-controls check and necessary bound only",
+  "K_mhalf_s": 0.8524474568362949,
+  "baseline_Q_m3_s": 0.07,
+  "critical_head_m": 0.18892391949237403,
+  "remaining_gap_m": 0.25,
+  "hydraulic_reopening_Q_threshold_m3_s": 0.10655593210453686,
+  "initial": {
+    "toe_m3_s": 0.0,
+    "bypass_m3_s": 0.06999999999999999,
+    "stage_m": 0.18892391949237397
+  },
+  "doubled_discharge_pulse_fixed_geometry": {
+    "toe_m3_s": 0.006834176791590543,
+    "bypass_m3_s": 0.13316582320840942,
+    "stage_m": 0.2900570589786863
+  },
+  "return_to_baseline_fixed_geometry": {
+    "toe_m3_s": 0.0,
+    "bypass_m3_s": 0.06999999999999999,
+    "stage_m": 0.18892391949237397
+  },
+  "grid_boundary_checks": [
+    {
+      "gap_over_critical_head": 0.25,
+      "toe_flow_fraction": 0.3521725240661728,
+      "algebraic_contact": true,
+      "root_contact": true
+    },
+    {
+      "gap_over_critical_head": 0.5,
+      "toe_flow_fraction": 0.21069225279556753,
+      "algebraic_contact": true,
+      "root_contact": true
+    },
+    {
+      "gap_over_critical_head": 0.9,
+      "toe_flow_fraction": 0.02424567232521255,
+      "algebraic_contact": true,
+      "root_contact": true
+    },
+    {
+      "gap_over_critical_head": 1,
+      "toe_flow_fraction": 0.0,
+      "algebraic_contact": false,
+      "root_contact": false
+    },
+    {
+      "gap_over_critical_head": 1.1,
+      "toe_flow_fraction": 0.0,
+      "algebraic_contact": false,
+      "root_contact": false
+    },
+    {
+      "gap_over_critical_head": 1.5,
+      "toe_flow_fraction": 0.0,
+      "algebraic_contact": false,
+      "root_contact": false
+    },
+    {
+      "gap_over_critical_head": 2,
+      "toe_flow_fraction": 0.0,
+      "algebraic_contact": false,
+      "root_contact": false
+    },
+    {
+      "gap_over_critical_head": 5,
+      "toe_flow_fraction": 0.0,
+      "algebraic_contact": false,
+      "root_contact": false
+    }
+  ],
+  "one_hour_maximum_possible_gap_repair_m_assuming_zero_bypass_melt": 0.0011754027386883812,
+  "required_gap_repair_m": 0.061076080507625974,
+  "minimum_repair_time_days_under_optimistic_flux_bound": 2.1650763640873456,
+  "max_melt_rate_m_day": 0.028209665728521148,
+  "elementary_constant_rate_removal_threshold_days": 9.53304169146821,
+  "conclusions": [
+    "A discharge pulse can reopen a fixed geometry hydraulically.",
+    "Reopening alone does not restore baseline-flow contact.",
+    "Under declared h/T upper bound, even zero bypass melt cannot repair this example in one hour.",
+    "These follow from established ideal-control and Stefan equations, not new physics."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "pinned_commit": "05e7312e3bbf248acf9f646267a5b8ea06a8b32e",
+  "scope": "demonstrated schema/attestation gate failures; no environmental claims",
+  "numerics_group_in_code": false,
+  "cases": {
+    "false_string_flag": {
+      "result": {
+        "may_issue_environmental_prediction": true,
+        "unmet": {},
+        "label_if_not": null
+      },
+      "edited_field": "measurement.independent_of_calibration_data",
+      "edited_value_repr": "'false'"
+    },
+    "support_fraction_above_one": {
+      "result": {
+        "may_issue_environmental_prediction": true,
+        "unmet": {},
+        "label_if_not": null
+      },
+      "edited_field": "temperature.observed_support_fraction",
+      "edited_value_repr": "2.0"
+    },
+    "negative_uncertainty": {
+      "result": {
+        "may_issue_environmental_prediction": true,
+        "unmet": {},
+        "label_if_not": null
+      },
+      "edited_field": "geometry.floor_survey_sigma_m",
+      "edited_value_repr": "-0.1"
+    },
+    "nan_uncertainty": {
+      "result": {
+        "may_issue_environmental_prediction": true,
+        "unmet": {},
+        "label_if_not": null
+      },
+      "edited_field": "discharge.discharge_uncertainty",
+      "edited_value_repr": "nan"
+    },
+    "empty_source_dictionary": {
+      "result": {
+        "may_issue_environmental_prediction": true,
+        "unmet": {},
+        "label_if_not": null
+      },
+      "edited_field": "geometry.cross_section_width_source",
+      "edited_value_repr": "{}"
+    },
+    "empty_survey_dates": {
+      "result": {
+        "may_issue_environmental_prediction": true,
+        "unmet": {},
+        "label_if_not": null
+      },
+      "edited_field": "geometry.floor_elevation_survey_dates",
+      "edited_value_repr": "[]"
+    },
+    "all_boolean_placeholders_no_numeric_or_source_evidence": {
+      "result": {
+        "may_issue_environmental_prediction": true,
+        "unmet": {},
+        "label_if_not": null
+      }
+    }
+  }
+}

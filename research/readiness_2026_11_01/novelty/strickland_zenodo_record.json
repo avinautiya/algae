@@ -1,0 +1,119 @@
+{
+  "created": "2025-08-15T10:29:15.592724+00:00",
+  "modified": "2025-08-15T10:29:15.721361+00:00",
+  "id": 16881413,
+  "conceptrecid": "16881412",
+  "doi": "10.5281/zenodo.16881413",
+  "conceptdoi": "10.5281/zenodo.16881412",
+  "doi_url": "https://doi.org/10.5281/zenodo.16881413",
+  "metadata": {
+    "title": "ryans1286/controls-on-depression-growth: depression-growth-model",
+    "doi": "10.5281/zenodo.16881413",
+    "publication_date": "2025-08-15",
+    "description": "Data, model, and figure generation code for \"Controls on the growth of topographic depressions on debris-covered glaciers\".",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "ryans1286",
+        "affiliation": null
+      }
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/ryans1286/controls-on-depression-growth/tree/v1.0",
+        "relation": "isSupplementTo",
+        "resource_type": "software",
+        "scheme": "url"
+      }
+    ],
+    "version": "v1.0",
+    "custom": {
+      "code:codeRepository": "https://github.com/ryans1286/controls-on-depression-growth"
+    },
+    "resource_type": {
+      "title": "Software",
+      "type": "software"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "16881412"
+          }
+        }
+      ]
+    }
+  },
+  "title": "ryans1286/controls-on-depression-growth: depression-growth-model",
+  "links": {
+    "self": "https://zenodo.org/api/records/16881413",
+    "self_html": "https://zenodo.org/records/16881413",
+    "preview_html": "https://zenodo.org/records/16881413?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.16881413",
+    "self_doi": "https://doi.org/10.5281/zenodo.16881413",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.16881413",
+    "reserve_doi": "https://zenodo.org/api/records/16881413/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/16881412",
+    "parent_html": "https://zenodo.org/records/16881412",
+    "parent_doi": "https://doi.org/10.5281/zenodo.16881412",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.16881412",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:16881413/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:16881413/sequence/default",
+    "files": "https://zenodo.org/api/records/16881413/files",
+    "media_files": "https://zenodo.org/api/records/16881413/media-files",
+    "latest": "https://zenodo.org/api/records/16881413/versions/latest",
+    "latest_html": "https://zenodo.org/records/16881413/latest",
+    "versions": "https://zenodo.org/api/records/16881413/versions",
+    "draft": "https://zenodo.org/api/records/16881413/draft",
+    "access_links": "https://zenodo.org/api/records/16881413/access/links",
+    "access_grants": "https://zenodo.org/api/records/16881413/access/grants",
+    "access_users": "https://zenodo.org/api/records/16881413/access/users",
+    "access_request": "https://zenodo.org/api/records/16881413/access/request",
+    "access": "https://zenodo.org/api/records/16881413/access",
+    "communities": "https://zenodo.org/api/records/16881413/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/16881413/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/16881413/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/16881413/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/16881413/quota-increase",
+    "requests": "https://zenodo.org/api/records/16881413/requests"
+  },
+  "updated": "2025-08-15T10:29:15.721361+00:00",
+  "recid": "16881413",
+  "revision": 4,
+  "files": [
+    {
+      "id": "03d311be-cc22-46b2-ba9b-45b04dd79259",
+      "key": "ryans1286/controls-on-depression-growth-v1.0.zip",
+      "size": 12640011,
+      "checksum": "md5:e6271307dc4b77f679ceffa5bc9dd83d",
+      "links": {
+        "self": "https://zenodo.org/api/records/16881413/files/ryans1286/controls-on-depression-growth-v1.0.zip/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "542475"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 8,
+    "unique_downloads": 8,
+    "views": 37,
+    "unique_views": 37,
+    "version_downloads": 8,
+    "version_unique_downloads": 8,
+    "version_unique_views": 37,
+    "version_views": 37
+  },
+  "state": "done",
+  "submitted": true
+}

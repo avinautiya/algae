@@ -1,0 +1,52 @@
+{
+  "pinned_commit": "05e7312e3bbf248acf9f646267a5b8ea06a8b32e",
+  "source_blobs_verified": 11,
+  "nominal_test_count": 6,
+  "nominal_pooled_bias_m": 0.5848727260980938,
+  "nominal_pooled_MAE_m": 0.5848727260980938,
+  "error_budget_claimed_nominal_bias_m": 0.63,
+  "linear_imputer_marginal_bias_over_27_scenarios_m": 0.6309372253842787,
+  "nominal_label_defect_confirmed": true,
+  "leverage_concentration_equivalent_count": 1.3394799407835647,
+  "leverage_count_is_not_statistical_independence_ESS": true,
+  "validity_unmet_count": 8,
+  "contract_is_current_package_specific_not_global_public_data_impossibility": true,
+  "mechanism_versions": {
+    "current_bed_operator": "v4",
+    "headline_loss_comparison": "legacy development trajectory, 3 labels share pre-removal history",
+    "loss_GCI_days": 0.37,
+    "loss_GCI_is_statistical_CI": false,
+    "frozen_recovery_boundary_prediction_days": 9.5,
+    "reported_dynamic_reference_boundary_days": 10.39,
+    "reported_fixed_medium_history_fine_grid_boundary_days": 10.45,
+    "recovery_boundary_dynamic_error_days": 0.8900000000000006,
+    "recovery_boundary_finest_grid_shift_days": 0.02,
+    "finest_grid_shift_is_not_full_coupled_error_bound": true,
+    "new_boundary_class_matches": 4,
+    "new_boundary_class_cases": 5,
+    "raw_rescore_removal_classes": {
+      "maintained": 3,
+      "genuine_reconnection": 1,
+      "failed_by_horizon": 2
+    },
+    "distinct_pre_loss_histories": 2,
+    "solid_strip_loss_comparison_histories": 1,
+    "contact_persistence_boundary_days": [
+      10.0,
+      10.5
+    ],
+    "strength_defined_boundary_days_approx": 9.2,
+    "day10_removal_reconnects_then_loses_contact_at_day": 12.4,
+    "legacy_locked_ROI_melt_relative_errors": [
+      -0.54,
+      -0.67
+    ],
+    "legacy_locked_ROI_melt_absolute_errors_m3": [
+      -0.002,
+      -0.0034
+    ],
+    "v3_v4_matched_scorer_refusals_each": 10,
+    "complete_v4_matched_ROI_campaign_done": false,
+    "legacy_raw_provenance": "metadata_identity_checked_not_run_authenticated"
+  }
+}
