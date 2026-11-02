@@ -1,0 +1,24 @@
+{
+ "may_issue_environmental_prediction": false,
+ "unmet": {
+  "geometry": [
+   "width_measured_at_sensor_section",
+   "sensor_clearance_m_or_on_bed_verified"
+  ],
+  "temperature": [
+   "bulk_water_temperature_or_validated_floor_to_bulk_relation",
+   "clock_convention_resolved"
+  ],
+  "discharge": [
+   "discharge_at_target_section_or_conservation_justified",
+   "discharge_uncertainty"
+  ],
+  "contact": [
+   "ice_temperature_known_or_bounded"
+  ],
+  "measurement": [
+   "independent_of_calibration_data"
+  ]
+ },
+ "label_if_not": "conditional component hindcast; not an environmental prediction"
+}
