@@ -37,7 +37,7 @@ Source of uncertainty per station (descriptive; test rows are inspected data, so
 - Leave-one-out scale: **3.62 – 9.58** versus 4.40 (−18 % to +118 %). Propagated survey sigma on the scale alone: ±0.32 (7 %), so data-noise is not the dominant uncertainty; interval choice is.
 - Implied per-interval scale (obs/basis): P3:0 5.6, P3:1 −20.1, P3:2 9.9, P3:3 3.5, P3:4 7.9 (P3:1 negative because obs < 0). P5:0 52.6 ± ~30 (observation 0.13 m vs σ 0.2 m, 0.76 days).
 - Conclusion: the scale is **weakly identified for P3 and not identifiable for P5** from training data. P5 has one 0.76-day training interval with a signal-to-noise ratio < 1. No P5-specific parameter was fitted to P5 evaluation outcomes, and this report does not recommend one; evaluation outcomes must not be used for that.
-- Six exclusions in the nominal scenario (P3:9, P3:10, P5:1, P5:2, P5:5, P5:6, P5:7, P5:8) lose most of the long, high-signal P5 intervals because depth/discharge is missing or non-positive; this is why P5 is constrained so poorly. Exclusions are availability, not outcome-based.
+- Eight exclusions in the nominal scenario (P3:9, P3:10, P5:1, P5:2, P5:5, P5:6, P5:7, P5:8) lose most of the long, high-signal P5 intervals because depth/discharge is missing or non-positive; this is why P5 is constrained so poorly. Exclusions are availability, not outcome-based.
 
 ## 4. Do independent geometry and sensor-clearance records exist in the original public sources?
 Checked: author-hosted ZIP mirror (CRC-verified members), `source/` notebook, `original_mirror/data/Channel_elevation/*.csv`, products, OBSERVATION_OPERATOR, HEAD_DROP audit.
