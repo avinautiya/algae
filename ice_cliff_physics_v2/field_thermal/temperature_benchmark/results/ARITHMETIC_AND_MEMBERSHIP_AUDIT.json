@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "scope": "saved-event arithmetic and source-truth membership; not independent physical validation",
+  "profiles": 11,
+  "interior_series": 27,
+  "unique_prediction_rows": 17523,
+  "max_metric_difference": 1.7763568394002505e-15,
+  "source_result_sha256": "4a5fbbc61a055c7dfe915f1524bd3a05327aca960090f2bdae5d82af18d0a9a1",
+  "recomputed_aggregate": {
+    "diffusion": {
+      "equal_profile_mean_MAE_C": 0.7552367801509107,
+      "equal_profile_mean_bias_C": 0.20096828269154265,
+      "equal_profile_RMSE_C": 1.0198309684790967
+    },
+    "quasisteady": {
+      "equal_profile_mean_MAE_C": 1.1933307963055737,
+      "equal_profile_mean_bias_C": 0.21331445013937603,
+      "equal_profile_RMSE_C": 1.7124359432451444
+    },
+    "lag_filter": {
+      "equal_profile_mean_MAE_C": 0.7534187930724467,
+      "equal_profile_mean_bias_C": 0.1842527490404304,
+      "equal_profile_RMSE_C": 1.0160945551792417
+    },
+    "ridge": {
+      "equal_profile_mean_MAE_C": 0.2863254711374788,
+      "equal_profile_mean_bias_C": 0.11117627695014765,
+      "equal_profile_RMSE_C": 0.5285926379528598
+    }
+  },
+  "checks": [
+    "raw source truth and endpoint matching",
+    "common hourly train/test timestamps",
+    "no duplicate prediction identities",
+    "all four models finite on identical rows",
+    "grid/penalty selection agrees with saved training objectives",
+    "equal-probe/profile weighting independently recomputed"
+  ]
+}

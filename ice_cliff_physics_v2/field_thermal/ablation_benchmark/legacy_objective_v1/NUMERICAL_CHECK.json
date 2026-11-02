@@ -1,0 +1,221 @@
+{
+  "64_to128_max_prediction_change_kg_m2": 0.003337825256267024,
+  "64_to128_mean_prediction_change_kg_m2": 0.00099712725435834,
+  "cases_compared": 432,
+  "fit_parameters_64": [
+    {
+      "profile": "2020b",
+      "geometry": "profile",
+      "alpha": {
+        "pde": 7.079457843841374e-07,
+        "one_node": 1.2589254117941661e-06
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023a",
+      "geometry": "profile",
+      "alpha": {
+        "pde": 5.62341325190349e-07,
+        "one_node": 8.912509381337459e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023b",
+      "geometry": "profile",
+      "alpha": {
+        "pde": 5.62341325190349e-07,
+        "one_node": 7.943282347242822e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023c",
+      "geometry": "profile",
+      "alpha": {
+        "pde": 4.466835921509635e-07,
+        "one_node": 7.079457843841374e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2020b",
+      "geometry": "stake",
+      "alpha": {
+        "pde": 6.30957344480193e-07,
+        "one_node": 1.1220184543019652e-06
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023a",
+      "geometry": "stake",
+      "alpha": {
+        "pde": 5.62341325190349e-07,
+        "one_node": 8.912509381337459e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023b",
+      "geometry": "stake",
+      "alpha": {
+        "pde": 5.62341325190349e-07,
+        "one_node": 8.912509381337459e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": [
+        0.315
+      ]
+    },
+    {
+      "profile": "2023c",
+      "geometry": "stake",
+      "alpha": {
+        "pde": 4.466835921509635e-07,
+        "one_node": 7.079457843841374e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    }
+  ],
+  "fit_parameters_128": [
+    {
+      "profile": "2020b",
+      "geometry": "profile",
+      "alpha": {
+        "pde": 7.079457843841374e-07,
+        "one_node": 1.2589254117941661e-06
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023a",
+      "geometry": "profile",
+      "alpha": {
+        "pde": 5.62341325190349e-07,
+        "one_node": 8.912509381337459e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023b",
+      "geometry": "profile",
+      "alpha": {
+        "pde": 5.62341325190349e-07,
+        "one_node": 7.943282347242822e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023c",
+      "geometry": "profile",
+      "alpha": {
+        "pde": 4.466835921509635e-07,
+        "one_node": 7.079457843841374e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2020b",
+      "geometry": "stake",
+      "alpha": {
+        "pde": 6.30957344480193e-07,
+        "one_node": 1.1220184543019652e-06
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023a",
+      "geometry": "stake",
+      "alpha": {
+        "pde": 5.62341325190349e-07,
+        "one_node": 8.912509381337459e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    },
+    {
+      "profile": "2023b",
+      "geometry": "stake",
+      "alpha": {
+        "pde": 5.62341325190349e-07,
+        "one_node": 8.912509381337459e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": [
+        0.315
+      ]
+    },
+    {
+      "profile": "2023c",
+      "geometry": "stake",
+      "alpha": {
+        "pde": 4.466835921509635e-07,
+        "one_node": 7.079457843841374e-07
+      },
+      "alpha_boundary": {
+        "pde": false,
+        "one_node": false
+      },
+      "excluded_depths_m": []
+    }
+  ]
+}

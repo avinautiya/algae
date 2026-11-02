@@ -1,0 +1,15 @@
+{
+  "tests_passed": 13,
+  "command": "/usr/bin/python3 -m unittest discover -v",
+  "temperature_regression": "three fixed diffusivities bitwise unchanged relative to retained v1 source",
+  "sources_sha256": {
+    "test_bottom_gradient.py": "76f91723a31e705be0ddbb5cae940441bcff0583ed12f0704bdccf9bbe2064b7",
+    "TEMPERATURE_V1_SOURCE.json": "8e6c80400516aba5a74fbf310f390da8cae02f1d1edb08152d06d71f4391aeeb",
+    "dirichlet_slab_temperature_v1_executed.py": "ef965a927157529152c068b5a5b21bee0226bfec2727e71c0d806dd5b0dcb04a",
+    "dirichlet_slab.py": "0357af5141db7617ac312a1ab9ced42d7e0b8e7572b3012dc97db20b2f4e282e",
+    "README.md": "ecd92c849f4c5e44bb2d77f8ec090a2673bdf1c68fa52456f209a9c0dfd5590b",
+    "test_dirichlet_slab.py": "75f35a327ed5a77dc2fd57736b9b16c947f13927c09e6840603cecdff4a30712",
+    "TEMPERATURE_V1_REGRESSION.npz": "9a81176b254222295c4074904e1c0b352536eac9ab8d4071e344006aac355d97",
+    "fv_reference.py": "07020625c79c4849266c5d94902c20bf47c4b5af48210309b613c20e296fd5ac"
+  }
+}

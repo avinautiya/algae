@@ -1,0 +1,485 @@
+{
+  "scope": "post-study numerical audit; not frozen production results",
+  "rows": [
+    {
+      "id": "W01",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 1.2500376186048925,
+      "FV_J": 1.2734761616071908,
+      "relative_error": 0.01875027011463619,
+      "max_discrete_residual_J": 3.206636345343128e-14,
+      "runtime_s": 0.032215625000000005
+    },
+    {
+      "id": "W01",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 1.2500376186048925,
+      "FV_J": 1.2583459765936544,
+      "relative_error": 0.006646486365773946,
+      "max_discrete_residual_J": 1.0622145524274984e-14,
+      "runtime_s": 0.12465691699999999
+    },
+    {
+      "id": "W01",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 1.2500376186048925,
+      "FV_J": 1.2710293092259164,
+      "relative_error": 0.016792847118034523,
+      "max_discrete_residual_J": 6.548581121812447e-14,
+      "runtime_s": 0.058072542000000005
+    },
+    {
+      "id": "W01",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 1.2500376186048925,
+      "FV_J": 1.255897725960872,
+      "relative_error": 0.004687944801628933,
+      "max_discrete_residual_J": 2.8606023799726543e-14,
+      "runtime_s": 0.235558875
+    },
+    {
+      "id": "W02",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 4.3777294085862195,
+      "FV_J": 4.459813017485849,
+      "relative_error": 0.018750270114602185,
+      "max_discrete_residual_J": 9.576367476782366e-14,
+      "runtime_s": 0.036595667000000054
+    },
+    {
+      "id": "W02",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 4.3777294085862195,
+      "FV_J": 4.406825927413295,
+      "relative_error": 0.006646486365741872,
+      "max_discrete_residual_J": 4.056477376224166e-14,
+      "runtime_s": 0.123421
+    },
+    {
+      "id": "W02",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 4.3777294085862195,
+      "FV_J": 4.4512439492685765,
+      "relative_error": 0.016792847117999093,
+      "max_discrete_residual_J": 2.2715163083830703e-13,
+      "runtime_s": 0.058102125000000004
+    },
+    {
+      "id": "W02",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 4.3777294085862195,
+      "FV_J": 4.398251962409985,
+      "relative_error": 0.004687944801593607,
+      "max_discrete_residual_J": 9.913944665207453e-14,
+      "runtime_s": 0.23345966699999998
+    },
+    {
+      "id": "W03",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 5.00015047441957,
+      "FV_J": 5.093904646428763,
+      "relative_error": 0.01875027011463619,
+      "max_discrete_residual_J": 1.2826545381372512e-13,
+      "runtime_s": 0.030751917000000017
+    },
+    {
+      "id": "W03",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 5.00015047441957,
+      "FV_J": 5.033383906374618,
+      "relative_error": 0.006646486365773946,
+      "max_discrete_residual_J": 4.2488582097099936e-14,
+      "runtime_s": 0.12356516700000009
+    },
+    {
+      "id": "W03",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 5.00015047441957,
+      "FV_J": 5.084117236903666,
+      "relative_error": 0.016792847118034523,
+      "max_discrete_residual_J": 2.6194324487249787e-13,
+      "runtime_s": 0.059913333000000124
+    },
+    {
+      "id": "W03",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 5.00015047441957,
+      "FV_J": 5.023590903843488,
+      "relative_error": 0.004687944801628933,
+      "max_discrete_residual_J": 1.1442409519890617e-13,
+      "runtime_s": 0.23655570800000003
+    },
+    {
+      "id": "W04",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 17.510917634344878,
+      "FV_J": 17.839252069943395,
+      "relative_error": 0.018750270114602185,
+      "max_discrete_residual_J": 3.8305469907129464e-13,
+      "runtime_s": 0.03097029200000012
+    },
+    {
+      "id": "W04",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 17.510917634344878,
+      "FV_J": 17.62730370965318,
+      "relative_error": 0.006646486365741872,
+      "max_discrete_residual_J": 1.6225909504896663e-13,
+      "runtime_s": 0.12439241699999992
+    },
+    {
+      "id": "W04",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 17.510917634344878,
+      "FV_J": 17.804975797074306,
+      "relative_error": 0.016792847117999093,
+      "max_discrete_residual_J": 9.086065233532281e-13,
+      "runtime_s": 0.05880308299999992
+    },
+    {
+      "id": "W04",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 17.510917634344878,
+      "FV_J": 17.59300784963994,
+      "relative_error": 0.004687944801593607,
+      "max_discrete_residual_J": 3.965577866082981e-13,
+      "runtime_s": 0.23583108399999997
+    },
+    {
+      "id": "W05",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 2.786722324410107,
+      "FV_J": 2.835910455308124,
+      "relative_error": 0.01765089060619953,
+      "max_discrete_residual_J": 5.626402121983176e-14,
+      "runtime_s": 0.0316168750000001
+    },
+    {
+      "id": "W05",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 2.786722324410107,
+      "FV_J": 2.8039670817453235,
+      "relative_error": 0.006188186452651663,
+      "max_discrete_residual_J": 2.3724945619196802e-14,
+      "runtime_s": 0.12686283300000012
+    },
+    {
+      "id": "W05",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 2.786722324410107,
+      "FV_J": 2.83097565608759,
+      "relative_error": 0.015880065010370443,
+      "max_discrete_residual_J": 1.3538128951218198e-13,
+      "runtime_s": 0.059229874999999765
+    },
+    {
+      "id": "W05",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 2.786722324410107,
+      "FV_J": 2.7990252420868384,
+      "relative_error": 0.004414834434333464,
+      "max_discrete_residual_J": 6.047679718124144e-14,
+      "runtime_s": 0.23535195899999994
+    },
+    {
+      "id": "W06",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 5.582733697449271,
+      "FV_J": 5.6812739192264345,
+      "relative_error": 0.017650890606189264,
+      "max_discrete_residual_J": 1.1387418785702152e-13,
+      "runtime_s": 0.032114833000000065
+    },
+    {
+      "id": "W06",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 5.582733697449271,
+      "FV_J": 5.617280694484524,
+      "relative_error": 0.006188186452640147,
+      "max_discrete_residual_J": 5.181965967437918e-14,
+      "runtime_s": 0.12440333300000006
+    },
+    {
+      "id": "W06",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 5.582733697449271,
+      "FV_J": 5.671387871500294,
+      "relative_error": 0.01588006501036027,
+      "max_discrete_residual_J": 2.7804841762346655e-13,
+      "runtime_s": 0.05858483399999992
+    },
+    {
+      "id": "W06",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 5.582733697449271,
+      "FV_J": 5.607380542414435,
+      "relative_error": 0.00441483443432476,
+      "max_discrete_residual_J": 1.1716148884399757e-13,
+      "runtime_s": 0.23407795799999986
+    },
+    {
+      "id": "W07",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 11.146889297640428,
+      "FV_J": 11.343641821232495,
+      "relative_error": 0.01765089060619953,
+      "max_discrete_residual_J": 2.2505608487932705e-13,
+      "runtime_s": 0.031040167000000007
+    },
+    {
+      "id": "W07",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 11.146889297640428,
+      "FV_J": 11.215868326981294,
+      "relative_error": 0.006188186452651663,
+      "max_discrete_residual_J": 9.489978247678721e-14,
+      "runtime_s": 0.12370795899999987
+    },
+    {
+      "id": "W07",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 11.146889297640428,
+      "FV_J": 11.32390262435036,
+      "relative_error": 0.015880065010370443,
+      "max_discrete_residual_J": 5.415251580487279e-13,
+      "runtime_s": 0.058128958999999814
+    },
+    {
+      "id": "W07",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 11.146889297640428,
+      "FV_J": 11.196100968347354,
+      "relative_error": 0.004414834434333464,
+      "max_discrete_residual_J": 2.4190718872496575e-13,
+      "runtime_s": 0.24862012499999997
+    },
+    {
+      "id": "W08",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 22.330934789797084,
+      "FV_J": 22.725095676905738,
+      "relative_error": 0.017650890606189264,
+      "max_discrete_residual_J": 4.554967514280861e-13,
+      "runtime_s": 0.03148883400000013
+    },
+    {
+      "id": "W08",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 22.330934789797084,
+      "FV_J": 22.469122777938097,
+      "relative_error": 0.006188186452640147,
+      "max_discrete_residual_J": 2.0727863869751673e-13,
+      "runtime_s": 0.1235798749999999
+    },
+    {
+      "id": "W08",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 22.330934789797084,
+      "FV_J": 22.685551486001177,
+      "relative_error": 0.01588006501036027,
+      "max_discrete_residual_J": 1.1121936704938662e-12,
+      "runtime_s": 0.05872258299999977
+    },
+    {
+      "id": "W08",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 22.330934789797084,
+      "FV_J": 22.42952216965774,
+      "relative_error": 0.00441483443432476,
+      "max_discrete_residual_J": 4.686459553759903e-13,
+      "runtime_s": 0.2690657919999997
+    },
+    {
+      "id": "W09",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 9.290869084273425,
+      "FV_J": 9.413607485952298,
+      "relative_error": 0.013210648063767419,
+      "max_discrete_residual_J": 1.3666845433135677e-13,
+      "runtime_s": 0.03373987499999975
+    },
+    {
+      "id": "W09",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 9.290869084273425,
+      "FV_J": 9.331345110536763,
+      "relative_error": 0.00435653822007368,
+      "max_discrete_residual_J": 5.4723586773164357e-14,
+      "runtime_s": 0.1379919169999999
+    },
+    {
+      "id": "W09",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 9.290869084273425,
+      "FV_J": 9.403904194765579,
+      "relative_error": 0.012166258018153292,
+      "max_discrete_residual_J": 3.203548537555889e-13,
+      "runtime_s": 0.0630307499999998
+    },
+    {
+      "id": "W09",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 9.290869084273425,
+      "FV_J": 9.32160196500269,
+      "relative_error": 0.0033078585491304823,
+      "max_discrete_residual_J": 1.4188303310014305e-13,
+      "runtime_s": 0.2351992909999998
+    },
+    {
+      "id": "W10",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 10.624465439766851,
+      "FV_J": 10.7648215135573,
+      "relative_error": 0.013210648063770083,
+      "max_discrete_residual_J": 1.7005841179695835e-13,
+      "runtime_s": 0.03166483299999978
+    },
+    {
+      "id": "W10",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 10.624465439766851,
+      "FV_J": 10.670751329523071,
+      "relative_error": 0.004356538220075914,
+      "max_discrete_residual_J": 5.670464098272987e-14,
+      "runtime_s": 0.12394404099999967
+    },
+    {
+      "id": "W10",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 10.624465439766851,
+      "FV_J": 10.753725427612046,
+      "relative_error": 0.012166258018156984,
+      "max_discrete_residual_J": 3.743810816914106e-13,
+      "runtime_s": 0.058823417000000155
+    },
+    {
+      "id": "W10",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 10.624465439766851,
+      "FV_J": 10.659609668601739,
+      "relative_error": 0.0033078585491317664,
+      "max_discrete_residual_J": 1.565692020477627e-13,
+      "runtime_s": 0.23722187499999947
+    },
+    {
+      "id": "W11",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 37.1634763370937,
+      "FV_J": 37.65442994380919,
+      "relative_error": 0.013210648063767419,
+      "max_discrete_residual_J": 5.466738173254271e-13,
+      "runtime_s": 0.03080791699999974
+    },
+    {
+      "id": "W11",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 37.1634763370937,
+      "FV_J": 37.32538044214705,
+      "relative_error": 0.00435653822007368,
+      "max_discrete_residual_J": 2.1889434709265743e-13,
+      "runtime_s": 0.12815954200000057
+    },
+    {
+      "id": "W11",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 37.1634763370937,
+      "FV_J": 37.615616779062314,
+      "relative_error": 0.012166258018153292,
+      "max_discrete_residual_J": 1.2814194150223557e-12,
+      "runtime_s": 0.05894675000000049
+    },
+    {
+      "id": "W11",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 37.1634763370937,
+      "FV_J": 37.28640786001076,
+      "relative_error": 0.0033078585491304823,
+      "max_discrete_residual_J": 5.675321324005722e-13,
+      "runtime_s": 0.23819670800000026
+    },
+    {
+      "id": "W12",
+      "cells": 64,
+      "steps_per_tau": 4000,
+      "analytic_J": 42.497861759067405,
+      "FV_J": 43.0592860542292,
+      "relative_error": 0.013210648063770083,
+      "max_discrete_residual_J": 6.802336471878334e-13,
+      "runtime_s": 0.030863375000000026
+    },
+    {
+      "id": "W12",
+      "cells": 64,
+      "steps_per_tau": 16000,
+      "analytic_J": 42.497861759067405,
+      "FV_J": 42.683005318092285,
+      "relative_error": 0.004356538220075914,
+      "max_discrete_residual_J": 2.2681856393091948e-13,
+      "runtime_s": 0.12435612500000026
+    },
+    {
+      "id": "W12",
+      "cells": 128,
+      "steps_per_tau": 4000,
+      "analytic_J": 42.497861759067405,
+      "FV_J": 43.014901710448186,
+      "relative_error": 0.012166258018156984,
+      "max_discrete_residual_J": 1.4975243267656424e-12,
+      "runtime_s": 0.06204066699999977
+    },
+    {
+      "id": "W12",
+      "cells": 128,
+      "steps_per_tau": 16000,
+      "analytic_J": 42.497861759067405,
+      "FV_J": 42.638438674406956,
+      "relative_error": 0.0033078585491317664,
+      "max_discrete_residual_J": 6.262768081910508e-13,
+      "runtime_s": 0.2380893749999995
+    }
+  ]
+}

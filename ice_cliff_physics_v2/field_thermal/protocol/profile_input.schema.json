@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Verified thermistor profile input record",
+  "type": "object",
+  "required": ["profile_id", "source_csv", "source_sha256", "source_kind", "timestamp_column", "clock", "cadence_seconds", "probes", "boundary_mode", "training_start_utc", "training_end_utc", "test_start_utc", "test_end_utc", "site_group", "assumptions"],
+  "properties": {
+    "profile_id": {"type": "string", "pattern": "^KDT_20(20|21|22|23)[a-d]$"},
+    "source_csv": {"type": "string", "minLength": 1},
+    "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_kind": {"const": "author_processed_thermistor_series"},
+    "timestamp_column": {"type": "string", "minLength": 1},
+    "clock": {"const": "UTC_explicit_source_column"},
+    "cadence_seconds": {"const": 300},
+    "probes": {"type": "array", "minItems": 2, "items": {"type": "object", "required": ["column", "depth_m", "provenance_kind", "role"], "properties": {
+      "column": {"type": "string"},
+      "depth_m": {"type": "number", "minimum": 0},
+      "provenance_kind": {"enum": ["measured_thermistor", "author_imposed_base", "unknown"]},
+      "role": {"enum": ["upper_boundary", "lower_boundary", "interior_target", "excluded"]}
+    }}},
+    "boundary_mode": {"enum": ["two_measured_probes", "measured_upper_assumed_melting_interface"]},
+    "training_start_utc": {"type": "string", "format": "date-time"},
+    "training_end_utc": {"type": "string", "format": "date-time"},
+    "test_start_utc": {"type": "string", "format": "date-time"},
+    "test_end_utc": {"type": "string", "format": "date-time"},
+    "site_group": {"type": "string", "minLength": 1},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "published_conductivity_used_as_prior": {"const": false}
+  },
+  "description": "Additional semantic checks: distinct increasing depths; both boundaries true measured sensors in primary mode; every target strictly interior; no imposed Base as observation; exact frozen split and source hash; no test-interior assimilation; profiles share glacier/site conditions and are not independent samples."
+}

@@ -1,0 +1,309 @@
+{
+  "classification": "implementation regressions under an explicit separated-drainage assumption; not new environmental evidence",
+  "original_case_file_sha256": "9db0bfe602dc89c8516ef28129128eaebda178a5acad587317191fdc5b565f35",
+  "source_sha256": {
+    "model.py": "3d708ffce3df1ed9808446d75dc9f03243ce26c64297d7f03529aa6fb1702c87",
+    "face_thermal.py": "5eadfa551ffb7426751c1e47e02bf22f40a1968eaca1dda56c75c4321556fea3",
+    "thermal/column_partition.py": "dafce9db2c360f60ff8187490afc44a633e2843e72de3ef32c614603904659c1"
+  },
+  "cases": [
+    {
+      "id": "T11",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.04985225950308369,
+          "debris_capacity_J_m2_K": 72004.42857534139,
+          "debris_conductance_W_m2_K": 53.06413310923607,
+          "initial_debris_temperature_C": 6.726731656968301,
+          "new_debris_temperature_C": 2.0389632803804782,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.061528037211478676,
+            "water_superheat_K": 0.156597759743627,
+            "face_atmospheric_net_W_m2": 203.63894278897706,
+            "floor_atmospheric_net_W_m2": 203.63894278897706,
+            "bypass_atmospheric_net_W_m2": 203.63894278897706
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.05537523349033081,
+            "water_superheat_K": 0.10961843182053889,
+            "face_atmospheric_net_W_m2": 122.18336567338623,
+            "floor_atmospheric_net_W_m2": 122.18336567338623,
+            "bypass_atmospheric_net_W_m2": 122.18336567338623
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "fixed_cover_interval_m": [
+            -0.07,
+            0.08354495926949776
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run",
+          "meltwater_policy": {
+            "mode": "downstream_free_drainage",
+            "max_generated_discharge_m3_s": 0.001,
+            "provenance": "SYNTHETIC separated downstream meltwater drain, no mixing with prescribed warm stream or backwater; drainage capacity independently imposed for implementation regression"
+          }
+        }
+      }
+    },
+    {
+      "id": "T12",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.07064406594094086,
+          "debris_capacity_J_m2_K": 70454.97812776218,
+          "debris_conductance_W_m2_K": 91.4870118407061,
+          "initial_debris_temperature_C": 5.59032508814898,
+          "new_debris_temperature_C": 0.6643984806181318,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.0255034166539655,
+            "water_superheat_K": 0.6104791782238125,
+            "face_atmospheric_net_W_m2": 232.05156861262137,
+            "floor_atmospheric_net_W_m2": 232.05156861262137,
+            "bypass_atmospheric_net_W_m2": 232.05156861262137
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.022953074988568953,
+            "water_superheat_K": 0.4273354247566687,
+            "face_atmospheric_net_W_m2": 139.2309411675728,
+            "floor_atmospheric_net_W_m2": 139.2309411675728,
+            "bypass_atmospheric_net_W_m2": 139.2309411675728
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "meltwater_policy": {
+            "mode": "downstream_free_drainage",
+            "max_generated_discharge_m3_s": 0.001,
+            "provenance": "SYNTHETIC separated downstream meltwater drain, no mixing with prescribed warm stream or backwater; drainage capacity independently imposed for implementation regression"
+          }
+        }
+      }
+    },
+    {
+      "id": "T16",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.09287892016252863,
+          "debris_capacity_J_m2_K": 51347.667594102066,
+          "debris_conductance_W_m2_K": 5.486948378757969,
+          "initial_debris_temperature_C": 5.516325164018729,
+          "new_debris_temperature_C": 2.9684643288777135,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.025878418771703438,
+            "water_superheat_K": 0.650069011881428,
+            "face_atmospheric_net_W_m2": 119.0883843834323,
+            "floor_atmospheric_net_W_m2": 119.0883843834323,
+            "bypass_atmospheric_net_W_m2": 119.0883843834323
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.023290576894533094,
+            "water_superheat_K": 0.45504830831699955,
+            "face_atmospheric_net_W_m2": 71.45303063005937,
+            "floor_atmospheric_net_W_m2": 71.45303063005937,
+            "bypass_atmospheric_net_W_m2": 71.45303063005937
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "face_profile_bands": 8,
+          "ledge_heat_policy": "adiabatic",
+          "meltwater_policy": {
+            "mode": "downstream_free_drainage",
+            "max_generated_discharge_m3_s": 0.001,
+            "provenance": "SYNTHETIC separated downstream meltwater drain, no mixing with prescribed warm stream or backwater; drainage capacity independently imposed for implementation regression"
+          }
+        }
+      }
+    },
+    {
+      "id": "T19",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.01467999707097678,
+          "debris_capacity_J_m2_K": 88862.0441159277,
+          "debris_conductance_W_m2_K": 41.68914779578496,
+          "initial_debris_temperature_C": 1.3929603122513203,
+          "new_debris_temperature_C": 1.8942769849276666,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.09444344034922965,
+            "water_superheat_K": 0.3934718354584398,
+            "face_atmospheric_net_W_m2": 102.16102008335415,
+            "floor_atmospheric_net_W_m2": 102.16102008335415,
+            "bypass_atmospheric_net_W_m2": 102.16102008335415
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.08499909631430669,
+            "water_superheat_K": 0.2754302848209078,
+            "face_atmospheric_net_W_m2": 61.296612050012484,
+            "floor_atmospheric_net_W_m2": 61.296612050012484,
+            "bypass_atmospheric_net_W_m2": 61.296612050012484
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "face_profile_bands": 8,
+          "ledge_heat_policy": "adiabatic",
+          "fixed_cover_interval_m": [
+            -0.07,
+            -0.02478560902139152
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run",
+          "meltwater_policy": {
+            "mode": "downstream_free_drainage",
+            "max_generated_discharge_m3_s": 0.001,
+            "provenance": "SYNTHETIC separated downstream meltwater drain, no mixing with prescribed warm stream or backwater; drainage capacity independently imposed for implementation regression"
+          }
+        }
+      }
+    }
+  ]
+}

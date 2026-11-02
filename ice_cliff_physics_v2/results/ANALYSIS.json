@@ -1,0 +1,695 @@
+{
+  "freeze_commit": "b9d6f39d09f7ead306ea87c852da8f14c53e9e89",
+  "case_count": 30,
+  "completed": 30,
+  "failures": [],
+  "maximum_relative_energy_residual": 2.2541140484893632e-15,
+  "comparisons": [
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 5,
+      "comparator": "rc",
+      "covered_melt_difference_fraction": 0.010826669675403355,
+      "total_face_melt_difference_fraction": 0.00017714299810900336,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 5,
+      "comparator": "fv16",
+      "covered_melt_difference_fraction": -2.2596737153102175e-05,
+      "total_face_melt_difference_fraction": -3.199306491619147e-06,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 5,
+      "comparator": "fv32",
+      "covered_melt_difference_fraction": 4.388693808365929e-08,
+      "total_face_melt_difference_fraction": -2.8229345472308154e-06,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 5,
+      "comparator": "fv32face64",
+      "covered_melt_difference_fraction": 0.0,
+      "total_face_melt_difference_fraction": 0.0,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 5,
+      "comparator": "no_exchange_control",
+      "covered_melt_difference_fraction": -0.4908021385799054,
+      "total_face_melt_difference_fraction": -0.008158952676537101,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 20,
+      "comparator": "rc",
+      "covered_melt_difference_fraction": 0.010826667471924845,
+      "total_face_melt_difference_fraction": 5.35101924239445e-05,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 20,
+      "comparator": "fv16",
+      "covered_melt_difference_fraction": -2.2602314326380935e-05,
+      "total_face_melt_difference_fraction": -3.22453374923537e-06,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 20,
+      "comparator": "fv32",
+      "covered_melt_difference_fraction": 3.831643402563145e-08,
+      "total_face_melt_difference_fraction": -3.1061291132505886e-06,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 20,
+      "comparator": "fv32face64",
+      "covered_melt_difference_fraction": 0.0,
+      "total_face_melt_difference_fraction": 0.0,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 20000,
+      "source_W_m2": 20,
+      "comparator": "no_exchange_control",
+      "covered_melt_difference_fraction": 0.7814958979834754,
+      "total_face_melt_difference_fraction": 0.004087011733988621,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 100000,
+      "source_W_m2": 5,
+      "comparator": "rc",
+      "covered_melt_difference_fraction": 0.010826560269479923,
+      "total_face_melt_difference_fraction": 0.00017666299597585144,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 100000,
+      "source_W_m2": 5,
+      "comparator": "fv16",
+      "covered_melt_difference_fraction": -2.2597619102726618e-05,
+      "total_face_melt_difference_fraction": -3.3392536622489644e-06,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 100000,
+      "source_W_m2": 5,
+      "comparator": "fv32",
+      "covered_melt_difference_fraction": 4.278537257818016e-08,
+      "total_face_melt_difference_fraction": -2.9635920149040373e-06,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 100000,
+      "source_W_m2": 5,
+      "comparator": "no_exchange_control",
+      "covered_melt_difference_fraction": -0.4907969982767021,
+      "total_face_melt_difference_fraction": -0.008143556756115111,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 100000,
+      "source_W_m2": 20,
+      "comparator": "rc",
+      "covered_melt_difference_fraction": 0.010826572007552437,
+      "total_face_melt_difference_fraction": 5.3341102463022594e-05,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 100000,
+      "source_W_m2": 20,
+      "comparator": "fv16",
+      "covered_melt_difference_fraction": -2.260301481860072e-05,
+      "total_face_melt_difference_fraction": -3.275367427058029e-06,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 100000,
+      "source_W_m2": 20,
+      "comparator": "fv32",
+      "covered_melt_difference_fraction": 3.742351206703631e-08,
+      "total_face_melt_difference_fraction": -3.15720981824974e-06,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    },
+    {
+      "capacity_J_m2_K": 100000,
+      "source_W_m2": 20,
+      "comparator": "no_exchange_control",
+      "covered_melt_difference_fraction": 0.7815116274521317,
+      "total_face_melt_difference_fraction": 0.004078606667081264,
+      "interpretation": "controlled model comparison; reference is refined model, not environmental truth"
+    }
+  ],
+  "analytic_boundary_errors": [
+    {
+      "case": "W01",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 1.2500376186048356,
+      "rc_relative_error": 3.335775530305637,
+      "refined_fv_relative_error": 0.16407917887099588,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W01",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 576.7581448690904,
+      "rc_relative_error": -0.3026816609299154,
+      "refined_fv_relative_error": 0.0005401401495030989,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W01",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 9743.079013039955,
+      "rc_relative_error": -0.04613281430223813,
+      "refined_fv_relative_error": -1.9319367083880934e-07,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W02",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 4.3777294085862195,
+      "rc_relative_error": 3.335775530305286,
+      "refined_fv_relative_error": 0.1640791788709033,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W02",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 2019.8520867338968,
+      "rc_relative_error": -0.3026816609299154,
+      "refined_fv_relative_error": 0.000540140149503987,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W02",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 34121.02395219535,
+      "rc_relative_error": -0.046132814302238014,
+      "refined_fv_relative_error": -1.9319366839631869e-07,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W03",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 5.000150474419343,
+      "rc_relative_error": 3.335775530305637,
+      "refined_fv_relative_error": 0.16407917887099588,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W03",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 2307.0325794763617,
+      "rc_relative_error": -0.3026816609299154,
+      "refined_fv_relative_error": 0.0005401401495030989,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W03",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 38972.31605215982,
+      "rc_relative_error": -0.04613281430223813,
+      "refined_fv_relative_error": -1.9319367083880934e-07,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W04",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 17.510917634344878,
+      "rc_relative_error": 3.335775530305286,
+      "refined_fv_relative_error": 0.1640791788709033,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W04",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 8079.408346935587,
+      "rc_relative_error": -0.3026816609299154,
+      "refined_fv_relative_error": 0.000540140149503987,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W04",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 136484.0958087814,
+      "rc_relative_error": -0.046132814302238014,
+      "refined_fv_relative_error": -1.9319366839631869e-07,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W05",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 2.7867223244099932,
+      "rc_relative_error": 3.7110598043442824,
+      "refined_fv_relative_error": 0.1547246039335204,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W05",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 944.4363927908872,
+      "rc_relative_error": -0.15655861693652862,
+      "refined_fv_relative_error": 0.00017545736252766453,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W05",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 13581.846378101802,
+      "rc_relative_error": -0.01732826036018769,
+      "refined_fv_relative_error": -1.0497469131731663e-06,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W06",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 5.582733697449157,
+      "rc_relative_error": 3.711059804344134,
+      "refined_fv_relative_error": 0.15472460393348597,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W06",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 1892.0208981521553,
+      "rc_relative_error": -0.15655861693652862,
+      "refined_fv_relative_error": 0.00017545736252877475,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W06",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 27208.96545179037,
+      "rc_relative_error": -0.017328260360187947,
+      "refined_fv_relative_error": -1.049746858772238e-06,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W07",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 11.146889297639973,
+      "rc_relative_error": 3.7110598043442824,
+      "refined_fv_relative_error": 0.1547246039335204,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W07",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 3777.745571163549,
+      "rc_relative_error": -0.15655861693652862,
+      "refined_fv_relative_error": 0.00017545736252766453,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W07",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 54327.38551240721,
+      "rc_relative_error": -0.01732826036018769,
+      "refined_fv_relative_error": -1.0497469131731663e-06,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W08",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 22.33093478979663,
+      "rc_relative_error": 3.711059804344134,
+      "refined_fv_relative_error": 0.15472460393348597,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W08",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 7568.083592608621,
+      "rc_relative_error": -0.15655861693652862,
+      "refined_fv_relative_error": 0.00017545736252877475,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W08",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 108835.86180716148,
+      "rc_relative_error": -0.017328260360187947,
+      "refined_fv_relative_error": -1.049746858772238e-06,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W09",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 9.290869084273368,
+      "rc_relative_error": 6.55511547200395,
+      "refined_fv_relative_error": 0.11783667740166215,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W09",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 1436.8010088191193,
+      "rc_relative_error": 0.13166406389765448,
+      "refined_fv_relative_error": -1.582169471470163e-05,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W09",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 17541.14725103975,
+      "rc_relative_error": 0.010791181433586481,
+      "refined_fv_relative_error": -1.8858807089294771e-06,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W10",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 10.624465439766794,
+      "rc_relative_error": 6.555115472003963,
+      "refined_fv_relative_error": 0.11783667740166459,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W10",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 1643.0371070301983,
+      "rc_relative_error": 0.13166406389765445,
+      "refined_fv_relative_error": -1.582169471614492e-05,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W10",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 20058.975220950273,
+      "rc_relative_error": 0.0107911814335864,
+      "refined_fv_relative_error": -1.8858805671539969e-06,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W11",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 37.16347633709347,
+      "rc_relative_error": 6.55511547200395,
+      "refined_fv_relative_error": 0.11783667740166215,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W11",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 5747.204035276477,
+      "rc_relative_error": 0.13166406389765448,
+      "refined_fv_relative_error": -1.582169471470163e-05,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W11",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 70164.589004159,
+      "rc_relative_error": 0.010791181433586481,
+      "refined_fv_relative_error": -1.8858807089294771e-06,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W12",
+      "time_over_diffusion_time": 0.1,
+      "exact_ice_J": 42.49786175906718,
+      "rc_relative_error": 6.555115472003963,
+      "refined_fv_relative_error": 0.11783667740166459,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W12",
+      "time_over_diffusion_time": 1.0,
+      "exact_ice_J": 6572.148428120793,
+      "rc_relative_error": 0.13166406389765445,
+      "refined_fv_relative_error": -1.582169471614492e-05,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    },
+    {
+      "case": "W12",
+      "time_over_diffusion_time": 10.0,
+      "exact_ice_J": 80235.90088380109,
+      "rc_relative_error": 0.0107911814335864,
+      "refined_fv_relative_error": -1.8858805671539969e-06,
+      "refined_fv_cells": 64,
+      "refined_fv_steps_per_diffusion_time": 400
+    }
+  ],
+  "geometry": [
+    {
+      "id": "G_T0p5_planar",
+      "water_temperature_C": 0.5,
+      "totals": {
+        "atmospheric_J": 2642872.113106233,
+        "water_in_J": 25504416000.019943,
+        "water_out_J": 25469440119.956055,
+        "latent_J": 37618752.17698023,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.010011973200810497,
+        "floor_melt_m3": 0.056418369786322406,
+        "bypass_melt_m3": 0.05639516905415063,
+        "water_in_m3": 12096.000000000002,
+        "water_out_m3": 12096.112631003987,
+        "phase_water_m3": 0.11263099454185692,
+        "covered_face_melt_m3": 0.0,
+        "bare_face_melt_m3": 0.010011973200810497,
+        "absolute_surface_forcing_J": 2642872.113106233,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "final_undercut": null
+    },
+    {
+      "id": "G_T0p5_profile32dt300",
+      "water_temperature_C": 0.5,
+      "totals": {
+        "atmospheric_J": 2642913.5686666397,
+        "water_in_J": 25504416000.0017,
+        "water_out_J": 25469226084.855927,
+        "latent_J": 37832828.714451,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.01001203853229659,
+        "floor_melt_m3": 0.057117265875499965,
+        "bypass_melt_m3": 0.05639516915690942,
+        "water_in_m3": 12096.000000000002,
+        "water_out_m3": 12096.113271943068,
+        "phase_water_m3": 0.11327194225883541,
+        "covered_face_melt_m3": 0.0,
+        "bare_face_melt_m3": 0.01001203853229659,
+        "absolute_surface_forcing_J": 2642913.5686666397,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "final_undercut": {
+        "maximum_horizontal_undercut_m": 0.050590178925836844,
+        "downward_ceiling_area_m2": 0.025295089462918426,
+        "meaning": "geometric diagnostic only; no fracture, stability or collapse prediction"
+      }
+    },
+    {
+      "id": "G_T0p5_profile32dt600",
+      "water_temperature_C": 0.5,
+      "totals": {
+        "atmospheric_J": 2642870.53724605,
+        "water_in_J": 25504415999.984707,
+        "water_out_J": 25469226509.37593,
+        "latent_J": 37832361.14601462,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.010011885592870548,
+        "floor_melt_m3": 0.05711589211059298,
+        "bypass_melt_m3": 0.056395169246740616,
+        "water_in_m3": 12096.000000000002,
+        "water_out_m3": 12096.113270535096,
+        "phase_water_m3": 0.11327054235333714,
+        "covered_face_melt_m3": 0.0,
+        "bare_face_melt_m3": 0.010011885592870548,
+        "absolute_surface_forcing_J": 2642870.53724605,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "final_undercut": {
+        "maximum_horizontal_undercut_m": 0.05059018074979482,
+        "downward_ceiling_area_m2": 0.025295090374897414,
+        "meaning": "geometric diagnostic only; no fracture, stability or collapse prediction"
+      }
+    },
+    {
+      "id": "G_T0p5_profile64dt300",
+      "water_temperature_C": 0.5,
+      "totals": {
+        "atmospheric_J": 2642913.5686666397,
+        "water_in_J": 25504416000.0017,
+        "water_out_J": 25469226084.855927,
+        "latent_J": 37832828.714451,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.01001203853229659,
+        "floor_melt_m3": 0.057117265875499965,
+        "bypass_melt_m3": 0.05639516915690942,
+        "water_in_m3": 12096.000000000002,
+        "water_out_m3": 12096.113271943068,
+        "phase_water_m3": 0.11327194225883541,
+        "covered_face_melt_m3": 0.0,
+        "bare_face_melt_m3": 0.01001203853229659,
+        "absolute_surface_forcing_J": 2642913.5686666397,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "final_undercut": {
+        "maximum_horizontal_undercut_m": 0.05059017892583686,
+        "downward_ceiling_area_m2": 0.02529508946291876,
+        "meaning": "geometric diagnostic only; no fracture, stability or collapse prediction"
+      }
+    },
+    {
+      "id": "G_T1p0_planar",
+      "water_temperature_C": 1.0,
+      "totals": {
+        "atmospheric_J": 2667130.9842302143,
+        "water_in_J": 51008831999.97641,
+        "water_out_J": 50938872888.148926,
+        "latent_J": 72626242.81173809,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.011473494896091053,
+        "floor_melt_m3": 0.1128613975732988,
+        "bypass_melt_m3": 0.11279034281273338,
+        "water_in_m3": 12096.000000000002,
+        "water_out_m3": 12096.217443835154,
+        "phase_water_m3": 0.217443840753707,
+        "covered_face_melt_m3": 0.0,
+        "bare_face_melt_m3": 0.011473494896091053,
+        "absolute_surface_forcing_J": 2667130.9842302143,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "final_undercut": null
+    },
+    {
+      "id": "G_T1p0_profile32dt300",
+      "water_temperature_C": 1.0,
+      "totals": {
+        "atmospheric_J": 2667211.951752965,
+        "water_in_J": 51008831999.994804,
+        "water_out_J": 50937969095.38782,
+        "latent_J": 73530116.55874433,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.011473400333335609,
+        "floor_melt_m3": 0.11581264591038595,
+        "bypass_melt_m3": 0.1127903436985676,
+        "water_in_m3": 12096.000000000002,
+        "water_out_m3": 12096.220150048332,
+        "phase_water_m3": 0.2201500495770787,
+        "covered_face_melt_m3": 0.0,
+        "bare_face_melt_m3": 0.011473400333335609,
+        "absolute_surface_forcing_J": 2667211.951752965,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "final_undercut": {
+        "maximum_horizontal_undercut_m": 0.10681701934379761,
+        "downward_ceiling_area_m2": 0.05340850967189881,
+        "meaning": "geometric diagnostic only; no fracture, stability or collapse prediction"
+      }
+    },
+    {
+      "id": "G_T1p0_profile32dt600",
+      "water_temperature_C": 1.0,
+      "totals": {
+        "atmospheric_J": 2667124.380080619,
+        "water_in_J": 51008832000.029785,
+        "water_out_J": 50937970810.90409,
+        "latent_J": 73528313.50577755,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.011473013097977935,
+        "floor_melt_m3": 0.11580714543621265,
+        "bypass_melt_m3": 0.11279034442644488,
+        "water_in_m3": 12096.000000000002,
+        "water_out_m3": 12096.220144658273,
+        "phase_water_m3": 0.22014465121490281,
+        "covered_face_melt_m3": 0.0,
+        "bare_face_melt_m3": 0.011473013097977935,
+        "absolute_surface_forcing_J": 2667124.380080619,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "final_undercut": {
+        "maximum_horizontal_undercut_m": 0.10681701547568677,
+        "downward_ceiling_area_m2": 0.05340850773784339,
+        "meaning": "geometric diagnostic only; no fracture, stability or collapse prediction"
+      }
+    },
+    {
+      "id": "G_T1p0_profile64dt300",
+      "water_temperature_C": 1.0,
+      "totals": {
+        "atmospheric_J": 2667211.951752965,
+        "water_in_J": 51008831999.994804,
+        "water_out_J": 50937969095.38782,
+        "latent_J": 73530116.55874433,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.011473400333335609,
+        "floor_melt_m3": 0.11581264591038595,
+        "bypass_melt_m3": 0.1127903436985676,
+        "water_in_m3": 12096.000000000002,
+        "water_out_m3": 12096.220150048332,
+        "phase_water_m3": 0.2201500495770787,
+        "covered_face_melt_m3": 0.0,
+        "bare_face_melt_m3": 0.011473400333335609,
+        "absolute_surface_forcing_J": 2667211.951752965,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "final_undercut": {
+        "maximum_horizontal_undercut_m": 0.10681701934379761,
+        "downward_ceiling_area_m2": 0.05340850967189881,
+        "meaning": "geometric diagnostic only; no fracture, stability or collapse prediction"
+      }
+    }
+  ],
+  "limitations": [
+    "The refined coupled model is not an independent physical truth.",
+    "Equal wet/dry net source is a controlled boundary, not identical environmental weather.",
+    "Geometric undercut is not fracture or collapse.",
+    "Field temperature and ablation tests are separate component tests."
+  ]
+}

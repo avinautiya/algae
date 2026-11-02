@@ -1,0 +1,250 @@
+{
+  "classification": "unfit synthetic closure applicability experiment, not field accuracy or historical novelty",
+  "physical_parameters": {
+    "thickness_m": 0.05,
+    "conductivity_W_m_K": 1.0,
+    "volumetric_capacity_J_m3_K": 1800000.0,
+    "area_m2": 1.0
+  },
+  "diffusion_time_s": 4500.000000000001,
+  "same_lumped_capacity_and_ice_conductance": "C=rhoc*A*d, K=k*A/d; not fitted to reference",
+  "declared_shared_water_closure": "quasi-steady finite-capacity parallel exchange; slab diffusion implementation independent",
+  "main_cases": [
+    {
+      "Bi_nominal": 0.1,
+      "time_s": 45.00000000000001,
+      "time_over_diffusion_time": 0.01,
+      "slab_covered_heat_J": 1.603626237302012e-08,
+      "lumped_covered_heat_J": 0.2236179392112142,
+      "lumped_minus_slab_J": 0.22361792317495183,
+      "signed_difference_over_reference_heat": 13944516.370047249,
+      "difference_over_steady_flux_time_or_initial_storage": 0.005478649470463634,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 9.164945493140921e-14
+    },
+    {
+      "Bi_nominal": 0.1,
+      "time_s": 450.00000000000006,
+      "time_over_diffusion_time": 0.09999999999999999,
+      "slab_covered_heat_J": 5.165809768012269,
+      "lumped_covered_heat_J": 21.64322146534537,
+      "lumped_minus_slab_J": 16.4774116973331,
+      "signed_difference_over_reference_heat": 3.189705474515252,
+      "difference_over_steady_flux_time_or_initial_storage": 0.04036973494274772,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 8.018011166334503e-12
+    },
+    {
+      "Bi_nominal": 0.1,
+      "time_s": 4500.000000000001,
+      "time_over_diffusion_time": 1.0,
+      "slab_covered_heat_J": 2303.1217946049774,
+      "lumped_covered_heat_J": 1605.9442380476892,
+      "lumped_minus_slab_J": -697.1775565572882,
+      "signed_difference_over_reference_heat": -0.3027098081353815,
+      "difference_over_steady_flux_time_or_initial_storage": -0.1708088241237884,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 4.637727923031313e-10
+    },
+    {
+      "Bi_nominal": 1.0,
+      "time_s": 45.00000000000001,
+      "time_over_diffusion_time": 0.01,
+      "slab_covered_heat_J": 1.5236319194000323e-07,
+      "lumped_covered_heat_J": 2.1802956911306404,
+      "lumped_minus_slab_J": 2.1802955387674485,
+      "signed_difference_over_reference_heat": 14309857.328441856,
+      "difference_over_steady_flux_time_or_initial_storage": 0.009812339278480613,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 8.672071998606058e-13
+    },
+    {
+      "Bi_nominal": 1.0,
+      "time_s": 450.00000000000006,
+      "time_over_diffusion_time": 0.09999999999999999,
+      "slab_covered_heat_J": 45.18003580591513,
+      "lumped_covered_heat_J": 205.70268407480978,
+      "lumped_minus_slab_J": 160.52264826889464,
+      "signed_difference_over_reference_heat": 3.5529553132376765,
+      "difference_over_steady_flux_time_or_initial_storage": 0.07224262301545736,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 6.558847500347629e-11
+    },
+    {
+      "Bi_nominal": 1.0,
+      "time_s": 4500.000000000001,
+      "time_over_diffusion_time": 1.0,
+      "slab_covered_heat_J": 14902.983810221698,
+      "lumped_covered_heat_J": 12531.860068251324,
+      "lumped_minus_slab_J": -2371.123741970374,
+      "signed_difference_over_reference_heat": -0.1591039601307264,
+      "difference_over_steady_flux_time_or_initial_storage": -0.10671154535603268,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 2.9977443264573754e-09
+    },
+    {
+      "Bi_nominal": 10.0,
+      "time_s": 45.00000000000001,
+      "time_over_diffusion_time": 0.01,
+      "slab_covered_heat_J": 1.0045349644651476e-06,
+      "lumped_covered_heat_J": 17.19404990423731,
+      "lumped_minus_slab_J": 17.194048899702345,
+      "signed_difference_over_reference_heat": 17116426.51369244,
+      "difference_over_steady_flux_time_or_initial_storage": 0.04306439461416541,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 3.4968370703720624e-12
+    },
+    {
+      "Bi_nominal": 10.0,
+      "time_s": 450.00000000000006,
+      "time_over_diffusion_time": 0.09999999999999999,
+      "slab_covered_heat_J": 196.43886299255033,
+      "lumped_covered_heat_J": 1345.3168249925016,
+      "lumped_minus_slab_J": 1148.8779619999511,
+      "signed_difference_over_reference_heat": 5.848526836787488,
+      "difference_over_steady_flux_time_or_initial_storage": 0.28774917535532035,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 2.0975355737188844e-10
+    },
+    {
+      "Bi_nominal": 10.0,
+      "time_s": 4500.000000000001,
+      "time_over_diffusion_time": 1.0,
+      "slab_covered_heat_J": 31774.619118915118,
+      "lumped_covered_heat_J": 35425.408701325345,
+      "lumped_minus_slab_J": 3650.789582410227,
+      "signed_difference_over_reference_heat": 0.11489640737304536,
+      "difference_over_steady_flux_time_or_initial_storage": 0.09143805752054122,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 5.722090810693563e-09
+    }
+  ],
+  "dry_hot_initial_pulse": [
+    {
+      "Bi_nominal": 0.0,
+      "time_s": 45.00000000000001,
+      "time_over_diffusion_time": 0.01,
+      "slab_covered_heat_J": 40305.24800168948,
+      "lumped_covered_heat_J": 3582.0598502995012,
+      "lumped_minus_slab_J": -36723.18815138998,
+      "signed_difference_over_reference_heat": -0.9111267135696733,
+      "difference_over_steady_flux_time_or_initial_storage": -0.10200885597608328,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 1.0311396181350574e-09,
+      "analytic_dry_slab_heat_J": 40621.650015438485,
+      "relative_numerical_error_to_analytic_dry_slab": -0.00778899955144012
+    },
+    {
+      "Bi_nominal": 0.0,
+      "time_s": 450.00000000000006,
+      "time_over_diffusion_time": 0.09999999999999999,
+      "slab_covered_heat_J": 128356.36137474306,
+      "lumped_covered_heat_J": 34258.52950705464,
+      "lumped_minus_slab_J": -94097.83186768842,
+      "signed_difference_over_reference_heat": -0.7330983120732514,
+      "difference_over_steady_flux_time_or_initial_storage": -0.2613828662991345,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 8.975405307865003e-09,
+      "analytic_dry_slab_heat_J": 128456.42416288336,
+      "relative_numerical_error_to_analytic_dry_slab": -0.0007789628957241605
+    },
+    {
+      "Bi_nominal": 0.0,
+      "time_s": 4500.000000000001,
+      "time_over_diffusion_time": 1.0,
+      "slab_covered_heat_J": 335211.5114382207,
+      "lumped_covered_heat_J": 227563.40117828513,
+      "lumped_minus_slab_J": -107648.11025993555,
+      "signed_difference_over_reference_heat": -0.3211348852492348,
+      "difference_over_steady_flux_time_or_initial_storage": -0.29902252849982097,
+      "reference_grid_cells": 64,
+      "reference_step_s": 2.2500000000000004,
+      "slab_discrete_energy_residual_J": 3.756051825121176e-08,
+      "analytic_dry_slab_heat_J": 335253.48424680013,
+      "relative_numerical_error_to_analytic_dry_slab": -0.00012519723299445239
+    }
+  ],
+  "spatial_refinement": [
+    {
+      "cells": 16,
+      "covered_heat_J": 538.2329262220829,
+      "lumped_heat_J": 772.8328489002987,
+      "accumulated_discrete_energy_residual_J": 1.3743015924223147e-10,
+      "final_time_s": 900.0000000000001
+    },
+    {
+      "cells": 32,
+      "covered_heat_J": 535.9319062645001,
+      "lumped_heat_J": 772.8328489002987,
+      "accumulated_discrete_energy_residual_J": 2.5242888691704984e-12,
+      "final_time_s": 900.0000000000001
+    },
+    {
+      "cells": 64,
+      "covered_heat_J": 535.3554881170681,
+      "lumped_heat_J": 772.8328489002987,
+      "accumulated_discrete_energy_residual_J": 1.8938910077477513e-10,
+      "final_time_s": 900.0000000000001
+    },
+    {
+      "cells": 128,
+      "covered_heat_J": 535.2113112344823,
+      "lumped_heat_J": 772.8328489002987,
+      "accumulated_discrete_energy_residual_J": 3.347308579657344e-09,
+      "final_time_s": 900.0000000000001
+    }
+  ],
+  "time_refinement": [
+    {
+      "step_fraction": 0.01,
+      "covered_heat_J": 588.1846744259071,
+      "lumped_heat_J": 772.8328489002438,
+      "accumulated_discrete_energy_residual_J": 7.030172971544957e-11,
+      "final_time_s": 900.0000000000001
+    },
+    {
+      "step_fraction": 0.005,
+      "covered_heat_J": 561.3647273230875,
+      "lumped_heat_J": 772.8328489002407,
+      "accumulated_discrete_energy_residual_J": -2.7880831866312905e-12,
+      "final_time_s": 900.0000000000001
+    },
+    {
+      "step_fraction": 0.0025,
+      "covered_heat_J": 547.6839875942323,
+      "lumped_heat_J": 772.832848900244,
+      "accumulated_discrete_energy_residual_J": 3.9475738974639815e-10,
+      "final_time_s": 900.0000000000001
+    },
+    {
+      "step_fraction": 0.00125,
+      "covered_heat_J": 540.7736932127657,
+      "lumped_heat_J": 772.8328489002575,
+      "accumulated_discrete_energy_residual_J": 5.027879739639483e-10,
+      "final_time_s": 900.0000000000001
+    },
+    {
+      "step_fraction": 0.000625,
+      "covered_heat_J": 537.3007853079308,
+      "lumped_heat_J": 772.8328489002664,
+      "accumulated_discrete_energy_residual_J": 1.38170600617491e-11,
+      "final_time_s": 900.0000000000001
+    }
+  ],
+  "source_sha256": {
+    "wet_debris.py": "89f2af2fc26ea3d0a8c11dadd695d87b10850bede6a62cbc930496eb7b7461e3",
+    "resolved_slab.py": "90216cfcbae3cb34ad1e7d3f5a98ce537a3e7efd1eca3cadb8f7479a7fc221a2",
+    "run_slab_comparison.py": "2f72ff8590db12041284bf44a770010d75dd272fcc2a257f01248efeb33ca96f"
+  }
+}

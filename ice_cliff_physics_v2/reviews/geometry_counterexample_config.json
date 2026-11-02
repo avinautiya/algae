@@ -1,0 +1,83 @@
+{
+  "geometry": {
+    "upstream_edge_x_m": -2.0,
+    "ice_back_edge_x_m": 5.0,
+    "ice_bottom_z_m": -3.0,
+    "face_x_m": 0.0,
+    "floor_z_m": -0.08,
+    "crest_z_m": 3.0,
+    "extrusion_width_m": 0.5
+  },
+  "physics": {
+    "bypass_floor_m": 0.0,
+    "bypass_floor_limit_m": -2.0,
+    "bypass_width_m": 0.5,
+    "bypass_area_m2": 1.0,
+    "weir_coefficient_sqrt_m_s": 1.2,
+    "obstruction_height_m": 0.2,
+    "aperture_m": 0.0,
+    "discharge_coefficient": 0.6,
+    "darcy_conductance_m2_s": 0.0,
+    "water_h_W_m2_K": 200.0,
+    "face_cover_fraction": 0.12987012987012989,
+    "debris_capacity_J_m2_K": 100000.0,
+    "debris_conductance_W_m2_K": 5.0,
+    "initial_debris_temperature_C": 0.5,
+    "new_debris_temperature_C": 0.3,
+    "contact_manning_n": 0.02,
+    "contact_friction_slope": 0.01,
+    "initial_surface_cold_J_m2": 0.0,
+    "new_surface_cold_J_m2": 0.0,
+    "ice_subcooling_K": 0.0,
+    "ice_heat_capacity_J_kg_K": 2100.0,
+    "max_meltwater_fraction": 0.05
+  },
+  "step_s": 60.0,
+  "removal_time_s": null,
+  "provenance": "SYNTHETIC 24-hour development case. Geometry, runoff, water superheat, net atmospheric flux and closure coefficients are assumed inputs, not a Himalayan field prediction.",
+  "periods": [
+    {
+      "duration_s": 600.0,
+      "inflow_m3_s": 0.07,
+      "water_superheat_K": 0.5,
+      "face_atmospheric_net_W_m2": 100.0,
+      "floor_atmospheric_net_W_m2": 100.0,
+      "bypass_atmospheric_net_W_m2": 100.0
+    }
+  ],
+  "upgrades": {
+    "face_profile_bands": 4,
+    "ledge_heat_policy": "adiabatic",
+    "wet_debris": "resolved_temperate",
+    "debris_cells": 4,
+    "debris_substep_fraction": 0.03,
+    "initial_face_bands": [
+      {
+        "z_low_m": -0.08,
+        "z_high_m": 0.5,
+        "front_x_m": 0.0
+      },
+      {
+        "z_low_m": 0.5,
+        "z_high_m": 1.0,
+        "front_x_m": -0.25
+      },
+      {
+        "z_low_m": 1.0,
+        "z_high_m": 2.0,
+        "front_x_m": 0.2
+      },
+      {
+        "z_low_m": 2.0,
+        "z_high_m": 3.0,
+        "front_x_m": 0.1
+      }
+    ],
+    "profile_provenance": "synthetic audit; same local coordinate datum as routing proxy",
+    "fixed_cover_interval_m": [
+      -0.06,
+      0.34
+    ],
+    "cover_interval_provenance": "synthetic fixed elevation mask"
+  }
+}

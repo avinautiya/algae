@@ -1,0 +1,189 @@
+{
+  "checks": {
+    "coupled_records": 30,
+    "all30complete": true,
+    "frozen_source_hashes_match": true,
+    "frozen_cases_hash_match": true,
+    "frozen_spec_hash_match": true,
+    "all_input_hashes_match": true,
+    "all_record_freeze_hashes_match": true,
+    "all_configurations_match": true,
+    "contrast_count": 18,
+    "maximum_recomputed_contrast_difference": 0.0,
+    "all_fixed_footprint_gates_pass": true,
+    "max_abs_phase_geometry_volume_residual_m3": 4.3021142204224816e-15,
+    "max_record_relative_energy_residual": 2.2541140484893632e-15,
+    "boundary_records": 12,
+    "maximum_recomputed_boundary_difference": 0.0,
+    "boundary_early_error_range_percent": [
+      11.783667740166216,
+      16.407917887099586
+    ],
+    "boundary_1tau_max_abs_error_percent": 0.0540140149503987,
+    "boundary_10tau_max_abs_error_percent": 0.0001885880708929477,
+    "maximum_geometry_summary_total_difference": 0.0,
+    "boundary_time_refinement_dominates_space_at_early_time_all12": true
+  },
+  "boundary_detail": [
+    {
+      "case": "W01",
+      "errors_by_tau": {
+        "0.1": 0.16407917887099588,
+        "1.0": 0.0005401401495030989,
+        "10.0": -1.9319367083880934e-07
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.16165027086887654,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.007772971231903491,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W02",
+      "errors_by_tau": {
+        "0.1": 0.1640791788709033,
+        "1.0": 0.000540140149503987,
+        "10.0": -1.9319366839631869e-07
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.16165027086886383,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.007772971231902663,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W03",
+      "errors_by_tau": {
+        "0.1": 0.16407917887099588,
+        "1.0": 0.0005401401495030989,
+        "10.0": -1.9319367083880934e-07
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.16165027086887654,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.007772971231903491,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W04",
+      "errors_by_tau": {
+        "0.1": 0.1640791788709033,
+        "1.0": 0.000540140149503987,
+        "10.0": -1.9319366839631869e-07
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.16165027086886383,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.007772971231902663,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W05",
+      "errors_by_tau": {
+        "0.1": 0.1547246039335204,
+        "1.0": 0.00017545736252766453,
+        "10.0": -1.0497469131731663e-06
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.15125237958086069,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.006959650868090666,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W06",
+      "errors_by_tau": {
+        "0.1": 0.15472460393348597,
+        "1.0": 0.00017545736252877475,
+        "10.0": -1.049746858772238e-06
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.15125237958085527,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.006959650868090579,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W07",
+      "errors_by_tau": {
+        "0.1": 0.1547246039335204,
+        "1.0": 0.00017545736252766453,
+        "10.0": -1.0497469131731663e-06
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.15125237958086069,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.006959650868090666,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W08",
+      "errors_by_tau": {
+        "0.1": 0.15472460393348597,
+        "1.0": 0.00017545736252877475,
+        "10.0": -1.049746858772238e-06
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.15125237958085527,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.006959650868090579,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W09",
+      "errors_by_tau": {
+        "0.1": 0.11783667740166215,
+        "1.0": -1.582169471470163e-05,
+        "10.0": -1.8858807089294771e-06
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.11281749120141661,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.003975257619468064,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W10",
+      "errors_by_tau": {
+        "0.1": 0.11783667740166459,
+        "1.0": -1.582169471614492e-05,
+        "10.0": -1.8858805671539969e-06
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.1128174912014163,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.003975257619467355,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W11",
+      "errors_by_tau": {
+        "0.1": 0.11783667740166215,
+        "1.0": -1.582169471470163e-05,
+        "10.0": -1.8858807089294771e-06
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.11281749120141661,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.003975257619468064,
+      "max_256to512_analytic_series_difference_J": 0.0
+    },
+    {
+      "case": "W12",
+      "errors_by_tau": {
+        "0.1": 0.11783667740166459,
+        "1.0": -1.582169471614492e-05,
+        "10.0": -1.8858805671539969e-06
+      },
+      "time_refinement_32cells_200_to400_relative_to_exact": 0.1128174912014163,
+      "space_refinement_32to64_400steps_relative_to_exact": 0.003975257619467355,
+      "max_256to512_analytic_series_difference_J": 0.0
+    }
+  ],
+  "findings": [
+    {
+      "id": "FR1",
+      "severity": "major numerical qualification",
+      "finding": "At0.1diffusion time FV64/400steps is NOT an accurate analytic reference:11.78\u201316.41% cumulative ice-heat error. At fixed32cells, doubling steps200\u2192400 reduces error much more than32\u219264cells at400steps in all12cases. Early-time accuracy requires explicit temporal refinement; late1tau error<0.055% cannot be extended to early time."
+    },
+    {
+      "id": "FR2",
+      "severity": "scope",
+      "finding": "Coupled reference is same governing implementation with refined settings, not independent CFD or field truth. Contrasts establish approximation differences only."
+    },
+    {
+      "id": "FR3",
+      "severity": "scope",
+      "finding": "Covered-footprint area is matched in frozen gates. Total-face and floor geometries evolve; geometric-study floor melt is not an identical-Eulerian-footprint accuracy comparison. Separate whole-model output differences from matched-cover contrasts."
+    },
+    {
+      "id": "FR4",
+      "severity": "scope",
+      "finding": "Prescribed equal wet/dry net heating is a controlled boundary intervention, not matched natural weather; noexchange control is not a professional glacier baseline. Geometric undercut has adiabatic ledges and no collapse/lifetime inference."
+    },
+    {
+      "id": "FR5",
+      "severity": "figure interpretation",
+      "finding": "Figure01 draws small11\u201316% FV early error on same yaxis as333\u2013656% RC error; data are correct but FV error can look visually negligible. Label early FV residual numerically or add separate inset before presenting accurate early-time reference. Figure02uses correctly computed matchedcovered differences; Figure03directly plots saved heightbands and honestly labels adiabatic ledges/no collapse."
+    }
+  ],
+  "source_changes_made": false
+}

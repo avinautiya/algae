@@ -1,0 +1,71 @@
+{
+  "results": [
+    {
+      "id": "T11",
+      "status": "completed",
+      "checks": {
+        "global_energy_residual_J": -1.0291114449501038e-07,
+        "geometry_phase_volume_residual_m3": -2.230854390106174e-15,
+        "water_bookkeeping_residual_m3": -1.7166618820896318e-11
+      },
+      "max_normalized_post_geometry_enthalpy_mismatch": 3.3750117866985434e-16,
+      "max_canonical_area_mismatch_m2": 0.0,
+      "normalized_global_energy_residual": 4.284242678816201e-16,
+      "steps": 60,
+      "max_actual_height_bands": 0
+    },
+    {
+      "id": "T12",
+      "status": "completed",
+      "checks": {
+        "global_energy_residual_J": -9.825453162193298e-08,
+        "geometry_phase_volume_residual_m3": -2.5292268279741847e-15,
+        "water_bookkeeping_residual_m3": 5.133863820172557e-11
+      },
+      "max_normalized_post_geometry_enthalpy_mismatch": 3.6181524386133647e-16,
+      "max_canonical_area_mismatch_m2": 0.0,
+      "normalized_global_energy_residual": 2.536734387870868e-16,
+      "steps": 60,
+      "max_actual_height_bands": 0
+    },
+    {
+      "id": "T16",
+      "status": "completed",
+      "checks": {
+        "global_energy_residual_J": 1.909211277961731e-08,
+        "geometry_phase_volume_residual_m3": 7.563394355258879e-16,
+        "water_bookkeeping_residual_m3": 4.0734228056588107e-10
+      },
+      "max_normalized_post_geometry_enthalpy_mismatch": 1.925598245398716e-16,
+      "max_canonical_area_mismatch_m2": 0.0,
+      "normalized_global_energy_residual": 4.5746942343791205e-17,
+      "steps": 60,
+      "max_actual_height_bands": 128
+    },
+    {
+      "id": "T19",
+      "status": "completed",
+      "checks": {
+        "global_energy_residual_J": 1.6065314412117004e-08,
+        "geometry_phase_volume_residual_m3": -2.8215277336762767e-15,
+        "water_bookkeeping_residual_m3": -1.0178947615346878e-10
+      },
+      "max_normalized_post_geometry_enthalpy_mismatch": 2.18795211713256e-16,
+      "max_canonical_area_mismatch_m2": 0.0,
+      "normalized_global_energy_residual": 1.745385440014886e-17,
+      "steps": 60,
+      "max_actual_height_bands": 70
+    }
+  ],
+  "source_sha256_before": {
+    "model.py": "7b391db4afbc2ecb95a904ab8d5d0e568e36de56efcd891ae2cedfa4cb443b51",
+    "face_thermal.py": "5eadfa551ffb7426751c1e47e02bf22f40a1968eaca1dda56c75c4321556fea3",
+    "thermal/column_partition.py": "dafce9db2c360f60ff8187490afc44a633e2843e72de3ef32c614603904659c1"
+  },
+  "source_sha256_after": {
+    "model.py": "7b391db4afbc2ecb95a904ab8d5d0e568e36de56efcd891ae2cedfa4cb443b51",
+    "face_thermal.py": "5eadfa551ffb7426751c1e47e02bf22f40a1968eaca1dda56c75c4321556fea3",
+    "thermal/column_partition.py": "dafce9db2c360f60ff8187490afc44a633e2843e72de3ef32c614603904659c1"
+  },
+  "source_changed_during_review": false
+}

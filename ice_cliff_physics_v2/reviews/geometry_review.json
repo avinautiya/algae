@@ -1,0 +1,31 @@
+{
+  "scope": "independent synthetic parent geometry integration audit",
+  "parent_model_sha256": "74bf4869810473e548adb5a08e405c2b978c916003268f2d5a6ebf447f2556c8",
+  "volume_energy_accounting": "PASS for exercised nonplanar partial-wet-cover cases",
+  "blocking_algorithmic_bugs_found": [],
+  "findings": [
+    {
+      "id": "G1",
+      "severity": "medium-output-interpretation",
+      "issue": "end-state row mixes beginning-step mask and hydraulic values",
+      "repair": "explicit surface_partition_sample_time_s and state_sample_time_s labels; score hydraulics on existing hydraulic_sample_time_s"
+    },
+    {
+      "id": "G2",
+      "severity": "high-if-claiming-height-converged-basal-predictions",
+      "issue": "thin basal patch not resolved by coarse height bands despite energy conservation",
+      "evidence": "128/256 match;4/16/64 basal retreat differ; see geometry_height_refinement.json",
+      "repair": "height refinement at declared boundary case; include basal front/contact metrics, not only floor"
+    }
+  ],
+  "raw_evidence": [
+    "geometry_counterexample_results.json",
+    "geometry_height_refinement.json"
+  ],
+  "remaining_scope": [
+    "adiabatic ledges",
+    "no collapse",
+    "Eulerian height mask not material transport",
+    "basal hydraulic routing proxy not resolved flow"
+  ]
+}

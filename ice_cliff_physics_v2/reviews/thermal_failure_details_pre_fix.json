@@ -1,0 +1,78 @@
+[
+  {
+    "component": "column_remap",
+    "old_total": 0.0767724796347489,
+    "new_total": 0.07677247963474888,
+    "difference": -1.3877787807814457e-17,
+    "wet_old": 0.012960718626439903,
+    "dry_old": 0.06381176100830899,
+    "new_wet": 0.012956431833457863,
+    "reason": "area contraction requires an explicit outgoing-enthalpy operator",
+    "trace": "Traceback (most recent call last):\n  File \"/private/tmp/cliff-upgrade-20261101/reviews/reproduce_thermal_failures.py\", line 12, in remap\n    try:return original_remap(p,total,wet,inc)\n  File \"/private/tmp/cliff-upgrade-20261101/package/thermal/column_partition.py\", line 88, in remap\n    if total<p.total_area_m2:raise ValueError('area contraction requires an explicit outgoing-enthalpy operator')\nValueError: area contraction requires an explicit outgoing-enthalpy operator\n",
+    "id": "T11"
+  },
+  {
+    "component": "column_remap",
+    "old_total": 0.10879963057535877,
+    "new_total": 0.10879963057535876,
+    "difference": -1.3877787807814457e-17,
+    "wet_old": 0.0006258369668408134,
+    "dry_old": 0.10817379360851795,
+    "new_wet": 0.000618865646855607,
+    "reason": "area contraction requires an explicit outgoing-enthalpy operator",
+    "trace": "Traceback (most recent call last):\n  File \"/private/tmp/cliff-upgrade-20261101/reviews/reproduce_thermal_failures.py\", line 12, in remap\n    try:return original_remap(p,total,wet,inc)\n  File \"/private/tmp/cliff-upgrade-20261101/package/thermal/column_partition.py\", line 88, in remap\n    if total<p.total_area_m2:raise ValueError('area contraction requires an explicit outgoing-enthalpy operator')\nValueError: area contraction requires an explicit outgoing-enthalpy operator\n",
+    "id": "T12"
+  },
+  {
+    "component": "geometry",
+    "energies": {
+      "bare_air": 19963.75051447699,
+      "bare_water": 1.5453210109716128e-14,
+      "covered_dry": 2415.0058615518283,
+      "covered_water": 17.691724918422338
+    },
+    "class_areas": {
+      "bare_water_m2": 0.0,
+      "bare_air_m2": 1.3969841683718938,
+      "debris_water_m2": 0.0010417300800637241,
+      "debris_air_m2": 0.1419936198048457
+    },
+    "water_stage": -0.07795557635347876,
+    "cover": [
+      [
+        -0.08003903651360621,
+        0.20603166325621264
+      ]
+    ],
+    "floor": -0.08003903651360621,
+    "reason": "bare_water: positive class energy supplied for zero old-profile class area",
+    "trace": "Traceback (most recent call last):\n  File \"/private/tmp/cliff-upgrade-20261101/package/face_geometry/integration_adapter.py\", line 84, in advance_with_partition\n    contributions[name]=_allocate(energy[name],weights)\n  File \"/private/tmp/cliff-upgrade-20261101/package/face_geometry/integration_adapter.py\", line 47, in _allocate\n    raise ValueError('positive class energy supplied for zero old-profile class area')\nValueError: positive class energy supplied for zero old-profile class area\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/private/tmp/cliff-upgrade-20261101/reviews/reproduce_thermal_failures.py\", line 19, in geom\n    try:return original_geom(p,energy,floor,stage,cover)\n  File \"/private/tmp/cliff-upgrade-20261101/package/face_geometry/integration_adapter.py\", line 86, in advance_with_partition\n    raise ValueError(name+': '+str(exc)) from exc\nValueError: bare_water: positive class energy supplied for zero old-profile class area\n",
+    "id": "T16"
+  },
+  {
+    "component": "geometry",
+    "energies": {
+      "bare_air": 18458.186180599467,
+      "bare_water": 110.72668690186154,
+      "covered_dry": 1.1368683772161603e-13,
+      "covered_water": 717.7613391162714
+    },
+    "class_areas": {
+      "bare_water_m2": 0.01174791131992219,
+      "bare_air_m2": 1.5056448931907738,
+      "debris_water_m2": 0.022607195489304243,
+      "debris_air_m2": 0.0
+    },
+    "water_stage": -0.011289786381547137,
+    "cover": [
+      [
+        -0.07,
+        -0.02478560902139152
+      ]
+    ],
+    "floor": -0.08,
+    "reason": "covered_dry: positive class energy supplied for zero old-profile class area",
+    "trace": "Traceback (most recent call last):\n  File \"/private/tmp/cliff-upgrade-20261101/package/face_geometry/integration_adapter.py\", line 84, in advance_with_partition\n    contributions[name]=_allocate(energy[name],weights)\n  File \"/private/tmp/cliff-upgrade-20261101/package/face_geometry/integration_adapter.py\", line 47, in _allocate\n    raise ValueError('positive class energy supplied for zero old-profile class area')\nValueError: positive class energy supplied for zero old-profile class area\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/private/tmp/cliff-upgrade-20261101/reviews/reproduce_thermal_failures.py\", line 19, in geom\n    try:return original_geom(p,energy,floor,stage,cover)\n  File \"/private/tmp/cliff-upgrade-20261101/package/face_geometry/integration_adapter.py\", line 86, in advance_with_partition\n    raise ValueError(name+': '+str(exc)) from exc\nValueError: covered_dry: positive class energy supplied for zero old-profile class area\n",
+    "id": "T19"
+  }
+]

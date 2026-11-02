@@ -1,0 +1,27 @@
+{
+  "model_scores_not_computed_by_this_agent": true,
+  "source_mass_totals_and_geometry_already_inspected": true,
+  "scope": "conditional author-linked ablation transfer; no water/cliff validation",
+  "spec_sha256": "dc94a0fc0a725fde5c530141267571354749ba88f40d937a95e592bedee7a867",
+  "source_links": [
+    "KDT_2020b:P_AWS_1",
+    "KDT_2023a:P11",
+    "KDT_2023b:P12",
+    "KDT_2023c:P13"
+  ],
+  "primary_pairs": 12,
+  "clock_offsets_hours": [
+    -12,
+    0,
+    12
+  ],
+  "depth_scenarios": [
+    "author_profile_depth",
+    "linked_stake_depth"
+  ],
+  "leading_scenarios": [
+    "zero",
+    "first_observed_day_template",
+    "max_first14day_daily_rate_engineering_upper"
+  ]
+}

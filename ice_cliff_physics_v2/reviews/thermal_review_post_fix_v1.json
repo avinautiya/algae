@@ -1,0 +1,524 @@
+{
+  "classification": "independent synthetic integration review, not field validation",
+  "seed": 20261101,
+  "source_sha256_before": {
+    "model.py": "7b391db4afbc2ecb95a904ab8d5d0e568e36de56efcd891ae2cedfa4cb443b51",
+    "face_thermal.py": "5eadfa551ffb7426751c1e47e02bf22f40a1968eaca1dda56c75c4321556fea3",
+    "thermal/wet_debris.py": "89f2af2fc26ea3d0a8c11dadd695d87b10850bede6a62cbc930496eb7b7461e3",
+    "thermal/resolved_slab.py": "90216cfcbae3cb34ad1e7d3f5a98ce537a3e7efd1eca3cadb8f7479a7fc221a2",
+    "thermal/column_partition.py": "dafce9db2c360f60ff8187490afc44a633e2843e72de3ef32c614603904659c1"
+  },
+  "source_sha256_after": {
+    "model.py": "7b391db4afbc2ecb95a904ab8d5d0e568e36de56efcd891ae2cedfa4cb443b51",
+    "face_thermal.py": "5eadfa551ffb7426751c1e47e02bf22f40a1968eaca1dda56c75c4321556fea3",
+    "thermal/wet_debris.py": "89f2af2fc26ea3d0a8c11dadd695d87b10850bede6a62cbc930496eb7b7461e3",
+    "thermal/resolved_slab.py": "90216cfcbae3cb34ad1e7d3f5a98ce537a3e7efd1eca3cadb8f7479a7fc221a2",
+    "thermal/column_partition.py": "dafce9db2c360f60ff8187490afc44a633e2843e72de3ef32c614603904659c1"
+  },
+  "source_changed_during_review": false,
+  "results": [
+    {
+      "id": "T01",
+      "status": "completed",
+      "mode": "lumped_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": 3.608874976634979e-08,
+        "geometry_phase_volume_residual_m3": -3.4373545676480433e-15,
+        "water_bookkeeping_residual_m3": -9.602261390531663e-11
+      },
+      "normalized_energy_residual": 1.1785396836778548e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.0010749565039305927,
+      "max_phase_water_ratio": 1.6534901082886056e-05,
+      "reservoir_samples": []
+    },
+    {
+      "id": "T02",
+      "status": "expected_scope_refusal",
+      "reason": "local route meltwater feedback requires a declared downstream free-drainage contract"
+    },
+    {
+      "id": "T03",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": 2.752058207988739e-07,
+        "geometry_phase_volume_residual_m3": -7.251144129583054e-16,
+        "water_bookkeeping_residual_m3": 2.256314596965625e-10
+      },
+      "normalized_energy_residual": 2.795897429973746e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.0015104827690141872,
+      "max_phase_water_ratio": 3.6221382973378336e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.08414214156974725,
+          "post_geometry_area_m2": 0.08414214156974725,
+          "thermal_stored_J": 37025.36406465382,
+          "post_geometry_stored_J": 37025.36406465381
+        },
+        {
+          "thermal_area_m2": 0.08414214156974725,
+          "post_geometry_area_m2": 0.08414214156974725,
+          "thermal_stored_J": 1566.1144115375,
+          "post_geometry_stored_J": 1566.1144115375002
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "relative_fraction",
+      "heat_policy": "prescribed_all_cover",
+      "checks": {
+        "global_energy_residual_J": -2.2491440176963806e-07,
+        "geometry_phase_volume_residual_m3": -2.67841304690819e-15,
+        "water_bookkeeping_residual_m3": -5.159455935405122e-10
+      },
+      "normalized_energy_residual": 1.849712055508843e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.003725181579035355,
+      "max_phase_water_ratio": 2.9717011753300234e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.06051857755082642,
+          "post_geometry_area_m2": 0.06051990620793704,
+          "thermal_stored_J": 1718.0426529710135,
+          "post_geometry_stored_J": 1718.0831191580141
+        },
+        {
+          "thermal_area_m2": 0.06058546294962409,
+          "post_geometry_area_m2": 0.06058639478915649,
+          "thermal_stored_J": 529.7054248554338,
+          "post_geometry_stored_J": 529.7338053852723
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "status": "completed",
+      "mode": "lumped_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": 1.1548399925231934e-07,
+        "geometry_phase_volume_residual_m3": -1.2559397966072083e-15,
+        "water_bookkeeping_residual_m3": -4.269695621367253e-11
+      },
+      "normalized_energy_residual": 1.7054507565762892e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.0026536217398151368,
+      "max_phase_water_ratio": 1.6451729489632782e-05,
+      "reservoir_samples": []
+    },
+    {
+      "id": "T06",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "relative_fraction",
+      "heat_policy": "prescribed_all_cover",
+      "checks": {
+        "global_energy_residual_J": -2.0139850676059723e-07,
+        "geometry_phase_volume_residual_m3": -2.2282523048922087e-15,
+        "water_bookkeeping_residual_m3": 1.1960634800287084e-09
+      },
+      "normalized_energy_residual": 1.2628359059278447e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.00010320543218001688,
+      "max_phase_water_ratio": 1.0441012403948977e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.03517264253488022,
+          "post_geometry_area_m2": 0.03517327719556165,
+          "thermal_stored_J": 3821.2394713487784,
+          "post_geometry_stored_J": 3821.34328577784
+        },
+        {
+          "thermal_area_m2": 0.03520457385262746,
+          "post_geometry_area_m2": 0.035205018384661606,
+          "thermal_stored_J": 403.0710649559623,
+          "post_geometry_stored_J": 403.14377914903355
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": -4.307366907596588e-08,
+        "geometry_phase_volume_residual_m3": -2.2577426039838144e-15,
+        "water_bookkeeping_residual_m3": -1.5620538456467825e-10
+      },
+      "normalized_energy_residual": 6.242195006623658e-17,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.0012955290016820025,
+      "max_phase_water_ratio": 1.3850792269765861e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.031266635950964065,
+          "post_geometry_area_m2": 0.031266635950964065,
+          "thermal_stored_J": 499.4146730564713,
+          "post_geometry_stored_J": 499.4146730564712
+        },
+        {
+          "thermal_area_m2": 0.031266635950964065,
+          "post_geometry_area_m2": 0.031266635950964065,
+          "thermal_stored_J": 156.6213374309649,
+          "post_geometry_stored_J": 156.6213374309649
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "relative_fraction",
+      "heat_policy": "prescribed_all_cover",
+      "checks": {
+        "global_energy_residual_J": -1.4202669262886047e-07,
+        "geometry_phase_volume_residual_m3": -3.1988300897012323e-15,
+        "water_bookkeeping_residual_m3": -4.87963875903108e-10
+      },
+      "normalized_energy_residual": 2.209375150879568e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.005562313788960353,
+      "max_phase_water_ratio": 2.3772177979289054e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.045196040695558985,
+          "post_geometry_area_m2": 0.04519652026848965,
+          "thermal_stored_J": 14929.735765078158,
+          "post_geometry_stored_J": 14929.782676820405
+        },
+        {
+          "thermal_area_m2": 0.04522017771535704,
+          "post_geometry_area_m2": 0.045220513915248436,
+          "thermal_stored_J": 1113.073840672774,
+          "post_geometry_stored_J": 1113.1067276887836
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "status": "completed",
+      "mode": "lumped_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": -8.66129994392395e-08,
+        "geometry_phase_volume_residual_m3": -9.471590178833367e-16,
+        "water_bookkeeping_residual_m3": 1.199446310502783e-09
+      },
+      "normalized_energy_residual": 1.558847291899183e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.0024491160666950226,
+      "max_phase_water_ratio": 1.2702565018215855e-05,
+      "reservoir_samples": []
+    },
+    {
+      "id": "T10",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "relative_fraction",
+      "heat_policy": "prescribed_all_cover",
+      "checks": {
+        "global_energy_residual_J": 1.7695128917694092e-08,
+        "geometry_phase_volume_residual_m3": -6.678685382510707e-16,
+        "water_bookkeeping_residual_m3": 4.956301861980261e-12
+      },
+      "normalized_energy_residual": 1.62202165477636e-17,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.0031969491371327593,
+      "max_phase_water_ratio": 1.742529059047285e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.14419024275018893,
+          "post_geometry_area_m2": 0.14419224437184602,
+          "thermal_stored_J": 13332.355906467226,
+          "post_geometry_stored_J": 13332.512875808941
+        },
+        {
+          "thermal_area_m2": 0.14429096777985592,
+          "post_geometry_area_m2": 0.1442923701845552,
+          "thermal_stored_J": 2594.2888140878736,
+          "post_geometry_stored_J": 2594.398792185726
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": -1.0291114449501038e-07,
+        "geometry_phase_volume_residual_m3": -2.230854390106174e-15,
+        "water_bookkeeping_residual_m3": -1.7166618820896318e-11
+      },
+      "normalized_energy_residual": 4.284242678816201e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.005921382733113369,
+      "max_phase_water_ratio": 2.2431827418141743e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.07677247963474888,
+          "post_geometry_area_m2": 0.07677247963474888,
+          "thermal_stored_J": 25247.3366957335,
+          "post_geometry_stored_J": 25247.3366957335
+        },
+        {
+          "thermal_area_m2": 0.07677247963474888,
+          "post_geometry_area_m2": 0.07677247963474888,
+          "thermal_stored_J": 5343.332118561867,
+          "post_geometry_stored_J": 5343.332118561866
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "status": "expected_scope_refusal",
+      "reason": "local route meltwater feedback requires a declared downstream free-drainage contract"
+    },
+    {
+      "id": "T13",
+      "status": "completed",
+      "mode": "lumped_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": -2.1280720829963684e-07,
+        "geometry_phase_volume_residual_m3": -3.3792413312028202e-15,
+        "water_bookkeeping_residual_m3": -6.389743040235984e-10
+      },
+      "normalized_energy_residual": 9.415677644183024e-17,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.002858105193698154,
+      "max_phase_water_ratio": 1.601271773058625e-05,
+      "reservoir_samples": []
+    },
+    {
+      "id": "T14",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "relative_fraction",
+      "heat_policy": "prescribed_all_cover",
+      "checks": {
+        "global_energy_residual_J": 3.287568688392639e-07,
+        "geometry_phase_volume_residual_m3": -3.8632291810003494e-15,
+        "water_bookkeeping_residual_m3": -3.19597034600938e-10
+      },
+      "normalized_energy_residual": 2.243307534472011e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.005030628297905384,
+      "max_phase_water_ratio": 1.713819698215055e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.03828551923390766,
+          "post_geometry_area_m2": 0.03828610839096829,
+          "thermal_stored_J": 6229.218342237489,
+          "post_geometry_stored_J": 6229.370593437457
+        },
+        {
+          "thermal_area_m2": 0.038315160320134635,
+          "post_geometry_area_m2": 0.038315572950184354,
+          "thermal_stored_J": 821.9596431474915,
+          "post_geometry_stored_J": 822.0662758680512
+        }
+      ]
+    },
+    {
+      "id": "T15",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": -2.3283064365386963e-08,
+        "geometry_phase_volume_residual_m3": -2.1016174911459018e-15,
+        "water_bookkeeping_residual_m3": -1.2114460649914616e-10
+      },
+      "normalized_energy_residual": 4.415853313724257e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.0027474834909622372,
+      "max_phase_water_ratio": 9.257435223284518e-06,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.07409707217191594,
+          "post_geometry_area_m2": 0.07409707217191594,
+          "thermal_stored_J": 8486.488688847241,
+          "post_geometry_stored_J": 8486.48868884724
+        },
+        {
+          "thermal_area_m2": 0.07409707217191594,
+          "post_geometry_area_m2": 0.07409707217191594,
+          "thermal_stored_J": 984.5991736752032,
+          "post_geometry_stored_J": 984.5991736752032
+        }
+      ]
+    },
+    {
+      "id": "T16",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "relative_fraction",
+      "heat_policy": "prescribed_all_cover",
+      "checks": {
+        "global_energy_residual_J": 1.909211277961731e-08,
+        "geometry_phase_volume_residual_m3": 7.563394355258879e-16,
+        "water_bookkeeping_residual_m3": 4.0734228056588107e-10
+      },
+      "normalized_energy_residual": 4.5746942343791205e-17,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.0033919186330842064,
+      "max_phase_water_ratio": 4.996831640871538e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.1430335370502941,
+          "post_geometry_area_m2": 0.14303534987281605,
+          "thermal_stored_J": 38201.9783001395,
+          "post_geometry_stored_J": 38202.25461729132
+        },
+        {
+          "thermal_area_m2": 0.14313458967244153,
+          "post_geometry_area_m2": 0.14313624369716874,
+          "thermal_stored_J": 42678.157502950955,
+          "post_geometry_stored_J": 42678.40961555222
+        }
+      ]
+    },
+    {
+      "id": "T17",
+      "status": "completed",
+      "mode": "lumped_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": 6.938353180885315e-08,
+        "geometry_phase_volume_residual_m3": -2.456368441983159e-15,
+        "water_bookkeeping_residual_m3": -3.8958822626278256e-10
+      },
+      "normalized_energy_residual": 1.2214663319975267e-16,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.0069048496910924075,
+      "max_phase_water_ratio": 4.208491403871695e-05,
+      "reservoir_samples": []
+    },
+    {
+      "id": "T18",
+      "status": "expected_scope_refusal",
+      "reason": "local route meltwater feedback requires a declared downstream free-drainage contract"
+    },
+    {
+      "id": "T19",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "fixed",
+      "heat_policy": "dry_only",
+      "checks": {
+        "global_energy_residual_J": 1.6065314412117004e-08,
+        "geometry_phase_volume_residual_m3": -2.8215277336762767e-15,
+        "water_bookkeeping_residual_m3": -1.0178947615346878e-10
+      },
+      "normalized_energy_residual": 1.745385440014886e-17,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.002923333342398013,
+      "max_phase_water_ratio": 1.0081383226443596e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.022607195489304243,
+          "post_geometry_area_m2": 0.022607195489304243,
+          "thermal_stored_J": 1810.0025303746108,
+          "post_geometry_stored_J": 1810.0025303746106
+        },
+        {
+          "thermal_area_m2": 0.022607195489304243,
+          "post_geometry_area_m2": 0.022607195489304243,
+          "thermal_stored_J": 228.409982568653,
+          "post_geometry_stored_J": 228.40998256865294
+        }
+      ]
+    },
+    {
+      "id": "T20",
+      "status": "completed",
+      "mode": "resolved_temperate",
+      "mask": "relative_fraction",
+      "heat_policy": "prescribed_all_cover",
+      "checks": {
+        "global_energy_residual_J": -1.6763806343078613e-08,
+        "geometry_phase_volume_residual_m3": -4.215378046623641e-16,
+        "water_bookkeeping_residual_m3": 3.2228825684599283e-10
+      },
+      "normalized_energy_residual": 5.03614457446352e-17,
+      "steps": 60,
+      "wet_debris_steps": 60,
+      "face_melt_m3": 0.005156137531231373,
+      "max_phase_water_ratio": 1.3864522701889545e-05,
+      "reservoir_samples": [
+        {
+          "thermal_area_m2": 0.054319952699847,
+          "post_geometry_area_m2": 0.05432018462774319,
+          "thermal_stored_J": 4325.240463568321,
+          "post_geometry_stored_J": 4325.276050737365
+        },
+        {
+          "thermal_area_m2": 0.05433162256933258,
+          "post_geometry_area_m2": 0.054331785052552435,
+          "thermal_stored_J": 725.4352232500697,
+          "post_geometry_stored_J": 725.4601547822697
+        }
+      ]
+    }
+  ],
+  "guard_results": [
+    {
+      "test": "cold_face",
+      "expected": "refuse",
+      "actual": "refused",
+      "reason": "explicit wet-debris modes require temperate ice and zero extra cold reservoirs"
+    },
+    {
+      "test": "zero_inflow_without_contract",
+      "expected": "refuse",
+      "actual": "refused",
+      "reason": "local route meltwater feedback requires a declared downstream free-drainage contract"
+    },
+    {
+      "test": "zero_inflow_with_contract",
+      "expected": "accept",
+      "actual": "accepted",
+      "checks": {
+        "global_energy_residual_J": 2.7939677238464355e-09,
+        "geometry_phase_volume_residual_m3": -9.71445146547012e-17,
+        "water_bookkeeping_residual_m3": 0.0
+      }
+    }
+  ],
+  "max_normalized_energy_residual": 4.415853313724257e-16,
+  "unexpected_failure_ids": []
+}

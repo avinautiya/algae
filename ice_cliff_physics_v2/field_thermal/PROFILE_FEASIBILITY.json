@@ -1,0 +1,1609 @@
+{
+  "scope": "data feasibility and support audit only; no model fitting or predictive scores",
+  "profiles": [
+    {
+      "profile": "KDT_2020a",
+      "source_sha256": "ac03d76a67d286abcbe38d4f8e4ce386503bf25e820ed7e9605a88000df49568",
+      "rows": 11958,
+      "utc_start": "2020-07-27T08:00:00",
+      "utc_end": "2020-09-06T20:25:00",
+      "span_days": 41.517361111111114,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        4.0,
+        11.0,
+        18.0,
+        25.0
+      ],
+      "depth_file_cm": [
+        4.0,
+        11.0,
+        18.0,
+        25.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "4",
+      "summary_debris_depth_cm": 25.0,
+      "shallowest_depth_cm": 4.0,
+      "deepest_depth_cm": 25.0,
+      "strictly_interior_probe_depths_cm": [
+        11.0,
+        18.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 4 cm",
+          "depth_cm": 4.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 11958,
+          "missing_count": 0,
+          "negative_count": 70,
+          "min_C": -1.327,
+          "max_C": 26.744
+        },
+        {
+          "column": "Depth: 11 cm",
+          "depth_cm": 11.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 11958,
+          "missing_count": 0,
+          "negative_count": 80,
+          "min_C": -0.143,
+          "max_C": 18.438
+        },
+        {
+          "column": "Depth: 18 cm",
+          "depth_cm": 18.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 11958,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.079,
+          "max_C": 13.882
+        },
+        {
+          "column": "Depth: 25 cm",
+          "depth_cm": 25.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 11958,
+          "missing_count": 0,
+          "negative_count": 15,
+          "min_C": -0.004,
+          "max_C": 7.469
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 11958,
+        "start_utc": "2020-07-27T08:00:00",
+        "duration_days": 41.517361111111114
+      },
+      "all_probes_finite_rows": 11958,
+      "all_probes_nonnegative_finite_rows": 11855,
+      "author_linked_ablation_stake": null,
+      "coordinate": {
+        "lat": 61.48415504,
+        "lon": -142.923689,
+        "elevation_m": 582.508179
+      },
+      "published_depth_averaged_k_not_independent_prior": 1.52,
+      "observed_depth_columns_cm": [
+        4.0,
+        11.0,
+        18.0,
+        25.0
+      ],
+      "actual_measured_sensor_count": 4,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        11.0,
+        18.0
+      ]
+    },
+    {
+      "profile": "KDT_2020b",
+      "source_sha256": "83538ec8e9fc08f6b8ac05429e6ff85c3437d17bba3a730533144bf6cdfc9ae5",
+      "rows": 11958,
+      "utc_start": "2020-07-27T08:00:00",
+      "utc_end": "2020-09-06T20:25:00",
+      "span_days": 41.517361111111114,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        5.0,
+        15.0,
+        22.0
+      ],
+      "depth_file_cm": [
+        5.0,
+        15.0,
+        22.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "2",
+      "summary_debris_depth_cm": 22.0,
+      "shallowest_depth_cm": 5.0,
+      "deepest_depth_cm": 22.0,
+      "strictly_interior_probe_depths_cm": [
+        15.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 5 cm",
+          "depth_cm": 5.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 11958,
+          "missing_count": 0,
+          "negative_count": 136,
+          "min_C": -0.817,
+          "max_C": 24.774
+        },
+        {
+          "column": "Depth: 15 cm",
+          "depth_cm": 15.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 11958,
+          "missing_count": 0,
+          "negative_count": 16,
+          "min_C": -0.004,
+          "max_C": 9.756
+        },
+        {
+          "column": "Depth: 22 cm",
+          "depth_cm": 22.0,
+          "is_observed_probe": false,
+          "observation_status": "author_inserted_unsensed_zero_C_boundary",
+          "valid_count": 11958,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.0,
+          "max_C": 0.0
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 11958,
+        "start_utc": "2020-07-27T08:00:00",
+        "duration_days": 41.517361111111114
+      },
+      "all_probes_finite_rows": 11958,
+      "all_probes_nonnegative_finite_rows": 11822,
+      "author_linked_ablation_stake": "P_AWS_1",
+      "coordinate": {
+        "lat": 61.48415504,
+        "lon": -142.923689,
+        "elevation_m": 582.508179
+      },
+      "published_depth_averaged_k_not_independent_prior": 0.91,
+      "observed_depth_columns_cm": [
+        5.0,
+        15.0
+      ],
+      "actual_measured_sensor_count": 2,
+      "primary_measured_endpoint_validation_eligible": false,
+      "primary_interior_target_depths_cm": []
+    },
+    {
+      "profile": "KDT_2021a",
+      "source_sha256": "c7309a39cc4509edd7116217af75622c61b97cd9d7d12d5911456ad4a109db60",
+      "rows": 12673,
+      "utc_start": "2021-06-06T20:00:00",
+      "utc_end": "2021-07-20T20:00:00",
+      "span_days": 44.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        4.0,
+        9.0,
+        14.0,
+        19.0
+      ],
+      "depth_file_cm": [
+        4.0,
+        9.0,
+        14.0,
+        19.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "4",
+      "summary_debris_depth_cm": 19.0,
+      "shallowest_depth_cm": 4.0,
+      "deepest_depth_cm": 19.0,
+      "strictly_interior_probe_depths_cm": [
+        9.0,
+        14.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 4 cm",
+          "depth_cm": 4.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 12673,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 1.967,
+          "max_C": 34.783
+        },
+        {
+          "column": "Depth: 9 cm",
+          "depth_cm": 9.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 12673,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 1.317,
+          "max_C": 16.534
+        },
+        {
+          "column": "Depth: 14 cm",
+          "depth_cm": 14.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 12673,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.715,
+          "max_C": 9.977
+        },
+        {
+          "column": "Depth: 19 cm",
+          "depth_cm": 19.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 12673,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.218,
+          "max_C": 2.53
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 12673,
+        "start_utc": "2021-06-06T20:00:00",
+        "duration_days": 44.0
+      },
+      "all_probes_finite_rows": 12673,
+      "all_probes_nonnegative_finite_rows": 12673,
+      "author_linked_ablation_stake": null,
+      "coordinate": {
+        "lat": 61.480295,
+        "lon": -142.90569,
+        "elevation_m": 540.079895
+      },
+      "published_depth_averaged_k_not_independent_prior": 0.97,
+      "observed_depth_columns_cm": [
+        4.0,
+        9.0,
+        14.0,
+        19.0
+      ],
+      "actual_measured_sensor_count": 4,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        9.0,
+        14.0
+      ]
+    },
+    {
+      "profile": "KDT_2021b",
+      "source_sha256": "7f9079f59bb11a1b92544d5e0df72ea95f8c9250f0d24f3d1662f8a43750a21d",
+      "rows": 15841,
+      "utc_start": "2021-07-18T20:00:00",
+      "utc_end": "2021-09-11T20:00:00",
+      "span_days": 55.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        3.0,
+        15.0,
+        27.0,
+        39.0
+      ],
+      "depth_file_cm": [
+        3.0,
+        15.0,
+        27.0,
+        39.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "4",
+      "summary_debris_depth_cm": 39.0,
+      "shallowest_depth_cm": 3.0,
+      "deepest_depth_cm": 39.0,
+      "strictly_interior_probe_depths_cm": [
+        15.0,
+        27.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 3 cm",
+          "depth_cm": 3.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 15841,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.77,
+          "max_C": 28.543
+        },
+        {
+          "column": "Depth: 15 cm",
+          "depth_cm": 15.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 15841,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 1.425,
+          "max_C": 19.532
+        },
+        {
+          "column": "Depth: 27 cm",
+          "depth_cm": 27.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 15841,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 1.18,
+          "max_C": 12.292
+        },
+        {
+          "column": "Depth: 39 cm",
+          "depth_cm": 39.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 15841,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.246,
+          "max_C": 3.274
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 15841,
+        "start_utc": "2021-07-18T20:00:00",
+        "duration_days": 55.0
+      },
+      "all_probes_finite_rows": 15841,
+      "all_probes_nonnegative_finite_rows": 15841,
+      "author_linked_ablation_stake": null,
+      "coordinate": {
+        "lat": 61.483046,
+        "lon": -142.9147,
+        "elevation_m": 554.527466
+      },
+      "published_depth_averaged_k_not_independent_prior": 1.86,
+      "observed_depth_columns_cm": [
+        3.0,
+        15.0,
+        27.0,
+        39.0
+      ],
+      "actual_measured_sensor_count": 4,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        15.0,
+        27.0
+      ]
+    },
+    {
+      "profile": "KDT_2021c",
+      "source_sha256": "1b3d299fc6933760684d9cb7db75303c1d0ae07be18591e4efd053e31b723d57",
+      "rows": 10369,
+      "utc_start": "2021-06-06T20:00:00",
+      "utc_end": "2021-07-12T20:00:00",
+      "span_days": 36.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ],
+      "depth_file_cm": [
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "4",
+      "summary_debris_depth_cm": 20.0,
+      "shallowest_depth_cm": 5.0,
+      "deepest_depth_cm": 20.0,
+      "strictly_interior_probe_depths_cm": [
+        10.0,
+        15.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 5 cm",
+          "depth_cm": 5.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 10369,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.19,
+          "max_C": 32.613
+        },
+        {
+          "column": "Depth: 10 cm",
+          "depth_cm": 10.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 10369,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.907,
+          "max_C": 25.866
+        },
+        {
+          "column": "Depth: 15 cm",
+          "depth_cm": 15.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 10369,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.495,
+          "max_C": 12.92
+        },
+        {
+          "column": "Depth: 20 cm",
+          "depth_cm": 20.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 10369,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.163,
+          "max_C": 3.617
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 10369,
+        "start_utc": "2021-06-06T20:00:00",
+        "duration_days": 36.0
+      },
+      "all_probes_finite_rows": 10369,
+      "all_probes_nonnegative_finite_rows": 10369,
+      "author_linked_ablation_stake": null,
+      "coordinate": {
+        "lat": 61.483032,
+        "lon": -142.92007,
+        "elevation_m": 568.259338
+      },
+      "published_depth_averaged_k_not_independent_prior": 0.57,
+      "observed_depth_columns_cm": [
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ],
+      "actual_measured_sensor_count": 4,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        10.0,
+        15.0
+      ]
+    },
+    {
+      "profile": "KDT_2021d",
+      "source_sha256": "6bf7df6d7df1c7f06d477377b919969157da5273eccfe7fc992c479acfb18ed7",
+      "rows": 16993,
+      "utc_start": "2021-06-06T20:00:00",
+      "utc_end": "2021-08-04T20:00:00",
+      "span_days": 59.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        7.0,
+        12.0,
+        17.0,
+        22.0
+      ],
+      "depth_file_cm": [
+        7.0,
+        12.0,
+        17.0,
+        22.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "4",
+      "summary_debris_depth_cm": 22.0,
+      "shallowest_depth_cm": 7.0,
+      "deepest_depth_cm": 22.0,
+      "strictly_interior_probe_depths_cm": [
+        12.0,
+        17.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 7 cm",
+          "depth_cm": 7.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 16993,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 1.588,
+          "max_C": 27.112
+        },
+        {
+          "column": "Depth: 12 cm",
+          "depth_cm": 12.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 16993,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 1.398,
+          "max_C": 20.269
+        },
+        {
+          "column": "Depth: 17 cm",
+          "depth_cm": 17.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 16993,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.632,
+          "max_C": 9.534
+        },
+        {
+          "column": "Depth: 22 cm",
+          "depth_cm": 22.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 16993,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.163,
+          "max_C": 2.637
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 16993,
+        "start_utc": "2021-06-06T20:00:00",
+        "duration_days": 59.0
+      },
+      "all_probes_finite_rows": 16993,
+      "all_probes_nonnegative_finite_rows": 16993,
+      "author_linked_ablation_stake": null,
+      "coordinate": {
+        "lat": 61.48393,
+        "lon": -142.92348,
+        "elevation_m": 583.106445
+      },
+      "published_depth_averaged_k_not_independent_prior": 0.53,
+      "observed_depth_columns_cm": [
+        7.0,
+        12.0,
+        17.0,
+        22.0
+      ],
+      "actual_measured_sensor_count": 4,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        12.0,
+        17.0
+      ]
+    },
+    {
+      "profile": "KDT_2022a",
+      "source_sha256": "219df80941e7a3ab1f009685777a164c00a6a93b20b9d5ab348b4113872be970",
+      "rows": 29953,
+      "utc_start": "2022-05-31T08:00:00",
+      "utc_end": "2022-09-12T08:00:00",
+      "span_days": 104.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        3.0,
+        7.0,
+        11.0,
+        15.0
+      ],
+      "depth_file_cm": [
+        3.0,
+        7.0,
+        11.0,
+        15.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "4",
+      "summary_debris_depth_cm": 17.5,
+      "shallowest_depth_cm": 3.0,
+      "deepest_depth_cm": 15.0,
+      "strictly_interior_probe_depths_cm": [
+        7.0,
+        11.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 3 cm",
+          "depth_cm": 3.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 60,
+          "min_C": -0.311,
+          "max_C": 26.378
+        },
+        {
+          "column": "Depth: 7 cm",
+          "depth_cm": 7.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 30,
+          "min_C": -0.06,
+          "max_C": 17.439
+        },
+        {
+          "column": "Depth: 11 cm",
+          "depth_cm": 11.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.051,
+          "max_C": 9.903
+        },
+        {
+          "column": "Depth: 15 cm",
+          "depth_cm": 15.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.051,
+          "max_C": 3.88
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 29953,
+        "start_utc": "2022-05-31T08:00:00",
+        "duration_days": 104.0
+      },
+      "all_probes_finite_rows": 29953,
+      "all_probes_nonnegative_finite_rows": 29876,
+      "author_linked_ablation_stake": null,
+      "coordinate": {
+        "lat": 61.48297898,
+        "lon": -142.910885,
+        "elevation_m": 558.806763
+      },
+      "published_depth_averaged_k_not_independent_prior": 0.81,
+      "observed_depth_columns_cm": [
+        3.0,
+        7.0,
+        11.0,
+        15.0
+      ],
+      "actual_measured_sensor_count": 4,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        7.0,
+        11.0
+      ]
+    },
+    {
+      "profile": "KDT_2022b",
+      "source_sha256": "98eb6f220da187322996e7eda824dd831e621ef24841662ac43be88c486957e6",
+      "rows": 24481,
+      "utc_start": "2022-05-31T08:00:00",
+      "utc_end": "2022-08-24T08:00:00",
+      "span_days": 85.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        6.0,
+        9.0,
+        12.0,
+        15.0
+      ],
+      "depth_file_cm": [
+        6.0,
+        9.0,
+        12.0,
+        15.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "4",
+      "summary_debris_depth_cm": 17.0,
+      "shallowest_depth_cm": 6.0,
+      "deepest_depth_cm": 15.0,
+      "strictly_interior_probe_depths_cm": [
+        9.0,
+        12.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 6 cm",
+          "depth_cm": 6.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 24481,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.107,
+          "max_C": 14.912
+        },
+        {
+          "column": "Depth: 9 cm",
+          "depth_cm": 9.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 24481,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.107,
+          "max_C": 9.977
+        },
+        {
+          "column": "Depth: 12 cm",
+          "depth_cm": 12.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 24481,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.079,
+          "max_C": 5.745
+        },
+        {
+          "column": "Depth: 15 cm",
+          "depth_cm": 15.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 24481,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.051,
+          "max_C": 2.021
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 24481,
+        "start_utc": "2022-05-31T08:00:00",
+        "duration_days": 85.0
+      },
+      "all_probes_finite_rows": 24481,
+      "all_probes_nonnegative_finite_rows": 24481,
+      "author_linked_ablation_stake": null,
+      "coordinate": {
+        "lat": 61.48290899,
+        "lon": -142.910898,
+        "elevation_m": 554.645203
+      },
+      "published_depth_averaged_k_not_independent_prior": 0.69,
+      "observed_depth_columns_cm": [
+        6.0,
+        9.0,
+        12.0,
+        15.0
+      ],
+      "actual_measured_sensor_count": 4,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        9.0,
+        12.0
+      ]
+    },
+    {
+      "profile": "KDT_2022c",
+      "source_sha256": "00a8bd53fcbd9e48fd41c1bf9eaddce97a0f818a2810625b247f09b8da3335a4",
+      "rows": 29953,
+      "utc_start": "2022-05-31T08:00:00",
+      "utc_end": "2022-09-12T08:00:00",
+      "span_days": 104.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        4.0,
+        8.0,
+        12.0,
+        16.0,
+        20.0,
+        24.0,
+        28.0,
+        32.0
+      ],
+      "depth_file_cm": [
+        4.0,
+        8.0,
+        12.0,
+        16.0,
+        20.0,
+        24.0,
+        28.0,
+        32.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "8",
+      "summary_debris_depth_cm": 34.0,
+      "shallowest_depth_cm": 4.0,
+      "deepest_depth_cm": 32.0,
+      "strictly_interior_probe_depths_cm": [
+        8.0,
+        12.0,
+        16.0,
+        20.0,
+        24.0,
+        28.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 4 cm",
+          "depth_cm": 4.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.577,
+          "max_C": 30.041
+        },
+        {
+          "column": "Depth: 8 cm",
+          "depth_cm": 8.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.852,
+          "max_C": 22.058
+        },
+        {
+          "column": "Depth: 12 cm",
+          "depth_cm": 12.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.989,
+          "max_C": 17.272
+        },
+        {
+          "column": "Depth: 16 cm",
+          "depth_cm": 16.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.907,
+          "max_C": 13.401
+        },
+        {
+          "column": "Depth: 20 cm",
+          "depth_cm": 20.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.852,
+          "max_C": 10.59
+        },
+        {
+          "column": "Depth: 24 cm",
+          "depth_cm": 24.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.55,
+          "max_C": 7.116
+        },
+        {
+          "column": "Depth: 28 cm",
+          "depth_cm": 28.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.495,
+          "max_C": 5.076
+        },
+        {
+          "column": "Depth: 32 cm",
+          "depth_cm": 32.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 29953,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.301,
+          "max_C": 2.903
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 29953,
+        "start_utc": "2022-05-31T08:00:00",
+        "duration_days": 104.0
+      },
+      "all_probes_finite_rows": 29953,
+      "all_probes_nonnegative_finite_rows": 29953,
+      "author_linked_ablation_stake": null,
+      "coordinate": {
+        "lat": 61.48306397,
+        "lon": -142.909737,
+        "elevation_m": 564.339478
+      },
+      "published_depth_averaged_k_not_independent_prior": 0.96,
+      "observed_depth_columns_cm": [
+        4.0,
+        8.0,
+        12.0,
+        16.0,
+        20.0,
+        24.0,
+        28.0,
+        32.0
+      ],
+      "actual_measured_sensor_count": 8,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        8.0,
+        12.0,
+        16.0,
+        20.0,
+        24.0,
+        28.0
+      ]
+    },
+    {
+      "profile": "KDT_2023a",
+      "source_sha256": "8227ce95c99dc687b1e5d5bfec25e7f191ca927d1f5c5b4d8854ab34f4d857b7",
+      "rows": 27073,
+      "utc_start": "2023-06-10T20:00:00",
+      "utc_end": "2023-09-12T20:00:00",
+      "span_days": 94.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        2.0,
+        7.0,
+        12.0,
+        17.0,
+        22.0
+      ],
+      "depth_file_cm": [
+        2.0,
+        7.0,
+        12.0,
+        17.0,
+        22.0
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "5",
+      "summary_debris_depth_cm": 24.0,
+      "shallowest_depth_cm": 2.0,
+      "deepest_depth_cm": 22.0,
+      "strictly_interior_probe_depths_cm": [
+        7.0,
+        12.0,
+        17.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 2 cm",
+          "depth_cm": 2.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 35,
+          "min_C": -0.591,
+          "max_C": 27.014
+        },
+        {
+          "column": "Depth: 7 cm",
+          "depth_cm": 7.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 8,
+          "min_C": -0.06,
+          "max_C": 18.485
+        },
+        {
+          "column": "Depth: 12 cm",
+          "depth_cm": 12.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.079,
+          "max_C": 11.419
+        },
+        {
+          "column": "Depth: 17 cm",
+          "depth_cm": 17.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.107,
+          "max_C": 6.153
+        },
+        {
+          "column": "Depth: 22 cm",
+          "depth_cm": 22.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.051,
+          "max_C": 2.236
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 27073,
+        "start_utc": "2023-06-10T20:00:00",
+        "duration_days": 94.0
+      },
+      "all_probes_finite_rows": 27073,
+      "all_probes_nonnegative_finite_rows": 27034,
+      "author_linked_ablation_stake": "P11",
+      "coordinate": {
+        "lat": 61.482867,
+        "lon": -142.91315,
+        "elevation_m": 546.203857
+      },
+      "published_depth_averaged_k_not_independent_prior": 0.95,
+      "observed_depth_columns_cm": [
+        2.0,
+        7.0,
+        12.0,
+        17.0,
+        22.0
+      ],
+      "actual_measured_sensor_count": 5,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        7.0,
+        12.0,
+        17.0
+      ]
+    },
+    {
+      "profile": "KDT_2023b",
+      "source_sha256": "2f85950203fe413bd7e371d042e5510c226e7de617779dbe615dd112e1c2c7cf",
+      "rows": 27073,
+      "utc_start": "2023-06-10T20:00:00",
+      "utc_end": "2023-09-12T20:00:00",
+      "span_days": 94.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        9.0,
+        16.5,
+        24.0,
+        31.5
+      ],
+      "depth_file_cm": [
+        9.0,
+        16.5,
+        24.0,
+        31.5
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "4",
+      "summary_debris_depth_cm": 32.0,
+      "shallowest_depth_cm": 9.0,
+      "deepest_depth_cm": 31.5,
+      "strictly_interior_probe_depths_cm": [
+        16.5,
+        24.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 9.0 cm",
+          "depth_cm": 9.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.495,
+          "max_C": 22.321
+        },
+        {
+          "column": "Depth: 16.5 cm",
+          "depth_cm": 16.5,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.467,
+          "max_C": 13.161
+        },
+        {
+          "column": "Depth: 24.0 cm",
+          "depth_cm": 24.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.246,
+          "max_C": 5.205
+        },
+        {
+          "column": "Depth: 31.5 cm",
+          "depth_cm": 31.5,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.107,
+          "max_C": 2.236
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 27073,
+        "start_utc": "2023-06-10T20:00:00",
+        "duration_days": 94.0
+      },
+      "all_probes_finite_rows": 27073,
+      "all_probes_nonnegative_finite_rows": 27073,
+      "author_linked_ablation_stake": "P12",
+      "coordinate": {
+        "lat": 61.482811,
+        "lon": -142.91263,
+        "elevation_m": 542.561401
+      },
+      "published_depth_averaged_k_not_independent_prior": 1.0,
+      "observed_depth_columns_cm": [
+        9.0,
+        16.5,
+        24.0,
+        31.5
+      ],
+      "actual_measured_sensor_count": 4,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        16.5,
+        24.0
+      ]
+    },
+    {
+      "profile": "KDT_2023c",
+      "source_sha256": "30b1324bb27b02e45468580446ca0d626d6964de8744b624509d28d17992d798",
+      "rows": 27073,
+      "utc_start": "2023-06-10T20:00:00",
+      "utc_end": "2023-09-12T20:00:00",
+      "span_days": 94.0,
+      "cadence_seconds": {
+        "min": 300.0,
+        "median": 300.0,
+        "max": 300.0,
+        "unique": [
+          300.0
+        ]
+      },
+      "depth_columns_cm": [
+        2.0,
+        9.5,
+        17.0,
+        24.5
+      ],
+      "depth_file_cm": [
+        2.0,
+        9.5,
+        17.0,
+        24.5
+      ],
+      "depth_header_matches_file": true,
+      "summary_N": "4",
+      "summary_debris_depth_cm": 26.0,
+      "shallowest_depth_cm": 2.0,
+      "deepest_depth_cm": 24.5,
+      "strictly_interior_probe_depths_cm": [
+        9.5,
+        17.0
+      ],
+      "temperature_accuracy_C": 0.2,
+      "utc_minus_ADT_hours": [
+        8.0
+      ],
+      "sensors": [
+        {
+          "column": "Depth: 2.0 cm",
+          "depth_cm": 2.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 24,
+          "min_C": -0.563,
+          "max_C": 29.79
+        },
+        {
+          "column": "Depth: 9.5 cm",
+          "depth_cm": 9.5,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.246,
+          "max_C": 16.392
+        },
+        {
+          "column": "Depth: 17.0 cm",
+          "depth_cm": 17.0,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.19,
+          "max_C": 8.965
+        },
+        {
+          "column": "Depth: 24.5 cm",
+          "depth_cm": 24.5,
+          "is_observed_probe": true,
+          "observation_status": "measured_thermistor_per_source_sensor_count",
+          "valid_count": 27073,
+          "missing_count": 0,
+          "negative_count": 0,
+          "min_C": 0.051,
+          "max_C": 1.859
+        }
+      ],
+      "longest_all_probes_finite_run": {
+        "rows": 27073,
+        "start_utc": "2023-06-10T20:00:00",
+        "duration_days": 94.0
+      },
+      "all_probes_finite_rows": 27073,
+      "all_probes_nonnegative_finite_rows": 27049,
+      "author_linked_ablation_stake": "P13",
+      "coordinate": {
+        "lat": 61.482565,
+        "lon": -142.91059,
+        "elevation_m": 551.42688
+      },
+      "published_depth_averaged_k_not_independent_prior": 0.84,
+      "observed_depth_columns_cm": [
+        2.0,
+        9.5,
+        17.0,
+        24.5
+      ],
+      "actual_measured_sensor_count": 4,
+      "primary_measured_endpoint_validation_eligible": true,
+      "primary_interior_target_depths_cm": [
+        9.5,
+        17.0
+      ]
+    }
+  ],
+  "explicit_ablation_matches": [
+    {
+      "profile": "KDT_2020b",
+      "stake": "P_AWS_1",
+      "date_start": "7/25/2020",
+      "date_end": "9/6/2020",
+      "mass_change_kg_m2": -360.0,
+      "stake_debris_thickness_cm": 21.0,
+      "profile_debris_thickness_cm": 22.0,
+      "temperature_start_utc": "2020-07-27T08:00:00",
+      "temperature_end_utc": "2020-09-06T20:25:00",
+      "mass_date_clock": "date-only, timezone not established here",
+      "source_link": "explicit summary Ablation Stake ID, not nearest-neighbor assignment",
+      "raw_point_row": {
+        "site": "P_AWS_1",
+        "date_start": "7/25/2020",
+        "date_end": "9/6/2020",
+        "period_length": "43",
+        "mass_change_kg_m2": "-360",
+        "debris_thick_mm": "210",
+        "lat_start": "61.48413",
+        "lon_start": "142.92368",
+        "elevation_start": "586",
+        "surface_type_start": "Debris",
+        "seasonal_snow_depth_start_mm": "0",
+        "seasonal_snow_density_start_kg_m3": "",
+        "lat_end": "",
+        "lon_end": "",
+        "elevation_end": "",
+        "surface_type_end": "Debris",
+        "seasonal_snow_depth_end_mm": "0",
+        "seasonal_snow_density_end_kg_m3": "",
+        "summer_snow_depth_end_mm": "0",
+        "summer_snow_density_end_kg_m3": "",
+        "institution": "UAF"
+      },
+      "initial_coordinate_distance_m_approx": 2.8250132460487993
+    },
+    {
+      "profile": "KDT_2020b",
+      "stake": "P_AWS_1",
+      "date_start": "9/6/2020",
+      "date_end": "6/4/2021",
+      "mass_change_kg_m2": -369.0,
+      "stake_debris_thickness_cm": 21.0,
+      "profile_debris_thickness_cm": 22.0,
+      "temperature_start_utc": "2020-07-27T08:00:00",
+      "temperature_end_utc": "2020-09-06T20:25:00",
+      "mass_date_clock": "date-only, timezone not established here",
+      "source_link": "explicit summary Ablation Stake ID, not nearest-neighbor assignment",
+      "raw_point_row": {
+        "site": "P_AWS_1",
+        "date_start": "9/6/2020",
+        "date_end": "6/4/2021",
+        "period_length": "271",
+        "mass_change_kg_m2": "-369",
+        "debris_thick_mm": "210",
+        "lat_start": "",
+        "lon_start": "",
+        "elevation_start": "",
+        "surface_type_start": "Debris",
+        "seasonal_snow_depth_start_mm": "0",
+        "seasonal_snow_density_start_kg_m3": "",
+        "lat_end": "61.48395",
+        "lon_end": "142.92346",
+        "elevation_end": "583",
+        "surface_type_end": "Debris",
+        "seasonal_snow_depth_end_mm": "0",
+        "seasonal_snow_density_end_kg_m3": "",
+        "summer_snow_depth_end_mm": "",
+        "summer_snow_density_end_kg_m3": "",
+        "institution": "UAF"
+      }
+    },
+    {
+      "profile": "KDT_2023a",
+      "stake": "P11",
+      "date_start": "6/8/2023",
+      "date_end": "9/2/2023",
+      "mass_change_kg_m2": -1035.0,
+      "stake_debris_thickness_cm": 24.0,
+      "profile_debris_thickness_cm": 24.0,
+      "temperature_start_utc": "2023-06-10T20:00:00",
+      "temperature_end_utc": "2023-09-12T20:00:00",
+      "mass_date_clock": "date-only, timezone not established here",
+      "source_link": "explicit summary Ablation Stake ID, not nearest-neighbor assignment",
+      "raw_point_row": {
+        "site": "P11",
+        "date_start": "6/8/2023",
+        "date_end": "9/2/2023",
+        "period_length": "86",
+        "mass_change_kg_m2": "-1035",
+        "debris_thick_mm": "240",
+        "lat_start": "61.48287",
+        "lon_start": "142.91315",
+        "elevation_start": "546",
+        "surface_type_start": "Debris",
+        "seasonal_snow_depth_start_mm": "0",
+        "seasonal_snow_density_start_kg_m3": "",
+        "lat_end": "61.48282",
+        "lon_end": "142.91312",
+        "elevation_end": "542",
+        "surface_type_end": "Debris",
+        "seasonal_snow_depth_end_mm": "0",
+        "seasonal_snow_density_end_kg_m3": "",
+        "summer_snow_depth_end_mm": "0",
+        "summer_snow_density_end_kg_m3": "",
+        "institution": "UAF"
+      },
+      "initial_coordinate_distance_m_approx": 0.33358477988154306
+    },
+    {
+      "profile": "KDT_2023b",
+      "stake": "P12",
+      "date_start": "6/8/2023",
+      "date_end": "9/2/2023",
+      "mass_change_kg_m2": -873.0,
+      "stake_debris_thickness_cm": 29.0,
+      "profile_debris_thickness_cm": 32.0,
+      "temperature_start_utc": "2023-06-10T20:00:00",
+      "temperature_end_utc": "2023-09-12T20:00:00",
+      "mass_date_clock": "date-only, timezone not established here",
+      "source_link": "explicit summary Ablation Stake ID, not nearest-neighbor assignment",
+      "raw_point_row": {
+        "site": "P12",
+        "date_start": "6/8/2023",
+        "date_end": "9/2/2023",
+        "period_length": "86",
+        "mass_change_kg_m2": "-873",
+        "debris_thick_mm": "290",
+        "lat_start": "61.48281",
+        "lon_start": "142.91263",
+        "elevation_start": "543",
+        "surface_type_start": "Debris",
+        "seasonal_snow_depth_start_mm": "0",
+        "seasonal_snow_density_start_kg_m3": "",
+        "lat_end": "61.4828",
+        "lon_end": "142.91264",
+        "elevation_end": "545",
+        "surface_type_end": "Debris",
+        "seasonal_snow_depth_end_mm": "0",
+        "seasonal_snow_density_end_kg_m3": "",
+        "summer_snow_depth_end_mm": "0",
+        "summer_snow_density_end_kg_m3": "",
+        "institution": "UAF"
+      },
+      "initial_coordinate_distance_m_approx": 0.11119492636381853
+    },
+    {
+      "profile": "KDT_2023c",
+      "stake": "P13",
+      "date_start": "6/8/2023",
+      "date_end": "9/2/2023",
+      "mass_change_kg_m2": -688.0,
+      "stake_debris_thickness_cm": 25.5,
+      "profile_debris_thickness_cm": 26.0,
+      "temperature_start_utc": "2023-06-10T20:00:00",
+      "temperature_end_utc": "2023-09-12T20:00:00",
+      "mass_date_clock": "date-only, timezone not established here",
+      "source_link": "explicit summary Ablation Stake ID, not nearest-neighbor assignment",
+      "raw_point_row": {
+        "site": "P13",
+        "date_start": "6/8/2023",
+        "date_end": "9/2/2023",
+        "period_length": "86",
+        "mass_change_kg_m2": "-688",
+        "debris_thick_mm": "255",
+        "lat_start": "61.48256",
+        "lon_start": "142.91059",
+        "elevation_start": "551",
+        "surface_type_start": "Debris",
+        "seasonal_snow_depth_start_mm": "0",
+        "seasonal_snow_density_start_kg_m3": "",
+        "lat_end": "61.48252",
+        "lon_end": "142.91056",
+        "elevation_end": "549",
+        "surface_type_end": "Debris",
+        "seasonal_snow_depth_end_mm": "0",
+        "seasonal_snow_density_end_kg_m3": "",
+        "summer_snow_depth_end_mm": "0",
+        "summer_snow_density_end_kg_m3": "",
+        "institution": "UAF"
+      },
+      "initial_coordinate_distance_m_approx": 0.5559746333992677
+    }
+  ],
+  "identifiability": "Temperature diffusion can identify effective alpha=k/C only. Scaling k and C together preserves temperature but changes heat flux; melt flux needs independent material/ablation constraints."
+}

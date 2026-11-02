@@ -1,0 +1,350 @@
+{
+  "fixed": {
+    "checks": {
+      "global_energy_residual_J": 2.0721927285194397e-08,
+      "geometry_phase_volume_residual_m3": 1.0316183671199575e-15,
+      "water_bookkeeping_residual_m3": -7.169737600929565e-11
+    },
+    "totals": {
+      "atmospheric_J": 90926.71000260868,
+      "water_in_J": 88556999.99984886,
+      "water_out_J": 88436521.16551988,
+      "latent_J": 201896.0749954024,
+      "fresh_ice_warming_J": 0.0,
+      "remap_enthalpy_J": 0.0,
+      "face_melt_m3": 0.0002677884027760115,
+      "floor_melt_m3": 0.00019558726690131328,
+      "bypass_melt_m3": 0.00019581655110053857,
+      "water_in_m3": 42.00000000000001,
+      "water_out_m3": 42.00060447919476,
+      "phase_water_m3": 0.0006044792664533007,
+      "covered_face_melt_m3": 5.279561910583219e-06,
+      "bare_face_melt_m3": 0.00026250884086542823
+    },
+    "first_snapshot": {
+      "time_s": 60.0,
+      "hydraulic_sample_time_s": 0.0,
+      "contact_stage_m": -0.030802285057488485,
+      "covered_z_interval_m": [
+        -0.06,
+        0.34
+      ],
+      "wet_bare_face_area_m2": 0.010000000000000002,
+      "wet_covered_face_area_m2": 0.014598857471255756,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 8.552477396516308e-06,
+        "floor_z_m": -0.08001955828623272,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "face_profile": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5,
+        "bands": [
+          {
+            "z_low_m": -0.08001955828623272,
+            "z_high_m": 0.5,
+            "front_x_m": 8.552477396516308e-06
+          },
+          {
+            "z_low_m": 0.5,
+            "z_high_m": 1.0,
+            "front_x_m": -0.2499804099543552
+          },
+          {
+            "z_low_m": 1.0,
+            "z_high_m": 2.0,
+            "front_x_m": 0.20001959004564482
+          },
+          {
+            "z_low_m": 2.0,
+            "z_high_m": 3.0,
+            "front_x_m": 0.10001959004564481
+          }
+        ]
+      },
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.3400097791431165,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 8039.805105414425
+        },
+        "floor": {
+          "area_m2": 1.0000042762386983,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5990.29840662328
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5997.43016302106
+        },
+        "face_debris": {
+          "area_m2": 0.2,
+          "debris_energy_j": 10892.531665066685,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 219.8312394801391
+        }
+      }
+    },
+    "last_snapshot": {
+      "time_s": 600.0,
+      "hydraulic_sample_time_s": 540.0,
+      "contact_stage_m": -0.030978381792551815,
+      "covered_z_interval_m": [
+        -0.06,
+        0.34
+      ],
+      "wet_bare_face_area_m2": 0.010088012312074339,
+      "wet_covered_face_area_m2": 0.014510809103724091,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 7.899811639284731e-05,
+        "floor_z_m": -0.08019558292002217,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "face_profile": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5,
+        "bands": [
+          {
+            "z_low_m": -0.08019558292002217,
+            "z_high_m": 0.5,
+            "front_x_m": 7.899811639284731e-05
+          },
+          {
+            "z_low_m": 0.5,
+            "z_high_m": 1.0,
+            "front_x_m": -0.24980409954355193
+          },
+          {
+            "z_low_m": 1.0,
+            "z_high_m": 2.0,
+            "front_x_m": 0.20019590045644808
+          },
+          {
+            "z_low_m": 2.0,
+            "z_high_m": 3.0,
+            "front_x_m": 0.10019590045644808
+          }
+        ]
+      },
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.3400977914600112,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 80400.68276258164
+        },
+        "floor": {
+          "area_m2": 1.0000394990581964,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 59904.076932000426
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 59974.301637970755
+        },
+        "face_debris": {
+          "area_m2": 0.2,
+          "debris_energy_j": 19509.469336172177,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1617.0136628496073
+        }
+      }
+    },
+    "proxy_discrepancy": -0.08764612792507265
+  },
+  "moving_lower": {
+    "checks": {
+      "global_energy_residual_J": -2.450542524456978e-08,
+      "geometry_phase_volume_residual_m3": -1.6634913932445095e-15,
+      "water_bookkeeping_residual_m3": -5.26696086917966e-11
+    },
+    "totals": {
+      "atmospheric_J": 90926.71000260634,
+      "water_in_J": 88556999.99988894,
+      "water_out_J": 88437122.00136828,
+      "latent_J": 201897.17877446284,
+      "fresh_ice_warming_J": 0.0,
+      "remap_enthalpy_J": 0.38100568811511026,
+      "face_melt_m3": 0.0002677920058478725,
+      "floor_melt_m3": 0.00019558726767648143,
+      "bypass_melt_m3": 0.0001958165511005386,
+      "water_in_m3": 42.00000000000001,
+      "water_out_m3": 42.00060448251852,
+      "phase_water_m3": 0.0006044825711810265,
+      "covered_face_melt_m3": 5.2778929697952e-06,
+      "bare_face_melt_m3": 0.0002625141128780773
+    },
+    "first_snapshot": {
+      "time_s": 60.0,
+      "hydraulic_sample_time_s": 0.0,
+      "contact_stage_m": -0.030802285057488485,
+      "covered_z_interval_m": [
+        -0.08,
+        0.32000000000000006
+      ],
+      "wet_bare_face_area_m2": 0.0,
+      "wet_covered_face_area_m2": 0.02459885747125576,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 8.554666634581632e-06,
+        "floor_z_m": -0.08001955828621132,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "face_profile": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5,
+        "bands": [
+          {
+            "z_low_m": -0.08001955828621132,
+            "z_high_m": 0.5,
+            "front_x_m": 8.554666634581632e-06
+          },
+          {
+            "z_low_m": 0.5,
+            "z_high_m": 1.0,
+            "front_x_m": -0.2499804099543552
+          },
+          {
+            "z_low_m": 1.0,
+            "z_high_m": 2.0,
+            "front_x_m": 0.20001959004564482
+          },
+          {
+            "z_low_m": 2.0,
+            "z_high_m": 3.0,
+            "front_x_m": 0.10001959004564481
+          }
+        ]
+      },
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.3400085091245204,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 8040.0
+        },
+        "floor": {
+          "area_m2": 1.0000042773333173,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5990.29840662328
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 5997.43016302106
+        },
+        "face_debris": {
+          "area_m2": 0.20000127001858517,
+          "debris_energy_j": 10832.540474074012,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 219.8307943768542
+        }
+      }
+    },
+    "last_snapshot": {
+      "time_s": 600.0,
+      "hydraulic_sample_time_s": 540.0,
+      "contact_stage_m": -0.03097838179242479,
+      "covered_z_interval_m": [
+        -0.08017602462402164,
+        0.3198468357167605
+      ],
+      "wet_bare_face_area_m2": 0.0,
+      "wet_covered_face_area_m2": 0.024598821415798423,
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 7.901053968554618e-05,
+        "floor_z_m": -0.08019558291989944,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "face_profile": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5,
+        "bands": [
+          {
+            "z_low_m": -0.08019558291989944,
+            "z_high_m": 0.5,
+            "front_x_m": 7.901053968554618e-05
+          },
+          {
+            "z_low_m": 0.5,
+            "z_high_m": 1.0,
+            "front_x_m": -0.24980409954355193
+          },
+          {
+            "z_low_m": 1.0,
+            "z_high_m": 2.0,
+            "front_x_m": 0.20019590045644808
+          },
+          {
+            "z_low_m": 2.0,
+            "z_high_m": 3.0,
+            "front_x_m": 0.10019590045644808
+          }
+        ]
+      },
+      "port_states": {
+        "face_bare": {
+          "area_m2": 1.3400850912703457,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 80402.29746407177
+        },
+        "floor": {
+          "area_m2": 1.0000395052698428,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 59904.07716941738
+        },
+        "bypass": {
+          "area_m2": 1.0,
+          "debris_energy_j": 0.0,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 59974.30163797077
+        },
+        "face_debris": {
+          "area_m2": 0.20001270018960388,
+          "debris_energy_j": 18907.910754508346,
+          "cold_debt_j": 0.0,
+          "cumulative_latent_j": 1616.5025030029342
+        }
+      }
+    },
+    "proxy_discrepancy": -0.08764611239595155
+  }
+}

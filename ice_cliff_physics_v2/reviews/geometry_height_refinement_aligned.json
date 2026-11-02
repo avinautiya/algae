@@ -1,0 +1,152 @@
+{
+  "scope": "synthetic integrated height refinement; no field accuracy",
+  "code_sha256": "3d708ffce3df1ed9808446d75dc9f03243ce26c64297d7f03529aa6fb1702c87",
+  "input_sha256": "7767892261dac8227c20dee5c4d49a88cc5d531fafe1c4d2eb55058d88a392f0",
+  "rows": [
+    {
+      "n_bands": 4,
+      "totals": {
+        "atmospheric_J": 3277017.2134280214,
+        "water_in_J": 3188052000.0005007,
+        "water_out_J": 3183706869.903529,
+        "latent_J": 7458106.64572818,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.010248184443163095,
+        "floor_melt_m3": 0.0070531946163584,
+        "bypass_melt_m3": 0.007049395876086606,
+        "water_in_m3": 1512.0000000000002,
+        "water_out_m3": 1512.0223296608538,
+        "phase_water_m3": 0.022329660615952634,
+        "covered_face_melt_m3": 0.0007859750422728354,
+        "bare_face_melt_m3": 0.009462209400890261,
+        "absolute_surface_forcing_J": 3277017.2134280214,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "checks": {
+        "global_energy_residual_J": -6.118789315223694e-07,
+        "geometry_phase_volume_residual_m3": -1.5612511283791264e-16,
+        "water_bookkeeping_residual_m3": 2.37576642386772e-10
+      },
+      "basal_front_m": 0.0070294452171853665,
+      "floor_z_m": -0.08704064977938475,
+      "max_undercut_m": 0.2499999999999997
+    },
+    {
+      "n_bands": 16,
+      "totals": {
+        "atmospheric_J": 3277017.2134280214,
+        "water_in_J": 3188052000.0005007,
+        "water_out_J": 3183706869.903529,
+        "latent_J": 7458106.64572818,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.010248184443163095,
+        "floor_melt_m3": 0.0070531946163584,
+        "bypass_melt_m3": 0.007049395876086606,
+        "water_in_m3": 1512.0000000000002,
+        "water_out_m3": 1512.0223296608538,
+        "phase_water_m3": 0.022329660615952634,
+        "covered_face_melt_m3": 0.0007859750422728354,
+        "bare_face_melt_m3": 0.009462209400890261,
+        "absolute_surface_forcing_J": 3277017.2134280214,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "checks": {
+        "global_energy_residual_J": -6.118789315223694e-07,
+        "geometry_phase_volume_residual_m3": -1.5612511283791264e-16,
+        "water_bookkeeping_residual_m3": 2.37576642386772e-10
+      },
+      "basal_front_m": 0.0070294452171853665,
+      "floor_z_m": -0.08704064977938475,
+      "max_undercut_m": 0.2499999999999997
+    },
+    {
+      "n_bands": 64,
+      "totals": {
+        "atmospheric_J": 3277017.2134280214,
+        "water_in_J": 3188052000.0005007,
+        "water_out_J": 3183706869.903529,
+        "latent_J": 7458106.64572818,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.010248184443163095,
+        "floor_melt_m3": 0.0070531946163584,
+        "bypass_melt_m3": 0.007049395876086606,
+        "water_in_m3": 1512.0000000000002,
+        "water_out_m3": 1512.0223296608538,
+        "phase_water_m3": 0.022329660615952634,
+        "covered_face_melt_m3": 0.0007859750422728354,
+        "bare_face_melt_m3": 0.009462209400890261,
+        "absolute_surface_forcing_J": 3277017.2134280214,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "checks": {
+        "global_energy_residual_J": -6.118789315223694e-07,
+        "geometry_phase_volume_residual_m3": -1.5612511283791264e-16,
+        "water_bookkeeping_residual_m3": 2.37576642386772e-10
+      },
+      "basal_front_m": 0.0070294452171853665,
+      "floor_z_m": -0.08704064977938475,
+      "max_undercut_m": 0.2499999999999997
+    },
+    {
+      "n_bands": 128,
+      "totals": {
+        "atmospheric_J": 3277017.2134280214,
+        "water_in_J": 3188052000.0005007,
+        "water_out_J": 3183706869.903529,
+        "latent_J": 7458106.64572818,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.010248184443163095,
+        "floor_melt_m3": 0.0070531946163584,
+        "bypass_melt_m3": 0.007049395876086606,
+        "water_in_m3": 1512.0000000000002,
+        "water_out_m3": 1512.0223296608538,
+        "phase_water_m3": 0.022329660615952634,
+        "covered_face_melt_m3": 0.0007859750422728354,
+        "bare_face_melt_m3": 0.009462209400890261,
+        "absolute_surface_forcing_J": 3277017.2134280214,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "checks": {
+        "global_energy_residual_J": -6.118789315223694e-07,
+        "geometry_phase_volume_residual_m3": -1.5612511283791264e-16,
+        "water_bookkeeping_residual_m3": 2.37576642386772e-10
+      },
+      "basal_front_m": 0.0070294452171853665,
+      "floor_z_m": -0.08704064977938475,
+      "max_undercut_m": 0.2499999999999997
+    },
+    {
+      "n_bands": 256,
+      "totals": {
+        "atmospheric_J": 3277017.2134280214,
+        "water_in_J": 3188052000.0005007,
+        "water_out_J": 3183706869.903529,
+        "latent_J": 7458106.64572818,
+        "fresh_ice_warming_J": 0.0,
+        "remap_enthalpy_J": 0.0,
+        "face_melt_m3": 0.010248184443163095,
+        "floor_melt_m3": 0.0070531946163584,
+        "bypass_melt_m3": 0.007049395876086606,
+        "water_in_m3": 1512.0000000000002,
+        "water_out_m3": 1512.0223296608538,
+        "phase_water_m3": 0.022329660615952634,
+        "covered_face_melt_m3": 0.0007859750422728354,
+        "bare_face_melt_m3": 0.009462209400890261,
+        "absolute_surface_forcing_J": 3277017.2134280214,
+        "absolute_material_enthalpy_transfer_J": 0.0
+      },
+      "checks": {
+        "global_energy_residual_J": -6.118789315223694e-07,
+        "geometry_phase_volume_residual_m3": -1.5612511283791264e-16,
+        "water_bookkeeping_residual_m3": 2.37576642386772e-10
+      },
+      "basal_front_m": 0.007029445217185367,
+      "floor_z_m": -0.08704064977938475,
+      "max_undercut_m": 0.2499999999999997
+    }
+  ]
+}

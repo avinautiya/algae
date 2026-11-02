@@ -1,0 +1,1397 @@
+{
+  "seed": 20261101,
+  "n_cases": 20,
+  "cases": [
+    {
+      "id": "T01",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.0762702394142173,
+          "debris_capacity_J_m2_K": 29262.243487123233,
+          "debris_conductance_W_m2_K": 42.43786104526077,
+          "initial_debris_temperature_C": 5.5612614776731935,
+          "new_debris_temperature_C": 0.20170309100310124,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.03753455595653424,
+            "water_superheat_K": 0.32935015950558133,
+            "face_atmospheric_net_W_m2": 35.51725195053218,
+            "floor_atmospheric_net_W_m2": 35.51725195053218,
+            "bypass_atmospheric_net_W_m2": 35.51725195053218
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.03378110036088081,
+            "water_superheat_K": 0.23054511165390693,
+            "face_atmospheric_net_W_m2": 21.310351170319304,
+            "floor_atmospheric_net_W_m2": 21.310351170319304,
+            "bypass_atmospheric_net_W_m2": 21.310351170319304
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "lumped_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "face_profile_bands": 8,
+          "ledge_heat_policy": "adiabatic",
+          "fixed_cover_interval_m": [
+            -0.07,
+            0.16491233739578928
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T02",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.09679896898887638,
+          "debris_capacity_J_m2_K": 86623.88315239185,
+          "debris_conductance_W_m2_K": 84.54291098871727,
+          "initial_debris_temperature_C": 0.7278158745947554,
+          "new_debris_temperature_C": 3.6390199549240525,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.02010788104150552,
+            "water_superheat_K": 0.026360977379677353,
+            "face_atmospheric_net_W_m2": 96.99629080163675,
+            "floor_atmospheric_net_W_m2": 96.99629080163675,
+            "bypass_atmospheric_net_W_m2": 96.99629080163675
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.018097092937354967,
+            "water_superheat_K": 0.018452684165774145,
+            "face_atmospheric_net_W_m2": 58.19777448098205,
+            "floor_atmospheric_net_W_m2": 58.19777448098205,
+            "bypass_atmospheric_net_W_m2": 58.19777448098205
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01
+        }
+      }
+    },
+    {
+      "id": "T03",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.05463775426606964,
+          "debris_capacity_J_m2_K": 94136.74306061803,
+          "debris_conductance_W_m2_K": 69.9721170546437,
+          "initial_debris_temperature_C": 7.021090678682509,
+          "new_debris_temperature_C": 0.43566133467264834,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.046400541014010394,
+            "water_superheat_K": 0.8569232541852524,
+            "face_atmospheric_net_W_m2": 45.754857933793524,
+            "floor_atmospheric_net_W_m2": 45.754857933793524,
+            "bypass_atmospheric_net_W_m2": 45.754857933793524
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.041760486912609356,
+            "water_superheat_K": 0.5998462779296766,
+            "face_atmospheric_net_W_m2": 27.452914760276112,
+            "floor_atmospheric_net_W_m2": 27.452914760276112,
+            "bypass_atmospheric_net_W_m2": 27.452914760276112
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "fixed_cover_interval_m": [
+            -0.07,
+            0.0982842831394945
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T04",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.03929777763040677,
+          "debris_capacity_J_m2_K": 22333.99519709702,
+          "debris_conductance_W_m2_K": 77.62232253478648,
+          "initial_debris_temperature_C": 3.302403348544037,
+          "new_debris_temperature_C": 1.3636815026040634,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.05674453255737341,
+            "water_superheat_K": 0.8651402995621149,
+            "face_atmospheric_net_W_m2": 128.9237012118713,
+            "floor_atmospheric_net_W_m2": 128.9237012118713,
+            "bypass_atmospheric_net_W_m2": 128.9237012118713
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.051070079301636075,
+            "water_superheat_K": 0.6055982096934804,
+            "face_atmospheric_net_W_m2": 77.35422072712278,
+            "floor_atmospheric_net_W_m2": 77.35422072712278,
+            "bypass_atmospheric_net_W_m2": 77.35422072712278
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "face_profile_bands": 8,
+          "ledge_heat_policy": "adiabatic"
+        }
+      }
+    },
+    {
+      "id": "T05",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.0640932867342676,
+          "debris_capacity_J_m2_K": 55767.215159080406,
+          "debris_conductance_W_m2_K": 20.17895614168108,
+          "initial_debris_temperature_C": 5.1995180539419605,
+          "new_debris_temperature_C": 3.1966742928146465,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.05974920077051396,
+            "water_superheat_K": 0.4574332766822632,
+            "face_atmospheric_net_W_m2": 94.08164741257258,
+            "floor_atmospheric_net_W_m2": 94.08164741257258,
+            "bypass_atmospheric_net_W_m2": 94.08164741257258
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.053774280693462566,
+            "water_superheat_K": 0.3202032936775842,
+            "face_atmospheric_net_W_m2": 56.44898844754355,
+            "floor_atmospheric_net_W_m2": 56.44898844754355,
+            "bypass_atmospheric_net_W_m2": 56.44898844754355
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "lumped_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "fixed_cover_interval_m": [
+            -0.07,
+            0.1274073231415442
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T06",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.02283937826940274,
+          "debris_capacity_J_m2_K": 64237.96166338595,
+          "debris_conductance_W_m2_K": 80.33420809576809,
+          "initial_debris_temperature_C": 3.9356203428216157,
+          "new_debris_temperature_C": 2.54638679982279,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.09077615138666917,
+            "water_superheat_K": 0.709972313372905,
+            "face_atmospheric_net_W_m2": 1.0153887612853185,
+            "floor_atmospheric_net_W_m2": 1.0153887612853185,
+            "bypass_atmospheric_net_W_m2": 1.0153887612853185
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.08169853624800226,
+            "water_superheat_K": 0.4969806193610335,
+            "face_atmospheric_net_W_m2": 0.6092332567711911,
+            "floor_atmospheric_net_W_m2": 0.6092332567711911,
+            "bypass_atmospheric_net_W_m2": 0.6092332567711911
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01
+        }
+      }
+    },
+    {
+      "id": "T07",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.020303010357768873,
+          "debris_capacity_J_m2_K": 31956.4806356395,
+          "debris_conductance_W_m2_K": 76.54226091486557,
+          "initial_debris_temperature_C": 1.1929842747246244,
+          "new_debris_temperature_C": 3.822147655220537,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.057618487006275476,
+            "water_superheat_K": 0.48369661319793,
+            "face_atmospheric_net_W_m2": 44.55177667967822,
+            "floor_atmospheric_net_W_m2": 44.55177667967822,
+            "bypass_atmospheric_net_W_m2": 44.55177667967822
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.05185663830564793,
+            "water_superheat_K": 0.33858762923855096,
+            "face_atmospheric_net_W_m2": 26.73106600780693,
+            "floor_atmospheric_net_W_m2": 26.73106600780693,
+            "bypass_atmospheric_net_W_m2": 26.73106600780693
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "face_profile_bands": 8,
+          "ledge_heat_policy": "adiabatic",
+          "fixed_cover_interval_m": [
+            -0.07,
+            -0.007466728098071876
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T08",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.0293480783737396,
+          "debris_capacity_J_m2_K": 62118.269823021474,
+          "debris_conductance_W_m2_K": 20.840307561455255,
+          "initial_debris_temperature_C": 6.985262291956488,
+          "new_debris_temperature_C": 1.574735253340667,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.06199039263325201,
+            "water_superheat_K": 0.41794388515313463,
+            "face_atmospheric_net_W_m2": 194.13352505195968,
+            "floor_atmospheric_net_W_m2": 194.13352505195968,
+            "bypass_atmospheric_net_W_m2": 194.13352505195968
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.05579135336992681,
+            "water_superheat_K": 0.2925607196071942,
+            "face_atmospheric_net_W_m2": 116.4801150311758,
+            "floor_atmospheric_net_W_m2": 116.4801150311758,
+            "bypass_atmospheric_net_W_m2": 116.4801150311758
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01
+        }
+      }
+    },
+    {
+      "id": "T09",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.040599520245900855,
+          "debris_capacity_J_m2_K": 29789.94141991736,
+          "debris_conductance_W_m2_K": 28.980097054097588,
+          "initial_debris_temperature_C": 7.119943362539669,
+          "new_debris_temperature_C": 1.2941538397800167,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.06513221937398765,
+            "water_superheat_K": 0.34426949756301595,
+            "face_atmospheric_net_W_m2": 86.42028918487732,
+            "floor_atmospheric_net_W_m2": 86.42028918487732,
+            "bypass_atmospheric_net_W_m2": 86.42028918487732
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.05861899743658889,
+            "water_superheat_K": 0.24098864829411115,
+            "face_atmospheric_net_W_m2": 51.85217351092639,
+            "floor_atmospheric_net_W_m2": 51.85217351092639,
+            "bypass_atmospheric_net_W_m2": 51.85217351092639
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "lumped_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "fixed_cover_interval_m": [
+            -0.07,
+            0.055046522357374644
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T10",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.09363002775986294,
+          "debris_capacity_J_m2_K": 54690.56258696812,
+          "debris_conductance_W_m2_K": 86.28685055900904,
+          "initial_debris_temperature_C": 3.0807835865923963,
+          "new_debris_temperature_C": 1.4339052497327631,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.08061470136522282,
+            "water_superheat_K": 0.5463909323823749,
+            "face_atmospheric_net_W_m2": 109.12340530262033,
+            "floor_atmospheric_net_W_m2": 109.12340530262033,
+            "bypass_atmospheric_net_W_m2": 109.12340530262033
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.07255323122870054,
+            "water_superheat_K": 0.3824736526676624,
+            "face_atmospheric_net_W_m2": 65.4740431815722,
+            "floor_atmospheric_net_W_m2": 65.4740431815722,
+            "bypass_atmospheric_net_W_m2": 65.4740431815722
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "face_profile_bands": 8,
+          "ledge_heat_policy": "adiabatic"
+        }
+      }
+    },
+    {
+      "id": "T11",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.04985225950308369,
+          "debris_capacity_J_m2_K": 72004.42857534139,
+          "debris_conductance_W_m2_K": 53.06413310923607,
+          "initial_debris_temperature_C": 6.726731656968301,
+          "new_debris_temperature_C": 2.0389632803804782,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.061528037211478676,
+            "water_superheat_K": 0.156597759743627,
+            "face_atmospheric_net_W_m2": 203.63894278897706,
+            "floor_atmospheric_net_W_m2": 203.63894278897706,
+            "bypass_atmospheric_net_W_m2": 203.63894278897706
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.05537523349033081,
+            "water_superheat_K": 0.10961843182053889,
+            "face_atmospheric_net_W_m2": 122.18336567338623,
+            "floor_atmospheric_net_W_m2": 122.18336567338623,
+            "bypass_atmospheric_net_W_m2": 122.18336567338623
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "fixed_cover_interval_m": [
+            -0.07,
+            0.08354495926949776
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T12",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.07064406594094086,
+          "debris_capacity_J_m2_K": 70454.97812776218,
+          "debris_conductance_W_m2_K": 91.4870118407061,
+          "initial_debris_temperature_C": 5.59032508814898,
+          "new_debris_temperature_C": 0.6643984806181318,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.0255034166539655,
+            "water_superheat_K": 0.6104791782238125,
+            "face_atmospheric_net_W_m2": 232.05156861262137,
+            "floor_atmospheric_net_W_m2": 232.05156861262137,
+            "bypass_atmospheric_net_W_m2": 232.05156861262137
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.022953074988568953,
+            "water_superheat_K": 0.4273354247566687,
+            "face_atmospheric_net_W_m2": 139.2309411675728,
+            "floor_atmospheric_net_W_m2": 139.2309411675728,
+            "bypass_atmospheric_net_W_m2": 139.2309411675728
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01
+        }
+      }
+    },
+    {
+      "id": "T13",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.04029882722349738,
+          "debris_capacity_J_m2_K": 57683.72831704823,
+          "debris_conductance_W_m2_K": 58.97924041615606,
+          "initial_debris_temperature_C": 1.4490116590146522,
+          "new_debris_temperature_C": 0.7354488554758438,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.0981459605715883,
+            "water_superheat_K": 0.930255098440412,
+            "face_atmospheric_net_W_m2": 99.86938408519048,
+            "floor_atmospheric_net_W_m2": 99.86938408519048,
+            "bypass_atmospheric_net_W_m2": 99.86938408519048
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.08833136451442947,
+            "water_superheat_K": 0.6511785689082884,
+            "face_atmospheric_net_W_m2": 59.92163045111428,
+            "floor_atmospheric_net_W_m2": 59.92163045111428,
+            "bypass_atmospheric_net_W_m2": 59.92163045111428
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "lumped_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "face_profile_bands": 8,
+          "ledge_heat_policy": "adiabatic",
+          "fixed_cover_interval_m": [
+            -0.07,
+            0.054120387848371934
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T14",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.024860726775264713,
+          "debris_capacity_J_m2_K": 66808.05236841974,
+          "debris_conductance_W_m2_K": 94.99645726392204,
+          "initial_debris_temperature_C": 5.755112800341686,
+          "new_debris_temperature_C": 3.868127906290854,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.09771656838659189,
+            "water_superheat_K": 0.6054348758358427,
+            "face_atmospheric_net_W_m2": 174.57556773032272,
+            "floor_atmospheric_net_W_m2": 174.57556773032272,
+            "bypass_atmospheric_net_W_m2": 174.57556773032272
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.0879449115479327,
+            "water_superheat_K": 0.4238044130850898,
+            "face_atmospheric_net_W_m2": 104.74534063819362,
+            "floor_atmospheric_net_W_m2": 104.74534063819362,
+            "bypass_atmospheric_net_W_m2": 104.74534063819362
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01
+        }
+      }
+    },
+    {
+      "id": "T15",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.048114981929815545,
+          "debris_capacity_J_m2_K": 57411.400949969415,
+          "debris_conductance_W_m2_K": 94.79385488864273,
+          "initial_debris_temperature_C": 4.121081063449607,
+          "new_debris_temperature_C": 0.5694126208935897,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.0717640882960696,
+            "water_superheat_K": 0.02922575076785483,
+            "face_atmospheric_net_W_m2": 94.62354555891767,
+            "floor_atmospheric_net_W_m2": 94.62354555891767,
+            "bypass_atmospheric_net_W_m2": 94.62354555891767
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.06458767946646264,
+            "water_superheat_K": 0.02045802553749838,
+            "face_atmospheric_net_W_m2": 56.7741273353506,
+            "floor_atmospheric_net_W_m2": 56.7741273353506,
+            "bypass_atmospheric_net_W_m2": 56.7741273353506
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "fixed_cover_interval_m": [
+            -0.07,
+            0.07819414434383187
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T16",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.09287892016252863,
+          "debris_capacity_J_m2_K": 51347.667594102066,
+          "debris_conductance_W_m2_K": 5.486948378757969,
+          "initial_debris_temperature_C": 5.516325164018729,
+          "new_debris_temperature_C": 2.9684643288777135,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.025878418771703438,
+            "water_superheat_K": 0.650069011881428,
+            "face_atmospheric_net_W_m2": 119.0883843834323,
+            "floor_atmospheric_net_W_m2": 119.0883843834323,
+            "bypass_atmospheric_net_W_m2": 119.0883843834323
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.023290576894533094,
+            "water_superheat_K": 0.45504830831699955,
+            "face_atmospheric_net_W_m2": 71.45303063005937,
+            "floor_atmospheric_net_W_m2": 71.45303063005937,
+            "bypass_atmospheric_net_W_m2": 71.45303063005937
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "face_profile_bands": 8,
+          "ledge_heat_policy": "adiabatic"
+        }
+      }
+    },
+    {
+      "id": "T17",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.08568072231009051,
+          "debris_capacity_J_m2_K": 70314.00733332991,
+          "debris_conductance_W_m2_K": 66.71958797222533,
+          "initial_debris_temperature_C": 5.225926506024568,
+          "new_debris_temperature_C": 2.8186278620969096,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.042341315223450256,
+            "water_superheat_K": 0.540142335827948,
+            "face_atmospheric_net_W_m2": 238.35457441741886,
+            "floor_atmospheric_net_W_m2": 238.35457441741886,
+            "bypass_atmospheric_net_W_m2": 238.35457441741886
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.03810718370110523,
+            "water_superheat_K": 0.37809963507956357,
+            "face_atmospheric_net_W_m2": 143.0127446504513,
+            "floor_atmospheric_net_W_m2": 143.0127446504513,
+            "bypass_atmospheric_net_W_m2": 143.0127446504513
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "lumped_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "fixed_cover_interval_m": [
+            -0.07,
+            0.1938966247150788
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T18",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.04445286766024406,
+          "debris_capacity_J_m2_K": 26057.816019350303,
+          "debris_conductance_W_m2_K": 26.83167837206685,
+          "initial_debris_temperature_C": 6.558744406665364,
+          "new_debris_temperature_C": 1.9425243627161901,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.020761484015879923,
+            "water_superheat_K": 0.21348573294805817,
+            "face_atmospheric_net_W_m2": 36.72577392441634,
+            "floor_atmospheric_net_W_m2": 36.72577392441634,
+            "bypass_atmospheric_net_W_m2": 36.72577392441634
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.01868533561429193,
+            "water_superheat_K": 0.14944001306364071,
+            "face_atmospheric_net_W_m2": 22.0354643546498,
+            "floor_atmospheric_net_W_m2": 22.0354643546498,
+            "bypass_atmospheric_net_W_m2": 22.0354643546498
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01
+        }
+      }
+    },
+    {
+      "id": "T19",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.01467999707097678,
+          "debris_capacity_J_m2_K": 88862.0441159277,
+          "debris_conductance_W_m2_K": 41.68914779578496,
+          "initial_debris_temperature_C": 1.3929603122513203,
+          "new_debris_temperature_C": 1.8942769849276666,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": null,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.09444344034922965,
+            "water_superheat_K": 0.3934718354584398,
+            "face_atmospheric_net_W_m2": 102.16102008335415,
+            "floor_atmospheric_net_W_m2": 102.16102008335415,
+            "bypass_atmospheric_net_W_m2": 102.16102008335415
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.08499909631430669,
+            "water_superheat_K": 0.2754302848209078,
+            "face_atmospheric_net_W_m2": 61.296612050012484,
+            "floor_atmospheric_net_W_m2": 61.296612050012484,
+            "bypass_atmospheric_net_W_m2": 61.296612050012484
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "upper",
+          "covered_heat_policy": "dry_only",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01,
+          "face_profile_bands": 8,
+          "ledge_heat_policy": "adiabatic",
+          "fixed_cover_interval_m": [
+            -0.07,
+            -0.02478560902139152
+          ],
+          "cover_interval_provenance": "SYNTHETIC fixed elevation mask; independently prescribed from geometry before run"
+        }
+      }
+    },
+    {
+      "id": "T20",
+      "configuration": {
+        "geometry": {
+          "upstream_edge_x_m": -2.0,
+          "ice_back_edge_x_m": 5.0,
+          "ice_bottom_z_m": -3.0,
+          "face_x_m": 0.0,
+          "floor_z_m": -0.08,
+          "crest_z_m": 3.0,
+          "extrusion_width_m": 0.5
+        },
+        "physics": {
+          "bypass_floor_m": 0.0,
+          "bypass_floor_limit_m": -2.0,
+          "bypass_width_m": 0.5,
+          "bypass_area_m2": 1.0,
+          "weir_coefficient_sqrt_m_s": 1.2,
+          "obstruction_height_m": 0.2,
+          "aperture_m": 0.0,
+          "discharge_coefficient": 0.6,
+          "darcy_conductance_m2_s": 0.0,
+          "water_h_W_m2_K": 200.0,
+          "face_cover_fraction": 0.035272696558342205,
+          "debris_capacity_J_m2_K": 60563.288947844754,
+          "debris_conductance_W_m2_K": 98.36208331787971,
+          "initial_debris_temperature_C": 2.542422253288117,
+          "new_debris_temperature_C": 2.533558874630404,
+          "contact_manning_n": 0.02,
+          "contact_friction_slope": 0.01,
+          "initial_surface_cold_J_m2": 0.0,
+          "new_surface_cold_J_m2": 0.0,
+          "ice_subcooling_K": 0.0,
+          "ice_heat_capacity_J_kg_K": 2100.0,
+          "max_meltwater_fraction": 0.05
+        },
+        "step_s": 120.0,
+        "removal_time_s": 3600.0,
+        "provenance": "SYNTHETIC independent thermal integration review; seeded warm inputs, not field data",
+        "periods": [
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.07966529848341941,
+            "water_superheat_K": 0.16804386056268372,
+            "face_atmospheric_net_W_m2": 180.08069203317888,
+            "floor_atmospheric_net_W_m2": 180.08069203317888,
+            "bypass_atmospheric_net_W_m2": 180.08069203317888
+          },
+          {
+            "duration_s": 3600.0,
+            "inflow_m3_s": 0.07169876863507747,
+            "water_superheat_K": 0.1176307023938786,
+            "face_atmospheric_net_W_m2": 108.04841521990733,
+            "floor_atmospheric_net_W_m2": 108.04841521990733,
+            "bypass_atmospheric_net_W_m2": 108.04841521990733
+          }
+        ],
+        "upgrades": {
+          "wet_debris": "resolved_temperate",
+          "face_cover_location": "lower",
+          "covered_heat_policy": "prescribed_all_cover",
+          "debris_cells": 8,
+          "debris_substep_fraction": 0.01
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "model.py": "74bf4869810473e548adb5a08e405c2b978c916003268f2d5a6ebf447f2556c8",
+    "face_thermal.py": "5eadfa551ffb7426751c1e47e02bf22f40a1968eaca1dda56c75c4321556fea3",
+    "thermal/wet_debris.py": "89f2af2fc26ea3d0a8c11dadd695d87b10850bede6a62cbc930496eb7b7461e3",
+    "thermal/resolved_slab.py": "90216cfcbae3cb34ad1e7d3f5a98ce537a3e7efd1eca3cadb8f7479a7fc221a2",
+    "thermal/column_partition.py": "83ba5d5c69d4fb7cd74b63b0d8124e9ec57b789e027d8a64fe69520a0e1326c4"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "scope": "original-source data/clock comparison, not model accuracy",
+  "profiles": [
+    {
+      "file": "20457129.csv",
+      "assumed_july_depth_cm": 5,
+      "raw_clock_header": "Date Time, GMT-08:00",
+      "rows": 23914,
+      "start_UTC": "2020-06-18T00:30:00",
+      "end_UTC": "2020-09-09T01:15:00",
+      "max_gap_seconds": 300.0,
+      "depth_status": "July/August depth configuration exists; exact transition date from June depths unverified"
+    },
+    {
+      "file": "20457130.csv",
+      "assumed_july_depth_cm": 15,
+      "raw_clock_header": "Date Time, GMT-08:00",
+      "rows": 23909,
+      "start_UTC": "2020-06-18T00:30:00",
+      "end_UTC": "2020-09-09T00:50:00",
+      "max_gap_seconds": 300.0,
+      "depth_status": "July/August depth configuration exists; exact transition date from June depths unverified"
+    }
+  ],
+  "overlap_processed_comparison": {
+    "5": {
+      "joined": 11958,
+      "missing": 0,
+      "max_abs_difference_C": 0.0,
+      "mean_abs_difference_C": 0.0
+    },
+    "15": {
+      "joined": 11958,
+      "missing": 0,
+      "max_abs_difference_C": 0.0,
+      "mean_abs_difference_C": 0.0
+    }
+  },
+  "synthetic_boundary": {
+    "profile": "KDT_2020b",
+    "column": "Depth: 22 cm",
+    "summary_real_sensors": 2,
+    "all_values_exact_zero": true,
+    "confirmed_author_profile_info": "20457129 at5cm,20457130 at15cm,Base at22cm",
+    "author_code_behavior": "Base constructed as shallow temperature times zero; documented as a non-sensor ice-interface boundary",
+    "source_code_url": "https://github.com/ericivanpetersen/supraglacial_debris_heat_flux_jgr/blob/4863e0bec8e496452421f97d616b03925451f215/plot_debris_temp_paper.py#L56-L86"
+  }
+}
