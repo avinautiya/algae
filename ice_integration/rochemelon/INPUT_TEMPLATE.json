@@ -1,0 +1,21 @@
+{
+  "_instructions": "Fill every null/REQUIRED field from independent sources. Do NOT use Rochemelon-fitted coefficients. Remove keys starting with '_' is optional. Run: python -m ice_integration.rochemelon.check_readiness INPUT.json",
+  "purpose": "rochemelon_prediction",
+  "clock_convention": "REQUIRED: UTC | local_with_offset",
+  "alignment": {
+    "path_alignment_verified": false,
+    "geometry_independent_of_bed_target": false,
+    "source": "REQUIRED: citation for measured-section <-> prediction-section binding"
+  },
+  "gates": {
+    "section_binding": {"measured_profile_labels": ["A","B","C"], "predicted_section_names": [null,null,null], "downstream_distance_m": [3,17,33], "justification": "REQUIRED"},
+    "survey_timing": {"survey_dates": [null,null,null], "survey_hours_local": [null,null,null], "timing_uncertainty_h": null, "source": "REQUIRED"},
+    "inlet_thermal_path": {"inlet_to_target_length_m": null, "inlet_temperature_source": "REQUIRED", "path_description": "REQUIRED"},
+    "geometry": {"basis": "REQUIRED: independent_survey | qualified_hydraulic_closure", "source": "REQUIRED", "uses_rochemelon_fitted_coefficients": false}
+  },
+  "records": [
+    {"start": "REQUIRED ISO8601", "end": "REQUIRED ISO8601", "Q_m3_s": null, "inlet_temperature_C": null, "ice_temperature_C": 0.0,
+     "forcing_source": "REQUIRED", "forcing_basis": "REQUIRED",
+     "sections": [{"name": "REQUIRED", "width_m": null, "depth_m": null, "length_m": null, "source": "REQUIRED", "geometry_basis": "REQUIRED"}]}
+  ]
+}

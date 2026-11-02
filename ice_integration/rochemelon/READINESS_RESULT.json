@@ -1,0 +1,30 @@
+{
+ "ready": false,
+ "gates": {
+  "section_binding": {
+   "resolved": false,
+   "reason": "measured A/B/C must map to named prediction sections with distances"
+  },
+  "survey_timing": {
+   "resolved": false,
+   "reason": "survey dates, hours and timing uncertainty required"
+  },
+  "inlet_thermal_path": {
+   "resolved": false,
+   "reason": "inlet-to-target length and temperature source required"
+  },
+  "geometry": {
+   "resolved": false,
+   "reason": "independent geometry or qualified closure; no Rochemelon-fitted coefficients"
+  },
+  "alignment_flags": {
+   "resolved": false,
+   "reason": "both alignment flags must be true"
+  },
+  "records": {
+   "resolved": false,
+   "reason": "forcing records with sections, no placeholders"
+  }
+ },
+ "scored": false
+}
