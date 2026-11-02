@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "revision": "corrected_evidence_v1",
+  "audited_commit": "05e7312e3bbf248acf9f646267a5b8ea06a8b32e",
+  "claim_ceiling": "verified conditional mechanism and retrospective failed comparison",
+  "facts": {
+    "pinned_commit": "05e7312e3bbf248acf9f646267a5b8ea06a8b32e",
+    "source_blobs_verified": 11,
+    "nominal_test_count": 6,
+    "nominal_pooled_bias_m": 0.5848727260980938,
+    "nominal_pooled_MAE_m": 0.5848727260980938,
+    "error_budget_claimed_nominal_bias_m": 0.63,
+    "linear_imputer_marginal_bias_over_27_scenarios_m": 0.6309372253842787,
+    "nominal_label_defect_confirmed": true,
+    "leverage_concentration_equivalent_count": 1.3394799407835647,
+    "leverage_count_is_not_statistical_independence_ESS": true,
+    "validity_unmet_count": 8,
+    "contract_is_current_package_specific_not_global_public_data_impossibility": true,
+    "mechanism_versions": {
+      "current_bed_operator": "v4",
+      "headline_loss_comparison": "legacy development trajectory, 3 labels share pre-removal history",
+      "loss_GCI_days": 0.37,
+      "loss_GCI_is_statistical_CI": false,
+      "frozen_recovery_boundary_prediction_days": 9.5,
+      "reported_dynamic_reference_boundary_days": 10.39,
+      "reported_fixed_medium_history_fine_grid_boundary_days": 10.45,
+      "recovery_boundary_dynamic_error_days": 0.8900000000000006,
+      "recovery_boundary_finest_grid_shift_days": 0.02,
+      "finest_grid_shift_is_not_full_coupled_error_bound": true,
+      "new_boundary_class_matches": 4,
+      "new_boundary_class_cases": 5,
+      "raw_rescore_removal_classes": {
+        "maintained": 3,
+        "genuine_reconnection": 1,
+        "failed_by_horizon": 2
+      },
+      "distinct_pre_loss_histories": 2,
+      "solid_strip_loss_comparison_histories": 1,
+      "contact_persistence_boundary_days": [
+        10.0,
+        10.5
+      ],
+      "strength_defined_boundary_days_approx": 9.2,
+      "day10_removal_reconnects_then_loses_contact_at_day": 12.4,
+      "legacy_locked_ROI_melt_relative_errors": [
+        -0.54,
+        -0.67
+      ],
+      "legacy_locked_ROI_melt_absolute_errors_m3": [
+        -0.002,
+        -0.0034
+      ],
+      "v3_v4_matched_scorer_refusals_each": 10,
+      "complete_v4_matched_ROI_campaign_done": false,
+      "legacy_raw_provenance": "metadata_identity_checked_not_run_authenticated"
+    }
+  },
+  "source_precedence": [
+    {
+      "priority": 1,
+      "scope": "raw legacy ROI scores/recovery/history classification",
+      "path": "ice_cliff_survival/reactivation/REPORT_M3_RESCORE.md"
+    },
+    {
+      "priority": 2,
+      "scope": "v3/v4 operator/boundary corrections, not full v4 ROI campaign",
+      "path": "ice_cliff_survival/reactivation/SOLVER_VERSIONS.md"
+    },
+    {
+      "priority": 3,
+      "scope": "additional boundary calculations and v4 correction",
+      "path": "ice_cliff_survival/reactivation/REPORT_M3_ADDENDUM.md"
+    },
+    {
+      "priority": 4,
+      "scope": "historical development only, qualified by above",
+      "path": "ice_cliff_survival/reactivation/REPORT_M3_FINAL.md"
+    }
+  ],
+  "gates": {
+    "full_v4_matched_melt_ready": false,
+    "field_superiority_established": false,
+    "historical_originality_established": false,
+    "independent_field_validation": false
+  },
+  "claims": [
+    {
+      "id": "C01",
+      "claim": "Point predictions reproduce V5",
+      "evidence_class": "numerical_equivalence",
+      "status": "reported",
+      "qualification": "Max relative difference4.2e-16 across5994values; no new physics or environmental validation."
+    },
+    {
+      "id": "C02",
+      "claim": "Implemented heat/water accounting and restart checks",
+      "evidence_class": "numerical_verification",
+      "status": "reported",
+      "qualification": "15integration tests reported. Fluid-only closure does not certify phase-source water mass; atmosphere/cold ice/full geometry remain out of scope."
+    },
+    {
+      "id": "C03",
+      "claim": "Plug-flow finite-heat limit",
+      "evidence_class": "numerical_verification",
+      "status": "reported",
+      "qualification": "Integration check within1%; verifies its prescribed equations."
+    },
+    {
+      "id": "C04",
+      "claim": "Offsets and support bookkeeping",
+      "evidence_class": "numerical_verification",
+      "status": "reported",
+      "qualification": "Checks cover selected P3/P5 sources; unresolved clock conventions remain."
+    },
+    {
+      "id": "C05",
+      "claim": "Consistent superiority over every baseline",
+      "evidence_class": "retrospective_comparison",
+      "status": "false",
+      "qualification": "Candidate fails declared consistency; no recalibration to evaluation outcomes is authorized."
+    },
+    {
+      "id": "C06",
+      "claim": "Nominal pooled error and scenario bias",
+      "evidence_class": "retrospective_comparison",
+      "status": "recomputed",
+      "qualification": "Six nominal errors all positive, nominal MAE=bias0.584872726098m. Scenario marginal summaries must remain separate; engineering ranges are not confidence intervals."
+    },
+    {
+      "id": "C07",
+      "claim": "Earlier local-geometry improvement",
+      "evidence_class": "retrospective_development",
+      "status": "reported",
+      "qualification": "23.6%within one family is a preserved development comparison, not consistent superiority."
+    },
+    {
+      "id": "C08",
+      "claim": "Strict-native score",
+      "evidence_class": "no_result",
+      "status": "unavailable",
+      "qualification": "No interval passes full native-support requirement; no score exists."
+    },
+    {
+      "id": "C09",
+      "claim": "Station-specific calibration identifiable",
+      "evidence_class": "training_diagnostic",
+      "status": "unsupported",
+      "qualification": "P5one low-SNRtraining interval does not identify a separate scale. P3leverage-equivalent count1.33948 is not independent statistical ESS."
+    },
+    {
+      "id": "C10",
+      "claim": "Pressure head establishes full depth",
+      "evidence_class": "input_diagnostic",
+      "status": "unsupported",
+      "qualification": "Clearance missing. Independent water-file station/time binding is hypothetical; mismatch exists only under that mapping, not proof which instrument is wrong."
+    },
+    {
+      "id": "C11",
+      "claim": "Plan-view coupled demonstration",
+      "evidence_class": "conditional_demonstration",
+      "status": "reported",
+      "qualification": "Imposed forcing, capped/settled and refined variants; melt-volume agreement does not certify contact convergence or field accuracy."
+    },
+    {
+      "id": "C12",
+      "claim": "Wet/dry threshold sensitivity",
+      "evidence_class": "numerical_sensitivity",
+      "status": "reported",
+      "qualification": "Bit-identical only for tested strip geometry and thresholds; no thin-film universality."
+    },
+    {
+      "id": "C13",
+      "claim": "Mechanism predictor matches evolving geometry",
+      "evidence_class": "model_to_model",
+      "status": "qualified",
+      "qualification": "Use latest raw-trace rescore and source-version precedence. One solid-strip loss history gives0.02day agreement; not three independent validations. Recovery contact and strength boundaries differ."
+    },
+    {
+      "id": "C14",
+      "claim": "Natural porous-boulder behavior",
+      "evidence_class": "closure_claim",
+      "status": "unsupported",
+      "qualification": "Ergun/drag/insulation closures unverified for real clast routing; omit from main environmental claims."
+    },
+    {
+      "id": "C15",
+      "claim": "Rochemelon independent test",
+      "evidence_class": "no_result",
+      "status": "unavailable",
+      "qualification": "Section/timing/thermal-path/geometry gates remain unresolved; no inputs invented."
+    },
+    {
+      "id": "C16",
+      "claim": "Field cliff retreat/melt/lifetime accuracy",
+      "evidence_class": "environmental_prediction",
+      "status": "unsupported",
+      "qualification": "No coupled cliff-model field validation supplied."
+    },
+    {
+      "id": "C17",
+      "claim": "Independent validation against nature",
+      "evidence_class": "independent_validation",
+      "status": "unestablished",
+      "qualification": "No independent-validation claim established in this package; retrospective comparisons are empirical evaluations but not independent confirmation."
+    }
+  ],
+  "candidate_question": "Can finite-head and heat-limited evolving geometry predict temporary rewetting versus sustained post-pulse recovery against an initially hydraulically matched evolving-topography baseline?"
+}

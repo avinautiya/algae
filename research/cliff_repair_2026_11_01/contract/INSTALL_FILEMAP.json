@@ -1,0 +1,23 @@
+{
+  "base_repository_commit": "05e7312e3bbf248acf9f646267a5b8ea06a8b32e",
+  "scope": "Apply only on a new candidate branch; do not edit Claude's active branch or historical results.",
+  "files": {
+    "validity_contract.py": "ice_integration/release/validity_contract.py",
+    "validity_contract_v2.py": "ice_integration/release/validity_contract_v2.py",
+    "MODEL_VALIDITY_CONTRACT.md": "ice_integration/release/MODEL_VALIDITY_CONTRACT.md",
+    "METADATA_TEMPLATE_V2.json": "ice_integration/release/METADATA_TEMPLATE_V2.json",
+    "README.md": "ice_integration/release/VALIDITY_CONTRACT_V2.md",
+    "swiss_package_metadata_v2_unverified.json": "ice_integration/release/swiss_package_metadata_v2_unverified.json",
+    "swiss_migration_report.json": "ice_integration/release/swiss_migration_report.json",
+    "swiss_package_contract_result_v2.json": "ice_integration/release/swiss_package_contract_result_v2.json"
+  },
+  "preserve_without_modification": [
+    "ice_integration/release/__init__.py",
+    "ice_integration/release/swiss_package_metadata_status.json",
+    "ice_integration/release/swiss_package_contract_result.json"
+  ],
+  "archive_complete_repair_packet_at": "research/cliff_repair_2026_11_01/contract/",
+  "package_smoke_command": "python3 -m ice_integration.release.validity_contract ice_integration/release/METADATA_TEMPLATE_V2.json",
+  "package_smoke_expected_exit": 2,
+  "success_semantics": "Check exit0 means typed metadata complete only; may_issue_environmental_prediction is never true. Migration/template exit0 means operation succeeded only."
+}

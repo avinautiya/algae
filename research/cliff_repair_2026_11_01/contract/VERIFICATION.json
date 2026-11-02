@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "tests": 22,
+  "pinned_repository_commit": "05e7312e3bbf248acf9f646267a5b8ea06a8b32e",
+  "source_blobs": {
+    "validity_contract.py": {
+      "expected_git_blob": "c63eeefa4b1841d4d7624138c054b19629017a1e",
+      "actual_git_blob": "c63eeefa4b1841d4d7624138c054b19629017a1e",
+      "verified": true
+    },
+    "MODEL_VALIDITY_CONTRACT.md": {
+      "expected_git_blob": "e84e83aba6d4b1e17328c10a8d9a04fa44171798",
+      "actual_git_blob": "e84e83aba6d4b1e17328c10a8d9a04fa44171798",
+      "verified": true
+    },
+    "swiss_package_metadata_status.json": {
+      "expected_git_blob": "67e29bd1c5572c2711fbbe78ceb54efd6ed65853",
+      "actual_git_blob": "67e29bd1c5572c2711fbbe78ceb54efd6ed65853",
+      "verified": true
+    },
+    "swiss_package_contract_result.json": {
+      "expected_git_blob": "d42e54b8a6ad85cb127b435009e70a9b4fc004fb",
+      "actual_git_blob": "d42e54b8a6ad85cb127b435009e70a9b4fc004fb",
+      "verified": true
+    }
+  },
+  "stdout": "",
+  "stderr": "test_cli_explicit_migration_and_overwrite_protection (test_adapter.AdapterTests) ... ok\ntest_cli_nonfinite_duplicate_deep_json (test_adapter.AdapterTests) ... ok\ntest_complete_cli_zero_means_only_metadata_complete (test_adapter.AdapterTests) ... ok\ntest_huge_integer_and_malformed_urls_refuse_without_crash (test_adapter.AdapterTests) ... ok\ntest_nested_json_types_never_approve_or_crash (test_adapter.AdapterTests) ... ok\ntest_no_automatic_legacy_fallback (test_adapter.AdapterTests) ... ok\ntest_old_result_keys_preserved_but_authority_removed (test_adapter.AdapterTests) ... ok\ntest_original_seven_exploits_reproduced_then_rejected (test_adapter.AdapterTests) ... ok\ntest_repository_package_module_entrypoint (test_adapter.AdapterTests) ... ok\ntest_swiss_migration_no_coercion_or_fabrication (test_adapter.AdapterTests) ... ok\ntest_clearance_and_ice_bounds (test_contract.ContractTests) ... ok\ntest_cli_duplicate_and_nonfinite_rejection (test_contract.ContractTests) ... ok\ntest_complete_never_claims_valid_science (test_contract.ContractTests) ... ok\ntest_evidence_is_required (test_contract.ContractTests) ... ok\ntest_fraction_domain (test_contract.ContractTests) ... ok\ntest_numerics_required (test_contract.ContractTests) ... ok\ntest_residual_exceeds_limit (test_contract.ContractTests) ... ok\ntest_schema_and_unknown_typos (test_contract.ContractTests) ... ok\ntest_string_booleans_refuse (test_contract.ContractTests) ... ok\ntest_template_refuses (test_contract.ContractTests) ... ok\ntest_uncertainty_not_bool_negative_or_nan (test_contract.ContractTests) ... ok\ntest_unsettled_hydraulics (test_contract.ContractTests) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.645s\n\nOK\n",
+  "scope": "Typed metadata/migration and refusal behavior only; not environmental model validation"
+}

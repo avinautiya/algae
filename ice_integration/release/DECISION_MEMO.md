@@ -1,29 +1,34 @@
-# Decision memo: obtain the missing observations, or frame the paper around a verified computational mechanism
+# Corrected decision memo
 
-Basis: only evidence in this repository; the novelty assessment is not certified (several prior-art sources remain unread, as `ice_cliff_survival/PRIOR_ART.md` itself records).
+Proposed additive correction, revision `corrected_evidence_v1`, based on pinned commit `05e7312e3bbf248acf9f646267a5b8ea06a8b32e`. Historical documents and results remain unchanged. See `CLAIM_REGISTRY.json`, `SOURCE_MANIFEST.json` and `check_claims.py`.
 
-## What we actually have
-- **Field-facing path:** a retrospective comparison on inspected data that fails the pre-fixed superiority rule; a scale identifiable only through one interval; no clearance, width, bulk temperature or independent discharge in the public record; no independent event gated through. All of the information needed to move the field claim is **absent from public sources**.
-- **Mechanism path** (`REPORT_M3_FINAL.md`, 10 frozen configurations × two grids, 21 d, imposed inputs): in a depth-averaged shallow-water model with conserved heat and a common insulation closure, (i) an equal volume and footprint of debris produces opposite contact outcomes depending on arrangement (connected bare corridor keeps ≈0.49 of flow for 21 d; solid strip loses toe contact at 2.5 d, porous strip at 10.5 d); (ii) after loss, removing a strip late (12 d) does not restore contact, removal at 8 d restores ≈1/7 of the bare share, early removal never loses contact; (iii) a connectivity-aware reduced model reproduces loss time to 0.02 d (numerical uncertainty 0.37 d) while fractional-cover is ≈10 d off and fixed geometry never loses contact. Verification: well-balance 4e-15, closure ≤1e-12, plug-flow heat limit, weir partition within 0.04, event-time Richardson/GCI. Not independently verified: porous drag, insulation closure, non-hydrostatic adequacy.
+## Decision
 
-## Evaluation of the mechanism path against prior art (not assumed novel)
-| Question | Assessment |
-|---|---|
-| Is "streams at cliff bases undercut/maintain cliffs; debris insulates; reburial matters" new? | **No.** Petersen et al. 2024, Evatt et al. 2024, Buri et al. 2016, Röhl 2006, Sato et al. 2025 state these qualitatively or parametrically (Buri/Röhl/Douglas & Lamb/Verhaegen were not read in full). |
-| Are coupled thermal flow + moving ice + constrictions already published? | **Partly.** Batley & Smith 2025 (reduced analysis and CFD of melting constrictions) is the closest numerical-method neighbour; Ogier et al. 2021 and Isenko et al. 2005 cover stream cooling/heat exchange. A reviewer will ask what the shallow-water model adds beyond them. |
-| Is the arrangement-dependence/lock-out after removal result new? | **Unknown and at risk.** It follows plausibly from a connectivity (percolation-style) argument; the reduced connectivity model was authored by the same group with the same closure, so its agreement with the CFD is a consistency check, not independent confirmation. |
-| Does the evidence exceed the model class? | **No.** Idealised strip/corridor, assumed Q/T, depth-averaged flow, no seepage, no field target, 10 runs, three not held out in configuration. The comparison against fractional-cover/fixed geometry is a comparison between model structures, not against reality. |
-| What is the strongest defensible claim? | "In a conserved-heat depth-averaged model, contact-loss timing and post-removal reconnection depend on debris arrangement and are captured by a connectivity criterion but not by area-fraction or fixed-geometry shielding, with verified numerics." A mechanism/verification paper, explicitly not a prediction paper. |
-| Publishability | Plausible for a modelling/methods venue **only if** (a) the unread prior art is read and the novelty gap is stated against Batley & Smith and the debris-cover literature, (b) the porous result is either closed by a flume/analytic reference or removed from the claim set, (c) a falsifiable, pre-registered prediction is stated. Not established; reviewers may judge it an expected consequence of the model's assumptions. |
+Do not draft a new-environmental-mechanism or superior-field-predictor headline from the present package. A conditional mechanism study is a candidate, not a publication-ready conclusion. The failed field verdict remains visible. A future suitable public dataset is not ruled out merely because the present package fails eight metadata gates.
 
-## Paths compared
-| Criterion | A. Obtain missing observations | B. Rigorous computational-mechanism paper |
-|---|---|---|
-| Closes the failed-verdict question | Yes, only path that can | No — the verdict stays failed and is reported as such |
-| Cost/feasibility | Needs authors (logger/clearance/width/bulk T/Q) or a new survey; Rochemelon requires graph digitization with an event whose coefficients were tuned; timing unknown, outcome uncertain | Writing/reading-bounded; no new campaign needed; small extra verification (read prior art, closure check) |
-| Risk | Authors may not hold clearance data; digitized event may still fail gates | Novelty and relevance risk; reviewers may dismiss as assumption-driven |
-| Evidence ceiling | Could reach independent validation of the heat-transfer component | Verification + conditional demonstration only |
-| Honest claim today | None beyond "gates unresolved" | Mechanism under stated assumptions |
+## Evidence that must govern the decision
 
-## Recommendation
-Do **not** wait on the observations to publish a verified mechanism, and do not present B as validated prediction. Sequence: (1) complete the prior-art reading (the unread rows) and decide go/no-go on novelty **before** drafting; (2) frame the manuscript as a verified mechanism with an explicit "no field validation" limitation and the failed field comparison reported in an honest limitations/appendix section; (3) in parallel, send the cheap data requests (clearance/width/bulk T/Q from the Plaine Morte authors; Rochemelon numerical series if they exist) because they are the only way to upgrade the claim class; (4) set stop rules: if prior-art reading shows the mechanism is already covered, or the authors cannot supply clearance/width, drop the field-prediction ambition and keep only the verification contribution. If forced to choose one path today, **B (conditional on the prior-art check)**, because A has no deliverable in the repository's control and no public source can supply the missing inputs.
+- The candidate fails the declared all-baseline consistency target. It systematically overpredicts the six inspected test intervals. Recalibration against those test outcomes would not repair independent evidence.
+- Calibration leverage is demonstrated instability: one interval dominates and leave-one-out scales vary widely. It is not demonstrated causal attribution of test bias. A leverage-equivalent count is not an independent-sample effective size.
+- The historical0.02-day strip-loss agreement is one shared pre-removal trajectory under common thermal closures. The old0.37-day numerical GCI is a development loss estimate, not a statistical interval or a bound on every recovery forecast.
+- The latest rescore separates maintained contact, genuine reconnection, temporary reconnection with reloss, and recovery strength. Its contact and strength boundaries answer different questions.
+- Current solver source isv4, but complete authenticated v4 matched-ROI scoring is absent. Legacy locked-strip ROI errors are−54%and−67%(−0.0020/−0.0034m³), well above the5e−6m³ storage precision. Do not claim all melt predictions are accurate or dismiss these errors as rounding.
+- Model-to-model agreement shares closures and assumptions. It does not independently validate those closures, porous clasts, vertical cliff melt, lifetime or Himalayan transfer.
+
+## Candidate question, not an established discovery
+
+Can finite-head and heat-limited evolving geometry predict temporary rewetting versus sustained post-pulse recovery against an initially hydraulically matched evolving-topography baseline?
+
+Peak runoff sufficient to rewet a route and integrated differential incision sufficient to retain access after the pulse are separate conditions. Contact at the return instant is not persistence across a subsequent observation window. Define that window and the heat/contact-strength endpoint before running a new comparison.
+
+The broad facts that streams maintain cliffs, abandonment permits reburial, and debris limits circulation already have precedents. The independent novelty review found an evolving-topography/debris-transport comparator by Strickland, Covington and Gulley2025; a finite-head/finite-water-heat distinction is a comparison opportunity, not proof of priority. See the companion novelty review; the source documents here do not establish historical originality.
+
+## Go/no-go sequence
+
+1. Correct the release statements and metadata gate. Finish or explicitly keep blocked the v4 matched-ROI scorer. Preserve old results rather than overwriting them.
+2. Check phase-generated water locally per route, or integrate a separately versioned phase source and verify full coupled balances and bed-update convergence. Fluid-only conservation is insufficient.
+3. Compare against an evolving-topography baseline with matched initial head–discharge relation, partition and thermal power. A fractional-cover barrier with a different initial hydraulic rating is a weak comparator.
+4. Freeze a bounded history/geometry challenge only after a falsifiable distinction and physically possible recovery condition are derived. Retain all outcomes. If the stronger baseline explains the results equally well, reject the new-method claim.
+5. Independent observations remain necessary for environmental accuracy. Prepare data requests if authorized, but do not send messages or assert that missing measurements already exist.
+
+**No-go today:** field superiority, unconditional irreversibility, all-melt accuracy, a new mathematical theorem, or Nature/award readiness. **Conditional go:** a narrowly falsifiable quantitative mechanism after the repairs and prior-art distinction. No new campaign was launched to write this memo.

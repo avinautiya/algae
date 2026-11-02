@@ -1,0 +1,315 @@
+{
+  "schema_version": 2,
+  "geometry": {
+    "floor_elevation_survey_dates": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "floor_survey_sigma_m": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "cross_section_width_source": {
+      "value": "assumed 2\u00b10.5 m",
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "width_measured_at_sensor_section": {
+      "value": false,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "sensor_clearance_m_or_on_bed_verified": {
+      "value": false,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "depth_basis": {
+      "value": "pressure proxy",
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "section_to_station_binding": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    }
+  },
+  "temperature": {
+    "bulk_water_temperature_or_validated_floor_to_bulk_relation": {
+      "value": false,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "sensor_calibration_offset_applied_once": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "clock_convention_resolved": {
+      "value": false,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "observed_support_fraction": {
+      "value": 0.97,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "reconstructed_support_labelled": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    }
+  },
+  "discharge": {
+    "discharge_basis": {
+      "value": "author lake-balance reconstruction",
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "discharge_at_target_section_or_conservation_justified": {
+      "value": false,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "discharge_uncertainty": {
+      "value": false,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    }
+  },
+  "contact": {
+    "wetted_contact_observed_or_modelled": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "missing_record_not_treated_as_zero": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "ice_temperature_known_or_bounded": {
+      "value": false,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    }
+  },
+  "measurement": {
+    "target_definition_matches_observation_operator": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "target_uncertainty_is_source_sigma": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "independent_of_calibration_data": {
+      "value": false,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "heat_transfer_closure_not_fitted_to_target_event": {
+      "value": true,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    }
+  },
+  "numerics": {
+    "solver_version": {
+      "value": null,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "source_sha256": {
+      "value": null,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "restart_fingerprint_verified": {
+      "value": null,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "grid_contact_timing": {
+      "value": null,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "hydraulic_convergence_per_interval": {
+      "value": null,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "mass_relative_residual": {
+      "value": null,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "energy_relative_residual": {
+      "value": null,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    },
+    "acceptance_limits_predeclared": {
+      "value": null,
+      "evidence": {
+        "source_uri": null,
+        "sha256": null,
+        "locator": null,
+        "derivation": null,
+        "status": null
+      }
+    }
+  }
+}

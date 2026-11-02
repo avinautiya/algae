@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "tests": 66,
+  "groups": [
+    {
+      "group": "phase",
+      "passed": true,
+      "tests": 19,
+      "stdout": "",
+      "stderr": "test_bad_interval_cannot_mutate (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_closed_actual_kernel_mass_and_latent_heat (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_covered_physical_sources_refused_before_heat_or_flow_mutation (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_explicit_reset_accounts_mass_and_heat (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_geometry_mutation_requires_new_heat_window (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_ghost_melt_is_excluded (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_hydraulics_matches_existing_api_and_flags_stale_diagnostics (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_multistep_closed_cell_ledgers (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_no_repeated_source_without_fresh_heat (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_open_actual_kernel_boundary_export_and_combined_ledgers (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_phase_birth_zero_initial_water_is_supported_by_source (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_quasisteady_covered_source_assumption_is_explicit (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_quasisteady_heat_time_is_not_physical_energy_certificate (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_settling_cannot_be_relabelled_as_physical_time (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_source_preserves_momentum_sensible_thermal_dilution (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_uniform_counterfactual_not_native_physical_claim (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_uniform_counterfactual_preserves_total_and_region_api (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_unsupported_constructor_inputs_fail_before_run (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_zero_heat_limit (test_swe2d_v5.IntegratedSourceTests) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 2.669s\n\nOK\n"
+    },
+    {
+      "group": "contract",
+      "passed": true,
+      "tests": 22,
+      "stdout": "",
+      "stderr": "test_cli_explicit_migration_and_overwrite_protection (test_adapter.AdapterTests) ... ok\ntest_cli_nonfinite_duplicate_deep_json (test_adapter.AdapterTests) ... ok\ntest_complete_cli_zero_means_only_metadata_complete (test_adapter.AdapterTests) ... ok\ntest_huge_integer_and_malformed_urls_refuse_without_crash (test_adapter.AdapterTests) ... ok\ntest_nested_json_types_never_approve_or_crash (test_adapter.AdapterTests) ... ok\ntest_no_automatic_legacy_fallback (test_adapter.AdapterTests) ... ok\ntest_old_result_keys_preserved_but_authority_removed (test_adapter.AdapterTests) ... ok\ntest_original_seven_exploits_reproduced_then_rejected (test_adapter.AdapterTests) ... ok\ntest_repository_package_module_entrypoint (test_adapter.AdapterTests) ... ok\ntest_swiss_migration_no_coercion_or_fabrication (test_adapter.AdapterTests) ... ok\ntest_clearance_and_ice_bounds (test_contract.ContractTests) ... ok\ntest_cli_duplicate_and_nonfinite_rejection (test_contract.ContractTests) ... ok\ntest_complete_never_claims_valid_science (test_contract.ContractTests) ... ok\ntest_evidence_is_required (test_contract.ContractTests) ... ok\ntest_fraction_domain (test_contract.ContractTests) ... ok\ntest_numerics_required (test_contract.ContractTests) ... ok\ntest_residual_exceeds_limit (test_contract.ContractTests) ... ok\ntest_schema_and_unknown_typos (test_contract.ContractTests) ... ok\ntest_string_booleans_refuse (test_contract.ContractTests) ... ok\ntest_template_refuses (test_contract.ContractTests) ... ok\ntest_uncertainty_not_bool_negative_or_nan (test_contract.ContractTests) ... ok\ntest_unsettled_hydraulics (test_contract.ContractTests) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.681s\n\nOK\n"
+    },
+    {
+      "group": "evidence",
+      "passed": true,
+      "tests": 12,
+      "stdout": "",
+      "stderr": "test_claim_status_cannot_be_promoted (test_claims.ClaimsTests) ... ok\ntest_contact_strength_endpoints_not_collapsed (test_claims.ClaimsTests) ... ok\ntest_corrected_consistency_without_promoting_claims (test_claims.ClaimsTests) ... ok\ntest_default_cli_fails_closed_but_consistency_can_pass (test_claims.ClaimsTests) ... ok\ntest_generated_documents_are_exact (test_claims.ClaimsTests) ... ok\ntest_malformed_nested_types_refuse (test_claims.ClaimsTests) ... ok\ntest_missing_v4_data_cannot_enable_gate (test_claims.ClaimsTests) ... ok\ntest_nominal_not_marginal (test_claims.ClaimsTests) ... ok\ntest_shared_history_not_three_validations (test_claims.ClaimsTests) ... ok\ntest_source_tamper_refuses (test_claims.ClaimsTests) ... ok\ntest_uncertainty_not_ci (test_claims.ClaimsTests) ... ok\ntest_unsupported_superiority_and_novelty_stay_blocked (test_claims.ClaimsTests) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.096s\n\nOK\n"
+    },
+    {
+      "group": "roi",
+      "passed": true,
+      "tests": 13,
+      "stdout": "",
+      "stderr": "test_bundle_integrity_and_no_overwrite (test_matched_roi.ROITests) ... ok\ntest_duplicate_manifest_key_refuses (test_matched_roi.ROITests) ... ok\ntest_float64_and_reference_not_mutated (test_matched_roi.ROITests) ... ok\ntest_ghosts_not_counted (test_matched_roi.ROITests) ... ok\ntest_huge_metadata_number_refuses (test_matched_roi.ROITests) ... ok\ntest_invalid_config_leaves_no_files (test_matched_roi.ROITests) ... ok\ntest_ledger_mismatch_refuses (test_matched_roi.ROITests) ... ok\ntest_manifest_tampering_refuses (test_matched_roi.ROITests) ... ok\ntest_matched_volume_multiple_grids (test_matched_roi.ROITests) ... ok\ntest_mismatch_is_not_scored (test_matched_roi.ROITests) ... ok\ntest_nan_comparison_refuses (test_matched_roi.ROITests) ... ok\ntest_unaligned_and_nonice_refuse (test_matched_roi.ROITests) ... ok\ntest_zero_reference_absolute_only (test_matched_roi.ROITests) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.021s\n\nOK\n"
+    }
+  ],
+  "interpretation": "software/source-step/numerical checks only; not field validation or novelty certification"
+}

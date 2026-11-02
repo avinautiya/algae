@@ -1,0 +1,157 @@
+{
+  "records": [
+    {
+      "id": "coarse",
+      "observation": {
+        "roi_id": "fixed_toe_reach",
+        "bounds_m": [
+          0.2,
+          0.6,
+          0.0,
+          0.2
+        ],
+        "coordinate_frame": "idealised_cartesian_grid_origin0_m",
+        "area_m2": 0.08000000000000002,
+        "dx_m": 0.1,
+        "physical_time_s": 2.0,
+        "geometric_melt_m3": 5.223317691496755e-08,
+        "heat_implied_melt_m3": 5.223317691446278e-08,
+        "geometry_heat_residual_m3": 5.047720795594592e-19,
+        "absolute_ledger_tolerance_m3": 1e-12,
+        "mask_sha256": "7ec881d86acf3f617cbec232aee38e0a9ba0739c8b0c9c826cca8fffe9d369e6",
+        "initial_bed_sha256": "0ae820d584754a97edee859c6d5cf492f246f47269fb2ee89df21532c3f9ef41",
+        "current_bed_sha256": "89dafa6ad7600be303ba4340c6f1850a4781dfe84b3fcc7a975e1abe6ab19ffe",
+        "provenance": {
+          "definition": "fixed rectangular toe-reach cells",
+          "source": "explicit verification configuration, not measured terrain"
+        },
+        "scope": "fixed-XY ice-floor footprint; not vertical-cliff lifetime or field validation"
+      },
+      "ledgers": {
+        "solver_version": "v5-phase-source-physical-split-1",
+        "executed_state_water_volume_residual_m3": 4.618658903140886e-18,
+        "executed_state_sensible_residual_J": -2.354703099172184e-10,
+        "combined_ice_water_mass_residual_kg": 4.618658903140886e-15,
+        "ice_volume_lost_m3": 1.0446361743594303e-07,
+        "generated_water_m3": 9.57931371887598e-08,
+        "hydraulic_boundary_net_water_m3": 0.008326305662770546,
+        "positivity_added_water_m3": 0.0,
+        "explicit_reset_water_m3": 0.0,
+        "explicit_reset_heat_J": 0.0,
+        "hydraulic_ice_heat_removed_J": 31.99490782104576,
+        "morphological_latent_J": 31.99490782104576,
+        "physical_split_thermal_latent_residual_J": -2.354703099172184e-10,
+        "physical_split_only": true,
+        "scope": "algorithmic control-volume ledger across executed hydraulic windows; pseudo-time throughflow must not be reported as environmental elapsed time"
+      },
+      "wall_s": 2.4848757499999996
+    },
+    {
+      "id": "fine",
+      "observation": {
+        "roi_id": "fixed_toe_reach",
+        "bounds_m": [
+          0.2,
+          0.6,
+          0.0,
+          0.2
+        ],
+        "coordinate_frame": "idealised_cartesian_grid_origin0_m",
+        "area_m2": 0.08000000000000002,
+        "dx_m": 0.05,
+        "physical_time_s": 2.0,
+        "geometric_melt_m3": 5.223349180988325e-08,
+        "heat_implied_melt_m3": 5.2233491810880995e-08,
+        "geometry_heat_residual_m3": -9.97745254861462e-19,
+        "absolute_ledger_tolerance_m3": 1e-12,
+        "mask_sha256": "a9a8d48f399c18b3463c6d57294b4d98915e8f71bf6f759db9162b7250b87537",
+        "initial_bed_sha256": "2b0a3531838e1859be3914629d227e06223d3c38d8e985cfc8bbcdf891a64e1f",
+        "current_bed_sha256": "7c6eeaf6857f7399ab8a2934e1fdb3f8d0e806cf03bc8767468dec48d2a4475d",
+        "provenance": {
+          "definition": "fixed rectangular toe-reach cells",
+          "source": "explicit verification configuration, not measured terrain"
+        },
+        "scope": "fixed-XY ice-floor footprint; not vertical-cliff lifetime or field validation"
+      },
+      "ledgers": {
+        "solver_version": "v5-phase-source-physical-split-1",
+        "executed_state_water_volume_residual_m3": -2.9948517446290695e-17,
+        "executed_state_sensible_residual_J": -2.29814389740568e-10,
+        "combined_ice_water_mass_residual_kg": -2.9948517446290695e-14,
+        "ice_volume_lost_m3": 1.0446438329068045e-07,
+        "generated_water_m3": 9.579383947755396e-08,
+        "hydraulic_boundary_net_water_m3": 0.0072720023286178236,
+        "positivity_added_water_m3": 0.0,
+        "explicit_reset_water_m3": 0.0,
+        "explicit_reset_heat_J": 0.0,
+        "hydraulic_ice_heat_removed_J": 31.99514238550302,
+        "morphological_latent_J": 31.99514238550302,
+        "physical_split_thermal_latent_residual_J": -2.29814389740568e-10,
+        "physical_split_only": true,
+        "scope": "algorithmic control-volume ledger across executed hydraulic windows; pseudo-time throughflow must not be reported as environmental elapsed time"
+      },
+      "wall_s": 0.015167667000000051
+    },
+    {
+      "id": "fine_dt_half",
+      "observation": {
+        "roi_id": "fixed_toe_reach",
+        "bounds_m": [
+          0.2,
+          0.6,
+          0.0,
+          0.2
+        ],
+        "coordinate_frame": "idealised_cartesian_grid_origin0_m",
+        "area_m2": 0.08000000000000002,
+        "dx_m": 0.05,
+        "physical_time_s": 2.0,
+        "geometric_melt_m3": 5.2233491043794664e-08,
+        "heat_implied_melt_m3": 5.22334910432562e-08,
+        "geometry_heat_residual_m3": 5.384614915475189e-19,
+        "absolute_ledger_tolerance_m3": 1e-12,
+        "mask_sha256": "a9a8d48f399c18b3463c6d57294b4d98915e8f71bf6f759db9162b7250b87537",
+        "initial_bed_sha256": "2b0a3531838e1859be3914629d227e06223d3c38d8e985cfc8bbcdf891a64e1f",
+        "current_bed_sha256": "5e5964744e1fd9c80fd608b88ebfdbd1a9d6cccb198c815b198c6722a75ec7e6",
+        "provenance": {
+          "definition": "fixed rectangular toe-reach cells",
+          "source": "explicit verification configuration, not measured terrain"
+        },
+        "scope": "fixed-XY ice-floor footprint; not vertical-cliff lifetime or field validation"
+      },
+      "ledgers": {
+        "solver_version": "v5-phase-source-physical-split-1",
+        "executed_state_water_volume_residual_m3": -7.474351075469955e-18,
+        "executed_state_sensible_residual_J": -4.078515303262975e-11,
+        "combined_ice_water_mass_residual_kg": -7.474351075469955e-15,
+        "ice_volume_lost_m3": 1.0446438139524351e-07,
+        "generated_water_m3": 9.579383773943828e-08,
+        "hydraulic_boundary_net_water_m3": 0.007271948803632541,
+        "positivity_added_water_m3": 0.0,
+        "explicit_reset_water_m3": 0.0,
+        "explicit_reset_heat_J": 0.0,
+        "hydraulic_ice_heat_removed_J": 31.995141804972405,
+        "morphological_latent_J": 31.995141804972405,
+        "physical_split_thermal_latent_residual_J": -4.078515303262975e-11,
+        "physical_split_only": true,
+        "scope": "algorithmic control-volume ledger across executed hydraulic windows; pseudo-time throughflow must not be reported as environmental elapsed time"
+      },
+      "wall_s": 0.01819495800000004
+    }
+  ],
+  "coarse_vs_fine": {
+    "signed_absolute_error_m3": -3.1489491570074276e-13,
+    "relative_error": -6.028601665097888e-06,
+    "relative_reporting_min_volume_m3": 1e-10,
+    "reference_is_observation": false,
+    "interpretation": "matched-support model comparison only; source independence and physical validity are not certified"
+  },
+  "fine_step_vs_halfstep": {
+    "signed_absolute_error_m3": 7.660885862254379e-16,
+    "relative_error": 1.466661658788837e-08,
+    "relative_reporting_min_volume_m3": 1e-10,
+    "reference_is_observation": false,
+    "interpretation": "matched-support model comparison only; source independence and physical validity are not certified"
+  },
+  "interpretation": "Three short transient verification configurations; no field accuracy, event-timing convergence or scientific discovery established."
+}

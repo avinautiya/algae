@@ -1,0 +1,152 @@
+{
+  "migration_version": 2,
+  "input_sha256": "841640c2b2d6d607b699da00f2c92c72188a52d58d692cc705609b0b407a8b37",
+  "legacy_document": {
+    "geometry": {
+      "floor_elevation_survey_dates": true,
+      "floor_survey_sigma_m": true,
+      "cross_section_width_source": "assumed 2\u00b10.5 m",
+      "width_measured_at_sensor_section": false,
+      "sensor_clearance_m_or_on_bed_verified": false,
+      "depth_basis": "pressure proxy",
+      "section_to_station_binding": true
+    },
+    "temperature": {
+      "bulk_water_temperature_or_validated_floor_to_bulk_relation": false,
+      "sensor_calibration_offset_applied_once": true,
+      "clock_convention_resolved": false,
+      "observed_support_fraction": 0.97,
+      "reconstructed_support_labelled": true
+    },
+    "discharge": {
+      "discharge_basis": "author lake-balance reconstruction",
+      "discharge_at_target_section_or_conservation_justified": false,
+      "discharge_uncertainty": false
+    },
+    "contact": {
+      "wetted_contact_observed_or_modelled": true,
+      "missing_record_not_treated_as_zero": true,
+      "ice_temperature_known_or_bounded": false
+    },
+    "measurement": {
+      "target_definition_matches_observation_operator": true,
+      "target_uncertainty_is_source_sigma": true,
+      "independent_of_calibration_data": false,
+      "heat_transfer_closure_not_fitted_to_target_event": true
+    }
+  },
+  "mapped": [
+    {
+      "field": "geometry.floor_elevation_survey_dates",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "geometry.floor_survey_sigma_m",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "geometry.cross_section_width_source",
+      "value_type_matches": true,
+      "evidence_imported": false
+    },
+    {
+      "field": "geometry.width_measured_at_sensor_section",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "geometry.sensor_clearance_m_or_on_bed_verified",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "geometry.depth_basis",
+      "value_type_matches": true,
+      "evidence_imported": false
+    },
+    {
+      "field": "geometry.section_to_station_binding",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "temperature.bulk_water_temperature_or_validated_floor_to_bulk_relation",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "temperature.sensor_calibration_offset_applied_once",
+      "value_type_matches": true,
+      "evidence_imported": false
+    },
+    {
+      "field": "temperature.clock_convention_resolved",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "temperature.observed_support_fraction",
+      "value_type_matches": true,
+      "evidence_imported": false
+    },
+    {
+      "field": "temperature.reconstructed_support_labelled",
+      "value_type_matches": true,
+      "evidence_imported": false
+    },
+    {
+      "field": "discharge.discharge_basis",
+      "value_type_matches": true,
+      "evidence_imported": false
+    },
+    {
+      "field": "discharge.discharge_at_target_section_or_conservation_justified",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "discharge.discharge_uncertainty",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "contact.wetted_contact_observed_or_modelled",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "contact.missing_record_not_treated_as_zero",
+      "value_type_matches": true,
+      "evidence_imported": false
+    },
+    {
+      "field": "contact.ice_temperature_known_or_bounded",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "measurement.target_definition_matches_observation_operator",
+      "value_type_matches": true,
+      "evidence_imported": false
+    },
+    {
+      "field": "measurement.target_uncertainty_is_source_sigma",
+      "value_type_matches": true,
+      "evidence_imported": false
+    },
+    {
+      "field": "measurement.independent_of_calibration_data",
+      "value_type_matches": false,
+      "evidence_imported": false
+    },
+    {
+      "field": "measurement.heat_transfer_closure_not_fitted_to_target_event",
+      "value_type_matches": true,
+      "evidence_imported": false
+    }
+  ],
+  "unknown_fields": [],
+  "interpretation": "Values copied without coercion. Evidence remains blank; all missing numerical records remain blank. Nothing here verifies a source or makes a false/unknown field true."
+}

@@ -1,0 +1,68 @@
+{
+  "reviewed_roi_source_sha256": "d8307bb95e8f6a4bb898ca7f98c9893bfc6e575bfdf73182c860724b6e28f7d3",
+  "reviewed_phase_source_sha256": "5cff9fa75913f75a5cfc85b19f72ecbc380091f6c03fb1b6b479fc13393cd6d6",
+  "cases": [
+    {
+      "id": "coarse",
+      "bundle_load_status": "accepted",
+      "roi_recomputed_m3": 5.223317691496755e-08,
+      "roi_record_difference_m3": 0.0,
+      "roi_heat_difference_m3": 5.047720795594592e-19,
+      "whole_geometry_minus_phase_m3": 5.047389923349571e-19,
+      "generated_water_minus_density_ratio_ice_m3": 2.6469779601696886e-23,
+      "latent_minus_rhoiLvolume_J": 0.0,
+      "source_sha_matches_current": true
+    },
+    {
+      "id": "fine",
+      "bundle_load_status": "accepted",
+      "roi_recomputed_m3": 5.223349180988325e-08,
+      "roi_record_difference_m3": 0.0,
+      "roi_heat_difference_m3": -9.97745254861462e-19,
+      "whole_geometry_minus_phase_m3": -9.977651071961633e-19,
+      "generated_water_minus_density_ratio_ice_m3": -1.3234889800848443e-23,
+      "latent_minus_rhoiLvolume_J": -7.105427357601002e-15,
+      "source_sha_matches_current": true
+    },
+    {
+      "id": "fine_dt_half",
+      "bundle_load_status": "accepted",
+      "roi_recomputed_m3": 5.2233491043794664e-08,
+      "roi_record_difference_m3": 0.0,
+      "roi_heat_difference_m3": 5.384614915475189e-19,
+      "whole_geometry_minus_phase_m3": 5.384747264373197e-19,
+      "generated_water_minus_density_ratio_ice_m3": -2.6469779601696886e-23,
+      "latent_minus_rhoiLvolume_J": 1.4210854715202004e-14,
+      "source_sha_matches_current": true
+    }
+  ],
+  "counterexamples": {
+    "nan_volume_accepted": false,
+    "wrong_bounds_accepted": false,
+    "forged_field_evidence_label_accepted": false,
+    "nan_heat_accepted": false,
+    "nan_comparison_area_accepted": false,
+    "nonfinite_configuration_refused": true,
+    "refused_save_left_orphan_npz": false
+  },
+  "dependency_sha_checks": {
+    "coarse": {
+      "matched_roi.py": true,
+      "run_v5_verification.py": true,
+      "swe2d_v4_pinned.py": true,
+      "swe2d_v5.py": true
+    },
+    "fine": {
+      "matched_roi.py": true,
+      "run_v5_verification.py": true,
+      "swe2d_v4_pinned.py": true,
+      "swe2d_v5.py": true
+    },
+    "fine_dt_half": {
+      "matched_roi.py": true,
+      "run_v5_verification.py": true,
+      "swe2d_v4_pinned.py": true,
+      "swe2d_v5.py": true
+    }
+  }
+}

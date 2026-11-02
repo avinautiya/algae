@@ -2,7 +2,17 @@
 
 **Status: verified computational integration and a retrospective, non-independent field comparison. The integrated model did NOT improve on every baseline consistently. Nothing here is independent validation.** All frozen results, the failed-superiority verdict, the original demo runs and superseded versions are preserved. No recalibration against evaluation intervals and no new production campaign were run for this package.
 
-## What runs (verified in this checkout)
+## Candidate repair branch — versioned changes
+
+The new `validity_contract` is a typed metadata gate; exit0 means metadata complete, never environmental validation. The original untyped checker and historical Swiss result remain archived in `research/cliff_repair_2026_11_01/contract/legacy/` and Git history. See `VALIDITY_CONTRACT_V2.md` and the explicit migration report.
+
+New `ice_cliff_survival.reactivation.swe2d_v5.Sim` provides a phase-source repair and physical-time split step. It is a separate, opt-in solver version; the older `swe2d.py`, frozen runs and demo commands below are not silently rewritten. Native physical mode currently supports bare connected temperate ice only. Covered sources, porous storage and uniform-incision counterfactuals refuse in that mode. Quasi-steady covered runs remain explicitly conditional and do not gain a physical-time conservation certificate. This phase-source v5 is unrelated to the earlier Swiss point-model V5 name.
+
+The corrected decision memo, claim table and error assessment supersede the earlier release summaries. No failed superiority verdict has been reversed. The full-v4 matched-melt gate is still incomplete; the new fixed-ROI exporter is for future versioned records, not invented legacy data. Numerical source/ledger tests do not certify field accuracy, novelty or award/journal outcomes.
+
+Reproduce repairs with `python3 research/cliff_repair_2026_11_01/verify_repairs.py`. The three short physical-time examples under that packet are verification, not a glacier campaign.
+
+## Historical commands (verified before this repair)
 | Command | Result |
 |---|---|
 | `python -m pytest ice_integration` | 15 pass |
@@ -35,3 +45,4 @@
 
 ## Known limitations of this release
 Hydraulics in the original demo runs were capped at 60 s per interval (9/14 early intervals not fully settled; effect ≤4.4e-4 in f_toe). Contact timing at dx 0.05 is ≈5 h late and ≈9–13 % high versus 0.025. Engineering scenarios recalibrate per scenario, so the width effect is absorbed and is not an independent control.
+

@@ -1,0 +1,88 @@
+{
+  "tests_run": 19,
+  "passed": true,
+  "test_log": "test_bad_interval_cannot_mutate (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_closed_actual_kernel_mass_and_latent_heat (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_covered_physical_sources_refused_before_heat_or_flow_mutation (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_explicit_reset_accounts_mass_and_heat (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_geometry_mutation_requires_new_heat_window (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_ghost_melt_is_excluded (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_hydraulics_matches_existing_api_and_flags_stale_diagnostics (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_multistep_closed_cell_ledgers (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_no_repeated_source_without_fresh_heat (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_open_actual_kernel_boundary_export_and_combined_ledgers (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_phase_birth_zero_initial_water_is_supported_by_source (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_quasisteady_covered_source_assumption_is_explicit (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_quasisteady_heat_time_is_not_physical_energy_certificate (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_settling_cannot_be_relabelled_as_physical_time (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_source_preserves_momentum_sensible_thermal_dilution (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_uniform_counterfactual_not_native_physical_claim (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_uniform_counterfactual_preserves_total_and_region_api (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_unsupported_constructor_inputs_fail_before_run (test_swe2d_v5.IntegratedSourceTests) ... ok\ntest_zero_heat_limit (test_swe2d_v5.IntegratedSourceTests) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 2.464s\n\nOK\n",
+  "closed_cell_before": {
+    "volume_m3": 0.18750000000000006,
+    "sensible_J": 395343.7500000001
+  },
+  "closed_cell_step": {
+    "dt_s": 2.0,
+    "physical_time_s": 2.0,
+    "ice_melt_m3": 6.120463662121782e-07,
+    "source": {
+      "mode": "physical_split",
+      "heat_epoch": 1,
+      "interval_s": 2.0,
+      "ice_volume_m3": 6.120463662121782e-07,
+      "water_added_m3": 5.612465178165675e-07,
+      "liquid_volume_change_m3": 5.612465177606829e-07,
+      "volume_source_residual_m3": -5.588458688187857e-17,
+      "phase_mass_residual_kg": 0.0,
+      "latent_implied_J": 187.45633695073352,
+      "sensible_delta_J": 0.0,
+      "matched_window_heat_removed_J": 187.45633695073354,
+      "latent_minus_window_heat_J": -2.842170943040401e-14,
+      "heat_time_scaling": 1.0,
+      "covered_ice_melt_m3": 0.0,
+      "under_debris_source_transport": "no covered phase source",
+      "maximum_surface_drop_m": 5.418650495531816e-08,
+      "limitations": "stationary temperate ice; no birth horizontal momentum/sensible heat; pressure-work/ALE mechanical energy not modelled",
+      "toe_ice_volume_m3": 8.160618216162377e-08,
+      "bypass_ice_volume_m3": 8.160618216162377e-08,
+      "route_source_diagnostics": {
+        "toe": {
+          "water_added_m3": 7.4832869042209e-08,
+          "sampled_section_discharge_m3_s": 0.0,
+          "phase_to_absolute_section_throughflow": null,
+          "zero_section_flow_with_generated_water": true,
+          "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+        },
+        "bypass": {
+          "water_added_m3": 7.4832869042209e-08,
+          "sampled_section_discharge_m3_s": 0.0,
+          "phase_to_absolute_section_throughflow": null,
+          "zero_section_flow_with_generated_water": true,
+          "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+        }
+      }
+    },
+    "ledgers": {
+      "solver_version": "v5-phase-source-physical-split-1",
+      "executed_state_water_volume_residual_m3": -5.588458688187857e-17,
+      "executed_state_sensible_residual_J": 5.487663656822406e-10,
+      "combined_ice_water_mass_residual_kg": -5.5884586881878567e-14,
+      "ice_volume_lost_m3": 6.120463662121782e-07,
+      "generated_water_m3": 5.612465178165675e-07,
+      "hydraulic_boundary_net_water_m3": 0.0,
+      "positivity_added_water_m3": 0.0,
+      "explicit_reset_water_m3": 0.0,
+      "explicit_reset_heat_J": 0.0,
+      "hydraulic_ice_heat_removed_J": 187.45633695073354,
+      "morphological_latent_J": 187.45633695073352,
+      "physical_split_thermal_latent_residual_J": 5.487379439728102e-10,
+      "physical_split_only": true,
+      "scope": "algorithmic control-volume ledger across executed hydraulic windows; pseudo-time throughflow must not be reported as environmental elapsed time"
+    }
+  },
+  "open_boundary_ledgers": {
+    "solver_version": "v5-phase-source-physical-split-1",
+    "executed_state_water_volume_residual_m3": -2.0339794221483634e-16,
+    "executed_state_sensible_residual_J": -8.952127927841502e-10,
+    "combined_ice_water_mass_residual_kg": -2.0339794221483634e-13,
+    "ice_volume_lost_m3": 1.63212233712115e-07,
+    "generated_water_m3": 1.4966561831400946e-07,
+    "hydraulic_boundary_net_water_m3": -0.019729472916186642,
+    "positivity_added_water_m3": 0.0,
+    "explicit_reset_water_m3": 0.0,
+    "explicit_reset_heat_J": 0.0,
+    "hydraulic_ice_heat_removed_J": 49.98831651687915,
+    "morphological_latent_J": 49.98831651687915,
+    "physical_split_thermal_latent_residual_J": -8.952127927841502e-10,
+    "physical_split_only": true,
+    "scope": "algorithmic control-volume ledger across executed hydraulic windows; pseudo-time throughflow must not be reported as environmental elapsed time"
+  },
+  "python": "3.9.6 (default, Jan  9 2026, 11:03:41) \n[Clang 17.0.0 (clang-1700.6.4.2)]",
+  "source_sha256": "5cff9fa75913f75a5cfc85b19f72ecbc380091f6c03fb1b6b479fc13393cd6d6",
+  "scope": "actual inheritedv4hydraulic kernel plus phase source; no field validation or contact-event campaign"
+}

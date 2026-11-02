@@ -1,0 +1,34 @@
+{
+ "geometry": {
+  "floor_elevation_survey_dates": true,
+  "floor_survey_sigma_m": true,
+  "cross_section_width_source": "assumed 2\u00b10.5 m",
+  "width_measured_at_sensor_section": false,
+  "sensor_clearance_m_or_on_bed_verified": false,
+  "depth_basis": "pressure proxy",
+  "section_to_station_binding": true
+ },
+ "temperature": {
+  "bulk_water_temperature_or_validated_floor_to_bulk_relation": false,
+  "sensor_calibration_offset_applied_once": true,
+  "clock_convention_resolved": false,
+  "observed_support_fraction": 0.97,
+  "reconstructed_support_labelled": true
+ },
+ "discharge": {
+  "discharge_basis": "author lake-balance reconstruction",
+  "discharge_at_target_section_or_conservation_justified": false,
+  "discharge_uncertainty": false
+ },
+ "contact": {
+  "wetted_contact_observed_or_modelled": true,
+  "missing_record_not_treated_as_zero": true,
+  "ice_temperature_known_or_bounded": false
+ },
+ "measurement": {
+  "target_definition_matches_observation_operator": true,
+  "target_uncertainty_is_source_sigma": true,
+  "independent_of_calibration_data": false,
+  "heat_transfer_closure_not_fitted_to_target_event": true
+ }
+}

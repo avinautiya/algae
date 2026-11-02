@@ -1,0 +1,17 @@
+{
+  "evidence_consistent": true,
+  "issues": [],
+  "source_blobs_verified": 11,
+  "recomputed": {
+    "nominal_test_count": 6,
+    "nominal_pooled_bias_m": 0.5848727260980938,
+    "nominal_pooled_MAE_m": 0.5848727260980938,
+    "linear_imputer_marginal_bias_over_27_scenarios_m": 0.6309372253842787,
+    "leverage_concentration_equivalent_count": 1.3394799407835647
+  },
+  "may_claim_full_v4_matched_melt": false,
+  "may_claim_field_superiority": false,
+  "historical_originality_established": false,
+  "v4_gate_reason": "No authenticated v4 matched-ROI scorer/complete campaign supplied. Legacy ROI scores cannot satisfy this gate.",
+  "limitations": "Report numbers are checked against pinned source text; this does not authenticate legacy solver runs, establish a joint causal error budget, or certify originality."
+}

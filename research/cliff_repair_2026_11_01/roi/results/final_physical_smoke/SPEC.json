@@ -1,0 +1,36 @@
+{
+  "configurations": [
+    {
+      "id": "coarse",
+      "dx": 0.1,
+      "step_s": 0.05
+    },
+    {
+      "id": "fine",
+      "dx": 0.05,
+      "step_s": 0.05
+    },
+    {
+      "id": "fine_dt_half",
+      "dx": 0.05,
+      "step_s": 0.025
+    }
+  ],
+  "base_configuration": {
+    "Lpool": 0.2,
+    "Lr": 0.4,
+    "Ltail": 0.2,
+    "Wl": 0.2,
+    "Q": 0.02,
+    "Tw": 0.5,
+    "ramp_ratio": 0.0
+  },
+  "physical_duration_s": 2.0,
+  "source_sha256": {
+    "swe2d_v5.py": "5cff9fa75913f75a5cfc85b19f72ecbc380091f6c03fb1b6b479fc13393cd6d6",
+    "swe2d_v4_pinned.py": "11ee39a4cb0a9e328a84631135fb94b55a818630b5c08c990eab4a909dd88659",
+    "run_v5_verification.py": "e4537a13812fe7528e375b5962805b1521ccd9d3bdd2e71babb36577e8587603",
+    "matched_roi.py": "d8307bb95e8f6a4bb898ca7f98c9893bfc6e575bfdf73182c860724b6e28f7d3"
+  },
+  "purpose": "short numerical verification only; no environmental prediction or novelty claim"
+}

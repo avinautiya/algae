@@ -1,27 +1,31 @@
-# Signed error budget (overprediction)
+# Corrected signed error assessment — not a closed causal budget
 
-Sign convention: **+ = increases predicted incision (worsens the observed over-prediction)**; − = decreases it. Observed pooled bias of the frozen candidate on the six test intervals: **+0.63 m (nominal), +0.52…+0.82 m over all 81 scenarios, positive in 100 % of them.** The budget does **not** close: no item below is shown to account for the bias, and none is tuned to do so. Numbers: `ERROR_BUDGET_NUMBERS.json`.
+Proposed additive correction, revision `corrected_evidence_v1`, based on pinned commit `05e7312e3bbf248acf9f646267a5b8ea06a8b32e`. Historical documents and results remain unchanged. See `CLAIM_REGISTRY.json`, `SOURCE_MANIFEST.json` and `check_claims.py`.
 
-Evidence grades: **D** demonstrated from data or computation in this package; **C** computed sensitivity with a hypothetical input change (sign/magnitude of the change is real arithmetic, whether the input is actually wrong is not shown); **H** hypothesis with no quantification here.
+## Observed summaries
 
-| Item | Sign on prediction | Magnitude (if any) | Grade | Basis |
-|---|---|---|---|---|
-| Calibration scale dominated by P3:3 (85 % weight); LOO range 3.6–9.6 vs 4.40 | + at test (P3:3 over-predicted +0.51 m at train, P3:2 under-predicted −1.21 m) | scale uncertainty from interval choice −18 %/+118 % | **D** | `calibration_influence.png`; the fitted scale is not representative of the other training intervals |
-| Gap imputer (linear/left/right) | ± | mean pooled bias 0.60–0.66 m; ≤0.06 m shift | **D** | scenario table: cannot close bias |
-| Clock shift ±2 h | ± | mean bias 0.56 (+2 h) … 0.75 m (−2 h): ≤0.19 m | **D** | cannot close bias |
-| Temperature offset ±0.05 °C | ± | 0.61–0.65 m: ≤0.05 m | **D** | cannot close bias |
-| Channel width 1.5–2.5 m | ≈0 after per-scenario recalibration | ≤0.005 m | **D** | width absorbed by the refitted scale; not an independent control |
-| Temperature observed vs reconstructed | ± | reconstructed share ≤4.1 % on every test interval | **D** (small) | cannot explain 0.15–1.6 m errors |
-| Pressure stage shallower than independent depth (17–27 Jul, P5: −0.02…−0.58 m) | + | heat-transfer coefficient +18 % per −0.1 m, −13 % per +0.1 m, −30 % per +0.3 m at Re≈9e5 | **C** | `depth_proxy_sensitivity…`; independent depth is itself indicative (edge cut, station label ambiguous, interpolated floor); sign flips on 28–30 Jul (proxy deeper by 0.10–0.17 m) so net effect on P5:3 unknown |
-| Sensor above bed (clearance unknown) | + if sensor high ⇒ depth under-estimated | not quantifiable | **H** | notebook flags "not on bottom"; no numeric clearance |
-| Floor-point temperature warmer than bulk/water-ice boundary layer | + | not quantifiable | **H** | floor sensor is not a bulk thermometer |
-| Pipe-flow Nusselt scaling applied to rough open channel at Re 6e5–9.5e5 | + or − | not quantifiable | **H** | outside validated range; baselines Gnielinski/DB0.3 (lower Nu) do better at P5 |
-| Heat consumed by cold ice (ice below 0 °C) | − (reduces melt) | latent cost + c_i(−T_ice); unknown T_ice | **H** | would reduce, not worsen, overprediction; ice temperature not measured |
-| Assumed Q at P5 equals Q at P3 (melt/lateral inflow ignored) | + at P5 if true Q is lower upstream | not quantifiable | **H** | P5 over-prediction larger than P3 is consistent but not tested |
-| Daily-mean depth inside nonlinear closure | ± | small (h ∝ depth^−0.2) | **H** | Jensen effect, not computed |
-| Floor survey ±0.1–0.3 m per epoch, interval sums 0.2–0.5 m | ± random | up to ±0.5 m per interval | **D** | explains scatter of short intervals only |
-| Lowering measured as floor elevation: surrounding-ice surface ablation, channel migration | − (observed lowering larger than melt-only) | unknown | **H** | omitted process that would increase observed lowering, i.e. act opposite to the bias |
-| Viscous dissipation (omitted in point predictor) | − | small relative to 1 °C·h forcing; not computed | **H** | would add melt (opposite sign) |
-| Observation-location mismatch (sensors ~2 m downstream of station) | ± | not quantifiable | **H** | source note |
+The six nominal signed errors are all positive. Their mean bias and mean absolute error are both **0.584872726098m**. The value **0.630937225384m** is a linear-imputer marginal over27nuisance scenarios, not the nominal case. The engineering scenario range+0.52…+0.82m is not a confidence interval. Preserve original units, calibration convention and scenario aggregation in every figure.
 
-Reading: demonstrated sources (imputer, clock, T, width, reconstruction share, survey σ) are all too small to remove a +0.5…+0.8 m bias; the demonstrated calibration-leverage problem explains why a scale fitted mainly to one interval transfers poorly; the remaining candidates (clearance/depth proxy, floor-vs-bulk temperature, Nusselt closure, Q conservation) are hypotheses that **cannot be tested with the present public data**. Residual unexplained bias is reported as unexplained.
+## One sign convention
+
+Use `delta_error = (prediction_after - observation_after) - (prediction_before - observation_before)` for one specified counterfactual. Positive worsens the current positive error; negative reduces it. State what changes and what is held fixed. Do not mix an omission's current bias with the effect of adding the omitted process. This table records separate sensitivities/hypotheses; its rows cannot be summed into a causal attribution.
+
+| Item | Explicit counterfactual | Sign of delta_error | Evidence and qualification |
+|---|---|---|---|
+| Calibration influence | Refit on different training subsets only | varies | Leave-one-out scale3.6–9.6 vs4.4 is demonstrated instability. No demonstrated attribution of held-out bias; leverage count1.339480is not statistical ESS. |
+| Imputer | Change imputer, keep the published per-scenario fitting convention | varies | Reported marginal bias0.60–0.66m. Marginals are not paired nominal perturbations or independent causes. |
+| Clock | Apply reported±2h clock scenario and its fitting convention | varies | Marginal bias0.56–0.75m; largest reported single-factor shift about0.19m. True clock correction not established. |
+| Temperature offset | Apply±0.05°C scenario | varies | Reported marginal bias0.61–0.65m. Does not demonstrate actual sensor bias. |
+| Width | Change1.5–2.5m, recalibrating each scenario as originally done | near zero | ≤0.005m reported shift is confounded by re-fitting; not an independent geometry constraint. |
+| Reconstructed support | Replace missing forcing under declared rules | unknown causal sign | Test reconstructed share≤4.1%is descriptive. A small duration share alone does not bound its error contribution without forcing/response bounds. |
+| Pressure depth | Increase/decrease assumed depth with closure held fixed | regime dependent | ±0.1m gives arithmetic heat-transfer changes about13–18%. Independent water-file station/time binding and floor interpolation are hypotheses; mismatch under that mapping does not identify which source is wrong. |
+| Clearance/bulk temperature | Replace proxy by independently measured clearance or bulk relation | unknown here | Physical hypothesis; source values and whole-pipeline sensitivity are unavailable. |
+| Cold ice | Add a physically consistent cold-ice energy sink, same latent target | negative if all else fixed | Less heat available for melt. Unknown ice temperature; current model does not implement the full process. |
+| Viscous dissipation | Add positive dissipative heat to prediction, same observation | positive if all else fixed | Would add melt, contrary to a correction that reduces overprediction. Magnitude not computed; do not label its added-process effect negative. |
+| Extra observed surface lowering | Increase observation by an independent non-modeled lowering component, same prediction | negative | Observation correction, not a direct thermal prediction effect. Magnitude and even source attribution unmeasured. |
+| Discharge mismatch/open-channel closure | Replace assumed relation with an independently justified one | unknown here | Hypotheses; no test-outcome fitting permitted. |
+| Survey uncertainty | Change target within its stated source uncertainty | both signs | Measurement uncertainty is not a demonstrated random realization or explanation of a particular residual. |
+
+## Nonclosure
+
+No individual tested sensitivity explains the whole reported bias within its stated range. This does **not** rule out interactions, a joint explanation, omitted inputs or structural errors. The budget remains unclosed; no total attributable bias or residual causal allocation is reported. Calibration leverage is a demonstrated diagnostic, not a proved causal mechanism. No coefficient is tuned to make the budget close.

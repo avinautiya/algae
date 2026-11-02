@@ -1,6 +1,8 @@
-# Model-validity contract for an environmental prediction
+# Model-validity requirements and version2 metadata gate
 
-An **environmental prediction** (a statement about what will happen at a real glacier channel or cliff) may be issued only if every item below is supplied, source-labelled and uncertain-quantified. Otherwise the output must be labelled **"conditional component hindcast/scenario; not an environmental prediction"**. Executable form: `validity_contract.py` (never infers or fills a field; exit 2 if any item unmet).
+The requirements below are necessary evidence records for considering an environmental prediction. The typed executable gate checks metadata completeness, not truth, adequacy, independence or accuracy. A complete record still requires source review and model-applicability assessment. It cannot authorize environmental scientific claims.
+
+`python -m ice_integration.release.validity_contract METADATA.json` exits0 only for typed metadata completeness and2 for incomplete/refused input. Its `may_issue_environmental_prediction` value is always false; `scientific_review_required` is always true. Template generation and explicit migration may exit0 as successful operations, never as readiness approval. See `VALIDITY_CONTRACT_V2.md` for migration and the12 prototype plus10adapter tests. No missing record is filled or guessed.
 
 | Group | Required before issuing | Why (this study's evidence) |
 |---|---|---|
@@ -10,5 +12,5 @@ An **environmental prediction** (a statement about what will happen at a real gl
 | **Contact** | Observed or modelled wetted-contact record; missing/purged records never treated as zero flow or lost contact; ice temperature known or bounded | Cold ice absorbs heat before melting; contact state controls where heat is delivered |
 | **Measurement** | Target definition matches the observation operator; target uncertainty is the source σ (not a scenario envelope); validation data independent of any calibration; heat-transfer closure not fitted to the target event | Rochemelon coefficients were tuned to that event; Swiss intervals were inspected during development |
 | **Numerics (always)** | Grid convergence statement for contact timing, hydraulic convergence flag per interval, conservation residuals, solver version and source fingerprints in restart metadata | Contact timing ±~10 % at dx 0.05; 60 s hydraulics cap left intervals unsettled |
-Current status of the Swiss package against the contract: `swiss_package_contract_result.json` — **not met** (width at sensor section, clearance, bulk temperature, clock, discharge at target and uncertainty, ice temperature, independence from calibration).
+The historical Swiss package failed eight older attestation items; its original result remains unchanged. Version2 additionally exposes wrong-typed placeholders and missing source/numerical evidence. `swiss_package_metadata_v2_unverified.json` is an explicit no-coercion migration, not newly observed data; its typed result remains incomplete. Do not compare old and new unmet counts as a scientific improvement or decline.
 Limits that no metadata can lift in this release: no moving geometry beyond floor lowering, no cold-ice conduction, no atmospheric exchange, no seepage/underflow, no flood removal.

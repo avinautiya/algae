@@ -1,23 +1,31 @@
 # Corrected claim–evidence table
 
-Evidence classes: **NV** numerical verification (code vs analytic/independent reference, conservation, convergence); **RF** retrospective field comparison (model vs inspected field data that were visible during development; not blind); **CD** conditional demonstration (model run with imposed/assumed inputs; shows behaviour, tests nothing against nature); **IV** independent validation (blind/untouched observations, model frozen first). **No claim in this package reaches IV.**
+Proposed additive correction, revision `corrected_evidence_v1`, based on pinned commit `05e7312e3bbf248acf9f646267a5b8ea06a8b32e`. Historical documents and results remain unchanged. See `CLAIM_REGISTRY.json`, `SOURCE_MANIFEST.json` and `check_claims.py`.
 
-| # | Claim | Class | Evidence (file) | Status / limit |
+Evidence classes and statuses distinguish recomputed arithmetic, reported numerical verification, retrospective comparison, conditional demonstration and unsupported independent validation. Reported results have not been re-run by this correction. **No claim establishes field superiority or independent coupled-cliff validation.**
+
+| ID | Claim | Evidence class | Status | Qualification |
 |---|---|---|---|---|
-| 1 | Integrated point predictor reproduces Codex V5 predictions | NV | `results/EVALUATION_RECORD.json`: max rel. diff 4.2e-16, n=5994 | Verified; equivalence only, adds no physics |
-| 2 | Finite-heat accounting conserves water and energy; stable depletion; restart-equivalent | NV | 15 tests (`test_integration.py`); demo residuals ≤1e-12 | Verified for implemented fluxes only; no atmospheric exchange, moving geometry or cold-ice conduction |
-| 3 | Plug-flow limit of coupled solver equals finite-heat predictor (≤1 %) | NV | integration tests | Verified |
-| 4 | Calibration offsets applied once; support durations split observed/reconstructed/unsupported | NV | tests; `forcing.py` | Verified for the P3/P5 sources; clock convention unresolved |
-| 5 | Candidate (scale-fitted DB0.4) beats every baseline consistently | RF | `EVALUATION_RECORD.json`, `INTEGRATION_REPORT.md` | **FALSE**: consistent-improvement verdict = False (P5 vs constant-rate, DB0.4, DB0.3, Gnielinski; P3 vs constant-h) |
-| 6 | Candidate pooled MAE 0.585 m; every one of 81 scenarios over-predicts (+0.52…+0.82 m) | RF | `release/ERROR_BUDGET_NUMBERS.json` | Descriptive; 6 test intervals; ranges are engineering sensitivity, not CIs |
-| 7 | Local geometry reduced one family's pooled MAE 23.6 % but did not consistently beat established baselines | RF | Codex RESULTS_V5_DEVELOPMENT.md (inspected, preserved) | Retrospective; development data |
-| 8 | Strict-native scoring | — | No complete interval has full native support | **No result exists** |
-| 9 | Scale parameter identifiable for P5 | — | `STATION_DIAGNOSIS.json` | **Not identifiable**: one training interval, SNR<1; P3 effective n≈1.3 |
-| 10 | Pressure stage is full depth | — | `CLEARANCE_CHECK.json` | **Unsupported**: differs 0.02–0.58 m (indicative) from independent depth; clearance unavailable |
-| 11 | Coupled plan-view model, imposed Q, strip deposit: toe contact lost after ≈80 h, melt volume grid-converged to ≤1.5 % | CD (with NV) | `results/demo/`, `results/convergence/` | Idealised geometry, assumed Q, no observed target; contact timing ±~10 % at dx 0.05 |
-| 12 | Wet/dry threshold does not affect toe-contact result | NV | `results/convergence/` | This strip geometry only |
-| 13 | Connectivity-aware reduced model beats fractional-cover and fixed-geometry models at predicting contact-loss time and partition vs the depth-averaged CFD | NV (model-to-model) | `ice_cliff_survival/reactivation/REPORT_M3_FINAL.md` | Common thermal closure and imposed inputs; tests hydraulics/connectivity, not insulation; 10 configurations; 3 of them not held out in configuration |
-| 14 | Natural boulder (porous) behaviour | — | Ergun-drag closure unverified | **Unsupported**; E08–E10 are closure-dependent |
-| 15 | Rochemelon independent test | — | `rochemelon/` | **Not run**; all gates unresolved; paper's coefficients were tuned to this event |
-| 16 | Prediction of ice-cliff retreat, melt volume or lifetime in the field | — | none | **Unsupported** |
-| 17 | Independent validation of any component against nature | IV | none | **None exists** |
+| C01 | Point predictions reproduce V5 | numerical_equivalence | reported | Max relative difference4.2e-16 across5994values; no new physics or environmental validation. |
+| C02 | Implemented heat/water accounting and restart checks | numerical_verification | reported | 15integration tests reported. Fluid-only closure does not certify phase-source water mass; atmosphere/cold ice/full geometry remain out of scope. |
+| C03 | Plug-flow finite-heat limit | numerical_verification | reported | Integration check within1%; verifies its prescribed equations. |
+| C04 | Offsets and support bookkeeping | numerical_verification | reported | Checks cover selected P3/P5 sources; unresolved clock conventions remain. |
+| C05 | Consistent superiority over every baseline | retrospective_comparison | false | Candidate fails declared consistency; no recalibration to evaluation outcomes is authorized. |
+| C06 | Nominal pooled error and scenario bias | retrospective_comparison | recomputed | Six nominal errors all positive, nominal MAE=bias0.584872726098m. Scenario marginal summaries must remain separate; engineering ranges are not confidence intervals. |
+| C07 | Earlier local-geometry improvement | retrospective_development | reported | 23.6%within one family is a preserved development comparison, not consistent superiority. |
+| C08 | Strict-native score | no_result | unavailable | No interval passes full native-support requirement; no score exists. |
+| C09 | Station-specific calibration identifiable | training_diagnostic | unsupported | P5one low-SNRtraining interval does not identify a separate scale. P3leverage-equivalent count1.33948 is not independent statistical ESS. |
+| C10 | Pressure head establishes full depth | input_diagnostic | unsupported | Clearance missing. Independent water-file station/time binding is hypothetical; mismatch exists only under that mapping, not proof which instrument is wrong. |
+| C11 | Plan-view coupled demonstration | conditional_demonstration | reported | Imposed forcing, capped/settled and refined variants; melt-volume agreement does not certify contact convergence or field accuracy. |
+| C12 | Wet/dry threshold sensitivity | numerical_sensitivity | reported | Bit-identical only for tested strip geometry and thresholds; no thin-film universality. |
+| C13 | Mechanism predictor matches evolving geometry | model_to_model | qualified | Use latest raw-trace rescore and source-version precedence. One solid-strip loss history gives0.02day agreement; not three independent validations. Recovery contact and strength boundaries differ. |
+| C14 | Natural porous-boulder behavior | closure_claim | unsupported | Ergun/drag/insulation closures unverified for real clast routing; omit from main environmental claims. |
+| C15 | Rochemelon independent test | no_result | unavailable | Section/timing/thermal-path/geometry gates remain unresolved; no inputs invented. |
+| C16 | Field cliff retreat/melt/lifetime accuracy | environmental_prediction | unsupported | No coupled cliff-model field validation supplied. |
+| C17 | Independent validation against nature | independent_validation | unestablished | No independent-validation claim established in this package; retrospective comparisons are empirical evaluations but not independent confirmation. |
+
+## Source/version rules
+
+Use the raw-trace rescore for legacy ROI/recovery/history statements. Use solver versions/addendum for operator and boundary corrections, not as a completed full-v4 matched campaign. M3_FINAL is historical development evidence only where superseded. Different uncertainty calculations, endpoints and solver versions must not be pooled.
+
+The source-reported removal classes are3maintained/1genuine reconnection/2failed, with2pre-loss histories and only1solid-strip loss comparison. The contact-persistence boundary is10.0–10.5days under the1-day rule; the strength threshold is about9.2days. A day10removal rewets for2.6days and loses contact again at day12.4. None is permanent recovery.
