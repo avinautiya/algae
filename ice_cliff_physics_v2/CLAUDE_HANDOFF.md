@@ -13,6 +13,7 @@ Read `RESULTS.md`, `METHODS.md`, `reviews/FINAL_RESULT_AUDIT.md`, then the field
 ```sh
 cd ice_cliff_physics_v2
 python3 verify.py
+python3 verify_field.py
 python3 model.py example_temperate_profile.json result.json
 python3 run_study.py --out results/coupled --freeze-commit b9d6f39d09f7ead306ea87c852da8f14c53e9e89
 python3 run_boundary_study.py --out results/boundary --freeze-commit b9d6f39d09f7ead306ea87c852da8f14c53e9e89
@@ -40,4 +41,4 @@ The case runner verifies input/source hashes, retains all failures/refusals, res
 
 ## Next bounded scientific work
 
-Test the explicitly frozen vertical-heterogeneity hypothesis on previously reserved dates, retain strong baselines and all outcomes. If it fails, keep the negative result. Do not multiply free coefficients or use the inspected test to manufacture a win. Coupled cliff accuracy still requires matched water/contact forcing and face retreat over the same physical support. Do not replace that missing test with more synthetic runs or label the component evidence as full-cliff validation.
+The vertical-heterogeneity test has now run prospectively:30.2%lower MAE than homogeneous conduction, but ridge remains better in9/9profiles. Its frozen superiority gate fails; retain that result. Do not reuse either inspected window as an untouched test. Do not multiply free coefficients or use the inspected test to manufacture a win. Coupled cliff accuracy still requires matched water/contact forcing and face retreat over the same physical support. Do not replace that missing test with more synthetic runs or label the component evidence as full-cliff validation.

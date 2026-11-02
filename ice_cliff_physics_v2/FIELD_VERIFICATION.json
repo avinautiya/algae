@@ -5,7 +5,7 @@
       "group": "solver",
       "status": "passed",
       "stdout": "",
-      "stderr": "test_assumed_provenance (test_bottom_gradient.BottomGradientTests) ... ok\ntest_ramp_convergence (test_bottom_gradient.BottomGradientTests) ... ok\ntest_sine_decay_and_moment (test_bottom_gradient.BottomGradientTests) ... ok\ntest_steady_signed (test_bottom_gradient.BottomGradientTests) ... ok\ntest_depth_origin_and_temperature_offset_invariance (test_dirichlet_slab.SpectralTests) ... ok\ntest_exact_ramp_particular_solution_uniform_and_irregular (test_dirichlet_slab.SpectralTests) ... ok\ntest_gap_missing_and_boundary_target_refusals (test_dirichlet_slab.SpectralTests) ... ok\ntest_independent_finite_volume_agrees_for_nontrivial_forcing (test_dirichlet_slab.SpectralTests) ... ok\ntest_independent_single_sine_decay (test_dirichlet_slab.SpectralTests) ... ok\ntest_no_reset_or_future_interior_assimilation_contract (test_dirichlet_slab.SpectralTests) ... ok\ntest_preparation_does_not_alias_mutable_input_arrays (test_dirichlet_slab.SpectralTests) ... ok\ntest_steady_linear_field_uses_real_endpoint_domain_not_ice_surface (test_dirichlet_slab.SpectralTests) ... ok\ntest_uniform_constant_is_exact (test_dirichlet_slab.SpectralTests) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.086s\n\nOK\n"
+      "stderr": "test_assumed_provenance (test_bottom_gradient.BottomGradientTests) ... ok\ntest_ramp_convergence (test_bottom_gradient.BottomGradientTests) ... ok\ntest_sine_decay_and_moment (test_bottom_gradient.BottomGradientTests) ... ok\ntest_steady_signed (test_bottom_gradient.BottomGradientTests) ... ok\ntest_depth_origin_and_temperature_offset_invariance (test_dirichlet_slab.SpectralTests) ... ok\ntest_exact_ramp_particular_solution_uniform_and_irregular (test_dirichlet_slab.SpectralTests) ... ok\ntest_gap_missing_and_boundary_target_refusals (test_dirichlet_slab.SpectralTests) ... ok\ntest_independent_finite_volume_agrees_for_nontrivial_forcing (test_dirichlet_slab.SpectralTests) ... ok\ntest_independent_single_sine_decay (test_dirichlet_slab.SpectralTests) ... ok\ntest_no_reset_or_future_interior_assimilation_contract (test_dirichlet_slab.SpectralTests) ... ok\ntest_preparation_does_not_alias_mutable_input_arrays (test_dirichlet_slab.SpectralTests) ... ok\ntest_steady_linear_field_uses_real_endpoint_domain_not_ice_surface (test_dirichlet_slab.SpectralTests) ... ok\ntest_uniform_constant_is_exact (test_dirichlet_slab.SpectralTests) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.080s\n\nOK\n"
     },
     {
       "group": "protocol",
@@ -17,19 +17,19 @@
       "group": "ablation_benchmark",
       "status": "passed",
       "stdout": "",
-      "stderr": "test_integral_phase_split (test_runner.Checks) ... /private/tmp/cliff-upgrade-20261101/package/field_thermal/ablation_benchmark/run.py:55: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.\n  return float(np.trapz(np.maximum(yy,0),xx)),float(np.trapz(np.minimum(yy,0),xx)),lo,hi\nok\ntest_no_synthetic_probe (test_runner.Checks) ... ok\ntest_node_equilibrium (test_runner.Checks) ... ok\ntest_node_relaxation (test_runner.Checks) ... ok\ntest_utc (test_runner.Checks) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.086s\n\nOK\n"
+      "stderr": "test_integral_phase_split (test_runner.Checks) ... /private/tmp/cliff-upgrade-20261101/package/field_thermal/ablation_benchmark/run.py:55: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.\n  return float(np.trapz(np.maximum(yy,0),xx)),float(np.trapz(np.minimum(yy,0),xx)),lo,hi\nok\ntest_no_synthetic_probe (test_runner.Checks) ... ok\ntest_node_equilibrium (test_runner.Checks) ... ok\ntest_node_relaxation (test_runner.Checks) ... ok\ntest_utc (test_runner.Checks) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.082s\n\nOK\n"
     },
     {
       "group": "temperature_benchmark",
       "status": "passed",
       "stdout": "",
-      "stderr": "test_future_boundary_does_not_change_fitted_parameters (test_leakage.LeakageTests) ... ok\ntest_test_interior_does_not_change_parameters_or_predictions (test_leakage.LeakageTests) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.826s\n\nOK\n"
+      "stderr": "test_future_boundary_does_not_change_fitted_parameters (test_leakage.LeakageTests) ... ok\ntest_test_interior_does_not_change_parameters_or_predictions (test_leakage.LeakageTests) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.800s\n\nOK\n"
     },
     {
       "group": "layered_solver",
       "status": "passed",
       "stdout": "",
-      "stderr": "test_homogeneous_sine (test_layered.Tests) ... ok\ntest_invalid (test_layered.Tests) ... ok\ntest_positivity_and_conservative_operator (test_layered.Tests) ... ok\ntest_series_resistance (test_layered.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.009s\n\nOK\n"
+      "stderr": "test_homogeneous_sine (test_layered.Tests) ... ok\ntest_invalid (test_layered.Tests) ... ok\ntest_positivity_and_conservative_operator (test_layered.Tests) ... ok\ntest_series_resistance (test_layered.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.011s\n\nOK\n"
     }
   ]
 }

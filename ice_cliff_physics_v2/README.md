@@ -20,7 +20,8 @@ This additive research package upgrades the earlier reduced cliff forecast. It i
 From this folder:
 
 ```sh
-python verify.py
+python3 verify.py
+python3 verify_field.py
 python model.py example_temperate_profile.json result.json
 ```
 
@@ -38,6 +39,8 @@ The standard-library core requires Python3.9+. Plotting uses NumPy/Matplotlib. F
 ## Verification and controlled studies
 
 `verify.py` records isolated test output in `VERIFICATION.json`. `thermal/` contains an independent finite-volume slab, classical Robin eigenfunction reference, meaningful space/time comparisons and numerical stress tests. `face_geometry/` checks nonconvex volume against polygon area and independent analytic evolution. `reviews/` retains pre-fix failures and post-fix adversarial checks.
+
+See `RESULTS.md` for all actual outcomes, including field failures and the prospectively tested two-layer improvement.
 
 `study/SPEC.md` and `study/COUPLED_CASES.json` define the new synthetic comparison. The pre-execution Git commit and frozen source/input hashes accompany every case record. All completions and refusals remain visible. The mechanism packet also fixes 12 constitutive boundary cases; these verify known heat-transfer limits and quantify proxy errors, not a newly discovered natural phenomenon.
 
