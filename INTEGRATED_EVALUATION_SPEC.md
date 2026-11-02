@@ -32,3 +32,8 @@ Not scored. Readiness report + input template only; scoring requires, simultaneo
 
 ## 10. Cost
 Scoring from saved predictions and the equivalence check cost seconds; the coupled demonstration is timed in a pilot first; no parameter search will be run.
+
+## 11. Addendum (committed before the coupled demonstration campaign; scoring of §8 had already run on saved predictions — the addendum concerns only the unscored demonstration)
+Timing pilot (measured before this addendum): dx=0.05 (2520 cells) ≈ 5.4 s per 6-h interval + ≈20 s spin-up; dx=0.025 (9840 cells) ≈ 41 s per interval + ≈150 s spin-up; peak RSS 228 MB; checkpoint 0.12 / 0.42 MB.
+Frozen demonstration: P5 native forcing (calibration offset once, linear bridge ≤24 h), window 2019-07-20 00:00 → 2019-08-03 00:00 (naive source clock), 56 intervals of 6 h, imposed constant Q = 0.07 m³/s (labelled `imposed_scenario`), solid transverse strip, solver v4 (`reactivation/swe2d.py`), modes {reconstructed (supported = observed + bridged), strict (observed only; bridged time unsupported)} × dx {0.05, 0.025}. Four runs; estimated wall ≈ 45 min on 4 cores (CPU ≈ 93 min). Resumable checkpoints; atomic outputs.
+Acceptance for the demonstration (no accuracy claim, no observed target): per-update water/energy residuals ≤ 1e-10; support accounting identical between resolutions; unsupported intervals leave the bed unchanged; strict-vs-reconstructed difference reported as a forcing-reconstruction sensitivity; coarse-vs-medium toe-flow-fraction difference reported (the M3 conclusion that loss/recovery classes are resolution-sensitive near boundaries is not re-tested here). Failures are reported, not dropped.
