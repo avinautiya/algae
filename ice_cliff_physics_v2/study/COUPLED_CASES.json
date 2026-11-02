@@ -1,0 +1,2034 @@
+[
+  {
+    "id": "C20000_Q5_rc",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "rc",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "lumped_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 16,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q5_fv16",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "fv16",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 16,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q5_fv32",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "fv32",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q5_fv32dt60",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "fv32dt60",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q5_no_exchange_control",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "no_exchange_control",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "disabled_control",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q5_fv32face64",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "fv32face64",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 64,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q20_rc",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "rc",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "lumped_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 16,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q20_fv16",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "fv16",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 16,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q20_fv32",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "fv32",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q20_fv32dt60",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "fv32dt60",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q20_no_exchange_control",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "no_exchange_control",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "disabled_control",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C20000_Q20_fv32face64",
+    "material_capacity_J_m2_K": 20000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "fv32face64",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 20000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 10000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 64,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q5_rc",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "rc",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "lumped_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 16,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q5_fv16",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "fv16",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 16,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q5_fv32",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "fv32",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q5_fv32dt60",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "fv32dt60",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q5_no_exchange_control",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 5.0,
+    "backend": "no_exchange_control",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 5.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "disabled_control",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q20_rc",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "rc",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "lumped_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 16,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q20_fv16",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "fv16",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 16,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q20_fv32",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "fv32",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 120.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q20_fv32dt60",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "fv32dt60",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "coupled",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "C100000_Q20_no_exchange_control",
+    "material_capacity_J_m2_K": 100000.0,
+    "prescribed_net_heat_W_m2": 20.0,
+    "backend": "no_exchange_control",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.01,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 20.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 60.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC controlled net-flux experiment; not measured weather or field validation. No outcome-selected parameters.",
+      "periods": [
+        {
+          "duration_s": 50000.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 20.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "wet_debris": "resolved_temperate",
+        "face_cover_location": "lower",
+        "debris_cells": 32,
+        "debris_substep_fraction": 0.01,
+        "covered_heat_policy": "prescribed_all_cover",
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "water_debris_coupling": "disabled_control",
+        "fixed_cover_interval_m": [
+          -0.08,
+          -0.0492
+        ],
+        "cover_interval_provenance": "SYNTHETIC fixed-z covered footprint, identical material area in every comparator; no debris transport inferred",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "G_T0p5_planar",
+    "material_capacity_J_m2_K": null,
+    "prescribed_net_heat_W_m2": 10.0,
+    "backend": "planar",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.0,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 5.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 600.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC bare-cliff geometry ablation; same finite water heat, no field calibration or collapse claim.",
+      "periods": [
+        {
+          "duration_s": 172800.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 10.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {}
+    }
+  },
+  {
+    "id": "G_T0p5_profile32dt600",
+    "material_capacity_J_m2_K": null,
+    "prescribed_net_heat_W_m2": 10.0,
+    "backend": "profile32dt600",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.0,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 5.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 600.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC bare-cliff geometry ablation; same finite water heat, no field calibration or collapse claim.",
+      "periods": [
+        {
+          "duration_s": 172800.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 10.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "G_T0p5_profile32dt300",
+    "material_capacity_J_m2_K": null,
+    "prescribed_net_heat_W_m2": 10.0,
+    "backend": "profile32dt300",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.0,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 5.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 300.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC bare-cliff geometry ablation; same finite water heat, no field calibration or collapse claim.",
+      "periods": [
+        {
+          "duration_s": 172800.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 10.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "G_T0p5_profile64dt300",
+    "material_capacity_J_m2_K": null,
+    "prescribed_net_heat_W_m2": 10.0,
+    "backend": "profile64dt300",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.0,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 5.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 300.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC bare-cliff geometry ablation; same finite water heat, no field calibration or collapse claim.",
+      "periods": [
+        {
+          "duration_s": 172800.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 0.5,
+          "face_atmospheric_net_W_m2": 10.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "face_profile_bands": 64,
+        "ledge_heat_policy": "adiabatic",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "G_T1p0_planar",
+    "material_capacity_J_m2_K": null,
+    "prescribed_net_heat_W_m2": 10.0,
+    "backend": "planar",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.0,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 5.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 600.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC bare-cliff geometry ablation; same finite water heat, no field calibration or collapse claim.",
+      "periods": [
+        {
+          "duration_s": 172800.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 1.0,
+          "face_atmospheric_net_W_m2": 10.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {}
+    }
+  },
+  {
+    "id": "G_T1p0_profile32dt600",
+    "material_capacity_J_m2_K": null,
+    "prescribed_net_heat_W_m2": 10.0,
+    "backend": "profile32dt600",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.0,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 5.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 600.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC bare-cliff geometry ablation; same finite water heat, no field calibration or collapse claim.",
+      "periods": [
+        {
+          "duration_s": 172800.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 1.0,
+          "face_atmospheric_net_W_m2": 10.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "G_T1p0_profile32dt300",
+    "material_capacity_J_m2_K": null,
+    "prescribed_net_heat_W_m2": 10.0,
+    "backend": "profile32dt300",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.0,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 5.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 300.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC bare-cliff geometry ablation; same finite water heat, no field calibration or collapse claim.",
+      "periods": [
+        {
+          "duration_s": 172800.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 1.0,
+          "face_atmospheric_net_W_m2": 10.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "face_profile_bands": 32,
+        "ledge_heat_policy": "adiabatic",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  },
+  {
+    "id": "G_T1p0_profile64dt300",
+    "material_capacity_J_m2_K": null,
+    "prescribed_net_heat_W_m2": 10.0,
+    "backend": "profile64dt300",
+    "configuration": {
+      "geometry": {
+        "upstream_edge_x_m": -2.0,
+        "ice_back_edge_x_m": 5.0,
+        "ice_bottom_z_m": -3.0,
+        "face_x_m": 0.0,
+        "floor_z_m": -0.08,
+        "crest_z_m": 3.0,
+        "extrusion_width_m": 0.5
+      },
+      "physics": {
+        "bypass_floor_m": 0.0,
+        "bypass_floor_limit_m": -2.0,
+        "bypass_width_m": 0.5,
+        "bypass_area_m2": 1.0,
+        "weir_coefficient_sqrt_m_s": 1.2,
+        "obstruction_height_m": 0.2,
+        "aperture_m": 0.0,
+        "discharge_coefficient": 0.6,
+        "darcy_conductance_m2_s": 0.0,
+        "water_h_W_m2_K": 200.0,
+        "face_cover_fraction": 0.0,
+        "debris_capacity_J_m2_K": 100000.0,
+        "debris_conductance_W_m2_K": 5.0,
+        "initial_debris_temperature_C": 0.0,
+        "new_debris_temperature_C": 0.0,
+        "contact_manning_n": 0.02,
+        "contact_friction_slope": 0.01,
+        "initial_surface_cold_J_m2": 0.0,
+        "new_surface_cold_J_m2": 0.0,
+        "ice_subcooling_K": 0.0,
+        "ice_heat_capacity_J_kg_K": 2100.0,
+        "max_meltwater_fraction": 0.05
+      },
+      "step_s": 300.0,
+      "removal_time_s": null,
+      "provenance": "SYNTHETIC bare-cliff geometry ablation; same finite water heat, no field calibration or collapse claim.",
+      "periods": [
+        {
+          "duration_s": 172800.0,
+          "inflow_m3_s": 0.07,
+          "water_superheat_K": 1.0,
+          "face_atmospheric_net_W_m2": 10.0,
+          "floor_atmospheric_net_W_m2": 0.0,
+          "bypass_atmospheric_net_W_m2": 0.0
+        }
+      ],
+      "upgrades": {
+        "face_profile_bands": 64,
+        "ledge_heat_policy": "adiabatic",
+        "profile_snapshot_stride": 25,
+        "profile_ledger_detail": "summary"
+      }
+    }
+  }
+]

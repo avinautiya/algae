@@ -1,0 +1,22 @@
+{
+  "classification": "synthetic implementation and numerical conditioning tests; not field accuracy",
+  "unit_test_returncode": 0,
+  "unit_test_output": "........................................\n----------------------------------------------------------------------\nRan 40 tests in 1.096s\n\nOK\n",
+  "stress_seed": 20261101,
+  "stress_cases": 5000,
+  "stress_failures": [],
+  "stress_max_normalized_energy_residual": 4.071788716473231e-13,
+  "code_sha256": {
+    "column_partition.py": "dafce9db2c360f60ff8187490afc44a633e2843e72de3ef32c614603904659c1",
+    "resolved_slab.py": "90216cfcbae3cb34ad1e7d3f5a98ce537a3e7efd1eca3cadb8f7479a7fc221a2",
+    "robin_reference.py": "b704da72dd0c0002f8a9e788f470f31880efd2f550253eaf778b03223f59ec99",
+    "run_slab_comparison.py": "2f72ff8590db12041284bf44a770010d75dd272fcc2a257f01248efeb33ca96f",
+    "test_column_partition.py": "69f7e2d5dd25878450374d184a9c951984bf1ddf927196bcc07f9db6b492fb90",
+    "test_resolved_slab.py": "89d4a5b5e93f9e40871a370638c7c08db01bbbd97cc07eabb25389b05dd967a0",
+    "test_robin_reference.py": "55481eff2bd4351a4f0858b1a9cdc5bc41e03f5e075622ce41068f5cb6d29cc7",
+    "test_wet_debris.py": "6309484f2d16813bc73e8dd79f6cba9fb1dc13b6e49af3a8c3a7724bcd8fedd6",
+    "verify_robin_reference.py": "755a3d07e3786d606dabb7d21bfba12de2c99763f7c1f71dde27524cffedf67c",
+    "verify_thermal.py": "bec2b45db523f0c66b4bbf1aa5fd1c4774081252b687b50ca2eb28f7db2c9757",
+    "wet_debris.py": "89f2af2fc26ea3d0a8c11dadd695d87b10850bede6a62cbc930496eb7b7461e3"
+  }
+}
