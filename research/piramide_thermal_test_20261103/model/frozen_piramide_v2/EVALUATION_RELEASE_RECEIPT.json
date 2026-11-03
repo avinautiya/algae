@@ -1,0 +1,28 @@
+{
+  "schema": "piramide-camera-unseal-v1",
+  "freeze_published": true,
+  "publication_reference": "https://github.com/avinautiya/algae/commit/be7fdfcd0271e3f153064b7d7b838fde7893c70b",
+  "frozen_spec_path": "/private/tmp/glacier-round2-20261103/model/frozen_piramide_v2/FREEZE.json",
+  "frozen_spec_sha256": "c6612e0ce613d25f614fa275b7edd330e485b52d30f0355d1351801a38251b59",
+  "predictions_path": "/private/tmp/glacier-round2-20261103/model/frozen_piramide_v2/melt_comparison/PREDICTIONS.json",
+  "predictions_sha256": "37e2ce3127548598e6f4550192b3109dd549100776a06c6cdccb1b4075a1d772",
+  "access_role": "evaluation",
+  "prediction_stage": "final_evaluation",
+  "approved_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+  "clock_interpretation": "same_source_naive_local_no_UTC_assumption",
+  "camera_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+  "intervals": [
+    {
+      "tower": 1,
+      "start": "2022-12-02T03:00:00",
+      "end": "2022-12-16T03:00:00",
+      "role": "train"
+    },
+    {
+      "tower": 1,
+      "start": "2022-12-16T03:00:00",
+      "end": "2022-12-30T03:00:00",
+      "role": "evaluation"
+    }
+  ]
+}

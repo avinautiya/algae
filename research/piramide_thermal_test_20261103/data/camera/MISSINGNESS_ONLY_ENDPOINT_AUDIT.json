@@ -1,0 +1,156 @@
+{
+  "source_sha256": "7ddfe5f549473eab7c99851a82a8479d45ddee5bf4b9e7fa90c113793adb718e",
+  "original_start": "2022-12-16T03:00:00",
+  "original_end": "2022-12-30T03:00:00",
+  "selected_end": "2022-12-30T00:00:00",
+  "selection_rule": "Nearest finite native camera distance endpoint within +/-12h of originalDec30T03; minimize absolute clock difference; tieearlier; no interpolation; training unchanged",
+  "endpoint_checks": [
+    {
+      "source_local_label": "2022-12-16T03:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T03:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-30T00:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    }
+  ],
+  "nearby_timestamps_finiteness_only": [
+    {
+      "source_local_label": "2022-12-29T15:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-29T16:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-29T17:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-29T18:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-29T19:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-29T20:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-29T21:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-29T22:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-29T23:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T00:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T01:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-30T02:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-30T03:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-30T04:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-30T05:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-30T06:00:00",
+      "distance_isfinite": false,
+      "distance_isnan": true
+    },
+    {
+      "source_local_label": "2022-12-30T07:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T08:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T09:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T10:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T11:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T12:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T13:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T14:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    },
+    {
+      "source_local_label": "2022-12-30T15:00:00",
+      "distance_isfinite": true,
+      "distance_isnan": false
+    }
+  ],
+  "raw_MCOS_and_converted_finiteness_equal": true,
+  "missing_value_native_nan_confirmed": true,
+  "new_target_values_exposed": false,
+  "prediction_error_computed": false,
+  "scope": "Coverage-only revision; publish all amended predictions before releasing selected observed value"
+}

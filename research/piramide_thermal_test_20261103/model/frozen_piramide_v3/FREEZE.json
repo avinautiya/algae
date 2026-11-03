@@ -1,0 +1,167 @@
+{
+  "config": {
+    "v1_freeze": "frozen_piramide_v1/FREEZE.json",
+    "v1_normalized_predictions": "frozen_piramide_v1/NORMALIZED_HEAT_PREDICTIONS.json",
+    "capacity_source_audit": "../data/TRAINING_CAPACITY_AUDIT.json",
+    "alpha_source": "unchanged_v1_training_only_temperature_fits",
+    "cold_ice_initial_temperature_C": 0.0,
+    "ice_depth_m": 2.0,
+    "ice_conductivity_W_mK": 2.1,
+    "ice_heat_capacity_J_m3K": 1925700.0,
+    "latent_heat_J_kg": 333700.0,
+    "debris_cells": 32,
+    "ice_cells": 64,
+    "dt_seconds": 300.0,
+    "capacities": [
+      {
+        "id": "dry",
+        "capacity_J_m3K": 1198669.6103111114
+      },
+      {
+        "id": "proxy",
+        "capacity_J_m3K": 1855487.1033697424
+      },
+      {
+        "id": "saturated",
+        "capacity_J_m3K": 3037338.970311112
+      }
+    ],
+    "primary_capacity_id": "proxy",
+    "primary_geometry": "middle_gap_20mm",
+    "primary_hold": "left",
+    "geometries": [
+      {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      }
+    ],
+    "holds": [
+      "left",
+      "right"
+    ],
+    "start": "2022-12-02T03:00:00",
+    "split": "2022-12-16T03:00:00",
+    "end": "2022-12-30T00:00:00",
+    "camera_evaluation": {
+      "approved_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+      "clock_interpretation": "same_source_naive_local_no_UTC_assumption",
+      "camera_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+      "intervals": [
+        {
+          "tower": 1,
+          "start": "2022-12-02T03:00:00",
+          "end": "2022-12-16T03:00:00",
+          "role": "train"
+        },
+        {
+          "tower": 1,
+          "start": "2022-12-16T03:00:00",
+          "end": "2022-12-30T00:00:00",
+          "role": "evaluation"
+        }
+      ]
+    },
+    "gain_interpretation": "Empirical TRAIN-camera output correction; not physical capacity and not covered by unscaled physical energy ledger.",
+    "new_scope": "Constant sensible debris plus explicit cold ice; no wet-debris pore enthalpy, moving geometry or ice advection.",
+    "original_version1_phase_failure_preserved": true,
+    "camera_outcomes_opened": false
+  },
+  "source_hashes": {
+    "phase_experiment.py": "aed30db1ce1352365d11f3bdb8f7a867c55a4a91172076ad513f844dbf3ebe08",
+    "cold_ice_column.py": "9d72756866d4339b4db99c027351505ab80765550d608245670789737b1db9e3",
+    "temperature_model.py": "23c5047c6625ca7fef6c293b193bb2d088194355e11a2c5f77d148e0a34596ee",
+    "piramide_experiment.py": "2992a7ff0fc76b89631b384b5bcbd26ea92a2dec6ab287c48962ed60c4a6270f",
+    "PHASE_EXTENSION_PROTOCOL.md": "1c4440b152ea354059750326ae53ef516875734a8c1ce7377af1943d0da4f5ed",
+    "PHASE_EXTENSION_SPEC.json": "374c1b999cb7265da761bd97d7f50e5aa64b51070325af12c7270b0b138d3acd",
+    "thermal_memory/solver.py": "b1427565afe8b544115465b3cd7e23ac37656461e0a7833cc848675d369d8e63",
+    "prepare_coverage_amendment.py": "0f8057ef51a888fef66bab937769c5376c36f878603ab5277baf2982ce9b9f91"
+  },
+  "input_hashes": {
+    "v1_freeze": "2d42470e3e13091ca619a96d765e050f54ed0ee0351552f495de33064d5f2a04",
+    "v1_normalized_predictions": "428a2fd79ddaa4880ed31f8e733487d6ad9df052087e5d7dc31ffc28639e7fa2",
+    "capacity_source_audit": "95eddd954f6f5570945aca00947c12c92cf39214e44483da6cf7f7dc1fb01a61"
+  },
+  "v1_process_input_hashes": {
+    "process_csv": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+    "process_manifest": "96f042e1695590e906fe9775c536195dfcb450dc142c509d8f7f01c09f67bd6b",
+    "camera_times_only": "cd6b775456f260dcc079633246d1b6ff95c64db0f06fd49699b710f950b22ad7",
+    "camera_metadata": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c"
+  },
+  "camera_evaluation": {
+    "approved_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "clock_interpretation": "same_source_naive_local_no_UTC_assumption",
+    "camera_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+    "intervals": [
+      {
+        "tower": 1,
+        "start": "2022-12-02T03:00:00",
+        "end": "2022-12-16T03:00:00",
+        "role": "train"
+      },
+      {
+        "tower": 1,
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T00:00:00",
+        "role": "evaluation"
+      }
+    ]
+  },
+  "physical_extension": "fixed-geometry cold ice complementarity; not debris pore enthalpy",
+  "camera_outcomes_read": true,
+  "new_field_model_computed": false,
+  "analysis_spec_sha256": "75599e3255f5acc30d20951995c727b1bde2d1541fc5ffb1e7f94a3e3a4aff43",
+  "analysis_source_hashes": {
+    "analysis/calibration.py": "c74ca87081596f57a438ce9196a38a723186b178f24e396f1d267752ed9518b9",
+    "analysis/run_cold_melt_comparison.py": "f04341e01658f2ba49087a354b5dc57037097f836a939e9cfd6044333a8e041d",
+    "review/scorer.py": "fa770aa5f437932c15f6d26a0666b14fb72515f88b6065e69f6eaf3800e93dcd",
+    "data/camera/camera_loader.py": "3e317dbd99003c032cb053292ada8c72391f29c67567f50c0a8f497df11a19a5"
+  },
+  "analysis_input_hashes": {
+    "data/decoded/debtemp_Tower1.csv": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+    "data/decoded/trh_Tower1.csv": "d0e91f6bc8b620a6e271d9e8fe32d6f26c7994771fde956aa23422539d3807e9"
+  },
+  "coverage_amendment": {
+    "original_freeze_sha256": "c6612e0ce613d25f614fa275b7edd330e485b52d30f0355d1351801a38251b59",
+    "missingness_audit_sha256": "b506ac50746f1c8c0bf2d515cadc9197c7413cc69b3949f8b0e48f678b65c783",
+    "selected_end": "2022-12-30T00:00:00",
+    "original_end": "2022-12-30T03:00:00",
+    "rule": "Nearest finite native camera distance endpoint within +/-12h of originalDec30T03; minimize absolute clock difference; tieearlier; no interpolation; training unchanged",
+    "training_outcomes_previously_seen": true,
+    "original_evaluation_value_is_missing": true,
+    "replacement_evaluation_value_seen": false,
+    "evaluation_error_computed": false,
+    "model_family_parameters_and_primary_unchanged": true
+  }
+}
