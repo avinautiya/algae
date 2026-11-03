@@ -1,0 +1,74 @@
+{
+  "physical_capacity_probes": [
+    {
+      "method": "physical_layered_local",
+      "probe": [
+        {
+          "capacity_J_m3K": 800000.0,
+          "melt_mmwe": 403.4612850126002,
+          "relative_energy_residual": 4.406651202649455e-15
+        },
+        {
+          "capacity_J_m3K": 1500000.0,
+          "melt_mmwe": 756.4942770120682,
+          "relative_energy_residual": -4.496451042186453e-15
+        },
+        {
+          "capacity_J_m3K": 3500000.0,
+          "melt_mmwe": 1765.1681103001624,
+          "relative_energy_residual": -1.3331380662997098e-15
+        }
+      ],
+      "sampled_response_strictly_increasing": true,
+      "all_capacity_monotonicity_theorem_established": false,
+      "train_target_read": false
+    },
+    {
+      "method": "physical_homogeneous_local",
+      "probe": [
+        {
+          "capacity_J_m3K": 800000.0,
+          "melt_mmwe": 116.94876749449601,
+          "relative_energy_residual": -4.7728553214856855e-15
+        },
+        {
+          "capacity_J_m3K": 1500000.0,
+          "melt_mmwe": 219.27891667760812,
+          "relative_energy_residual": 5.6001508151920986e-14
+        },
+        {
+          "capacity_J_m3K": 3500000.0,
+          "melt_mmwe": 511.650693491374,
+          "relative_energy_residual": -1.0996662191705456e-14
+        }
+      ],
+      "sampled_response_strictly_increasing": true,
+      "all_capacity_monotonicity_theorem_established": false,
+      "train_target_read": false
+    },
+    {
+      "method": "physical_weather_boundary_layered",
+      "probe": [
+        {
+          "capacity_J_m3K": 800000.0,
+          "melt_mmwe": 410.90813834653034,
+          "relative_energy_residual": 1.306267383677068e-14
+        },
+        {
+          "capacity_J_m3K": 1500000.0,
+          "melt_mmwe": 770.4627350164506,
+          "relative_energy_residual": -4.660965045916215e-15
+        },
+        {
+          "capacity_J_m3K": 3500000.0,
+          "melt_mmwe": 1797.7802688106754,
+          "relative_energy_residual": -1.1918440920195315e-14
+        }
+      ],
+      "sampled_response_strictly_increasing": true,
+      "all_capacity_monotonicity_theorem_established": false,
+      "train_target_read": false
+    }
+  ],
+  "no_melt_targets_read": true
+}

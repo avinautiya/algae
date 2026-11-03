@@ -1,0 +1,147 @@
+{
+  "source_forced_pretrain_verification": true,
+  "capacity_reference_J_m3K": 1500000.0,
+  "layer_mapping": "exactcellharmonicintersection",
+  "all_four_comparisons_pass": true,
+  "results": [
+    {
+      "stake": "P_AWS_1",
+      "method": "physical_layered_local",
+      "runs": [
+        {
+          "debris_cells": 16,
+          "ice_cells": 20,
+          "dt_seconds": 300.0,
+          "melt_mmwe": 756.4942770120695,
+          "relative_energy_residual": 3.438470856427886e-16,
+          "wall_seconds": 0.16913608399999996
+        },
+        {
+          "debris_cells": 16,
+          "ice_cells": 20,
+          "dt_seconds": 150.0,
+          "melt_mmwe": 756.515659678011,
+          "relative_energy_residual": -7.930159957043531e-15,
+          "wall_seconds": 0.348765708
+        },
+        {
+          "debris_cells": 32,
+          "ice_cells": 20,
+          "dt_seconds": 150.0,
+          "melt_mmwe": 756.5133798924488,
+          "relative_energy_residual": -2.9165326780278533e-14,
+          "wall_seconds": 0.45669258299999993
+        }
+      ],
+      "dt_refinement_relative_change": 2.826467062253296e-05,
+      "debris_mesh_refinement_relative_change": -3.013542949560362e-06,
+      "combined_relative_change": 2.5251212849771472e-05,
+      "one_percent_seasonal_gate_passed": true
+    },
+    {
+      "stake": "P_AWS_1",
+      "method": "physical_homogeneous_local",
+      "runs": [
+        {
+          "debris_cells": 16,
+          "ice_cells": 20,
+          "dt_seconds": 300.0,
+          "melt_mmwe": 219.27891667760812,
+          "relative_energy_residual": 5.6001508151920986e-14,
+          "wall_seconds": 0.16720379200000002
+        },
+        {
+          "debris_cells": 16,
+          "ice_cells": 20,
+          "dt_seconds": 150.0,
+          "melt_mmwe": 219.2872793642464,
+          "relative_energy_residual": 5.762844514632783e-14,
+          "wall_seconds": 0.33515125
+        },
+        {
+          "debris_cells": 32,
+          "ice_cells": 20,
+          "dt_seconds": 150.0,
+          "melt_mmwe": 219.2850211514919,
+          "relative_energy_residual": -3.6858148367775176e-14,
+          "wall_seconds": 0.4486322089999999
+        }
+      ],
+      "dt_refinement_relative_change": 3.8135758090981815e-05,
+      "debris_mesh_refinement_relative_change": -1.0298071170751859e-05,
+      "combined_relative_change": 2.783807964498093e-05,
+      "one_percent_seasonal_gate_passed": true
+    },
+    {
+      "stake": "P12",
+      "method": "physical_layered_local",
+      "runs": [
+        {
+          "debris_cells": 16,
+          "ice_cells": 20,
+          "dt_seconds": 300.0,
+          "melt_mmwe": 819.9860221853752,
+          "relative_energy_residual": 2.1782987794047244e-14,
+          "wall_seconds": 0.3530109590000001
+        },
+        {
+          "debris_cells": 16,
+          "ice_cells": 20,
+          "dt_seconds": 150.0,
+          "melt_mmwe": 819.9955633771613,
+          "relative_energy_residual": 2.3743180424658195e-14,
+          "wall_seconds": 0.6798937079999998
+        },
+        {
+          "debris_cells": 32,
+          "ice_cells": 20,
+          "dt_seconds": 150.0,
+          "melt_mmwe": 819.9932138233795,
+          "relative_energy_residual": 1.171914465114532e-13,
+          "wall_seconds": 0.8994869580000002
+        }
+      ],
+      "dt_refinement_relative_change": 1.1635662694045135e-05,
+      "debris_mesh_refinement_relative_change": -2.8653332029420335e-06,
+      "combined_relative_change": 8.770362831153755e-06,
+      "one_percent_seasonal_gate_passed": true
+    },
+    {
+      "stake": "P12",
+      "method": "physical_homogeneous_local",
+      "runs": [
+        {
+          "debris_cells": 16,
+          "ice_cells": 20,
+          "dt_seconds": 300.0,
+          "melt_mmwe": 70.70333389412272,
+          "relative_energy_residual": -1.2789366735196931e-14,
+          "wall_seconds": 0.33905799999999964
+        },
+        {
+          "debris_cells": 16,
+          "ice_cells": 20,
+          "dt_seconds": 150.0,
+          "melt_mmwe": 70.70408854991126,
+          "relative_energy_residual": 1.0420854260396963e-14,
+          "wall_seconds": 0.6777191249999994
+        },
+        {
+          "debris_cells": 32,
+          "ice_cells": 20,
+          "dt_seconds": 150.0,
+          "melt_mmwe": 70.70216246725163,
+          "relative_energy_residual": 1.9358053589002282e-13,
+          "wall_seconds": 0.9186727500000007
+        }
+      ],
+      "dt_refinement_relative_change": 1.0673439174705984e-05,
+      "debris_mesh_refinement_relative_change": -2.7242202959898167e-05,
+      "combined_relative_change": -1.6568473017195906e-05,
+      "one_percent_seasonal_gate_passed": true
+    }
+  ],
+  "native_melt_targets_read": false,
+  "ice_mesh_refined_here": false,
+  "engineering_gate_not_confidence_interval": true
+}

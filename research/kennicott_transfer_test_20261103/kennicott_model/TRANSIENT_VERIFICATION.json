@@ -1,0 +1,79 @@
+{
+  "synthetic_continuum_oracle": true,
+  "two_hour_step_response": [
+    {
+      "debris_cells": 8,
+      "step_seconds": 600.0,
+      "melt_mmwe": 0.23249233431282681,
+      "exact_Fourier_series_mmwe": 0.21389205417730373,
+      "relative_error": 0.08696106177046002,
+      "relative_ledger_residual": 1.1513984872055894e-15
+    },
+    {
+      "debris_cells": 8,
+      "step_seconds": 300.0,
+      "melt_mmwe": 0.22325102693971982,
+      "exact_Fourier_series_mmwe": 0.21389205417730373,
+      "relative_error": 0.043755588763751206,
+      "relative_ledger_residual": -1.6369400305275444e-16
+    },
+    {
+      "debris_cells": 8,
+      "step_seconds": 150.0,
+      "melt_mmwe": 0.21845083440548763,
+      "exact_Fourier_series_mmwe": 0.21389205417730373,
+      "relative_error": 0.021313462277588603,
+      "relative_ledger_residual": 9.797799461433714e-16
+    },
+    {
+      "debris_cells": 16,
+      "step_seconds": 600.0,
+      "melt_mmwe": 0.2327477162206963,
+      "exact_Fourier_series_mmwe": 0.21389205417730373,
+      "relative_error": 0.08815503743660504,
+      "relative_ledger_residual": 9.82765401424683e-16
+    },
+    {
+      "debris_cells": 16,
+      "step_seconds": 300.0,
+      "melt_mmwe": 0.22350112263544916,
+      "exact_Fourier_series_mmwe": 0.21389205417730373,
+      "relative_error": 0.04492485003758061,
+      "relative_ledger_residual": -1.4671856763401071e-15
+    },
+    {
+      "debris_cells": 16,
+      "step_seconds": 150.0,
+      "melt_mmwe": 0.21870375841002154,
+      "exact_Fourier_series_mmwe": 0.21389205417730373,
+      "relative_error": 0.022495946617676607,
+      "relative_ledger_residual": 3.2526363753784745e-16
+    },
+    {
+      "debris_cells": 32,
+      "step_seconds": 600.0,
+      "melt_mmwe": 0.23282010771775286,
+      "exact_Fourier_series_mmwe": 0.21389205417730373,
+      "relative_error": 0.0884934861804586,
+      "relative_ledger_residual": 3.926974618620737e-15
+    },
+    {
+      "debris_cells": 32,
+      "step_seconds": 300.0,
+      "melt_mmwe": 0.2235736392676515,
+      "exact_Fourier_series_mmwe": 0.21389205417730373,
+      "relative_error": 0.04526388382021111,
+      "relative_ledger_residual": -1.1399823226722987e-15
+    },
+    {
+      "debris_cells": 32,
+      "step_seconds": 150.0,
+      "melt_mmwe": 0.21877779222128177,
+      "exact_Fourier_series_mmwe": 0.21389205417730373,
+      "relative_error": 0.022842073600022838,
+      "relative_ledger_residual": 2.7619534717140875e-15
+    }
+  ],
+  "field_outcomes_used": false,
+  "steady_series_checked_independently": true
+}

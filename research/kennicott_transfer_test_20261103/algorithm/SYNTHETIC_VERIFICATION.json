@@ -1,0 +1,32 @@
+{
+  "synthetic_only": true,
+  "independent_oracle": "Consistent-mass three-node Crank-Nicolson with two independently prescribed thermal boundaries",
+  "true_alpha_m2_s": [
+    8e-07,
+    1.7e-06
+  ],
+  "recovered_alpha_m2_s": [
+    7.999999999999993e-07,
+    1.6999999999999988e-06
+  ],
+  "relative_parameter_errors": [
+    -7.771561172376096e-16,
+    -7.771561172376096e-16
+  ],
+  "diagnostics": {
+    "singular_values": [
+      289.9998905279951,
+      35.93534216262848
+    ],
+    "singular_ratio": 0.12391501975122113,
+    "column_correlation": -0.9459032669532994,
+    "squared_residual": 5.7483280876392624e-39,
+    "candidate_count": 4
+  },
+  "source_duration_days": 10.0,
+  "normalized_total_interface_heat_K_m": 26.79301454947997,
+  "negative_interface_heat_steps": 0,
+  "field_targets_read": false,
+  "field_validation_established": false,
+  "tests_passed": 11
+}

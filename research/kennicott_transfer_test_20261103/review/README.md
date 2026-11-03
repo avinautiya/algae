@@ -1,0 +1,7 @@
+# Independent round5 review
+
+`INDEPENDENT_NOVELTY_AND_LP_REVIEW.md` reviews the actual adaptive weak-graph derivation, current LP implementation, prior-art collision, physical/error-model gaps and a finite falsifiable numerical-method experiment. No native Lirung outcome file was opened. Published abstract outcome summaries were inadvertently visible in literature search and are explicitly disclosed.
+
+`independent_ratio_audit.py` uses independent polygon vertex enumeration for100 randomized problems; `coefficient_box_audit.py` adds30 randomized all16-coefficient-corner checks. They import the sibling implementation, record no field errors and never load field targets. Results are retained as JSON. Run with the existing scientific Python environment; the source implementation is not modified.
+
+`campaign_scorer.py` accepts **already released typed target rows**, never opens archives and never fits. It requires exact prediction/target content hashes plus an explicit source-binding release. Native quantity/unit/operator, campaign and footprint binding must match. It refuses unresolved rate definitions, guessing duration or converting density. It reports native-unit MAE and campaign-balanced MAE; rows from one campaign are not declared independent glaciers. Six synthetic tests pass. This is ready for a genuinely bound campaign dataset, but the current unresolved Lirung operator/footprint does not satisfy its release gate.

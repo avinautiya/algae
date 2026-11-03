@@ -1,0 +1,32 @@
+{
+  "status": "continuous_polytope_enclosure",
+  "lower_mmwe": 46.15384615384615,
+  "upper_mmwe": 128.57142857142858,
+  "minimax_point_mmwe": 87.36263736263737,
+  "radius_mmwe": 41.20879120879121,
+  "abstain": true,
+  "witnesses": [
+    {
+      "parameters": [
+        1.0,
+        4.0
+      ],
+      "ratio": 0.46153846153846156,
+      "calibrated_heat_mmwe": 46.15384615384615,
+      "max_original_constraint_violation": 0.0
+    },
+    {
+      "parameters": [
+        4.0,
+        1.0
+      ],
+      "ratio": 1.2857142857142858,
+      "calibrated_heat_mmwe": 128.57142857142858,
+      "max_original_constraint_violation": 0.0
+    }
+  ],
+  "mathematical_scope": "Exact optimization formulation for declared linear polytope and positive TRAIN denominator; floating-point LP, not outward-certified bounds. The real process need not belong to this model set.",
+  "historical_novelty": false,
+  "field_coverage_guarantee": false,
+  "prediction_type": "Conditional calibrated melt/heat inference; not automatically an advance environmental forecast"
+}

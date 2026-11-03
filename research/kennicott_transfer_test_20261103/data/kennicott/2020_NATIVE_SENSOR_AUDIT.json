@@ -1,0 +1,37 @@
+[
+  {
+    "file": "KDT_2020a.csv",
+    "headers": [
+      "Depth: 4 cm",
+      "Depth: 11 cm",
+      "Depth: 18 cm",
+      "Depth: 25 cm"
+    ],
+    "last_depth_feature_only": {
+      "Depth: 25 cm": {
+        "min_C": -0.004,
+        "max_C": 7.469,
+        "mean_C": 2.612562803144313,
+        "count_above_source_accuracy_0p2_C": 11823,
+        "n": 11958
+      }
+    }
+  },
+  {
+    "file": "KDT_2020b.csv",
+    "headers": [
+      "Depth: 5 cm",
+      "Depth: 15 cm",
+      "Depth: 22 cm"
+    ],
+    "last_depth_feature_only": {
+      "Depth: 22 cm": {
+        "min_C": 0.0,
+        "max_C": 0.0,
+        "mean_C": 0.0,
+        "count_above_source_accuracy_0p2_C": 0,
+        "n": 11958
+      }
+    }
+  }
+]

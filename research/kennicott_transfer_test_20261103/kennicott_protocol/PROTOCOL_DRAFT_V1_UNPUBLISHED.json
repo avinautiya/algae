@@ -1,0 +1,129 @@
+{
+  "protocol_id": "Kennicott_cross_year_conditional_net_ablation_draft_v1",
+  "state": "DRAFT_NOT_PUBLISHED_FREEZE",
+  "native_outcome_magnitudes_read": false,
+  "published_aggregate_context_known": true,
+  "quantity": "net_ice_ablation_loss_conditional",
+  "native_source_field": "mass_change_kg_m2",
+  "operator": "negative_source_mass_change",
+  "unit": "mmwe",
+  "conversion_kg_m2_to_mmwe": 1.0,
+  "density_multiplier": null,
+  "train": [
+    {
+      "site": "P_AWS_1",
+      "start": "2020-07-25",
+      "end": "2020-09-06",
+      "source_period_days": 43
+    }
+  ],
+  "evaluation": [
+    {
+      "site": "P11",
+      "start": "2023-06-08",
+      "end": "2023-09-02",
+      "source_period_days": 86,
+      "stake_debris_mm": 240,
+      "profile_debris_mm": 240,
+      "sensor_depths_mm": [
+        20,
+        70,
+        120,
+        170,
+        220
+      ]
+    },
+    {
+      "site": "P12",
+      "start": "2023-06-08",
+      "end": "2023-09-02",
+      "source_period_days": 86,
+      "stake_debris_mm": 290,
+      "profile_debris_mm": 320,
+      "sensor_depths_mm": [
+        90,
+        165,
+        240,
+        315
+      ]
+    },
+    {
+      "site": "P13",
+      "start": "2023-06-08",
+      "end": "2023-09-02",
+      "source_period_days": 86,
+      "stake_debris_mm": 255,
+      "profile_debris_mm": 260,
+      "sensor_depths_mm": [
+        20,
+        95,
+        170,
+        245
+      ]
+    }
+  ],
+  "calibration": "one_global_2020_TRAIN_gain_per_model_no_2023_gain",
+  "nominal_visit_clock": "ADT_UTC_minus_08_noon",
+  "finite_clock_scenes": {
+    "clock_basis": [
+      "UTC",
+      "ADT_UTC_minus_08"
+    ],
+    "start_hour": [
+      0,
+      12,
+      24
+    ],
+    "end_hour": [
+      0,
+      12,
+      24
+    ],
+    "continuous_enclosure_claimed": false
+  },
+  "2023_profile_first_UTC": "2023-06-10T20:00:00",
+  "missing_leading_hours_over_clock_union": [
+    36,
+    68
+  ],
+  "nominal_missing_leading_hours": 48,
+  "initial_gap_scenes": "PENDING_model_agent_fixed_explicit_reconstruction_or_bounds_before_predictions",
+  "profile_to_stake_transfer": "PENDING_source_binding_and_model_agent_physical_scene; neverplaceP12probe315inside290mmboundary",
+  "physical_interpretation_assumptions": [
+    "endpointsourceDebris/snow0",
+    "temperateice/no_unmodelled_refreezing_for_netloss_equivalence",
+    "potentialintermediatesnow/storageconditional_notassertedabsent"
+  ],
+  "required_baselines": [
+    "native_air_PDD",
+    "constant_TRAIN_daily_rate",
+    "fixed_conductivity_temperature_gradient_independent_or_2020only",
+    "same_geometry_nonadaptive_graph"
+  ],
+  "source_2023pooled_C_or_k_forbidden": true,
+  "statistical_confidence_intervals": false,
+  "n_glaciers": 1,
+  "n_evaluation_years": 1,
+  "n_evaluation_stakes": 3,
+  "source_metadata_sha256": {
+    "PAIRED_STAKE_METADATA_ONLY.json": "a195e01eda2472a1d422fce4828faa1d9e3fde64157f79e0355f73e9526ef7f3",
+    "FEATURE_CLOCK_AUDIT.json": "ca3e58161a393afde398b36e095bcdf2be8baa3f8ad53231662015665e226b39",
+    "PROFILE_SUMMARY_METADATA_ONLY.json": "5d65785b5ff55f9dd39f4a707f93d3b304de9f07c839e25a09db4aa62e5e8c1d",
+    "point_mass_balance_metadata.txt": "85fe05d9d19605bf1668da07b8371aa86de299b36250a520bc4418c2a440fedd",
+    "Metadata for Debris_Temperature_Profiles.txt": "0fcce75979b9316dc1fa2092719a2b86f0a58830b49eca56520275afa0f9d77a"
+  },
+  "hard_refusals": [
+    "undefinedtargetoperator",
+    "mismatchedfulltargetdates",
+    "unresolvedorinvalidprofiletoicegeometry",
+    "unpublishedpredictionsbeforeevaluationrelease"
+  ],
+  "soft_conditional_assumptions_to_report": [
+    "timeboxes",
+    "initialgapreconstruction",
+    "transferredmaterialproperties",
+    "phase/storageinterpretation",
+    "unknownnativeprecision"
+  ],
+  "score_release": "RootexplicitTRAIN_then_finalpredictions_thenEVALUATION_role_receipts"
+}

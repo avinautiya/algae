@@ -1,0 +1,597 @@
+{
+  "schema": "kennicott-locked-experiment-v1",
+  "state": "FROZEN_BEFORE_TRAIN_OUTCOME",
+  "native_outcome_release": {
+    "approved_operator": "negative_source_mass_change",
+    "unit": "mmwe",
+    "source_csv_sha256": "4b1fd8e9d7d0a9aa7365bfc40d3e90ac70948361aaa4cccb993412f2b39e8cd8",
+    "source_member_crc32": 1387455814,
+    "source_member": "Petersen_etal_2025_Kennicott_Glacier_Data/Point_Mass_Balance/point_mass_balance.csv",
+    "bindings": {
+      "train": [
+        {
+          "site": "P_AWS_1",
+          "start": "2020-07-25",
+          "end": "2020-09-06",
+          "period_days": 43,
+          "debris_mm": 210
+        }
+      ],
+      "evaluation": [
+        {
+          "site": "P11",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "period_days": 86,
+          "debris_mm": 240
+        },
+        {
+          "site": "P12",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "period_days": 86,
+          "debris_mm": 290
+        },
+        {
+          "site": "P13",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "period_days": 86,
+          "debris_mm": 255
+        }
+      ]
+    },
+    "target_interpretation": "conditional_net_ice_ablation_loss_not_verified_gross_melt",
+    "logical_public_source_gate_not_cryptographic_blind": true
+  },
+  "protocol": {
+    "protocol_id": "Kennicott_cross_year_conditional_net_ablation_final_v2",
+    "state": "FINAL_BEFORE_ROOT_PUBLICATION_AND_TRAIN_RELEASE",
+    "native_outcome_magnitudes_read": false,
+    "published_aggregate_context_known": true,
+    "quantity": "net_ice_ablation_loss_conditional",
+    "native_source_field": "mass_change_kg_m2",
+    "operator": "negative_source_mass_change",
+    "unit": "mmwe",
+    "conversion_kg_m2_to_mmwe": 1.0,
+    "density_multiplier": null,
+    "train": [
+      {
+        "site": "P_AWS_1",
+        "start": "2020-07-25",
+        "end": "2020-09-06",
+        "source_period_days": 43
+      }
+    ],
+    "evaluation": [
+      {
+        "site": "P11",
+        "start": "2023-06-08",
+        "end": "2023-09-02",
+        "source_period_days": 86,
+        "stake_debris_mm": 240,
+        "profile_debris_mm": 240,
+        "sensor_depths_mm": [
+          20,
+          70,
+          120,
+          170,
+          220
+        ]
+      },
+      {
+        "site": "P12",
+        "start": "2023-06-08",
+        "end": "2023-09-02",
+        "source_period_days": 86,
+        "stake_debris_mm": 290,
+        "profile_debris_mm": 320,
+        "sensor_depths_mm": [
+          90,
+          165,
+          240,
+          315
+        ]
+      },
+      {
+        "site": "P13",
+        "start": "2023-06-08",
+        "end": "2023-09-02",
+        "source_period_days": 86,
+        "stake_debris_mm": 255,
+        "profile_debris_mm": 260,
+        "sensor_depths_mm": [
+          20,
+          95,
+          170,
+          245
+        ]
+      }
+    ],
+    "calibration": "One global2020TRAINcapacity perphysicalmodelin[.8,3.5]MJm-3K-1; empirical comparatorsoneglobal2020outputgain; no2023targetcalibration",
+    "nominal_visit_clock": "ADT_UTC_minus_08_noon",
+    "finite_clock_scenes": {
+      "start_hour_UTC": [
+        0,
+        12,
+        20
+      ],
+      "end_hour_UTC": [
+        0,
+        12,
+        20
+      ],
+      "nominal_start_hour_UTC": 20,
+      "nominal_end_hour_UTC": 20,
+      "reason": "sourceforcing-supported finite UTCclockfamily",
+      "complete_visit_time_uncertainty_enclosure": false,
+      "excluded_late_clock_end": "up to32UTC remains unsupported; no silent weather extrapolation"
+    },
+    "2023_profile_first_UTC": "2023-06-10T20:00:00",
+    "missing_leading_hours_over_clock_union": [
+      36,
+      68
+    ],
+    "nominal_missing_leading_hours": 48,
+    "initial_gap_scenes": {
+      "primary": "AIR2proxyfit14daysafterfixed5dayinstallationreset; proxycoversmissinggap+installationperiod; nativeupperburiedthermistorafterward",
+      "sensitivities": [
+        "AIR3alternative",
+        "fixedproxyoffsetplus2blockedRMSE",
+        "fixedproxyoffsetminus2blockedRMSE"
+      ],
+      "interpretation": "conditional scenarios, not confidence or deterministic physical bounds"
+    },
+    "profile_to_stake_transfer": "infer material diffusivities in sourceprofile; transfer properties to separatelymeshedactualstakegeometry; P12deep315mmprobe neverplacedin290mmstakecolumn",
+    "physical_interpretation_assumptions": [
+      "endpointsourceDebris/snow0",
+      "temperateice/no_unmodelled_refreezing_for_netloss_equivalence",
+      "potentialintermediatesnow/storageconditional_notassertedabsent"
+    ],
+    "required_baselines": [
+      "native_air_PDD",
+      "constant_TRAIN_daily_rate",
+      "fixed_conductivity_temperature_gradient_independent_or_2020only",
+      "same_geometry_nonadaptive_graph"
+    ],
+    "source_2023pooled_C_or_k_forbidden": true,
+    "statistical_confidence_intervals": false,
+    "n_glaciers": 1,
+    "n_evaluation_years": 1,
+    "n_evaluation_stakes": 3,
+    "source_metadata_sha256": {
+      "PAIRED_STAKE_METADATA_ONLY.json": "a195e01eda2472a1d422fce4828faa1d9e3fde64157f79e0355f73e9526ef7f3",
+      "FEATURE_CLOCK_AUDIT.json": "ca3e58161a393afde398b36e095bcdf2be8baa3f8ad53231662015665e226b39",
+      "PROFILE_SUMMARY_METADATA_ONLY.json": "5d65785b5ff55f9dd39f4a707f93d3b304de9f07c839e25a09db4aa62e5e8c1d",
+      "point_mass_balance_metadata.txt": "85fe05d9d19605bf1668da07b8371aa86de299b36250a520bc4418c2a440fedd",
+      "Metadata for Debris_Temperature_Profiles.txt": "0fcce75979b9316dc1fa2092719a2b86f0a58830b49eca56520275afa0f9d77a",
+      "SOURCE_BINDING.json": "6e21dc2a9110df577c62957c30e10e31147252bc134fcbec55c84156e99e4caa"
+    },
+    "hard_refusals": [
+      "undefinedtargetoperator",
+      "mismatchedfulltargetdates",
+      "unresolvedorinvalidprofiletoicegeometry",
+      "unpublishedpredictionsbeforeevaluationrelease"
+    ],
+    "soft_conditional_assumptions_to_report": [
+      "timeboxes",
+      "initialgapreconstruction",
+      "transferredmaterialproperties",
+      "phase/storageinterpretation",
+      "unknownnativeprecision"
+    ],
+    "score_release": "RootexplicitTRAIN_then_finalpredictions_thenEVALUATION_role_receipts",
+    "candidate_model_spec_path": "kennicott_model/FEATURE_ONLY_PLAN_FINAL.json",
+    "candidate_model_spec_sha256": "ceb1149206e3517df275a3238d024e6a259f7e3434db136aa65141a731dae1ce",
+    "model_ids": [
+      "physical_layered_local",
+      "physical_homogeneous_local",
+      "physical_fixed2020_layered",
+      "physical_weather_boundary_layered",
+      "homogeneous_empirical_scale",
+      "air_pdd",
+      "buried_temp_exposure",
+      "conventional_gradient",
+      "depth_corrected_air_pdd",
+      "constant_rate"
+    ],
+    "primary_model": "physical_layered_local",
+    "physical_model_spec": {
+      "primary": "physical_layered_local",
+      "model_ids": [
+        "physical_layered_local",
+        "physical_homogeneous_local",
+        "physical_fixed2020_layered",
+        "physical_weather_boundary_layered",
+        "homogeneous_empirical_scale",
+        "air_pdd",
+        "buried_temp_exposure",
+        "conventional_gradient",
+        "depth_corrected_air_pdd",
+        "constant_rate"
+      ],
+      "temperature_parameter_fit": "deepest3 REAL measured sensors, first14days after5dayinstallationreset",
+      "training_material_profile": "KDT_2020a transferredtoKDT_2020b by identicalsummarycoordinates/cotime/grainclass; notsamepitproof",
+      "synthetic_zero_2020b_depth22cm_not_used_in_inverse": true,
+      "balance_window_seconds": 21600.0,
+      "minimum_singular_ratio": 0.001,
+      "surface_forcing": "firstREAL measured sensorplane, observedafterreset plusAIR2proxybefore reset; hourlylinearreconstruction",
+      "forward_step_seconds": 300.0,
+      "debris_cells": 16,
+      "within_cell_layer_rule": "exactharmonicintersection preservesseriesresistance",
+      "ice_cells": 20,
+      "ice_depth_m": 2.0,
+      "ice_k_W_mK": 2.1,
+      "ice_C_J_m3K": 1925700.0,
+      "ice_initial_T_C": 0.0,
+      "latent_heat_J_kg": 333700.0,
+      "ice_model_density_kg_m3": 917.0,
+      "source_mass_density_kg_m3": 900.0,
+      "fixed_interface_no_ice_advection": true,
+      "capacity_engineering_bracket_J_m3K": [
+        800000.0,
+        3500000.0
+      ],
+      "capacity_probe_J_m3K": [
+        800000.0,
+        1500000.0,
+        3500000.0
+      ],
+      "capacity_bounds_are_measured_coverage": false,
+      "global_capacity_calibration": "ONE2020TRAINmassloss only, no outputrescaling ofphysicalmodels",
+      "physical_baseline_calibration": "homogeneous/weather variants eachreceiveoneglobal2020capacity parameter inSAMEbracket; fixed2020sharesprimary2020fit",
+      "homogeneous_empirical_comparator": "Samehomogeneousalpha/boundary/geometry withfixedC1.5MJrawphysicalresponse, thenone2020TRAINoutputgain; rescaledoutputNOTphysicalenergyledger",
+      "mass_target_density_reconversion": false,
+      "temperature_conditioned_hindcast_not_advance_forecast": true
+    },
+    "numerical_verification": {
+      "primary_dt_seconds": 300,
+      "debris_cells": 16,
+      "ice_cells": 20,
+      "reported_seasonal_refinement_max_relative_percent": 0.003814,
+      "source": "modelagentfeatureonlyverification; notfieldaccuracy"
+    },
+    "decision_rule": {
+      "primary_metric": "whole-season MAE_mmwe across all3heldoutstakes",
+      "comparators": "ALLscorable frozenbaselines including homogeneous_empirical_scale",
+      "physical_refusals": "reportasrefusals_nevercountaswins",
+      "meaningful_gain_flag": {
+        "minimum_relative_MAE_reduction_vs_every_scorable_baseline": 0.1,
+        "minimum_lower_absolute_error_stakes_vs_homogeneous_empirical_scale": 2,
+        "n_stakes": 3,
+        "interpretation": "engineeringprojectdecision_notstatisticalsignificance"
+      },
+      "report_all_scenario_and_clock_results": true,
+      "no_stop_on_first_positive": true,
+      "unknown_measurement_precision_noCI": true,
+      "one_glacier_one_year_no_universal_superiority": true
+    },
+    "final_feature_only_sites": {
+      "P_AWS_1": {
+        "source_pair": {
+          "profile_id": "KDT_2020b",
+          "stake_id": "P_AWS_1",
+          "role": "train",
+          "target_start_date": "2020-07-25",
+          "target_end_date": "2020-09-06",
+          "profile_path": "features/KDT_2020b.csv",
+          "profile_sha256": "83538ec8e9fc08f6b8ac05429e6ff85c3437d17bba3a730533144bf6cdfc9ae5",
+          "sensor_depths_m": [
+            0.05,
+            0.15,
+            0.22
+          ],
+          "profile_debris_thickness_m": 0.22,
+          "stake_debris_thickness_m": 0.21,
+          "forward_upper_boundary_plane_m": 0.05,
+          "forward_domain_length_stake_m": 0.15999999999999998,
+          "preferred_native_air_station_by_proximity": "Debris_T3",
+          "nominal_start_UTC": "2020-07-25T20:00:00",
+          "nominal_end_UTC": "2020-09-06T20:00:00",
+          "first_profile_UTC": "2020-07-27T08:00:00",
+          "nominal_initial_no_profile_hours": 36.0,
+          "proposed_installation_exclusion_hours_for_parameter_fit_only": 120,
+          "proposed_profile_fit_start_UTC": "2020-08-01T08:00:00",
+          "proposed_proxy_fit_window_days": 14,
+          "source_native_deepest_in_stake_domain": false,
+          "warnings": [
+            "last22cmcolumn identicallyzero; not independently observed thirdsensor"
+          ]
+        },
+        "boundary_path": "kennicott_forcing/nominal_boundaries/KDT_2020b__Debris_T2.json",
+        "boundary_sha256": "1340d9b4de1aff7b22703242ce81bbdddffb0a1cd5251e22d38af375d45c7d31",
+        "inverse_profile": "KDT_2020a",
+        "stake_thickness_m": 0.21,
+        "forcing_plane_m": 0.05,
+        "boundary_metadata": {
+          "profile_id": "KDT_2020b",
+          "air_station": "Debris_T2",
+          "upper_boundary_plane_m": 0.05,
+          "boundary_quantity": "temperature at first measured buried thermistor plane, not actual surface",
+          "native_clock": "UTC from source metadata",
+          "resampling": "hourly sample labels; linear interpolation, no averaging or clipping",
+          "proxy_error_multiplier": 0.0,
+          "proxy_offset_C": 0.0,
+          "conditional_scenario_not_confidence_interval": true,
+          "fit_intercept_C": -1.3544942277590977,
+          "fit_slope": 1.1313953396359693,
+          "fit_rows": 337,
+          "fit_start_UTC": "2020-08-01T08:00:00Z",
+          "fit_end_UTC": "2020-08-15T08:00:00Z",
+          "blocked_fit_rows": 168,
+          "blocked_test_rows": 169,
+          "blocked_RMSE_C": 1.8050944693337831,
+          "blocked_bias_C": -0.6285200286645559,
+          "blocked_max_abs_C": 6.720895075950654,
+          "initial_profile_UTC": "2020-07-27T08:00:00Z",
+          "proxy_until_UTC_exclusive": "2020-08-01T08:00:00Z",
+          "proxy_hours": 156,
+          "total_hours": 1032,
+          "source_profile_SHA256": "83538ec8e9fc08f6b8ac05429e6ff85c3437d17bba3a730533144bf6cdfc9ae5",
+          "source_air_SHA256": "028cf7c57274339e2a68c452a873c0ebe29dcfb4048fc11b4d07b3ea0cd8e2ff",
+          "uses_melt_targets": false,
+          "warning": "Temperature-conditioned retrospective reconstruction; future thermistors used. Not an advance weather-only forecast. Source missing initial period retained."
+        }
+      },
+      "P11": {
+        "source_pair": {
+          "profile_id": "KDT_2023a",
+          "stake_id": "P11",
+          "role": "evaluation",
+          "target_start_date": "2023-06-08",
+          "target_end_date": "2023-09-02",
+          "profile_path": "features/KDT_2023a.csv",
+          "profile_sha256": "8227ce95c99dc687b1e5d5bfec25e7f191ca927d1f5c5b4d8854ab34f4d857b7",
+          "sensor_depths_m": [
+            0.02,
+            0.07,
+            0.12,
+            0.17,
+            0.22
+          ],
+          "profile_debris_thickness_m": 0.24,
+          "stake_debris_thickness_m": 0.24,
+          "forward_upper_boundary_plane_m": 0.02,
+          "forward_domain_length_stake_m": 0.22,
+          "preferred_native_air_station_by_proximity": "Debris_T2",
+          "nominal_start_UTC": "2023-06-08T20:00:00",
+          "nominal_end_UTC": "2023-09-02T20:00:00",
+          "first_profile_UTC": "2023-06-10T20:00:00",
+          "nominal_initial_no_profile_hours": 48.0,
+          "proposed_installation_exclusion_hours_for_parameter_fit_only": 120,
+          "proposed_profile_fit_start_UTC": "2023-06-15T20:00:00",
+          "proposed_proxy_fit_window_days": 14,
+          "source_native_deepest_in_stake_domain": true,
+          "warnings": []
+        },
+        "boundary_path": "kennicott_forcing/nominal_boundaries/KDT_2023a__Debris_T2.json",
+        "boundary_sha256": "b53405a6d22cb16f93bb551656b3cc14a1c6186979c55b7556378b8fb9c2c4aa",
+        "inverse_profile": "KDT_2023a",
+        "stake_thickness_m": 0.24,
+        "forcing_plane_m": 0.02,
+        "boundary_metadata": {
+          "profile_id": "KDT_2023a",
+          "air_station": "Debris_T2",
+          "upper_boundary_plane_m": 0.02,
+          "boundary_quantity": "temperature at first measured buried thermistor plane, not actual surface",
+          "native_clock": "UTC from source metadata",
+          "resampling": "hourly sample labels; linear interpolation, no averaging or clipping",
+          "proxy_error_multiplier": 0.0,
+          "proxy_offset_C": 0.0,
+          "conditional_scenario_not_confidence_interval": true,
+          "fit_intercept_C": -3.1218170069357214,
+          "fit_slope": 1.3704924711127586,
+          "fit_rows": 337,
+          "fit_start_UTC": "2023-06-15T20:00:00Z",
+          "fit_end_UTC": "2023-06-29T20:00:00Z",
+          "blocked_fit_rows": 168,
+          "blocked_test_rows": 169,
+          "blocked_RMSE_C": 2.912197546066001,
+          "blocked_bias_C": 0.7874346414916503,
+          "blocked_max_abs_C": 9.393825027877392,
+          "initial_profile_UTC": "2023-06-10T20:00:00Z",
+          "proxy_until_UTC_exclusive": "2023-06-15T20:00:00Z",
+          "proxy_hours": 168,
+          "total_hours": 2064,
+          "source_profile_SHA256": "8227ce95c99dc687b1e5d5bfec25e7f191ca927d1f5c5b4d8854ab34f4d857b7",
+          "source_air_SHA256": "028cf7c57274339e2a68c452a873c0ebe29dcfb4048fc11b4d07b3ea0cd8e2ff",
+          "uses_melt_targets": false,
+          "warning": "Temperature-conditioned retrospective reconstruction; future thermistors used. Not an advance weather-only forecast. Source missing initial period retained."
+        }
+      },
+      "P12": {
+        "source_pair": {
+          "profile_id": "KDT_2023b",
+          "stake_id": "P12",
+          "role": "evaluation",
+          "target_start_date": "2023-06-08",
+          "target_end_date": "2023-09-02",
+          "profile_path": "features/KDT_2023b.csv",
+          "profile_sha256": "2f85950203fe413bd7e371d042e5510c226e7de617779dbe615dd112e1c2c7cf",
+          "sensor_depths_m": [
+            0.09,
+            0.165,
+            0.24,
+            0.315
+          ],
+          "profile_debris_thickness_m": 0.32,
+          "stake_debris_thickness_m": 0.29,
+          "forward_upper_boundary_plane_m": 0.09,
+          "forward_domain_length_stake_m": 0.19999999999999998,
+          "preferred_native_air_station_by_proximity": "Debris_T2",
+          "nominal_start_UTC": "2023-06-08T20:00:00",
+          "nominal_end_UTC": "2023-09-02T20:00:00",
+          "first_profile_UTC": "2023-06-10T20:00:00",
+          "nominal_initial_no_profile_hours": 48.0,
+          "proposed_installation_exclusion_hours_for_parameter_fit_only": 120,
+          "proposed_profile_fit_start_UTC": "2023-06-15T20:00:00",
+          "proposed_proxy_fit_window_days": 14,
+          "source_native_deepest_in_stake_domain": false,
+          "warnings": [
+            "deepest31.5cm exceeds29cmstake thickness; use onlyinprofile inference, neverinside stakecolumn"
+          ]
+        },
+        "boundary_path": "kennicott_forcing/nominal_boundaries/KDT_2023b__Debris_T2.json",
+        "boundary_sha256": "31131a0738908e310f8f684f601aec591414441a6a88e2883816471fe1110c3e",
+        "inverse_profile": "KDT_2023b",
+        "stake_thickness_m": 0.29,
+        "forcing_plane_m": 0.09,
+        "boundary_metadata": {
+          "profile_id": "KDT_2023b",
+          "air_station": "Debris_T2",
+          "upper_boundary_plane_m": 0.09,
+          "boundary_quantity": "temperature at first measured buried thermistor plane, not actual surface",
+          "native_clock": "UTC from source metadata",
+          "resampling": "hourly sample labels; linear interpolation, no averaging or clipping",
+          "proxy_error_multiplier": 0.0,
+          "proxy_offset_C": 0.0,
+          "conditional_scenario_not_confidence_interval": true,
+          "fit_intercept_C": 2.282898218677526,
+          "fit_slope": 0.787766904724435,
+          "fit_rows": 337,
+          "fit_start_UTC": "2023-06-15T20:00:00Z",
+          "fit_end_UTC": "2023-06-29T20:00:00Z",
+          "blocked_fit_rows": 168,
+          "blocked_test_rows": 169,
+          "blocked_RMSE_C": 3.4316046727446756,
+          "blocked_bias_C": 0.5299029091051152,
+          "blocked_max_abs_C": 8.197945609632235,
+          "initial_profile_UTC": "2023-06-10T20:00:00Z",
+          "proxy_until_UTC_exclusive": "2023-06-15T20:00:00Z",
+          "proxy_hours": 168,
+          "total_hours": 2064,
+          "source_profile_SHA256": "2f85950203fe413bd7e371d042e5510c226e7de617779dbe615dd112e1c2c7cf",
+          "source_air_SHA256": "028cf7c57274339e2a68c452a873c0ebe29dcfb4048fc11b4d07b3ea0cd8e2ff",
+          "uses_melt_targets": false,
+          "warning": "Temperature-conditioned retrospective reconstruction; future thermistors used. Not an advance weather-only forecast. Source missing initial period retained."
+        }
+      },
+      "P13": {
+        "source_pair": {
+          "profile_id": "KDT_2023c",
+          "stake_id": "P13",
+          "role": "evaluation",
+          "target_start_date": "2023-06-08",
+          "target_end_date": "2023-09-02",
+          "profile_path": "features/KDT_2023c.csv",
+          "profile_sha256": "30b1324bb27b02e45468580446ca0d626d6964de8744b624509d28d17992d798",
+          "sensor_depths_m": [
+            0.02,
+            0.095,
+            0.17,
+            0.245
+          ],
+          "profile_debris_thickness_m": 0.26,
+          "stake_debris_thickness_m": 0.255,
+          "forward_upper_boundary_plane_m": 0.02,
+          "forward_domain_length_stake_m": 0.23500000000000001,
+          "preferred_native_air_station_by_proximity": "Debris_T2",
+          "nominal_start_UTC": "2023-06-08T20:00:00",
+          "nominal_end_UTC": "2023-09-02T20:00:00",
+          "first_profile_UTC": "2023-06-10T20:00:00",
+          "nominal_initial_no_profile_hours": 48.0,
+          "proposed_installation_exclusion_hours_for_parameter_fit_only": 120,
+          "proposed_profile_fit_start_UTC": "2023-06-15T20:00:00",
+          "proposed_proxy_fit_window_days": 14,
+          "source_native_deepest_in_stake_domain": true,
+          "warnings": []
+        },
+        "boundary_path": "kennicott_forcing/nominal_boundaries/KDT_2023c__Debris_T2.json",
+        "boundary_sha256": "b6c6c98d6400704b4ad557b277b31d83d910c2d458220025de2b27ae574fc1c8",
+        "inverse_profile": "KDT_2023c",
+        "stake_thickness_m": 0.255,
+        "forcing_plane_m": 0.02,
+        "boundary_metadata": {
+          "profile_id": "KDT_2023c",
+          "air_station": "Debris_T2",
+          "upper_boundary_plane_m": 0.02,
+          "boundary_quantity": "temperature at first measured buried thermistor plane, not actual surface",
+          "native_clock": "UTC from source metadata",
+          "resampling": "hourly sample labels; linear interpolation, no averaging or clipping",
+          "proxy_error_multiplier": 0.0,
+          "proxy_offset_C": 0.0,
+          "conditional_scenario_not_confidence_interval": true,
+          "fit_intercept_C": -2.971317807537387,
+          "fit_slope": 1.5210745574813114,
+          "fit_rows": 337,
+          "fit_start_UTC": "2023-06-15T20:00:00Z",
+          "fit_end_UTC": "2023-06-29T20:00:00Z",
+          "blocked_fit_rows": 168,
+          "blocked_test_rows": 169,
+          "blocked_RMSE_C": 2.461899118185334,
+          "blocked_bias_C": 0.9660116651461036,
+          "blocked_max_abs_C": 7.222147862542155,
+          "initial_profile_UTC": "2023-06-10T20:00:00Z",
+          "proxy_until_UTC_exclusive": "2023-06-15T20:00:00Z",
+          "proxy_hours": 168,
+          "total_hours": 2064,
+          "source_profile_SHA256": "30b1324bb27b02e45468580446ca0d626d6964de8744b624509d28d17992d798",
+          "source_air_SHA256": "028cf7c57274339e2a68c452a873c0ebe29dcfb4048fc11b4d07b3ea0cd8e2ff",
+          "uses_melt_targets": false,
+          "warning": "Temperature-conditioned retrospective reconstruction; future thermistors used. Not an advance weather-only forecast. Source missing initial period retained."
+        }
+      }
+    },
+    "feature_only_plan_top_level_keys": [
+      "spec",
+      "profiles",
+      "sites",
+      "source_binding_sha256",
+      "melt_targets_read",
+      "historical_novelty_claim"
+    ],
+    "required_source_binding_reference": "data/kennicott/SOURCE_BINDING.json"
+  },
+  "source_hashes": {
+    "algorithm/predict_thermal.py": "1c60911a4bb1b08471e221c4ace13bb053a0693129d8875200e4ab119e138291",
+    "algorithm/test_three_sensor.py": "fe0472aa657fd31089bd10f0ad83eed7c7be4499cab4e78ad5ab833d56cc4a01",
+    "algorithm/three_sensor.py": "296b79a9d98d98b331375bd644540b86b5397a31a9df9fc1447c5a124c7b4f09",
+    "continuous_goal/predict.py": "01d601042a061eccd03ac17a3ab6227adbff54b20f98de88660c6ec46df4bf80",
+    "continuous_goal/ratio_enclosure.py": "ed438a90bf83c09acd8194a241b7a88719da7d30d319c69a9524d25868421f0f",
+    "continuous_goal/test_ratio_enclosure.py": "4cf1b06ba0d4ce4bc689e86d18f83611e04a3820d3ade764c29cf435c37a626c",
+    "data/external_lirung/audit_stake_schema.py": "d4f64f83f22ee6c231de9e6bfe88a8b5e0d81552a904730361b7ad2a58ec32d3",
+    "data/kennicott/audit_feature_clocks.py": "ce32eb7a2ab5387d266786822ef6d2ca220c6e004c6f42acec4b56385936810e",
+    "data/kennicott/audit_paired_metadata.py": "3c303dabf960251a849dd3037c32c7230977c71c35af18099ad08e1df89c58fc",
+    "data/kennicott/build_source_binding.py": "3ccb67685cb35c1f7392c2e7ca6049dd9d1f16ef63aee349a2224b3a168202a0",
+    "data/kennicott/export_features.py": "93916cbac4a5c89c0fbbc196a54993e0689aea4d81115505ccc36e2833fea84d",
+    "data/kennicott/fetch_metadata_only.py": "c4a76fcc4e1873c20e34800702d29b49b8f90b72b32fab3f85d7451dd5064187",
+    "data/kennicott/list_remote_zip.py": "5628de60fce91577231a4cbf51e301c424713e5eaa13558b221edfc46f0e6561",
+    "data/lirung/audit_stake_schema.py": "d4f64f83f22ee6c231de9e6bfe88a8b5e0d81552a904730361b7ad2a58ec32d3",
+    "data/lirung/audit_thermal_metadata.py": "ff549e22e48fb79ea810f69797be5806eace5e223c7c031aa5df50a089734819",
+    "initial_state/adjoint_bound.py": "3c36f4c83fde09dcb9bebfc20f43db653b200d172d63d63d668eff380dd06155",
+    "initial_state/check_contact_comparison.py": "70f29b6c14aaa5854f75a5eae49f270e0c22a27d5c0dbc96d1c2724fc2d40856",
+    "initial_state/test_adjoint_bound.py": "01e380443c855a5a2100dbdf549d28eea46d7641290f406b61d669e055993706",
+    "kennicott_forcing/__init__.py": "f7c204ca58779fa12cbc5f651ff80b9b4281743234bc400df4bb0ee6ef241061",
+    "kennicott_forcing/boundary.py": "d6c8f4e96ade304c2b0703bcd8d7b3b6d2fc331ca08879132cfbe687f1215ed6",
+    "kennicott_forcing/run_feature_audit.py": "e79448d6314d3f743880ddbb7814609e0c8001ff8b2b565715e151d8297d0d28",
+    "kennicott_forcing/test_boundary.py": "12f8d4111958d62583a5124e42c3fac4bc2b121900d6052c50d13f505179f96c",
+    "kennicott_model/column.py": "fe91c2739ffaea416e168fa38b8d2fab21e29cf6f06e493243bf4b3eefb16f42",
+    "kennicott_model/experiment.py": "fc3d6aeb057ac50613e8e13728d0ea5637d0266a0626d975c693a341be7308c4",
+    "kennicott_model/test_column.py": "858f45b35fcbf9926a775b6dde588f7cca46a62984eb18bbe66429c6eb855f78",
+    "kennicott_model/test_experiment.py": "2033ec19da0b0f2345fca72d43b7d732424a60ae58011a6c2728b5341abbb83f",
+    "kennicott_model/verify_seasonal.py": "dbc535c8607398251272c227a9da3de8cc214aec357651c82745bcf19c89f4cb",
+    "kennicott_model/verify_transient.py": "7e57842f9a735fee6221a076697e339ac7d8dbaea8e97723f970a098c1fead71",
+    "kennicott_protocol/outcome_loader.py": "655472a41df26d1c036d4472b8772fadb6b1d3e431ddc360c2eb42082472d9f9",
+    "kennicott_protocol/test_outcome_loader.py": "574aa8e248588e0c35105b0f0a153da9b02571db7360448f76ee4ed1b5fd07bd",
+    "prepare_inputs.py": "9f7742360771f5ce7b7d028f1a3249326d53ef970c0ae85f23e55be3dbade34c",
+    "review/campaign_scorer.py": "4153bb4344444be49cdc3ac1a3cf47786d1b091bbce820cd33def0ddb80e7c25",
+    "review/coefficient_box_audit.py": "941706725255d58d1023554898ead031b5d4edda8aabb1931a4e29b00d08e73b",
+    "review/decision_rule.py": "8b05a63af1a9f054f858db3b27d5c3da1081738248c3817f1e61f7be2a36d94d",
+    "review/independent_ratio_audit.py": "a8f36dc8126034fb9921b41fee4f86402224f11e5a0f4641f0ad64d10ded9a4f",
+    "review/test_campaign_scorer.py": "519bcd7febf62833f86bc226a0a3776ca4dd0546f27e226824ba110798941bbc",
+    "review/test_decision_rule.py": "df3bdcf7f1e8d54f3f1adfa83e91422b5e100335bf9f60bf15ebac4ae6cc9bc0",
+    "run_locked_experiment.py": "be8425e354b20698e6b850e95cb4a8ba61923d2d0f2c3e22e04a7b338e6728e0",
+    "test_locked_experiment.py": "4d8491a6123151d101d2470e51b086c44bbd80fdc15f5a27dca5a239c51f48be",
+    "verify.py": "70fa05dedee46fd47cf65ad399ad4d02635d0e6d6c7c82f9774ed7a681bf3968",
+    "kennicott_protocol/PROTOCOL.json": "58535b6c414a94419df3a48e9c5a29f02d2dd212dd735720c7c468b14a3a41f3",
+    "kennicott_model/FEATURE_ONLY_PLAN_FINAL.json": "ceb1149206e3517df275a3238d024e6a259f7e3434db136aa65141a731dae1ce",
+    "kennicott_model/PRETRAIN_CAPACITY_PROBES_FINAL.json": "04777744dcb65e150877d7576a42584e9b86f72062b550c0accc4c030692739b",
+    "kennicott_model/NOMINAL_REFERENCE_EXPOSURES_FINAL.json": "06482fb7542829d019e611f2ec7f3981f108e19aeab41cc24f6c94c3a95b29a2",
+    "data/kennicott/SOURCE_BINDING.json": "6e21dc2a9110df577c62957c30e10e31147252bc134fcbec55c84156e99e4caa",
+    "data/kennicott/FEATURE_EXPORT_MANIFEST.json": "3132dd2da40552b90fc3ba3c937e603e11e631740b53cc27555aca852fe96207",
+    "FEATURE_TRANSPORT.json": "aed0b7a8b3548b2405d83995ea18fee13eb488e8f1a0e07e625a055614569d05"
+  },
+  "source_clock_scenarios_are_finite_conditional": true,
+  "source_mass_magnitudes_inspected": false,
+  "publication_and_awards_not_guaranteed": true
+}

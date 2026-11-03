@@ -1,0 +1,141 @@
+[
+  {
+    "member": "Debris_Temperature_Profiles/Profile_Temperature_Records/KDT_2023a.csv",
+    "crc32": 652033082,
+    "sha256": "8227ce95c99dc687b1e5d5bfec25e7f191ca927d1f5c5b4d8854ab34f4d857b7",
+    "headers": [
+      "Datetime",
+      "Depth: 2 cm",
+      "Depth: 7 cm",
+      "Depth: 12 cm",
+      "Depth: 17 cm",
+      "Depth: 22 cm",
+      "Datetime_ADT"
+    ],
+    "clock_key": "Datetime",
+    "rows": 27073,
+    "parseable_clock_rows": 27073,
+    "first": "2023-06-10T20:00:00",
+    "last": "2023-09-12T20:00:00",
+    "cadence_seconds_counts": {
+      "300.0": 27072
+    },
+    "missing_numeric_counts": {
+      "Depth: 2 cm": 0,
+      "Depth: 7 cm": 0,
+      "Depth: 12 cm": 0,
+      "Depth: 17 cm": 0,
+      "Depth: 22 cm": 0
+    },
+    "outcome_data_accessed": false,
+    "feature_values_exported": false
+  },
+  {
+    "member": "Debris_Temperature_Profiles/Profile_Temperature_Records/KDT_2023b.csv",
+    "crc32": 96938186,
+    "sha256": "2f85950203fe413bd7e371d042e5510c226e7de617779dbe615dd112e1c2c7cf",
+    "headers": [
+      "Datetime",
+      "Depth: 9.0 cm",
+      "Depth: 16.5 cm",
+      "Depth: 24.0 cm",
+      "Depth: 31.5 cm",
+      "Datetime_ADT"
+    ],
+    "clock_key": "Datetime",
+    "rows": 27073,
+    "parseable_clock_rows": 27073,
+    "first": "2023-06-10T20:00:00",
+    "last": "2023-09-12T20:00:00",
+    "cadence_seconds_counts": {
+      "300.0": 27072
+    },
+    "missing_numeric_counts": {
+      "Depth: 9.0 cm": 0,
+      "Depth: 16.5 cm": 0,
+      "Depth: 24.0 cm": 0,
+      "Depth: 31.5 cm": 0
+    },
+    "outcome_data_accessed": false,
+    "feature_values_exported": false
+  },
+  {
+    "member": "Debris_Temperature_Profiles/Profile_Temperature_Records/KDT_2023c.csv",
+    "crc32": 692325756,
+    "sha256": "30b1324bb27b02e45468580446ca0d626d6964de8744b624509d28d17992d798",
+    "headers": [
+      "Datetime",
+      "Depth: 2.0 cm",
+      "Depth: 9.5 cm",
+      "Depth: 17.0 cm",
+      "Depth: 24.5 cm",
+      "Datetime_ADT"
+    ],
+    "clock_key": "Datetime",
+    "rows": 27073,
+    "parseable_clock_rows": 27073,
+    "first": "2023-06-10T20:00:00",
+    "last": "2023-09-12T20:00:00",
+    "cadence_seconds_counts": {
+      "300.0": 27072
+    },
+    "missing_numeric_counts": {
+      "Depth: 2.0 cm": 0,
+      "Depth: 9.5 cm": 0,
+      "Depth: 17.0 cm": 0,
+      "Depth: 24.5 cm": 0
+    },
+    "outcome_data_accessed": false,
+    "feature_values_exported": false
+  },
+  {
+    "member": "AWS/Debris_T2.csv",
+    "crc32": 839123096,
+    "sha256": "028cf7c57274339e2a68c452a873c0ebe29dcfb4048fc11b4d07b3ea0cd8e2ff",
+    "headers": [
+      "Date_Time",
+      "T_1_75m",
+      "RH_1_75m",
+      "Date_Time_ADT"
+    ],
+    "clock_key": "Date_Time",
+    "rows": 28077,
+    "parseable_clock_rows": 28077,
+    "first": "2020-06-20T01:00:00",
+    "last": "2023-09-02T21:00:00",
+    "cadence_seconds_counts": {
+      "3600.0": 28076
+    },
+    "missing_numeric_counts": {
+      "T_1_75m": 1,
+      "RH_1_75m": 1
+    },
+    "outcome_data_accessed": false,
+    "feature_values_exported": false
+  },
+  {
+    "member": "AWS/Debris_T3.csv",
+    "crc32": 3440914828,
+    "sha256": "d97eb00446aec3a2692a0ff0aa5f6400f97a506d151a78068a12222094db3e87",
+    "headers": [
+      "Date_Time",
+      "T_1_75m",
+      "RH_1_75m",
+      "Date_Time_ADT"
+    ],
+    "clock_key": "Date_Time",
+    "rows": 28129,
+    "parseable_clock_rows": 28129,
+    "first": "2020-06-17T22:00:00",
+    "last": "2023-09-02T22:00:00",
+    "cadence_seconds_counts": {
+      "3600.0": 28128
+    },
+    "missing_numeric_counts": {
+      "T_1_75m": 10,
+      "RH_1_75m": 10
+    },
+    "outcome_data_accessed": false,
+    "feature_values_exported": false
+  }
+]

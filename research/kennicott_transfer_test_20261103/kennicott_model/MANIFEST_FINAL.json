@@ -1,0 +1,30 @@
+{
+  "scope": "Method/feature/fixedreference freeze BEFORE any native2020TRAIN or2023TEST mass magnitudes",
+  "model_count": 10,
+  "tests_passed": 13,
+  "field_targets_read": false,
+  "files": {
+    "column.py": "fe91c2739ffaea416e168fa38b8d2fab21e29cf6f06e493243bf4b3eefb16f42",
+    "experiment.py": "fc3d6aeb057ac50613e8e13728d0ea5637d0266a0626d975c693a341be7308c4",
+    "test_column.py": "858f45b35fcbf9926a775b6dde588f7cca46a62984eb18bbe66429c6eb855f78",
+    "test_experiment.py": "2033ec19da0b0f2345fca72d43b7d732424a60ae58011a6c2728b5341abbb83f",
+    "verify_transient.py": "7e57842f9a735fee6221a076697e339ac7d8dbaea8e97723f970a098c1fead71",
+    "verify_seasonal.py": "dbc535c8607398251272c227a9da3de8cc214aec357651c82745bcf19c89f4cb",
+    "PROTOCOL.md": "249069f006c93baf701ca7a36b198e5298856c46a909ccc49b3b03f66a6322c2",
+    "FEATURE_ONLY_PLAN_FINAL.json": "ceb1149206e3517df275a3238d024e6a259f7e3434db136aa65141a731dae1ce",
+    "PRETRAIN_CAPACITY_PROBES_FINAL.json": "04777744dcb65e150877d7576a42584e9b86f72062b550c0accc4c030692739b",
+    "NOMINAL_REFERENCE_EXPOSURES_FINAL.json": "06482fb7542829d019e611f2ec7f3981f108e19aeab41cc24f6c94c3a95b29a2",
+    "TRANSIENT_VERIFICATION.json": "6982b7186dfe3b49bf6085caca57dab0156e916254a5125c8604d7f1df45506e",
+    "SEASONAL_REFINEMENT_FINAL.json": "f5c75878d5d1219a0a91f6ecce49546a219afe1d51276e8a7590709d34f6b73f"
+  },
+  "dependency_hashes": {
+    "algorithm/three_sensor.py": "296b79a9d98d98b331375bd644540b86b5397a31a9df9fc1447c5a124c7b4f09",
+    "kennicott_forcing/boundary.py": "d6c8f4e96ade304c2b0703bcd8d7b3b6d2fc331ca08879132cfbe687f1215ed6",
+    "data/kennicott/FEATURE_EXPORT_MANIFEST.json": "3132dd2da40552b90fc3ba3c937e603e11e631740b53cc27555aca852fe96207",
+    "data/kennicott/SOURCE_BINDING.json": "6e21dc2a9110df577c62957c30e10e31147252bc134fcbec55c84156e99e4caa",
+    "kennicott_forcing/nominal_boundaries/KDT_2020b__Debris_T2.json": "1340d9b4de1aff7b22703242ce81bbdddffb0a1cd5251e22d38af375d45c7d31",
+    "kennicott_forcing/nominal_boundaries/KDT_2023a__Debris_T2.json": "b53405a6d22cb16f93bb551656b3cc14a1c6186979c55b7556378b8fb9c2c4aa",
+    "kennicott_forcing/nominal_boundaries/KDT_2023b__Debris_T2.json": "31131a0738908e310f8f684f601aec591414441a6a88e2883816471fe1110c3e",
+    "kennicott_forcing/nominal_boundaries/KDT_2023c__Debris_T2.json": "b6c6c98d6400704b4ad557b277b31d83d910c2d458220025de2b27ae574fc1c8"
+  }
+}

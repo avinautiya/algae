@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "tests": 66,
+  "results": [
+    {
+      "component": "ROOT",
+      "tests": 2,
+      "passed": true,
+      "stderr": "test_end_to_end_with_mocked_source_only (test_locked_experiment.LockedPipelineTests.test_end_to_end_with_mocked_source_only) ... ok\ntest_tampered_source_rejected_before_release (test_locked_experiment.LockedPipelineTests.test_tampered_source_rejected_before_release) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.006s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "component": "continuous_goal",
+      "tests": 7,
+      "passed": true,
+      "stderr": "test_independent_corner_enumeration (test_ratio_enclosure.CoefficientBoxTests.test_independent_corner_enumeration) ... ok\ntest_negative_parameter_refused (test_ratio_enclosure.CoefficientBoxTests.test_negative_parameter_refused) ... ok\ntest_common_parameter_scaling_cancels (test_ratio_enclosure.RatioTests.test_common_parameter_scaling_cancels) ... ok\ntest_independent_vertex_enumeration (test_ratio_enclosure.RatioTests.test_independent_vertex_enumeration) ... ok\ntest_infeasible_not_certain (test_ratio_enclosure.RatioTests.test_infeasible_not_certain) ... ok\ntest_proportional_goal_identified_without_parameter_uniqueness (test_ratio_enclosure.RatioTests.test_proportional_goal_identified_without_parameter_uniqueness) ... ok\ntest_zero_denominator_and_negative_heat_refused (test_ratio_enclosure.RatioTests.test_zero_denominator_and_negative_heat_refused) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.037s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "component": "initial_state",
+      "tests": 3,
+      "passed": true,
+      "stderr": "test_independent_matrix_exponential_flux_identity (test_adjoint_bound.AdjointTests.test_independent_matrix_exponential_flux_identity) ... ok\ntest_invalid_passivity_refused (test_adjoint_bound.AdjointTests.test_invalid_passivity_refused) ... ok\ntest_uniform_chain_linear_coordinate (test_adjoint_bound.AdjointTests.test_uniform_chain_linear_coordinate) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "component": "algorithm",
+      "tests": 11,
+      "passed": true,
+      "stderr": "test_future_nan_does_not_change_past_fit (test_three_sensor.AdditionalCausalityTests.test_future_nan_does_not_change_past_fit) ... ok\ntest_capacity_scale_quotient (test_three_sensor.ThreeSensorTests.test_capacity_scale_quotient) ... ok\ntest_exact_independent_CN_recovery (test_three_sensor.ThreeSensorTests.test_exact_independent_CN_recovery) ... ok\ntest_flat_zero_rank (test_three_sensor.ThreeSensorTests.test_flat_zero_rank) ... ok\ntest_gap_storage_matches_independent_polygon_trapezoids (test_three_sensor.ThreeSensorTests.test_gap_storage_matches_independent_polygon_trapezoids) ... ok\ntest_nnls_face_solution (test_three_sensor.ThreeSensorTests.test_nnls_face_solution) ... ok\ntest_past_fit_cannot_see_future_features (test_three_sensor.ThreeSensorTests.test_past_fit_cannot_see_future_features) ... ok\ntest_phase_not_inferred_from_temperature_fit (test_three_sensor.ThreeSensorTests.test_phase_not_inferred_from_temperature_fit) ... ok\ntest_signed_control_volume_ledger_and_aggregation (test_three_sensor.ThreeSensorTests.test_signed_control_volume_ledger_and_aggregation) ... ok\ntest_source_reversal_gap_and_unknown_gap_refusals (test_three_sensor.ThreeSensorTests.test_source_reversal_gap_and_unknown_gap_refusals) ... ok\ntest_steady_rank_degeneracy_refuses_point_flux (test_three_sensor.ThreeSensorTests.test_steady_rank_degeneracy_refuses_point_flux) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.004s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "component": "review",
+      "tests": 11,
+      "passed": true,
+      "stderr": "test_signed_net_loss_not_clipped (test_campaign_scorer.NetLossScorer.test_signed_net_loss_not_clipped) ... ok\ntest_refuse_footprint (test_campaign_scorer.Scorer.test_refuse_footprint) ... ok\ntest_refuse_hash (test_campaign_scorer.Scorer.test_refuse_hash) ... ok\ntest_refuse_rate_inference (test_campaign_scorer.Scorer.test_refuse_rate_inference) ... ok\ntest_refuse_unbound (test_campaign_scorer.Scorer.test_refuse_unbound) ... ok\ntest_refuse_units (test_campaign_scorer.Scorer.test_refuse_units) ... ok\ntest_same_operator (test_campaign_scorer.Scorer.test_same_operator) ... ok\ntest_missing_comparator_not_win (test_decision_rule.Decision.test_missing_comparator_not_win) ... ok\ntest_requires_all_baselines (test_decision_rule.Decision.test_requires_all_baselines) ... ok\ntest_two_stakes_and_mae (test_decision_rule.Decision.test_two_stakes_and_mae) ... ok\ntest_zero_tie_not_gain (test_decision_rule.Decision.test_zero_tie_not_gain) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.001s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "component": "kennicott_model",
+      "tests": 13,
+      "passed": true,
+      "stderr": "test_cold_initial_ice_reduces_melt_and_closes_ledger (test_column.ColumnTests.test_cold_initial_ice_reduces_melt_and_closes_ledger) ... ok\ntest_cooling_stores_negative_heat_without_imaginary_melt (test_column.ColumnTests.test_cooling_stores_negative_heat_without_imaginary_melt) ... ok\ntest_heterogeneous_exact_series_resistance (test_column.ColumnTests.test_heterogeneous_exact_series_resistance) ... ok\ntest_negative_material_and_ice_above_melt_refused (test_column.ColumnTests.test_negative_material_and_ice_above_melt_refused) ... ok\ntest_uniform_exact_steady_resistance_and_ledger (test_column.ColumnTests.test_uniform_exact_steady_resistance_and_ledger) ... ok\ntest_detects_nonmonotone_inside_bracket (test_experiment.CalibrationTests.test_detects_nonmonotone_inside_bracket) ... ok\ntest_endpoint_is_allowed (test_experiment.CalibrationTests.test_endpoint_is_allowed) ... ok\ntest_one_physical_parameter_bisection_and_no_rescaling (test_experiment.CalibrationTests.test_one_physical_parameter_bisection_and_no_rescaling) ... ok\ntest_pointmass_does_not_get_density_converted (test_experiment.CalibrationTests.test_pointmass_does_not_get_density_converted) ... ok\ntest_refuses_outside_bracket (test_experiment.CalibrationTests.test_refuses_outside_bracket) ... ok\ntest_cell_crossing_preserves_total_series_resistance (test_experiment.ExactLayerResistanceTests.test_cell_crossing_preserves_total_series_resistance) ... ok\ntest_P12_lower_probe_is_not_imposed_inside_stake (test_experiment.StructuralForwardTests.test_P12_lower_probe_is_not_imposed_inside_stake) ... ok\ntest_geometry_corrected_dose_baselines (test_experiment.StructuralForwardTests.test_geometry_corrected_dose_baselines) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.005s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "component": "kennicott_forcing",
+      "tests": 9,
+      "passed": true,
+      "stderr": "test_identical_air_refused (kennicott_forcing.test_boundary.Tests.test_identical_air_refused) ... ok\ntest_linear_interpolation (kennicott_forcing.test_boundary.Tests.test_linear_interpolation) ... ok\ntest_nonutc_refused (kennicott_forcing.test_boundary.Tests.test_nonutc_refused) ... ok\ntest_refuse_extrapolation (kennicott_forcing.test_boundary.Tests.test_refuse_extrapolation) ... ok\ntest_refuse_long_gap (kennicott_forcing.test_boundary.Tests.test_refuse_long_gap) ... ok\ntest_regression (kennicott_forcing.test_boundary.Tests.test_regression) ... ok\ntest_source_boundary_and_shift (kennicott_forcing.test_boundary.Tests.test_source_boundary_and_shift) ... ok\ntest_unknown_source_refused (kennicott_forcing.test_boundary.Tests.test_unknown_source_refused) ... ok\ntest_utc_round_trip (kennicott_forcing.test_boundary.Tests.test_utc_round_trip) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.064s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "component": "kennicott_protocol",
+      "tests": 10,
+      "passed": true,
+      "stderr": "test_duplicate_refused (kennicott_protocol.test_outcome_loader.Tests.test_duplicate_refused) ... ok\ntest_evaluation_never_converts_train_value (kennicott_protocol.test_outcome_loader.Tests.test_evaluation_never_converts_train_value) ... ok\ntest_mocked_role_release_no_native_access (kennicott_protocol.test_outcome_loader.Tests.test_mocked_role_release_no_native_access) ... ok\ntest_negative_target_retained (kennicott_protocol.test_outcome_loader.Tests.test_negative_target_retained) ... ok\ntest_prepublication_gate_before_fetch (kennicott_protocol.test_outcome_loader.Tests.test_prepublication_gate_before_fetch) ... ok\ntest_role_and_stage_gate (kennicott_protocol.test_outcome_loader.Tests.test_role_and_stage_gate) ... ok\ntest_tampered_predictions_and_spec_refused (kennicott_protocol.test_outcome_loader.Tests.test_tampered_predictions_and_spec_refused) ... ok\ntest_train_never_converts_evaluation_values (kennicott_protocol.test_outcome_loader.Tests.test_train_never_converts_evaluation_values) ... ok\ntest_verified_member_hash_and_crc (kennicott_protocol.test_outcome_loader.Tests.test_verified_member_hash_and_crc) ... ok\ntest_wrong_snow_surface_geometry_refused (kennicott_protocol.test_outcome_loader.Tests.test_wrong_snow_surface_geometry_refused) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.014s\n\nOK\n",
+      "stdout": ""
+    }
+  ],
+  "scope": "Numerical/component/source-gate verification, not field accuracy or historical originality"
+}

@@ -1,0 +1,212 @@
+{
+  "scope": "Source/feature contract only. Candidate proposed gap scenes not experimentally selected or target-tested.",
+  "ice_density_kg_m3": 900,
+  "ice_density_provenance": "Petersen2025 source assumption for reported mass change",
+  "target_quantity": "signed mass_change_kg_m2 equals mmwater equivalent; negative means loss",
+  "target_conversion": "positive ablation = -signed mass change only for declared no-other-mass-change/snow-accounting scenario",
+  "source_stake_dates": "month/day/year date strings; no native visit hour or timezone given",
+  "nominal_clock_assumption": "sourceADT(UTC-8) noon on each visit date; NOTmeasured visit times",
+  "thermal_accuracy_absolute_C": 0.2,
+  "depth_accuracy_m": null,
+  "published_k_or_pooled_capacity_allowed": false,
+  "pairs": [
+    {
+      "profile_id": "KDT_2020b",
+      "stake_id": "P_AWS_1",
+      "role": "train",
+      "target_start_date": "2020-07-25",
+      "target_end_date": "2020-09-06",
+      "profile_path": "features/KDT_2020b.csv",
+      "profile_sha256": "83538ec8e9fc08f6b8ac05429e6ff85c3437d17bba3a730533144bf6cdfc9ae5",
+      "sensor_depths_m": [
+        0.05,
+        0.15,
+        0.22
+      ],
+      "profile_debris_thickness_m": 0.22,
+      "stake_debris_thickness_m": 0.21,
+      "forward_upper_boundary_plane_m": 0.05,
+      "forward_domain_length_stake_m": 0.15999999999999998,
+      "preferred_native_air_station_by_proximity": "Debris_T3",
+      "nominal_start_UTC": "2020-07-25T20:00:00",
+      "nominal_end_UTC": "2020-09-06T20:00:00",
+      "first_profile_UTC": "2020-07-27T08:00:00",
+      "nominal_initial_no_profile_hours": 36.0,
+      "proposed_installation_exclusion_hours_for_parameter_fit_only": 120,
+      "proposed_profile_fit_start_UTC": "2020-08-01T08:00:00",
+      "proposed_proxy_fit_window_days": 14,
+      "source_native_deepest_in_stake_domain": false,
+      "warnings": [
+        "last22cmcolumn identicallyzero; not independently observed thirdsensor"
+      ]
+    },
+    {
+      "profile_id": "KDT_2023a",
+      "stake_id": "P11",
+      "role": "evaluation",
+      "target_start_date": "2023-06-08",
+      "target_end_date": "2023-09-02",
+      "profile_path": "features/KDT_2023a.csv",
+      "profile_sha256": "8227ce95c99dc687b1e5d5bfec25e7f191ca927d1f5c5b4d8854ab34f4d857b7",
+      "sensor_depths_m": [
+        0.02,
+        0.07,
+        0.12,
+        0.17,
+        0.22
+      ],
+      "profile_debris_thickness_m": 0.24,
+      "stake_debris_thickness_m": 0.24,
+      "forward_upper_boundary_plane_m": 0.02,
+      "forward_domain_length_stake_m": 0.22,
+      "preferred_native_air_station_by_proximity": "Debris_T2",
+      "nominal_start_UTC": "2023-06-08T20:00:00",
+      "nominal_end_UTC": "2023-09-02T20:00:00",
+      "first_profile_UTC": "2023-06-10T20:00:00",
+      "nominal_initial_no_profile_hours": 48.0,
+      "proposed_installation_exclusion_hours_for_parameter_fit_only": 120,
+      "proposed_profile_fit_start_UTC": "2023-06-15T20:00:00",
+      "proposed_proxy_fit_window_days": 14,
+      "source_native_deepest_in_stake_domain": true,
+      "warnings": []
+    },
+    {
+      "profile_id": "KDT_2023b",
+      "stake_id": "P12",
+      "role": "evaluation",
+      "target_start_date": "2023-06-08",
+      "target_end_date": "2023-09-02",
+      "profile_path": "features/KDT_2023b.csv",
+      "profile_sha256": "2f85950203fe413bd7e371d042e5510c226e7de617779dbe615dd112e1c2c7cf",
+      "sensor_depths_m": [
+        0.09,
+        0.165,
+        0.24,
+        0.315
+      ],
+      "profile_debris_thickness_m": 0.32,
+      "stake_debris_thickness_m": 0.29,
+      "forward_upper_boundary_plane_m": 0.09,
+      "forward_domain_length_stake_m": 0.19999999999999998,
+      "preferred_native_air_station_by_proximity": "Debris_T2",
+      "nominal_start_UTC": "2023-06-08T20:00:00",
+      "nominal_end_UTC": "2023-09-02T20:00:00",
+      "first_profile_UTC": "2023-06-10T20:00:00",
+      "nominal_initial_no_profile_hours": 48.0,
+      "proposed_installation_exclusion_hours_for_parameter_fit_only": 120,
+      "proposed_profile_fit_start_UTC": "2023-06-15T20:00:00",
+      "proposed_proxy_fit_window_days": 14,
+      "source_native_deepest_in_stake_domain": false,
+      "warnings": [
+        "deepest31.5cm exceeds29cmstake thickness; use onlyinprofile inference, neverinside stakecolumn"
+      ]
+    },
+    {
+      "profile_id": "KDT_2023c",
+      "stake_id": "P13",
+      "role": "evaluation",
+      "target_start_date": "2023-06-08",
+      "target_end_date": "2023-09-02",
+      "profile_path": "features/KDT_2023c.csv",
+      "profile_sha256": "30b1324bb27b02e45468580446ca0d626d6964de8744b624509d28d17992d798",
+      "sensor_depths_m": [
+        0.02,
+        0.095,
+        0.17,
+        0.245
+      ],
+      "profile_debris_thickness_m": 0.26,
+      "stake_debris_thickness_m": 0.255,
+      "forward_upper_boundary_plane_m": 0.02,
+      "forward_domain_length_stake_m": 0.23500000000000001,
+      "preferred_native_air_station_by_proximity": "Debris_T2",
+      "nominal_start_UTC": "2023-06-08T20:00:00",
+      "nominal_end_UTC": "2023-09-02T20:00:00",
+      "first_profile_UTC": "2023-06-10T20:00:00",
+      "nominal_initial_no_profile_hours": 48.0,
+      "proposed_installation_exclusion_hours_for_parameter_fit_only": 120,
+      "proposed_profile_fit_start_UTC": "2023-06-15T20:00:00",
+      "proposed_proxy_fit_window_days": 14,
+      "source_native_deepest_in_stake_domain": true,
+      "warnings": []
+    }
+  ],
+  "weather": [
+    {
+      "file": "features/Debris_T2.csv",
+      "year": 2020,
+      "nominal_clock": true,
+      "rows_inclusive": 1033,
+      "expected_rows_inclusive": 1033,
+      "first": "2020-07-25 20:00:00",
+      "last": "2020-09-06 20:00:00",
+      "missing_counts": {
+        "T_1_75m": 0
+      }
+    },
+    {
+      "file": "features/Debris_T2.csv",
+      "year": 2023,
+      "nominal_clock": true,
+      "rows_inclusive": 2065,
+      "expected_rows_inclusive": 2065,
+      "first": "2023-06-08 20:00:00",
+      "last": "2023-09-02 20:00:00",
+      "missing_counts": {
+        "T_1_75m": 0
+      }
+    },
+    {
+      "file": "features/Debris_T3.csv",
+      "year": 2020,
+      "nominal_clock": true,
+      "rows_inclusive": 1033,
+      "expected_rows_inclusive": 1033,
+      "first": "2020-07-25 20:00:00",
+      "last": "2020-09-06 20:00:00",
+      "missing_counts": {
+        "T_1_75m": 0
+      }
+    },
+    {
+      "file": "features/Debris_T3.csv",
+      "year": 2023,
+      "nominal_clock": true,
+      "rows_inclusive": 2065,
+      "expected_rows_inclusive": 2065,
+      "first": "2023-06-08 20:00:00",
+      "last": "2023-09-02 20:00:00",
+      "missing_counts": {
+        "T_1_75m": 0
+      }
+    },
+    {
+      "file": "features/Amazon_Creek.csv",
+      "year": 2020,
+      "nominal_clock": true,
+      "rows_inclusive": 1033,
+      "expected_rows_inclusive": 1033,
+      "first": "2020-07-25 20:00:00",
+      "last": "2020-09-06 20:00:00",
+      "missing_counts": {
+        "T_3m": 119,
+        "SWin": 119,
+        "LWin": 119
+      }
+    },
+    {
+      "file": "features/Amazon_Creek.csv",
+      "year": 2023,
+      "nominal_clock": true,
+      "rows_inclusive": 2065,
+      "expected_rows_inclusive": 2065,
+      "first": "2023-06-08 20:00:00",
+      "last": "2023-09-02 20:00:00",
+      "missing_counts": {
+        "T_3m": 0,
+        "SWin": 0,
+        "LWin": 0
+      }
+    }
+  ]
+}

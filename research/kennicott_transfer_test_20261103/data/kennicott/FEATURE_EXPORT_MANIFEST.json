@@ -1,0 +1,179 @@
+{
+  "feature_values_authorized": true,
+  "outcome_values_accessed_or_exported": false,
+  "source_zip_metadata": "ZIP_METADATA_ONLY.json",
+  "files": [
+    {
+      "member": "Debris_Temperature_Profiles/Profile_Temperature_Records/KDT_2020a.csv",
+      "local_path": "features/KDT_2020a.csv",
+      "sha256": "ac03d76a67d286abcbe38d4f8e4ce386503bf25e820ed7e9605a88000df49568",
+      "bytes": 767856,
+      "crc32": 698997460,
+      "headers": [
+        "Datetime",
+        "Depth: 4 cm",
+        "Depth: 11 cm",
+        "Depth: 18 cm",
+        "Depth: 25 cm",
+        "Datetime_ADT"
+      ],
+      "rows": 11958,
+      "clock_field": "Datetime",
+      "clock": "UTC per source metadata",
+      "first": "2020-07-27T08:00:00",
+      "last": "2020-09-06T20:25:00",
+      "source_outcome_dependency": false
+    },
+    {
+      "member": "Debris_Temperature_Profiles/Profile_Temperature_Records/KDT_2020b.csv",
+      "local_path": "features/KDT_2020b.csv",
+      "sha256": "83538ec8e9fc08f6b8ac05429e6ff85c3437d17bba3a730533144bf6cdfc9ae5",
+      "bytes": 670431,
+      "crc32": 3477136041,
+      "headers": [
+        "Datetime",
+        "Depth: 5 cm",
+        "Depth: 15 cm",
+        "Depth: 22 cm",
+        "Datetime_ADT"
+      ],
+      "rows": 11958,
+      "clock_field": "Datetime",
+      "clock": "UTC per source metadata",
+      "first": "2020-07-27T08:00:00",
+      "last": "2020-09-06T20:25:00",
+      "source_outcome_dependency": false
+    },
+    {
+      "member": "Debris_Temperature_Profiles/Profile_Temperature_Records/KDT_2023a.csv",
+      "local_path": "features/KDT_2023a.csv",
+      "sha256": "8227ce95c99dc687b1e5d5bfec25e7f191ca927d1f5c5b4d8854ab34f4d857b7",
+      "bytes": 1892622,
+      "crc32": 652033082,
+      "headers": [
+        "Datetime",
+        "Depth: 2 cm",
+        "Depth: 7 cm",
+        "Depth: 12 cm",
+        "Depth: 17 cm",
+        "Depth: 22 cm",
+        "Datetime_ADT"
+      ],
+      "rows": 27073,
+      "clock_field": "Datetime",
+      "clock": "UTC per source metadata",
+      "first": "2023-06-10T20:00:00",
+      "last": "2023-09-12T20:00:00",
+      "source_outcome_dependency": false
+    },
+    {
+      "member": "Debris_Temperature_Profiles/Profile_Temperature_Records/KDT_2023b.csv",
+      "local_path": "features/KDT_2023b.csv",
+      "sha256": "2f85950203fe413bd7e371d042e5510c226e7de617779dbe615dd112e1c2c7cf",
+      "bytes": 1728433,
+      "crc32": 96938186,
+      "headers": [
+        "Datetime",
+        "Depth: 9.0 cm",
+        "Depth: 16.5 cm",
+        "Depth: 24.0 cm",
+        "Depth: 31.5 cm",
+        "Datetime_ADT"
+      ],
+      "rows": 27073,
+      "clock_field": "Datetime",
+      "clock": "UTC per source metadata",
+      "first": "2023-06-10T20:00:00",
+      "last": "2023-09-12T20:00:00",
+      "source_outcome_dependency": false
+    },
+    {
+      "member": "Debris_Temperature_Profiles/Profile_Temperature_Records/KDT_2023c.csv",
+      "local_path": "features/KDT_2023c.csv",
+      "sha256": "30b1324bb27b02e45468580446ca0d626d6964de8744b624509d28d17992d798",
+      "bytes": 1733937,
+      "crc32": 692325756,
+      "headers": [
+        "Datetime",
+        "Depth: 2.0 cm",
+        "Depth: 9.5 cm",
+        "Depth: 17.0 cm",
+        "Depth: 24.5 cm",
+        "Datetime_ADT"
+      ],
+      "rows": 27073,
+      "clock_field": "Datetime",
+      "clock": "UTC per source metadata",
+      "first": "2023-06-10T20:00:00",
+      "last": "2023-09-12T20:00:00",
+      "source_outcome_dependency": false
+    },
+    {
+      "member": "AWS/Debris_T2.csv",
+      "local_path": "features/Debris_T2.csv",
+      "sha256": "028cf7c57274339e2a68c452a873c0ebe29dcfb4048fc11b4d07b3ea0cd8e2ff",
+      "bytes": 1423727,
+      "crc32": 839123096,
+      "headers": [
+        "Date_Time",
+        "T_1_75m",
+        "RH_1_75m",
+        "Date_Time_ADT"
+      ],
+      "rows": 28077,
+      "clock_field": "Date_Time",
+      "clock": "UTC per source metadata",
+      "first": "2020-06-20T01:00:00",
+      "last": "2023-09-02T21:00:00",
+      "source_outcome_dependency": false
+    },
+    {
+      "member": "AWS/Debris_T3.csv",
+      "local_path": "features/Debris_T3.csv",
+      "sha256": "d97eb00446aec3a2692a0ff0aa5f6400f97a506d151a78068a12222094db3e87",
+      "bytes": 1426299,
+      "crc32": 3440914828,
+      "headers": [
+        "Date_Time",
+        "T_1_75m",
+        "RH_1_75m",
+        "Date_Time_ADT"
+      ],
+      "rows": 28129,
+      "clock_field": "Date_Time",
+      "clock": "UTC per source metadata",
+      "first": "2020-06-17T22:00:00",
+      "last": "2023-09-02T22:00:00",
+      "source_outcome_dependency": false
+    },
+    {
+      "member": "AWS/Amazon_Creek.csv",
+      "local_path": "features/Amazon_Creek.csv",
+      "sha256": "83c24ab0473a636780b2be1fbd90d7daa53a0f16b7229c018326b6126965b8a3",
+      "bytes": 4365067,
+      "crc32": 310087356,
+      "headers": [
+        "Date_Time",
+        "T_1m",
+        "RH_1m",
+        "T_3m",
+        "RH_3m",
+        "Wspd_3m",
+        "SWin",
+        "SWout",
+        "LWin",
+        "LWout",
+        "Pressure",
+        "RainSnow_Rate",
+        "RainSnow_Cum",
+        "Date_Time_ADT"
+      ],
+      "rows": 43942,
+      "clock_field": "Date_Time",
+      "clock": "UTC per source metadata",
+      "first": "2018-08-31T22:00:00",
+      "last": "2023-09-05T19:00:00",
+      "source_outcome_dependency": false
+    }
+  ]
+}
