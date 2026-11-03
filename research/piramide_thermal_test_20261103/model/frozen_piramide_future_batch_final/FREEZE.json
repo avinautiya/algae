@@ -1,0 +1,226 @@
+{
+  "config": {
+    "source_v3_freeze": "frozen_piramide_v3/FREEZE.json",
+    "source_v3_normalized_predictions": "frozen_piramide_v3/NORMALIZED_HEAT_PREDICTIONS.json",
+    "source_v3_fixed_gain_predictions": "frozen_piramide_v3/melt_comparison/PREDICTIONS.json",
+    "endpoint_binding": "../data/camera/FUTURE_ENDPOINT_BINDING.json",
+    "feature_coverage_audit": "../data/camera/FUTURE_BATCH_COVERAGE_ONLY.json",
+    "future_intervals": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00"
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00"
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00"
+      }
+    ],
+    "excluded_intervals": [
+      {
+        "start": "2023-02-10T03:00:00",
+        "end": "2023-02-24T03:00:00",
+        "reason": "source coverage failed before outcome access"
+      }
+    ],
+    "primary_metric": "mean_absolute_period_ablation_error_mmwe",
+    "primary_candidate": "forward__middle_gap_20mm__left__proxy",
+    "new_training_allowed": false,
+    "new_model_selection_allowed": false,
+    "future_target_values_opened": false,
+    "camera_evaluation": {
+      "approved_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+      "clock_interpretation": "same_source_naive_local_no_UTC_assumption",
+      "camera_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+      "intervals": [
+        {
+          "tower": 1,
+          "role": "evaluation",
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00"
+        },
+        {
+          "tower": 1,
+          "role": "evaluation",
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00"
+        },
+        {
+          "tower": 1,
+          "role": "evaluation",
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00"
+        }
+      ]
+    },
+    "known_prior_result": "Version3 primary failed all-baseline superiority; result preserved; future targets unopened.",
+    "endpoint_policy": "For each fixed nominal14dayanchor, nearestfinite native camera distance timestamp within\u00b112h; tieearlier; no interpolation; no performance selection",
+    "statistical_scope": "three adjacent intervals at one tower, sharing calibration and state"
+  },
+  "source_hashes": {
+    "batch_phase_experiment.py": "54fe502a665ff64bd4379f05de8637e85abe4c30a15824313a13a5804a181a8f",
+    "cold_ice_column.py": "9d72756866d4339b4db99c027351505ab80765550d608245670789737b1db9e3",
+    "temperature_model.py": "23c5047c6625ca7fef6c293b193bb2d088194355e11a2c5f77d148e0a34596ee",
+    "piramide_experiment.py": "2992a7ff0fc76b89631b384b5bcbd26ea92a2dec6ab287c48962ed60c4a6270f",
+    "thermal_memory/solver.py": "b1427565afe8b544115465b3cd7e23ac37656461e0a7833cc848675d369d8e63",
+    "FUTURE_BATCH_PROTOCOL.md": "5e5f6f9c3a91d2efc786e35f3959a683bc6f993b80461a4108d47351520ecfdc",
+    "FUTURE_BATCH_SPEC.json": "b4efe407a9e94a102fbdd366e39b668e36c943576259bc64c560b23c297f9272"
+  },
+  "input_hashes": {
+    "source_v3_freeze": "37188f8e1c21bcc00727ef5d4130d8ad4ec1bbbde17b192dcee32f67b6db93af",
+    "source_v3_normalized_predictions": "c95e63a5bfca92b2e716c37b222ade017428e9e4a39a4e096a90fe01f5fd18b2",
+    "source_v3_fixed_gain_predictions": "6905bb6f4b18488dd5d98d10a77d41b998b42176dede26ae7fcd56a92fe0edb2",
+    "endpoint_binding": "eac1957cb4498c287679f86b7323d0bf43d2c24f23b8cbe68ea404543bb7fbec",
+    "feature_coverage_audit": "c74b50b45108a0d5b114a03667ff7a33c7059b06330aeaa82778b58464275bda"
+  },
+  "source_v3_process_hashes": {
+    "process_csv": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+    "process_manifest": "96f042e1695590e906fe9775c536195dfcb450dc142c509d8f7f01c09f67bd6b",
+    "camera_times_only": "cd6b775456f260dcc079633246d1b6ff95c64db0f06fd49699b710f950b22ad7",
+    "camera_metadata": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c"
+  },
+  "physical_config": {
+    "v1_freeze": "frozen_piramide_v1/FREEZE.json",
+    "v1_normalized_predictions": "frozen_piramide_v1/NORMALIZED_HEAT_PREDICTIONS.json",
+    "capacity_source_audit": "../data/TRAINING_CAPACITY_AUDIT.json",
+    "alpha_source": "unchanged_v1_training_only_temperature_fits",
+    "cold_ice_initial_temperature_C": 0.0,
+    "ice_depth_m": 2.0,
+    "ice_conductivity_W_mK": 2.1,
+    "ice_heat_capacity_J_m3K": 1925700.0,
+    "latent_heat_J_kg": 333700.0,
+    "debris_cells": 32,
+    "ice_cells": 64,
+    "dt_seconds": 300.0,
+    "capacities": [
+      {
+        "id": "dry",
+        "capacity_J_m3K": 1198669.6103111114
+      },
+      {
+        "id": "proxy",
+        "capacity_J_m3K": 1855487.1033697424
+      },
+      {
+        "id": "saturated",
+        "capacity_J_m3K": 3037338.970311112
+      }
+    ],
+    "primary_capacity_id": "proxy",
+    "primary_geometry": "middle_gap_20mm",
+    "primary_hold": "left",
+    "geometries": [
+      {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      }
+    ],
+    "holds": [
+      "left",
+      "right"
+    ],
+    "start": "2022-12-02T03:00:00",
+    "split": "2022-12-16T03:00:00",
+    "end": "2022-12-30T00:00:00",
+    "camera_evaluation": {
+      "approved_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+      "clock_interpretation": "same_source_naive_local_no_UTC_assumption",
+      "camera_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+      "intervals": [
+        {
+          "tower": 1,
+          "start": "2022-12-02T03:00:00",
+          "end": "2022-12-16T03:00:00",
+          "role": "train"
+        },
+        {
+          "tower": 1,
+          "start": "2022-12-16T03:00:00",
+          "end": "2022-12-30T00:00:00",
+          "role": "evaluation"
+        }
+      ]
+    },
+    "gain_interpretation": "Empirical TRAIN-camera output correction; not physical capacity and not covered by unscaled physical energy ledger.",
+    "new_scope": "Constant sensible debris plus explicit cold ice; no wet-debris pore enthalpy, moving geometry or ice advection.",
+    "original_version1_phase_failure_preserved": true,
+    "camera_outcomes_opened": false
+  },
+  "camera_evaluation": {
+    "approved_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "clock_interpretation": "same_source_naive_local_no_UTC_assumption",
+    "camera_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+    "intervals": [
+      {
+        "tower": 1,
+        "role": "evaluation",
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00"
+      },
+      {
+        "tower": 1,
+        "role": "evaluation",
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00"
+      },
+      {
+        "tower": 1,
+        "role": "evaluation",
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00"
+      }
+    ]
+  },
+  "future_target_values_opened": false,
+  "future_model_predictions_computed": false,
+  "previous_single_event_result_known": true,
+  "primary_hypothesis": "unchanged primary versus unchanged baselines on all three newly frozen future periods",
+  "analysis_source_hashes": {
+    "analysis/run_future_batch.py": "45596058d73d412c49b28ee64a8bde6966928dc2259eb23a22be53e94e07bdbc",
+    "analysis/run_cold_melt_comparison.py": "f04341e01658f2ba49087a354b5dc57037097f836a939e9cfd6044333a8e041d",
+    "analysis/calibration.py": "c74ca87081596f57a438ce9196a38a723186b178f24e396f1d267752ed9518b9",
+    "review/batch_scorer.py": "044fe2893ef7fba38b94a1539af54254818b56e31f237fceef3196ba8c935435",
+    "data/camera/camera_loader.py": "3e317dbd99003c032cb053292ada8c72391f29c67567f50c0a8f497df11a19a5"
+  },
+  "analysis_input_hashes": {
+    "model/frozen_piramide_v3/melt_comparison/PREDICTIONS.json": "6905bb6f4b18488dd5d98d10a77d41b998b42176dede26ae7fcd56a92fe0edb2",
+    "model/frozen_piramide_v3/melt_comparison/RESULTS.json": "c735749a0abca928b93da76d0530aa3e5986a099a66a303b4d1d161198534ff5",
+    "data/decoded/debtemp_Tower1.csv": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+    "data/decoded/trh_Tower1.csv": "d0e91f6bc8b620a6e271d9e8fe32d6f26c7994771fde956aa23422539d3807e9"
+  }
+}

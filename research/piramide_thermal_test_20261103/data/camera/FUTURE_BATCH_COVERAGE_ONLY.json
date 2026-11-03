@@ -1,0 +1,573 @@
+{
+  "scope": "FUTURE camera finiteness and process-feature coverage ONLY; no future outcome values/statistics/errors",
+  "source_camera_sha256": "7ddfe5f549473eab7c99851a82a8479d45ddee5bf4b9e7fa90c113793adb718e",
+  "source_naive_local_clock_only": true,
+  "selection_rule": "For each fixed nominal14dayanchor, nearestfinite native camera distance timestamp within\u00b112h; tieearlier; no interpolation; no performance selection",
+  "known_batch_start": "2022-12-30T00:00:00",
+  "future_anchors": [
+    {
+      "nominal_end": "2023-01-13T03:00:00",
+      "nominal_is_native": true,
+      "nominal_isfinite": true,
+      "selected_end": "2023-01-13T03:00:00",
+      "nearby_time_finiteness": [
+        {
+          "source_local_label": "2023-01-12T15:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-12T16:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-12T17:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-12T18:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-12T19:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-12T20:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-12T21:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-12T22:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-12T23:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T00:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T01:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-13T02:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-13T03:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T04:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T05:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T06:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T07:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T08:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T09:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T10:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T11:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T12:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-13T13:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T14:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-13T15:00:00",
+          "isfinite": true
+        }
+      ]
+    },
+    {
+      "nominal_end": "2023-01-27T03:00:00",
+      "nominal_is_native": true,
+      "nominal_isfinite": true,
+      "selected_end": "2023-01-27T03:00:00",
+      "nearby_time_finiteness": [
+        {
+          "source_local_label": "2023-01-26T15:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-26T16:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-26T17:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-26T18:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-26T19:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-26T20:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-26T21:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-26T22:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-26T23:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T00:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T01:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-27T02:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-27T03:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T04:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T05:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T06:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T07:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T08:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T09:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T10:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T11:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T12:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-01-27T13:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T14:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-01-27T15:00:00",
+          "isfinite": true
+        }
+      ]
+    },
+    {
+      "nominal_end": "2023-02-10T03:00:00",
+      "nominal_is_native": true,
+      "nominal_isfinite": true,
+      "selected_end": "2023-02-10T03:00:00",
+      "nearby_time_finiteness": [
+        {
+          "source_local_label": "2023-02-09T15:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-09T16:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-09T17:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-09T18:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-09T19:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-09T20:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-09T21:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-09T22:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-09T23:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T00:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T01:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-10T02:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-10T03:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T04:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T05:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T06:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T07:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T08:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-10T09:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T10:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T11:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T12:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T13:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T14:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-10T15:00:00",
+          "isfinite": true
+        }
+      ]
+    },
+    {
+      "nominal_end": "2023-02-24T03:00:00",
+      "nominal_is_native": true,
+      "nominal_isfinite": true,
+      "selected_end": "2023-02-24T03:00:00",
+      "nearby_time_finiteness": [
+        {
+          "source_local_label": "2023-02-23T15:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-23T16:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-23T17:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-23T18:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-23T19:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-23T20:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-23T21:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-23T22:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-23T23:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T00:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T01:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-24T02:00:00",
+          "isfinite": false
+        },
+        {
+          "source_local_label": "2023-02-24T03:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T04:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T05:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T06:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T07:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T08:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T09:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T10:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T11:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T12:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T13:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T14:00:00",
+          "isfinite": true
+        },
+        {
+          "source_local_label": "2023-02-24T15:00:00",
+          "isfinite": false
+        }
+      ]
+    }
+  ],
+  "proposed_intervals": [
+    {
+      "start": "2022-12-30T00:00:00",
+      "nominal_end": "2023-01-13T03:00:00",
+      "end": "2023-01-13T03:00:00",
+      "thermal": {
+        "columns": [
+          "DT1",
+          "DT2",
+          "DT3",
+          "DT4",
+          "DT5"
+        ],
+        "native_finite_inside_rows": 679,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 0.5,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-24T08:00:00",
+        "source_last_label": "2023-03-03T11:30:00"
+      },
+      "air_temperature_2m": {
+        "columns": [
+          "TA_3"
+        ],
+        "native_finite_inside_rows": 1873,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 2.1666666666666665,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-22T10:50:00",
+        "source_last_label": "2023-02-21T21:40:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "start": "2023-01-13T03:00:00",
+      "nominal_end": "2023-01-27T03:00:00",
+      "end": "2023-01-27T03:00:00",
+      "thermal": {
+        "columns": [
+          "DT1",
+          "DT2",
+          "DT3",
+          "DT4",
+          "DT5"
+        ],
+        "native_finite_inside_rows": 673,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 0.5,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-24T08:00:00",
+        "source_last_label": "2023-03-03T11:30:00"
+      },
+      "air_temperature_2m": {
+        "columns": [
+          "TA_3"
+        ],
+        "native_finite_inside_rows": 1932,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 1.1666666666666667,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-22T10:50:00",
+        "source_last_label": "2023-02-21T21:40:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "start": "2023-01-27T03:00:00",
+      "nominal_end": "2023-02-10T03:00:00",
+      "end": "2023-02-10T03:00:00",
+      "thermal": {
+        "columns": [
+          "DT1",
+          "DT2",
+          "DT3",
+          "DT4",
+          "DT5"
+        ],
+        "native_finite_inside_rows": 673,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 0.5,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-24T08:00:00",
+        "source_last_label": "2023-03-03T11:30:00"
+      },
+      "air_temperature_2m": {
+        "columns": [
+          "TA_3"
+        ],
+        "native_finite_inside_rows": 1946,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 1.3333333333333333,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-22T10:50:00",
+        "source_last_label": "2023-02-21T21:40:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "start": "2023-02-10T03:00:00",
+      "nominal_end": "2023-02-24T03:00:00",
+      "end": "2023-02-24T03:00:00",
+      "thermal": {
+        "columns": [
+          "DT1",
+          "DT2",
+          "DT3",
+          "DT4",
+          "DT5"
+        ],
+        "native_finite_inside_rows": 673,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 0.5,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-24T08:00:00",
+        "source_last_label": "2023-03-03T11:30:00"
+      },
+      "air_temperature_2m": {
+        "columns": [
+          "TA_3"
+        ],
+        "native_finite_inside_rows": 1628,
+        "source_bounds_cover_interval": false,
+        "maximum_gap_hours": 53.333333333333336,
+        "coverage_pass_maxgap18h_and_no_extrapolation": false,
+        "source_first_label": "2022-11-22T10:50:00",
+        "source_last_label": "2023-02-21T21:40:00"
+      },
+      "source_eligible": false
+    }
+  ],
+  "new_target_values_exposed": false,
+  "future_melt_predictions_scored": false
+}

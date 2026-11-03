@@ -1,0 +1,175 @@
+{
+  "schema": "piramide-future-coverage-binding-v1",
+  "clock": "source_local_naive_no_utc_claim",
+  "source_camera_sha256": "7ddfe5f549473eab7c99851a82a8479d45ddee5bf4b9e7fa90c113793adb718e",
+  "camera_timestamp_list_sha256": "cd6b775456f260dcc079633246d1b6ff95c64db0f06fd49699b710f950b22ad7",
+  "feature_coverage_json_sha256": "c74b50b45108a0d5b114a03667ff7a33c7059b06330aeaa82778b58464275bda",
+  "policy": "For each fixed nominal14dayanchor, nearestfinite native camera distance timestamp within\u00b112h; tieearlier; no interpolation; no performance selection",
+  "endpoint_bindings": [
+    {
+      "nominal": "2022-12-30T03:00:00",
+      "selected": "2022-12-30T00:00:00",
+      "source": "PreviouslypublishedV3missingness-onlyamendment",
+      "exact_thermal_label_present": true
+    },
+    {
+      "nominal": "2023-01-13T03:00:00",
+      "selected": "2023-01-13T03:00:00",
+      "source": "futureendpointfiniteness-only",
+      "exact_thermal_label_present": true
+    },
+    {
+      "nominal": "2023-01-27T03:00:00",
+      "selected": "2023-01-27T03:00:00",
+      "source": "futureendpointfiniteness-only",
+      "exact_thermal_label_present": true
+    },
+    {
+      "nominal": "2023-02-10T03:00:00",
+      "selected": "2023-02-10T03:00:00",
+      "source": "futureendpointfiniteness-only",
+      "exact_thermal_label_present": true
+    },
+    {
+      "nominal": "2023-02-24T03:00:00",
+      "selected": "2023-02-24T03:00:00",
+      "source": "futureendpointfiniteness-only",
+      "exact_thermal_label_present": true
+    }
+  ],
+  "selected_labels_unique": true,
+  "selected_labels_strictly_increasing": true,
+  "source_thermal_uniform_step_seconds": 1800,
+  "source_thermal_step_verified": true,
+  "intervals": [
+    {
+      "start": "2022-12-30T00:00:00",
+      "nominal_end": "2023-01-13T03:00:00",
+      "end": "2023-01-13T03:00:00",
+      "thermal": {
+        "columns": [
+          "DT1",
+          "DT2",
+          "DT3",
+          "DT4",
+          "DT5"
+        ],
+        "native_finite_inside_rows": 679,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 0.5,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-24T08:00:00",
+        "source_last_label": "2023-03-03T11:30:00"
+      },
+      "air_temperature_2m": {
+        "columns": [
+          "TA_3"
+        ],
+        "native_finite_inside_rows": 1873,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 2.1666666666666665,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-22T10:50:00",
+        "source_last_label": "2023-02-21T21:40:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "start": "2023-01-13T03:00:00",
+      "nominal_end": "2023-01-27T03:00:00",
+      "end": "2023-01-27T03:00:00",
+      "thermal": {
+        "columns": [
+          "DT1",
+          "DT2",
+          "DT3",
+          "DT4",
+          "DT5"
+        ],
+        "native_finite_inside_rows": 673,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 0.5,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-24T08:00:00",
+        "source_last_label": "2023-03-03T11:30:00"
+      },
+      "air_temperature_2m": {
+        "columns": [
+          "TA_3"
+        ],
+        "native_finite_inside_rows": 1932,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 1.1666666666666667,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-22T10:50:00",
+        "source_last_label": "2023-02-21T21:40:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "start": "2023-01-27T03:00:00",
+      "nominal_end": "2023-02-10T03:00:00",
+      "end": "2023-02-10T03:00:00",
+      "thermal": {
+        "columns": [
+          "DT1",
+          "DT2",
+          "DT3",
+          "DT4",
+          "DT5"
+        ],
+        "native_finite_inside_rows": 673,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 0.5,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-24T08:00:00",
+        "source_last_label": "2023-03-03T11:30:00"
+      },
+      "air_temperature_2m": {
+        "columns": [
+          "TA_3"
+        ],
+        "native_finite_inside_rows": 1946,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 1.3333333333333333,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-22T10:50:00",
+        "source_last_label": "2023-02-21T21:40:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "start": "2023-02-10T03:00:00",
+      "nominal_end": "2023-02-24T03:00:00",
+      "end": "2023-02-24T03:00:00",
+      "thermal": {
+        "columns": [
+          "DT1",
+          "DT2",
+          "DT3",
+          "DT4",
+          "DT5"
+        ],
+        "native_finite_inside_rows": 673,
+        "source_bounds_cover_interval": true,
+        "maximum_gap_hours": 0.5,
+        "coverage_pass_maxgap18h_and_no_extrapolation": true,
+        "source_first_label": "2022-11-24T08:00:00",
+        "source_last_label": "2023-03-03T11:30:00"
+      },
+      "air_temperature_2m": {
+        "columns": [
+          "TA_3"
+        ],
+        "native_finite_inside_rows": 1628,
+        "source_bounds_cover_interval": false,
+        "maximum_gap_hours": 53.333333333333336,
+        "coverage_pass_maxgap18h_and_no_extrapolation": false,
+        "source_first_label": "2022-11-22T10:50:00",
+        "source_last_label": "2023-02-21T21:40:00"
+      },
+      "source_eligible": false
+    }
+  ],
+  "future_target_values_exposed": false
+}
