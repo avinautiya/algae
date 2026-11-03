@@ -1,0 +1,23 @@
+{
+  "source_sha256": {
+    "arolla_melt.py": "301efdfc451ad2e3f8dd82ad2f87db257780cd71d7ed2a588d8241a33f5634f5",
+    "PROTOCOL.md": "ed2b8482d668857a82c5bddcec8e39acf894693cca1f870bfe59af3d5e4b759b",
+    "arolla_baseline.py": "6ce9563c358e96be6f9445ff9a87b8f3ace9c4be278c183b97d10e32c5f4ecee",
+    "AROLLA_OUTPUT_MANIFEST.json": "974325eac074fa0ae237ced2fb49ccfe00115bdddefdc0b85806ec925338dc44",
+    "arolla_outputs/DEBCF/ARO/DEBCF_ARO_EXP1_EXP2.csv": "8a5945a5aeb67e727dd85b3131b45d9d650ac71c5078ae6faa00b531c11b837f",
+    "arolla_outputs/Dates_Rows/Dates_daily_ARO.csv": "9bdc938be9f16d2a24d758b29f2011fe6ef7cefdfd3ad8dc6ca41569b882e7e8",
+    "arolla_outputs/Dates_Rows/Dates_hourly_ARO.csv": "2ea3b0eae17754216c342fd7db2f34c9b166fdcf1aac09cd4d11f7abff893ced"
+  },
+  "data_sha256": "2d84db2cc6f55ab2cd5e406feffb279dc217332e524beaad79c03bc44b39e865",
+  "prediction_scores_not_computed": true,
+  "target_metadata_and_values_already_audited": true,
+  "primary_stake": "H1D",
+  "scenarios_per_stake": 81,
+  "models": [
+    "constant_rate",
+    "positive_degree_day",
+    "net_shortwave_dose"
+  ],
+  "additional_primary_context_model": "published_DEBCF_component_unresolved",
+  "published_output_quantity_match_established": false
+}

@@ -1,0 +1,15 @@
+{
+  "source_sha256": "2102634b2b56640bcdbc4e9d14ac88f7a7d4e5b5207d8dd1903fcc736798bc50",
+  "calendar_rows": 100,
+  "thresholded_positive_daily_lowering_sum_m": 1.0233947,
+  "thresholded_positive_daily_height_gain_sum_m": 0.0229035,
+  "daily_HEIGHT_endpoint_lowering_m": 1.0348220000000001,
+  "daily_DIST_endpoint_increase_m": 1.0348199999999999,
+  "hourly_DIST_labelled_endpoint_increase_m": 1.0445000000000002,
+  "raw_hourly_start_label_nepal": "2016-04-16 01:00",
+  "raw_hourly_end_label_nepal": "2016-07-24 23:00",
+  "operators_are_not_interchangeable": true,
+  "selected_operator_by_score": null,
+  "pure_ice_melt_authorized": false,
+  "unresolved": "Daily means, thresholded positive changes and hourly endpoint differences have different supports and snow/settlement sensitivity. A source-defined analysis operator is needed; agreement with a model/table cannot select it."
+}

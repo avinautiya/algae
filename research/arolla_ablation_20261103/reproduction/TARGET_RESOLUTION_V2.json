@@ -1,0 +1,59 @@
+{
+  "conditional_reproduction": {
+    "model": "DEBCF",
+    "site": "Changri Nup",
+    "actual_thickness_column": 1,
+    "hourly_rows": 2399,
+    "run_local_start": "2016-04-16T01:00:00",
+    "run_local_end": "2016-07-24T23:00:00",
+    "forcing_begin_index": 3350,
+    "forcing_end_index": 5748,
+    "daily_calendar_observations": 100,
+    "model_sum_m_water_equivalent": 0.7186453836834981,
+    "thresholded_surface_lowering_m": 1.0233947,
+    "protocol_ice_density_kg_m3": 900,
+    "calendar_ABL_sum_as_m_water_equivalent": 0.9210552300000001,
+    "conditional_final_cumulative_error_percent": -21.97586417445369,
+    "published_Table3_percent": -23.3,
+    "published_rounding_tolerance_percentage_points": 0.05,
+    "absolute_discrepancy_percentage_points": 1.3241358255463105,
+    "published_score_reproduced": false,
+    "independent_validation": false,
+    "observation_alignment_certified": false,
+    "interpretation": "Conditional raw-calendar ABL reproduction using source-prescribed units/density. Exact processed observation and daily interval aggregation remain unresolved; no alternative conversion is chosen by fit."
+  },
+  "target_authority_audit": {
+    "protocol_density_kg_m3": 900.0,
+    "protocol_density_authority": "original FINAL_RUNS protocol",
+    "protocol_density_role": "prescribed conversion of MODEL OUTPUTS; it does not independently document observed-SR50 postprocessing",
+    "sensitivity_only": [
+      {
+        "rho_kg_m3": 900.0,
+        "error_percent": -21.975864174453676
+      },
+      {
+        "rho_kg_m3": 915.0,
+        "error_percent": -23.254948368315098
+      },
+      {
+        "rho_kg_m3": 917.0,
+        "error_percent": -23.422331250826943
+      }
+    ],
+    "rho915_authority": "final supplement MCC19 individual-model definition; NOT an observation-processing rule",
+    "target_implied_by_published_rounded_error_mwe": 0.9369561716864382,
+    "implied_target_is_not_an_observation": true,
+    "density_that_exactly_fits_rounded_score_kg_m3": 915.5374477573883,
+    "fitting_density_to_score_is_forbidden": true,
+    "published_score_reproduced_under_authorized_conditional_rule": false,
+    "independent_melt_validation": false,
+    "unresolved": [
+      "exact final processed observation total",
+      "daily interval alignment/aggregation",
+      "ice-versus-snow and surface-displacement interpretation",
+      "calibration versus independent evaluation provenance"
+    ]
+  },
+  "executed_reproduction_source_sha256": "bfe0b3af25923b79de4d04349790143dcff9648a8bfe21c4fbd6bd225527922f",
+  "result": "NO_GO for independent pure-ice validation; no alternative convention selected by fit"
+}

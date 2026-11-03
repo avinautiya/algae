@@ -1,0 +1,16 @@
+{
+  "source_sha256": {
+    "arolla_melt.py": "37d82cde60c5ffffde4904aa138ebf9e72617390a82f900883a0b6ecee50ff62",
+    "PROTOCOL.md": "c887f970b8ae572fec8b59a101d179099c30bc1f7ffe71267c345fc947432b50"
+  },
+  "data_sha256": "c7af53fe28a8a855e99142040b84f02c318e14a6a7013349c68795bd1d4d190d",
+  "prediction_scores_not_computed": true,
+  "target_metadata_and_values_already_audited": true,
+  "primary_stake": "H1D",
+  "scenarios_per_stake": 81,
+  "models": [
+    "constant_rate",
+    "positive_degree_day",
+    "net_shortwave_dose"
+  ]
+}

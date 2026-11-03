@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "tests": 37,
+  "results": [
+    {
+      "component": "targets",
+      "tests": 5,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_explicit_clock_24 (test_arolla_loader.Tests) ... ok\ntest_missing_snow_not_zero (test_arolla_loader.Tests) ... ok\ntest_nonfinite_refuses (test_arolla_loader.Tests) ... ok\ntest_real_source_target_and_density (test_arolla_loader.Tests) ... ok\ntest_source_has_complete_visit_date_envelope (test_arolla_loader.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.086s\n\nOK\n"
+    },
+    {
+      "component": "reproduction",
+      "tests": 8,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_explicit_local_clock (test_arolla_baseline.Tests) ... ok\ntest_label_interpretations_not_silent (test_arolla_baseline.Tests) ... ok\ntest_missing_convention_refuses (test_arolla_baseline.Tests) ... ok\ntest_partial_or_naive_refuses (test_arolla_baseline.Tests) ... ok\ntest_apparent_match_cannot_authorize_density (test_resolve_target.Tests) ... ok\ntest_bad_quantities (test_resolve_target.Tests) ... ok\ntest_implied_target_not_observation (test_resolve_target.Tests) ... ok\ntest_protocol_result (test_resolve_target.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "component": "model",
+      "tests": 13,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_actual_published_members_verify_without_target_score (test_arolla_melt.Tests) ... ok\ntest_available_stake_mean_includes_primary (test_arolla_melt.Tests) ... ok\ntest_exact_model_doses (test_arolla_melt.Tests) ... ok\ntest_forcing_gap_or_clock_refuses (test_arolla_melt.Tests) ... ok\ntest_missing_forcing_refuses (test_arolla_melt.Tests) ... ok\ntest_native_cumulative_measurement_operator (test_arolla_melt.Tests) ... ok\ntest_no_extrapolation (test_arolla_melt.Tests) ... ok\ntest_published_clock_scenarios_explicit (test_arolla_melt.Tests) ... ok\ntest_published_units_and_partial_steps (test_arolla_melt.Tests) ... ok\ntest_shared_clock_ratio (test_arolla_melt.Tests) ... ok\ntest_shared_middle_reading_bounds (test_arolla_melt.Tests) ... ok\ntest_training_only_scale (test_arolla_melt.Tests) ... ok\ntest_unknown_snow_is_not_replaced (test_arolla_melt.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.018s\n\nOK\n"
+    },
+    {
+      "component": "timing",
+      "tests": 11,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_exact_reading_error_radius (test_ranking_bounds.Tests) ... ok\ntest_identical_is_not_improvement (test_ranking_bounds.Tests) ... ok\ntest_nominal_win_not_robust_win (test_ranking_bounds.Tests) ... ok\ntest_unknown_and_nonpositive_training_refuse (test_ranking_bounds.Tests) ... ok\ntest_zero_uncertainty_matches_absolute_errors (test_ranking_bounds.Tests) ... ok\ntest_constant_calendar (test_visit_bounds.Tests) ... ok\ntest_gap_never_filled (test_visit_bounds.Tests) ... ok\ntest_negative_driver_refuses (test_visit_bounds.Tests) ... ok\ntest_reading_vs_interval_error (test_visit_bounds.Tests) ... ok\ntest_shared_middle_extrema (test_visit_bounds.Tests) ... ok\ntest_zero_training_refuses (test_visit_bounds.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.010s\n\nOK\n"
+    }
+  ],
+  "scope": "unit, loader and bounded-arithmetic checks, not ablation-performance certification"
+}

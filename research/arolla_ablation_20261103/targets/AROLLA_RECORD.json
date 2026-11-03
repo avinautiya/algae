@@ -1,0 +1,132 @@
+{
+  "created": "2019-05-20T08:24:48.480663+00:00",
+  "modified": "2026-03-03T16:18:33.610658+00:00",
+  "id": 3047649,
+  "conceptrecid": "3047648",
+  "doi": "10.5281/zenodo.3047649",
+  "conceptdoi": "10.5281/zenodo.3047648",
+  "doi_url": "https://doi.org/10.5281/zenodo.3047649",
+  "metadata": {
+    "title": "1_Arolla Data",
+    "doi": "10.5281/zenodo.3047649",
+    "publication_date": "2019-05-20",
+    "description": "<p>This is the dataset from Haut Glacier d&#39;Arolla (Swiss Alps) on a debris-covered site in 2010.</p>\n\n<p>Please look at the metadata file (ARO_2010_AWS_metadata.docx) and the data &quot;Readme&quot; file (https://zenodo.org/record/3362374)&nbsp; for more information about the content of the files.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Pellicciotti, Francesca",
+        "affiliation": "Swiss Federal Insitute for Forest, Snow and Landscape Research WSL, Birmensdorf, Switzerland",
+        "orcid": "0000-0002-5554-8087"
+      },
+      {
+        "name": "Carenzo, Marco",
+        "affiliation": null
+      },
+      {
+        "name": "Fontrodona-Bach, Adri\u00e0",
+        "affiliation": "Swiss Federal Insitute for Forest, Snow and Landscape Research WSL, Birmensdorf, Switzerland",
+        "orcid": "0000-0001-7751-3814"
+      },
+      {
+        "name": "Petersen, Lene",
+        "affiliation": null
+      }
+    ],
+    "keywords": [
+      "Arolla",
+      "Glacier",
+      "Debris"
+    ],
+    "references": [
+      "Carenzo et al. (2016). An enhanced temperature index model for debris-covered glaciers accounting for thickness effect. https://doi.org/10.1016/j.advwatres.2016.05.001"
+    ],
+    "language": "eng",
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "communities": [
+      {
+        "id": "iacswgondcgs"
+      }
+    ],
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "3047648"
+          }
+        }
+      ]
+    }
+  },
+  "title": "1_Arolla Data",
+  "links": {
+    "self": "https://zenodo.org/api/records/3047649",
+    "self_html": "https://zenodo.org/records/3047649",
+    "preview_html": "https://zenodo.org/records/3047649?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.3047649",
+    "self_doi": "https://doi.org/10.5281/zenodo.3047649",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.3047649",
+    "reserve_doi": "https://zenodo.org/api/records/3047649/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/3047648",
+    "parent_html": "https://zenodo.org/records/3047648",
+    "parent_doi": "https://doi.org/10.5281/zenodo.3047648",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.3047648",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:3047649/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:3047649/sequence/default",
+    "files": "https://zenodo.org/api/records/3047649/files",
+    "media_files": "https://zenodo.org/api/records/3047649/media-files",
+    "latest": "https://zenodo.org/api/records/3047649/versions/latest",
+    "latest_html": "https://zenodo.org/records/3047649/latest",
+    "versions": "https://zenodo.org/api/records/3047649/versions",
+    "draft": "https://zenodo.org/api/records/3047649/draft",
+    "access_links": "https://zenodo.org/api/records/3047649/access/links",
+    "access_grants": "https://zenodo.org/api/records/3047649/access/grants",
+    "access_users": "https://zenodo.org/api/records/3047649/access/users",
+    "access_request": "https://zenodo.org/api/records/3047649/access/request",
+    "access": "https://zenodo.org/api/records/3047649/access",
+    "communities": "https://zenodo.org/api/records/3047649/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/3047649/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/3047649/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/3047649/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/3047649/quota-increase",
+    "requests": "https://zenodo.org/api/records/3047649/requests"
+  },
+  "updated": "2026-03-03T16:18:33.610658+00:00",
+  "recid": "3047649",
+  "revision": 21,
+  "files": [
+    {
+      "id": "4f5bbe0a-c9e0-496c-9487-fece3e8fe03a",
+      "key": "1_ARO_2010.zip",
+      "size": 2124866,
+      "checksum": "md5:98db79a2bf45a91aa47d48b373291f37",
+      "links": {
+        "self": "https://zenodo.org/api/records/3047649/files/1_ARO_2010.zip/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "67276"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 34,
+    "unique_downloads": 34,
+    "views": 404,
+    "unique_views": 349,
+    "version_downloads": 34,
+    "version_unique_downloads": 34,
+    "version_unique_views": 349,
+    "version_views": 404
+  },
+  "state": "done",
+  "submitted": true
+}

@@ -1,0 +1,30 @@
+{
+  "record": 15754456,
+  "url": "https://zenodo.org/api/records/15754456/files/DCG-MIP_Model_Outputs.zip/content",
+  "verification": "bounded HTTPS ranges and central-directory/member CRC32 and SHA256; full archive MD5 NOT verified",
+  "members": [
+    {
+      "member": "Dates_Rows/Dates_daily_ARO.csv",
+      "sha256": "9bdc938be9f16d2a24d758b29f2011fe6ef7cefdfd3ad8dc6ca41569b882e7e8",
+      "size": 1562,
+      "crc32": 1744643275,
+      "crc32_verified": true
+    },
+    {
+      "member": "Dates_Rows/Dates_hourly_ARO.csv",
+      "sha256": "2ea3b0eae17754216c342fd7db2f34c9b166fdcf1aac09cd4d11f7abff893ced",
+      "size": 37092,
+      "crc32": 2424057985,
+      "crc32_verified": true
+    },
+    {
+      "member": "DEBCF/ARO/DEBCF_ARO_EXP1_EXP2.csv",
+      "sha256": "8a5945a5aeb67e727dd85b3131b45d9d650ac71c5078ae6faa00b531c11b837f",
+      "size": 255025,
+      "crc32": 3626161088,
+      "crc32_verified": true
+    }
+  ],
+  "observations_loaded": false,
+  "prediction_scores_computed": false
+}
