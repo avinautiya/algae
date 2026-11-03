@@ -1,0 +1,95 @@
+{
+  "preexecution_commit": "2a0828dd2a4c8c42562a277eec8dfb2b991cf035",
+  "remote_freeze_and_sources_git_blob_hashes_verified": true,
+  "data_sha256_verified": true,
+  "raw_target_rows_checked": 672,
+  "fixed_support_pass": true,
+  "fit_parameters_refitted": false,
+  "max_metric_recomputation_difference": 3.552713678800501e-15,
+  "max_fixed_parameter_prediction_replay_difference": 7.549516567451064e-15,
+  "primary_equal_site_diffusion_MAE_W_m2": 1.1664332480191546,
+  "primary_equal_site_ridge_MAE_W_m2": 0.8465413156179844,
+  "diffusion_relative_MAE_increase_vs_ridge": 0.37788106321502535,
+  "frozen_superiority_rule_pass": false,
+  "sites": [
+    {
+      "site": 1,
+      "rows": 336,
+      "scores": {
+        "diffusion": {
+          "n": 336,
+          "mae_W_m2": 1.2599108200801747,
+          "rmse_W_m2": 1.6398783245871722,
+          "bias_W_m2": 0.5705990154135111
+        },
+        "instantaneous_gradient": {
+          "n": 336,
+          "mae_W_m2": 4.960820949941651,
+          "rmse_W_m2": 6.436595781207083,
+          "bias_W_m2": 0.890064327789996
+        },
+        "training_median": {
+          "n": 336,
+          "mae_W_m2": 10.183537261904762,
+          "rmse_W_m2": 12.772908057339729,
+          "bias_W_m2": -1.1622432142857142
+        },
+        "causal_boundary_ridge": {
+          "n": 336,
+          "mae_W_m2": 1.0076641037545646,
+          "rmse_W_m2": 1.3724374525371736,
+          "bias_W_m2": 0.06858931917753948
+        },
+        "diffusion_opposite_orientation_sensitivity": {
+          "n": 336,
+          "mae_W_m2": 21.69273416108603,
+          "rmse_W_m2": 24.946187214577932,
+          "bias_W_m2": 3.35371455601506
+        }
+      },
+      "numerical_difference_W_m2": 0.023062302749707442,
+      "numerical_limit_W_m2": 0.5,
+      "numerical_gate_pass": true
+    },
+    {
+      "site": 2,
+      "rows": 336,
+      "scores": {
+        "diffusion": {
+          "n": 336,
+          "mae_W_m2": 1.0729556759581345,
+          "rmse_W_m2": 1.3240113021257682,
+          "bias_W_m2": -0.30998167290751844
+        },
+        "instantaneous_gradient": {
+          "n": 336,
+          "mae_W_m2": 2.8161612216861798,
+          "rmse_W_m2": 4.127351675611688,
+          "bias_W_m2": -0.05920692450930204
+        },
+        "training_median": {
+          "n": 336,
+          "mae_W_m2": 8.912170654761905,
+          "rmse_W_m2": 11.823959316968121,
+          "bias_W_m2": -2.4058956547619044
+        },
+        "causal_boundary_ridge": {
+          "n": 336,
+          "mae_W_m2": 0.6854185274814041,
+          "rmse_W_m2": 1.0438605114212491,
+          "bias_W_m2": -0.3084791588309217
+        },
+        "diffusion_opposite_orientation_sensitivity": {
+          "n": 336,
+          "mae_W_m2": 20.268549953708675,
+          "rmse_W_m2": 23.30949874643656,
+          "bias_W_m2": 2.8465903633837093
+        }
+      },
+      "numerical_difference_W_m2": 0.01853842559471275,
+      "numerical_limit_W_m2": 0.5,
+      "numerical_gate_pass": true
+    }
+  ],
+  "scope": "conditional representative-point raw plate signal only; not melt, native interval heat flux, novel physics or environmental superiority"
+}

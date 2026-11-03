@@ -1,9 +1,10 @@
 {
-  "base_commit": "526832d0dfff77bfab3e06c1c515d128f3601091",
+  "base_commit": "2a0828dd2a4c8c42562a277eec8dfb2b991cf035",
   "tests_passed": 20,
   "field_predictions_scored": false,
   "sha256": {
-    "README.md": "2974644df152e06e0479b32b9f1c1a7281d535d5232752aeb576c3b2b345a908",
+    "HELDOUT_RESULTS.md": "b8ef83b31d8a85d7a4d344fb929091b3a05d256def262cdfa413c67501b465d5",
+    "README.md": "f16ba38440e2aa4ec69492aeb340e052aa11f9e38ea3a42008f5a9c4dc630469",
     "VERIFICATION.json": "2b34ddcc5824f013063a128814e3c8d7ba16bba691c18c4aea8c68c87184ed12",
     "coverage/COVERAGE_RESULT.json": "0985c86ca54de8c6e5cc27db06e4307f8892aa7844f2faca59c58e89a1337834",
     "coverage/coverage_audit.py": "06cc096a06bb0bbe93309cfda6c0ec12b50e66e6eba940b6b95425305a3ab797",
@@ -12,7 +13,10 @@
     "decision/DECISION_MATRIX.md": "bf04725766131c5142f440a103425846f97961fe877855ef19928dd0d120956d",
     "decision/PLATE_PRESCORE_AUDIT.json": "d018aabf48ada9e47fffc8f7e7b990eb18a5957bb7e3c083ec503b9ea5673fb8",
     "decision/PLATE_PRESCORE_AUDIT.md": "54eba2d2fbe5db8b8734b6857777c6b646b454e8e23c68a3e8e5fea20abe94d3",
+    "decision/POSTSCORE_AUDIT.json": "00be747e07fc4e3576e33b794fe46ee90dd42b899853425a1790088742448af7",
+    "decision/POSTSCORE_AUDIT.md": "638acc96aaebde92d8fba7a5cfa2dd28de37b3804ca63d22097c1f916754ed61",
     "decision/VERIFICATION.json": "4031c67622c3348125ca2dc86a888bb58833052690cb9df918d671d0cc0ec38b",
+    "decision/audit_plate_scores.py": "c0be57dcaae6b4b09ba84d7440a7056429ecfc46358d9e9a8b5e6d3789de191b",
     "decision/forecast_ambiguity.py": "43bb330ea2ccf9ac8894587dfe42757d0e1cb091f431316391b8372df280a977",
     "decision/test_forecast_ambiguity.py": "ccb4311685d32f9b4999f2538d976e53e742ff4c9f27c236412cef3686b4b97f",
     "extension/FREEZE.json": "a6c00663e131c0b90fda884eda139e91c8955496f16a93697a94a30e108d4398",
@@ -22,7 +26,14 @@
     "extension/dirichlet_slab.py": "0357af5141db7617ac312a1ab9ced42d7e0b8e7572b3012dc97db20b2f4e282e",
     "extension/plate_experiment.py": "13acb809b8cfda63c578dbf0b7dfb0531138732f80d9c78a33ecf30b73aa56b8",
     "extension/plate_experiment_pre_hourly_guard.py": "658b03f3c183882208a1b0ec7c02e0cff7040768394e92596cf70029fddff5e6",
+    "extension/results/frozen_point_diagnostic/PREDICTIONS.json": "926882e0a43c232314c339934ad520749581bf8093164c65a9a523cc06400dc6",
+    "extension/results/frozen_point_diagnostic/RESULTS.json": "4e3fbaab6bb27d0a206bb60fd23226b2d66c53574a5f01ba195c258a173da0b1",
     "extension/test_plate_experiment.py": "a2dc36ea49a44c2f90f54f2d2fc2ea03cf8670397ebad6388cebb650cc11874b",
+    "figures/plate_dynamics.pdf": "49aaa1613692477166f5f545e7610f9faed2d8008e47a8f046bdfbc87e0ddf1c",
+    "figures/plate_dynamics.png": "da51139564e7673004a86da10e2d2519cd6942094a4153860d846ec8c29ce8c2",
+    "figures/plate_errors.pdf": "8d90a7a52ab46c5b83261f99264e73aaa38d10efe4238afabedd772534332ace",
+    "figures/plate_errors.png": "9fb494630b1b2ec21cf4478874b2f30c3eb5596a813549693bf1c652410028ea",
+    "plot_results.py": "347bf700bdc91b1774101617c4f4a7c6646e40dd59d2722e6fe8b69dd0e342c8",
     "reproduction/CONDITIONAL_REPRODUCTION_V2.json": "6b84944687e4181c0a43d1c32bc3579e1256b8e827728198fa91c0ca89094844",
     "reproduction/PROTOCOL_RECORD.json": "51ee836487db610b9d8bdbb91103e0fb68bd70d2ca8df7f0216a5b5b52a036c4",
     "reproduction/PUBLICATION_FILES.json": "f9266147029edcfdbd37244556b826fb2edc7b26258970e661ba9b15c6cb6cef",
@@ -33,5 +44,8 @@
     "reproduction/reproduce.py": "bfe0b3af25923b79de4d04349790143dcff9648a8bfe21c4fbd6bd225527922f",
     "reproduction/test_reproduce.py": "c319510b5fa926860a2f1969b28591648988cff9df5fd054b7f34243faf9fe98",
     "verify_evidence.py": "812e4a6bb48eadef117f8cb13c3229bf319aafad7f41ae36af59c70332f52384"
-  }
+  },
+  "heldout_raw_sensor_scores_computed": true,
+  "native_flux_validation": false,
+  "frozen_superiority_rule_pass": false
 }
