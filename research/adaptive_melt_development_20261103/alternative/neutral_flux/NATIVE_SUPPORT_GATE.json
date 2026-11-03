@@ -1,0 +1,325 @@
+{
+  "scope": "Process features only; no native camera outcomes or target errors read",
+  "definition": "Both bounding native profiles admissible; gap <=1800 s; no interpolation across missing/invalid samples. |Ri|<=.03 is a nominal sensitivity screen, not proof of Monin-Obukhov validity. Measurement-resolved adds both wind/temperature slope signs bounded away from zero under supplied accuracy assumptions.",
+  "source_sha256": {
+    "/private/tmp/glacier-round4-20261103/turbulence/Tower1_NEUTRAL_PROFILE_FEATURES.csv": "edb7821cafd669bcaeb01fc90f41153e5a15c0819c96056415d4fbbbb7c5368f",
+    "/private/tmp/glacier-round4-20261103/turbulence/Tower2_NEUTRAL_PROFILE_FEATURES.csv": "82002e886682b218c1bfa8ebca3cef60c0a5dfb3a474f9e6b163106cd0a7816b"
+  },
+  "sites": {
+    "Tower1": [
+      {
+        "start": "2022-12-02T03:00:00",
+        "end": "2022-12-16T03:00:00",
+        "role": "TRAIN",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 1161600.0,
+            "unsupported_seconds": 48000.0,
+            "supported_time_fraction": 0.9603174603174603,
+            "supported_segments": 1893,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 296400.0,
+            "unsupported_seconds": 913200.0,
+            "supported_time_fraction": 0.24503968253968253,
+            "supported_segments": 494,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 61200.0,
+            "unsupported_seconds": 1148400.0,
+            "supported_time_fraction": 0.050595238095238096,
+            "supported_segments": 102,
+            "complete": false
+          }
+        }
+      },
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T00:00:00",
+        "role": "already_inspected_DEVELOPMENT",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1198800.0,
+            "supported_seconds": 1103400.0,
+            "unsupported_seconds": 95400.0,
+            "supported_time_fraction": 0.9204204204204204,
+            "supported_segments": 1794,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1198800.0,
+            "supported_seconds": 363000.0,
+            "unsupported_seconds": 835800.0,
+            "supported_time_fraction": 0.3028028028028028,
+            "supported_segments": 605,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1198800.0,
+            "supported_seconds": 67200.0,
+            "unsupported_seconds": 1131600.0,
+            "supported_time_fraction": 0.056056056056056056,
+            "supported_segments": 112,
+            "complete": false
+          }
+        }
+      },
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "role": "already_inspected_DEVELOPMENT",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1220400.0,
+            "supported_seconds": 1146600.0,
+            "unsupported_seconds": 73800.0,
+            "supported_time_fraction": 0.93952802359882,
+            "supported_segments": 1853,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1220400.0,
+            "supported_seconds": 391200.0,
+            "unsupported_seconds": 829200.0,
+            "supported_time_fraction": 0.32055063913470994,
+            "supported_segments": 648,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1220400.0,
+            "supported_seconds": 55800.0,
+            "unsupported_seconds": 1164600.0,
+            "supported_time_fraction": 0.045722713864306784,
+            "supported_segments": 93,
+            "complete": false
+          }
+        }
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "role": "already_inspected_DEVELOPMENT",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 1176600.0,
+            "unsupported_seconds": 33000.0,
+            "supported_time_fraction": 0.972718253968254,
+            "supported_segments": 1920,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 432600.0,
+            "unsupported_seconds": 777000.0,
+            "supported_time_fraction": 0.3576388888888889,
+            "supported_segments": 720,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 165600.0,
+            "unsupported_seconds": 1044000.0,
+            "supported_time_fraction": 0.13690476190476192,
+            "supported_segments": 276,
+            "complete": false
+          }
+        }
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "role": "already_inspected_DEVELOPMENT",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 1178400.0,
+            "unsupported_seconds": 31200.0,
+            "supported_time_fraction": 0.9742063492063492,
+            "supported_segments": 1934,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 409200.0,
+            "unsupported_seconds": 800400.0,
+            "supported_time_fraction": 0.3382936507936508,
+            "supported_segments": 682,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 119400.0,
+            "unsupported_seconds": 1090200.0,
+            "supported_time_fraction": 0.09871031746031746,
+            "supported_segments": 199,
+            "complete": false
+          }
+        }
+      }
+    ],
+    "Tower2": [
+      {
+        "start": "2022-12-02T03:00:00",
+        "end": "2022-12-16T03:00:00",
+        "role": "TRAIN",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 1091400.0,
+            "unsupported_seconds": 118200.0,
+            "supported_time_fraction": 0.902281746031746,
+            "supported_segments": 1751,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 395400.0,
+            "unsupported_seconds": 814200.0,
+            "supported_time_fraction": 0.32688492063492064,
+            "supported_segments": 656,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 178200.0,
+            "unsupported_seconds": 1031400.0,
+            "supported_time_fraction": 0.14732142857142858,
+            "supported_segments": 297,
+            "complete": false
+          }
+        }
+      },
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "role": "already_inspected_DEVELOPMENT",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 1026000.0,
+            "unsupported_seconds": 183600.0,
+            "supported_time_fraction": 0.8482142857142857,
+            "supported_segments": 1646,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 433800.0,
+            "unsupported_seconds": 775800.0,
+            "supported_time_fraction": 0.3586309523809524,
+            "supported_segments": 718,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 159000.0,
+            "unsupported_seconds": 1050600.0,
+            "supported_time_fraction": 0.1314484126984127,
+            "supported_segments": 265,
+            "complete": false
+          }
+        }
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "role": "already_inspected_DEVELOPMENT",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 1027800.0,
+            "unsupported_seconds": 181800.0,
+            "supported_time_fraction": 0.8497023809523809,
+            "supported_segments": 1641,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 302400.0,
+            "unsupported_seconds": 907200.0,
+            "supported_time_fraction": 0.25,
+            "supported_segments": 501,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 65400.0,
+            "unsupported_seconds": 1144200.0,
+            "supported_time_fraction": 0.05406746031746032,
+            "supported_segments": 109,
+            "complete": false
+          }
+        }
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "role": "already_inspected_DEVELOPMENT",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 1114800.0,
+            "unsupported_seconds": 94800.0,
+            "supported_time_fraction": 0.9216269841269841,
+            "supported_segments": 1785,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 478800.0,
+            "unsupported_seconds": 730800.0,
+            "supported_time_fraction": 0.3958333333333333,
+            "supported_segments": 794,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 227400.0,
+            "unsupported_seconds": 982200.0,
+            "supported_time_fraction": 0.18799603174603174,
+            "supported_segments": 379,
+            "complete": false
+          }
+        }
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "role": "already_inspected_DEVELOPMENT",
+        "tiers": {
+          "nominal_profile": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 1146600.0,
+            "unsupported_seconds": 63000.0,
+            "supported_time_fraction": 0.9479166666666666,
+            "supported_segments": 1881,
+            "complete": false
+          },
+          "near_neutral": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 477000.0,
+            "unsupported_seconds": 732600.0,
+            "supported_time_fraction": 0.3943452380952381,
+            "supported_segments": 794,
+            "complete": false
+          },
+          "measurement_resolved": {
+            "period_seconds": 1209600.0,
+            "supported_seconds": 128400.0,
+            "unsupported_seconds": 1081200.0,
+            "supported_time_fraction": 0.10615079365079365,
+            "supported_segments": 214,
+            "complete": false
+          }
+        }
+      }
+    ]
+  },
+  "decision": "NO-GO for complete native full-period flux-based melt prediction; no targets scored. A separately labelled reconstructed proxy would require a new missingness and stability specification."
+}

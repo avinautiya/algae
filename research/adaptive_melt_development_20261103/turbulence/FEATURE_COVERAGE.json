@@ -1,0 +1,80 @@
+[
+  {
+    "tower": 1,
+    "maximum_native_gap_seconds": 60600.0,
+    "gaps_greater_than_halfhour": 66,
+    "largest10gaps_seconds": [
+      60600.0,
+      7800.0,
+      6000.0,
+      6000.0,
+      5400.0,
+      5400.0,
+      5400.0,
+      4800.0,
+      4800.0,
+      4200.0
+    ],
+    "refused_rows": [
+      {
+        "label": "2022-12-08T01:50:00",
+        "status": "unsupported_nonpositive_wind_log_slope",
+        "u_slope": "-0.00824428199222077"
+      },
+      {
+        "label": "2022-12-10T21:50:00",
+        "status": "unsupported_nonpositive_wind_log_slope",
+        "u_slope": "-0.029510598188561443"
+      },
+      {
+        "label": "2022-12-12T03:00:00",
+        "status": "unsupported_nonpositive_wind_log_slope",
+        "u_slope": "-0.04277231519666708"
+      },
+      {
+        "label": "2022-12-20T03:00:00",
+        "status": "unsupported_nonpositive_wind_log_slope",
+        "u_slope": "-0.004221018455514647"
+      }
+    ]
+  },
+  {
+    "tower": 2,
+    "maximum_native_gap_seconds": 58200.0,
+    "gaps_greater_than_halfhour": 128,
+    "largest10gaps_seconds": [
+      58200.0,
+      55200.0,
+      10800.0,
+      10800.0,
+      10800.0,
+      9600.0,
+      9000.0,
+      9000.0,
+      9000.0,
+      8400.0
+    ],
+    "refused_rows": [
+      {
+        "label": "2022-12-06T08:50:00",
+        "status": "unsupported_nonpositive_wind_log_slope",
+        "u_slope": "-0.03360275588084399"
+      },
+      {
+        "label": "2022-12-26T17:40:00",
+        "status": "unsupported_nonpositive_wind_log_slope",
+        "u_slope": "-0.04924044946986217"
+      },
+      {
+        "label": "2023-01-09T09:00:00",
+        "status": "unsupported_nonpositive_wind_log_slope",
+        "u_slope": "-0.04775243192626555"
+      },
+      {
+        "label": "2023-01-13T09:20:00",
+        "status": "unsupported_nonpositive_wind_log_slope",
+        "u_slope": "-0.02146974123563783"
+      }
+    ]
+  }
+]

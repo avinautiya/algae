@@ -1,0 +1,5 @@
+# Development-only moving-resistance hypothesis
+
+Before calculating new candidate errors: test the quasi-steady increasing-thermal-resistance law rho_i L dH/dt = k max(T_boundary,0)/H, H=H0+m/rho_i, calibrated using the same local TRAIN mass as all baseline models. Exact dose solution H²=H0²+B*F, with B fixed by TRAIN. Primary boundary=DT1 (measured covered near-surface temperature); secondary air exposure is an empirical control, not a conductive boundary. H0=source nominal debris depth .50m/.45m. Compare both with a fixed-resistance temperature-dose baseline and existing air/calendar; no choice based on unseen targets.
+
+This is classical Stefan/thermal-resistance mathematics, not new physics. Critical physical assumption is that the thermal boundary stays fixed while the ice recedes: debris settlement may invalidate H growth. Data geometry support must be audited. All known Tower1/Tower2 outcomes are development. No Tower3 or later outcome access. All tested variants remain reported, whether favorable or not. The output cannot be called validated until a distinct locked external test.

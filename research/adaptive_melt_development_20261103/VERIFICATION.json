@@ -1,0 +1,56 @@
+{
+  "tests": 36,
+  "passed": true,
+  "runs": [
+    {
+      "component": "algorithm",
+      "tests": 6,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_bad_inputs (test_storage_flux.StorageFluxTests.test_bad_inputs) ... ok\ntest_cooling_storage_releases_energy (test_storage_flux.StorageFluxTests.test_cooling_storage_releases_energy) ... ok\ntest_exact_ledger_and_train_recovery (test_storage_flux.StorageFluxTests.test_exact_ledger_and_train_recovery) ... ok\ntest_negative_energy_flag_without_clipping (test_storage_flux.StorageFluxTests.test_negative_energy_flag_without_clipping) ... ok\ntest_p1_storage_independent_polygon_integral (test_storage_flux.StorageFluxTests.test_p1_storage_independent_polygon_integral) ... ok\ntest_signed_gradient_not_clipped (test_storage_flux.StorageFluxTests.test_signed_gradient_not_clipped) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "component": "alternative",
+      "tests": 7,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_composition_constant_forcing (test_radiation_reservoir.Checks.test_composition_constant_forcing) ... ok\ntest_cooling_then_rewarming_repays_deficit (test_radiation_reservoir.Checks.test_cooling_then_rewarming_repays_deficit) ... ok\ntest_invalid (test_radiation_reservoir.Checks.test_invalid) ... ok\ntest_positive_to_negative_event (test_radiation_reservoir.Checks.test_positive_to_negative_event) ... ok\ntest_radiative_equilibrium (test_radiation_reservoir.Checks.test_radiative_equilibrium) ... ok\ntest_steady_warm_state (test_radiation_reservoir.Checks.test_steady_warm_state) ... ok\ntest_zero_tau_cold_store (test_radiation_reservoir.Checks.test_zero_tau_cold_store) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "component": "alternative/neutral_flux",
+      "tests": 5,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_full (test_source_gate.Gate.test_full) ... ok\ntest_invalid_not_zeroed (test_source_gate.Gate.test_invalid_not_zeroed) ... ok\ntest_no_gap_bridge (test_source_gate.Gate.test_no_gap_bridge) ... ok\ntest_partial_overlap (test_source_gate.Gate.test_partial_overlap) ... ok\ntest_tiers (test_source_gate.Gate.test_tiers) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "component": "geometric",
+      "tests": 4,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_classical_integrated_stefan_energy (test_moving_resistance.MovingResistanceTests.test_classical_integrated_stefan_energy) ... ok\ntest_invalid_inputs (test_moving_resistance.MovingResistanceTests.test_invalid_inputs) ... ok\ntest_known_train_and_uniform_heat_deceleration (test_moving_resistance.MovingResistanceTests.test_known_train_and_uniform_heat_deceleration) ... ok\ntest_large_depth_recovers_fixed_resistance_ratio (test_moving_resistance.MovingResistanceTests.test_large_depth_recovers_fixed_resistance_ratio) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.086s\n\nOK\n"
+    },
+    {
+      "component": "adaptive",
+      "tests": 5,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_arbitrary_signed_sequence_energy_identity (test_adaptive_flux.PhaseLedgerTests.test_arbitrary_signed_sequence_energy_identity) ... ok\ntest_cold_deficit_delays_melt (test_adaptive_flux.PhaseLedgerTests.test_cold_deficit_delays_melt) ... ok\ntest_invalid_input (test_adaptive_flux.PhaseLedgerTests.test_invalid_input) ... ok\ntest_positive_heat_latent_limit (test_adaptive_flux.PhaseLedgerTests.test_positive_heat_latent_limit) ... ok\ntest_prefix_causality (test_adaptive_flux.PhaseLedgerTests.test_prefix_causality) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "component": "novelty",
+      "tests": 4,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_bad_and_empty_refused (test_transfer_certificate.Tests.test_bad_and_empty_refused) ... ok\ntest_exact_training_scalar_scale_cancels (test_transfer_certificate.Tests.test_exact_training_scalar_scale_cancels) ... ok\ntest_minimax_lower_bound_witness (test_transfer_certificate.Tests.test_minimax_lower_bound_witness) ... ok\ntest_passive_memory_counterexample (test_transfer_certificate.Tests.test_passive_memory_counterexample) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "component": "turbulence",
+      "tests": 5,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_constant_T_RH_gives_zero_heat_and_vapor (test_neutral_profile.NeutralProfileTests.test_constant_T_RH_gives_zero_heat_and_vapor) ... ok\ntest_exact_log_profile (test_neutral_profile.NeutralProfileTests.test_exact_log_profile) ... ok\ntest_pressure_and_RH_validation (test_neutral_profile.NeutralProfileTests.test_pressure_and_RH_validation) ... ok\ntest_reject_wind_inversion_as_supported_neutral (test_neutral_profile.NeutralProfileTests.test_reject_wind_inversion_as_supported_neutral) ... ok\ntest_warm_moist_lower_air_flux_up (test_neutral_profile.NeutralProfileTests.test_warm_moist_lower_air_flux_up) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+    }
+  ],
+  "scope": "Component verification, not independent field validation or historical novelty certification"
+}

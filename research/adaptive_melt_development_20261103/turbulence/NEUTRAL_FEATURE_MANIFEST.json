@@ -1,0 +1,58 @@
+[
+  {
+    "tower": 1,
+    "feature_csv": "Tower1_NEUTRAL_PROFILE_FEATURES.csv",
+    "sha256": "edb7821cafd669bcaeb01fc90f41153e5a15c0819c96056415d4fbbbb7c5368f",
+    "rows": 9469,
+    "supported_neutral_proxy_rows": 9465,
+    "refused_rows": 4,
+    "positive_wind_slope_robust_given_accuracy": 2210,
+    "temperature_slope_sign_resolved_given_accuracy": 3669,
+    "rows_abs_gradientRi_le_point03": 3798,
+    "H_range_W_m2": [
+      -90.11046545730191,
+      344.6767946890286
+    ],
+    "LE_range_W_m2": [
+      -152.67008405491595,
+      173.41207593944566
+    ],
+    "source_hashes": {
+      "/private/tmp/glacier-round2-20261103/data/decoded/trh_Tower1.csv": "d0e91f6bc8b620a6e271d9e8fe32d6f26c7994771fde956aa23422539d3807e9",
+      "/private/tmp/glacier-round2-20261103/data/decoded/wind_Tower1.csv": "661a7bf6c93c862ff20465d734c3cfc0c940315199ed1e0d5c7e6f5673d853a1",
+      "/private/tmp/glacier-round4-20261103/turbulence/Tower1_MODEL_FORCING.csv": "4f944520f87bc1712d01b2ea423e24fd0c84ff0ca7580a6a0eb26c8fca4dd414"
+    },
+    "clock_operator": "sourceauthornaivelabelbinding; pressurelinearlyinterpolatedbetweenhourlymodelinputlabels; no target-dependent lag",
+    "no_melt_target_access": true,
+    "actual_turbulent_flux_validated": false,
+    "closure": "allfourheightsOLSagainstlnz; neutral,d=0,constantflux; upwardpositive; nonpositivewindslopeexplicitrefusal"
+  },
+  {
+    "tower": 2,
+    "feature_csv": "Tower2_NEUTRAL_PROFILE_FEATURES.csv",
+    "sha256": "82002e886682b218c1bfa8ebca3cef60c0a5dfb3a474f9e6b163106cd0a7816b",
+    "rows": 8838,
+    "supported_neutral_proxy_rows": 8834,
+    "refused_rows": 4,
+    "positive_wind_slope_robust_given_accuracy": 2854,
+    "temperature_slope_sign_resolved_given_accuracy": 4781,
+    "rows_abs_gradientRi_le_point03": 4325,
+    "H_range_W_m2": [
+      -157.0286049820681,
+      405.34217844398495
+    ],
+    "LE_range_W_m2": [
+      -143.06393911842375,
+      287.7434132918458
+    ],
+    "source_hashes": {
+      "/private/tmp/glacier-round2-20261103/data/decoded/trh_Tower2.csv": "3f0d9224a7407589ed07fddd1789213516a88338ef93aeb7ae0b8fee9fa31548",
+      "/private/tmp/glacier-round2-20261103/data/decoded/wind_Tower2.csv": "fa46f70aaf67557aaf4360c362cf8722c7237ff2697b7332d6e7a95817585da9",
+      "/private/tmp/glacier-round4-20261103/turbulence/Tower2_MODEL_FORCING.csv": "d0406ae49e5021e6841e1b253f5b9387ab848e6bcd2570fcabc6ddf8d962af87"
+    },
+    "clock_operator": "sourceauthornaivelabelbinding; pressurelinearlyinterpolatedbetweenhourlymodelinputlabels; no target-dependent lag",
+    "no_melt_target_access": true,
+    "actual_turbulent_flux_validated": false,
+    "closure": "allfourheightsOLSagainstlnz; neutral,d=0,constantflux; upwardpositive; nonpositivewindslopeexplicitrefusal"
+  }
+]

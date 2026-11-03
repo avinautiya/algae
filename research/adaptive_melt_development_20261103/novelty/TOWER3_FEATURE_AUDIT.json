@@ -1,0 +1,21 @@
+{
+  "scope": "Feature-only audit, no camera values read; not proof of future climate stationarity or melt accuracy.",
+  "source_hashes": {
+    "Tower1": "d0e91f6bc8b620a6e271d9e8fe32d6f26c7994771fde956aa23422539d3807e9",
+    "Tower3": "b9e49e09f7ec79d4b146f2e3d52bbb3ff89828ef2c36634a03a8e7f6b1b72ae6"
+  },
+  "clock": "Native naive local labels; timestamp numbers used only as same-clock differences, not inferred UTC.",
+  "method": "Tower1 TA_3 chosen standing tower, affine fit on chronological first half, second half held out; T1 interpolation <=18h.",
+  "train_n": 793,
+  "test_n": 775,
+  "first": "2022-11-24T13:20:00",
+  "split": "2022-11-30T18:35:00",
+  "last": "2022-12-06T23:50:00",
+  "intercept_C": -2.8452702301612653,
+  "slope": 1.0801231223816383,
+  "blocked_test_MAE_C": 1.0397390997965823,
+  "blocked_test_bias_C": -0.9021712458385753,
+  "blocked_test_max_absolute_C": 6.2063213456538,
+  "blocked_test_RMSE_C": 1.3296147249506478,
+  "future_transfer_assumption": "Same relationship after weather-tower fall is untested; all-model reconstructed forcing must share policy and uncertainty."
+}

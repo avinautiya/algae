@@ -1,0 +1,56 @@
+[
+  {
+    "tower": 1,
+    "source_member": "run_data_Piramide_Tower1_26092023_01-Nov-2022-24-Apr-2023.mat",
+    "source_sha256": "bcf53e15587365838a362993aa88cb0a14f4d73091d19f172e8efdefe082dabc",
+    "output": "Tower1_MODEL_FORCING.csv",
+    "output_sha256": "4f944520f87bc1712d01b2ea423e24fd0c84ff0ca7580a6a0eb26c8fca4dd414",
+    "rows": 4188,
+    "metadata_only_scalars": {
+      "DeltaGMT": -4.0,
+      "Lat": -33.59328,
+      "Lon": -69.89079,
+      "Zbas": 3406.0,
+      "t_bef": 1.5,
+      "t_aft": -0.5
+    },
+    "date_decode": "MATLABdatenum converted with integer-second residual<1e-4; no timezone assigned",
+    "unit_provenance": {
+      "Pre": "hPa: sourceAerodynamic_Resistence multipliesPreby100 toPa",
+      "Ta": "C: samefunctioninputcomment",
+      "ea": "Pa: sourceTCdriverDs=esat-ea commentPa",
+      "Latm": "incominglongwaveW/m2 per sourceforcing/operator; TCdriverN=Latm",
+      "SAB1_SAB2_SAD1_SAD2": "sourceinput solarpartitions, exportedindividually; sum suppliedascomponent-sum not independentlymeasurednetradiation",
+      "Ws": "m/s sourcepaper/profile/native convention; independentlysourceprocessedwind",
+      "Pr": "sourceprecipitationinput; unitsnotverifiedhere, do notconsumeascalibratedwaterflux"
+    },
+    "camera_or_optimized_parameter_values_loaded": false
+  },
+  {
+    "tower": 2,
+    "source_member": "run_data_Piramide_Tower2_26092023_01-Nov-2022-24-Apr-2023.mat",
+    "source_sha256": "fb6e1c953598fa894b9997c20554c2171d508fd4ee900086b7186c13e5b29d67",
+    "output": "Tower2_MODEL_FORCING.csv",
+    "output_sha256": "d0406ae49e5021e6841e1b253f5b9387ab848e6bcd2570fcabc6ddf8d962af87",
+    "rows": 4188,
+    "metadata_only_scalars": {
+      "DeltaGMT": -4.0,
+      "Lat": -33.58488,
+      "Lon": -69.89024,
+      "Zbas": 3487.0,
+      "t_bef": 1.5,
+      "t_aft": -0.5
+    },
+    "date_decode": "MATLABdatenum converted with integer-second residual<1e-4; no timezone assigned",
+    "unit_provenance": {
+      "Pre": "hPa: sourceAerodynamic_Resistence multipliesPreby100 toPa",
+      "Ta": "C: samefunctioninputcomment",
+      "ea": "Pa: sourceTCdriverDs=esat-ea commentPa",
+      "Latm": "incominglongwaveW/m2 per sourceforcing/operator; TCdriverN=Latm",
+      "SAB1_SAB2_SAD1_SAD2": "sourceinput solarpartitions, exportedindividually; sum suppliedascomponent-sum not independentlymeasurednetradiation",
+      "Ws": "m/s sourcepaper/profile/native convention; independentlysourceprocessedwind",
+      "Pr": "sourceprecipitationinput; unitsnotverifiedhere, do notconsumeascalibratedwaterflux"
+    },
+    "camera_or_optimized_parameter_values_loaded": false
+  }
+]
