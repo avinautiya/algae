@@ -1,0 +1,169 @@
+{
+  "config": {
+    "tower": "Tower1",
+    "clock": "same_source_naive_local",
+    "candidate_claim": "conditional_melt_predictor_with_train_only_gain",
+    "camera_outcomes_opened_before_freeze": false,
+    "process_csv": "../data/decoded/debtemp_Tower1.csv",
+    "process_manifest": "../data/decoded/DECODE_VERIFICATION.json",
+    "camera_times_only": "../data/camera/Tower1_NATIVE_TIMES_ONLY.json",
+    "camera_metadata": "../data/camera/SEALED_SOURCE_MANIFEST.json",
+    "start": "2022-12-02T03:00:00",
+    "split": "2022-12-16T03:00:00",
+    "end": "2022-12-30T03:00:00",
+    "cells": 32,
+    "dt_seconds": 300,
+    "sensor_absolute_bound_C": 0.4,
+    "alpha_grid_m2_s": [
+      1e-08,
+      1.268274865104303e-08,
+      1.6085211334553383e-08,
+      2.0400469235504896e-08,
+      2.5873402367724457e-08,
+      3.2814585897715094e-08,
+      4.1617914502878175e-08,
+      5.278295490206024e-08,
+      6.694329500821696e-08,
+      8.490249844618393e-08,
+      1.0767970476385223e-07,
+      1.3656746303384587e-07,
+      1.7320508075688775e-07,
+      2.1967165043232174e-07,
+      2.786040328192925e-07,
+      3.53346492141403e-07,
+      4.481404746557166e-07,
+      5.683653000417573e-07,
+      7.208434242404265e-07,
+      9.142275966398508e-07,
+      1.159491881803038e-06,
+      1.4705544099832825e-06,
+      1.8650671959500858e-06,
+      2.3654178463540555e-06,
+      3.0000000000000013e-06
+    ],
+    "holds": [
+      "left",
+      "right"
+    ],
+    "primary_hold": "left",
+    "primary_geometry": "middle_gap_20mm",
+    "physical_assumptions": [
+      "Observed buried upper thermistor is computational upper boundary; atmospheric surface energy is conditioned on it, not predicted.",
+      "Static geometry is a finite family within independently source-reported \u00b12cm measurement bounds; it is not measured exact geometry.",
+      "Ice base lies below deepest thermistor and is assumed temperate0C; DT5 is not imposed at0C.",
+      "Constant effective sensible diffusivity ignores wet-pore phase heat and changing debris thickness. Negative debris temperatures remain signed, not clipped.",
+      "Any negative predicted basal flux invalidates no-refreezing melt conversion; no interval is removed to improve results.",
+      "One positive heat-to-melt gain will be fitted only to the frozen TRAIN camera interval, interpreted as effective gain rather than measured heat capacity.",
+      "All geometry/reconstruction scenarios retained; only predeclared middle_gap_20mm,left is primary. No professional-model or novelty claim."
+    ],
+    "geometries": [
+      {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      }
+    ],
+    "camera_evaluation": {
+      "approved_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+      "clock_interpretation": "same_source_naive_local_no_UTC_assumption",
+      "camera_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+      "intervals": [
+        {
+          "tower": 1,
+          "start": "2022-12-02T03:00:00",
+          "end": "2022-12-16T03:00:00",
+          "role": "train"
+        },
+        {
+          "tower": 1,
+          "start": "2022-12-16T03:00:00",
+          "end": "2022-12-30T03:00:00",
+          "role": "evaluation"
+        }
+      ]
+    }
+  },
+  "config_sha256": "67ec3d50bb55d384aa78f5a63082366a4e34935083a8f5aa51e23f92edd46266",
+  "source_hashes": {
+    "piramide_experiment.py": "2992a7ff0fc76b89631b384b5bcbd26ea92a2dec6ab287c48962ed60c4a6270f",
+    "temperature_model.py": "23c5047c6625ca7fef6c293b193bb2d088194355e11a2c5f77d148e0a34596ee",
+    "inference.py": "db5741874d42d9c282b423b70edecc1631be155142bf74837c2c0cd72e298143",
+    "thermal_memory/solver.py": "b1427565afe8b544115465b3cd7e23ac37656461e0a7833cc848675d369d8e63",
+    "PROTOCOL_PIRAMIDE.md": "b4d0ad2850fb860dacc9d5053ce474a3e9b96f4ebe4e27fec7b583e2fa8209b6",
+    "PIRAMIDE_EXPERIMENT_SPEC.json": "67ec3d50bb55d384aa78f5a63082366a4e34935083a8f5aa51e23f92edd46266"
+  },
+  "input_hashes": {
+    "process_csv": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+    "process_manifest": "96f042e1695590e906fe9775c536195dfcb450dc142c509d8f7f01c09f67bd6b",
+    "camera_times_only": "cd6b775456f260dcc079633246d1b6ff95c64db0f06fd49699b710f950b22ad7",
+    "camera_metadata": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c"
+  },
+  "process_camera_targets_read": false,
+  "training_fit_run": false,
+  "heldout_predictions_computed": false,
+  "clock": "same-source naive local; no inferred UTC",
+  "endpoint_operator": "exact source timestamp endpoint differences; camera units still independently gated",
+  "camera_evaluation": {
+    "approved_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "clock_interpretation": "same_source_naive_local_no_UTC_assumption",
+    "camera_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+    "intervals": [
+      {
+        "tower": 1,
+        "start": "2022-12-02T03:00:00",
+        "end": "2022-12-16T03:00:00",
+        "role": "train"
+      },
+      {
+        "tower": 1,
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "role": "evaluation"
+      }
+    ]
+  },
+  "independent_model_novelty_claim": false,
+  "professional_superiority_claim": false,
+  "analysis_spec_sha256": "3f67653c9a4399740802c39faca265696ab58bb4ab0e58450868802e7e70f96e",
+  "analysis_source_hashes": {
+    "analysis/calibration.py": "c74ca87081596f57a438ce9196a38a723186b178f24e396f1d267752ed9518b9",
+    "analysis/run_melt_comparison.py": "f9ed0cca3f37ac8ef1ed04ffc9f2c43e91665fc0c4352c3c98a5787a5861ab97",
+    "review/scorer.py": "fa770aa5f437932c15f6d26a0666b14fb72515f88b6065e69f6eaf3800e93dcd",
+    "data/camera/camera_loader.py": "3e317dbd99003c032cb053292ada8c72391f29c67567f50c0a8f497df11a19a5"
+  },
+  "analysis_input_hashes": {
+    "data/decoded/debtemp_Tower1.csv": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+    "data/decoded/trh_Tower1.csv": "d0e91f6bc8b620a6e271d9e8fe32d6f26c7994771fde956aa23422539d3807e9"
+  }
+}

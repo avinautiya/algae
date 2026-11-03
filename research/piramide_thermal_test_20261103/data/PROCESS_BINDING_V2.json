@@ -1,0 +1,111 @@
+{
+  "record": "https://doi.org/10.5281/zenodo.11581073",
+  "archive_size": 62677571,
+  "archive_md5_published": "964e16d7cba6117565384c7ab9b81c69",
+  "whole_archive_downloaded": false,
+  "whole_archive_md5_verified": false,
+  "member_integrity": "Extracted members ZIPCRC32 verified; independent whole-archive MD5 cannot be asserted from selected ranges",
+  "properties": [
+    {
+      "tower": "Tower1",
+      "thickness_m_paper": 0.5,
+      "thermistor_depth_m_paper": [
+        0,
+        0.125,
+        0.25,
+        0.375,
+        0.5
+      ],
+      "moisture_depth_m_paper": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "rock_density_kg_m3_numeric_source": 2684.9333333333334,
+      "rock_specific_heat_J_kg_K_numeric_source": 796.8666666666668,
+      "porosity_0p44": "assumed in calibration code; independent local measurement not established",
+      "native_time_axis_decoded": true,
+      "melt_prediction_ready": false,
+      "depth_and_thickness_error_m_source_final2025": 0.02
+    },
+    {
+      "tower": "Tower2",
+      "thickness_m_paper": 0.45,
+      "thermistor_depth_m_paper": [
+        0,
+        0.11,
+        0.22,
+        0.33,
+        0.44
+      ],
+      "moisture_depth_m_paper": [
+        0.19,
+        0.29,
+        0.39
+      ],
+      "rock_density_kg_m3_numeric_source": 2657.3133333333335,
+      "rock_specific_heat_J_kg_K_numeric_source": 816.1266666666667,
+      "porosity_0p44": "assumed in calibration code; independent local measurement not established",
+      "native_time_axis_decoded": true,
+      "melt_prediction_ready": false,
+      "depth_and_thickness_error_m_source_final2025": 0.02
+    },
+    {
+      "tower": "Tower3",
+      "thickness_m_paper": 0.24,
+      "thermistor_depth_m_paper": [
+        0,
+        0.06,
+        0.12,
+        0.18,
+        0.24
+      ],
+      "moisture_depth_m_paper": [
+        0.12,
+        0.175,
+        0.215
+      ],
+      "rock_density_kg_m3_numeric_source": 2657.753333333333,
+      "rock_specific_heat_J_kg_K_numeric_source": 815.6316666666667,
+      "porosity_0p44": "assumed in calibration code; independent local measurement not established",
+      "native_time_axis_decoded": true,
+      "melt_prediction_ready": false,
+      "depth_and_thickness_error_m_source_final2025": 0.02
+    }
+  ],
+  "files": {
+    "Heat_CN_Normal_Function.m": "fda16c375b7db3fbaaa4ef9950bb380906d8bb2ec5bc0cf6ae933a0647b95e97",
+    "Run_TC_minmax.m": "d7c941cbd8da6d4db1abb024dcec68a0cfd68dd8f87fde6a3285809459baf0cf",
+    "Conductivity_Brock.m": "ad8d874c6e61e8eaf7e22a1ca56771ca7f44ccb19554a9c51e1a28a653b00b24",
+    "RunThermalConductivity_allSites.m": "7ad36ccf8f911007e274be67c2496a38c83f079d27322ca90bd2fdc97d0da00e",
+    "DATA_Piramide.mat": "9d9bb2e5a679307f10cd091b2812e6cd78d1e94ca8d03a15e94381df4e902370",
+    "Icepack.m": "1b715a1dc9a462b8095d5d0423d34d737642467ceb0e80f68722bd129891439a",
+    "Albedo_Ice_Properties.m": "1ba81f96bdb73c300070bdef7ee81c578b111dd8dba0ab878cb9f1ff46a746d3",
+    "Aerodynamic_Resistence.m": "2ddbf360bb91c2368f1b0b16db7c00efea1c848e26ced7d5ad950dda5fe8af46",
+    "fit_3D_data.m": "ec7c51ca3710d91cbc1b5d9737f747d8ee0a2a3ea5391fad380d70a168896867",
+    "fit_2D_data.m": "eb3b02106e3c9cf4827be08cc6db7b35c51351f53123fade86f317ab0925a11b",
+    "LithologyData.mat": "56c792827604045119c463ef88f613f8851990edfa78e51571fbd7acebae978e",
+    "export_piramide_process.m": "99250bc3c5d1b8a2e16e7be2cd9a235a75739c80958707c868d40af1bf945141",
+    "rsquare.m": "43a5069b758c0d417e5092d248f8e76915d596f681eaf7e769ea624516ef7c47",
+    "Soil_Heat_Profile_Normal.m": "ef9f57d4168f7a6a1dd2c624c8a04f19b22c1faef235122dd2623d877f540349",
+    "Runz0.m": "faf22e9ec8e828da42cd1d120d3cb73110389b6484bbd5836410005e9732f45c",
+    "Albedo_Snow_Properties.m": "af103535bb8f7491cf478866c97700ab6ea7cc4b0808a521c38ded4e66a6615f",
+    "MOD_PARAM_calibration.m": "a16c5ff1735192974db153a35aa0f6eb8f0bc61dc6110c8e5e3f1943d5940cb8",
+    "Albedo_OS_Properties.m": "7f40e27de931945640e745d17ba69cc93964f8403d11ccf62cf583295eafeacc",
+    "CRh_NTLS_err.m": "58d157c5ef4f78a46317fb59203019caa707a1e41fbbfb92da450c4a8e068ce6",
+    "costwrapper_all.m": "e5821e4fbb8f41a0bfbac2b7ae74868856a8f816bf91de8c7b73fe6e345d3898",
+    "Albedo_Soil_Properties.m": "b9a7cc04ae099816a59a2dbb62fcfb3471243325222a2ded9f48f48fe431e321",
+    "CRi_NTLS.m": "01d9e16dba08f7fef93ee573bd2d287c183cec44bdad00e089fa4a98afb5736d",
+    "Readme.txt": "fb14abea31294068a872f504e2965c05138fcef5c6742ffb8da3c303207f2bb0",
+    "SM_data.mat": "9c02169cb8773801642bd9fc4eaffdae13b7df7154225897b59c40472eda3f3e",
+    "Calibrate_deb_par_PIR_k_z0.m": "13ca3693ce620b943979eb88499d89e77de07a2514012470580f2206f9966b4f",
+    "linfitxy.m": "c6001e63145b4d321a091463f1b0e6066948cef3926146e83f1b92a1b9ea4a41",
+    "PIRAMIDE_ARCHIVE_INDEX.json": "149537e63f200115c655de7aaa779483ade2e252d5c1587cca9272adb8ad34f1",
+    "PIRAMIDE_RECORD_11581073.json": "f8392edc623cd29bd9a1cfa54f91600a7cd094a39d779fc104f010d2cd8203ae"
+  },
+  "source_final_paper": "https://doi.org/10.1029/2025JF008360",
+  "decode_verification": "decoded/DECODE_VERIFICATION.json",
+  "upper_probe": "Source nominal depth0; covered by about2cm gravel, not true radiometric top",
+  "clock": "Native datetime timezone empty; preserve naive labels and common source-clock assumption",
+  "basal_gate": "DT5 is not verified exact melting interface: native Tower1 max4.384C, Tower2 max2.152C; geometry/ice-phase gate unresolved"
+}

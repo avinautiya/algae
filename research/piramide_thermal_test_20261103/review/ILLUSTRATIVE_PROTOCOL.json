@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "claim_scope": "cross_glacier_generalization",
+  "candidate": {
+    "id": "thermal",
+    "selected_using": "development_only",
+    "all_considered_candidates": [
+      "thermal",
+      "alternative"
+    ],
+    "selection_rule": "development blockMAE plus physical admissibility",
+    "code_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "splits": {
+    "development_groups": [
+      "old"
+    ],
+    "evaluation_groups": [
+      "new1",
+      "new2"
+    ]
+  },
+  "targets_inspected_before_freeze": [
+    "old"
+  ],
+  "prediction_freeze_before_target_scoring": true,
+  "parameters": [
+    {
+      "id": "C",
+      "all_transitive_melt_dependencies": [
+        "old"
+      ],
+      "dependency_audit_complete": true
+    }
+  ],
+  "datasets": [
+    {
+      "version": "v1",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "source_url": "https://example.org/source"
+    }
+  ],
+  "comparison": {
+    "target": "native_ice_ablation_mmwe",
+    "same_spatial_footprint": true,
+    "same_time_support": true,
+    "same_target_quantity": true,
+    "observation_operator_verified": true,
+    "measurement_uncertainty_declared": true,
+    "all_prespecified_baselines_reported": true,
+    "baselines": [
+      "rate",
+      "PDD",
+      "EB"
+    ],
+    "primary_loss": "block_mean_absolute_error",
+    "multiple_comparison_rule": "holm_one_sided_sign",
+    "independence_blocks": {
+      "new1": "glacier1",
+      "new2": "glacier2"
+    },
+    "block_definition": "glacier",
+    "independence_justification_reviewed": true,
+    "minimum_practical_improvement_mmwe": 10.0,
+    "same_information_budget": true,
+    "baseline_sources": {
+      "rate": {
+        "source": "fixed source",
+        "code_or_output_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "native_ice_component_verified": true
+      },
+      "PDD": {
+        "source": "fixed source",
+        "code_or_output_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "native_ice_component_verified": true
+      },
+      "EB": {
+        "source": "fixed source",
+        "code_or_output_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "native_ice_component_verified": true
+      }
+    }
+  },
+  "illustrative_synthetic_template_only": true
+}
