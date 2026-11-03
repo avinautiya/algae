@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "prediction_sha256": "3e2c64f9059416e8b3da77268b5f1b70ccd17ad10072101d9592e674ef81e225",
+  "scorer_sha256": "48f875083b8615e3a94c473afb4954e5b9b12705a62108efa6d3de1de8586045",
+  "models": [
+    "anomaly_exp_air",
+    "air_pdd",
+    "buried_pdd",
+    "gradient_index",
+    "constant_rate",
+    "shifted_ratio_air",
+    "centered_softplus_air",
+    "calendar_exp_air",
+    "moisture_only_exp"
+  ],
+  "secondary_model_ids": [],
+  "source_id": "zenodo.11581073_Tower2_2022",
+  "primary_candidate": "anomaly_exp_air",
+  "baseline_ids": [
+    "air_pdd",
+    "buried_pdd",
+    "gradient_index",
+    "constant_rate",
+    "shifted_ratio_air",
+    "centered_softplus_air",
+    "calendar_exp_air",
+    "moisture_only_exp"
+  ],
+  "target_operator": {
+    "quantity": "native_ice_ablation_mmwe",
+    "clock_basis": "source_local_naive_no_utc_claim",
+    "observation_method": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "ice_density_kg_m3": 917.0,
+    "camera_source_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+    "footprint": "Tower2 marked ablation stake"
+  },
+  "development_fit_sha256": "9043fe3e39a188eacbaf81275daba9c6931b4839a83df17827af06903deb9ebc",
+  "development_parameters": {
+    "anomaly_exp_air": 5.4,
+    "shifted_ratio_air": 0.34,
+    "centered_softplus_air": 7.4,
+    "calendar_exp_air": -0.0030999999999999986,
+    "moisture_only_exp": 13.300000000000004
+  },
+  "development_parameter_source": "Tower1_released_periods_only"
+}

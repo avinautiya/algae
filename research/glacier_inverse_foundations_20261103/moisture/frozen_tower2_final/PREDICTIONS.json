@@ -1,0 +1,265 @@
+{
+  "source_id": "zenodo.11581073_Tower2_2022",
+  "primary_candidate": "anomaly_exp_air",
+  "baseline_ids": [
+    "air_pdd",
+    "buried_pdd",
+    "gradient_index",
+    "constant_rate",
+    "shifted_ratio_air",
+    "centered_softplus_air",
+    "calendar_exp_air",
+    "moisture_only_exp"
+  ],
+  "secondary_model_ids": [],
+  "models": {
+    "anomaly_exp_air": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "predicted_mmwe": 56.92491489305557
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 59.46342606669978
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 74.85528804387826
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 107.41613366074598
+      }
+    ],
+    "air_pdd": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "predicted_mmwe": 55.48130287741186
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 52.88986660040696
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 68.3157440025661
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 97.62052692486033
+      }
+    ],
+    "buried_pdd": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "predicted_mmwe": 62.89920169927285
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 46.26447867334945
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 71.19954814149997
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 93.08633136554236
+      }
+    ],
+    "gradient_index": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "predicted_mmwe": 49.74608260174631
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 39.94913385425556
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 52.03882810892498
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 72.64513171512954
+      }
+    ],
+    "constant_rate": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "predicted_mmwe": 79.35988602814568
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 79.35988602814568
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.35988602814568
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 79.35988602814568
+      }
+    ],
+    "shifted_ratio_air": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "predicted_mmwe": 56.27363962529745
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.427924003716605
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 71.97169152728983
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 103.07642881230495
+      }
+    ],
+    "centered_softplus_air": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "predicted_mmwe": 56.87891263729524
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 59.2344040362794
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 74.67362977455439
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 107.13811463976181
+      }
+    ],
+    "calendar_exp_air": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "predicted_mmwe": 53.23360201026149
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 48.551551731103814
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 60.00860566627117
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 82.14766521392042
+      }
+    ],
+    "moisture_only_exp": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "predicted_mmwe": 84.89078412998437
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 108.60754199722433
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 99.45828764537544
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 100.71065877396731
+      }
+    ]
+  },
+  "target_operator": {
+    "quantity": "native_ice_ablation_mmwe",
+    "clock_basis": "source_local_naive_no_utc_claim",
+    "observation_method": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "ice_density_kg_m3": 917.0,
+    "camera_source_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+    "footprint": "Tower2 marked ablation stake"
+  },
+  "primary_metric": "mean_absolute_period_ablation_error_mmwe",
+  "tie_tolerance_mmwe": 1e-06,
+  "heldout_targets_seen_before_prediction_freeze": false,
+  "development_fit_sha256": "9043fe3e39a188eacbaf81275daba9c6931b4839a83df17827af06903deb9ebc",
+  "development_parameters": {
+    "anomaly_exp_air": 5.4,
+    "shifted_ratio_air": 0.34,
+    "centered_softplus_air": 7.4,
+    "calendar_exp_air": -0.0030999999999999986,
+    "moisture_only_exp": 13.300000000000004
+  },
+  "development_parameter_source": "Tower1_released_periods_only",
+  "local_train_gains": {
+    "anomaly_exp_air": 7.726144402046183e-06,
+    "air_pdd": 7.757627663899022e-06,
+    "buried_pdd": 5.684195474903014e-06,
+    "gradient_index": 9.041248334432239e-06,
+    "constant_rate": 6.560837138570245e-05,
+    "shifted_ratio_air": 7.738700277381495e-06,
+    "centered_softplus_air": 1.1147203737603662e-05,
+    "calendar_exp_air": 7.76916800378652e-06,
+    "moisture_only_exp": 6.558574927746724e-05
+  },
+  "local_train_target": {
+    "observed_ice_ablation_mmwe": 79.35988602814568,
+    "operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "negative_endpoint_difference": false,
+    "negative_released_increments": 0,
+    "missing_released_points": 0,
+    "diagnostic_scope": "Released endpoints only, not complete native chronology",
+    "uncertainty": "Camera precision/reset semantics not independently established; no confidence interval"
+  },
+  "normalized_predictions_sha256": "bcb639f03f273f8edeef7265bd7e5a2cadf2a03d6d8276090ce4da6ca94bbc8a",
+  "no_Tower2_hyperparameter_training": true,
+  "prediction_is_empirical_index": true,
+  "physical_energy_conservation_claim": false,
+  "source_limits": [
+    "Contemporaneous observed moisture/temperature: conditional hindcast, not a future-weather forecast.",
+    "Only constant additive moisture offsets cancel; gain/drift/nonlinear/media errors do not.",
+    "Camera precision unknown; no independent weather/glacier replication from serial same-campaign periods.",
+    "Different SM3 depths and within-accuracy moisture readings remain source limits."
+  ]
+}
