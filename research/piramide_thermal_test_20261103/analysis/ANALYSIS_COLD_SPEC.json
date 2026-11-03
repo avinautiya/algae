@@ -1,0 +1,37 @@
+{
+  "primary_candidate": "forward__middle_gap_20mm__left__proxy",
+  "baseline_ids": [
+    "derivative_OLS__middle_gap_20mm__left__proxy",
+    "constant_rate",
+    "positive_buried_T_DT1",
+    "positive_air_TA3_linear_gapfill18h"
+  ],
+  "primary_metric": "absolute_total_ablation_error_mmwe",
+  "tie_tolerance_mmwe": 1e-06,
+  "latent_heat_J_kg": 333700,
+  "diagnostic_capacity_range_J_m3K": [
+    500000,
+    3500000
+  ],
+  "capacity_range_status": "broad diagnostic only, not a measured or probabilistic source interval; never selects model",
+  "parameter_calibration": "One cumulative TRAIN-camera gain per model. All source geometry/forcing scenarios retained.",
+  "primary_train": [
+    "2022-12-02T03:00:00",
+    "2022-12-16T03:00:00"
+  ],
+  "primary_evaluation": [
+    "2022-12-16T03:00:00",
+    "2022-12-30T03:00:00"
+  ],
+  "limitations": [
+    "One tower and one later calendar block; not independent glacier replication.",
+    "Observed evaluation surface-temperature forcing means a conditional hindcast, not a forecast of future weather.",
+    "Static ice/sensor geometry is assumed within source bounds; wet pore phase heat and geometry evolution are omitted.",
+    "Camera precision/reset semantics are not independently established; no confidence interval is inferred.",
+    "Air-temperature baseline has explicit linear interpolation across gaps up to 18 hours; this reconstructs missing forcing and is not fully native support.",
+    "Derivative OLS comparator is not the source NTLS or full professional energy-balance implementation.",
+    "One empirical training melt gain is not independently measured heat capacity or evidence of new physical laws.",
+    "The fitted predictive gain is empirical bias correction after a conservative raw cold-ice simulation. Scaled forecasts are not the raw solver energy ledger or a measured heat capacity."
+  ],
+  "cold_model": "V2: cold-ice sensible storage and complementary melting; original V1 no-go retained"
+}

@@ -1,0 +1,75 @@
+{
+  "scope": "Training-only environmental features; no camera values, melt predictions, fitting or scores",
+  "training_interval_half_open_source_local": [
+    "2022-12-02T03:00",
+    "2022-12-16T03:00"
+  ],
+  "rows": 672,
+  "porosity_assumed_not_measured": 0.44,
+  "source_files": {
+    "sm_Tower1.csv": "4ed4a22a455b1d075605a7894ce41688cbf343cb9a9f30d653b1ae852bfd6758",
+    "debtemp_Tower1.csv": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34"
+  },
+  "moisture_qc": {
+    "SM1": {
+      "rows": 672,
+      "valid": 672,
+      "negative": 0,
+      "above_assumed_porosity": 0,
+      "mean_valid_samples": 0.20897291666666667,
+      "unclipped_min": 0.2008,
+      "unclipped_max": 0.2153
+    },
+    "SM2": {
+      "rows": 672,
+      "valid": 672,
+      "negative": 0,
+      "above_assumed_porosity": 0,
+      "mean_valid_samples": 0.21237068452380953,
+      "unclipped_min": 0.1397,
+      "unclipped_max": 0.3417
+    },
+    "SM3": {
+      "rows": 672,
+      "valid": 672,
+      "negative": 0,
+      "above_assumed_porosity": 0,
+      "mean_valid_samples": 0.05019255952380952,
+      "unclipped_min": 0.0373,
+      "unclipped_max": 0.0598
+    }
+  },
+  "all_three_valid_rows": 672,
+  "proxy_definition": "Unweighted mean across three probes per complete physically valid row, then mean across TRAIN rows; not a volume-weighted field measurement",
+  "temperature_negative_samples": {
+    "DT1": 37,
+    "DT2": 18,
+    "DT3": 1,
+    "DT4": 11,
+    "DT5": 5
+  },
+  "sensible_C_model": "(1-phi)*rho_rock*cp_rock + theta*rho_water*cp_water + (phi-theta)*rho_air*cp_air",
+  "constants": {
+    "rho_rock_kg_m3": 2684.9333333333334,
+    "cp_rock_J_kg_K": 796.8666666666668,
+    "water_rho_cp_J_m3K": 4180000.0,
+    "air_rho_cp_J_m3K": 1206.0
+  },
+  "finite_sensible_capacity_scenes": {
+    "dry_assumed_pore_air": {
+      "theta": 0.0,
+      "C_J_m3K": 1198669.6103111114
+    },
+    "training_valid_probe_proxy_not_measured_depth_mean": {
+      "theta": 0.15717872023809523,
+      "C_J_m3K": 1855487.1033697424
+    },
+    "fully_water_saturated_conditional": {
+      "theta": 0.44,
+      "C_J_m3K": 3037338.970311112
+    }
+  },
+  "maximum_pore_phase_latent_J_m3_assuming_water_volume_phi": 146960000.0,
+  "phase_warning": "Finite sensible C bounds do not bound apparent heat capacity at freezing. Pore-ice latent storage requires enthalpy/phase state. Cold-glacier-ice admittance alone does not resolve wet-debris freezing.",
+  "melt_validation_ready": false
+}
