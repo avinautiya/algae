@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "current_primary_melt_ready": false,
+  "new_component_source_available": true,
+  "new_to_project_inspection_status": "unverified; do not label blind",
+  "datasets": [
+    {
+      "id": "Swiss_Plaine_Morte",
+      "status": "inspected retrospective; failed superiority; geometry and clearance unresolved"
+    },
+    {
+      "id": "Kennicott_2020_2023",
+      "status": "inspected conditional sub-debris transfer; failed superiority; not four independent glaciers"
+    },
+    {
+      "id": "Changri_Nup_3048780",
+      "archive_md5": "4797deeda5c93a1895f08efb42183086",
+      "member_sha256": {
+        "CN-5470_20152017/CN-5470_20152017_60.csv": "8b3fec4564929253631b3834e537f9c0ddcd630a0e601a9f024e38e7def263e9",
+        "CN-5470_20152017/CN-5470_20152017_VAL_60.csv": "1ae23708f137e3e09ed5a70ae2a18826980a336e20f33198b7387c12abcb1450",
+        "CN-5470_20152017/CN-5470_20152017_VAL_dailysurfaceheight.csv": "40a40b3cc456967ff436988cb81b213f04abc0fd71a7a764e6747270bfab2e45",
+        "CN-5470_20152017/CN-5470_20152017_AWS_Metadata.docx": "6efb5c136aad8241ca367a6537a48bacb07e03ffed5383afa5b1d391e1f3c949"
+      },
+      "hourly_rows": 10813,
+      "daily_rows": 450,
+      "target": "thresholded SR50 surface displacement or separately audited signed interface flux",
+      "excluded_features_under_strict_protocol": [
+        "SNOW",
+        "T_z",
+        "RH_z",
+        "FF_z",
+        "DIST",
+        "HEIGHT",
+        "ABL",
+        "ACC"
+      ],
+      "shared_source_is_not_automatically_leakage": true,
+      "open_gates": [
+        "resolve daily timestamp/averaging convention",
+        "separate snow accumulation/debris settlement from true ice melt",
+        "resolve heat-flux sign and sensor migration before flux scoring",
+        "freeze train/evaluation groups and confirm no prior target-based model tuning"
+      ]
+    }
+  ],
+  "professional_comparison": {
+    "paper": "https://doi.org/10.5194/tc-20-1895-2026",
+    "model_output_record": "https://doi.org/10.5281/zenodo.15754455",
+    "model_outputs_downloaded": false
+  },
+  "performance_results_computed": false
+}

@@ -1,0 +1,68 @@
+{
+  "scope": "synthetic prescribed-flow/path example; no field validation or novelty claim",
+  "toe": {
+    "flow_m3_s": 0.006834176791590543,
+    "upstream_conductance_W_K": 0.0,
+    "target_conductance_W_K": 100.0,
+    "target_area_m2": 0.5,
+    "inlet_superheat_K": 0.5
+  },
+  "bypass_direct": {
+    "flow_m3_s": 0.13316582320840942,
+    "upstream_conductance_W_K": 0.0,
+    "target_conductance_W_K": 200.0,
+    "target_area_m2": 1.0,
+    "inlet_superheat_K": 0.5
+  },
+  "bypass_longer": {
+    "flow_m3_s": 0.13316582320840942,
+    "upstream_conductance_W_K": 1747.9701437447543,
+    "target_conductance_W_K": 200.0,
+    "target_area_m2": 1.0,
+    "inlet_superheat_K": 0.5
+  },
+  "critical_upstream_bypass_conductance_W_K": 873.9850718723771,
+  "no_upstream_paths": {
+    "toe": {
+      "inlet_W": 14409.86176506866,
+      "upstream_melt_W": 0.0,
+      "target_melt_W": 49.91335409704109,
+      "outlet_W": 14359.948410971618,
+      "target_inlet_K": 0.5,
+      "incision_m_s": 3.2593496168213904e-07,
+      "residual_W": 0.0
+    },
+    "bypass": {
+      "inlet_W": 280780.1382349313,
+      "upstream_melt_W": 0.0,
+      "target_melt_W": 99.9821945864831,
+      "outlet_W": 280680.1560403448,
+      "target_inlet_K": 0.5,
+      "incision_m_s": 3.2644262593618576e-07,
+      "residual_W": 0.0
+    },
+    "gap_drift_m_day": 4.3862191549636586e-05
+  },
+  "upstream_bypass_path": {
+    "toe": {
+      "inlet_W": 14409.86176506866,
+      "upstream_melt_W": 0.0,
+      "target_melt_W": 49.91335409704109,
+      "outlet_W": 14359.948410971618,
+      "target_inlet_K": 0.5,
+      "incision_m_s": 3.2593496168213904e-07,
+      "residual_W": 0.0
+    },
+    "bypass": {
+      "inlet_W": 280780.1382349313,
+      "upstream_melt_W": 872.6262542915806,
+      "target_melt_W": 99.67146360491753,
+      "outlet_W": 279807.84051703475,
+      "target_inlet_K": 0.4984460684082265,
+      "incision_m_s": 3.2542808691749827e-07,
+      "residual_W": 5.820766091346741e-11
+    },
+    "gap_drift_m_day": -4.3793979664962304e-05
+  },
+  "interpretation": "Same target hydraulics; route-specific prior heat loss reverses local incision ranking. Heat deposited upstream remains glacier melt and cannot be counted as lost energy."
+}

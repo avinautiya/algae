@@ -1,0 +1,366 @@
+AWS Changri Nup 
+5470 m a.s.l.
+– on glacier (debris-covered
+ surface
+)
+AWS ID: CN-5470
+Reference person: Patrick Wagnon
+Email: patrick.wagnon@univ-grenoble-alpes.fr
+Figure 1 gives a general picture of debris-covered 
+North 
+Changri Nup Glacier with the approximate locatio
+n
+ of the meteorological station CN-5470
+ (
+red star).
+ In annex, Figure
+ is a general map of
+ Everest area with the location
+ of Changri Nup Glacier.
+Figure 1: Picture of Changri Nup Glacier with the approximate location of 
+the AWS at 5470 m asl (
+red star). Everest and Lhotse are visible in the background.
+IACS WG on Debris Covered Glaciers:  
+AWS site and data information
+Basic AWS information
+AWS ID
+CN-5470
+Glacier name
+North Changri Nup
+GLIMS ID/ RGI ID
+G086808E28006N / RGI60-15.03734
+AWS latitude (dd.dddd°)
+27.9925
+AWS longitude (dd.dddd°)
+86.7799
+Elevation (m asl)
+5471
+UTM zone
+UTM North Zone 45, WGS84
+Datalogger system
+Campbell CR1000
+Data period (dd.mm.yyyy – dd.mm.yyyy inclusive)
+28.11.2015 – 20.02.2017
+Time increment of base data
+30 minutes
+Time stamp
+Nepal Time (=UTC +5h45)
+Estimated debris properties @AWS CN-5470
+Property
+Value
+Error
+Notes
+h_d (m)
+0.10
+±0.02
+Measured on 18/11/
+20
+15
+; 2 sites are instrumented with T and Flux sensors
+Site 1: debris thickness: 10 cm
+Site 2: debris thickness: 8 cm
+z0 (m)
+0.05
+ [0.005 – 0.5]
+from Lejeune et al., JOG, 59(241), 2013
+k 
+(W m
+-1
+ K
+-1
+)
+effective thermal conductivity of debris
+From 
+0.7
+ to 0.96
+±0.1
+0.7 comes f
+rom Lejeune et al., JOG, 59(241), 2013
+0.96 from Brock et al., JGR, 115, 2010
+phi (-)
+0.37
+±8
+%
+Measured in the field on 23
+/04/2015
+emissivity
+0.95
+±1%
+Taken from 
+Lejeune et al., JOG, 59(241), 2013
+lithology
+Granitic
+/Metamorphic mix
+Photos
+ of AWS CN-5470
+Figure 
+2
+: Photo of the AWS CN-5470
+ (29/11/2014, 
+Wagnon)
+Figure 3
+: 
+Photo 
+of the AWS CN-5470
+ (10/11/2016, 
+Wagnon)
+ – Note that there was 30 cm of snow below SR50 and nothing below AWS CN-5470
+Figure 
+4
+: 
+Photo of the 
+Geonor T-200B (22/11/2015, 
+Wagnon) recording precipitation at 4993 m a.s.l. and used in this dataset 
+Available validation data
+TYPE
+automatic surface height change measurements at the time interval of the meteorological forcing data at the location of the AWS
+CN-5470_20152017_VAL
+_d
+ailysurfaceheight
+.csv containing:
+YEAR: year (YYYY)
+MONTH: month (MM)
+DAY: day of month (DD)
+DIST (m) – temperature corrected midnight distance to surface
+ABL (m) – calculated daily lowering
+ACC (m) – calculated daily positive height changes
+HEIGHT (m) – daily surface height relative to the first day of the year, calculated from daily sum of ABL and ACC
+Note that this validation dataset is derived from the same SR50 data that provides the inputs of SNOW, T_z, RH_z, FF_z
+Note that ABL and ACC are obtained from the difference between daily values of DIST
+ (=SR50 daily means)
+, using a threshold of 0.005 m (below 0.005 m, ABL=ACC=0)
+ 
+stake measurements of surface height change at the AWS spanning the ablation season, and ideally at some time points within it
+Available upon request: seasonal stake measurements of 13 stakes in the vicinity of CN-5470, with different debris thicknesses
+ from 0 to 41 cm
+Contact: 
+patrick.wagnon@univ-grenoble-alpes.fr
+dGPS measurements of surface height change at the AWS spanning the ablation season, and ideally at some time points within it
+DGPS measurements of the 13 ablation stakes on 27/11/2015 and 10/11/2016
+: available upon request
+high resolution dDSM measurements of surface height change at the AWS spanning the ablation season, and ideally at some time points within it
+DEM available of North Changri Nup glacier, using an eBee UAV, on 22-24 November 2015; and 10 November 2016
+: available upon request
+See Brun et al., TC, 12, 2018
+independent measurements of surface temperature at the AWS location at any available point during the meteorological forcing data
+Only LWOUT measurements
+temperature measurements at known depths within the debris cover at the AWS location at any available point during the meteorological forcing data
+Yes, 
+at half-hourly time step, in 
+specific 
+files named CN-5470_20152017_VAL
+_30(60).csv
+ – see table below
+other
+Heat
+ flux measurements at the ice-debris interface, 
+at half-hourly time step, 
+in 
+specific files named 
+CN-5470_20152017_VAL
+_30(60).csv
+ 
+– see table below
+Station data information
+.
+ 
+Warning: 
+The AWS had a slight tilt (7
+°) toward the East and has been vertical again on 10/11/2016
+; x-y tilt records are available
+Variable
+Instrument
+Measurement / Calculation
+QC procedures
+Data replacement
+Estimated error
+METEOROLOGICAL FORCING DATA (Half-hourly time step)
+ – 
+Files
+ CN-5470_20152017_30(or60).csv
+T (°C)
+Vaisala HMP155A & 
+artificially ventilated
+ during daytime
+, using an Atmos shield (ref 43502)
+1 sample measurement every 1 min, averaged over 30 min
+Gap on 26/7/2015 (7:30-11:00) 
+ replaced by 25/7/2015 (7:30-11:00) Gap on 27/07/2015 (8:30-10:00) 
+ replaced by 25/7/2015 (8:30-10:00) Gap on 28/07/2015 (8:00-9:30) 
+ replaced by 27/07/2015 (8:00) and 25/07/2015 (8:30-9:30)
+±0.1 at 0°C
+RH (%)
+Vaisala HMP155A & artificially ventilated during daytime, using an Atmos shield (ref 43502)
+1 sample measurement every 1 min, averaged over 30 min
+RH>100 = 100
+Gap on 26/7/2015 (7:30-11:00) 
+ replaced by 25/7/2015 (7:30-11:00) Gap on 27/07/2015 (8:30-10:00) 
+ replaced by 25/7/2015 (8:30-10:00) Gap on 28/07/2015 (8:00-9:30) 
+ replaced by 29/07/2015 (8:00-9:30)
+±3% at 20°C
+FF (m/s)
+A100LK-Vector
+1 sample measurement every 1 min, averaged over 30 min
+791 half-hourly missing values replaced using 1
+st
+. regression equation between the two levels of wind speed on AWS CN-5470 (r
+2
+=0.96) and if the lowest level wind speed is missing, using 2
+nd
+. the regression equation  between FF_high at CN-5470 and FF_high at CN-5360 (r
+2
+=0.54)
+0.3 m s
+-1
+DIR (°)
+W200P-Vector
+1 sample every half an hour
+Gap from 20/12/2015 to 01/05/2016 
+ no data replacement
+. Filled with NaN.
+±2°
+P (hPa)
+Young61302V
+1 sample measurement every 1 min, averaged over 30 min
+No gap
+1 hPa
+SWIN
+(W/m2)
+Kipp and Zonen CNR4
+1 sample measurement every 1 min, averaged over 30 min
+SWIN<7 = 0 and if albedo>0.95, SWIN=SWOUT/0.95
+No gap
+, 
+7
+° tilt toward the east on 10/11/2016
+; x-y tilt values are available
+±3% on daily sums
+SWOUT
+(W/m2)
+Kipp and Zonen CNR4
+1 sample measurement every 1 min, averaged over 30 min
+SWOUT<6 = 0
+No gap
+, 
+7° tilt toward the east on 10/11/2016; x-y tilt values are available
+LWIN
+(W/m2)
+Kipp and Zonen CNR4
+1 sample measurement every 1 min, averaged over 30 min
+No gap
+, 
+7° tilt toward the east on 10/11/2016; x-y tilt values are available
+LWOUT
+(W/m2)
+Kipp and Zonen CNR4
+1 sample measurement every 1 min, averaged over 30 min
+No gap
+, 
+7° tilt toward the east on 10/11/2016; x-y tilt values are available
+PP
+Geonor T-200BM
+ at Pyra
+mid meteorological station (4993
+ m a.s.l., 
+27.9592°N; 86.8131°E – 4.9 km SE of CN-5470)
+1 sample every 
+1 hour before 27/04/2016 10:00 and every ½ hour after.
+Corrected for noise
+, evaporation
+ and undercatch using Tair and wind speed – (Lejeune et al., JHM, 8, 2007; Sherpa et al., JOG, 63, 2017)
+No gap
+Before 27/04/2016, PP_1/2hour = (PP_hourly)/2
+Warning: data 
+not from CN-5470 but 
+from Pyramid Geonor raingauge, 4.9 km 
+South-East of
+ CN-5470, at 4993 m a.s.l.
+±15%
+SNOW
+Campbell SR50A sonic ranger
+Daily snowdepth is obtained from daily mean values of SR50 data, when the difference between 2 daily SR50 values are higher than 0.001 m. Then the daily snowdepth is assigned to SNOW for each hour of the day.
+Temperature corrected
+No gap
+Warning: SR50 is located a few meters from AWS CN-5470 so there are situations when there is snow below SR50, but no snow below AWS (see Figure 3, 10/11/2016)
+Many gaps for SR50 half hourly data, but no gaps for daily SR50 data
+± 0.05 m at SR50 site, but potentially different (up to 0.3 m) from the true snowdepth at AWS site
+T_z
+Campbell SR50A sonic ranger
+Obtained from direct measurements in the field on 28/11/2015, 01/05/2016 and 10/11/2016 and adjusted each day using daily snowdepth calculated above
+To agree with observations (no snow below AWS), we set snowdepth=0 on 21/08/2016, 10/09/2016 and 09/11/2016
+No gap
+± 0.2 m given that the surface can be variable in time and that SR50 data are obtained a few meters from AWS
+RH_z
+FF_z
+VALIDATION DATA: Two sites, Site 1 (debris thickness = 10 cm) and Site 2 (debris thickness = 8 cm)
+(Half-hourly time step)
+ -  
+Files
+ CN-5470_20152017_
+val_
+30(or60).csv
+T_debris
+°C
+Site 1
+TCA PT100
+1 sample measurement every 1 min, averaged over 30 min
+0.1°C
+-10 cm
+Ice-debris interface
+No gap
+-5 cm
+No gap
+-1 cm
+No gap
+; 
+sensor 
+exposed to direct solar radiation on 01/05/2016; replaced below a flat rock
+T_debris
+°C
+Site 2
+TCA PT100
+1 sample measurement every 1 min, averaged over 30 min
+0.1°C
+-8 cm
+Ice-debris interface
+No gap
+-1 cm
+Sensor e
+xposed to direct solar radiation on 01/05/2016; replaced below a flat rock
+No data after 03/02/2017 
+ replaced with NaN
+Heat flux
+(W/m2)
+Site 1
+Hukseflux HFP01
+1 sample measurement every 1 min, averaged over 30 min
+Ice-debris interface (i.e. -10 cm)
+29 of the 30 minute values are missing in this record, and replaced with NaN.
+±3%
+Heat flux
+(W/m2)
+Site 2
+Hukseflux HFP01
+1 sample measurement every 1 min, averaged over 30 min
+Ice-debris interface (i.e. -8 cm)
+63 of the 30 minute values are missing in this record, and replaced with NaN.
+±3%
+Note
+Warning: the sensors (thermometers and heat flux meters) may have migrated inside the debris layer during the course of the ablation season and therefore their initial position from 28/11/2015 may have changed along the ablation season.
+Dist (m)
+Campbell SR50A
+1 sample measurement every 1 min, averaged over 30 min
+If quality number>210 
+ SR50 values ex
+c
+luded
+4453 of the 30 minute values are missing in this record, and replaced with NaN.
+±1cm
+Annex
+: Map of Eve
+rest area with the location of Changri Nup and AWS CN-5470 (green dot)
+ and Pyramid
+Changri Nup
+Changri
+ 
+Nup

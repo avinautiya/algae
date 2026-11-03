@@ -1,0 +1,15 @@
+{
+  "required_gap_repair_m": 0.061076080507625974,
+  "maximum_repair_m": 0.0002006399988982429,
+  "repair_rate_upper_m_s": 1.1058200997478114e-10,
+  "ruled_out_within_window": true,
+  "minimum_extra_toe_ice_flux_to_avoid_this_exclusion_W_m2": 10.276018611183929,
+  "evidence": {
+    "bound_sources": [
+      "synthetic verification only"
+    ],
+    "equal_rating_controls_verified": true,
+    "bounds_hold_over_window": true
+  },
+  "interpretation": "Necessary condition only. Passing means not excluded; it does not predict recovery, sustained access or field skill."
+}
