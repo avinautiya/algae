@@ -1,0 +1,804 @@
+{
+  "source_id": "zenodo.11581073_Tower1_2022",
+  "models": {
+    "forward__small_gap_5mm__left__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.38418338365653
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.91664630861308
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.61700214085528
+      }
+    ],
+    "forward__small_gap_5mm__left__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.463988542697344
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.92974083099675
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.61728642864117
+      }
+    ],
+    "forward__small_gap_5mm__left__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.54553862908763
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.94324539882481
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.61757894999838
+      }
+    ],
+    "derivative_OLS__small_gap_5mm__left__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.884708444394704
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.96439388665385
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.08629619881765
+      }
+    ],
+    "derivative_OLS__small_gap_5mm__left__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.88897746675886
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.9646645197313
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.08630665990448
+      }
+    ],
+    "derivative_OLS__small_gap_5mm__left__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.89409338482985
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.96498885830569
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.08631919692981
+      }
+    ],
+    "forward__small_gap_5mm__right__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.184186319963636
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.85760178059647
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.52709389599383
+      }
+    ],
+    "forward__small_gap_5mm__right__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.263841651042675
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.87065281510002
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.52737644601673
+      }
+    ],
+    "forward__small_gap_5mm__right__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.345238846633265
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.88411264291602
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.52766717928087
+      }
+    ],
+    "derivative_OLS__small_gap_5mm__right__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.71541729777133
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.8416923487311
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 110.91936479500563
+      }
+    ],
+    "derivative_OLS__small_gap_5mm__right__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.719678898599355
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.84196111973502
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 110.91937518416914
+      }
+    ],
+    "derivative_OLS__small_gap_5mm__right__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.7247859229224
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.84228322671845
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 110.9193876349984
+      }
+    ],
+    "forward__middle_gap_20mm__left__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.518485058376356
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.97912503417265
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.72003109723784
+      }
+    ],
+    "forward__middle_gap_20mm__left__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.59034748571961
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.99027226769091
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.72028391269171
+      }
+    ],
+    "forward__middle_gap_20mm__left__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.66389846297981
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.00177200245501
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.7205441929348
+      }
+    ],
+    "derivative_OLS__middle_gap_20mm__left__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 57.15017479794069
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.22513896071864
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.43591214221655
+      }
+    ],
+    "derivative_OLS__middle_gap_20mm__left__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 57.153015464791096
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.22533141392117
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.43591958129353
+      }
+    ],
+    "derivative_OLS__middle_gap_20mm__left__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 57.156418714081795
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.22556199340801
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.43592849410166
+      }
+    ],
+    "forward__middle_gap_20mm__right__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.31100028104602
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.91334232507712
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.62073901400608
+      }
+    ],
+    "forward__middle_gap_20mm__right__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.38272163126567
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.9244502316836
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.62099026027931
+      }
+    ],
+    "forward__middle_gap_20mm__right__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.45612813330645
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.93590948947538
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.62124892500835
+      }
+    ],
+    "derivative_OLS__middle_gap_20mm__right__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.99209898372939
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.10393440924392
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.27169249330254
+      }
+    ],
+    "derivative_OLS__middle_gap_20mm__right__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.994934887180584
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.10412554588187
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.27169988152761
+      }
+    ],
+    "derivative_OLS__middle_gap_20mm__right__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 56.99833242975926
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.10435454798363
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.27170873340975
+      }
+    ],
+    "forward__large_gap_40mm__left__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.534623047890186
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.00250360550031
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.75250926880493
+      }
+    ],
+    "forward__large_gap_40mm__left__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.60650674719463
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.01365413870556
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.75276215909457
+      }
+    ],
+    "forward__large_gap_40mm__left__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.68007949624286
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.02515727750044
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.7530225163831
+      }
+    ],
+    "derivative_OLS__large_gap_40mm__left__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 57.221744799354745
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.31887571676201
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.56539937522358
+      }
+    ],
+    "derivative_OLS__large_gap_40mm__left__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 57.22450464582729
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.31906348601862
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.56540663324537
+      }
+    ],
+    "derivative_OLS__large_gap_40mm__left__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 57.227812917389414
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.31928857940622
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.56541533399164
+      }
+    ],
+    "forward__large_gap_40mm__right__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.32705459302241
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.9366690804348
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.65314286468286
+      }
+    ],
+    "forward__large_gap_40mm__right__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.398797144047165
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.94778027053444
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.65339418522441
+      }
+    ],
+    "forward__large_gap_40mm__right__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 54.47222534502331
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 78.95924291567867
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.65365292641465
+      }
+    ],
+    "derivative_OLS__large_gap_40mm__right__dry": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 57.06411954460193
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.19751743498172
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.40100263217514
+      }
+    ],
+    "derivative_OLS__large_gap_40mm__right__proxy": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 57.066874769538316
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.19770391987583
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.40100984058894
+      }
+    ],
+    "derivative_OLS__large_gap_40mm__right__saturated": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 57.070177501249404
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 80.19792747359956
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 111.40101848186623
+      }
+    ],
+    "constant_rate": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 85.96237416315846
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 85.20164518826326
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 85.20164518826326
+      }
+    ],
+    "positive_buried_T_DT1": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 55.43363359599938
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 79.72894966731752
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 109.74134427970523
+      }
+    ],
+    "positive_air_TA3_linear_gapfill18h": [
+      {
+        "start": "2022-12-30T00:00:00",
+        "end": "2023-01-13T03:00:00",
+        "predicted_mmwe": 59.00385792423747
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "predicted_mmwe": 74.1755937489055
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "predicted_mmwe": 105.8998530598193
+      }
+    ]
+  },
+  "primary_candidate": "forward__middle_gap_20mm__left__proxy",
+  "baseline_ids": [
+    "derivative_OLS__middle_gap_20mm__left__proxy",
+    "constant_rate",
+    "positive_buried_T_DT1",
+    "positive_air_TA3_linear_gapfill18h"
+  ],
+  "secondary_model_ids": [
+    "derivative_OLS__large_gap_40mm__left__dry",
+    "derivative_OLS__large_gap_40mm__left__proxy",
+    "derivative_OLS__large_gap_40mm__left__saturated",
+    "derivative_OLS__large_gap_40mm__right__dry",
+    "derivative_OLS__large_gap_40mm__right__proxy",
+    "derivative_OLS__large_gap_40mm__right__saturated",
+    "derivative_OLS__middle_gap_20mm__left__dry",
+    "derivative_OLS__middle_gap_20mm__left__saturated",
+    "derivative_OLS__middle_gap_20mm__right__dry",
+    "derivative_OLS__middle_gap_20mm__right__proxy",
+    "derivative_OLS__middle_gap_20mm__right__saturated",
+    "derivative_OLS__small_gap_5mm__left__dry",
+    "derivative_OLS__small_gap_5mm__left__proxy",
+    "derivative_OLS__small_gap_5mm__left__saturated",
+    "derivative_OLS__small_gap_5mm__right__dry",
+    "derivative_OLS__small_gap_5mm__right__proxy",
+    "derivative_OLS__small_gap_5mm__right__saturated",
+    "forward__large_gap_40mm__left__dry",
+    "forward__large_gap_40mm__left__proxy",
+    "forward__large_gap_40mm__left__saturated",
+    "forward__large_gap_40mm__right__dry",
+    "forward__large_gap_40mm__right__proxy",
+    "forward__large_gap_40mm__right__saturated",
+    "forward__middle_gap_20mm__left__dry",
+    "forward__middle_gap_20mm__left__saturated",
+    "forward__middle_gap_20mm__right__dry",
+    "forward__middle_gap_20mm__right__proxy",
+    "forward__middle_gap_20mm__right__saturated",
+    "forward__small_gap_5mm__left__dry",
+    "forward__small_gap_5mm__left__proxy",
+    "forward__small_gap_5mm__left__saturated",
+    "forward__small_gap_5mm__right__dry",
+    "forward__small_gap_5mm__right__proxy",
+    "forward__small_gap_5mm__right__saturated"
+  ],
+  "target_operator": {
+    "quantity": "native_ice_ablation_mmwe",
+    "clock_basis": "source_local_naive_no_utc_claim",
+    "observation_method": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "ice_density_kg_m3": 917.0,
+    "camera_source_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+    "footprint": "Tower1 marked ablation stake"
+  },
+  "primary_metric": "mean_absolute_period_ablation_error_mmwe",
+  "tie_tolerance_mmwe": 1e-06,
+  "heldout_targets_seen_before_prediction_freeze": false,
+  "source_fixed_gain_predictions_sha256": "6905bb6f4b18488dd5d98d10a77d41b998b42176dede26ae7fcd56a92fe0edb2",
+  "normalized_predictions_sha256": "156c3179b3b7d1d194caafc3e1fdb93862e4f80252e4c429d3ce91880e14d705",
+  "fixed_gain_source_period": {
+    "observed_ice_ablation_mmwe": 85.20164518826326,
+    "operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "negative_endpoint_difference": false,
+    "negative_released_increments": 0,
+    "missing_released_points": 0,
+    "diagnostic_scope": "Released endpoints only, not complete native chronology",
+    "uncertainty": "Camera precision/reset semantics not independently established; no confidence interval"
+  },
+  "refitted_parameters": false,
+  "conditional_hindcast": true,
+  "feature_doses": {
+    "positive_buried_T_DT1": [
+      {
+        "dose": 9009045.000000002,
+        "positive_temperature_seconds": true,
+        "max_source_gap_s": 1800.0,
+        "duration_in_source_intervals_over_10min_s": 1220400.0,
+        "reconstruction": "left",
+        "source_sha256": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+        "column": "DT1"
+      },
+      {
+        "dose": 12957507.000000028,
+        "positive_temperature_seconds": true,
+        "max_source_gap_s": 1800.0,
+        "duration_in_source_intervals_over_10min_s": 1209600.0,
+        "reconstruction": "left",
+        "source_sha256": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+        "column": "DT1"
+      },
+      {
+        "dose": 17835105.60000001,
+        "positive_temperature_seconds": true,
+        "max_source_gap_s": 1800.0,
+        "duration_in_source_intervals_over_10min_s": 1209600.0,
+        "reconstruction": "left",
+        "source_sha256": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+        "column": "DT1"
+      }
+    ],
+    "positive_air_TA3_linear_gapfill18h": [
+      {
+        "dose": 7457444.600774412,
+        "positive_temperature_seconds": true,
+        "max_source_gap_s": 7800.0,
+        "duration_in_source_intervals_over_10min_s": 133800.0,
+        "reconstruction": "linear",
+        "source_sha256": "d0e91f6bc8b620a6e271d9e8fe32d6f26c7994771fde956aa23422539d3807e9",
+        "column": "TA_3"
+      },
+      {
+        "dose": 9374986.663114201,
+        "positive_temperature_seconds": true,
+        "max_source_gap_s": 4200.0,
+        "duration_in_source_intervals_over_10min_s": 74400.0,
+        "reconstruction": "linear",
+        "source_sha256": "d0e91f6bc8b620a6e271d9e8fe32d6f26c7994771fde956aa23422539d3807e9",
+        "column": "TA_3"
+      },
+      {
+        "dose": 13384587.299999997,
+        "positive_temperature_seconds": true,
+        "max_source_gap_s": 4800.0,
+        "duration_in_source_intervals_over_10min_s": 63000.0,
+        "reconstruction": "linear",
+        "source_sha256": "d0e91f6bc8b620a6e271d9e8fe32d6f26c7994771fde956aa23422539d3807e9",
+        "column": "TA_3"
+      }
+    ]
+  },
+  "prior_V3_result_sha256": "c735749a0abca928b93da76d0530aa3e5986a099a66a303b4d1d161198534ff5",
+  "first_V3_air_baseline_loss_preserved": true,
+  "unsupported_fourth_period": [
+    {
+      "start": "2023-02-10T03:00:00",
+      "end": "2023-02-24T03:00:00",
+      "reason": "source coverage failed before outcome access"
+    }
+  ]
+}

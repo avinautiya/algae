@@ -1,0 +1,2485 @@
+{
+  "preexecution_commit": "a37c1df648d30f2de89d4c9baf30d7e62d1cfaaf",
+  "freeze_sha256": "0e22f2eb59722d7ac78c09fea9b0897cfa95d55d107bafa9de886885c6355d79",
+  "continuous_model_initialization_local": "2022-12-02T03:00:00",
+  "continuous_model_end_local": "2023-02-10T03:00:00",
+  "future_intervals": [
+    {
+      "start": "2022-12-30T00:00:00",
+      "end": "2023-01-13T03:00:00"
+    },
+    {
+      "start": "2023-01-13T03:00:00",
+      "end": "2023-01-27T03:00:00"
+    },
+    {
+      "start": "2023-01-27T03:00:00",
+      "end": "2023-02-10T03:00:00"
+    }
+  ],
+  "excluded_intervals": [
+    {
+      "start": "2023-02-10T03:00:00",
+      "end": "2023-02-24T03:00:00",
+      "reason": "source coverage failed before outcome access"
+    }
+  ],
+  "results": [
+    {
+      "model_id": "forward__small_gap_5mm__left__dry",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 2.835354488112164,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 155.92355785427478,
+          "raw_latent_heat_J_m2": 52031691.25597149,
+          "normalized_basal_heat_K_m": 43.40786719575447,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 226.2599803983495,
+          "raw_latent_heat_J_m2": 75502955.45892923,
+          "normalized_basal_heat_K_m": 62.98896277126158,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 314.2802173666221,
+          "raw_latent_heat_J_m2": 104875308.53524178,
+          "normalized_basal_heat_K_m": 87.49309036709597,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 68.00546535931566,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 48.97205628356349,
+      "cumulative_raw_melt_mmwe": 1116.653747476692,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.2177249154598604,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1430028.6675400117,
+        "final_sensible_storage_J_m2": 2385765.502114313,
+        "surface_heat_J_m2": 373471189.12844145,
+        "deep_heat_out_J_m2": -111903.23911177329,
+        "latent_heat_J_m2": 372627355.5329721,
+        "energy_residual_J_m2": -6.8467052187770605e-06,
+        "relative_energy_residual": -1.833261953821662e-14,
+        "max_step_energy_residual_J_m2": 2.7399735813560255e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.579564014642478,
+      "cold_interface_substeps": 1018,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__small_gap_5mm__left__proxy",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 4.389002307990581,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 241.71689798637465,
+          "raw_latent_heat_J_m2": 80660928.85805322,
+          "normalized_basal_heat_K_m": 43.47156534344283,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 350.2984746991164,
+          "raw_latent_heat_J_m2": 116894601.00709514,
+          "normalized_basal_heat_K_m": 62.99941443667452,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 486.4930231917023,
+          "raw_latent_heat_J_m2": 162342721.83907107,
+          "normalized_basal_heat_K_m": 87.49331727730207,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 68.00546535931288,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 48.992715647791606,
+      "cumulative_raw_melt_mmwe": 1729.0586385394683,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.885560129268777,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2213620.606749867,
+        "final_sensible_storage_J_m2": 3693092.475552205,
+        "surface_heat_J_m2": 578329963.5204092,
+        "deep_heat_out_J_m2": -136376.02909128595,
+        "latent_heat_J_m2": 576986867.6806206,
+        "energy_residual_J_m2": -7.765222107991576e-05,
+        "relative_energy_residual": -1.3426975252541177e-13,
+        "max_step_energy_residual_J_m2": 1.4133710757313622e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.934053887786142,
+      "cold_interface_substeps": 1013,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__small_gap_5mm__left__saturated",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 7.184575805800555,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 396.2708499802614,
+          "raw_latent_heat_J_m2": 132235582.63841324,
+          "normalized_basal_heat_K_m": 43.53665624119275,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 573.5190767317927,
+          "raw_latent_heat_J_m2": 191383315.9053992,
+          "normalized_basal_heat_K_m": 63.01019338839089,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 796.3667107346126,
+          "raw_latent_heat_J_m2": 265747571.37214023,
+          "normalized_basal_heat_K_m": 87.49355075930822,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 68.00546535931308,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 49.01402368985169,
+      "cumulative_raw_melt_mmwe": 2831.2685774374445,
+      "cumulative_raw_ice_equivalent_retreat_m": 3.0875338903352723,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3623585.484455564,
+        "final_sensible_storage_J_m2": 6045463.494415093,
+        "surface_heat_J_m2": 947054744.539569,
+        "deep_heat_out_J_m2": -161457.76138152168,
+        "latent_heat_J_m2": 944794324.2908752,
+        "energy_residual_J_m2": -0.00011576697579585016,
+        "relative_energy_residual": -1.2223894813190843e-13,
+        "max_step_energy_residual_J_m2": 2.1384458592788036e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -2.300721494755967,
+      "cold_interface_substeps": 1012,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__small_gap_5mm__left__dry",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 6.63834142597315e-07,
+      "debris_conductivity_W_mK": 0.7957178130183343,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 44.60024768639924,
+          "raw_latent_heat_J_m2": 14883102.652951427,
+          "normalized_basal_heat_K_m": 12.416351031948293,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 62.69579067850491,
+          "raw_latent_heat_J_m2": 20921585.34941709,
+          "normalized_basal_heat_K_m": 17.454004981395123,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 87.09680440526512,
+          "raw_latent_heat_J_m2": 29064203.63003697,
+          "normalized_basal_heat_K_m": 24.247051380983482,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 18.597151397744877,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.769252706841986,
+      "cumulative_raw_melt_mmwe": 310.6548295703403,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.3387729875358128,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1430028.6675400117,
+        "final_sensible_storage_J_m2": 3612744.8454245054,
+        "surface_heat_J_m2": 105844751.24803644,
+        "deep_heat_out_J_m2": -3481.5574777314428,
+        "latent_heat_J_m2": 103665516.62762257,
+        "energy_residual_J_m2": -7.111764261935605e-06,
+        "relative_energy_residual": -6.719052364977367e-14,
+        "max_step_energy_residual_J_m2": 1.3346930878219143e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.1465187312819602,
+      "cold_interface_substeps": 131,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__small_gap_5mm__left__proxy",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 6.63834142597315e-07,
+      "debris_conductivity_W_mK": 1.2317356903658285,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 69.04437569725768,
+          "raw_latent_heat_J_m2": 23040108.170174886,
+          "normalized_basal_heat_K_m": 12.4172828408949,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 97.05061657737777,
+          "raw_latent_heat_J_m2": 32385790.75187096,
+          "normalized_basal_heat_K_m": 17.454064053075477,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 134.8219819266194,
+          "raw_latent_heat_J_m2": 44990095.36891289,
+          "normalized_basal_heat_K_m": 24.247053664348606,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 18.597151397745325,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.769252706842334,
+      "cumulative_raw_melt_mmwe": 480.8853451887163,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.5244114996605412,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2213620.606749867,
+        "final_sensible_storage_J_m2": 5592368.255049667,
+        "surface_heat_J_m2": 163845616.80958784,
+        "deep_heat_out_J_m2": -4570.528185335006,
+        "latent_heat_J_m2": 160471439.68947464,
+        "energy_residual_J_m2": 1.2842756405007094e-06,
+        "relative_energy_residual": 7.838327722817403e-15,
+        "max_step_energy_residual_J_m2": 1.3882725012973052e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.19234623319025618,
+      "cold_interface_substeps": 131,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__small_gap_5mm__left__saturated",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 6.63834142597315e-07,
+      "debris_conductivity_W_mK": 2.0162893111338884,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 113.03233072008254,
+          "raw_latent_heat_J_m2": 37718888.76129154,
+          "normalized_basal_heat_K_m": 12.418399503637893,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 158.86761751387303,
+          "raw_latent_heat_J_m2": 53014123.96437943,
+          "normalized_basal_heat_K_m": 17.454134847171584,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 220.69682146111893,
+          "raw_latent_heat_J_m2": 73646529.32157539,
+          "normalized_basal_heat_K_m": 24.24705640083097,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 18.597151397743893,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.769252706841224,
+      "cumulative_raw_melt_mmwe": 787.1959321634411,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.8584470361651484,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3623585.484455564,
+        "final_sensible_storage_J_m2": 9154425.944110673,
+        "surface_heat_J_m2": 268212247.48455375,
+        "deep_heat_out_J_m2": -5875.538096915667,
+        "latent_heat_J_m2": 262687282.56294027,
+        "energy_residual_J_m2": -5.5294220146606676e-05,
+        "relative_energy_residual": -2.0615844602618697e-13,
+        "max_step_energy_residual_J_m2": 7.181413942680681e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.24726463137414206,
+      "cold_interface_substeps": 131,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__small_gap_5mm__right__dry",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 2.835354488112164,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 155.5507517860651,
+          "raw_latent_heat_J_m2": 51907285.87100992,
+          "normalized_basal_heat_K_m": 43.304080978191756,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 226.3826417653245,
+          "raw_latent_heat_J_m2": 75543887.55708879,
+          "normalized_basal_heat_K_m": 63.023110711450826,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 314.4279346719221,
+          "raw_latent_heat_J_m2": 104924601.80002041,
+          "normalized_basal_heat_K_m": 87.53421367943709,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 68.09327948417163,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 49.00689796591284,
+      "cumulative_raw_melt_mmwe": 1116.9919068012402,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.2180936824441007,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1430028.6675400117,
+        "final_sensible_storage_J_m2": 2239734.298255323,
+        "surface_heat_J_m2": 373438001.440788,
+        "deep_heat_out_J_m2": -111903.48950805324,
+        "latent_heat_J_m2": 372740199.2995739,
+        "energy_residual_J_m2": -6.815374945290387e-06,
+        "relative_energy_residual": -1.825035191650421e-14,
+        "max_step_energy_residual_J_m2": 2.7399735813560255e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.579564014642478,
+      "cold_interface_substeps": 1018,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__small_gap_5mm__right__proxy",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 4.389002307990581,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 241.13960235725008,
+          "raw_latent_heat_J_m2": 80468285.30661435,
+          "normalized_basal_heat_K_m": 43.36774163532381,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 350.48823081482846,
+          "raw_latent_heat_J_m2": 116957922.62290825,
+          "normalized_basal_heat_K_m": 63.03354111731709,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 486.72167689988487,
+          "raw_latent_heat_J_m2": 162419023.5814916,
+          "normalized_basal_heat_K_m": 87.53443949382515,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 68.09327948416885,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 49.02761722013202,
+      "cumulative_raw_melt_mmwe": 1729.5820943390597,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.886130964382835,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2213620.606749867,
+        "final_sensible_storage_J_m2": 3467042.52054132,
+        "surface_heat_J_m2": 578278590.4598912,
+        "deep_heat_out_J_m2": -136376.3349221399,
+        "latent_heat_J_m2": 577161544.8809443,
+        "energy_residual_J_m2": -7.7669887105003e-05,
+        "relative_energy_residual": -1.3431223010216233e-13,
+        "max_step_energy_residual_J_m2": 1.4133710757313622e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.934053887786142,
+      "cold_interface_substeps": 1013,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__small_gap_5mm__right__saturated",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 7.184575805800555,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 395.3254989503887,
+          "raw_latent_heat_J_m2": 131920118.99974471,
+          "normalized_basal_heat_K_m": 43.43279439312375,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 573.8294991733462,
+          "raw_latent_heat_J_m2": 191486903.87414563,
+          "normalized_basal_heat_K_m": 63.04429823139951,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 796.7409950798981,
+          "raw_latent_heat_J_m2": 265872470.058162,
+          "normalized_basal_heat_K_m": 87.53467184827545,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 68.09327948416905,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 49.048986412678296,
+      "cumulative_raw_melt_mmwe": 2832.1254486397756,
+      "cumulative_raw_ice_equivalent_retreat_m": 3.088468319127345,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3623585.484455564,
+        "final_sensible_storage_J_m2": 5675430.823497482,
+        "surface_heat_J_m2": 946970649.4259721,
+        "deep_heat_out_J_m2": -161458.12427881538,
+        "latent_heat_J_m2": 945080262.2110931,
+        "energy_residual_J_m2": -0.00011590300709940493,
+        "relative_energy_residual": -1.2239345239439277e-13,
+        "max_step_energy_residual_J_m2": 2.1384458592788036e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -2.300721494755967,
+      "cold_interface_substeps": 1012,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__small_gap_5mm__right__dry",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 6.63834142597315e-07,
+      "debris_conductivity_W_mK": 0.7957178130183343,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 44.55915389074377,
+          "raw_latent_heat_J_m2": 14869389.653341196,
+          "normalized_basal_heat_K_m": 12.404910849021931,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 62.72859172640399,
+          "raw_latent_heat_J_m2": 20932531.05910101,
+          "normalized_basal_heat_K_m": 17.4631365298967,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 87.14514114239658,
+          "raw_latent_heat_J_m2": 29080333.59921774,
+          "normalized_basal_heat_K_m": 24.260507940691028,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 18.635476262147446,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.76309482082559,
+      "cumulative_raw_melt_mmwe": 310.81041919785457,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.33894265997585016,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1430028.6675400117,
+        "final_sensible_storage_J_m2": 3497393.4576448756,
+        "surface_heat_J_m2": 105781320.11545886,
+        "deep_heat_out_J_m2": -3481.5609771743284,
+        "latent_heat_J_m2": 103717436.88632408,
+        "energy_residual_J_m2": -7.091449333529454e-06,
+        "relative_energy_residual": -6.70387675800343e-14,
+        "max_step_energy_residual_J_m2": 1.3346930878219143e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.1465187312819602,
+      "cold_interface_substeps": 131,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__small_gap_5mm__right__proxy",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 6.63834142597315e-07,
+      "debris_conductivity_W_mK": 1.2317356903658285,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 68.98076598560166,
+          "raw_latent_heat_J_m2": 23018881.609395277,
+          "normalized_basal_heat_K_m": 12.405842954979736,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 97.10138954908564,
+          "raw_latent_heat_J_m2": 32402733.692529876,
+          "normalized_basal_heat_K_m": 17.463195316035023,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 134.89680497886718,
+          "raw_latent_heat_J_m2": 45015063.821447976,
+          "normalized_basal_heat_K_m": 24.26051021303048,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 18.635476262147886,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.763094820825936,
+      "cumulative_raw_melt_mmwe": 481.12619099622094,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.5246741450340469,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2213620.606749867,
+        "final_sensible_storage_J_m2": 5413809.449093039,
+        "surface_heat_J_m2": 163747428.2450014,
+        "deep_heat_out_J_m2": -4570.532779427735,
+        "latent_heat_J_m2": 160551809.93543893,
+        "energy_residual_J_m2": 1.2791479093721136e-06,
+        "relative_energy_residual": 7.811712972116013e-15,
+        "max_step_energy_residual_J_m2": 1.3882725012973052e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.19234623319025618,
+      "cold_interface_substeps": 131,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__small_gap_5mm__right__saturated",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "small_gap_5mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.495
+        ],
+        "ice_depth_m": 0.5,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 6.63834142597315e-07,
+      "debris_conductivity_W_mK": 2.0162893111338884,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 112.92820806451994,
+          "raw_latent_heat_J_m2": 37684143.0311303,
+          "normalized_basal_heat_K_m": 12.406959973674043,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 158.95072719753816,
+          "raw_latent_heat_J_m2": 53041857.66581848,
+          "normalized_basal_heat_K_m": 17.46326576792496,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 220.81930291027385,
+          "raw_latent_heat_J_m2": 73687401.38115838,
+          "normalized_basal_heat_K_m": 24.260512936299186,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 18.63547626214646,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.763094820824827,
+      "cumulative_raw_melt_mmwe": 787.5901846293393,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.8588769734234889,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3623585.484455564,
+        "final_sensible_storage_J_m2": 8862134.165401949,
+        "surface_heat_J_m2": 268051517.74780935,
+        "deep_heat_out_J_m2": -5875.544002877222,
+        "latent_heat_J_m2": 262818844.61081055,
+        "energy_residual_J_m2": -5.529974532691995e-05,
+        "relative_energy_residual": -2.0630267566306995e-13,
+        "max_step_energy_residual_J_m2": 7.181413942680681e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.24726463137414206,
+      "cold_interface_substeps": 131,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__middle_gap_20mm__left__dry",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 2.835354488112164,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 149.85350424367545,
+          "raw_latent_heat_J_m2": 50006114.3661145,
+          "normalized_basal_heat_K_m": 41.71801298369076,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 217.08781224932002,
+          "raw_latent_heat_J_m2": 72442202.94759808,
+          "normalized_basal_heat_K_m": 60.43550476665201,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 301.5845199667732,
+          "raw_latent_heat_J_m2": 100638754.31291221,
+          "normalized_basal_heat_K_m": 83.95871009593019,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.19703062896585,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 46.962536215114156,
+      "cumulative_raw_melt_mmwe": 1071.4094573217897,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.1683854496420825,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1440075.2862877871,
+        "final_sensible_storage_J_m2": 2582137.9398292406,
+        "surface_heat_J_m2": 358572766.39021945,
+        "deep_heat_out_J_m2": -98632.17159317239,
+        "latent_heat_J_m2": 357529335.9082812,
+        "energy_residual_J_m2": 1.0030431440100074e-05,
+        "relative_energy_residual": 2.797321040601389e-14,
+        "max_step_energy_residual_J_m2": 3.26783289317234e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.4761489017805016,
+      "cold_interface_substeps": 919,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__middle_gap_20mm__left__proxy",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 4.389002307990581,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 232.2723039707236,
+          "raw_latent_heat_J_m2": 77509267.83503047,
+          "normalized_basal_heat_K_m": 41.77300273026216,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 336.08968207595336,
+          "raw_latent_heat_J_m2": 112153126.90874563,
+          "normalized_basal_heat_K_m": 60.44403472547171,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 466.84046375395377,
+          "raw_latent_heat_J_m2": 155784662.75469437,
+          "normalized_basal_heat_K_m": 83.95890355248198,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.19703062896217,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 46.978872706735274,
+      "cumulative_raw_melt_mmwe": 1658.9391652583397,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.8090939642948087,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2229172.3245531833,
+        "final_sensible_storage_J_m2": 3997063.2588034086,
+        "surface_heat_J_m2": 555235621.0421845,
+        "deep_heat_out_J_m2": -120269.33886016313,
+        "latent_heat_J_m2": 553587999.446708,
+        "energy_residual_J_m2": -8.643571345601231e-05,
+        "relative_energy_residual": -1.556739340566287e-13,
+        "max_step_energy_residual_J_m2": 1.4597874853361503e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.8081261764235024,
+      "cold_interface_substeps": 914,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__middle_gap_20mm__left__saturated",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 7.184575805800555,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 380.73034499217425,
+          "raw_latent_heat_J_m2": 127049716.12388855,
+          "normalized_basal_heat_K_m": 41.829284569734725,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 550.2419833788081,
+          "raw_latent_heat_J_m2": 183615749.85350826,
+          "normalized_basal_heat_K_m": 60.452834421276556,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 764.1961480591409,
+          "raw_latent_heat_J_m2": 255012254.60733533,
+          "normalized_basal_heat_K_m": 83.95910272116078,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.19703062896328,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 46.99572549171694,
+      "cumulative_raw_melt_mmwe": 2716.3474705924027,
+      "cumulative_raw_ice_equivalent_retreat_m": 2.9622109821073095,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3649042.863519805,
+        "final_sensible_storage_J_m2": 6543039.978783785,
+        "surface_heat_J_m2": 909196680.1971912,
+        "deep_heat_out_J_m2": -142467.8548559982,
+        "latent_heat_J_m2": 906445150.9366847,
+        "energy_residual_J_m2": -9.857001714408398e-05,
+        "relative_energy_residual": -1.0841440503577907e-13,
+        "max_step_energy_residual_J_m2": 1.7621356096508833e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -2.151773174409209,
+      "cold_interface_substeps": 913,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__middle_gap_20mm__left__dry",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 6.654687214652436e-07,
+      "debris_conductivity_W_mK": 0.7976771330329772,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 42.932208106238804,
+          "raw_latent_heat_J_m2": 14326477.845051888,
+          "normalized_basal_heat_K_m": 11.95198219910947,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 60.26652365265568,
+          "raw_latent_heat_J_m2": 20110938.9428912,
+          "normalized_basal_heat_K_m": 16.77771653664554,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 83.71260083653452,
+          "raw_latent_heat_J_m2": 27934894.89915157,
+          "normalized_basal_heat_K_m": 23.30491626621046,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.818467751417224,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.280136630253905,
+      "cumulative_raw_melt_mmwe": 298.6193098066881,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.3256481022973698,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1440075.2862877871,
+        "final_sensible_storage_J_m2": 3794175.1269306615,
+        "surface_heat_J_m2": 102001003.64008567,
+        "deep_heat_out_J_m2": -2359.883058243902,
+        "latent_heat_J_m2": 99649263.68249181,
+        "energy_residual_J_m2": -9.232671345671406e-06,
+        "relative_energy_residual": -9.051549510482495e-14,
+        "max_step_energy_residual_J_m2": 1.5914137637892956e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.1076084916668365,
+      "cold_interface_substeps": 119,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__middle_gap_20mm__left__proxy",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 6.654687214652436e-07,
+      "debris_conductivity_W_mK": 1.2347686303747107,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 66.46044690503545,
+          "raw_latent_heat_J_m2": 22177851.13221033,
+          "normalized_basal_heat_K_m": 11.952576276026509,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 93.29011488743622,
+          "raw_latent_heat_J_m2": 31130911.337937467,
+          "normalized_basal_heat_K_m": 16.77775678494383,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 129.58338167141588,
+          "raw_latent_heat_J_m2": 43241974.46375148,
+          "normalized_basal_heat_K_m": 23.304917821967024,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.81846775141781,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.280136630254363,
+      "cumulative_raw_melt_mmwe": 462.25291068891147,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.5040925961711139,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2229172.3245531833,
+        "final_sensible_storage_J_m2": 5873214.131522948,
+        "surface_heat_J_m2": 157894740.4841933,
+        "deep_heat_out_J_m2": -3097.619663782903,
+        "latent_heat_J_m2": 154253796.29688975,
+        "energy_residual_J_m2": 2.435854639770696e-06,
+        "relative_energy_residual": 1.54270790293648e-14,
+        "max_step_energy_residual_J_m2": 1.3310896065932276e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.14124844304816422,
+      "cold_interface_substeps": 119,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__middle_gap_20mm__left__saturated",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 6.654687214652436e-07,
+      "debris_conductivity_W_mK": 2.021254081229495,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 108.79888369303157,
+          "raw_latent_heat_J_m2": 36306187.48836464,
+          "normalized_basal_heat_K_m": 11.95328800744483,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 152.71166012328266,
+          "raw_latent_heat_J_m2": 50959880.983139426,
+          "normalized_basal_heat_K_m": 16.77780500670284,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 212.12148864861783,
+          "raw_latent_heat_J_m2": 70784940.76204377,
+          "normalized_basal_heat_K_m": 23.304919685929338,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.818467751418456,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.280136630254871,
+      "cumulative_raw_melt_mmwe": 756.691675889398,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.8251817621476532,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3649042.863519805,
+        "final_sensible_storage_J_m2": 9614156.29100117,
+        "surface_heat_J_m2": 258469144.2043257,
+        "deep_heat_out_J_m2": -3981.4674268011518,
+        "latent_heat_J_m2": 252508012.2442921,
+        "energy_residual_J_m2": 2.0956569187546847e-05,
+        "relative_energy_residual": 8.107957819127611e-14,
+        "max_step_energy_residual_J_m2": 3.6882039609886785e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.18155071838465373,
+      "cold_interface_substeps": 119,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__middle_gap_20mm__right__dry",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 2.835354488112164,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 149.4901234228131,
+          "raw_latent_heat_J_m2": 49884854.18619273,
+          "normalized_basal_heat_K_m": 41.616850679350456,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 217.20766001062643,
+          "raw_latent_heat_J_m2": 72482196.14554603,
+          "normalized_basal_heat_K_m": 60.46886942160273,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 301.72925779499445,
+          "raw_latent_heat_J_m2": 100687053.32618965,
+          "normalized_basal_heat_K_m": 83.99900394576333,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.28740268244344,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 46.99606279207028,
+      "cumulative_raw_melt_mmwe": 1071.7557131035207,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.1687630459144174,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1440075.2862877871,
+        "final_sensible_storage_J_m2": 2425134.415993935,
+        "surface_heat_J_m2": 358531308.2070555,
+        "deep_heat_out_J_m2": -98632.38528545859,
+        "latent_heat_J_m2": 357644881.4626449,
+        "energy_residual_J_m2": 1.0051706340163946e-05,
+        "relative_energy_residual": 2.803578407261154e-14,
+        "max_step_energy_residual_J_m2": 3.26783289317234e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.4761489017805016,
+      "cold_interface_substeps": 919,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__middle_gap_20mm__right__proxy",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 4.389002307990581,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 231.70962940241745,
+          "raw_latent_heat_J_m2": 77321503.3315867,
+          "normalized_basal_heat_K_m": 41.671808546210556,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 336.2750992487857,
+          "raw_latent_heat_J_m2": 112215000.61931978,
+          "normalized_basal_heat_K_m": 60.47738106911473,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 467.0645062628173,
+          "raw_latent_heat_J_m2": 155859425.73990214,
+          "normalized_basal_heat_K_m": 83.99919646805762,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.28740268243975,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 47.012450446540704,
+      "cumulative_raw_melt_mmwe": 1659.4751539764702,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.809678466713708,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2229172.3245531833,
+        "final_sensible_storage_J_m2": 3754028.665879276,
+        "surface_heat_J_m2": 555171445.6234303,
+        "deep_heat_out_J_m2": -120269.59993046483,
+        "latent_heat_J_m2": 553766858.8819481,
+        "energy_residual_J_m2": -8.648594666738063e-05,
+        "relative_energy_residual": -1.5578241163008872e-13,
+        "max_step_energy_residual_J_m2": 1.4597874853361503e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.8081261764235024,
+      "cold_interface_substeps": 914,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__middle_gap_20mm__right__saturated",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 7.184575805800555,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 379.8089774850046,
+          "raw_latent_heat_J_m2": 126742255.78674604,
+          "normalized_basal_heat_K_m": 41.72805769313392,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 550.5453306679328,
+          "raw_latent_heat_J_m2": 183716976.84388918,
+          "normalized_basal_heat_K_m": 60.48616194624837,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 764.5628856116142,
+          "raw_latent_heat_J_m2": 255134634.92859566,
+          "normalized_basal_heat_K_m": 83.99939467489283,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.28740268244087,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 47.029355743268546,
+      "cumulative_raw_melt_mmwe": 2717.224857490731,
+      "cumulative_raw_ice_equivalent_retreat_m": 2.963167783523153,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3649042.863519805,
+        "final_sensible_storage_J_m2": 6145204.351208013,
+        "surface_heat_J_m2": 909091628.2677197,
+        "deep_heat_out_J_m2": -142468.16472404427,
+        "latent_heat_J_m2": 906737934.944657,
+        "energy_residual_J_m2": -9.86380036920309e-05,
+        "relative_energy_residual": -1.0850171822612237e-13,
+        "max_step_energy_residual_J_m2": 1.7621356096508833e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -2.151773174409209,
+      "cold_interface_substeps": 913,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__middle_gap_20mm__right__dry",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 6.654687214652436e-07,
+      "debris_conductivity_W_mK": 0.7976771330329772,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 42.89998029515502,
+          "raw_latent_heat_J_m2": 14315723.424493229,
+          "normalized_basal_heat_K_m": 11.943010235136954,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 60.297080981383466,
+          "raw_latent_heat_J_m2": 20121135.923487663,
+          "normalized_basal_heat_K_m": 16.786223451736028,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 83.7581612274716,
+          "raw_latent_heat_J_m2": 27950098.401607275,
+          "normalized_basal_heat_K_m": 23.317599913418096,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.85447700082846,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.27293004824359,
+      "cumulative_raw_melt_mmwe": 298.76666055467393,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.3258087901359585,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1440075.2862877871,
+        "final_sensible_storage_J_m2": 3680048.2233802252,
+        "surface_heat_J_m2": 101936047.6787555,
+        "deep_heat_out_J_m2": -2359.8854408631073,
+        "latent_heat_J_m2": 99698434.6270947,
+        "energy_residual_J_m2": -9.230707746610278e-06,
+        "relative_energy_residual": -9.055391058225274e-14,
+        "max_step_energy_residual_J_m2": 1.5914137637892956e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.1076084916668365,
+      "cold_interface_substeps": 119,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__middle_gap_20mm__right__proxy",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 6.654687214652436e-07,
+      "debris_conductivity_W_mK": 1.2347686303747107,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 66.41056081589106,
+          "raw_latent_heat_J_m2": 22161204.144262847,
+          "normalized_basal_heat_K_m": 11.943604514424258,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 93.33741518783789,
+          "raw_latent_heat_J_m2": 31146695.448181503,
+          "normalized_basal_heat_K_m": 16.78626350547849,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 129.65390708309863,
+          "raw_latent_heat_J_m2": 43265508.79363001,
+          "normalized_basal_heat_K_m": 23.317601461662385,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.85447700082905,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.27293004824405,
+      "cumulative_raw_melt_mmwe": 462.4810030775244,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.5043413337813788,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2229172.3245531833,
+        "final_sensible_storage_J_m2": 5696550.773072981,
+        "surface_heat_J_m2": 157794191.55269596,
+        "deep_heat_out_J_m2": -3097.6227913011744,
+        "latent_heat_J_m2": 154329910.7269699,
+        "energy_residual_J_m2": 2.432899236737285e-06,
+        "relative_energy_residual": 1.541817992663443e-14,
+        "max_step_energy_residual_J_m2": 1.3310896065932276e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.14124844304816422,
+      "cold_interface_substeps": 119,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__middle_gap_20mm__right__saturated",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "middle_gap_20mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.5
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 6.654687214652436e-07,
+      "debris_conductivity_W_mK": 2.021254081229495,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 108.71722488359205,
+          "raw_latent_heat_J_m2": 36278937.94365467,
+          "normalized_basal_heat_K_m": 11.944316488303791,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 152.78908621195447,
+          "raw_latent_heat_J_m2": 50985718.0689292,
+          "normalized_basal_heat_K_m": 16.786311494138825,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 212.23693511488855,
+          "raw_latent_heat_J_m2": 70823465.2478383,
+          "normalized_basal_heat_K_m": 23.317603316624197,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.854477000829696,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.272930048244554,
+      "cumulative_raw_melt_mmwe": 757.0650516491226,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.8255889330960987,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3649042.863519805,
+        "final_sensible_storage_J_m2": 9324967.265460521,
+        "surface_heat_J_m2": 258304550.66578513,
+        "deep_heat_out_J_m2": -3981.471446782433,
+        "latent_heat_J_m2": 252632607.7353122,
+        "energy_residual_J_m2": 2.098075265166699e-05,
+        "relative_energy_residual": 8.122486652902042e-14,
+        "max_step_energy_residual_J_m2": 3.6882039609886785e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.18155071838465373,
+      "cold_interface_substeps": 119,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__large_gap_40mm__left__dry",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 2.835354488112164,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 149.85350424367545,
+          "raw_latent_heat_J_m2": 50006114.3661145,
+          "normalized_basal_heat_K_m": 41.71801298369076,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 217.08781224932002,
+          "raw_latent_heat_J_m2": 72442202.94759808,
+          "normalized_basal_heat_K_m": 60.43550476665201,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 301.5845199667732,
+          "raw_latent_heat_J_m2": 100638754.31291221,
+          "normalized_basal_heat_K_m": 83.95871009593019,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.177737399494,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 46.962536215114156,
+      "cumulative_raw_melt_mmwe": 1071.340154930862,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.168309874515662,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1413813.4418210513,
+        "final_sensible_storage_J_m2": 2582137.9398292406,
+        "surface_heat_J_m2": 358575902.02683353,
+        "deep_heat_out_J_m2": -98632.17159317239,
+        "latent_heat_J_m2": 357506209.7004286,
+        "energy_residual_J_m2": 1.0090036084875464e-05,
+        "relative_energy_residual": 2.8139191808044006e-14,
+        "max_step_energy_residual_J_m2": 3.26783289317234e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.4761489017805016,
+      "cold_interface_substeps": 919,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__large_gap_40mm__left__proxy",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 4.389002307990581,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 232.2723039707236,
+          "raw_latent_heat_J_m2": 77509267.83503047,
+          "normalized_basal_heat_K_m": 41.77300273026216,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 336.08968207595336,
+          "raw_latent_heat_J_m2": 112153126.90874563,
+          "normalized_basal_heat_K_m": 60.44403472547171,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 466.84046375395377,
+          "raw_latent_heat_J_m2": 155784662.75469437,
+          "normalized_basal_heat_K_m": 83.95890355248198,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.17773739949033,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 46.978872706735274,
+      "cumulative_raw_melt_mmwe": 1658.8318882476494,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.8089769773693014,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2188520.1604375993,
+        "final_sensible_storage_J_m2": 3997063.2588034086,
+        "surface_heat_J_m2": 555240474.8678327,
+        "deep_heat_out_J_m2": -120269.33886016313,
+        "latent_heat_J_m2": 553552201.1082406,
+        "energy_residual_J_m2": -8.643571345601231e-05,
+        "relative_energy_residual": -1.5567257317937267e-13,
+        "max_step_energy_residual_J_m2": 1.4597874853361503e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.8081261764235024,
+      "cold_interface_substeps": 914,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__large_gap_40mm__left__saturated",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 7.184575805800555,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 380.73034499217425,
+          "raw_latent_heat_J_m2": 127049716.12388855,
+          "normalized_basal_heat_K_m": 41.829284569734725,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 550.2419833788081,
+          "raw_latent_heat_J_m2": 183615749.85350826,
+          "normalized_basal_heat_K_m": 60.452834421276556,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 764.1961480591409,
+          "raw_latent_heat_J_m2": 255012254.60733533,
+          "normalized_basal_heat_K_m": 83.95910272116078,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.17773739949143,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 46.99572549171694,
+      "cumulative_raw_melt_mmwe": 2716.1718635269604,
+      "cumulative_raw_ice_equivalent_retreat_m": 2.962019480400175,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3582497.3175704395,
+        "final_sensible_storage_J_m2": 6543039.978783785,
+        "surface_heat_J_m2": 909204625.6654027,
+        "deep_heat_out_J_m2": -142467.8548559982,
+        "latent_heat_J_m2": 906386550.8589467,
+        "energy_residual_J_m2": -9.857001714408398e-05,
+        "relative_energy_residual": -1.0841345761076102e-13,
+        "max_step_energy_residual_J_m2": 1.7621356096508833e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -2.151773174409209,
+      "cold_interface_substeps": 913,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__large_gap_40mm__left__dry",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 6.621626498411983e-07,
+      "debris_conductivity_W_mK": 0.7937142454477221,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 42.7192736639684,
+          "raw_latent_heat_J_m2": 14255421.621666256,
+          "normalized_basal_heat_K_m": 11.892702959213507,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 59.962590168437394,
+          "raw_latent_heat_J_m2": 20009516.33920756,
+          "normalized_basal_heat_K_m": 16.693103893752795,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 83.28988995445397,
+          "raw_latent_heat_J_m2": 27793836.27780129,
+          "normalized_basal_heat_K_m": 23.187236948960003,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.7079161324655,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.21612591422149,
+      "cumulative_raw_melt_mmwe": 297.0526930417196,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.3239396870683965,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1413813.4418210513,
+        "final_sensible_storage_J_m2": 3795947.4677010425,
+        "surface_heat_J_m2": 101506326.9139117,
+        "deep_heat_out_J_m2": -2290.7799991343277,
+        "latent_heat_J_m2": 99126483.66802183,
+        "energy_residual_J_m2": -9.01260546015692e-06,
+        "relative_energy_residual": -8.878860790422039e-14,
+        "max_step_energy_residual_J_m2": 1.5192609826436554e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.10508950648248401,
+      "cold_interface_substeps": 118,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__large_gap_40mm__left__proxy",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 6.621626498411983e-07,
+      "debris_conductivity_W_mK": 1.228634257113478,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 66.13071999042886,
+          "raw_latent_heat_J_m2": 22067821.26080611,
+          "normalized_basal_heat_K_m": 11.893276552948727,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 92.81963260602353,
+          "raw_latent_heat_J_m2": 30973911.400630053,
+          "normalized_basal_heat_K_m": 16.693142918847812,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 128.92904381339136,
+          "raw_latent_heat_J_m2": 43023621.920528695,
+          "normalized_basal_heat_K_m": 23.187238457434532,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.70791613246613,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.216125914221982,
+      "cumulative_raw_melt_mmwe": 459.82773684045037,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.5014479136755184,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2188520.1604375993,
+        "final_sensible_storage_J_m2": 5875957.62894214,
+        "surface_heat_J_m2": 157128945.57351583,
+        "deep_heat_out_J_m2": -3007.6786492833153,
+        "latent_heat_J_m2": 153444515.7836583,
+        "energy_residual_J_m2": -2.271796802233439e-06,
+        "relative_energy_residual": -1.4458168696680616e-14,
+        "max_step_energy_residual_J_m2": 1.3179508265986906e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.1379762767602993,
+      "cold_interface_substeps": 118,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__large_gap_40mm__left__saturated",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "left",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 6.621626498411983e-07,
+      "debris_conductivity_W_mK": 2.0112124210471425,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 108.25891747062214,
+          "raw_latent_heat_J_m2": 36126000.75994661,
+          "normalized_basal_heat_K_m": 11.893964128819727,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 151.94149121457772,
+          "raw_latent_heat_J_m2": 50702875.61830459,
+          "normalized_basal_heat_K_m": 16.693189701217687,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 211.05037001244966,
+          "raw_latent_heat_J_m2": 70427508.47315446,
+          "normalized_basal_heat_K_m": 23.18724026575823,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.70791613246675,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.216125914222465,
+      "cumulative_raw_melt_mmwe": 752.7215549276422,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.8208522954499915,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3582497.3175704395,
+        "final_sensible_storage_J_m2": 9618647.244555095,
+        "surface_heat_J_m2": 257215465.764609,
+        "deep_heat_out_J_m2": -3867.0417070126023,
+        "latent_heat_J_m2": 251183182.87935418,
+        "energy_residual_J_m2": 2.2825053747510538e-05,
+        "relative_energy_residual": 8.873904094242493e-14,
+        "max_step_energy_residual_J_m2": 4.067175700828846e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.17739773968328046,
+      "cold_interface_substeps": 118,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__large_gap_40mm__right__dry",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 2.835354488112164,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 149.4901234228131,
+          "raw_latent_heat_J_m2": 49884854.18619273,
+          "normalized_basal_heat_K_m": 41.616850679350456,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 217.20766001062643,
+          "raw_latent_heat_J_m2": 72482196.14554603,
+          "normalized_basal_heat_K_m": 60.46886942160273,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 301.72925779499445,
+          "raw_latent_heat_J_m2": 100687053.32618965,
+          "normalized_basal_heat_K_m": 83.99900394576333,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.2681094529716,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 46.99606279207028,
+      "cumulative_raw_melt_mmwe": 1071.686410712593,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.1686874707879966,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1413813.4418210513,
+        "final_sensible_storage_J_m2": 2425134.415993935,
+        "surface_heat_J_m2": 358534443.8436696,
+        "deep_heat_out_J_m2": -98632.38528545859,
+        "latent_heat_J_m2": 357621755.2547923,
+        "energy_residual_J_m2": 1.0111310984939337e-05,
+        "relative_energy_residual": 2.8201784120211705e-14,
+        "max_step_energy_residual_J_m2": 3.26783289317234e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.4761489017805016,
+      "cold_interface_substeps": 919,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__large_gap_40mm__right__proxy",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 4.389002307990581,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 231.70962940241745,
+          "raw_latent_heat_J_m2": 77321503.3315867,
+          "normalized_basal_heat_K_m": 41.671808546210556,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 336.2750992487857,
+          "raw_latent_heat_J_m2": 112215000.61931978,
+          "normalized_basal_heat_K_m": 60.47738106911473,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 467.0645062628173,
+          "raw_latent_heat_J_m2": 155859425.73990214,
+          "normalized_basal_heat_K_m": 83.99919646805762,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.26810945296789,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 47.012450446540704,
+      "cumulative_raw_melt_mmwe": 1659.36787696578,
+      "cumulative_raw_ice_equivalent_retreat_m": 1.8095614797882007,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2188520.1604375993,
+        "final_sensible_storage_J_m2": 3754028.665879276,
+        "surface_heat_J_m2": 555176299.4490784,
+        "deep_heat_out_J_m2": -120269.59993046483,
+        "latent_heat_J_m2": 553731060.5434808,
+        "energy_residual_J_m2": -8.648594666738063e-05,
+        "relative_energy_residual": -1.5578104964711888e-13,
+        "max_step_energy_residual_J_m2": 1.4597874853361503e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -1.8081261764235024,
+      "cold_interface_substeps": 914,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "forward__large_gap_40mm__right__saturated",
+      "method": "training_temperature_forward_fit",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 2.3654178463540555e-06,
+      "debris_conductivity_W_mK": 7.184575805800555,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 379.8089774850046,
+          "raw_latent_heat_J_m2": 126742255.78674604,
+          "normalized_basal_heat_K_m": 41.72805769313392,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 550.5453306679328,
+          "raw_latent_heat_J_m2": 183716976.84388918,
+          "normalized_basal_heat_K_m": 60.48616194624837,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 764.5628856116142,
+          "raw_latent_heat_J_m2": 255134634.92859566,
+          "normalized_basal_heat_K_m": 83.99939467489283,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 65.26810945296903,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 47.029355743268546,
+      "cumulative_raw_melt_mmwe": 2717.0492504252893,
+      "cumulative_raw_ice_equivalent_retreat_m": 2.962976281816019,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3582497.3175704395,
+        "final_sensible_storage_J_m2": 6145204.351208013,
+        "surface_heat_J_m2": 909099573.7359312,
+        "deep_heat_out_J_m2": -142468.16472404427,
+        "latent_heat_J_m2": 906679334.866919,
+        "energy_residual_J_m2": -9.86380036920309e-05,
+        "relative_energy_residual": -1.0850076992851234e-13,
+        "max_step_energy_residual_J_m2": 1.7621356096508833e-08
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -2.151773174409209,
+      "cold_interface_substeps": 913,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__large_gap_40mm__right__dry",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "dry",
+      "physicalcapacity_J_m3K": 1198669.6103111114,
+      "alpha_m2_s": 6.621626498411983e-07,
+      "debris_conductivity_W_mK": 0.7937142454477221,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 42.687654177247744,
+          "raw_latent_heat_J_m2": 14244870.198947571,
+          "normalized_basal_heat_K_m": 11.883900347861788,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 59.992932817661284,
+          "raw_latent_heat_J_m2": 20019641.68125357,
+          "normalized_basal_heat_K_m": 16.701551043792232,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 83.33515899853758,
+          "raw_latent_heat_J_m2": 27808942.55781199,
+          "normalized_basal_heat_K_m": 23.199839487541738,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.743686732953016,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.208878161505865,
+      "cumulative_raw_melt_mmwe": 297.1991409594952,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.3240993903593186,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 1413813.4418210513,
+        "final_sensible_storage_J_m2": 3682194.1165498686,
+        "surface_heat_J_m2": 101441443.23060878,
+        "deep_heat_out_J_m2": -2290.782312622724,
+        "latent_heat_J_m2": 99175353.33818355,
+        "energy_residual_J_m2": -9.036121809913311e-06,
+        "relative_energy_residual": -8.907722053373514e-14,
+        "max_step_energy_residual_J_m2": 1.5192609826436554e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.10508950648248401,
+      "cold_interface_substeps": 118,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__large_gap_40mm__right__proxy",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "proxy",
+      "physicalcapacity_J_m3K": 1855487.1033697424,
+      "alpha_m2_s": 6.621626498411983e-07,
+      "debris_conductivity_W_mK": 1.228634257113478,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 66.08177552607398,
+          "raw_latent_heat_J_m2": 22051488.49305089,
+          "normalized_basal_heat_K_m": 11.884474137817111,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 92.86660062500306,
+          "raw_latent_heat_J_m2": 30989584.62856352,
+          "normalized_basal_heat_K_m": 16.701589880244097,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 128.99911823440678,
+          "raw_latent_heat_J_m2": 43047005.75482154,
+          "normalized_basal_heat_K_m": 23.199840988732312,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.743686732953652,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.208878161506359,
+      "cumulative_raw_melt_mmwe": 460.0544316881077,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.5016951272498448,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 2188520.1604375993,
+        "final_sensible_storage_J_m2": 5699872.512982142,
+        "surface_heat_J_m2": 157028508.5251815,
+        "deep_heat_out_J_m2": -3007.6816868298974,
+        "latent_heat_J_m2": 153520163.85432154,
+        "energy_residual_J_m2": -2.2464719222625718e-06,
+        "relative_energy_residual": -1.430614060696069e-14,
+        "max_step_energy_residual_J_m2": 1.3179508265986906e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.1379762767602993,
+      "cold_interface_substeps": 118,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    },
+    {
+      "model_id": "derivative_OLS__large_gap_40mm__right__saturated",
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": {
+        "id": "large_gap_40mm",
+        "sensor_depths_m": [
+          0.02,
+          0.125,
+          0.25,
+          0.375,
+          0.48
+        ],
+        "ice_depth_m": 0.52,
+        "source": "JGR2025 DOI10.1029/2025JF008360 Table1/\u00a72.2.2, \u00b1.02m depth/thickness; explicit finite assumed geometry"
+      },
+      "hold": "right",
+      "capacity_id": "saturated",
+      "physicalcapacity_J_m3K": 3037338.970311112,
+      "alpha_m2_s": 6.621626498411983e-07,
+      "debris_conductivity_W_mK": 2.0112124210471425,
+      "status": "predicted",
+      "future_blocks": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "raw_melt_mmwe": 108.17879998768291,
+          "raw_latent_heat_J_m2": 36099265.555889785,
+          "normalized_basal_heat_K_m": 11.885161948912199,
+          "source_native_intervals": 678
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "raw_melt_mmwe": 152.0183734386194,
+          "raw_latent_heat_J_m2": 50728531.21646729,
+          "normalized_basal_heat_K_m": 16.70163643647295,
+          "source_native_intervals": 672
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "raw_melt_mmwe": 211.16507823214923,
+          "raw_latent_heat_J_m2": 70465786.6060682,
+          "normalized_basal_heat_K_m": 23.199842788324165,
+          "source_native_intervals": 672
+        }
+      ],
+      "source_version3_prefix_reproduced": true,
+      "original_training_normalized_basal_heat_K_m": 17.743686732954274,
+      "prior_known_evaluation_normalized_basal_heat_K_m": 13.208878161506842,
+      "cumulative_raw_melt_mmwe": 753.0926429830855,
+      "cumulative_raw_ice_equivalent_retreat_m": 0.8212569716282285,
+      "physical_energy_ledger": {
+        "initial_sensible_storage_J_m2": 3582497.3175704395,
+        "final_sensible_storage_J_m2": 9330404.772923483,
+        "surface_heat_J_m2": 257051055.3731733,
+        "deep_heat_out_J_m2": -3867.0456125376923,
+        "latent_heat_J_m2": 251307014.96345565,
+        "energy_residual_J_m2": 2.2864510356157552e-05,
+        "relative_energy_residual": 8.894929578469946e-14,
+        "max_step_energy_residual_J_m2": 4.067175700828846e-09
+      },
+      "complementarity_max_product": 0.0,
+      "minimum_interface_temperature_C": -0.17739773968328046,
+      "cold_interface_substeps": 118,
+      "raw_component_ledger_does_not_apply_to_empirically_scaled_outputs": true,
+      "no_refitting_or_test_boundary_state_reset": true
+    }
+  ],
+  "primary_candidate": "forward__middle_gap_20mm__left__proxy",
+  "primary_metric": "mean_absolute_period_ablation_error_mmwe",
+  "source_fixed_gain_predictions_sha256": "6905bb6f4b18488dd5d98d10a77d41b998b42176dede26ae7fcd56a92fe0edb2",
+  "gains_refitted": false,
+  "primary_changed": false,
+  "future_camera_values_opened": false,
+  "previous_single_event_failure_preserved": true,
+  "scope": "Conditional observed-temperature-forced rolling batch on one tower; fixed geometry, no wet-pore enthalpy or ice advection"
+}
