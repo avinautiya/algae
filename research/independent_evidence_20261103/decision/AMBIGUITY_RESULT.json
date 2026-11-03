@@ -1,0 +1,23 @@
+{
+  "scope": "synthetic exact finite-heat equivalence; not measured field uncertainty or historical novelty",
+  "training_F_W_K": 1000.0,
+  "future_F_W_K": 100.0,
+  "training_P_W": 100.0,
+  "area_m2": 1.0,
+  "pairs": [
+    {
+      "h_W_m2_K": 100.0,
+      "inlet_T_K": 1.050833194477505,
+      "training_power_W": 100.0,
+      "future_power_W": 66.42532661287187
+    },
+    {
+      "h_W_m2_K": 300.0,
+      "inlet_T_K": 0.3858295913510083,
+      "training_power_W": 100.00000000000001,
+      "future_power_W": 36.66202671080706
+    }
+  ],
+  "future_power_difference_W": 29.76329990206481,
+  "consequence": "Identical training power need not imply identical predictions after a flow change. Extra parameters do not supply missing measurements."
+}

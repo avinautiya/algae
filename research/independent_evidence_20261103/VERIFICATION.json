@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "tests": 20,
+  "components": [
+    {
+      "component": "reproduction",
+      "tests": 5,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_perfect (test_reproduce.Tests) ... ok\ntest_refuse_missing_or_invalid (test_reproduce.Tests) ... ok\ntest_signed_percent (test_reproduce.Tests) ... ok\ntest_synthetic_end_to_end_not_independent_validation (test_reproduce.Tests) ... ok\ntest_xlsx_preserves_unicode_minus (test_reproduce.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.006s\n\nOK\n"
+    },
+    {
+      "component": "extension",
+      "tests": 7,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_analytic_steady_bottom_gradient (test_plate_experiment.Tests) ... ok\ntest_exact_flux_scale (test_plate_experiment.Tests) ... ok\ntest_heldout_flux_never_changes_fits (test_plate_experiment.Tests) ... ok\ntest_hourly_lag_contract (test_plate_experiment.Tests) ... ok\ntest_no_excitation_or_nonfinite_refuses (test_plate_experiment.Tests) ... ok\ntest_ridge_features_never_use_interior (test_plate_experiment.Tests) ... ok\ntest_signed_orientation_is_not_clipped (test_plate_experiment.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.011s\n\nOK\n"
+    },
+    {
+      "component": "decision",
+      "tests": 4,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_film_limit (test_forecast_ambiguity.Tests) ... ok\ntest_finite_supply_limit (test_forecast_ambiguity.Tests) ... ok\ntest_independent_temperature_resolves_h (test_forecast_ambiguity.Tests) ... ok\ntest_training_equivalence_and_forecast_difference (test_forecast_ambiguity.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "component": "coverage",
+      "tests": 4,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_calendar_not_machine_zone (test_coverage_audit.Tests) ... ok\ntest_missing_not_zero_filled (test_coverage_audit.Tests) ... ok\ntest_naive_or_duplicate_refuses (test_coverage_audit.Tests) ... ok\ntest_values_do_not_select_favorable_support (test_coverage_audit.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+    }
+  ],
+  "scope": "unit and synthetic checks only; held-out signals not scored by verifier"
+}

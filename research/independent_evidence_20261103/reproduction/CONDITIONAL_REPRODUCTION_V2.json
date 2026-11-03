@@ -1,0 +1,31 @@
+{
+  "model": "DEBCF",
+  "site": "Changri Nup",
+  "actual_thickness_column": 1,
+  "hourly_rows": 2399,
+  "run_local_start": "2016-04-16T01:00:00",
+  "run_local_end": "2016-07-24T23:00:00",
+  "forcing_begin_index": 3350,
+  "forcing_end_index": 5748,
+  "daily_calendar_observations": 100,
+  "model_sum_m_water_equivalent": 0.7186453836834981,
+  "thresholded_surface_lowering_m": 1.0233947,
+  "protocol_ice_density_kg_m3": 900,
+  "calendar_ABL_sum_as_m_water_equivalent": 0.9210552300000001,
+  "conditional_final_cumulative_error_percent": -21.97586417445369,
+  "published_Table3_percent": -23.3,
+  "published_rounding_tolerance_percentage_points": 0.05,
+  "absolute_discrepancy_percentage_points": 1.3241358255463105,
+  "published_score_reproduced": false,
+  "independent_validation": false,
+  "observation_alignment_certified": false,
+  "interpretation": "Conditional raw-calendar ABL reproduction using source-prescribed units/density. Exact processed observation and daily interval aggregation remain unresolved; no alternative conversion is chosen by fit.",
+  "input_sha256": {
+    "MMIC_model_run_dates.xlsx": "bc839561aed5840754d1899b3266ac57573b9c283ec8299dc9c9d194ae6d9503",
+    "published_table3.xlsx": "214a34b7ef54cc7a360e8561886d37e5564d880d9060e30b3af2155c05436627",
+    "/private/tmp/glacier-next-20261103/benchmark/changri_nup.zip": "2102634b2b56640bcdbc4e9d14ac88f7a7d4e5b5207d8dd1903fcc736798bc50",
+    "/private/tmp/glacier-finalgate-20261103/benchmark/selected_outputs/DEBCF/CN/DEBCF_CN_EXP1_EXP2.csv": "b3f4aecba816610360640c2c0a6e124ecb4064b9c2a5ee5b61a9356bf2734aa1",
+    "/private/tmp/glacier-finalgate-20261103/benchmark/selected_outputs/Dates_Rows/Dates_hourly_CN.csv": "df5859e406c85fddbb28aefce9359eb70bef0822e037678748795216afc79e23"
+  },
+  "executed_source_sha256": "bfe0b3af25923b79de4d04349790143dcff9648a8bfe21c4fbd6bd225527922f"
+}
