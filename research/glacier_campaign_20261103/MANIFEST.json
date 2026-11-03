@@ -1,0 +1,20 @@
+{
+  "base_commit": "f1f85ee496dd39617fedf0f58202b943b3af3168",
+  "source_archive_sha256": "030eea7413dae71e2f86dfffd719f7b55e5b0fc191f0dcca87c859de544548ab",
+  "sha256": {
+    "execution/test_preflight.py": "f9729a9e8b328d8917eb43c4baa55a83fdabb38b73d60d666a7bb709d5c84307",
+    "execution/README.md": "204433b748bcad47b637c1647acc1068b46a872933624f515ecbff9ed9bcb843",
+    "execution/preflight.py": "1310e83623c713b101044e9f874a9fe9ed6943aeb5e0400b094b0ef777cec156",
+    "scoring/test_score_trace.py": "cb143b23a14ce3ae2948caa4accc875bbf42c5bfe9d153fe67c92e9aa3dc85d7",
+    "scoring/score_trace.py": "ca61d282fecd23f9e6ad071d75066e744764a3271c39d75ade50a18b1c994181",
+    "scoring/README.md": "b5f5651302134bebdcaf22e9dcedbced5a58ad88e0be2f260a626e9414017390",
+    "scoring/VERIFICATION.json": "3092b0038aac2b1da9cca4c16e90c887a72031f6e7e86c2f24da36eaf97af6dd",
+    "baseline/screen.py": "aab664bc1dfe05f8ec89ebbf7def84e259235eb36d958b2a03ecd6d1332e3228",
+    "baseline/RESULTS.json": "c2252735872bcf4e15a63b19a77bc8f850c1d98a267b07c88c21c26cf2d1b256",
+    "baseline/test_screen.py": "8f8cd7fcf4deff034b22cf6082cb8080dc579043f09839f3e2b5c007fc377cfc",
+    "baseline/EXPERIMENT_SPEC.md": "c5cbd280dd12c444c270820dc4a7221166850909ba9d354085a8ab74c480515d",
+    "CLAUDE_PROMPT.md": "519d81bacf75b3bab58096e9b8c3c16bc0aa74baa09fc46123063fab1ccb2756"
+  },
+  "repair_tests_path": "research/cliff_repair_2026_11_01/verify_repairs.py",
+  "scope": "exact previously delivered helpers; no new campaign"
+}
