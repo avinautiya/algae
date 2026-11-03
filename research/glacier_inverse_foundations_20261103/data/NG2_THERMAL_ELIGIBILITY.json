@@ -1,0 +1,101 @@
+{
+  "source_doi": "10.5281/zenodo.3935685",
+  "source_sha256": "9d62b8ed847944ed31f2de79b997b877f4a5c034de4cd9bc0a2060bd3d4d074a",
+  "md5_verified": true,
+  "rows": 1940,
+  "first_native_label": "2014-12-06T01:05:00",
+  "last_native_label": "2016-04-03T19:05:00",
+  "timezone": "Not specified by source record; no UTC claim",
+  "depths_m": [
+    0.01,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0,
+    1.2,
+    1.4,
+    1.6,
+    1.8,
+    2.0
+  ],
+  "source_thickness_m": 2.0,
+  "lowermost_probe_source_designation": "Installed at debris-ice interface; source metadata, not an independent borehole ice profile",
+  "sensor_accuracy_C": 0.25,
+  "accuracy_is_not_sigma": true,
+  "step_seconds_counts": {
+    "21599": 63,
+    "21600": 1813,
+    "21601": 63
+  },
+  "nonfinite_temperature_values": 0,
+  "minimum_temperature_by_depth_C": {
+    "T_0.01m_C": -15.49,
+    "T_0.2m_C": -15.43,
+    "T_0.4m_C": -13.87,
+    "T_0.6m_C": -12.43,
+    "T_0.8m_C": -11.68,
+    "T_1m_C": -10.05,
+    "T_1.2m_C": -9.37,
+    "T_1.4m_C": -8.49,
+    "T_1.6m_C": -7.18,
+    "T_1.8m_C": -6.43,
+    "T_2m_C": -6.18
+  },
+  "maximum_temperature_by_depth_C": {
+    "T_0.01m_C": 18.32,
+    "T_0.2m_C": 18.32,
+    "T_0.4m_C": 16.06,
+    "T_0.6m_C": 14.56,
+    "T_0.8m_C": 12.94,
+    "T_1m_C": 9.82,
+    "T_1.2m_C": 8.19,
+    "T_1.4m_C": 6.75,
+    "T_1.6m_C": 4.82,
+    "T_1.8m_C": 3.5,
+    "T_2m_C": 2.06
+  },
+  "interface_below_minus1_count": 984,
+  "interface_below_minus_accuracy_count": 1100,
+  "deep_domain_1to2m_all_probes_below_minus1_longest_runs": [
+    {
+      "start": "2014-12-10T01:05:01",
+      "end": "2015-03-27T01:05:00",
+      "samples": 429,
+      "duration_days": 106.99998842592592
+    },
+    {
+      "start": "2015-12-29T07:05:00",
+      "end": "2016-02-02T13:05:01",
+      "samples": 142,
+      "duration_days": 35.25001157407407
+    },
+    {
+      "start": "2016-02-24T01:05:00",
+      "end": "2016-03-11T13:05:00",
+      "samples": 67,
+      "duration_days": 16.5
+    },
+    {
+      "start": "2015-12-11T07:05:00",
+      "end": "2015-12-26T07:05:00",
+      "samples": 61,
+      "duration_days": 15.0
+    },
+    {
+      "start": "2016-03-13T07:05:00",
+      "end": "2016-03-22T13:05:00",
+      "samples": 38,
+      "duration_days": 9.25
+    }
+  ],
+  "melt_or_flux_targets_present": false,
+  "independent_bulk_C_present": false,
+  "fresh_physical_test": "Lowerdebris1-2m pluscoldice response; measuredT1m topboundary, train/evalinterior+interface temperatures; avoidclaimingmeltaccuracywithoutindependentmelt.",
+  "limitations": [
+    "6h sampling cannotresolvehourlydiurnalflux",
+    "Noiceprobe belowinterface inrecord",
+    "NoindependentabsoluteC/heatflux",
+    "Sourcepaper flags NG2 near-surfacebias; lower-domainboundaryavoidsusingthatprobe"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "tests": 54,
+  "passed": true,
+  "results": [
+    {
+      "component": "theory",
+      "tests": 10,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_conditional_box_contains_true_samples (test_ice_reference.ReferenceTests.test_conditional_box_contains_true_samples) ... ok\ntest_finite_depth_limits (test_ice_reference.ReferenceTests.test_finite_depth_limits) ... ok\ntest_missing_history_and_equal_rates_refused (test_ice_reference.ReferenceTests.test_missing_history_and_equal_rates_refused) ... ok\ntest_reconstruct_known_parameters (test_ice_reference.ReferenceTests.test_reconstruct_known_parameters) ... ok\ntest_unresolved_contrast_not_repaired (test_ice_reference.ReferenceTests.test_unresolved_contrast_not_repaired) ... ok\ntest_warm_scaling_does_not_resolve_absolute_scale (test_ice_reference.ReferenceTests.test_warm_scaling_does_not_resolve_absolute_scale) ... ok\ntest_bad_input (test_weak_graph.WeakTests.test_bad_input) ... ok\ntest_necessary_lp_contains_exact_steady_conductances (test_weak_graph.WeakTests.test_necessary_lp_contains_exact_steady_conductances) ... ok\ntest_scaled_temperature_problem_preserves_scale_symmetry (test_weak_graph.WeakTests.test_scaled_temperature_problem_preserves_scale_symmetry) ... ok\ntest_steady_series_flux_ratio (test_weak_graph.WeakTests.test_steady_series_flux_ratio) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.052s\n\nOK\n"
+    },
+    {
+      "component": "physics",
+      "tests": 4,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_homogeneous_matches_frozen_phase_model (test_layered_column.LayeredPhysicsTests.test_homogeneous_matches_frozen_phase_model) ... ok\ntest_two_layer_warm_temperature_invariance_does_not_identify_melt (test_layered_column.LayeredPhysicsTests.test_two_layer_warm_temperature_invariance_does_not_identify_melt) ... ok\ntest_unaligned_two_layer_exact_series_steady_solution (test_layered_column.LayeredPhysicsTests.test_unaligned_two_layer_exact_series_steady_solution) ... ok\ntest_zero_gradient_uniform_cold_limit_and_invalid_inputs (test_layered_column.LayeredPhysicsTests.test_zero_gradient_uniform_cold_limit_and_invalid_inputs) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.004s\n\nOK\n"
+    },
+    {
+      "component": "literature",
+      "tests": 12,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_all_shared_endpoint_error_corners (test_integrated_flux_bounds.TestIntegratedBounds.test_all_shared_endpoint_error_corners) ... ok\ntest_arbitrary_time_nodes_obey_pointwise_bound (test_integrated_flux_bounds.TestIntegratedBounds.test_arbitrary_time_nodes_obey_pointwise_bound) ... ok\ntest_common_capacity_conductance_scaling (test_integrated_flux_bounds.TestIntegratedBounds.test_common_capacity_conductance_scaling) ... ok\ntest_invalid_nonpassive_input (test_integrated_flux_bounds.TestIntegratedBounds.test_invalid_nonpassive_input) ... ok\ntest_signed_flux_bound_not_melt_clipped (test_integrated_flux_bounds.TestIntegratedBounds.test_signed_flux_bound_not_melt_clipped) ... ok\ntest_finite_domain_limits (test_reference_admittance_basis.ReferenceBasis.test_finite_domain_limits) ... ok\ntest_known_ice_reference_breaks_warm_scale_symmetry (test_reference_admittance_basis.ReferenceBasis.test_known_ice_reference_breaks_warm_scale_symmetry) ... ok\ntest_noise_free_two_frequency_recovery (test_reference_admittance_basis.ReferenceBasis.test_noise_free_two_frequency_recovery) ... ok\ntest_scaling_ice_reference_too_restores_ambiguity (test_reference_admittance_basis.ReferenceBasis.test_scaling_ice_reference_too_restores_ambiguity) ... ok\ntest_warm_gauge_is_exact (test_reference_admittance_basis.ReferenceBasis.test_warm_gauge_is_exact) ... ok\ntest_conditional_lp_contains_true_deepest_edge_after_sensor_errors (test_weak_graph_independent.IndependentWeakGraphTests.test_conditional_lp_contains_true_deepest_edge_after_sensor_errors) ... ok\ntest_recovers_transient_heterogeneous_conductances (test_weak_graph_independent.IndependentWeakGraphTests.test_recovers_transient_heterogeneous_conductances) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.020s\n\nOK\n"
+    },
+    {
+      "component": "moisture",
+      "tests": 17,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_bounded_drift_factor (test_anomaly_index.AnomalyTests.test_bounded_drift_factor) ... ok\ntest_centered_alternative_also_offset_invariant (test_anomaly_index.AnomalyTests.test_centered_alternative_also_offset_invariant) ... ok\ntest_constant_offset_invariance_entire_calibrated_prediction (test_anomaly_index.AnomalyTests.test_constant_offset_invariance_entire_calibrated_prediction) ... ok\ntest_development_selection_also_offset_invariant (test_anomaly_index.AnomalyTests.test_development_selection_also_offset_invariant) ... ok\ntest_exact_positive_linear_area (test_anomaly_index.AnomalyTests.test_exact_positive_linear_area) ... ok\ntest_ratio_model_not_offset_invariant (test_anomaly_index.AnomalyTests.test_ratio_model_not_offset_invariant) ... ok\ntest_reference_independence (test_anomaly_index.AnomalyTests.test_reference_independence) ... ok\ntest_source_feature_to_prediction_pipeline_without_native_camera_access (test_experiment.ExperimentTests.test_source_feature_to_prediction_pipeline_without_native_camera_access) ... ok\ntest_cooling_then_reheating_has_a_sensible_delay (test_flux_ice.FluxIceTests.test_cooling_then_reheating_has_a_sensible_delay) ... ok\ntest_linear_soil_integral_and_unknown_interface_term_once (test_flux_ice.FluxIceTests.test_linear_soil_integral_and_unknown_interface_term_once) ... ok\ntest_missing_nonfinite_and_phase_invalid_inputs_refused (test_flux_ice.FluxIceTests.test_missing_nonfinite_and_phase_invalid_inputs_refused) ... ok\ntest_negative_flux_stores_cold_content_without_negative_melt (test_flux_ice.FluxIceTests.test_negative_flux_stores_cold_content_without_negative_melt) ... ok\ntest_neumann_semiinfinite_cooling_spatial_refinement (test_flux_ice.FluxIceTests.test_neumann_semiinfinite_cooling_spatial_refinement) ... ok\ntest_positive_steady_exact_latent_units_with_soil_capacity (test_flux_ice.FluxIceTests.test_positive_steady_exact_latent_units_with_soil_capacity) ... ok\ntest_sheet_ice_two_node_independent_inverse (test_flux_ice.FluxIceTests.test_sheet_ice_two_node_independent_inverse) ... ok\ntest_single_cell_neumann_independent_analytic_oracle (test_flux_ice.FluxIceTests.test_single_cell_neumann_independent_analytic_oracle) ... ok\ntest_storage_subtraction_and_full_plane_ledger (test_flux_ice.FluxIceTests.test_storage_subtraction_and_full_plane_ledger) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.627s\n\nOK\n"
+    },
+    {
+      "component": "moisture/review",
+      "tests": 8,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_mae_is_not_cancelling_total (test_moisture_scorer.LockedMoistureScorerTests.test_mae_is_not_cancelling_total) ... ok\ntest_no_truth_opened_after_prediction_tamper (test_moisture_scorer.LockedMoistureScorerTests.test_no_truth_opened_after_prediction_tamper) ... ok\ntest_rejects_changed_camera_support (test_moisture_scorer.LockedMoistureScorerTests.test_rejects_changed_camera_support) ... ok\ntest_rejects_missing_external_lock_before_truth (test_moisture_scorer.LockedMoistureScorerTests.test_rejects_missing_external_lock_before_truth) ... ok\ntest_rejects_nan_truth_no_silent_interval_drop (test_moisture_scorer.LockedMoistureScorerTests.test_rejects_nan_truth_no_silent_interval_drop) ... ok\ntest_rejects_parameter_retune_and_missing_baseline (test_moisture_scorer.LockedMoistureScorerTests.test_rejects_parameter_retune_and_missing_baseline) ... ok\ntest_scores_entire_nine_model_family (test_moisture_scorer.LockedMoistureScorerTests.test_scores_entire_nine_model_family) ... ok\ntest_truth_operator_density_must_match (test_moisture_scorer.LockedMoistureScorerTests.test_truth_operator_density_must_match) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.009s\n\nOK\n"
+    },
+    {
+      "component": "data/moisture",
+      "tests": 3,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_constant_additive_calibration_invariance (test_moisture_invariance.Checks.test_constant_additive_calibration_invariance) ... ok\ntest_fixed_beta_drift_bound (test_moisture_invariance.Checks.test_fixed_beta_drift_bound) ... ok\ntest_multiplicative_calibration_does_not_cancel (test_moisture_invariance.Checks.test_multiplicative_calibration_does_not_cancel) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+    }
+  ],
+  "scope": "Mathematical/numerical/source checks; not new field validation or historical originality certification"
+}

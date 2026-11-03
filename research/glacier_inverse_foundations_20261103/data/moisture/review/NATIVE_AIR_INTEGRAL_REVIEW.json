@@ -1,0 +1,93 @@
+{
+  "scope": "Nativeairintegration/calculus only; no camera outcomes",
+  "source_anomaly_index_sha256": "2ddff8b8cdae01cfaf2fcb026869034b85dd142317637cae47141e238240e457",
+  "review": [
+    {
+      "tower": "Tower1",
+      "max_native_air_gap_hours": 16.833333333333332,
+      "integral_comparisons": [
+        {
+          "start": "2022-12-02T03:00:00",
+          "end": "2022-12-16T03:00:00",
+          "production_K_seconds": 10768559.4,
+          "independent_K_seconds": 10768559.4,
+          "absolute_difference_K_seconds": 0.0
+        },
+        {
+          "start": "2022-12-16T03:00:00",
+          "end": "2022-12-30T00:00:00",
+          "production_K_seconds": 7463061.705768106,
+          "independent_K_seconds": 7463061.705768106,
+          "absolute_difference_K_seconds": 0.0
+        },
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "production_K_seconds": 7457444.600774413,
+          "independent_K_seconds": 7457444.600774413,
+          "absolute_difference_K_seconds": 0.0
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "production_K_seconds": 9374986.663114205,
+          "independent_K_seconds": 9374986.663114205,
+          "absolute_difference_K_seconds": 0.0
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "production_K_seconds": 13384587.3,
+          "independent_K_seconds": 13384587.3,
+          "absolute_difference_K_seconds": 0.0
+        }
+      ],
+      "zero_parameter_closures_pass": true
+    },
+    {
+      "tower": "Tower2",
+      "max_native_air_gap_hours": 16.166666666666668,
+      "integral_comparisons": [
+        {
+          "start": "2022-12-02T03:00:00",
+          "end": "2022-12-16T03:00:00",
+          "production_K_seconds": 10229916.859435737,
+          "independent_K_seconds": 10229916.859435737,
+          "absolute_difference_K_seconds": 0.0
+        },
+        {
+          "start": "2022-12-16T03:00:00",
+          "end": "2022-12-30T03:00:00",
+          "production_K_seconds": 7151838.845733759,
+          "independent_K_seconds": 7151838.845733759,
+          "absolute_difference_K_seconds": 0.0
+        },
+        {
+          "start": "2022-12-30T03:00:00",
+          "end": "2023-01-13T03:00:00",
+          "production_K_seconds": 6817788.748296828,
+          "independent_K_seconds": 6817788.748296828,
+          "absolute_difference_K_seconds": 0.0
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "production_K_seconds": 8806267.452159502,
+          "independent_K_seconds": 8806267.452159502,
+          "absolute_difference_K_seconds": 0.0
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "production_K_seconds": 12583811.85,
+          "independent_K_seconds": 12583811.85,
+          "absolute_difference_K_seconds": 0.0
+        }
+      ],
+      "zero_parameter_closures_pass": true
+    }
+  ],
+  "independent_operator": "Splitnativepiecewiselinearairatendpointsandallzero-crossings, trapezoidmax(T,0)exactoneachpiece",
+  "no_moisture_interpolation_claim": "ProductionholdsSM3fixedatleftnativehalfhourvalue for each exactair-exposurecell; this explicitquadratureassumption is notcontinuous measuredmoisture",
+  "passed": true
+}

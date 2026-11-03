@@ -1,0 +1,77 @@
+{
+  "scope": "Canonical observedprocessfeatures only; noTower2cameraoutcomes",
+  "clock": "source_local_naive_no_utc_claim",
+  "air_operator": "TA_3labelvalues linearlyinterpolated on nativeSM3halfhourlabels; requirefinitebrackets,max18h; noextrapolation; source-row averaging/labelphase unresolved",
+  "soil_T_operator": {
+    "Tower1": "DT5at.50m exactlynominalSM3depth",
+    "Tower2": "linearDT4(.33m)toDT5(.44m)atSM3(.39m); derivedtemperatureQC, notco-locatedmeasurement"
+  },
+  "temperature_accuracy_C": 0.4,
+  "manufacturer_moisture_typical_absolute_accuracy_m3_m3": 0.031,
+  "localcalibrationcertificate": null,
+  "sites": {
+    "Tower1": {
+      "rows": 3361,
+      "first_label": "2022-12-02T03:00:00",
+      "last_label": "2023-02-10T03:00:00",
+      "training_SM3_mean_halfopen": 0.05019255952380952,
+      "training_rows": 672,
+      "frozen_site_specific_anchors": [
+        "2022-12-02T03:00:00",
+        "2022-12-16T03:00:00",
+        "2022-12-30T00:00:00",
+        "2023-01-13T03:00:00",
+        "2023-01-27T03:00:00",
+        "2023-02-10T03:00:00"
+      ],
+      "target_role": "AlreadyinspectedT1development",
+      "soilT_QC_counts": {
+        "nominal_below0": 189,
+        "nominal_above50": 0,
+        "not_guaranteed_0to50_given_pminus0p4": 1337
+      },
+      "source_sha256": {
+        "sm_Tower1.csv": "4ed4a22a455b1d075605a7894ce41688cbf343cb9a9f30d653b1ae852bfd6758",
+        "debtemp_Tower1.csv": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+        "trh_Tower1.csv": "d0e91f6bc8b620a6e271d9e8fe32d6f26c7994771fde956aa23422539d3807e9"
+      },
+      "canonical_feature_file": "Tower1_CANONICAL_FEATURES.csv",
+      "canonical_feature_sha256": "c67f79cb8da745e3de77e65cd500688e21b6dcd7be429efbcbdb8e7d8dc50211",
+      "native_air_file": "Tower1_NATIVE_AIR_TA3.csv",
+      "native_air_sha256": "b4c1995a1c3592769a6eed546e200f40d3bed087a419d365fcd178ebd655b208",
+      "process_source_manifest": "/private/tmp/glacier-round2-20261103/data/decoded/DECODE_VERIFICATION.json"
+    },
+    "Tower2": {
+      "rows": 3361,
+      "first_label": "2022-12-02T03:00:00",
+      "last_label": "2023-02-10T03:00:00",
+      "training_SM3_mean_halfopen": 0.07041949404761905,
+      "training_rows": 672,
+      "frozen_site_specific_anchors": [
+        "2022-12-02T03:00:00",
+        "2022-12-16T03:00:00",
+        "2022-12-30T03:00:00",
+        "2023-01-13T03:00:00",
+        "2023-01-27T03:00:00",
+        "2023-02-10T03:00:00"
+      ],
+      "target_role": "CameraT2unopenedcandidateevaluation",
+      "soilT_QC_counts": {
+        "nominal_below0": 0,
+        "nominal_above50": 0,
+        "not_guaranteed_0to50_given_pminus0p4": 894
+      },
+      "source_sha256": {
+        "sm_Tower2.csv": "b8999381ebef26b4a435eca508fabd60a112ff58fab43bf8aec4e96ac3348332",
+        "debtemp_Tower2.csv": "6eb9d5b68638779d9ff1799c7ee2fb12f023826564e00d1a103158d0754560a6",
+        "trh_Tower2.csv": "3f0d9224a7407589ed07fddd1789213516a88338ef93aeb7ae0b8fee9fa31548"
+      },
+      "canonical_feature_file": "Tower2_CANONICAL_FEATURES.csv",
+      "canonical_feature_sha256": "f5b269ce5c981a5cb8ecc1bf83fa1ecb531b5288ea04dc47c1e2e4d72dbcdecb",
+      "native_air_file": "Tower2_NATIVE_AIR_TA3.csv",
+      "native_air_sha256": "1cbabcbbc4299180088e78a3598a4153d65e866c06920f7352d321061501dbca",
+      "process_source_manifest": "/private/tmp/glacier-round2-20261103/data/decoded/DECODE_VERIFICATION.json"
+    }
+  },
+  "builder_sha256": "0ba2d10b0bc8c02554a804d39e3e8e17622b7d7e131edfd0a4250a42841b8403"
+}

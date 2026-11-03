@@ -1,0 +1,30 @@
+{
+  "scope": "Tower1 TRAIN DEVELOPMENT only; not a new validation result",
+  "start": "2022-12-02T03:00:00",
+  "end": "2022-12-16T03:00:00",
+  "k_grid_W_mK": [
+    0.2,
+    0.35,
+    0.6,
+    1.0,
+    1.6,
+    2.5,
+    3.5,
+    4.5
+  ],
+  "capacity_J_m3K": 1855487.1033697424,
+  "domain_depth_m": 0.5,
+  "layer_interface_m": 0.25,
+  "source_geometry": "same source-bounded middle20mm scene; assumed static geometry",
+  "loss_definitions": [
+    "plain equal-sensor MSE",
+    "engineering .4C + abs(observed vertical TRAIN gradient)*.02m standardized interval loss",
+    "T5/.4 and (T4-T5)/.8 squared, plus0.1 upper-sensor standardized MSE; predeclared heuristic, not claimed optimal"
+  ],
+  "no_parameter_selection_uses_melt": true,
+  "no_Tower2_camera_access": true,
+  "source_hashes": {
+    "temperature_csv_sha256": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+    "capacity_audit_sha256": "95eddd954f6f5570945aca00947c12c92cf39214e44483da6cf7f7dc1fb01a61"
+  }
+}

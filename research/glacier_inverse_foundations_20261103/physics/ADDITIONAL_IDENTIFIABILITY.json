@@ -1,0 +1,124 @@
+{
+  "two_layer_unweighted_reference_cold_interface_steps": 0,
+  "finite_difference_step_sensitivity": [
+    {
+      "log_parameter_difference_step": 0.03,
+      "singular_values": [
+        3.4441208132738272,
+        2.1245967184866332,
+        0.39591766673961554,
+        0.0001780383633479948
+      ],
+      "scaling_null_direction_norm": 0.0002526734268506095
+    },
+    {
+      "log_parameter_difference_step": 0.015,
+      "singular_values": [
+        3.4446876843383625,
+        2.1246987925307157,
+        0.39591771507865076,
+        4.4520146766199157e-05
+      ],
+      "scaling_null_direction_norm": 6.319113167642131e-05
+    },
+    {
+      "log_parameter_difference_step": 0.0075,
+      "singular_values": [
+        3.444829445931721,
+        2.1247243148191233,
+        0.3959177271767195,
+        1.1130696559278136e-05
+      ],
+      "scaling_null_direction_norm": 1.5799207655186356e-05
+    }
+  ],
+  "known_ice_absolute_scale_tests": [
+    {
+      "family": "homogeneous",
+      "capacity_scene": "dry_assumed_pore_air",
+      "scale": 0.6460134420412907,
+      "cold_interface_steps": 0,
+      "max_temperature_change_C": 2.5757174171303632e-14,
+      "RMS_temperature_change_C": 7.653413524438042e-15,
+      "raw_TRAIN_melt_mmwe": 240.17710060354636
+    },
+    {
+      "family": "homogeneous",
+      "capacity_scene": "training_valid_probe_proxy_not_measured_depth_mean",
+      "scale": 1.0,
+      "cold_interface_steps": 0,
+      "max_temperature_change_C": 0.0,
+      "RMS_temperature_change_C": 0.0,
+      "raw_TRAIN_melt_mmwe": 371.7834412928458
+    },
+    {
+      "family": "homogeneous",
+      "capacity_scene": "fully_water_saturated_conditional",
+      "scale": 1.6369496531638583,
+      "cold_interface_steps": 0,
+      "max_temperature_change_C": 3.5704772471945034e-13,
+      "RMS_temperature_change_C": 1.495904796685421e-13,
+      "raw_TRAIN_melt_mmwe": 608.590775276363
+    },
+    {
+      "family": "two_layer",
+      "capacity_scene": "dry_assumed_pore_air",
+      "scale": 0.6460134420412907,
+      "cold_interface_steps": 0,
+      "max_temperature_change_C": 1.0746958878371515e-13,
+      "RMS_temperature_change_C": 3.6406079993311556e-14,
+      "raw_TRAIN_melt_mmwe": 170.56931011063315
+    },
+    {
+      "family": "two_layer",
+      "capacity_scene": "training_valid_probe_proxy_not_measured_depth_mean",
+      "scale": 1.0,
+      "cold_interface_steps": 0,
+      "max_temperature_change_C": 0.0,
+      "RMS_temperature_change_C": 0.0,
+      "raw_TRAIN_melt_mmwe": 264.0336856949398
+    },
+    {
+      "family": "two_layer",
+      "capacity_scene": "fully_water_saturated_conditional",
+      "scale": 1.6369496531638583,
+      "cold_interface_steps": 0,
+      "max_temperature_change_C": 2.9309887850104133e-13,
+      "RMS_temperature_change_C": 1.2765896271964984e-13,
+      "raw_TRAIN_melt_mmwe": 432.2098502218962
+    }
+  ],
+  "sensor_means_C": [
+    11.427410714285719,
+    10.466736607142861,
+    8.195913690476186,
+    2.3201532738095225,
+    0.3738005952380952
+  ],
+  "local_derivative_diagnostics": [
+    {
+      "sensor": "DT2",
+      "derivative_OLS_alpha_m2_s": 1.3550567923098886e-06,
+      "conditional_k_W_mK": 2.51429040246457,
+      "derivative_residual_RMS_K_s": 0.00040875338464058255,
+      "interpretation": "noise-sensitive local PDE regression, not independent conductivity measurement"
+    },
+    {
+      "sensor": "DT3",
+      "derivative_OLS_alpha_m2_s": 5.270541021074655e-07,
+      "conditional_k_W_mK": 0.9779420892385216,
+      "derivative_residual_RMS_K_s": 0.0003762583656657223,
+      "interpretation": "noise-sensitive local PDE regression, not independent conductivity measurement"
+    },
+    {
+      "sensor": "DT4",
+      "derivative_OLS_alpha_m2_s": 1.8509808098754413e-07,
+      "conditional_k_W_mK": 0.34344710213087626,
+      "derivative_residual_RMS_K_s": 8.351955544407145e-05,
+      "interpretation": "noise-sensitive local PDE regression, not independent conductivity measurement"
+    }
+  ],
+  "note": "Any nearzero singular value scaling as h\u00b2 is differentiation truncation, not evidence of identifiable absolute heat scale.",
+  "Tower2_camera_opened": false,
+  "production_validation_run": false
+}

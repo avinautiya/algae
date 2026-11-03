@@ -1,0 +1,103 @@
+{
+  "status": "necessary_relaxation_bounded",
+  "lowest_conductance_W_m2K": [
+    1.9486531055501846,
+    48.0
+  ],
+  "lowest_conductivity_W_mK": [
+    0.24358163819377307,
+    6.0
+  ],
+  "NNLS_diagnostic": {
+    "conductances_W_m2K": [
+      7.6483172496496525,
+      3.0945227376201863,
+      1.131782234097651,
+      3.354504367643661
+    ],
+    "conductivities_W_mK": [
+      0.8030733112132135,
+      0.3868153422025233,
+      0.1414727792622064,
+      0.4193130459554576
+    ],
+    "conductivity_bounds_W_mK": [
+      0.05,
+      6.0
+    ],
+    "capacity_J_m3K": 1855487.1033697424,
+    "interval_seconds": 86400,
+    "training_sha256": "c04408eca6f2dfefd4e7c8b1393f6c9d9ab728615e38828877ac064c26f8aa54",
+    "balance_RMSE_W_m2": 2.519363926951532,
+    "max_absolute_balance_residual_W_m2": 5.671379827907899,
+    "conservative_regressor_sensor_bounds_W_m2": [
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.5700221461818,
+      5.528598495163324,
+      5.736583799182103,
+      10.612059383551287,
+      5.574291144477985,
+      5.782276448496764
+    ],
+    "balances_within_conditional_sensor_bound": 41,
+    "total_balances": 42,
+    "singular_values": [
+      32.4168286766611,
+      11.318727852329182,
+      4.698971005248287,
+      1.0191931819966056
+    ],
+    "rank": 4,
+    "unique_linear_solution_conditional_on_exact_inputs": true,
+    "physical_bound_active": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "C_assumed_not_identified": true,
+    "errors_in_regressors": true,
+    "confidence_interval": false,
+    "historical_mathematical_novelty_claim": false,
+    "used_melt_target": false
+  },
+  "icemelt_prediction": false,
+  "exact_joint_sensor_error_feasibility_established": false,
+  "confidence_interval": false,
+  "assumptions": "Fixed geometry/C, piecewise-linear samples, positive constant edges, zero unmodelled heat; necessary outer relaxation only"
+}

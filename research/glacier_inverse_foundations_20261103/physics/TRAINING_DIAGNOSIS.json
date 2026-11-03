@@ -1,0 +1,1461 @@
+{
+  "plan_sha256": "7f5f5c286932788b179db1180d70f1f01d22b4573e4ae54be3f24dca93ddef72",
+  "all_candidates": [
+    {
+      "k_upper_W_mK": 0.2,
+      "k_lower_W_mK": 0.2,
+      "alpha_upper_m2_s": 1.0778840749514283e-07,
+      "alpha_lower_m2_s": 1.0778840749514283e-07,
+      "raw_TRAIN_melt_mmwe": 13.90201787755882,
+      "sensor_RMSE_C": [
+        7.788503505198358,
+        6.046206767795252,
+        1.513090530284464,
+        0.21461641255358246
+      ],
+      "max_standardized_absolute_residual": 26.46647600719069,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 9.131434453597798e-14,
+      "unweighted_temperature_MSE_C2": 24.88822657169853,
+      "depth_uncertainty_standardized_interval_loss": 28.030857564869198,
+      "basal_temperature_and_gradient_loss": 33.37444992170006
+    },
+    {
+      "k_upper_W_mK": 0.2,
+      "k_lower_W_mK": 0.35,
+      "alpha_upper_m2_s": 1.0778840749514283e-07,
+      "alpha_lower_m2_s": 1.8862971311649994e-07,
+      "raw_TRAIN_melt_mmwe": 19.17673512583925,
+      "sensor_RMSE_C": [
+        7.917347931101226,
+        6.61159704216753,
+        1.4210986713950067,
+        0.2251035406922597
+      ],
+      "max_standardized_absolute_residual": 27.404377102936785,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 8.432490617070854e-15,
+      "unweighted_temperature_MSE_C2": 27.116951686996003,
+      "depth_uncertainty_standardized_interval_loss": 26.857860763652578,
+      "basal_temperature_and_gradient_loss": 35.85895919432425
+    },
+    {
+      "k_upper_W_mK": 0.2,
+      "k_lower_W_mK": 0.6,
+      "alpha_upper_m2_s": 1.0778840749514283e-07,
+      "alpha_lower_m2_s": 3.233652224854285e-07,
+      "raw_TRAIN_melt_mmwe": 23.9253392268192,
+      "sensor_RMSE_C": [
+        8.060933697082275,
+        7.2440065035047665,
+        1.6095104794461597,
+        0.26647239324962185
+      ],
+      "max_standardized_absolute_residual": 28.327435711776186,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 2.3833257900295263e-14,
+      "unweighted_temperature_MSE_C2": 30.028953452846768,
+      "depth_uncertainty_standardized_interval_loss": 27.2021433755174,
+      "basal_temperature_and_gradient_loss": 40.01169230644883
+    },
+    {
+      "k_upper_W_mK": 0.2,
+      "k_lower_W_mK": 1.0,
+      "alpha_upper_m2_s": 1.0778840749514283e-07,
+      "alpha_lower_m2_s": 5.389420374757141e-07,
+      "raw_TRAIN_melt_mmwe": 27.59493711507481,
+      "sensor_RMSE_C": [
+        8.190135885093417,
+        7.798501977046461,
+        1.9010652331924327,
+        0.313449153369863
+      ],
+      "max_standardized_absolute_residual": 29.079799239045883,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 4.782890467874212e-14,
+      "unweighted_temperature_MSE_C2": 32.90181457372341,
+      "depth_uncertainty_standardized_interval_loss": 28.39692751128303,
+      "basal_temperature_and_gradient_loss": 44.55773703744451
+    },
+    {
+      "k_upper_W_mK": 0.2,
+      "k_lower_W_mK": 1.6,
+      "alpha_upper_m2_s": 1.0778840749514283e-07,
+      "alpha_lower_m2_s": 8.623072599611426e-07,
+      "raw_TRAIN_melt_mmwe": 30.116254860448603,
+      "sensor_RMSE_C": [
+        8.288528421945113,
+        8.208870155633537,
+        2.14975929504375,
+        0.3504968551047755
+      ],
+      "max_standardized_absolute_residual": 29.604681318882484,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 2.5641059341240585e-14,
+      "unweighted_temperature_MSE_C2": 35.20739142637707,
+      "depth_uncertainty_standardized_interval_loss": 29.68349593365447,
+      "basal_temperature_and_gradient_loss": 48.38779469172783
+    },
+    {
+      "k_upper_W_mK": 0.2,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 1.0778840749514283e-07,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 31.822394852068747,
+      "sensor_RMSE_C": [
+        8.360067589465258,
+        8.49901619930385,
+        2.332577747350939,
+        0.3769471222182425
+      ],
+      "max_standardized_absolute_residual": 30.001366955346132,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.793205815351411e-14,
+      "unweighted_temperature_MSE_C2": 36.92675363421051,
+      "depth_uncertainty_standardized_interval_loss": 30.764040101617255,
+      "basal_temperature_and_gradient_loss": 51.31095443253472
+    },
+    {
+      "k_upper_W_mK": 0.2,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 1.0778840749514283e-07,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 32.75066463185039,
+      "sensor_RMSE_C": [
+        8.400991299853255,
+        8.66012162151076,
+        2.4349424685624217,
+        0.39158283335860594
+      ],
+      "max_standardized_absolute_residual": 30.222529592958832,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 5.4557196425877714e-14,
+      "unweighted_temperature_MSE_C2": 37.914160815039544,
+      "depth_uncertainty_standardized_interval_loss": 31.42111267150339,
+      "basal_temperature_and_gradient_loss": 53.00691126362207
+    },
+    {
+      "k_upper_W_mK": 0.2,
+      "k_lower_W_mK": 4.5,
+      "alpha_upper_m2_s": 1.0778840749514283e-07,
+      "alpha_lower_m2_s": 2.425239168640714e-06,
+      "raw_TRAIN_melt_mmwe": 33.28578338185116,
+      "sensor_RMSE_C": [
+        8.425340950949881,
+        8.753319384202964,
+        2.4943178280608573,
+        0.40004096131906364
+      ],
+      "max_standardized_absolute_residual": 30.350543645301254,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 5.607690736396264e-14,
+      "unweighted_temperature_MSE_C2": 38.49715614493293,
+      "depth_uncertainty_standardized_interval_loss": 31.820687849959757,
+      "basal_temperature_and_gradient_loss": 54.012736064889005
+    },
+    {
+      "k_upper_W_mK": 0.35,
+      "k_lower_W_mK": 0.2,
+      "alpha_upper_m2_s": 1.8862971311649994e-07,
+      "alpha_lower_m2_s": 1.0778840749514283e-07,
+      "raw_TRAIN_melt_mmwe": 18.00595287621221,
+      "sensor_RMSE_C": [
+        6.816446130858791,
+        5.666129933489539,
+        2.0395186947727235,
+        0.2544238483284656
+      ],
+      "max_standardized_absolute_residual": 20.698340390221425,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.550834267337064e-13,
+      "unweighted_temperature_MSE_C2": 20.698333569752904,
+      "depth_uncertainty_standardized_interval_loss": 26.316646111888776,
+      "basal_temperature_and_gradient_loss": 30.003291228004425
+    },
+    {
+      "k_upper_W_mK": 0.35,
+      "k_lower_W_mK": 0.35,
+      "alpha_upper_m2_s": 1.8862971311649994e-07,
+      "alpha_lower_m2_s": 1.8862971311649994e-07,
+      "raw_TRAIN_melt_mmwe": 26.266866743042556,
+      "sensor_RMSE_C": [
+        6.924973260635651,
+        6.008501526684659,
+        1.6441038727466923,
+        0.22192229297431174
+      ],
+      "max_standardized_absolute_residual": 21.766094999718653,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.9196183194780742e-13,
+      "unweighted_temperature_MSE_C2": 21.70241807629757,
+      "depth_uncertainty_standardized_interval_loss": 22.495102897293712,
+      "basal_temperature_and_gradient_loss": 29.81004771362828
+    },
+    {
+      "k_upper_W_mK": 0.35,
+      "k_lower_W_mK": 0.6,
+      "alpha_upper_m2_s": 1.8862971311649994e-07,
+      "alpha_lower_m2_s": 3.233652224854285e-07,
+      "raw_TRAIN_melt_mmwe": 34.62717637253772,
+      "sensor_RMSE_C": [
+        7.0767347841489165,
+        6.571355831473563,
+        1.48079727791605,
+        0.22917934630499368
+      ],
+      "max_standardized_absolute_residual": 22.909636359152124,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.7468366679341171e-13,
+      "unweighted_temperature_MSE_C2": 23.8770441050203,
+      "depth_uncertainty_standardized_interval_loss": 20.54488397923817,
+      "basal_temperature_and_gradient_loss": 31.98915349857574
+    },
+    {
+      "k_upper_W_mK": 0.35,
+      "k_lower_W_mK": 1.0,
+      "alpha_upper_m2_s": 1.8862971311649994e-07,
+      "alpha_lower_m2_s": 5.389420374757141e-07,
+      "raw_TRAIN_melt_mmwe": 41.83255726374509,
+      "sensor_RMSE_C": [
+        7.24035686385502,
+        7.195750028157487,
+        1.62497222120972,
+        0.26771444890606233
+      ],
+      "max_standardized_absolute_residual": 23.93020190810805,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.0486802243737831e-13,
+      "unweighted_temperature_MSE_C2": 26.72844793238931,
+      "depth_uncertainty_standardized_interval_loss": 20.473429901672173,
+      "basal_temperature_and_gradient_loss": 35.941799061389645
+    },
+    {
+      "k_upper_W_mK": 0.35,
+      "k_lower_W_mK": 1.6,
+      "alpha_upper_m2_s": 1.8862971311649994e-07,
+      "alpha_lower_m2_s": 8.623072599611426e-07,
+      "raw_TRAIN_melt_mmwe": 47.24071320915663,
+      "sensor_RMSE_C": [
+        7.383045504272388,
+        7.73012191866121,
+        1.8783681470424418,
+        0.3097158266984369
+      ],
+      "max_standardized_absolute_residual": 24.782249445597156,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.1052580585856753e-13,
+      "unweighted_temperature_MSE_C2": 29.47208414616359,
+      "depth_uncertainty_standardized_interval_loss": 21.395565806311737,
+      "basal_temperature_and_gradient_loss": 40.19447113976235
+    },
+    {
+      "k_upper_W_mK": 0.35,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 1.8862971311649994e-07,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 51.155117779591194,
+      "sensor_RMSE_C": [
+        7.497542275835375,
+        8.141780301842903,
+        2.110750871956269,
+        0.3443800429730099
+      ],
+      "max_standardized_absolute_residual": 25.426529496740343,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -6.300957604274494e-14,
+      "unweighted_temperature_MSE_C2": 31.768898379719477,
+      "depth_uncertainty_standardized_interval_loss": 22.56004520294233,
+      "basal_temperature_and_gradient_loss": 43.93577367019121
+    },
+    {
+      "k_upper_W_mK": 0.35,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 1.8862971311649994e-07,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 53.390117734817494,
+      "sensor_RMSE_C": [
+        7.5674224968943165,
+        8.380936391183981,
+        2.2543536626207117,
+        0.36516449386437133
+      ],
+      "max_standardized_absolute_residual": 25.794265888506388,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -6.885072431093219e-14,
+      "unweighted_temperature_MSE_C2": 33.18035839583118,
+      "depth_uncertainty_standardized_interval_loss": 23.398560942337216,
+      "basal_temperature_and_gradient_loss": 46.29113547162009
+    },
+    {
+      "k_upper_W_mK": 0.35,
+      "k_lower_W_mK": 4.5,
+      "alpha_upper_m2_s": 1.8862971311649994e-07,
+      "alpha_lower_m2_s": 2.425239168640714e-06,
+      "raw_TRAIN_melt_mmwe": 54.719444307965375,
+      "sensor_RMSE_C": [
+        7.610489027600137,
+        8.522289544463481,
+        2.3420701658504055,
+        0.3777723065188651
+      ],
+      "max_standardized_absolute_residual": 26.012024545654985,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -6.624131537290823e-14,
+      "unweighted_temperature_MSE_C2": 34.04424172405821,
+      "depth_uncertainty_standardized_interval_loss": 23.95337352745051,
+      "basal_temperature_and_gradient_loss": 47.75174502555673
+    },
+    {
+      "k_upper_W_mK": 0.6,
+      "k_lower_W_mK": 0.2,
+      "alpha_upper_m2_s": 3.233652224854285e-07,
+      "alpha_lower_m2_s": 1.0778840749514283e-07,
+      "raw_TRAIN_melt_mmwe": 21.777291909559104,
+      "sensor_RMSE_C": [
+        5.667932576489117,
+        5.3864890607221305,
+        2.698874163313303,
+        0.3283941098374149
+      ],
+      "max_standardized_absolute_residual": 20.67723676945585,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.2029664576963662e-13,
+      "unweighted_temperature_MSE_C2": 17.13287213342042,
+      "depth_uncertainty_standardized_interval_loss": 26.402633517128464,
+      "basal_temperature_and_gradient_loss": 28.629901679763165
+    },
+    {
+      "k_upper_W_mK": 0.6,
+      "k_lower_W_mK": 0.35,
+      "alpha_upper_m2_s": 3.233652224854285e-07,
+      "alpha_lower_m2_s": 1.8862971311649994e-07,
+      "raw_TRAIN_melt_mmwe": 33.496560608760205,
+      "sensor_RMSE_C": [
+        5.720223886278759,
+        5.442674552414641,
+        2.22488633309058,
+        0.28205333676724315
+      ],
+      "max_standardized_absolute_residual": 17.573529665111003,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.776950026727518e-13,
+      "unweighted_temperature_MSE_C2": 16.843335218152692,
+      "depth_uncertainty_standardized_interval_loss": 20.783123204115387,
+      "basal_temperature_and_gradient_loss": 25.96984847760341
+    },
+    {
+      "k_upper_W_mK": 0.6,
+      "k_lower_W_mK": 0.6,
+      "alpha_upper_m2_s": 3.233652224854285e-07,
+      "alpha_lower_m2_s": 3.233652224854285e-07,
+      "raw_TRAIN_melt_mmwe": 46.84410306026186,
+      "sensor_RMSE_C": [
+        5.833851956398399,
+        5.7782215825198655,
+        1.747692027194865,
+        0.2433030958339784
+      ],
+      "max_standardized_absolute_residual": 17.250797091676734,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.0802901755988715e-13,
+      "unweighted_temperature_MSE_C2": 17.633824281058683,
+      "depth_uncertainty_standardized_interval_loss": 16.32222035934312,
+      "basal_temperature_and_gradient_loss": 25.071242820225407
+    },
+    {
+      "k_upper_W_mK": 0.6,
+      "k_lower_W_mK": 1.0,
+      "alpha_upper_m2_s": 3.233652224854285e-07,
+      "alpha_lower_m2_s": 5.389420374757141e-07,
+      "raw_TRAIN_melt_mmwe": 59.858674447677174,
+      "sensor_RMSE_C": [
+        5.997116396043714,
+        6.340930510194233,
+        1.4968752455320917,
+        0.23455892096449607
+      ],
+      "max_standardized_absolute_residual": 18.420664763352686,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -6.577767633666368e-14,
+      "unweighted_temperature_MSE_C2": 19.61711454772479,
+      "depth_uncertainty_standardized_interval_loss": 14.097836063780035,
+      "basal_temperature_and_gradient_loss": 26.71313645542556
+    },
+    {
+      "k_upper_W_mK": 0.6,
+      "k_lower_W_mK": 1.6,
+      "alpha_upper_m2_s": 3.233652224854285e-07,
+      "alpha_lower_m2_s": 8.623072599611426e-07,
+      "raw_TRAIN_melt_mmwe": 70.76847878901333,
+      "sensor_RMSE_C": [
+        6.171925539895321,
+        6.942605142721517,
+        1.5480991290534833,
+        0.25642395053350336
+      ],
+      "max_standardized_absolute_residual": 19.553232214410354,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -8.522386509357861e-14,
+      "unweighted_temperature_MSE_C2": 22.188698798384696,
+      "depth_uncertainty_standardized_interval_loss": 13.854652213073932,
+      "basal_temperature_and_gradient_loss": 30.038765203127504
+    },
+    {
+      "k_upper_W_mK": 0.6,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 3.233652224854285e-07,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 79.40465774884052,
+      "sensor_RMSE_C": [
+        6.332348353134797,
+        7.4705954564393195,
+        1.751258916565758,
+        0.29063497324030696
+      ],
+      "max_standardized_absolute_residual": 20.43672585680995,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -2.0207694446994083e-14,
+      "unweighted_temperature_MSE_C2": 24.764952154935568,
+      "depth_uncertainty_standardized_interval_loss": 14.662798053746531,
+      "basal_temperature_and_gradient_loss": 33.87574580110564
+    },
+    {
+      "k_upper_W_mK": 0.6,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 3.233652224854285e-07,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 84.65886395620579,
+      "sensor_RMSE_C": [
+        6.4371509738477135,
+        7.802158003330605,
+        1.9264020141668425,
+        0.31714253463700953
+      ],
+      "max_standardized_absolute_residual": 20.958513657643593,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -2.4400460364403577e-14,
+      "unweighted_temperature_MSE_C2": 26.530546569126606,
+      "depth_uncertainty_standardized_interval_loss": 15.549604448159828,
+      "basal_temperature_and_gradient_loss": 36.68545656413305
+    },
+    {
+      "k_upper_W_mK": 0.6,
+      "k_lower_W_mK": 4.5,
+      "alpha_upper_m2_s": 3.233652224854285e-07,
+      "alpha_lower_m2_s": 2.425239168640714e-06,
+      "raw_TRAIN_melt_mmwe": 87.90534853462334,
+      "sensor_RMSE_C": [
+        6.503162196844328,
+        8.007747312405117,
+        2.0498340152889822,
+        0.3353959184097277
+      ],
+      "max_standardized_absolute_residual": 21.26880943330428,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -2.354654151678189e-14,
+      "unweighted_temperature_MSE_C2": 27.68236137252955,
+      "depth_uncertainty_standardized_interval_loss": 16.23372790514863,
+      "basal_temperature_and_gradient_loss": 38.58663253635115
+    },
+    {
+      "k_upper_W_mK": 1.0,
+      "k_lower_W_mK": 0.2,
+      "alpha_upper_m2_s": 5.389420374757141e-07,
+      "alpha_lower_m2_s": 1.0778840749514283e-07,
+      "raw_TRAIN_melt_mmwe": 24.730703456008108,
+      "sensor_RMSE_C": [
+        4.5911333636071125,
+        4.9007120577146654,
+        3.2473909642293424,
+        0.3993220293658906
+      ],
+      "max_standardized_absolute_residual": 19.2525940746819,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 1.0151777930707372e-13,
+      "unweighted_temperature_MSE_C2": 13.950122598187884,
+      "depth_uncertainty_standardized_interval_loss": 25.471584092651977,
+      "basal_temperature_and_gradient_loss": 27.868237831689036
+    },
+    {
+      "k_upper_W_mK": 1.0,
+      "k_lower_W_mK": 0.35,
+      "alpha_upper_m2_s": 5.389420374757141e-07,
+      "alpha_lower_m2_s": 1.8862971311649994e-07,
+      "raw_TRAIN_melt_mmwe": 39.763938485708515,
+      "sensor_RMSE_C": [
+        4.571516651435077,
+        4.765767346922967,
+        2.8184169310743643,
+        0.361398253726489
+      ],
+      "max_standardized_absolute_residual": 17.05321371785794,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -3.525996555954884e-14,
+      "unweighted_temperature_MSE_C2": 12.921346398627138,
+      "depth_uncertainty_standardized_interval_loss": 19.975444421287666,
+      "basal_temperature_and_gradient_loss": 24.016001323957795
+    },
+    {
+      "k_upper_W_mK": 1.0,
+      "k_lower_W_mK": 0.6,
+      "alpha_upper_m2_s": 5.389420374757141e-07,
+      "alpha_lower_m2_s": 3.233652224854285e-07,
+      "raw_TRAIN_melt_mmwe": 58.78458383675234,
+      "sensor_RMSE_C": [
+        4.608813325702466,
+        4.845099850928952,
+        2.2328232850598226,
+        0.29875622816675584
+      ],
+      "max_standardized_absolute_residual": 14.281341984609245,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -5.927370844281692e-15,
+      "unweighted_temperature_MSE_C2": 12.44772698570454,
+      "depth_uncertainty_standardized_interval_loss": 14.398316431338815,
+      "basal_temperature_and_gradient_loss": 20.500259386070326
+    },
+    {
+      "k_upper_W_mK": 1.0,
+      "k_lower_W_mK": 1.0,
+      "alpha_upper_m2_s": 5.389420374757141e-07,
+      "alpha_lower_m2_s": 5.389420374757141e-07,
+      "raw_TRAIN_melt_mmwe": 79.69876147343015,
+      "sensor_RMSE_C": [
+        4.724622402623454,
+        5.2327373190676045,
+        1.6382479182772558,
+        0.2311559060984967
+      ],
+      "max_standardized_absolute_residual": 13.722827502374228,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 4.0851836608966876e-14,
+      "unweighted_temperature_MSE_C2": 13.110221498099556,
+      "depth_uncertainty_standardized_interval_loss": 10.39244156954848,
+      "basal_temperature_and_gradient_loss": 19.052710532070797
+    },
+    {
+      "k_upper_W_mK": 1.0,
+      "k_lower_W_mK": 1.6,
+      "alpha_upper_m2_s": 5.389420374757141e-07,
+      "alpha_lower_m2_s": 8.623072599611426e-07,
+      "raw_TRAIN_melt_mmwe": 99.39562709773958,
+      "sensor_RMSE_C": [
+        4.8955235326619,
+        5.809433814363299,
+        1.2576341941805023,
+        0.1965791337432813
+      ],
+      "max_standardized_absolute_residual": 14.993138411068811,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -8.405282635128153e-16,
+      "unweighted_temperature_MSE_C2": 14.833989756127353,
+      "depth_uncertainty_standardized_interval_loss": 8.676796474689198,
+      "basal_temperature_and_gradient_loss": 20.10453199092036
+    },
+    {
+      "k_upper_W_mK": 1.0,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 5.389420374757141e-07,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 116.62556197717507,
+      "sensor_RMSE_C": [
+        5.080676024824825,
+        6.420392595949295,
+        1.2304095003712765,
+        0.20973610037473958
+      ],
+      "max_standardized_absolute_residual": 16.05893339855109,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 4.477919606127086e-14,
+      "unweighted_temperature_MSE_C2": 17.14815168143865,
+      "depth_uncertainty_standardized_interval_loss": 8.748595933311464,
+      "basal_temperature_and_gradient_loss": 22.89874668911176
+    },
+    {
+      "k_upper_W_mK": 1.0,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 5.389420374757141e-07,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 127.89365965556435,
+      "sensor_RMSE_C": [
+        5.211610914349197,
+        6.8548657443564665,
+        1.3932717448455665,
+        0.23972465408451246
+      ],
+      "max_standardized_absolute_residual": 16.7118271109397,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 3.5444148745676945e-14,
+      "unweighted_temperature_MSE_C2": 19.037186690119086,
+      "depth_uncertainty_standardized_interval_loss": 9.528444885939575,
+      "basal_temperature_and_gradient_loss": 25.64869828246914
+    },
+    {
+      "k_upper_W_mK": 1.0,
+      "k_lower_W_mK": 4.5,
+      "alpha_upper_m2_s": 5.389420374757141e-07,
+      "alpha_lower_m2_s": 2.425239168640714e-06,
+      "raw_TRAIN_melt_mmwe": 135.16553273627056,
+      "sensor_RMSE_C": [
+        5.296962467225548,
+        7.147562364606382,
+        1.5583113596158849,
+        0.2658691513685479
+      ],
+      "max_standardized_absolute_residual": 17.107217913536562,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 2.7331604513481822e-14,
+      "unweighted_temperature_MSE_C2": 20.41111995857277,
+      "depth_uncertainty_standardized_interval_loss": 10.30995160467842,
+      "basal_temperature_and_gradient_loss": 27.81937685997205
+    },
+    {
+      "k_upper_W_mK": 1.6,
+      "k_lower_W_mK": 0.2,
+      "alpha_upper_m2_s": 8.623072599611426e-07,
+      "alpha_lower_m2_s": 1.0778840749514283e-07,
+      "raw_TRAIN_melt_mmwe": 26.774640118399443,
+      "sensor_RMSE_C": [
+        3.629548940518508,
+        4.15153857196883,
+        3.6213283168586035,
+        0.45321909629351964
+      ],
+      "max_standardized_absolute_residual": 17.900511927759375,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -3.3713881503465996e-13,
+      "unweighted_temperature_MSE_C2": 10.932081088472772,
+      "depth_uncertainty_standardized_interval_loss": 21.691609689102386,
+      "basal_temperature_and_gradient_loss": 26.642525421110747
+    },
+    {
+      "k_upper_W_mK": 1.6,
+      "k_lower_W_mK": 0.35,
+      "alpha_upper_m2_s": 8.623072599611426e-07,
+      "alpha_lower_m2_s": 1.8862971311649994e-07,
+      "raw_TRAIN_melt_mmwe": 44.486634717666874,
+      "sensor_RMSE_C": [
+        3.573108292948343,
+        3.934547352532683,
+        3.2676355823419643,
+        0.4278722212684415
+      ],
+      "max_standardized_absolute_residual": 16.058055897609187,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -3.0850707564661183e-13,
+      "unweighted_temperature_MSE_C2": 9.777070669794668,
+      "depth_uncertainty_standardized_interval_loss": 17.602545540561295,
+      "basal_temperature_and_gradient_loss": 22.782046512728392
+    },
+    {
+      "k_upper_W_mK": 1.6,
+      "k_lower_W_mK": 0.6,
+      "alpha_upper_m2_s": 8.623072599611426e-07,
+      "alpha_lower_m2_s": 3.233652224854285e-07,
+      "raw_TRAIN_melt_mmwe": 68.81558676635653,
+      "sensor_RMSE_C": [
+        3.5561543889846265,
+        3.824617128994298,
+        2.706815091084679,
+        0.35937348844722833
+      ],
+      "max_standardized_absolute_residual": 13.52421469020118,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.8909301055795865e-13,
+      "unweighted_temperature_MSE_C2": 8.682481865803428,
+      "depth_uncertainty_standardized_interval_loss": 12.600718634000893,
+      "basal_temperature_and_gradient_loss": 18.09959807428911
+    },
+    {
+      "k_upper_W_mK": 1.6,
+      "k_lower_W_mK": 1.0,
+      "alpha_upper_m2_s": 8.623072599611426e-07,
+      "alpha_lower_m2_s": 5.389420374757141e-07,
+      "raw_TRAIN_melt_mmwe": 98.40415884007975,
+      "sensor_RMSE_C": [
+        3.620637997225234,
+        3.994001768208346,
+        2.005142372816294,
+        0.2602884606598088
+      ],
+      "max_standardized_absolute_residual": 10.620809232327414,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.1167511370286767e-13,
+      "unweighted_temperature_MSE_C2": 8.28735391235464,
+      "depth_uncertainty_standardized_interval_loss": 8.153941398505756,
+      "basal_temperature_and_gradient_loss": 14.358438303953111
+    },
+    {
+      "k_upper_W_mK": 1.6,
+      "k_lower_W_mK": 1.6,
+      "alpha_upper_m2_s": 8.623072599611426e-07,
+      "alpha_lower_m2_s": 8.623072599611426e-07,
+      "raw_TRAIN_melt_mmwe": 129.38137966117566,
+      "sensor_RMSE_C": [
+        3.7646981047764183,
+        4.452439203104199,
+        1.2997853335572247,
+        0.16435199856128152
+      ],
+      "max_standardized_absolute_residual": 11.429930654425064,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -1.0790611746470733e-13,
+      "unweighted_temperature_MSE_C2": 8.928405042551965,
+      "depth_uncertainty_standardized_interval_loss": 5.528510710375208,
+      "basal_temperature_and_gradient_loss": 12.871967334781134
+    },
+    {
+      "k_upper_W_mK": 1.6,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 8.623072599611426e-07,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 159.2961525371429,
+      "sensor_RMSE_C": [
+        3.953669551471646,
+        5.084096020953286,
+        0.7693000764441532,
+        0.11678973788293474
+      ],
+      "max_standardized_absolute_residual": 12.666471560714372,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -3.9447724077904436e-14,
+      "unweighted_temperature_MSE_C2": 10.521249430749698,
+      "depth_uncertainty_standardized_interval_loss": 4.935885415906705,
+      "basal_temperature_and_gradient_loss": 13.768654949649536
+    },
+    {
+      "k_upper_W_mK": 1.6,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 8.623072599611426e-07,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 180.4307302985264,
+      "sensor_RMSE_C": [
+        4.106809882239398,
+        5.613884710506703,
+        0.7196125214086083,
+        0.13983119915638584
+      ],
+      "max_standardized_absolute_residual": 13.489330948015802,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -3.021935635744456e-14,
+      "unweighted_temperature_MSE_C2": 12.22974597423642,
+      "depth_uncertainty_standardized_interval_loss": 5.578636337329889,
+      "basal_temperature_and_gradient_loss": 15.804674665745013
+    },
+    {
+      "k_upper_W_mK": 1.6,
+      "k_lower_W_mK": 4.5,
+      "alpha_upper_m2_s": 8.623072599611426e-07,
+      "alpha_lower_m2_s": 2.425239168640714e-06,
+      "raw_TRAIN_melt_mmwe": 194.77093186484038,
+      "sensor_RMSE_C": [
+        4.217879598209879,
+        6.00942815350323,
+        0.9015240513551342,
+        0.175749007127782
+      ],
+      "max_standardized_absolute_residual": 14.031468382255056,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": -3.385505748602544e-14,
+      "unweighted_temperature_MSE_C2": 13.68684209144765,
+      "depth_uncertainty_standardized_interval_loss": 6.440827402316818,
+      "basal_temperature_and_gradient_loss": 17.88916959177404
+    },
+    {
+      "k_upper_W_mK": 2.5,
+      "k_lower_W_mK": 0.2,
+      "alpha_upper_m2_s": 1.3473550936892854e-06,
+      "alpha_lower_m2_s": 1.0778840749514283e-07,
+      "raw_TRAIN_melt_mmwe": 28.162530598163062,
+      "sensor_RMSE_C": [
+        2.6503825591606867,
+        3.300883458593367,
+        3.858877220791699,
+        0.4923637839386603
+      ],
+      "max_standardized_absolute_residual": 16.72031734936247,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 5.313877704868344e-13,
+      "unweighted_temperature_MSE_C2": 8.263428704499482,
+      "depth_uncertainty_standardized_interval_loss": 15.97753428598176,
+      "basal_temperature_and_gradient_loss": 25.094531906522462
+    },
+    {
+      "k_upper_W_mK": 2.5,
+      "k_lower_W_mK": 0.35,
+      "alpha_upper_m2_s": 1.3473550936892854e-06,
+      "alpha_lower_m2_s": 1.8862971311649994e-07,
+      "raw_TRAIN_melt_mmwe": 47.91400224726328,
+      "sensor_RMSE_C": [
+        2.6054622246153194,
+        3.0416730544768176,
+        3.5781898347076275,
+        0.4767229645812404
+      ],
+      "max_standardized_absolute_residual": 14.584739555327124,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 2.715444388958987e-13,
+      "unweighted_temperature_MSE_C2": 7.267728913097962,
+      "depth_uncertainty_standardized_interval_loss": 13.400139737689702,
+      "basal_temperature_and_gradient_loss": 21.76946828145234
+    },
+    {
+      "k_upper_W_mK": 2.5,
+      "k_lower_W_mK": 0.6,
+      "alpha_upper_m2_s": 1.3473550936892854e-06,
+      "alpha_lower_m2_s": 3.233652224854285e-07,
+      "raw_TRAIN_melt_mmwe": 76.77140334408855,
+      "sensor_RMSE_C": [
+        2.5853294232286315,
+        2.786661321678668,
+        3.1068041021242068,
+        0.4102775934358545
+      ],
+      "max_standardized_absolute_residual": 11.94854452395229,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 1.7092485335101372e-13,
+      "unweighted_temperature_MSE_C2": 6.067492245250728,
+      "depth_uncertainty_standardized_interval_loss": 9.716162642059638,
+      "basal_temperature_and_gradient_loss": 17.13766106660019
+    },
+    {
+      "k_upper_W_mK": 2.5,
+      "k_lower_W_mK": 1.0,
+      "alpha_upper_m2_s": 1.3473550936892854e-06,
+      "alpha_lower_m2_s": 5.389420374757141e-07,
+      "raw_TRAIN_melt_mmwe": 114.7842637843788,
+      "sensor_RMSE_C": [
+        2.630853783748912,
+        2.7107336655903707,
+        2.475100713933989,
+        0.3083528606393588
+      ],
+      "max_standardized_absolute_residual": 9.819613994104978,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 1.3949725252750967e-13,
+      "unweighted_temperature_MSE_C2": 5.122668417002997,
+      "depth_uncertainty_standardized_interval_loss": 5.956715189702765,
+      "basal_temperature_and_gradient_loss": 12.487426214288996
+    },
+    {
+      "k_upper_W_mK": 2.5,
+      "k_lower_W_mK": 1.6,
+      "alpha_upper_m2_s": 1.3473550936892854e-06,
+      "alpha_lower_m2_s": 8.623072599611426e-07,
+      "raw_TRAIN_melt_mmwe": 158.35304858473515,
+      "sensor_RMSE_C": [
+        2.752874817800706,
+        2.960981547297713,
+        1.759004028554044,
+        0.19693633618930106
+      ],
+      "max_standardized_absolute_residual": 8.331457050764628,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.534908851396371e-14,
+      "unweighted_temperature_MSE_C2": 4.86965264472496,
+      "depth_uncertainty_standardized_interval_loss": 3.3104278811153542,
+      "basal_temperature_and_gradient_loss": 9.200243520019532
+    },
+    {
+      "k_upper_W_mK": 2.5,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 1.3473550936892854e-06,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 204.53673310714024,
+      "sensor_RMSE_C": [
+        2.943542600551552,
+        3.5400296947069565,
+        1.0174555914923769,
+        0.09250730569463583
+      ],
+      "max_standardized_absolute_residual": 9.736702193929467,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 8.416859009573093e-14,
+      "unweighted_temperature_MSE_C2": 5.560006690733701,
+      "depth_uncertainty_standardized_interval_loss": 2.416974748700547,
+      "basal_temperature_and_gradient_loss": 8.035498265356946
+    },
+    {
+      "k_upper_W_mK": 2.5,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 1.3473550936892854e-06,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 239.8802097202267,
+      "sensor_RMSE_C": [
+        3.1288810297660277,
+        4.144781893025353,
+        0.5018070813726584,
+        0.05694082099550979
+      ],
+      "max_standardized_absolute_residual": 10.782948209674998,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 7.504895014665422e-14,
+      "unweighted_temperature_MSE_C2": 6.806041510797989,
+      "depth_uncertainty_standardized_interval_loss": 2.9348683608779504,
+      "basal_temperature_and_gradient_loss": 8.803901572414052
+    },
+    {
+      "k_upper_W_mK": 2.5,
+      "k_lower_W_mK": 4.5,
+      "alpha_upper_m2_s": 1.3473550936892854e-06,
+      "alpha_lower_m2_s": 2.425239168640714e-06,
+      "raw_TRAIN_melt_mmwe": 265.26121782347144,
+      "sensor_RMSE_C": [
+        3.284063186376457,
+        4.647864089927152,
+        0.34369862483452995,
+        0.0913015863712537
+      ],
+      "max_standardized_absolute_residual": 11.549299301094448,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 5.537873576221757e-14,
+      "unweighted_temperature_MSE_C2": 8.128544083733619,
+      "depth_uncertainty_standardized_interval_loss": 3.8185976122177294,
+      "basal_temperature_and_gradient_loss": 10.302384948146385
+    },
+    {
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 0.2,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 1.0778840749514283e-07,
+      "raw_TRAIN_melt_mmwe": 28.918773814253846,
+      "sensor_RMSE_C": [
+        1.8862328987359482,
+        2.887336324222967,
+        3.9732401493288974,
+        0.514553384803899
+      ],
+      "max_standardized_absolute_residual": 16.523343655569683,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 4.93984217737128e-13,
+      "unweighted_temperature_MSE_C2": 6.986497016875874,
+      "depth_uncertainty_standardized_interval_loss": 11.806194448120008,
+      "basal_temperature_and_gradient_loss": 24.42254309118408
+    },
+    {
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 0.35,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 1.8862971311649994e-07,
+      "raw_TRAIN_melt_mmwe": 49.87491209402619,
+      "sensor_RMSE_C": [
+        1.8652774909589718,
+        2.5825245356952786,
+        3.744973215754336,
+        0.5033040416462746
+      ],
+      "max_standardized_absolute_residual": 14.245572467311687,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 2.1554868295539022e-13,
+      "unweighted_temperature_MSE_C2": 6.106708110200286,
+      "depth_uncertainty_standardized_interval_loss": 9.938184265813293,
+      "basal_temperature_and_gradient_loss": 21.57011614907665
+    },
+    {
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 0.6,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 3.233652224854285e-07,
+      "raw_TRAIN_melt_mmwe": 81.61997344289145,
+      "sensor_RMSE_C": [
+        1.8628525526099822,
+        2.203438425532677,
+        3.367901319062748,
+        0.44125160374904665
+      ],
+      "max_standardized_absolute_residual": 11.348703283785918,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 1.5341654792419966e-13,
+      "unweighted_temperature_MSE_C2": 4.965705700158786,
+      "depth_uncertainty_standardized_interval_loss": 7.143534553439754,
+      "basal_temperature_and_gradient_loss": 17.462194108480027
+    },
+    {
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 1.0,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 5.389420374757141e-07,
+      "raw_TRAIN_melt_mmwe": 125.50679162786552,
+      "sensor_RMSE_C": [
+        1.9107393651907438,
+        1.8682674669241703,
+        2.8626233996377715,
+        0.3510034169372
+      ],
+      "max_standardized_absolute_residual": 8.265922116297622,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 1.2501308795697264e-13,
+      "unweighted_temperature_MSE_C2": 3.864791094128022,
+      "depth_uncertainty_standardized_interval_loss": 4.212219722555101,
+      "basal_temperature_and_gradient_loss": 12.965495002957306
+    },
+    {
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 1.6,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 8.623072599611426e-07,
+      "raw_TRAIN_melt_mmwe": 178.83012467995215,
+      "sensor_RMSE_C": [
+        2.0244038460033584,
+        1.8249359507906473,
+        2.270430150632985,
+        0.25712116222720616
+      ],
+      "max_standardized_absolute_residual": 6.190471578155656,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.937258153623631e-14,
+      "unweighted_temperature_MSE_C2": 3.1623916292924346,
+      "depth_uncertainty_standardized_interval_loss": 2.044103714985537,
+      "basal_temperature_and_gradient_loss": 9.093327820272755
+    },
+    {
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 239.164149311917,
+      "sensor_RMSE_C": [
+        2.2226609629323644,
+        2.2802697069125566,
+        1.6233974933557223,
+        0.16982425999087244
+      ],
+      "max_standardized_absolute_residual": 7.581452656651375,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 8.263315820222029e-14,
+      "unweighted_temperature_MSE_C2": 3.201027848280399,
+      "depth_uncertainty_standardized_interval_loss": 1.203477139201772,
+      "basal_temperature_and_gradient_loss": 6.659095636971445
+    },
+    {
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 288.2265177999139,
+      "sensor_RMSE_C": [
+        2.441698181495816,
+        2.921881550504766,
+        1.133825138039077,
+        0.12069845043390427
+      ],
+      "max_standardized_absolute_residual": 8.793046171845429,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.172981433222702e-14,
+      "unweighted_temperature_MSE_C2": 3.9498523410716446,
+      "depth_uncertainty_standardized_interval_loss": 1.5994521147449483,
+      "basal_temperature_and_gradient_loss": 6.254276140239082
+    },
+    {
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 4.5,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 2.425239168640714e-06,
+      "raw_TRAIN_melt_mmwe": 325.13426635011547,
+      "sensor_RMSE_C": [
+        2.640947497784246,
+        3.5014260790622953,
+        0.8300774042786064,
+        0.11060705438554488
+      ],
+      "max_standardized_absolute_residual": 9.742491871716744,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 5.112207500708472e-14,
+      "unweighted_temperature_MSE_C2": 4.983962672691046,
+      "depth_uncertainty_standardized_interval_loss": 2.4028807577726345,
+      "basal_temperature_and_gradient_loss": 6.942754348797251
+    },
+    {
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 0.2,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 1.0778840749514283e-07,
+      "raw_TRAIN_melt_mmwe": 29.35506880799236,
+      "sensor_RMSE_C": [
+        1.4119231395985106,
+        2.934228391732205,
+        4.0299901555157795,
+        0.5273392762331044
+      ],
+      "max_standardized_absolute_residual": 16.2365839438604,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 4.893621641086956e-13,
+      "unweighted_temperature_MSE_C2": 6.780532643198309,
+      "depth_uncertainty_standardized_interval_loss": 9.568561446479713,
+      "basal_temperature_and_gradient_loss": 24.647499421112855
+    },
+    {
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 0.35,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 1.8862971311649994e-07,
+      "raw_TRAIN_melt_mmwe": 51.0431754075716,
+      "sensor_RMSE_C": [
+        1.3970107722327485,
+        2.6016820699712584,
+        3.8403222575472227,
+        0.5177420798615585
+      ],
+      "max_standardized_absolute_residual": 13.776791386496866,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 2.3275016549648427e-13,
+      "unweighted_temperature_MSE_C2": 5.934130148504056,
+      "depth_uncertainty_standardized_interval_loss": 7.8699483703386965,
+      "basal_temperature_and_gradient_loss": 22.116715909529173
+    },
+    {
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 0.6,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 3.233652224854285e-07,
+      "raw_TRAIN_melt_mmwe": 84.6198948964962,
+      "sensor_RMSE_C": [
+        1.3966449229425588,
+        2.1539541099448725,
+        3.5441360899548906,
+        0.4603218936340096
+      ],
+      "max_standardized_absolute_residual": 10.64858942598265,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 1.5554821940488363e-13,
+      "unweighted_temperature_MSE_C2": 4.840733054602292,
+      "depth_uncertainty_standardized_interval_loss": 5.47831207552169,
+      "basal_temperature_and_gradient_loss": 18.548896769488337
+    },
+    {
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 1.0,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 5.389420374757141e-07,
+      "raw_TRAIN_melt_mmwe": 132.43148390454255,
+      "sensor_RMSE_C": [
+        1.436137422082454,
+        1.6297635383627251,
+        3.158242126268632,
+        0.38445339454279037
+      ],
+      "max_standardized_absolute_residual": 7.397675941676848,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 1.1625122662962766e-13,
+      "unweighted_temperature_MSE_C2": 3.7102294066988772,
+      "depth_uncertainty_standardized_interval_loss": 3.106159265955097,
+      "basal_temperature_and_gradient_loss": 14.540777921519082
+    },
+    {
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 1.6,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 8.623072599611426e-07,
+      "raw_TRAIN_melt_mmwe": 192.72839889687575,
+      "sensor_RMSE_C": [
+        1.53748783842641,
+        1.224963867277061,
+        2.6927060862620364,
+        0.31170064378003437
+      ],
+      "max_standardized_absolute_residual": 5.152991175542417,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.337547554616032e-14,
+      "unweighted_temperature_MSE_C2": 2.8030571719422506,
+      "depth_uncertainty_standardized_interval_loss": 1.4268381789771962,
+      "basal_temperature_and_gradient_loss": 10.698359612885767
+    },
+    {
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 264.0336856949398,
+      "sensor_RMSE_C": [
+        1.7395267902462437,
+        1.4161005940509954,
+        2.150809840515388,
+        0.2441538166017283
+      ],
+      "max_standardized_absolute_residual": 6.043723751413384,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.503375053962035e-14,
+      "unweighted_temperature_MSE_C2": 2.4292221006687518,
+      "depth_uncertainty_standardized_interval_loss": 0.773089031404993,
+      "basal_temperature_and_gradient_loss": 7.634350188635859
+    },
+    {
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 324.59722104388266,
+      "sensor_RMSE_C": [
+        1.9828060840786763,
+        2.0416508905623174,
+        1.7079563752292204,
+        0.1996611832406682
+      ],
+      "max_standardized_absolute_residual": 7.344900859033141,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 5.778167814466414e-14,
+      "unweighted_temperature_MSE_C2": 2.7642094734431315,
+      "depth_uncertainty_standardized_interval_loss": 1.04763623542997,
+      "basal_temperature_and_gradient_loss": 6.3606238681910305
+    },
+    {
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 4.5,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 2.425239168640714e-06,
+      "raw_TRAIN_melt_mmwe": 371.7834412928458,
+      "sensor_RMSE_C": [
+        2.2130373863263113,
+        2.6574991806521155,
+        1.393904660935641,
+        0.1767660869561241
+      ],
+      "max_standardized_absolute_residual": 8.407302798731251,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 5.584572292483329e-14,
+      "unweighted_temperature_MSE_C2": 3.483513205430135,
+      "depth_uncertainty_standardized_interval_loss": 1.7169313390045944,
+      "basal_temperature_and_gradient_loss": 6.28907769417213
+    }
+  ],
+  "winners": [
+    {
+      "family": "homogeneous",
+      "objective": "unweighted_temperature_MSE_C2",
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 4.5,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 2.425239168640714e-06,
+      "raw_TRAIN_melt_mmwe": 371.7834412928458,
+      "sensor_RMSE_C": [
+        2.2130373863263113,
+        2.6574991806521155,
+        1.393904660935641,
+        0.1767660869561241
+      ],
+      "max_standardized_absolute_residual": 8.407302798731251,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 5.584572292483329e-14,
+      "unweighted_temperature_MSE_C2": 3.483513205430135,
+      "depth_uncertainty_standardized_interval_loss": 1.7169313390045944,
+      "basal_temperature_and_gradient_loss": 6.28907769417213,
+      "selected_at_grid_boundary": true,
+      "already_inspected_TRAIN_camera_mmwe": 85.20164518826326,
+      "TRAIN_output_gain_needed_diagnostic_only": 0.2291700913090203,
+      "TRAIN_absolute_melt_discrepancy_mmwe_not_validation": 286.5817961045825
+    },
+    {
+      "family": "homogeneous",
+      "objective": "depth_uncertainty_standardized_interval_loss",
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 288.2265177999139,
+      "sensor_RMSE_C": [
+        2.441698181495816,
+        2.921881550504766,
+        1.133825138039077,
+        0.12069845043390427
+      ],
+      "max_standardized_absolute_residual": 8.793046171845429,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.172981433222702e-14,
+      "unweighted_temperature_MSE_C2": 3.9498523410716446,
+      "depth_uncertainty_standardized_interval_loss": 1.5994521147449483,
+      "basal_temperature_and_gradient_loss": 6.254276140239082,
+      "selected_at_grid_boundary": false,
+      "already_inspected_TRAIN_camera_mmwe": 85.20164518826326,
+      "TRAIN_output_gain_needed_diagnostic_only": 0.2956065452916099,
+      "TRAIN_absolute_melt_discrepancy_mmwe_not_validation": 203.02487261165064
+    },
+    {
+      "family": "homogeneous",
+      "objective": "basal_temperature_and_gradient_loss",
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 288.2265177999139,
+      "sensor_RMSE_C": [
+        2.441698181495816,
+        2.921881550504766,
+        1.133825138039077,
+        0.12069845043390427
+      ],
+      "max_standardized_absolute_residual": 8.793046171845429,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.172981433222702e-14,
+      "unweighted_temperature_MSE_C2": 3.9498523410716446,
+      "depth_uncertainty_standardized_interval_loss": 1.5994521147449483,
+      "basal_temperature_and_gradient_loss": 6.254276140239082,
+      "selected_at_grid_boundary": false,
+      "already_inspected_TRAIN_camera_mmwe": 85.20164518826326,
+      "TRAIN_output_gain_needed_diagnostic_only": 0.2956065452916099,
+      "TRAIN_absolute_melt_discrepancy_mmwe_not_validation": 203.02487261165064
+    },
+    {
+      "family": "two_layer",
+      "objective": "unweighted_temperature_MSE_C2",
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 264.0336856949398,
+      "sensor_RMSE_C": [
+        1.7395267902462437,
+        1.4161005940509954,
+        2.150809840515388,
+        0.2441538166017283
+      ],
+      "max_standardized_absolute_residual": 6.043723751413384,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.503375053962035e-14,
+      "unweighted_temperature_MSE_C2": 2.4292221006687518,
+      "depth_uncertainty_standardized_interval_loss": 0.773089031404993,
+      "basal_temperature_and_gradient_loss": 7.634350188635859,
+      "selected_at_grid_boundary": true,
+      "already_inspected_TRAIN_camera_mmwe": 85.20164518826326,
+      "TRAIN_output_gain_needed_diagnostic_only": 0.3226923298215208,
+      "TRAIN_absolute_melt_discrepancy_mmwe_not_validation": 178.83204050667652
+    },
+    {
+      "family": "two_layer",
+      "objective": "depth_uncertainty_standardized_interval_loss",
+      "k_upper_W_mK": 4.5,
+      "k_lower_W_mK": 2.5,
+      "alpha_upper_m2_s": 2.425239168640714e-06,
+      "alpha_lower_m2_s": 1.3473550936892854e-06,
+      "raw_TRAIN_melt_mmwe": 264.0336856949398,
+      "sensor_RMSE_C": [
+        1.7395267902462437,
+        1.4161005940509954,
+        2.150809840515388,
+        0.2441538166017283
+      ],
+      "max_standardized_absolute_residual": 6.043723751413384,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.503375053962035e-14,
+      "unweighted_temperature_MSE_C2": 2.4292221006687518,
+      "depth_uncertainty_standardized_interval_loss": 0.773089031404993,
+      "basal_temperature_and_gradient_loss": 7.634350188635859,
+      "selected_at_grid_boundary": true,
+      "already_inspected_TRAIN_camera_mmwe": 85.20164518826326,
+      "TRAIN_output_gain_needed_diagnostic_only": 0.3226923298215208,
+      "TRAIN_absolute_melt_discrepancy_mmwe_not_validation": 178.83204050667652
+    },
+    {
+      "family": "two_layer",
+      "objective": "basal_temperature_and_gradient_loss",
+      "k_upper_W_mK": 3.5,
+      "k_lower_W_mK": 3.5,
+      "alpha_upper_m2_s": 1.8862971311649996e-06,
+      "alpha_lower_m2_s": 1.8862971311649996e-06,
+      "raw_TRAIN_melt_mmwe": 288.2265177999139,
+      "sensor_RMSE_C": [
+        2.441698181495816,
+        2.921881550504766,
+        1.133825138039077,
+        0.12069845043390427
+      ],
+      "max_standardized_absolute_residual": 8.793046171845429,
+      "engineering_box_all_rows_compatible": false,
+      "relative_energy_residual": 6.172981433222702e-14,
+      "unweighted_temperature_MSE_C2": 3.9498523410716446,
+      "depth_uncertainty_standardized_interval_loss": 1.5994521147449483,
+      "basal_temperature_and_gradient_loss": 6.254276140239082,
+      "selected_at_grid_boundary": false,
+      "already_inspected_TRAIN_camera_mmwe": 85.20164518826326,
+      "TRAIN_output_gain_needed_diagnostic_only": 0.2956065452916099,
+      "TRAIN_absolute_melt_discrepancy_mmwe_not_validation": 203.02487261165064
+    }
+  ],
+  "source_sensor_error_C": 0.4,
+  "depth_error_m": 0.02,
+  "number_engineering_box_compatible_candidates": 0,
+  "identifiability": {
+    "reference": "unweighted two-layer TRAIN optimum, no melt-selected reference",
+    "parameters": [
+      "log k_upper",
+      "log k_lower",
+      "log C",
+      "deep probe shift/.02m"
+    ],
+    "normalized_J_singular_values": [
+      3.4441208132738277,
+      2.124596718486634,
+      0.3959176667396157,
+      0.0001780383633479948
+    ],
+    "condition_number": 19344.824050881267,
+    "goal_log_melt_gradient": [
+      0.36406548492286345,
+      0.6546496878430268,
+      -0.018715344662097642,
+      0.0003908217418876111
+    ],
+    "right_singular_vectors": [
+      [
+        -0.3977505393597536,
+        -0.418714398428179,
+        0.8163777182244109,
+        0.0004268192324349864
+      ],
+      [
+        -0.7129459301710593,
+        0.7008754452678985,
+        0.012107384191756757,
+        0.018306341007461473
+      ],
+      [
+        -0.013217346948808883,
+        0.012659939912640538,
+        0.0005762527634127694,
+        -0.9998323337409106
+      ],
+      [
+        0.5773455731459133,
+        0.5773141161368408,
+        0.5773911155945246,
+        1.0510259530361558e-05
+      ]
+    ],
+    "local_goal_error_amplification": 3242.6945640739755,
+    "interpretation": "engineering-error-scaled local RMS sensitivities; not Fisher information, confidence intervals or a global uncertainty bound"
+  },
+  "cold_ice_absolute_scale_test": [
+    {
+      "capacity_scene": "dry_assumed_pore_air",
+      "scale": 0.6460134420412907,
+      "capacity_J_m3K": 1198669.6103111114,
+      "alpha_upper_unchanged": true,
+      "alpha_lower_unchanged": true,
+      "max_temperature_difference_C": 1.0746958878371515e-13,
+      "RMS_temperature_difference_C": 3.6372001430230734e-14,
+      "raw_TRAIN_melt_mmwe": 170.56931011063315
+    },
+    {
+      "capacity_scene": "training_valid_probe_proxy_not_measured_depth_mean",
+      "scale": 1.0,
+      "capacity_J_m3K": 1855487.1033697424,
+      "alpha_upper_unchanged": true,
+      "alpha_lower_unchanged": true,
+      "max_temperature_difference_C": 0.0,
+      "RMS_temperature_difference_C": 0.0,
+      "raw_TRAIN_melt_mmwe": 264.0336856949398
+    },
+    {
+      "capacity_scene": "fully_water_saturated_conditional",
+      "scale": 1.6369496531638583,
+      "capacity_J_m3K": 3037338.970311112,
+      "alpha_upper_unchanged": true,
+      "alpha_lower_unchanged": true,
+      "max_temperature_difference_C": 2.9309887850104133e-13,
+      "RMS_temperature_difference_C": 1.2763883839534038e-13,
+      "raw_TRAIN_melt_mmwe": 432.2098502218962
+    }
+  ],
+  "Tower2_camera_values_opened": false,
+  "new_validation_or_originality_claim": false,
+  "previous_failed_field_verdicts_unchanged": true
+}

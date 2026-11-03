@@ -1,0 +1,22 @@
+{
+  "scope": "Pretestinputcontract; Tower2cameraoutcomessealed",
+  "proxy": "SM3_raw_sensor_anomaly",
+  "sensor_units": "m3/m3supplied,mineralsoilcalibration; localdebriscalibrationunknown",
+  "site1_depth_m": 0.5,
+  "site2_depth_m": 0.39,
+  "site2_nominal_gap_to_ice_m": 0.06,
+  "geometry_each_error_m": 0.02,
+  "moisture_measurement_guaranteed_error_bound": null,
+  "manufacturer_typical_reference_error_m3_m3": 0.031,
+  "native_snow_available": false,
+  "native_local_albedo_available": false,
+  "forbidden": [
+    "T2evaluationtuning",
+    "posthocprobechoice",
+    "missingSNOWto0",
+    "rawmoistureclippingwithoutdeclaredmeasurementmodel",
+    "morethanoneT2meltfitcoefficientfromonetrainingtarget"
+  ],
+  "parameter_budget_rule": "AdditionalmoistureparameterfixedfromT1developmentorindependentthermalfit; air+moisturebaselinereceivessamebudget/access",
+  "audit_sha256": "1e27d7183ea07de3884615ba4ee6e4f82b3a733eb57236da28d643cdf77946c3"
+}

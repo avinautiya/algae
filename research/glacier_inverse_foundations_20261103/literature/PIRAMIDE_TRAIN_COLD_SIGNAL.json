@@ -1,0 +1,35 @@
+{
+  "source_sha256": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+  "start": "2022-12-02T03:00:00",
+  "end_exclusive": "2022-12-16T03:00:00",
+  "sensor_accuracy_C": 0.4,
+  "diagnostics": {
+    "DT1": {
+      "rows": 672,
+      "minimum_C": -0.903,
+      "maximum_C": 28.423,
+      "negative_rows": 37,
+      "rows_below_minus04C": 17,
+      "rows_within_plusminus04C": 38
+    },
+    "DT4": {
+      "rows": 672,
+      "minimum_C": -0.133,
+      "maximum_C": 5.074,
+      "negative_rows": 11,
+      "rows_below_minus04C": 0,
+      "rows_within_plusminus04C": 53
+    },
+    "DT5": {
+      "rows": 672,
+      "minimum_C": -0.006,
+      "maximum_C": 0.907,
+      "negative_rows": 5,
+      "rows_below_minus04C": 0,
+      "rows_within_plusminus04C": 352
+    }
+  },
+  "ice_side_temperature_independently_measured": false,
+  "field_reference_excitation_established": false,
+  "camera_files_read": false
+}

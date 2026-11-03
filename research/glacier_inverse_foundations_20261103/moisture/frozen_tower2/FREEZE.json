@@ -1,0 +1,91 @@
+{
+  "primary_candidate": "anomaly_exp_air",
+  "models": [
+    "anomaly_exp_air",
+    "air_pdd",
+    "buried_pdd",
+    "gradient_index",
+    "constant_rate",
+    "shifted_ratio_air",
+    "centered_softplus_air",
+    "calendar_exp_air",
+    "moisture_only_exp"
+  ],
+  "parameters": {
+    "anomaly_exp_air": 5.4,
+    "air_pdd": 0.0,
+    "buried_pdd": 0.0,
+    "gradient_index": 0.0,
+    "constant_rate": 0.0,
+    "shifted_ratio_air": 0.34,
+    "centered_softplus_air": 7.4,
+    "calendar_exp_air": -0.0030999999999999986,
+    "moisture_only_exp": 13.300000000000004
+  },
+  "development_fit_sha256": "9043fe3e39a188eacbaf81275daba9c6931b4839a83df17827af06903deb9ebc",
+  "development_parameter_source": "Tower1_released_periods_only",
+  "primary_metric": "mean_absolute_period_ablation_error_mmwe",
+  "camera_evaluation": {
+    "approved_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "clock_interpretation": "same_source_naive_local_no_UTC_assumption",
+    "camera_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+    "intervals": [
+      {
+        "tower": 2,
+        "role": "train",
+        "start": "2022-12-02T03:00:00",
+        "end": "2022-12-16T03:00:00"
+      },
+      {
+        "tower": 2,
+        "role": "evaluation",
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00"
+      },
+      {
+        "tower": 2,
+        "role": "evaluation",
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00"
+      },
+      {
+        "tower": 2,
+        "role": "evaluation",
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00"
+      },
+      {
+        "tower": 2,
+        "role": "evaluation",
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00"
+      }
+    ]
+  },
+  "source_hashes": {
+    "moisture/anomaly_index.py": "a68c286b6f2804447650d370609ff9cea8deb6b5c83619bbf606a3a9cdf1a13f",
+    "moisture/experiment.py": "7dddff56ecc1aa616feef097aa03c51b34425fb776eb1ec4e82dd70626912c65",
+    "moisture/review/moisture_scorer.py": "48f875083b8615e3a94c473afb4954e5b9b12705a62108efa6d3de1de8586045",
+    "paths.py": "835ed3b1898ad2da1117365268f9467e3aa7378f5b915dedb111038457d6d45b",
+    "moisture/PROTOCOL.md": "0ffa97fa6d85c5623150d854400089cc719e8c256cc2078c87ccecb8af0baa20"
+  },
+  "input_hashes": {
+    "data/moisture/CANONICAL_FEATURE_MANIFEST.json": "24f1a4a9a25e29214b4f3c1d80235aa19ff4d23079930553ff9769cb4e079596",
+    "data/moisture/Tower1_CANONICAL_FEATURES.csv": "c67f79cb8da745e3de77e65cd500688e21b6dcd7be429efbcbdb8e7d8dc50211",
+    "data/moisture/Tower2_CANONICAL_FEATURES.csv": "f5b269ce5c981a5cb8ecc1bf83fa1ecb531b5288ea04dc47c1e2e4d72dbcdecb",
+    "data/moisture/Tower1_NATIVE_AIR_TA3.csv": "b4c1995a1c3592769a6eed546e200f40d3bed087a419d365fcd178ebd655b208",
+    "data/moisture/Tower2_NATIVE_AIR_TA3.csv": "1cbabcbbc4299180088e78a3598a4153d65e866c06920f7352d321061501dbca",
+    "data/moisture/build_canonical_features.py": "0ba2d10b0bc8c02554a804d39e3e8e17622b7d7e131edfd0a4250a42841b8403",
+    "data/moisture/EXPONENTIAL_PROXY_FREEZE_CONTRACT.md": "bf6c57de0eefadccc05621dfba0ac8c5807b35f8190124a2acc6a5147ea9fb2c",
+    "data/moisture/MOISTURE_TRANSFER_FEATURE_AUDIT.json": "1e27d7183ea07de3884615ba4ee6e4f82b3a733eb57236da28d643cdf77946c3",
+    "data/moisture/test_moisture_invariance.py": "75e3e0240b8a19bbf325e782a9a41e326e97188df3d2048ce4501a10954c72b1",
+    "moisture/DEVELOPMENT_FIT.json": "9043fe3e39a188eacbaf81275daba9c6931b4839a83df17827af06903deb9ebc",
+    "data/moisture/TOWER2_CAMERA_FREEZE_SPEC.json": "e34391973a3df92a87fbcca39d8387c5080b75aefbfeb1ca2da9d755067a353b"
+  },
+  "target_loader_sha256": "3e317dbd99003c032cb053292ada8c72391f29c67567f50c0a8f497df11a19a5",
+  "prior_release_commit": "c06d62cbe0eca34379d63d3c22d0c4f8a01c2f21",
+  "target_scope": "calibrated stake transfer inside the same campaign; not independent glacier/weather replication",
+  "Tower2_camera_values_opened": false,
+  "novel_physics_claim": false,
+  "award_or_publication_guarantee": false
+}

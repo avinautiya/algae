@@ -1,0 +1,15 @@
+# Independent review of weak_graph.py
+
+3 November 2026. Reviewed the source in theory/weak_graph.py. No Tower 2 camera outcomes were opened and no parent code or frozen artifact was edited.
+
+**Algebra passes.** With downward-positive node order and passive G, the interior equation MΔT=Gleft∫(Tleft−Ti)−Gright∫(Ti−Tright) is correct. The consistent-P1 endpoint weights ChL/6, C(hL+hR)/3, ChR/6 are correct. Uniform pointwise error δ creates endpoint uncertainty Cδ(hL+hR)/duration and regressor uncertainty 2δ(Gleft+Gright). The LP inequalities use the correct signs and retain both terms. This is a necessary outer relaxation; it does not establish a common coherent sensor-error history.
+
+**Two new independent tests pass.** `test_weak_graph_independent.py` constructs a heterogeneous five-node thermal graph with an independently assembled consistent mass/stiffness matrix. A Crank–Nicolson trajectory makes the trapezoidal integrated equation exact. The fit recovers all four true conductances to 2e-10 relative tolerance. A second test adds persistent per-sensor offsets and time-varying bounded errors, then verifies that the necessary LP encloses the true deepest conductance. No melt observations enter either test. This is semidiscrete verification, not a continuum interpolation-error or field-validity proof.
+
+**One actionable input defect:** `sensor_bound_C=NaN` passes the current `<0` test. Require finite, nonnegative delta. The default finite actual analysis is unaffected. Also require finite physical k bounds if claiming finite input validation. These are proposed additive fixes to parent, not edits made here.
+
+**Interpretation gates:** The [.05,6] W/m/K conductivity box is an assumed prior, so an LP endpoint at that box is prior-limited. Full rank at machine precision does not imply practical identifiability: report singular-value ratios/perturbation sensitivity. Strong dependence on 6/12/24 h integration windows indicates averaging-induced loss of excitation, noise/model error, or both; it does not establish time-varying true material k. The returned deepest measured-span flux is not basal ice flux. Extending it over an unmeasured sensor-to-ice gap would add an unsupported material/geometry assumption. The present homogeneous source-C proxy remains an external absolute-scale constraint. Source sensor specifications are not automatically strict simultaneous pointwise bounds over the entire field record.
+
+**Design warning:** lowest_edge_enclosure calls the full LSQ estimator to reuse validation; if LSQ fails, the LP is not attempted even though its necessary constraints might be well-defined. This is an avoidable availability coupling, not a wrong enclosure in the reported successful runs. If refactoring, separate pure validation/row assembly from the estimator.
+
+Current development results justify neither a fresh Tower 2 unseal merely in search of a positive score nor a new-mathematics claim. Fix an independently motivated estimator and its source assumptions first; only then spend the genuinely withheld target.
