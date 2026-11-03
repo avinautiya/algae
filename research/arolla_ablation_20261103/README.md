@@ -1,5 +1,9 @@
 # Arolla measured ice-ablation evaluation
 
+**Results are now scored:** the predeclared primary superiority criterion failed. See `RESULTS_REPORT.md`, the unchanged 1,053 prediction rows in `model/results/frozen_ablation_comparison/RESULTS.json`, and `targets/POSTSCORE_REVIEW.json`. All pairwise baseline rankings can reverse under the conditional measurement-error bounds; `reproduction/robustness/REPORT.md` gives exact calculations. This branch preserves its pre-execution freeze rather than replacing negative results.
+
+The additive `model/thermal_memory/` package supplies a transient conductive ablation component with stored heat, a discrete energy ledger and finite-scenario uncertainty envelopes. It is numerically tested, not field-validated as superior. `model/environment/` audits real input availability and the richer Pirámide process dataset. Frozen Arolla methods and scores are unchanged.
+
 This package advances from sensor-signal fitting to a comparison with actual stake-measured ICE ablation. It is a small retrospective temporal holdout, not a blind prospective trial, a new physical law, or validation of the stream/cliff solver. Source targets were inspected during data/units auditing before code was written. No evaluation interval fits a model coefficient or selects a timing scenario.
 
 ## Actual field target

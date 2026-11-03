@@ -1,0 +1,82 @@
+{
+  "model_solver_sha256": "777e7c1799308bc9245fddb8ce30d04e44c6fe3f805a7d20b5017098659b4539",
+  "single_cell": {
+    "expected_flux_W_m2": 53.333333333333336,
+    "max_flux_error_W_m2": 7.105427357601002e-15,
+    "max_step_ledger_J_m2": 0.0
+  },
+  "eigenmode": {
+    "max_temperature_error_against_exact_discrete_eigenmode_C": 8.132383655379272e-15,
+    "continuous_eigenvalue_s_inverse": 0.00019495514866349354,
+    "discrete_eigenvalue_s_inverse": 0.00019479861284623758,
+    "energy_relative_residual": 2.2002660229817104e-14
+  },
+  "continuum_eigen_convergence": [
+    {
+      "cells": 8,
+      "dt_s": 1,
+      "max_temperature_error_C": 0.004414608365301276
+    },
+    {
+      "cells": 16,
+      "dt_s": 1,
+      "max_temperature_error_C": 0.0011457087656424614
+    },
+    {
+      "cells": 32,
+      "dt_s": 1,
+      "max_temperature_error_C": 0.00031289968319225814
+    }
+  ],
+  "demos": [
+    {
+      "depth_m": 0.18,
+      "conductivity_W_mK": 0.96,
+      "volumetric_heat_capacity_J_m3K": 1500000.0,
+      "status": "synthetic dimensional demonstration; no field fit or novelty claim",
+      "numerical_transfer_W_m2_per_K": [
+        4.1031001652038235,
+        2.7901292342438877
+      ],
+      "continuous_analytic_transfer_W_m2_per_K": [
+        4.108269863588894,
+        -2.7944091490863627
+      ],
+      "numerical_basal_harmonic_amplitude_W_m2": 39.58180702471277,
+      "quasistatic_amplitude_W_m2": 42.54495779674123,
+      "numerical_lag_modulo_24h": 2.2810602545821044,
+      "analytic_lag_modulo_24h": 2.2815462590615843,
+      "phase_lag_is_modulo_one_forcing_period": true,
+      "relative_transfer_error": 0.0013507816806064442,
+      "total_incoming_heat_J_m2": 36674975.88502575,
+      "total_basal_heat_J_m2": 37002267.274333656,
+      "final_minus_initial_storage_J_m2": -327291.389302148,
+      "energy_relative_residual": 1.556471866635322e-13
+    },
+    {
+      "depth_m": 0.6,
+      "conductivity_W_mK": 0.96,
+      "volumetric_heat_capacity_J_m3K": 1500000.0,
+      "status": "synthetic dimensional demonstration; no field fit or novelty claim",
+      "numerical_transfer_W_m2_per_K": [
+        -0.1828915268021396,
+        -0.12248372540670331
+      ],
+      "continuous_analytic_transfer_W_m2_per_K": [
+        -0.1840093165139156,
+        0.12469197991183487
+      ],
+      "numerical_basal_harmonic_amplitude_W_m2": 1.7559142865145443,
+      "quasistatic_amplitude_W_m2": 12.763487339022369,
+      "numerical_lag_modulo_24h": 14.254032994939427,
+      "analytic_lag_modulo_24h": 14.27487450785055,
+      "phase_lag_is_modulo_one_forcing_period": true,
+      "relative_transfer_error": 0.011134901198679404,
+      "total_incoming_heat_J_m2": 10405351.247857418,
+      "total_basal_heat_J_m2": 11255777.908398049,
+      "final_minus_initial_storage_J_m2": -850426.6605421151,
+      "energy_relative_residual": -1.3189032299841766e-13
+    }
+  ],
+  "field_validation": false
+}

@@ -1,0 +1,85 @@
+{
+  "source_sha256": "2d84db2cc6f55ab2cd5e406feffb279dc217332e524beaad79c03bc44b39e865",
+  "scope": "target-free source availability only; no prediction or score",
+  "source_label_window": "2010-07-28 00:00 <= label < 2010-09-12 00:00 UTC+02",
+  "hourly_rows": 1104,
+  "counts": {
+    "DIR": {
+      "present": 1104,
+      "missing": 0
+    },
+    "FF": {
+      "present": 1104,
+      "missing": 0
+    },
+    "FF_z": {
+      "present": 1104,
+      "missing": 0
+    },
+    "LWIN": {
+      "present": 1104,
+      "missing": 0
+    },
+    "LWOUT": {
+      "present": 1104,
+      "missing": 0
+    },
+    "P": {
+      "present": 0,
+      "missing": 1104
+    },
+    "PP": {
+      "present": 1072,
+      "missing": 32
+    },
+    "RH": {
+      "present": 1104,
+      "missing": 0
+    },
+    "RH_z": {
+      "present": 1104,
+      "missing": 0
+    },
+    "SNOW": {
+      "present": 0,
+      "missing": 1104
+    },
+    "SWIN": {
+      "present": 1104,
+      "missing": 0
+    },
+    "SWOUT": {
+      "present": 1104,
+      "missing": 0
+    },
+    "T": {
+      "present": 1104,
+      "missing": 0
+    },
+    "T_z": {
+      "present": 1104,
+      "missing": 0
+    }
+  },
+  "used_by_baselines": {
+    "PDD": [
+      "T"
+    ],
+    "constant_rate": [
+      "elapsed time"
+    ],
+    "net_shortwave": [
+      "SWIN",
+      "SWOUT"
+    ]
+  },
+  "phase_gate": "Native post-July4 snow depth is unavailable. None -> 0 forbidden.",
+  "property_provenance": {
+    "primary_H1D_thickness_m": 0.06,
+    "thickness_relative_uncertainty": 0.1,
+    "other_stake_thickness_not_provided": true,
+    "conductivity_W_m_K": 0.96,
+    "conductivity_provenance": "supplied value; its DOCX row has no provenance note, so independent local measurement or a particular borrowed source is not established",
+    "roughness_provenance": "roughness z0 row explicitly borrows Miage properties; do not silently assign that note to conductivity"
+  }
+}

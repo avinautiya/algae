@@ -1,0 +1,533 @@
+{
+  "all_1053_rows_independently_reproduced_from_raw_sources": true,
+  "maximum_prediction_difference_mmwe": 6.934897101018578e-12,
+  "frozen_hashes_match": true,
+  "native_workbook_and_reading_increment_agree": true,
+  "first_interval_only_coefficients_verified": true,
+  "full_clock_scenario_support_verified": true,
+  "nominal_rows": [
+    {
+      "stake": "H1D",
+      "primary_stake": true,
+      "model": "constant_rate",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-28T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 846.0,
+      "heldout_observed_mmwe": 315.0,
+      "train_dose": 31.0,
+      "test_dose": 14.0,
+      "fitted_training_scale": 27.29032258064516,
+      "test_train_dose_ratio": 0.45161290322580644,
+      "predicted_mmwe": 382.06451612903226,
+      "signed_error_mmwe": 67.06451612903226,
+      "absolute_error_mmwe": 67.06451612903226,
+      "relative_error_percent": 21.29032258064516,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 261.2903225806452,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 130.6451612903226,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": true,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "H1D",
+      "primary_stake": true,
+      "model": "positive_degree_day",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-28T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 846.0,
+      "heldout_observed_mmwe": 315.0,
+      "train_dose": 169.8016583333336,
+      "test_dose": 46.02340000000002,
+      "fitted_training_scale": 4.982283496544171,
+      "test_train_dose_ratio": 0.2710421114359942,
+      "predicted_mmwe": 229.30162627485112,
+      "signed_error_mmwe": -85.69837372514888,
+      "absolute_error_mmwe": 85.69837372514888,
+      "relative_error_percent": -27.205832928618694,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 228.78758005847897,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 114.39379002923948,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": true,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "H1D",
+      "primary_stake": true,
+      "model": "net_shortwave_dose",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-28T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 846.0,
+      "heldout_observed_mmwe": 315.0,
+      "train_dose": 382.61177351999953,
+      "test_dose": 166.18131324000004,
+      "fitted_training_scale": 2.211118576453787,
+      "test_train_dose_ratio": 0.43433402927239917,
+      "predicted_mmwe": 367.4465887644497,
+      "signed_error_mmwe": 52.4465887644497,
+      "absolute_error_mmwe": 52.4465887644497,
+      "relative_error_percent": 16.64971071887292,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 258.18012526903186,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 129.09006263451593,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": true,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "H1D",
+      "primary_stake": true,
+      "model": "published_DEBCF_component_unresolved",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "heldout_observed_mmwe": 315.0,
+      "predicted_mmwe": 215.57945663899994,
+      "signed_error_mmwe": -99.42054336100006,
+      "absolute_error_mmwe": 99.42054336100006,
+      "relative_error_percent": -31.562077257460334,
+      "local_calibration_applied": false,
+      "published_property_independence_established": false,
+      "pure_ice_component_match_established": false,
+      "interpretation": "As-published6cm series against native ICE ablation for context. Output ice/snow component definition unresolved; not a certified like-for-like professional skill comparison.",
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 180.0,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 90.0,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": false,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "G1D",
+      "primary_stake": false,
+      "model": "constant_rate",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-28T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 666.0,
+      "heldout_observed_mmwe": 315.0,
+      "train_dose": 31.0,
+      "test_dose": 14.0,
+      "fitted_training_scale": 21.483870967741936,
+      "test_train_dose_ratio": 0.45161290322580644,
+      "predicted_mmwe": 300.7741935483871,
+      "signed_error_mmwe": -14.225806451612925,
+      "absolute_error_mmwe": 14.225806451612925,
+      "relative_error_percent": -4.516129032258071,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 261.2903225806452,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 130.6451612903226,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": true,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "G1D",
+      "primary_stake": false,
+      "model": "positive_degree_day",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-28T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 666.0,
+      "heldout_observed_mmwe": 315.0,
+      "train_dose": 169.8016583333336,
+      "test_dose": 46.02340000000002,
+      "fitted_training_scale": 3.9222231781305177,
+      "test_train_dose_ratio": 0.2710421114359942,
+      "predicted_mmwe": 180.51404621637215,
+      "signed_error_mmwe": -134.48595378362785,
+      "absolute_error_mmwe": 134.48595378362785,
+      "relative_error_percent": -42.69395358210408,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 228.78758005847897,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 114.39379002923948,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": false,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "G1D",
+      "primary_stake": false,
+      "model": "net_shortwave_dose",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-28T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 666.0,
+      "heldout_observed_mmwe": 315.0,
+      "train_dose": 382.61177351999953,
+      "test_dose": 166.18131324000004,
+      "fitted_training_scale": 1.7406678155061726,
+      "test_train_dose_ratio": 0.43433402927239917,
+      "predicted_mmwe": 289.26646349541784,
+      "signed_error_mmwe": -25.733536504582162,
+      "absolute_error_mmwe": 25.733536504582162,
+      "relative_error_percent": -8.169376668121322,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 258.18012526903186,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 129.09006263451593,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": true,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "F1D",
+      "primary_stake": false,
+      "model": "constant_rate",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-30T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 909.0,
+      "heldout_observed_mmwe": 315.0,
+      "train_dose": 29.0,
+      "test_dose": 14.0,
+      "fitted_training_scale": 31.344827586206897,
+      "test_train_dose_ratio": 0.4827586206896552,
+      "predicted_mmwe": 438.82758620689657,
+      "signed_error_mmwe": 123.82758620689657,
+      "absolute_error_mmwe": 123.82758620689657,
+      "relative_error_percent": 39.31034482758621,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 266.89655172413796,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 133.44827586206898,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": true,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "F1D",
+      "primary_stake": false,
+      "model": "positive_degree_day",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-30T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 909.0,
+      "heldout_observed_mmwe": 315.0,
+      "train_dose": 164.4626041666669,
+      "test_dose": 46.02340000000002,
+      "fitted_training_scale": 5.527092341787418,
+      "test_train_dose_ratio": 0.2798411239637174,
+      "predicted_mmwe": 254.37558168301913,
+      "signed_error_mmwe": -60.624418316980865,
+      "absolute_error_mmwe": 60.624418316980865,
+      "relative_error_percent": -19.24584708475583,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 230.3714023134691,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 115.18570115673455,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": true,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "F1D",
+      "primary_stake": false,
+      "model": "net_shortwave_dose",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-30T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 909.0,
+      "heldout_observed_mmwe": 315.0,
+      "train_dose": 361.6456568399995,
+      "test_dose": 166.18131324000004,
+      "fitted_training_scale": 2.513510069338847,
+      "test_train_dose_ratio": 0.45951419600076254,
+      "predicted_mmwe": 417.69840416469316,
+      "signed_error_mmwe": 102.69840416469316,
+      "absolute_error_mmwe": 102.69840416469316,
+      "relative_error_percent": 32.60266798879148,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 262.7125552801372,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 131.3562776400686,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": true,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "E1D",
+      "primary_stake": false,
+      "model": "constant_rate",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-30T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 630.0,
+      "heldout_observed_mmwe": 90.0,
+      "train_dose": 29.0,
+      "test_dose": 14.0,
+      "fitted_training_scale": 21.724137931034484,
+      "test_train_dose_ratio": 0.4827586206896552,
+      "predicted_mmwe": 304.1379310344828,
+      "signed_error_mmwe": 214.1379310344828,
+      "absolute_error_mmwe": 214.1379310344828,
+      "relative_error_percent": 237.93103448275866,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 266.89655172413796,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 133.44827586206898,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": false,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "E1D",
+      "primary_stake": false,
+      "model": "positive_degree_day",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-30T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 630.0,
+      "heldout_observed_mmwe": 90.0,
+      "train_dose": 164.4626041666669,
+      "test_dose": 46.02340000000002,
+      "fitted_training_scale": 3.8306580586645467,
+      "test_train_dose_ratio": 0.2798411239637174,
+      "predicted_mmwe": 176.29990809714198,
+      "signed_error_mmwe": 86.29990809714198,
+      "absolute_error_mmwe": 86.29990809714198,
+      "relative_error_percent": 95.8887867746022,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 230.3714023134691,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 115.18570115673455,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": true,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    },
+    {
+      "stake": "E1D",
+      "primary_stake": false,
+      "model": "net_shortwave_dose",
+      "mean_label_end_offset_h": 0.0,
+      "visit_hours": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "nominal": true,
+      "train_interval": [
+        "2010-07-30T12:00:00+02:00",
+        "2010-08-28T12:00:00+02:00"
+      ],
+      "test_interval": [
+        "2010-08-28T12:00:00+02:00",
+        "2010-09-11T12:00:00+02:00"
+      ],
+      "calibration_observed_mmwe": 630.0,
+      "heldout_observed_mmwe": 90.0,
+      "train_dose": 361.6456568399995,
+      "test_dose": 166.18131324000004,
+      "fitted_training_scale": 1.742036681719993,
+      "test_train_dose_ratio": 0.45951419600076254,
+      "predicted_mmwe": 289.4939434804804,
+      "signed_error_mmwe": 199.49394348048043,
+      "absolute_error_mmwe": 199.49394348048043,
+      "relative_error_percent": 221.6599372005338,
+      "uncertainty": {
+        "source_uncertainty_m": 0.1,
+        "source_uncertainty_semantics": "unspecified; NOT a standard deviation",
+        "if_per_reading_absolute_bound_residual_bound_mmwe": 262.7125552801372,
+        "if_per_interval_absolute_bound_residual_bound_mmwe": 131.3562776400686,
+        "compatible_if_per_reading_bound": true,
+        "compatible_if_per_interval_bound": false,
+        "confidence_interval": false,
+        "shared_middle_reading_propagated": true
+      }
+    }
+  ],
+  "all_available_stake_nominal_mae_mmwe": {
+    "constant_rate": 104.81395995550614,
+    "positive_degree_day": 91.77716348072488,
+    "net_shortwave_dose": 95.09311822855136,
+    "published_DEBCF_component_unresolved": 99.42054336100006
+  },
+  "scope": "Retrospective chronological native ice-ablation holdout, one shared weather event. Not coupled cliff validation or novel/professionally superior model. Professional output quantity equivalence unresolved.",
+  "original_results_sha256": "250ee2c9a554502fe65f481e05708203b35a5bd5460c03db2d61fc2fb6101be8"
+}

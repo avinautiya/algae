@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 def main():
  results=[]
- for name in ['targets','reproduction','model','timing']:
+ for name in ['targets','reproduction','model','timing','model/environment','reproduction/robustness']:
   p=subprocess.run([sys.executable,'-m','unittest','discover','-p','test_*.py','-v'],cwd=ROOT/name,env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',OPENBLAS_NUM_THREADS='1'),capture_output=True,text=True,timeout=180)
   m=re.search(r'Ran (\d+) tests?',p.stderr);n=int(m.group(1)) if m else 0
   results.append(dict(component=name,tests=n,passed=p.returncode==0 and n>0,stdout=p.stdout,stderr=p.stderr));print(name,n,p.returncode,flush=True)

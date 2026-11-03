@@ -1,0 +1,22 @@
+{
+  "canonical_freeze_sha256": "732adda6abed91460301a3ea6f704ab87eeb4d31bb38810c46e3fb20f166147f",
+  "source_hashes_match": {
+    "arolla_melt.py": true,
+    "PROTOCOL.md": true,
+    "arolla_baseline.py": true,
+    "AROLLA_OUTPUT_MANIFEST.json": true,
+    "arolla_outputs/DEBCF/ARO/DEBCF_ARO_EXP1_EXP2.csv": true,
+    "arolla_outputs/Dates_Rows/Dates_daily_ARO.csv": true,
+    "arolla_outputs/Dates_Rows/Dates_hourly_ARO.csv": true
+  },
+  "data_hash_matches": true,
+  "tests_passed": 13,
+  "professional_context_no_local_rescale": true,
+  "professional_only_H1D_actual_6cm_column": true,
+  "professional_quantity_equivalence_not_claimed": true,
+  "professional_excluded_from_robust_win_rule": true,
+  "source_uncertainty_not_sigma": true,
+  "reviewer_computed_heldout_predictions": false,
+  "remaining_must_fix_identified": false,
+  "scope": "pre-score bounded retrospective ice-ablation comparison only; not a field-superiority/novelty certificate"
+}

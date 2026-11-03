@@ -1,34 +1,48 @@
 {
   "passed": true,
-  "tests": 37,
+  "tests": 74,
   "results": [
     {
       "component": "targets",
       "tests": 5,
       "passed": true,
       "stdout": "",
-      "stderr": "test_explicit_clock_24 (test_arolla_loader.Tests) ... ok\ntest_missing_snow_not_zero (test_arolla_loader.Tests) ... ok\ntest_nonfinite_refuses (test_arolla_loader.Tests) ... ok\ntest_real_source_target_and_density (test_arolla_loader.Tests) ... ok\ntest_source_has_complete_visit_date_envelope (test_arolla_loader.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.086s\n\nOK\n"
+      "stderr": "test_explicit_clock_24 (test_arolla_loader.Tests) ... ok\ntest_missing_snow_not_zero (test_arolla_loader.Tests) ... ok\ntest_nonfinite_refuses (test_arolla_loader.Tests) ... ok\ntest_real_source_target_and_density (test_arolla_loader.Tests) ... ok\ntest_source_has_complete_visit_date_envelope (test_arolla_loader.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.089s\n\nOK\n"
     },
     {
       "component": "reproduction",
-      "tests": 8,
+      "tests": 12,
       "passed": true,
       "stdout": "",
-      "stderr": "test_explicit_local_clock (test_arolla_baseline.Tests) ... ok\ntest_label_interpretations_not_silent (test_arolla_baseline.Tests) ... ok\ntest_missing_convention_refuses (test_arolla_baseline.Tests) ... ok\ntest_partial_or_naive_refuses (test_arolla_baseline.Tests) ... ok\ntest_apparent_match_cannot_authorize_density (test_resolve_target.Tests) ... ok\ntest_bad_quantities (test_resolve_target.Tests) ... ok\ntest_implied_target_not_observation (test_resolve_target.Tests) ... ok\ntest_protocol_result (test_resolve_target.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.001s\n\nOK\n"
+      "stderr": "test_explicit_local_clock (test_arolla_baseline.Tests) ... ok\ntest_label_interpretations_not_silent (test_arolla_baseline.Tests) ... ok\ntest_missing_convention_refuses (test_arolla_baseline.Tests) ... ok\ntest_partial_or_naive_refuses (test_arolla_baseline.Tests) ... ok\ntest_incomplete_support_refuses (test_process_diagnostics.Tests) ... ok\ntest_invalid_sentinel_refuses (test_process_diagnostics.Tests) ... ok\ntest_latent_dimensional_identity (test_process_diagnostics.Tests) ... ok\ntest_radiometry_reflected_downwelling (test_process_diagnostics.Tests) ... ok\ntest_apparent_match_cannot_authorize_density (test_resolve_target.Tests) ... ok\ntest_bad_quantities (test_resolve_target.Tests) ... ok\ntest_implied_target_not_observation (test_resolve_target.Tests) ... ok\ntest_protocol_result (test_resolve_target.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.001s\n\nOK\n"
     },
     {
       "component": "model",
-      "tests": 13,
+      "tests": 27,
       "passed": true,
       "stdout": "",
-      "stderr": "test_actual_published_members_verify_without_target_score (test_arolla_melt.Tests) ... ok\ntest_available_stake_mean_includes_primary (test_arolla_melt.Tests) ... ok\ntest_exact_model_doses (test_arolla_melt.Tests) ... ok\ntest_forcing_gap_or_clock_refuses (test_arolla_melt.Tests) ... ok\ntest_missing_forcing_refuses (test_arolla_melt.Tests) ... ok\ntest_native_cumulative_measurement_operator (test_arolla_melt.Tests) ... ok\ntest_no_extrapolation (test_arolla_melt.Tests) ... ok\ntest_published_clock_scenarios_explicit (test_arolla_melt.Tests) ... ok\ntest_published_units_and_partial_steps (test_arolla_melt.Tests) ... ok\ntest_shared_clock_ratio (test_arolla_melt.Tests) ... ok\ntest_shared_middle_reading_bounds (test_arolla_melt.Tests) ... ok\ntest_training_only_scale (test_arolla_melt.Tests) ... ok\ntest_unknown_snow_is_not_replaced (test_arolla_melt.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.018s\n\nOK\n"
+      "stderr": "test_actual_published_members_verify_without_target_score (test_arolla_melt.Tests) ... ok\ntest_available_stake_mean_includes_primary (test_arolla_melt.Tests) ... ok\ntest_exact_model_doses (test_arolla_melt.Tests) ... ok\ntest_forcing_gap_or_clock_refuses (test_arolla_melt.Tests) ... ok\ntest_missing_forcing_refuses (test_arolla_melt.Tests) ... ok\ntest_native_cumulative_measurement_operator (test_arolla_melt.Tests) ... ok\ntest_no_extrapolation (test_arolla_melt.Tests) ... ok\ntest_published_clock_scenarios_explicit (test_arolla_melt.Tests) ... ok\ntest_published_units_and_partial_steps (test_arolla_melt.Tests) ... ok\ntest_shared_clock_ratio (test_arolla_melt.Tests) ... ok\ntest_shared_middle_reading_bounds (test_arolla_melt.Tests) ... ok\ntest_training_only_scale (test_arolla_melt.Tests) ... ok\ntest_unknown_snow_is_not_replaced (test_arolla_melt.Tests) ... ok\ntest_bulk_capacity_and_temperate_interface_source_gates (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_cli_synthetic_output_and_overwrite_refusal (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_continuum_eigenmode_spatial_temporal_refinement (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_discrete_eigenmode_backward_euler (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_ensemble_bounds_only_finite_scenarios (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_exact_discrete_ledger_with_cooling_and_initial_storage (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_exact_steady_linear_solution_and_units (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_first_order_temporal_refinement_against_discrete_mode (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_hourly_boundaries_and_partial_final_step (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_independent_declared_sources_permitted_without_certification (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_no_source_or_target_fitted_input_refused (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_nonfinite_boolean_negative_refreezing_inputs_refused (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_thermal_memory_initial_state_and_delayed_flux (thermal_memory.test_solver.ThermalMemoryTests) ... ok\ntest_timing_coverage_dt_and_limit_refused (thermal_memory.test_solver.ThermalMemoryTests) ... ok\n\n----------------------------------------------------------------------\nRan 27 tests in 0.259s\n\nOK\n"
     },
     {
       "component": "timing",
-      "tests": 11,
+      "tests": 13,
       "passed": true,
       "stdout": "",
-      "stderr": "test_exact_reading_error_radius (test_ranking_bounds.Tests) ... ok\ntest_identical_is_not_improvement (test_ranking_bounds.Tests) ... ok\ntest_nominal_win_not_robust_win (test_ranking_bounds.Tests) ... ok\ntest_unknown_and_nonpositive_training_refuse (test_ranking_bounds.Tests) ... ok\ntest_zero_uncertainty_matches_absolute_errors (test_ranking_bounds.Tests) ... ok\ntest_constant_calendar (test_visit_bounds.Tests) ... ok\ntest_gap_never_filled (test_visit_bounds.Tests) ... ok\ntest_negative_driver_refuses (test_visit_bounds.Tests) ... ok\ntest_reading_vs_interval_error (test_visit_bounds.Tests) ... ok\ntest_shared_middle_extrema (test_visit_bounds.Tests) ... ok\ntest_zero_training_refuses (test_visit_bounds.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.010s\n\nOK\n"
+      "stderr": "test_invalid (test_measurement_design.DesignTests) ... ok\ntest_threshold_has_adversarial_tie (test_measurement_design.DesignTests) ... ok\ntest_exact_reading_error_radius (test_ranking_bounds.Tests) ... ok\ntest_identical_is_not_improvement (test_ranking_bounds.Tests) ... ok\ntest_nominal_win_not_robust_win (test_ranking_bounds.Tests) ... ok\ntest_unknown_and_nonpositive_training_refuse (test_ranking_bounds.Tests) ... ok\ntest_zero_uncertainty_matches_absolute_errors (test_ranking_bounds.Tests) ... ok\ntest_constant_calendar (test_visit_bounds.Tests) ... ok\ntest_gap_never_filled (test_visit_bounds.Tests) ... ok\ntest_negative_driver_refuses (test_visit_bounds.Tests) ... ok\ntest_reading_vs_interval_error (test_visit_bounds.Tests) ... ok\ntest_shared_middle_extrema (test_visit_bounds.Tests) ... ok\ntest_zero_training_refuses (test_visit_bounds.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.011s\n\nOK\n"
+    },
+    {
+      "component": "model/environment",
+      "tests": 8,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_basal_temperature_in_range (test_energy_contract.Checks) ... ok\ntest_invalid (test_energy_contract.Checks) ... ok\ntest_melt_scope_and_units (test_energy_contract.Checks) ... ok\ntest_phase_refusal (test_energy_contract.Checks) ... ok\ntest_radiometer (test_energy_contract.Checks) ... ok\ntest_steady_linear_profile (test_energy_contract.Checks) ... ok\ntest_storage_bound (test_energy_contract.Checks) ... ok\ntest_weighted_mode_identity (test_energy_contract.Checks) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "component": "reproduction/robustness",
+      "tests": 9,
+      "passed": true,
+      "stdout": "",
+      "stderr": "test_analytic_matches_independent_corners (test_audit.TestBounds) ... ok\ntest_equal_models_and_boundary_tie (test_audit.TestBounds) ... ok\ntest_fixed_forecast_does_not_recalibrate_under_measurement_error (test_audit.TestBounds) ... ok\ntest_shared_middle_reading_sign (test_audit.TestBounds) ... ok\ntest_unknown_or_nonphysical_uncertainty_refuses (test_audit.TestBounds) ... ok\ntest_continuum_eigen_refinement (test_thermal_memory_review.IndependentThermalReview) ... ok\ntest_exact_discrete_eigenmode (test_thermal_memory_review.IndependentThermalReview) ... ok\ntest_periodic_transfer_and_endpoint_storage (test_thermal_memory_review.IndependentThermalReview) ... ok\ntest_single_cell_two_half_cells (test_thermal_memory_review.IndependentThermalReview) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.866s\n\nOK\n"
     }
   ],
   "scope": "unit, loader and bounded-arithmetic checks, not ablation-performance certification"

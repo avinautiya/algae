@@ -1,0 +1,54 @@
+{
+  "source_archive_sha256": "7a11b1b5a9edea8a7eb92ff32b12a12c04181562543243dc5c5254c597df450e",
+  "source_member_sha256": "9415b59b245988797bf7dece8160a4e29bf4720daf5d469c3df5a9b5abd0ac6b",
+  "output_scope": "Source-label forcing diagnostics only; no target or model score read.",
+  "windows": [
+    {
+      "start_label": "2014-12-04T00:00:00",
+      "end_label_exclusive": "2015-02-10T00:00:00",
+      "hours": 1632,
+      "mean_air_temperature_C": 7.509252450980389,
+      "mean_positive_air_temperature_C": 7.661562499999995,
+      "mean_wind_m_s": 4.281599264705887,
+      "mean_net_shortwave_W_m2": 276.3728572303915,
+      "mean_net_longwave_W_m2": -104.93813725490217,
+      "mean_net_radiation_W_m2": 171.43471997549,
+      "precipitation_label_hours": 350,
+      "positive_snow_label_hours": 0,
+      "dry_label_hours_with_RH_below_50_percent": 1069,
+      "mean_radiometric_surface_temperature_assumed_eps_C": 11.272840361970196,
+      "air_warmer_than_surface_hours_assumed_eps": 791,
+      "assumed_emissivity": 0.93,
+      "independent_surface_temperature_measurement": false,
+      "actual_evaporation_measured": false,
+      "ice_flux_inferred_from_surface_radiation": false
+    },
+    {
+      "start_label": "2015-02-10T00:00:00",
+      "end_label_exclusive": "2015-04-08T00:00:00",
+      "hours": 1368,
+      "mean_air_temperature_C": 6.504766081871347,
+      "mean_positive_air_temperature_C": 6.600511695906434,
+      "mean_wind_m_s": 3.769926900584794,
+      "mean_net_shortwave_W_m2": 179.64146929824562,
+      "mean_net_longwave_W_m2": -92.9474195906433,
+      "mean_net_radiation_W_m2": 86.69404970760232,
+      "precipitation_label_hours": 339,
+      "positive_snow_label_hours": 96,
+      "dry_label_hours_with_RH_below_50_percent": 853,
+      "mean_radiometric_surface_temperature_assumed_eps_C": 8.631127280781191,
+      "air_warmer_than_surface_hours_assumed_eps": 766,
+      "assumed_emissivity": 0.93,
+      "independent_surface_temperature_measurement": false,
+      "actual_evaporation_measured": false,
+      "ice_flux_inferred_from_surface_radiation": false
+    }
+  ],
+  "generic_dimensional_reference_not_observed_error": {
+    "delta_ice_ablation_mwe": 0.1,
+    "duration_days": 30,
+    "mean_heat_difference_W_m2": 12.885802469135802
+  },
+  "causal_attribution_established": false,
+  "novel_melt_model_established": false
+}

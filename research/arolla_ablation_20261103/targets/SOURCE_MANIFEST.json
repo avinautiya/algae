@@ -19,6 +19,11 @@
     "AROLLA_PARSED_initial_provenance.json": "c7af53fe28a8a855e99142040b84f02c318e14a6a7013349c68795bd1d4d190d",
     "PROVENANCE_AMENDMENT.json": "6b0125afddd09fae92a5386303b8adc4baae0a8d77c22ba25aebbe4004df009d",
     "AROLLA_PROPERTY_TABLE_ROWS.json": "d4ac57dff604196cd9af8a4c16a6848fb3d747fd166b644f9c2d02024bb76b77",
-    "PRESCORE_REVIEW.md": "fb2417f80618ff87c2c2699ceef8f63183417016c2b9c2ccebc48303dafc02ff"
-  }
+    "PRESCORE_REVIEW.md": "fb2417f80618ff87c2c2699ceef8f63183417016c2b9c2ccebc48303dafc02ff",
+    "PRESCORE_CONTEXT_REVIEW.json": "c45b169a22d39c18f40262ae453817da117c078322bf578cee84512a3bcae6ea",
+    "postaudit.py": "74718236ae6d6889b5f304650c51e5897cebb4834425742ac15edb8b0d39cb93",
+    "POSTSCORE_REVIEW.json": "bc218341a38c44d0aab58fb89fd587998dd3541a9993581996c973aad796ecb5"
+  },
+  "postscore_review_added_after_frozen_execution": true,
+  "prediction_scores_computed_field_scope": "Loader eligibility phase only; frozen model execution and independent postscore review documented separately in POSTSCORE_REVIEW.json"
 }

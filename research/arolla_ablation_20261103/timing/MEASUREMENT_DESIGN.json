@@ -1,0 +1,73 @@
+{
+  "pairs": [
+    {
+      "a": "constant_rate",
+      "b": "net_shortwave_dose",
+      "clock_only_ranking_consistent": true,
+      "nominal": {
+        "clock": [
+          0.0,
+          [
+            12.0,
+            12.0,
+            12.0
+          ]
+        ],
+        "nominal": true,
+        "status": "strict_nominal_ranking",
+        "nominal_better": "b",
+        "critical_bound_mmwe": 20.705700362623745,
+        "critical_per_reading_ice_bound_m_at_rho900": 0.023006333736248604,
+        "strict_inequality_required": true
+      },
+      "smallest_conditional_threshold_mmwe": 8.495928592261013
+    },
+    {
+      "a": "constant_rate",
+      "b": "positive_degree_day",
+      "clock_only_ranking_consistent": false,
+      "nominal": {
+        "clock": [
+          0.0,
+          [
+            12.0,
+            12.0,
+            12.0
+          ]
+        ],
+        "nominal": true,
+        "status": "strict_nominal_ranking",
+        "nominal_better": "a",
+        "critical_bound_mmwe": 3.422001225967158,
+        "critical_per_reading_ice_bound_m_at_rho900": 0.0038022235844079534,
+        "strict_inequality_required": true
+      },
+      "smallest_conditional_threshold_mmwe": 0.006346045151669643
+    },
+    {
+      "a": "net_shortwave_dose",
+      "b": "positive_degree_day",
+      "clock_only_ranking_consistent": false,
+      "nominal": {
+        "clock": [
+          0.0,
+          [
+            12.0,
+            12.0,
+            12.0
+          ]
+        ],
+        "nominal": true,
+        "status": "strict_nominal_ranking",
+        "nominal_better": "a",
+        "critical_bound_mmwe": 6.145501259575742,
+        "critical_per_reading_ice_bound_m_at_rho900": 0.006828334732861935,
+        "strict_inequality_required": true
+      },
+      "smallest_conditional_threshold_mmwe": 0.05530200598134336
+    }
+  ],
+  "retrospective_design_diagnostic": true,
+  "new_field_accuracy_evidence": false,
+  "limitation": "Thresholds concern fixed driver ratios and conditional bounded reading errors. They do not resolve model discrepancy, snow, unknown error semantics or uncertain visit time."
+}

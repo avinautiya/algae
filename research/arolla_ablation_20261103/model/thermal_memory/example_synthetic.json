@@ -1,0 +1,159 @@
+{
+  "scenarios": [
+    {
+      "conductivity_W_mK": 1.0,
+      "volumetric_heat_capacity_J_m3K": 2000000.0,
+      "depth_m": 0.1,
+      "initial_temperature_C": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sources": {
+        "conductivity": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false
+        },
+        "heat_capacity": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false,
+          "quantity": "bulk_debris_volumetric_heat_capacity"
+        },
+        "depth": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false
+        },
+        "initial_profile": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false
+        },
+        "basal_ice_state": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false,
+          "state": "temperate_melting_interface",
+          "temperature_C": 0.0
+        }
+      }
+    },
+    {
+      "conductivity_W_mK": 1.0,
+      "volumetric_heat_capacity_J_m3K": 2000000.0,
+      "depth_m": 0.1,
+      "initial_temperature_C": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "sources": {
+        "conductivity": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false
+        },
+        "heat_capacity": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false,
+          "quantity": "bulk_debris_volumetric_heat_capacity"
+        },
+        "depth": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false
+        },
+        "initial_profile": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false
+        },
+        "basal_ice_state": {
+          "status": "declared_synthetic",
+          "source": "explicit analytic illustration; not site observations",
+          "location": "thermal_memory/example_synthetic.json",
+          "method": "assumed for thermal-memory demonstration only",
+          "uses_evaluation_melt": false,
+          "state": "temperate_melting_interface",
+          "temperature_C": 0.0
+        }
+      }
+    }
+  ],
+  "boundary": {
+    "hourly_surface_temperature_C": [
+      10,
+      0,
+      0
+    ],
+    "source": {
+      "status": "declared_synthetic",
+      "source": "explicit analytic illustration; not site observations",
+      "location": "thermal_memory/example_synthetic.json",
+      "method": "assumed for thermal-memory demonstration only",
+      "uses_evaluation_melt": false,
+      "quantity": "debris_surface_temperature"
+    }
+  },
+  "options": {
+    "horizon_s": 10800,
+    "max_horizon_s": 10800,
+    "dt_s": 30,
+    "synthetic": true
+  }
+}
