@@ -1,0 +1,70 @@
+{
+  "audited_commit": "455bf85856bcf11771f0b37bd63cc58e89f05f32",
+  "no_go_reproduced": true,
+  "cases": [
+    {
+      "flow_multiple": 1,
+      "bound_21days_m": 0.00040118939699973765,
+      "required_m": 0.061076080507625974,
+      "viable": false
+    },
+    {
+      "flow_multiple": 2,
+      "bound_21days_m": 0.00020063999889823782,
+      "required_m": 0.061076080507625974,
+      "viable": false
+    },
+    {
+      "flow_multiple": 4,
+      "bound_21days_m": 0.00010033132742633103,
+      "required_m": 0.061076080507625974,
+      "viable": false
+    },
+    {
+      "flow_multiple": 8,
+      "bound_21days_m": 5.0168496067177026e-05,
+      "required_m": 0.061076080507625974,
+      "viable": false
+    }
+  ],
+  "nonzero_small_area_repair_counterexample": {
+    "final_gap_m": 0.2498965652000536,
+    "repair_m": 0.00010343479994640026,
+    "reaches_critical_gap": false
+  },
+  "report_all_area_sweep_repairs_zero_claim_is_false": true,
+  "declared_ntu": 0.0013550594532335107,
+  "required_ntu_if_film_limit_fixed": 0.22171405188899057,
+  "ntu_ratio_if_film_limit_fixed": 163.6194274427778,
+  "h_W_m2_K_removing_bound_if_h_itself_varied": 2474.026688083035,
+  "h_ratio_if_h_itself_varied": 12.370133440415175,
+  "ntu_when_h_itself_varied": 0.016762266256194553,
+  "distinction": "Both are necessary feasibility bounds only, not sufficient recovery or recommendations. NTU0.22 depends on keeping film-limit h*T fixed.",
+  "all_controls_per_step_maxima": {
+    "mass_kg": 7.23461004645265e-13,
+    "sensible_J": 7.607013685628772e-09,
+    "thermal_latent_J": 7.605194696225226e-09
+  },
+  "refinement_geometry": [
+    {
+      "dx_m": 0.25,
+      "lane_cells": 1,
+      "divider_width_m": 0.25,
+      "total_pool_width_m": 0.75
+    },
+    {
+      "dx_m": 0.125,
+      "lane_cells": 2,
+      "divider_width_m": 0.125,
+      "total_pool_width_m": 0.625
+    },
+    {
+      "dx_m": 0.0625,
+      "lane_cells": 4,
+      "divider_width_m": 0.0625,
+      "total_pool_width_m": 0.5625
+    }
+  ],
+  "spatial_claim": "These saved cases change physical pool/divider width. Differences are not pure fixed-domain mesh error. Toe partition remains unresolved.",
+  "can_numeric_or_wording_errors_reverse_declared_no_go": false
+}

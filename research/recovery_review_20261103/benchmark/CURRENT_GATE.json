@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "model_output_member_crc_verified": true,
+    "model_output_sha256_recorded": true,
+    "actual_thickness_column_verified": true,
+    "model_version_mapping_verified": true,
+    "date_axis_verified": false,
+    "matching_observation_window_verified": false,
+    "units_and_sign_verified": false,
+    "snow_target_definition_verified": false,
+    "paper_metric_reproduced": false,
+    "parameter_calibration_excludes_test_targets": false,
+    "candidate_frozen_before_scoring": false,
+    "support_frozen_before_scoring": false,
+    "issue_time_feature_provenance_verified": false,
+    "evaluation_not_selected_for_model_success": false,
+    "pure_ice_melt_observation_verified": false,
+    "metric": "final_cumulative_percentage_error"
+  },
+  "reproduction": {
+    "claim": "published_baseline_reproduction",
+    "metadata_gate_passed": false,
+    "unmet": [
+      "date_axis_verified",
+      "matching_observation_window_verified",
+      "units_and_sign_verified",
+      "snow_target_definition_verified",
+      "paper_metric_reproduced"
+    ],
+    "accuracy_improvement_established": false,
+    "interpretation": "A passed metadata gate allows a qualified comparison; it does not authenticate assertions or establish independence, field accuracy, novelty or superiority."
+  },
+  "independent_test": {
+    "claim": "independent_pure_ice_melt_test",
+    "metadata_gate_passed": false,
+    "unmet": [
+      "date_axis_verified",
+      "matching_observation_window_verified",
+      "units_and_sign_verified",
+      "snow_target_definition_verified",
+      "paper_metric_reproduced",
+      "parameter_calibration_excludes_test_targets",
+      "candidate_frozen_before_scoring",
+      "support_frozen_before_scoring",
+      "issue_time_feature_provenance_verified",
+      "evaluation_not_selected_for_model_success",
+      "pure_ice_melt_observation_verified"
+    ],
+    "accuracy_improvement_established": false,
+    "interpretation": "A passed metadata gate allows a qualified comparison; it does not authenticate assertions or establish independence, field accuracy, novelty or superiority."
+  },
+  "tests_passed": 6
+}

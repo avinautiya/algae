@@ -1,0 +1,21 @@
+{
+  "pinned_commit": "455bf85856bcf11771f0b37bd63cc58e89f05f32",
+  "verified_source_blobs": 4,
+  "n_evolving": 36,
+  "historical_classes": {
+    "initially_disconnected": 9,
+    "lost_without_reconnection": 27
+  },
+  "frozen_primary_NOT_sustained_matches": 36,
+  "frozen_finer_label_matches": 9,
+  "frozen_finer_label_mismatches": 27,
+  "stored_history_digest_nulls": 72,
+  "stored_history_digest_total": 72,
+  "runner_wrong_history_keys": [
+    "preloss_prefix_sha256",
+    "fingerprint"
+  ],
+  "actual_v1_key": "sampled_preloss_history_sha256",
+  "no_retroactive_wins": true,
+  "interpretation": "Primary no-sustained prediction succeeds; finer label prediction mismatches27/36. Historical v1 is internally consistent, but its labels are coarse for initially disconnected pulse access. Null history IDs cannot establish independence. V2 is prospective only."
+}

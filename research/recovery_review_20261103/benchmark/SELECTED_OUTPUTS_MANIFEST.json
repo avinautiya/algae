@@ -1,0 +1,25 @@
+{
+  "record": 15754456,
+  "archive_md5_not_fully_verified": true,
+  "method": "bounded HTTPS byte ranges plus member CRC32; no full archive MD5 claim",
+  "members": [
+    {
+      "member": "Dates_Rows/Dates_daily_CN.csv",
+      "sha256": "9c89741dce7423f3bc4c279cb59a3982963cd6630f5e18f995596461d0c5ff0b",
+      "size": 2200,
+      "crc32_verified": true
+    },
+    {
+      "member": "Dates_Rows/Dates_hourly_CN.csv",
+      "sha256": "df5859e406c85fddbb28aefce9359eb70bef0822e037678748795216afc79e23",
+      "size": 52778,
+      "crc32_verified": true
+    },
+    {
+      "member": "DEBCF/CN/DEBCF_CN_EXP1_EXP2.csv",
+      "sha256": "b3f4aecba816610360640c2c0a6e124ecb4064b9c2a5ee5b61a9356bf2734aa1",
+      "size": 271678,
+      "crc32_verified": true
+    }
+  ]
+}

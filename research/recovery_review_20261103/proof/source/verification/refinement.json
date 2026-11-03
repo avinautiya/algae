@@ -1,0 +1,531 @@
+{
+ "scope": "short supported idealised bare-ice case, native physical time; NOT event-time accuracy; engineering differences, not confidence intervals",
+ "controls": {
+  "space": [
+   {
+    "dx": 0.25,
+    "dt": 0.25,
+    "cfl": 0.4,
+    "steps": 80,
+    "cells": 15,
+    "melt_ice_ledger_m3": 0.00015846058013401868,
+    "melt_geometric_roi_m3": 0.00015846058013402244,
+    "melt_heat_implied_m3": 0.00015846058013401865,
+    "geometry_minus_heat_m3": 3.7947076036992655e-18,
+    "Q_toe_m3_s": 0.006947146562177692,
+    "f_toe": 0.6947146562177692,
+    "water_volume_m3": 0.3997134106505556,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": -2.747368305078268e-13,
+    "final_thermal_latent_J": -1.4260876923799515e-09,
+    "max_over_steps": {
+     "mass_kg": 6.130892234862406e-13,
+     "sensible_J": 5.0640664994716644e-09,
+     "thermal_latent_J": 5.071342457085848e-09,
+     "phase_mass_kg": 4.336808689942018e-19,
+     "volume_source_m3": 1.3124034363876536e-16,
+     "latent_minus_window_J": 2.2737367544323206e-13
+    },
+    "last_step_toe_ice_m3": 1.0074221617416323e-06,
+    "last_step_bypass_ice_m3": 9.412697323303033e-07,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 9.238061223170769e-07,
+      "sampled_section_discharge_m3_s": 0.006947146562177692,
+      "phase_to_absolute_section_throughflow": 0.0005319053594444366,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 8.631443445468882e-07,
+      "sampled_section_discharge_m3_s": 0.0010616057905390081,
+      "phase_to_absolute_section_throughflow": 0.003252221689968909,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.2127322609999851,
+    "abs_diff_melt_ice_ledger_m3_to_finest": -1.1482184065812284e-06,
+    "rel_diff_melt_ice_ledger_m3_to_finest": -0.007193954325075302,
+    "abs_diff_Q_toe_m3_s_to_finest": -0.00583302888317224,
+    "rel_diff_Q_toe_m3_s_to_finest": -0.45641226977792293,
+    "abs_diff_f_toe_to_finest": -0.5833028883172239,
+    "rel_diff_f_toe_to_finest": -0.45641226977792293,
+    "abs_diff_water_volume_m3_to_finest": -0.11810071078717693,
+    "rel_diff_water_volume_m3_to_finest": -0.22807549253246584
+   },
+   {
+    "dx": 0.125,
+    "dt": 0.25,
+    "cfl": 0.4,
+    "steps": 80,
+    "cells": 50,
+    "melt_ice_ledger_m3": 0.00015966958319618918,
+    "melt_geometric_roi_m3": 0.0001596695831961876,
+    "melt_heat_implied_m3": 0.00015966958319618913,
+    "geometry_minus_heat_m3": -1.5178830414797062e-18,
+    "Q_toe_m3_s": 0.011487499842841904,
+    "f_toe": 1.1487499842841904,
+    "water_volume_m3": 0.5475188967915251,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": -4.745281858425932e-13,
+    "final_thermal_latent_J": -1.9208528101444244e-09,
+    "max_over_steps": {
+     "mass_kg": 6.188897051090381e-13,
+     "sensible_J": 3.790773916989565e-09,
+     "thermal_latent_J": 3.790773916989565e-09,
+     "phase_mass_kg": 6.505213034913027e-19,
+     "volume_source_m3": 1.6883484221146342e-16,
+     "latent_minus_window_J": 2.2737367544323206e-13
+    },
+    "last_step_toe_ice_m3": 1.0124303179798301e-06,
+    "last_step_bypass_ice_m3": 9.175404479104157e-07,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 9.283986015875043e-07,
+      "sampled_section_discharge_m3_s": 0.011487499842841904,
+      "phase_to_absolute_section_throughflow": 0.00032327264044874253,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 8.413845907338511e-07,
+      "sampled_section_discharge_m3_s": -0.0014033971926398696,
+      "phase_to_absolute_section_throughflow": 0.0023981367360473597,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.017653999999993175,
+    "abs_diff_melt_ice_ledger_m3_to_finest": 6.078465558927854e-08,
+    "rel_diff_melt_ice_ledger_m3_to_finest": 0.0003808352430760831,
+    "abs_diff_Q_toe_m3_s_to_finest": -0.001292675602508028,
+    "rel_diff_Q_toe_m3_s_to_finest": -0.10114693714775003,
+    "abs_diff_f_toe_to_finest": -0.12926756025080266,
+    "rel_diff_f_toe_to_finest": -0.10114693714774992,
+    "abs_diff_water_volume_m3_to_finest": 0.029704775353792567,
+    "rel_diff_water_volume_m3_to_finest": 0.05736571121566958
+   },
+   {
+    "dx": 0.0625,
+    "dt": 0.25,
+    "cfl": 0.4,
+    "steps": 80,
+    "cells": 180,
+    "melt_ice_ledger_m3": 0.0001596087985405999,
+    "melt_geometric_roi_m3": 0.00015960879854060017,
+    "melt_heat_implied_m3": 0.00015960879854059982,
+    "geometry_minus_heat_m3": 3.5236570605778894e-19,
+    "Q_toe_m3_s": 0.012780175445349932,
+    "f_toe": 1.278017544534993,
+    "water_volume_m3": 0.5178141214377325,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": -2.6394901889159605e-13,
+    "final_thermal_latent_J": 5.238689482212067e-10,
+    "max_over_steps": {
+     "mass_kg": 3.0452528519686606e-13,
+     "sensible_J": 2.4374458007514477e-09,
+     "thermal_latent_J": 2.4374458007514477e-09,
+     "phase_mass_kg": 4.336808689942018e-19,
+     "volume_source_m3": 1.4974801353627182e-16,
+     "latent_minus_window_J": 2.2737367544323206e-13
+    },
+    "last_step_toe_ice_m3": 1.013248819677957e-06,
+    "last_step_bypass_ice_m3": 9.351060889547114e-07,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 9.291491676446866e-07,
+      "sampled_section_discharge_m3_s": 0.012780175445349932,
+      "phase_to_absolute_section_throughflow": 0.0002908095187324702,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 8.574922835714704e-07,
+      "sampled_section_discharge_m3_s": -0.002682650400564876,
+      "phase_to_absolute_section_throughflow": 0.0012785747757380706,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.07278243900003645,
+    "abs_diff_melt_ice_ledger_m3_to_finest": 0.0,
+    "rel_diff_melt_ice_ledger_m3_to_finest": 0.0,
+    "abs_diff_Q_toe_m3_s_to_finest": 0.0,
+    "rel_diff_Q_toe_m3_s_to_finest": 0.0,
+    "abs_diff_f_toe_to_finest": 0.0,
+    "rel_diff_f_toe_to_finest": 0.0,
+    "abs_diff_water_volume_m3_to_finest": 0.0,
+    "rel_diff_water_volume_m3_to_finest": 0.0
+   }
+  ],
+  "outer_step": [
+   {
+    "dx": 0.25,
+    "dt": 1.0,
+    "cfl": 0.4,
+    "steps": 20,
+    "cells": 15,
+    "melt_ice_ledger_m3": 0.00015846224553350802,
+    "melt_geometric_roi_m3": 0.00015846224553350564,
+    "melt_heat_implied_m3": 0.00015846224553350802,
+    "geometry_minus_heat_m3": -2.3852447794681098e-18,
+    "Q_toe_m3_s": 0.006946339507367901,
+    "f_toe": 0.6946339507367901,
+    "water_volume_m3": 0.3997204762090858,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": 4.489681196262474e-13,
+    "final_thermal_latent_J": 1.6079866327345371e-09,
+    "max_over_steps": {
+     "mass_kg": 7.23461004645265e-13,
+     "sensible_J": 4.423782229423523e-09,
+     "thermal_latent_J": 4.420144250616431e-09,
+     "phase_mass_kg": 1.734723475976807e-18,
+     "volume_source_m3": 1.0156348554052688e-16,
+     "latent_minus_window_J": 4.547473508864641e-13
+    },
+    "last_step_toe_ice_m3": 4.0297084542553416e-06,
+    "last_step_bypass_ice_m3": 3.7655740621136753e-06,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 3.6952426525521485e-06,
+      "sampled_section_discharge_m3_s": 0.006946339507367901,
+      "phase_to_absolute_section_throughflow": 0.0005319697732356225,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 3.4530314149582404e-06,
+      "sampled_section_discharge_m3_s": 0.001061340718732867,
+      "phase_to_absolute_section_throughflow": 0.003253461733834926,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.003523973999961072,
+    "abs_diff_melt_ice_ledger_m3_to_finest": 2.0588575935266695e-09,
+    "rel_diff_melt_ice_ledger_m3_to_finest": 1.2992901477160146e-05,
+    "abs_diff_Q_toe_m3_s_to_finest": -8.610098405524222e-07,
+    "rel_diff_Q_toe_m3_s_to_finest": -0.00012393622991302422,
+    "abs_diff_f_toe_to_finest": -8.610098405525957e-05,
+    "rel_diff_f_toe_to_finest": -0.00012393622991302422,
+    "abs_diff_water_volume_m3_to_finest": 8.25921814090469e-06,
+    "rel_diff_water_volume_m3_to_finest": 2.0662911439428555e-05
+   },
+   {
+    "dx": 0.25,
+    "dt": 0.5,
+    "cfl": 0.4,
+    "steps": 40,
+    "cells": 15,
+    "melt_ice_ledger_m3": 0.0001584610793034997,
+    "melt_geometric_roi_m3": 0.00015846107930349916,
+    "melt_heat_implied_m3": 0.00015846107930349968,
+    "geometry_minus_heat_m3": -5.149960319306146e-19,
+    "Q_toe_m3_s": 0.0069469494770085976,
+    "f_toe": 0.6946949477008597,
+    "water_volume_m3": 0.39971576455674646,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": -8.592302216947623e-15,
+    "final_thermal_latent_J": -2.0372681319713593e-10,
+    "max_over_steps": {
+     "mass_kg": 2.4240050071344665e-13,
+     "sensible_J": 2.5174813345074654e-09,
+     "thermal_latent_J": 2.521119313314557e-09,
+     "phase_mass_kg": 8.673617379884035e-19,
+     "volume_source_m3": 1.8374516318198086e-16,
+     "latent_minus_window_J": 2.2737367544323206e-13
+    },
+    "last_step_toe_ice_m3": 2.01484741663439e-06,
+    "last_step_bypass_ice_m3": 1.8826172230095762e-06,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 1.8476150810537354e-06,
+      "sampled_section_discharge_m3_s": 0.0069469494770085976,
+      "phase_to_absolute_section_throughflow": 0.0005319212662100231,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 1.7263599934997816e-06,
+      "sampled_section_discharge_m3_s": 0.0010615500842433682,
+      "phase_to_absolute_section_throughflow": 0.003252526694923234,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.006416908000005606,
+    "abs_diff_melt_ice_ledger_m3_to_finest": 8.926275852098788e-10,
+    "rel_diff_melt_ice_ledger_m3_to_finest": 5.633134757321301e-06,
+    "abs_diff_Q_toe_m3_s_to_finest": -2.5104019985618814e-07,
+    "rel_diff_Q_toe_m3_s_to_finest": -3.6135447542440247e-05,
+    "abs_diff_f_toe_to_finest": -2.5104019985677795e-05,
+    "rel_diff_f_toe_to_finest": -3.6135447542440247e-05,
+    "abs_diff_water_volume_m3_to_finest": 3.5475658015649003e-06,
+    "rel_diff_water_volume_m3_to_finest": 8.87529990523106e-06
+   },
+   {
+    "dx": 0.25,
+    "dt": 0.25,
+    "cfl": 0.4,
+    "steps": 80,
+    "cells": 15,
+    "melt_ice_ledger_m3": 0.00015846058013401868,
+    "melt_geometric_roi_m3": 0.00015846058013402244,
+    "melt_heat_implied_m3": 0.00015846058013401865,
+    "geometry_minus_heat_m3": 3.7947076036992655e-18,
+    "Q_toe_m3_s": 0.006947146562177692,
+    "f_toe": 0.6947146562177692,
+    "water_volume_m3": 0.3997134106505556,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": -2.747368305078268e-13,
+    "final_thermal_latent_J": -1.4260876923799515e-09,
+    "max_over_steps": {
+     "mass_kg": 6.130892234862406e-13,
+     "sensible_J": 5.0640664994716644e-09,
+     "thermal_latent_J": 5.071342457085848e-09,
+     "phase_mass_kg": 4.336808689942018e-19,
+     "volume_source_m3": 1.3124034363876536e-16,
+     "latent_minus_window_J": 2.2737367544323206e-13
+    },
+    "last_step_toe_ice_m3": 1.0074221617416323e-06,
+    "last_step_bypass_ice_m3": 9.412697323303033e-07,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 9.238061223170769e-07,
+      "sampled_section_discharge_m3_s": 0.006947146562177692,
+      "phase_to_absolute_section_throughflow": 0.0005319053594444366,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 8.631443445468882e-07,
+      "sampled_section_discharge_m3_s": 0.0010616057905390081,
+      "phase_to_absolute_section_throughflow": 0.003252221689968909,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.011442254000030516,
+    "abs_diff_melt_ice_ledger_m3_to_finest": 3.934581041780804e-10,
+    "rel_diff_melt_ice_ledger_m3_to_finest": 2.483009217790766e-06,
+    "abs_diff_Q_toe_m3_s_to_finest": -5.395503076179725e-08,
+    "rel_diff_Q_toe_m3_s_to_finest": -7.766442127077333e-06,
+    "abs_diff_f_toe_to_finest": -5.39550307621095e-06,
+    "rel_diff_f_toe_to_finest": -7.766442127077333e-06,
+    "abs_diff_water_volume_m3_to_finest": 1.1936596107098296e-06,
+    "rel_diff_water_volume_m3_to_finest": 2.9862975410299697e-06
+   },
+   {
+    "dx": 0.25,
+    "dt": 0.125,
+    "cfl": 0.4,
+    "steps": 160,
+    "cells": 15,
+    "melt_ice_ledger_m3": 0.0001584601866759145,
+    "melt_geometric_roi_m3": 0.00015846018667592268,
+    "melt_heat_implied_m3": 0.00015846018667591444,
+    "geometry_minus_heat_m3": 8.239936510889834e-18,
+    "Q_toe_m3_s": 0.006947200517208454,
+    "f_toe": 0.6947200517208454,
+    "water_volume_m3": 0.3997122169909449,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": -2.6969529040576923e-14,
+    "final_thermal_latent_J": 2.190063241869211e-09,
+    "max_over_steps": {
+     "mass_kg": 4.836219315643153e-13,
+     "sensible_J": 2.6325324142817408e-09,
+     "thermal_latent_J": 2.632759787957184e-09,
+     "phase_mass_kg": 3.2526065174565133e-19,
+     "volume_source_m3": 1.5069224351422356e-16,
+     "latent_minus_window_J": 1.1368683772161603e-13
+    },
+    "last_step_toe_ice_m3": 5.037107090369365e-07,
+    "last_step_bypass_ice_m3": 4.706254805137116e-07,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 4.6190272018687076e-07,
+      "sampled_section_discharge_m3_s": 0.006947200517208454,
+      "phase_to_absolute_section_throughflow": 0.0005319008357887145,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 4.3156356563107353e-07,
+      "sampled_section_discharge_m3_s": 0.0010616179048080735,
+      "phase_to_absolute_section_throughflow": 0.0032521197216175027,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.01806685600001856,
+    "abs_diff_melt_ice_ledger_m3_to_finest": 0.0,
+    "rel_diff_melt_ice_ledger_m3_to_finest": 0.0,
+    "abs_diff_Q_toe_m3_s_to_finest": 0.0,
+    "rel_diff_Q_toe_m3_s_to_finest": 0.0,
+    "abs_diff_f_toe_to_finest": 0.0,
+    "rel_diff_f_toe_to_finest": 0.0,
+    "abs_diff_water_volume_m3_to_finest": 0.0,
+    "rel_diff_water_volume_m3_to_finest": 0.0
+   }
+  ],
+  "inner_cfl": [
+   {
+    "dx": 0.25,
+    "dt": 0.25,
+    "cfl": 0.4,
+    "steps": 80,
+    "cells": 15,
+    "melt_ice_ledger_m3": 0.00015846058013401868,
+    "melt_geometric_roi_m3": 0.00015846058013402244,
+    "melt_heat_implied_m3": 0.00015846058013401865,
+    "geometry_minus_heat_m3": 3.7947076036992655e-18,
+    "Q_toe_m3_s": 0.006947146562177692,
+    "f_toe": 0.6947146562177692,
+    "water_volume_m3": 0.3997134106505556,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": -2.747368305078268e-13,
+    "final_thermal_latent_J": -1.4260876923799515e-09,
+    "max_over_steps": {
+     "mass_kg": 6.130892234862406e-13,
+     "sensible_J": 5.0640664994716644e-09,
+     "thermal_latent_J": 5.071342457085848e-09,
+     "phase_mass_kg": 4.336808689942018e-19,
+     "volume_source_m3": 1.3124034363876536e-16,
+     "latent_minus_window_J": 2.2737367544323206e-13
+    },
+    "last_step_toe_ice_m3": 1.0074221617416323e-06,
+    "last_step_bypass_ice_m3": 9.412697323303033e-07,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 9.238061223170769e-07,
+      "sampled_section_discharge_m3_s": 0.006947146562177692,
+      "phase_to_absolute_section_throughflow": 0.0005319053594444366,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 8.631443445468882e-07,
+      "sampled_section_discharge_m3_s": 0.0010616057905390081,
+      "phase_to_absolute_section_throughflow": 0.003252221689968909,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.012896914999998899,
+    "abs_diff_melt_ice_ledger_m3_to_finest": 5.4599459141461406e-08,
+    "rel_diff_melt_ice_ledger_m3_to_finest": 0.00034468054115666114,
+    "abs_diff_Q_toe_m3_s_to_finest": -5.1764082293140334e-08,
+    "rel_diff_Q_toe_m3_s_to_finest": -7.451073060216196e-06,
+    "abs_diff_f_toe_to_finest": -5.176408229279339e-06,
+    "rel_diff_f_toe_to_finest": -7.451073060216196e-06,
+    "abs_diff_water_volume_m3_to_finest": 1.3699900001107324e-06,
+    "rel_diff_water_volume_m3_to_finest": 3.427442410330883e-06
+   },
+   {
+    "dx": 0.25,
+    "dt": 0.25,
+    "cfl": 0.2,
+    "steps": 80,
+    "cells": 15,
+    "melt_ice_ledger_m3": 0.00015842422972355095,
+    "melt_geometric_roi_m3": 0.00015842422972354775,
+    "melt_heat_implied_m3": 0.00015842422972355092,
+    "geometry_minus_heat_m3": -3.1712913545201005e-18,
+    "Q_toe_m3_s": 0.006947181670542875,
+    "f_toe": 0.6947181670542875,
+    "water_volume_m3": 0.3997125002558975,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": -8.622117776690974e-14,
+    "final_thermal_latent_J": -4.823959898203611e-09,
+    "max_over_steps": {
+     "mass_kg": 4.3913576117451947e-13,
+     "sensible_J": 7.607013685628772e-09,
+     "thermal_latent_J": 7.605194696225226e-09,
+     "phase_mass_kg": 4.336808689942018e-19,
+     "volume_source_m3": 1.2197105033872474e-16,
+     "latent_minus_window_J": 2.2737367544323206e-13
+    },
+    "last_step_toe_ice_m3": 1.0072650208681315e-06,
+    "last_step_bypass_ice_m3": 9.408155816683374e-07,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 9.236620241360766e-07,
+      "sampled_section_discharge_m3_s": 0.006947181670542875,
+      "phase_to_absolute_section_throughflow": 0.0005318197035511805,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 8.627278883898654e-07,
+      "sampled_section_discharge_m3_s": 0.0010616615584941838,
+      "phase_to_absolute_section_throughflow": 0.0032504817810810535,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.01687397799997825,
+    "abs_diff_melt_ice_ledger_m3_to_finest": 1.824904867373184e-08,
+    "rel_diff_melt_ice_ledger_m3_to_finest": 0.00011520429087319428,
+    "abs_diff_Q_toe_m3_s_to_finest": -1.6655717110201917e-08,
+    "rel_diff_Q_toe_m3_s_to_finest": -2.3974725246178608e-06,
+    "abs_diff_f_toe_to_finest": -1.6655717109959056e-06,
+    "rel_diff_f_toe_to_finest": -2.3974725246178608e-06,
+    "abs_diff_water_volume_m3_to_finest": 4.5959534200612495e-07,
+    "rel_diff_water_volume_m3_to_finest": 1.1498161056611167e-06
+   },
+   {
+    "dx": 0.25,
+    "dt": 0.25,
+    "cfl": 0.1,
+    "steps": 80,
+    "cells": 15,
+    "melt_ice_ledger_m3": 0.00015840598067487721,
+    "melt_geometric_roi_m3": 0.0001584059806748748,
+    "melt_heat_implied_m3": 0.0001584059806748773,
+    "geometry_minus_heat_m3": -2.4936649967166602e-18,
+    "Q_toe_m3_s": 0.006947198326259985,
+    "f_toe": 0.6947198326259985,
+    "water_volume_m3": 0.3997120406605555,
+    "positivity_added_water_m3": 0.0,
+    "final_mass_residual_kg": -1.1375991294804155e-13,
+    "final_thermal_latent_J": 5.311449058353901e-10,
+    "max_over_steps": {
+     "mass_kg": 5.984728229484204e-13,
+     "sensible_J": 5.7989382185041904e-09,
+     "thermal_latent_J": 5.7989382185041904e-09,
+     "phase_mass_kg": 4.336808689942018e-19,
+     "volume_source_m3": 1.3414969005434707e-16,
+     "latent_minus_window_J": 1.1368683772161603e-13
+    },
+    "last_step_toe_ice_m3": 1.0071864676001936e-06,
+    "last_step_bypass_ice_m3": 9.405886188882676e-07,
+    "last_step_route_source": {
+     "toe": {
+      "water_added_m3": 9.235899907893776e-07,
+      "sampled_section_discharge_m3_s": 0.006947198326259985,
+      "phase_to_absolute_section_throughflow": 0.0005317769537675433,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     },
+     "bypass": {
+      "water_added_m3": 8.625197635205415e-07,
+      "sampled_section_discharge_m3_s": 0.001061688886710656,
+      "phase_to_absolute_section_throughflow": 0.0032496139851018544,
+      "zero_section_flow_with_generated_water": false,
+      "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+     }
+    },
+    "wall_s": 0.017381159000024127,
+    "abs_diff_melt_ice_ledger_m3_to_finest": 0.0,
+    "rel_diff_melt_ice_ledger_m3_to_finest": 0.0,
+    "abs_diff_Q_toe_m3_s_to_finest": 0.0,
+    "rel_diff_Q_toe_m3_s_to_finest": 0.0,
+    "abs_diff_f_toe_to_finest": 0.0,
+    "rel_diff_f_toe_to_finest": 0.0,
+    "abs_diff_water_volume_m3_to_finest": 0.0,
+    "rel_diff_water_volume_m3_to_finest": 0.0
+   }
+  ]
+ }
+}

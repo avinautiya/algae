@@ -1,0 +1,86 @@
+{
+  "geometry": {
+    "builder_version": "fixed-physical-divider-v1",
+    "lane_width_m": 0.25,
+    "divider_width_m": 0.25,
+    "total_pool_width_m": 0.75,
+    "pool_length_m": 0.5,
+    "reach_length_m": 0.5,
+    "tail_length_m": 0.25,
+    "initial_toe_z_m": -0.08,
+    "initial_bypass_z_m": 0.0,
+    "pool_floor_m": -1.0,
+    "tail_drop_m": 1.5,
+    "tail_slope": 0.5,
+    "inlet_discharge_m3_s": 0.07,
+    "inlet_flux_per_width_m2_s": 0.09333333333333334,
+    "upstream_boundary": "uniform discharge per unit width across fixed full pool width",
+    "ramp_ratio": 0.0,
+    "coordinate_frame": "idealised_cartesian_origin0_m"
+  },
+  "mesh": {
+    "lane_cells": 4,
+    "declared_minimum_lane_cells": 4,
+    "convergence_established": false
+  },
+  "step": {
+    "dt_s": 0.01,
+    "physical_time_s": 0.01,
+    "ice_melt_m3": 8.162511274368599e-10,
+    "source": {
+      "mode": "physical_split",
+      "heat_epoch": 1,
+      "interval_s": 0.01,
+      "ice_volume_m3": 8.162511274368599e-10,
+      "water_added_m3": 7.485022838596006e-10,
+      "liquid_volume_change_m3": 7.485023711950589e-10,
+      "volume_source_residual_m3": 8.73354582944192e-17,
+      "phase_mass_residual_kg": 1.0587911840678754e-22,
+      "latent_implied_J": 0.24999976280910657,
+      "sensible_delta_J": 0.0,
+      "matched_window_heat_removed_J": 0.2499997628091066,
+      "latent_minus_window_heat_J": -2.7755575615628914e-17,
+      "heat_time_scaling": 1.0,
+      "covered_ice_melt_m3": 0.0,
+      "under_debris_source_transport": "no covered phase source",
+      "maximum_surface_drop_m": 2.709954284376026e-10,
+      "limitations": "stationary temperate ice; no birth horizontal momentum/sensible heat; pressure-work/ALE mechanical energy not modelled",
+      "toe_ice_volume_m3": 4.0812564523735353e-10,
+      "bypass_ice_volume_m3": 4.0812548219950643e-10,
+      "route_source_diagnostics": {
+        "toe": {
+          "water_added_m3": 3.742512166826532e-10,
+          "sampled_section_discharge_m3_s": 0.0,
+          "phase_to_absolute_section_throughflow": null,
+          "zero_section_flow_with_generated_water": true,
+          "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+        },
+        "bypass": {
+          "water_added_m3": 3.7425106717694743e-10,
+          "sampled_section_discharge_m3_s": 0.0,
+          "phase_to_absolute_section_throughflow": null,
+          "zero_section_flow_with_generated_water": true,
+          "interpretation": "diagnostic of a sampled section, not proof of local negligible feedback or uniform route discharge"
+        }
+      }
+    },
+    "ledgers": {
+      "solver_version": "v5-phase-source-physical-split-1",
+      "executed_state_water_volume_residual_m3": -2.086791851963414e-17,
+      "executed_state_sensible_residual_J": -6.200664703914782e-10,
+      "combined_ice_water_mass_residual_kg": -2.086791851963414e-14,
+      "ice_volume_lost_m3": 8.162511274368599e-10,
+      "generated_water_m3": 7.485022838596006e-10,
+      "hydraulic_boundary_net_water_m3": 0.0003880115819797608,
+      "positivity_added_water_m3": 0.0,
+      "explicit_reset_water_m3": 0.0,
+      "explicit_reset_heat_J": 0.0,
+      "hydraulic_ice_heat_removed_J": 0.2499997628091066,
+      "morphological_latent_J": 0.24999976280910657,
+      "physical_split_thermal_latent_residual_J": -6.200664981470538e-10,
+      "physical_split_only": true,
+      "scope": "algorithmic control-volume ledger across executed hydraulic windows; pseudo-time throughflow must not be reported as environmental elapsed time"
+    }
+  },
+  "scope": "single 0.01s source integration check only; not event or grid convergence"
+}

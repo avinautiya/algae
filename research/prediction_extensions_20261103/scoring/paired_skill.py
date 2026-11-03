@@ -15,10 +15,11 @@ def score(rows,*,candidate,models,unit,expected_keys):
  """
  if not isinstance(rows,list) or not rows:raise ValueError('nonempty record list required')
  if unit!='mm_water_equivalent_per_day':raise ValueError('explicit common daily melt unit required')
- if not isinstance(models,list) or not models or len(set(models))!=len(models) or candidate not in models:raise ValueError('unique frozen models including candidate required')
- if not isinstance(expected_keys,list) or not expected_keys or len(set(expected_keys))!=len(expected_keys):raise ValueError('unique frozen support required')
+ if not isinstance(models,list) or len(models)<2 or not all(isinstance(m,str) and m.strip() for m in models) or len(set(models))!=len(models) or candidate not in models:raise ValueError('candidate and at least one distinct frozen baseline required')
+ if not isinstance(expected_keys,list) or not expected_keys or not all(isinstance(k,str) and k.strip() for k in expected_keys) or len(set(expected_keys))!=len(expected_keys):raise ValueError('unique nonempty string support keys required')
  seen=set();err={m:[] for m in models};sites={};wins={m:dict(candidate_lower_error=0,tie=0,candidate_higher_error=0) for m in models if m!=candidate}
  for row in rows:
+  if not isinstance(row,dict):raise ValueError('record object required')
   key=row.get('key');site=row.get('site')
   if key in seen or key not in expected_keys or not isinstance(site,str) or not site:raise ValueError('duplicate/unexpected/unlabelled support')
   seen.add(key)
@@ -39,10 +40,10 @@ def score(rows,*,candidate,models,unit,expected_keys):
  if seen!=set(expected_keys):raise ValueError('incomplete frozen support')
  metrics={m:dict(n=len(e),mae=sum(abs(v)/len(e) for v in e),bias=sum(v/len(e) for v in e),rmse=math.hypot(*e)/math.sqrt(len(e))) for m,e in err.items()}
  if not all(finite(v) for d in metrics.values() for v in d.values()):raise ValueError('score arithmetic overflows')
- equal_site={}
+ equal_site={};site_mae={site:{} for site in sites}
  for m in models:
   per_site=[]
   for site in sites:
-   values=[abs(r['predictions'][m]-r['observed']) for r in rows if r['site']==site];per_site.append(sum(v/len(values) for v in values))
+   values=[abs(r['predictions'][m]-r['observed']) for r in rows if r['site']==site];value=sum(v/len(values) for v in values);per_site.append(value);site_mae[site][m]=value
   equal_site[m]=sum(v/len(per_site) for v in per_site)
- return dict(unit=unit,metrics=metrics,equal_site_mae=equal_site,day_win_counts=wins,site_counts=sites,candidate_lower_pooled_mae_than_every_baseline=all(metrics[candidate]['mae']<metrics[m]['mae'] for m in wins),interpretation='Descriptive matched-record comparison. No independence, blind evaluation, confidence interval, novelty or environmental validity is certified.')
+ return dict(unit=unit,metrics=metrics,equal_site_mae=equal_site,site_mae=site_mae,day_win_counts=wins,site_counts=sites,candidate_lower_pooled_mae_than_every_baseline=all(metrics[candidate]['mae']<metrics[m]['mae'] for m in wins),candidate_lower_mae_at_every_site_than_every_baseline=all(site_mae[s][candidate]<site_mae[s][m] for s in sites for m in wins),interpretation='Descriptive matched-record comparison. No independence, blind evaluation, confidence interval, novelty or environmental validity is certified.')

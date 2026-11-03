@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "tests": 45,
+  "components": [
+    {
+      "component": "endpoints",
+      "passed": true,
+      "tests": 14,
+      "stdout": "",
+      "stderr": "test_contract_required (test_score_trace_v2.Tests) ... ok\ntest_frozen_mismatch_stays_failed (test_score_trace_v2.Tests) ... ok\ntest_gap_and_nonfinite_refusal (test_score_trace_v2.Tests) ... ok\ntest_history_digest_not_silent_null (test_score_trace_v2.Tests) ... ok\ntest_initialdry_partial (test_score_trace_v2.Tests) ... ok\ntest_initialdry_pulsewet_thenlost (test_score_trace_v2.Tests) ... ok\ntest_initialdry_sustained_access (test_score_trace_v2.Tests) ... ok\ntest_loss_never_reconnect (test_score_trace_v2.Tests) ... ok\ntest_loss_then_sustained (test_score_trace_v2.Tests) ... ok\ntest_maintained (test_score_trace_v2.Tests) ... ok\ntest_neverwet (test_score_trace_v2.Tests) ... ok\ntest_reloss (test_score_trace_v2.Tests) ... ok\ntest_signed_heat_unchanged (test_score_trace_v2.Tests) ... ok\ntest_threshold_touch_is_not_positive_duration (test_score_trace_v2.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "component": "proof",
+      "passed": true,
+      "tests": 6,
+      "stdout": "",
+      "stderr": "test_declared_no_go_all_cases (test_proof.Tests) ... ok\ntest_film_bound (test_proof.Tests) ... ok\ntest_fixed_geometry_gate (test_proof.Tests) ... ok\ntest_larger_discharge_tightens_upper_bound (test_proof.Tests) ... ok\ntest_slight_repair_does_not_imply_recovery (test_proof.Tests) ... ok\ntest_vary_h_not_fixed_film (test_proof.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.083s\n\nOK\n"
+    },
+    {
+      "component": "scoring",
+      "passed": true,
+      "tests": 11,
+      "stdout": "",
+      "stderr": "test_absent_support_identity_refuses (test_paired_skill.Tests) ... ok\ntest_duplicate_refuses (test_paired_skill.Tests) ... ok\ntest_hand_calculation (test_paired_skill.Tests) ... ok\ntest_missing_model_refuses (test_paired_skill.Tests) ... ok\ntest_missing_record_refuses (test_paired_skill.Tests) ... ok\ntest_nan_and_bool_refuse (test_paired_skill.Tests) ... ok\ntest_no_baseline_is_not_a_win (test_paired_skill.Tests) ... ok\ntest_nonobject_record_refuses (test_paired_skill.Tests) ... ok\ntest_pooled_win_is_not_consistent_site_win (test_paired_skill.Tests) ... ok\ntest_signed_error_retained (test_paired_skill.Tests) ... ok\ntest_units_refuse (test_paired_skill.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "component": "benchmark",
+      "passed": true,
+      "tests": 6,
+      "stdout": "",
+      "stderr": "test_baseline_reproduction_not_independence (test_eligibility_v2.Tests) ... ok\ntest_daily_mae_does_not_reproduce_paper (test_eligibility_v2.Tests) ... ok\ntest_false_string_never_passes (test_eligibility_v2.Tests) ... ok\ntest_missing_model_mapping_refuses (test_eligibility_v2.Tests) ... ok\ntest_optimized_properties_not_independent (test_eligibility_v2.Tests) ... ok\ntest_snow_lowering_not_pure_ice (test_eligibility_v2.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "component": "geometry",
+      "passed": true,
+      "tests": 8,
+      "stdout": "",
+      "stderr": "test_actual_inlet_boundary_integral_fixed_across_meshes (test_fixed_geometry.Tests) ... ok\ntest_ghosts_and_initial_ledger (test_fixed_geometry.Tests) ... ok\ntest_identical_physical_dimensions_and_areas (test_fixed_geometry.Tests) ... ok\ntest_minimum_lane_guard_is_not_convergence_certificate (test_fixed_geometry.Tests) ... ok\ntest_post_evolution_reset_exposed_not_erased (test_fixed_geometry.Tests) ... ok\ntest_reject_non_aligned_geometry (test_fixed_geometry.Tests) ... ok\ntest_route_slices_and_wall_initial_state (test_fixed_geometry.Tests) ... ok\ntest_short_physical_step_no_wall_melt (test_fixed_geometry.Tests) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 2.566s\n\nOK\n"
+    }
+  ],
+  "interpretation": "bounded regression checks, not proof of all-error absence, field superiority or award outcomes"
+}

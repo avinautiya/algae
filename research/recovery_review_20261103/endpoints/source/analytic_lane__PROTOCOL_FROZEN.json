@@ -1,0 +1,15 @@
+{
+ "id": "recovery_m5_analytic_lane_v1",
+ "scope": "Deterministic ODE traces of the DECLARED ideal equal-K two-route model (common fixed h, common inlet superheat, independent routes). Not CFD, not field, not blind: parameters and the 12 base cases are the inspected development cases of glacier_campaign_20261103/baseline. Purpose: score endpoint classes with the packet scorer and show temporary rewetting versus sustained recovery. Cost: seconds.",
+ "model_parameters": {"rho_i": 917.0, "L": 334000.0, "rho_w": 1000.0, "cp": 4217.0, "h_W_m2_K": 200.0, "water_superheat_K": 0.5, "Q0_m3_s": 0.07, "initial_gap_m": 0.25, "K": "(2/3)^1.5*sqrt(9.81)*0.5", "bypass_area_m2": 1.0},
+ "cases": {"toe_area_m2": [1.0, 0.5, 0.25], "pulse_multiple_of_Q0": [1, 2, 4, 8], "pulse_duration_h": [6, 24, 72]},
+ "protocol_seconds": {"pre_start_s": 0, "pulse_start_s": 86400, "pulse_end_s": "pulse_start+duration", "post_end_s": "pulse_end+172800 (48 h post-pulse window)"},
+ "scorer": {"contact_threshold": 0.001, "maximum_sampling_gap_s": 900, "source": "glacier_campaign_20261103/scoring/score_trace.py (sha256 in MANIFEST.json)"},
+ "heat_port": "delivered heat to toe-route ice = rho_i*L*E_toe*A_toe (W), signed, never clipped",
+ "time_integration": "RK2, dt 900 s (checked against dt 450 s in the run record)",
+ "controls": ["fixed_geometry (gap frozen at its initial value): temporary-rewetting control, outside any win denominator", "same-equations evolving-topography comparator: algebraically identical in this ideal model, so equality is expected and is NOT evidence of superiority"],
+ "predictions_before_run": {
+  "rule": "Because the analytic bound forbids repair (max repair <= 0.0004 m in 21 d vs 0.0611 m required), predicted class for every case is NOT sustained_postpulse_recovery. Cases with pulse multiple 1 are predicted initially_disconnected (toe dry throughout). Cases with multiple >=2 are predicted temporary rewetting (classes temporary_or_incomplete_reconnection or initially_disconnected, never sustained) with the gap at post_end within 0.001 m of the initial gap OR larger.",
+  "failure_rule": "A single case with sustained_postpulse_recovery, or a gap decrease larger than the analytic 21-day bound plus 1e-6 m, falsifies the implementation (not the bound's assumptions) and must be investigated before anything else."
+ }
+}
