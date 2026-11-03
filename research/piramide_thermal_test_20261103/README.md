@@ -1,5 +1,7 @@
 # Locked Pirámide thermal and melt comparison
 
+**Campaign now executed.** Read `FINAL_FIELD_REPORT.md`. The candidate loses the declared all-baseline comparison: three later-period MAE14.22mm w.e. versus9.87 for the air-temperature index. Earlier results, the physical no-go, missing-endpoint failure, source-coverage amendment and all39 parameterized models are preserved. `CLAUDE_HANDOFF.md` identifies exactly what is implemented, tested and unsupported.
+
 This additive experiment follows the failed Arolla and Swiss comparisons without changing them. Source data are from Zenodo11581073 and JGR2025 DOI10.1029/2025JF008360. MATLAB MCOS objects have now been decoded and cross-checked against native names, values, dimensions and millisecond epochs. No source UTC offset is invented.
 
 The question is whether training-temperature forward inference of diffusivity improves a later camera-ablation comparison over a derivative-OLS thermal method, constant-rate melt, a positive buried-temperature index, and an air-temperature index. All use one gain fitted only to a fixed training camera interval. This is established conduction physics with empirical calibration, not a new mathematical theorem or a full professional energy-balance implementation.

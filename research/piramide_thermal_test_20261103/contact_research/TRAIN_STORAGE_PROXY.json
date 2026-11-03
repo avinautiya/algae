@@ -1,0 +1,17 @@
+{
+  "scope": "TRAIN endpoint sensible-storage proxy only; piecewise-linear sensor profile and0C base assumptions, not a measured total energy bound",
+  "endpoints": {
+    "2022-12-02T03:00:00": {
+      "assumed_profile_integral_K_m": 1.2010299999999998
+    },
+    "2022-12-16T03:00:00": {
+      "assumed_profile_integral_K_m": 1.8416875
+    }
+  },
+  "bulk_capacity_reference_J_m3K": 1855487.1033697424,
+  "storage_change_J_m2": 1188731.728927101,
+  "mean_storage_change_W_m2": 0.9827477917717435,
+  "conditional_plusminus04C_sensor_induced_mean_storage_radius_W_m2": 0.6135870050825868,
+  "ice_storage_and_latent_pore_terms_measured": false,
+  "Tower2_camera_read": false
+}

@@ -1,0 +1,842 @@
+{
+  "scope": "Tower2 feature/time/camera-finiteness ONLY; no camera distance or ablation values read for comparison/scoring",
+  "camera_source_sha256": "8cedbab5be9b12e64e77b725adba3e1d6502d5490b28efbec91b2916af5246b8",
+  "clock": "source_local_naive_no_utc_claim",
+  "selection_rule": "For each fixednominal anchor nearestFINITE nativecamera distance timestamp within\u00b112h,tieearlier,nointerpolation; nooutcomefit",
+  "endpoint_bindings": [
+    {
+      "nominal": "2022-12-02T03:00:00",
+      "selected": "2022-12-02T03:00:00",
+      "nominal_isfinite": true,
+      "nearby_time_finiteness": [
+        {
+          "label": "2022-12-01T15:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-01T16:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-01T17:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-01T18:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-01T19:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-01T20:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-01T21:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-01T22:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-01T23:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T00:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T01:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-02T02:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-02T03:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T04:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T05:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T06:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T07:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T08:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T09:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T10:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T11:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T12:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T13:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T14:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-02T15:00:00",
+          "isfinite": true
+        }
+      ]
+    },
+    {
+      "nominal": "2022-12-16T03:00:00",
+      "selected": "2022-12-16T03:00:00",
+      "nominal_isfinite": true,
+      "nearby_time_finiteness": [
+        {
+          "label": "2022-12-15T15:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-15T16:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-15T17:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-15T18:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-15T19:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-15T20:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-15T21:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-15T22:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-15T23:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T00:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T01:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-16T02:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-16T03:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T04:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T05:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T06:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T07:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T08:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T09:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-16T10:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T11:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T12:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T13:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T14:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-16T15:00:00",
+          "isfinite": true
+        }
+      ]
+    },
+    {
+      "nominal": "2022-12-30T03:00:00",
+      "selected": "2022-12-30T03:00:00",
+      "nominal_isfinite": true,
+      "nearby_time_finiteness": [
+        {
+          "label": "2022-12-29T15:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-29T16:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-29T17:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-29T18:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-29T19:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-29T20:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-29T21:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-29T22:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-29T23:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-30T00:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-30T01:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-30T02:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-30T03:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-30T04:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-30T05:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-30T06:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-30T07:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-30T08:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-30T09:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-30T10:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-30T11:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-30T12:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2022-12-30T13:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-30T14:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2022-12-30T15:00:00",
+          "isfinite": false
+        }
+      ]
+    },
+    {
+      "nominal": "2023-01-13T03:00:00",
+      "selected": "2023-01-13T03:00:00",
+      "nominal_isfinite": true,
+      "nearby_time_finiteness": [
+        {
+          "label": "2023-01-12T15:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-12T16:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-12T17:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-12T18:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-12T19:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-12T20:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-12T21:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-12T22:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-12T23:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T00:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T01:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-13T02:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-13T03:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T04:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T05:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T06:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T07:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T08:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T09:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T10:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T11:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T12:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T13:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T14:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-13T15:00:00",
+          "isfinite": true
+        }
+      ]
+    },
+    {
+      "nominal": "2023-01-27T03:00:00",
+      "selected": "2023-01-27T03:00:00",
+      "nominal_isfinite": true,
+      "nearby_time_finiteness": [
+        {
+          "label": "2023-01-26T15:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-26T16:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-26T17:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-26T18:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-26T19:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-26T20:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-26T21:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-26T22:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-26T23:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T00:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T01:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-27T02:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-27T03:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T04:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T05:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T06:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T07:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T08:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T09:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-01-27T10:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T11:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T12:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T13:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T14:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-01-27T15:00:00",
+          "isfinite": true
+        }
+      ]
+    },
+    {
+      "nominal": "2023-02-10T03:00:00",
+      "selected": "2023-02-10T03:00:00",
+      "nominal_isfinite": true,
+      "nearby_time_finiteness": [
+        {
+          "label": "2023-02-09T15:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-02-09T16:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-09T17:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-02-09T18:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-02-09T19:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-02-09T20:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-02-09T21:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-02-09T22:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-02-09T23:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T00:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T01:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-02-10T02:00:00",
+          "isfinite": false
+        },
+        {
+          "label": "2023-02-10T03:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T04:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T05:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T06:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T07:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T08:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T09:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T10:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T11:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T12:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T13:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T14:00:00",
+          "isfinite": true
+        },
+        {
+          "label": "2023-02-10T15:00:00",
+          "isfinite": true
+        }
+      ]
+    }
+  ],
+  "intervals": [
+    {
+      "role": "train",
+      "start": "2022-12-02T03:00:00",
+      "end": "2022-12-16T03:00:00",
+      "thermal": {
+        "native_finite_points_inside": 673,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 0.5,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-24T08:00:00",
+        "last_native_label": "2023-03-02T15:00:00"
+      },
+      "air_2m": {
+        "native_finite_points_inside": 1781,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 3.0,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-23T12:40:00",
+        "last_native_label": "2023-02-12T13:30:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "role": "heldout",
+      "start": "2022-12-16T03:00:00",
+      "end": "2022-12-30T03:00:00",
+      "thermal": {
+        "native_finite_points_inside": 673,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 0.5,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-24T08:00:00",
+        "last_native_label": "2023-03-02T15:00:00"
+      },
+      "air_2m": {
+        "native_finite_points_inside": 1680,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 16.166666666666668,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-23T12:40:00",
+        "last_native_label": "2023-02-12T13:30:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "role": "heldout",
+      "start": "2022-12-30T03:00:00",
+      "end": "2023-01-13T03:00:00",
+      "thermal": {
+        "native_finite_points_inside": 673,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 0.5,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-24T08:00:00",
+        "last_native_label": "2023-03-02T15:00:00"
+      },
+      "air_2m": {
+        "native_finite_points_inside": 1673,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 15.333333333333334,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-23T12:40:00",
+        "last_native_label": "2023-02-12T13:30:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "role": "heldout",
+      "start": "2023-01-13T03:00:00",
+      "end": "2023-01-27T03:00:00",
+      "thermal": {
+        "native_finite_points_inside": 673,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 0.5,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-24T08:00:00",
+        "last_native_label": "2023-03-02T15:00:00"
+      },
+      "air_2m": {
+        "native_finite_points_inside": 1810,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 2.3333333333333335,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-23T12:40:00",
+        "last_native_label": "2023-02-12T13:30:00"
+      },
+      "source_eligible": true
+    },
+    {
+      "role": "heldout",
+      "start": "2023-01-27T03:00:00",
+      "end": "2023-02-10T03:00:00",
+      "thermal": {
+        "native_finite_points_inside": 673,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 0.5,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-24T08:00:00",
+        "last_native_label": "2023-03-02T15:00:00"
+      },
+      "air_2m": {
+        "native_finite_points_inside": 1897,
+        "source_bounds_cover": true,
+        "maximum_gap_hours": 1.6666666666666667,
+        "pass_no_extrapolation_max18h": true,
+        "first_native_label": "2022-11-23T12:40:00",
+        "last_native_label": "2023-02-12T13:30:00"
+      },
+      "source_eligible": true
+    }
+  ],
+  "endpoint_collision": false,
+  "thermal_native_step_seconds": 1800,
+  "thermal_native_uniform_step_verified": true,
+  "source_geometry": {
+    "thickness_m": 0.45,
+    "thermistor_depth_m": [
+      0,
+      0.11,
+      0.22,
+      0.33,
+      0.44
+    ],
+    "depth_and_thickness_error_m": 0.02,
+    "bottom_nominal_unsensed_gap_m": 0.01,
+    "moisture_depth_m": [
+      0.19,
+      0.29,
+      0.39
+    ],
+    "tower_fall": "2023-02-12",
+    "source": "https://doi.org/10.1029/2025JF008360"
+  },
+  "training_features": {
+    "start": "2022-12-02T03:00:00",
+    "end": "2022-12-16T03:00:00",
+    "rows": 672,
+    "moisture_qc": {
+      "SM1": {
+        "valid": 672,
+        "rows": 672,
+        "negative": 0,
+        "above_phi": 0,
+        "valid_mean": 0.26506711309523806
+      },
+      "SM2": {
+        "valid": 672,
+        "rows": 672,
+        "negative": 0,
+        "above_phi": 0,
+        "valid_mean": 0.08867306547619049
+      },
+      "SM3": {
+        "valid": 672,
+        "rows": 672,
+        "negative": 0,
+        "above_phi": 0,
+        "valid_mean": 0.07041949404761905
+      }
+    },
+    "all_sm_valid_rows": 672,
+    "equal_probe_theta_proxy_not_volume_mean": 0.14138655753968254,
+    "conditional_C_J_m3K": {
+      "dry": 1215005.0328924444,
+      "training_proxy": 1805830.3312199248,
+      "water_saturated": 3053674.3928924445
+    },
+    "rho_rock_kg_m3": 2657.3133333333335,
+    "cp_rock_J_kgK": 816.1266666666667,
+    "porosity_assumed_not_measured": 0.44,
+    "temperature_min": {
+      "DT1": -3.762,
+      "DT2": -0.32,
+      "DT3": 0.104,
+      "DT4": 0.128,
+      "DT5": 0.034
+    },
+    "temperature_max": {
+      "DT1": 33.73,
+      "DT2": 11.754,
+      "DT3": 4.577,
+      "DT4": 2.867,
+      "DT5": 1.31
+    },
+    "bottom_above_0p4C_count": 393,
+    "quasisteady_effective_extrapolation_length_m": 0.07663469077126493,
+    "qs_formula": "OLS T5 = ell*(T4-T5)/.11; temperature-only exploratory diagnosis, sharedsensorerror/storageconfounded, NOTintrinsicRfit",
+    "identifiability_warning": "ell combines unsensed basal thickness, kRcontact and transient storage; independent intrinsic contact resistance is not identified by this statistic"
+  },
+  "camera_outcome_values_exposed": false,
+  "camera_model_score_computed": false
+}

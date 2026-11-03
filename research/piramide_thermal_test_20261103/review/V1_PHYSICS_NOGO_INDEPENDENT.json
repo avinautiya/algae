@@ -1,0 +1,117 @@
+{
+  "normalized_file_sha256": "428a2fd79ddaa4880ed31f8e733487d6ad9df052087e5d7dc31ffc28639e7fa2",
+  "camera_outcome_fields_loaded": false,
+  "calibration_melt_gain_fitted": false,
+  "rows": [
+    {
+      "method": "training_temperature_forward_fit",
+      "geometry": "small_gap_5mm",
+      "hold": "left",
+      "eligible": false,
+      "negative_normalized_heat_magnitude_K_m": 0.6976705473434949,
+      "positive_normalized_heat_K_m": 118.069044721095,
+      "negative_to_positive_fraction": 0.005909004760659713
+    },
+    {
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": "small_gap_5mm",
+      "hold": "left",
+      "eligible": true,
+      "negative_normalized_heat_magnitude_K_m": -0.0,
+      "positive_normalized_heat_K_m": 32.57348251726325,
+      "negative_to_positive_fraction": -0.0
+    },
+    {
+      "method": "training_temperature_forward_fit",
+      "geometry": "small_gap_5mm",
+      "hold": "right",
+      "eligible": false,
+      "negative_normalized_heat_magnitude_K_m": 0.6976705473434949,
+      "positive_normalized_heat_K_m": 118.13408399437779,
+      "negative_to_positive_fraction": 0.005905751530410971
+    },
+    {
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": "small_gap_5mm",
+      "hold": "right",
+      "eligible": true,
+      "negative_normalized_heat_magnitude_K_m": -0.0,
+      "positive_normalized_heat_K_m": 32.60678359824428,
+      "negative_to_positive_fraction": -0.0
+    },
+    {
+      "method": "training_temperature_forward_fit",
+      "geometry": "middle_gap_20mm",
+      "hold": "left",
+      "eligible": false,
+      "negative_normalized_heat_magnitude_K_m": 0.5888737862680562,
+      "positive_normalized_heat_K_m": 113.19322246415058,
+      "negative_to_positive_fraction": 0.005202376727586834
+    },
+    {
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": "middle_gap_20mm",
+      "hold": "left",
+      "eligible": true,
+      "negative_normalized_heat_magnitude_K_m": -0.0,
+      "positive_normalized_heat_K_m": 31.287355927785043,
+      "negative_to_positive_fraction": -0.0
+    },
+    {
+      "method": "training_temperature_forward_fit",
+      "geometry": "middle_gap_20mm",
+      "hold": "right",
+      "eligible": false,
+      "negative_normalized_heat_magnitude_K_m": 0.5888737862680562,
+      "positive_normalized_heat_K_m": 113.2616143601345,
+      "negative_to_positive_fraction": 0.005199235324296475
+    },
+    {
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": "middle_gap_20mm",
+      "hold": "right",
+      "eligible": true,
+      "negative_normalized_heat_magnitude_K_m": -0.0,
+      "positive_normalized_heat_K_m": 31.31830059978017,
+      "negative_to_positive_fraction": -0.0
+    },
+    {
+      "method": "training_temperature_forward_fit",
+      "geometry": "large_gap_40mm",
+      "hold": "left",
+      "eligible": false,
+      "negative_normalized_heat_magnitude_K_m": 0.5888737862680562,
+      "positive_normalized_heat_K_m": 113.17392923467875,
+      "negative_to_positive_fraction": 0.005203263598341282
+    },
+    {
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": "large_gap_40mm",
+      "hold": "left",
+      "eligible": true,
+      "negative_normalized_heat_magnitude_K_m": -0.0,
+      "positive_normalized_heat_K_m": 31.11116720522297,
+      "negative_to_positive_fraction": -0.0
+    },
+    {
+      "method": "training_temperature_forward_fit",
+      "geometry": "large_gap_40mm",
+      "hold": "right",
+      "eligible": false,
+      "negative_normalized_heat_magnitude_K_m": 0.5888737862680562,
+      "positive_normalized_heat_K_m": 113.24232113066266,
+      "negative_to_positive_fraction": 0.005200121124226998
+    },
+    {
+      "method": "training_derivative_OLS_NOT_source_NTLS",
+      "geometry": "large_gap_40mm",
+      "hold": "right",
+      "eligible": true,
+      "negative_normalized_heat_magnitude_K_m": -0.0,
+      "positive_normalized_heat_K_m": 31.141880978802895,
+      "negative_to_positive_fraction": -0.0
+    }
+  ],
+  "original_no_refreezing_gate_preserved": true,
+  "v1_melt_scoring_authorized": false
+}

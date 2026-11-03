@@ -1,0 +1,48 @@
+{
+  "component_tests_passed": 10,
+  "synthetic_conservation_and_entropy": [
+    {
+      "R": 0.0,
+      "energy_relative_residual": -7.391560559857841e-16,
+      "entropy_balance_relative_residual": -6.53369390128203e-16,
+      "contact_entropy_generation_J_m2K": 0.0,
+      "BE_entropy_defect_J_m2K": 8.855890589206023
+    },
+    {
+      "R": 0.03,
+      "energy_relative_residual": -1.7387170534899381e-15,
+      "entropy_balance_relative_residual": -1.6289606460071658e-15,
+      "contact_entropy_generation_J_m2K": 0.03231842535073374,
+      "BE_entropy_defect_J_m2K": 8.856637407245048
+    },
+    {
+      "R": 0.2,
+      "energy_relative_residual": -7.043388438774606e-16,
+      "entropy_balance_relative_residual": -5.41945676334077e-16,
+      "contact_entropy_generation_J_m2K": 0.012905869634494917,
+      "BE_entropy_defect_J_m2K": 8.857255363119073
+    },
+    {
+      "R": "insulated_limit",
+      "energy_relative_residual": -1.4082820984083172e-16,
+      "entropy_balance_relative_residual": 8.211082827310268e-17,
+      "contact_entropy_generation_J_m2K": 0.0,
+      "BE_entropy_defect_J_m2K": 8.857441991430525
+    }
+  ],
+  "sha256": {
+    "__init__.py": "2742c7e569b7e00a55c3503a82328260b6706db6bc722e4268c8d00ce4aa14bb",
+    "contact_column.py": "4571676bb35c06b48e5ce8ba9f283f516d97934a230a0555c2eec3e992236a5c",
+    "linear.py": "9ce2731aa6793fb74c348f9f01b88b8789b4f6ee5e5c5f25794c1ece080a8118",
+    "identifiability.py": "7578f35fd3ccf65b3beff5d6d2566f8ba784e5a67c3ad085fea0b85438b93f36",
+    "test_contact_column.py": "df8dfe55dad01572233e71487ed380ff572cd660392621e7f846c9135185d66b",
+    "test_identifiability.py": "d1867b48990b175573c044c801a3f400dd12059f4e48bc51aac30e7b33bf8d44",
+    "FOUNDATIONS_AND_GATE.md": "20d0916e89e09ee4e35121dc8f8356382e3aea78eb4d1aaa20fb750b95a91937"
+  },
+  "Tower2_camera_values_opened": false,
+  "field_production_run": false,
+  "field_parameter_fit": false,
+  "previous_failed_field_verdicts_unchanged": true,
+  "new_historical_originality_claim": false,
+  "combined_contact_directory_tests_passed": 15
+}

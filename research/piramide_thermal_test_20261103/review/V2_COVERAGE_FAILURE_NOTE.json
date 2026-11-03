@@ -1,0 +1,14 @@
+{
+  "version": "v2",
+  "status": "unscorable_missing_native_endpoint",
+  "original_endpoint": "2022-12-30T03:00:00",
+  "published_prediction_commit_reported_by_parent": "be7fdfcd0271e3f153064b7d7b838fde7893c70b",
+  "failure_source": "Parent scoring attempt reported nonfinite native camera distance at frozen endpoint",
+  "native_target_inferred_or_imputed": false,
+  "evaluation_error_computed": false,
+  "baseline_ranking_established": false,
+  "camera_outcomes_read_by_this_review": false,
+  "original_frozen_files_edited": false,
+  "proposed_v3_rule": "nearest finite native exposed-stake endpoint within plus/minus12h of original, tie earlier; availability only before outcome magnitude access",
+  "v3_amendment_is_original_protocol_success": false
+}

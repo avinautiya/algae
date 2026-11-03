@@ -1,0 +1,80 @@
+{
+  "scope": "Exploratory steady-temperate TRAIN-only plausibility/identifiability calculation; not a transient field falsification or new model",
+  "source_sha256": {
+    "process": "3a7a6d85bec4fc96d85747792bd46811667d7825aa105a709ac3127ad7e3cf34",
+    "normalized": "c95e63a5bfca92b2e716c37b222ade017428e9e4a39a4e096a90fe01f5fd18b2",
+    "released_train_predictions": "6905bb6f4b18488dd5d98d10a77d41b998b42176dede26ae7fcd56a92fe0edb2"
+  },
+  "train_start": "2022-12-02T03:00:00",
+  "train_end": "2022-12-16T03:00:00",
+  "temperature_means_C": {
+    "DT1": 11.42741071428571,
+    "DT2": 10.46673660714286,
+    "DT3": 8.19591369047619,
+    "DT4": 2.3201532738095287,
+    "DT5": 0.37380059523809545
+  },
+  "minimum_TRAIN_upper_temperature_C": -0.903,
+  "observed_TRAIN_mean_latent_flux_W_m2": 23.505116566901002,
+  "source_model": {
+    "k_W_mK": 4.389002307990581,
+    "C_J_m3K": 1855487.1033697424,
+    "computational_debris_depth_m": 0.5,
+    "empirical_gain_relative_raw": 0.235027364659888
+  },
+  "steady_bulk_R_m2K_W": 0.1139211066464249,
+  "equivalent_R_contact_for_entire_gain_m2K_W": 0.37079311721121827,
+  "required_mean_contact_jump_K": 8.715535442254271,
+  "steady_Tdeep_based_R_upper_if_ice0_and_clearance0_m2K_W": 0.01590294581922929,
+  "steady_Tdeep_based_R_upper_with_plus04C_sensor_bound_m2K_W": 0.03292051724294495,
+  "source_assumed_sensor_clearance_m": 0.020000000000000018,
+  "steady_R_contact_estimate_after_clearance_m2K_W": 0.01134610155337229,
+  "illustrative_pure_air_gap_m_if_kair0025": 0.009269827930280456,
+  "illustrative_radiation_conductance_eps09_at273K_W_m2K": 4.1602348902906705,
+  "spectra": [
+    {
+      "period_hours": 6,
+      "R0_transfer_magnitude": 1.9300414501614311,
+      "contact_transfer_magnitude": 0.10283566653439045,
+      "contact_to_R0_magnitude_ratio": 0.05328158445808982,
+      "contact_minus_R0_phase_rad": -0.7469569598590485
+    },
+    {
+      "period_hours": 12,
+      "R0_transfer_magnitude": 4.315449735683405,
+      "contact_transfer_magnitude": 0.3183142474495877,
+      "contact_to_R0_magnitude_ratio": 0.07376154675549215,
+      "contact_minus_R0_phase_rad": -0.7382046394066483
+    },
+    {
+      "period_hours": 24,
+      "R0_transfer_magnitude": 6.757400424523746,
+      "contact_transfer_magnitude": 0.7122418203590851,
+      "contact_to_R0_magnitude_ratio": 0.1054017485443425,
+      "contact_minus_R0_phase_rad": -0.7366118275237826
+    },
+    {
+      "period_hours": 48,
+      "R0_transfer_magnitude": 8.12909730747279,
+      "contact_transfer_magnitude": 1.2600013775317214,
+      "contact_to_R0_magnitude_ratio": 0.15499892913982555,
+      "contact_minus_R0_phase_rad": -0.6354088264016388
+    },
+    {
+      "period_hours": 168,
+      "R0_transfer_magnitude": 8.719740866473435,
+      "contact_transfer_magnitude": 1.9380888419084015,
+      "contact_to_R0_magnitude_ratio": 0.22226449978119953,
+      "contact_minus_R0_phase_rad": -0.2658944414457132
+    }
+  ],
+  "critical_assumptions": [
+    "time-averaged local steady conduction",
+    "known co-located sensor geometry",
+    "ice side approximately0C",
+    "no important net storage/latent-pore/advection contribution"
+  ],
+  "contact_mechanism_demonstrated": false,
+  "novelty_demonstrated": false,
+  "Tower2_camera_read": false
+}

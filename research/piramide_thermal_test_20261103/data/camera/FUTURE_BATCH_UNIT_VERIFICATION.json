@@ -1,0 +1,38 @@
+{
+  "role_release_audit_sha256": "aed0276d33727de1ed8ab2a963a6ab66f5b963b383f4518366b3d930ad8059d5",
+  "source_member_sha256": "7ddfe5f549473eab7c99851a82a8479d45ddee5bf4b9e7fa90c113793adb718e",
+  "interval_unit_checks": [
+    {
+      "start": "2022-12-30T00:00:00",
+      "end": "2023-01-13T03:00:00",
+      "raw_distance_delta_times917_mmwe": 59.046116588954035,
+      "provided_ablation_delta_times1000_mmwe": 59.046116588954035,
+      "absolute_conversion_difference_mmwe": 0.0,
+      "operator_changed": false,
+      "negative_endpoint_difference": false
+    },
+    {
+      "start": "2023-01-13T03:00:00",
+      "end": "2023-01-27T03:00:00",
+      "raw_distance_delta_times917_mmwe": 61.4511544260078,
+      "provided_ablation_delta_times1000_mmwe": 61.45115442600779,
+      "absolute_conversion_difference_mmwe": 7.105427357601002e-15,
+      "operator_changed": false,
+      "negative_endpoint_difference": false
+    },
+    {
+      "start": "2023-01-27T03:00:00",
+      "end": "2023-02-10T03:00:00",
+      "raw_distance_delta_times917_mmwe": 89.05406896727729,
+      "provided_ablation_delta_times1000_mmwe": 89.0540689672773,
+      "absolute_conversion_difference_mmwe": 1.4210854715202004e-14,
+      "operator_changed": false,
+      "negative_endpoint_difference": false
+    }
+  ],
+  "excluded_Feb24_value_accessed": false,
+  "passed": true,
+  "claim": "Unit/operator check, not proof of camera precision, reference continuity, independent glacier replication or predictive superiority",
+  "camera_endpoint_precision": "Unknown; no numerical delta or confidence interval justified",
+  "manual_corrections_and_resets": "Only four authorized endpoints audited; interior changes unresolved; no operator switched"
+}

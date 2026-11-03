@@ -1,0 +1,3042 @@
+{
+  "all_checks_pass": true,
+  "checks": [
+    {
+      "pass_": true,
+      "check": "batch physical source freeze bound"
+    },
+    {
+      "pass_": true,
+      "check": "normalized dose artifact bound"
+    },
+    {
+      "pass_": true,
+      "check": "issued prediction/result/seal hash identity"
+    },
+    {
+      "pass_": true,
+      "check": "scorer hash identity"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged V3 gain source bound"
+    },
+    {
+      "pass_": true,
+      "check": "known first result retained by hash"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged primary/family"
+    },
+    {
+      "pass_": true,
+      "check": "all39 models retained"
+    },
+    {
+      "pass_": true,
+      "check": "fixed3-period MAE primary"
+    },
+    {
+      "pass_": true,
+      "check": "same native917 operator/source footprint"
+    },
+    {
+      "pass_": true,
+      "check": "TRAIN target/gains and primary not refitted"
+    },
+    {
+      "pass_": true,
+      "check": "all3 prespecified future periods"
+    },
+    {
+      "pass_": true,
+      "check": "fourth unsupported period excluded for every method before truth"
+    },
+    {
+      "pass_": true,
+      "check": "freeze/prediction manifests predate future outcome opening"
+    },
+    {
+      "pass_": true,
+      "check": "36 unique unchanged thermal scenarios"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__left__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__left__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__left__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__left__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__left__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__left__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__left__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__left__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__left__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__left__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__left__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__left__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__left__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__left__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__left__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__left__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__left__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__left__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__right__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__right__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__right__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__right__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__right__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__right__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__right__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__right__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__small_gap_5mm__right__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__right__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__right__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__right__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__right__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__right__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__right__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__right__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__right__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__small_gap_5mm__right__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__left__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__left__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__left__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__left__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__left__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__left__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__left__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__left__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__left__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__left__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__left__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__left__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__left__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__left__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__left__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__left__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__left__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__left__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__right__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__right__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__right__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__right__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__right__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__right__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__right__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__right__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__middle_gap_20mm__right__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__right__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__right__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__right__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__right__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__right__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__right__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__right__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__right__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__middle_gap_20mm__right__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__left__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__left__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__left__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__left__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__left__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__left__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__left__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__left__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__left__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__left__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__left__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__left__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__left__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__left__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__left__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__left__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__left__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__left__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__right__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__right__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__right__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__right__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__right__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__right__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__right__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__right__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization forward__large_gap_40mm__right__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__right__dry 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__right__dry 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__right__dry 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__right__proxy 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__right__proxy 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__right__proxy 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical thermal parameters derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "continuous V3 prefix/state source certificate derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unchanged original training/prior prefix integrals derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "fixed original TRAIN gain derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "native period support derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__right__saturated 2022-12-30T00:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__right__saturated 2023-01-13T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT/C normalization derivative_OLS__large_gap_40mm__right__saturated 2023-01-27T03:00:00"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled physical ledger/complementarity derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent source/PDD dose positive_buried_T_DT1 0"
+    },
+    {
+      "pass_": true,
+      "check": "independent source/PDD dose positive_buried_T_DT1 1"
+    },
+    {
+      "pass_": true,
+      "check": "independent source/PDD dose positive_buried_T_DT1 2"
+    },
+    {
+      "pass_": true,
+      "check": "independent source/PDD dose positive_air_TA3_linear_gapfill18h 0"
+    },
+    {
+      "pass_": true,
+      "check": "independent source/PDD dose positive_air_TA3_linear_gapfill18h 1"
+    },
+    {
+      "pass_": true,
+      "check": "independent source/PDD dose positive_air_TA3_linear_gapfill18h 2"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "issued identical period support derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent fixed-gain prediction derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "identical native observations derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent metrics derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "secondary four-period context retains original result derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent primary comparison derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent primary comparison constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "independent primary comparison positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "independent primary comparison positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound derivative_OLS__middle_gap_20mm__left__proxy 0.0"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound constant_rate 0.0"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_buried_T_DT1 0.0"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_air_TA3_linear_gapfill18h 0.0"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound derivative_OLS__middle_gap_20mm__left__proxy 0.0001"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound constant_rate 0.0001"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_buried_T_DT1 0.0001"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_air_TA3_linear_gapfill18h 0.0001"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound derivative_OLS__middle_gap_20mm__left__proxy 0.0005"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound constant_rate 0.0005"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_buried_T_DT1 0.0005"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_air_TA3_linear_gapfill18h 0.0005"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound derivative_OLS__middle_gap_20mm__left__proxy 0.001"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound constant_rate 0.001"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_buried_T_DT1 0.001"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_air_TA3_linear_gapfill18h 0.001"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound derivative_OLS__middle_gap_20mm__left__proxy 0.002"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound constant_rate 0.002"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_buried_T_DT1 0.002"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_air_TA3_linear_gapfill18h 0.002"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound derivative_OLS__middle_gap_20mm__left__proxy 0.005"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound constant_rate 0.005"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_buried_T_DT1 0.005"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_air_TA3_linear_gapfill18h 0.005"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound derivative_OLS__middle_gap_20mm__left__proxy 0.01"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound constant_rate 0.01"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_buried_T_DT1 0.01"
+    },
+    {
+      "pass_": true,
+      "check": "independent triangle bound positive_air_TA3_linear_gapfill18h 0.01"
+    }
+  ],
+  "model_count": 39,
+  "calendar_period_count": 3,
+  "source_results_sha256": "173983594991352d365b694ed06693c33010662179f311d1ef4c0f9d9009bf7c",
+  "observations_mmwe": [
+    59.046116588954035,
+    61.4511544260078,
+    89.05406896727729
+  ],
+  "independent_metrics": {
+    "derivative_OLS__middle_gap_20mm__right__saturated": {
+      "primary_mae_mmwe": 14.306208015767693,
+      "secondary_absolute_total_bias_mmwe": 38.82305572891352,
+      "period_signed_errors_mmwe": [
+        -2.0477841591947765,
+        18.653200121975836,
+        22.217639766132464
+      ]
+    },
+    "derivative_OLS__large_gap_40mm__left__proxy": {
+      "primary_mae_mmwe": 14.400286223035218,
+      "secondary_absolute_total_bias_mmwe": 39.55763478285216,
+      "period_signed_errors_mmwe": [
+        -1.8216119431267472,
+        18.867909060010824,
+        22.511337665968085
+      ]
+    },
+    "derivative_OLS__small_gap_5mm__right__dry": {
+      "primary_mae_mmwe": 14.195511013878118,
+      "secondary_absolute_total_bias_mmwe": 37.925134459268946,
+      "period_signed_errors_mmwe": [
+        -2.330699291182704,
+        18.390537922723304,
+        21.865295827728346
+      ]
+    },
+    "derivative_OLS__middle_gap_20mm__left__saturated": {
+      "primary_mae_mmwe": 14.348654989698941,
+      "secondary_absolute_total_bias_mmwe": 39.26656921935234,
+      "period_signed_errors_mmwe": [
+        -1.8896978748722404,
+        18.77440756740021,
+        22.38185952682437
+      ]
+    },
+    "derivative_OLS__middle_gap_20mm__left__proxy": {
+      "primary_mae_mmwe": 14.349709575364185,
+      "secondary_absolute_total_bias_mmwe": 39.262926477766676,
+      "period_signed_errors_mmwe": [
+        -1.8931011241629392,
+        18.77417698791337,
+        22.381850614016244
+      ]
+    },
+    "constant_rate": {
+      "primary_mae_mmwe": 18.173057371824637,
+      "secondary_absolute_total_bias_mmwe": 46.81432455744585,
+      "period_signed_errors_mmwe": [
+        26.916257574204423,
+        23.75049076225546,
+        -3.852423779014032
+      ]
+    },
+    "forward__small_gap_5mm__right__proxy": {
+      "primary_mae_mmwe": 14.225026935247675,
+      "secondary_absolute_total_bias_mmwe": 33.1105309299203,
+      "period_signed_errors_mmwe": [
+        -4.78227493791136,
+        17.41949838909222,
+        20.473307478739443
+      ]
+    },
+    "derivative_OLS__large_gap_40mm__left__dry": {
+      "primary_mae_mmwe": 14.401141162766598,
+      "secondary_absolute_total_bias_mmwe": 39.55467990910121,
+      "period_signed_errors_mmwe": [
+        -1.8243717895992901,
+        18.86772129075421,
+        22.51133040794629
+      ]
+    },
+    "forward__small_gap_5mm__left__dry": {
+      "primary_mae_mmwe": 14.230119420493594,
+      "secondary_absolute_total_bias_mmwe": 33.366491850885765,
+      "period_signed_errors_mmwe": [
+        -4.661933205297508,
+        17.465491882605285,
+        20.56293317357799
+      ]
+    },
+    "derivative_OLS__middle_gap_20mm__right__proxy": {
+      "primary_mae_mmwe": 14.307261245299282,
+      "secondary_absolute_total_bias_mmwe": 38.819420332350944,
+      "period_signed_errors_mmwe": [
+        -2.0511817017734515,
+        18.652971119874074,
+        22.21763091425032
+      ]
+    },
+    "derivative_OLS__large_gap_40mm__right__proxy": {
+      "primary_mae_mmwe": 14.357577395531804,
+      "secondary_absolute_total_bias_mmwe": 39.11424854776397,
+      "period_signed_errors_mmwe": [
+        -1.9792418194157193,
+        18.746549493868038,
+        22.346940873311652
+      ]
+    },
+    "forward__small_gap_5mm__right__dry": {
+      "primary_mae_mmwe": 14.247134184098536,
+      "secondary_absolute_total_bias_mmwe": 33.01754201431481,
+      "period_signed_errors_mmwe": [
+        -4.861930268990399,
+        17.40644735458867,
+        20.47302492871654
+      ]
+    },
+    "forward__large_gap_40mm__right__saturated": {
+      "primary_mae_mmwe": 14.227187897579654,
+      "secondary_absolute_total_bias_mmwe": 33.53378120487751,
+      "period_signed_errors_mmwe": [
+        -4.573891243930724,
+        17.508088489670875,
+        20.599583959137362
+      ]
+    },
+    "derivative_OLS__small_gap_5mm__left__saturated": {
+      "primary_mae_mmwe": 14.232702622024865,
+      "secondary_absolute_total_bias_mmwe": 38.394061457826226,
+      "period_signed_errors_mmwe": [
+        -2.152023204124184,
+        18.51383443229789,
+        22.03225022965252
+      ]
+    },
+    "positive_air_TA3_linear_gapfill18h": {
+      "primary_mae_mmwe": 9.870827360052095,
+      "secondary_absolute_total_bias_mmwe": 29.527964750723157,
+      "period_signed_errors_mmwe": [
+        -0.04225866471656303,
+        12.724439322897702,
+        16.84578409254202
+      ]
+    },
+    "derivative_OLS__small_gap_5mm__right__proxy": {
+      "primary_mae_mmwe": 14.194183533657919,
+      "secondary_absolute_total_bias_mmwe": 37.92967522026439,
+      "period_signed_errors_mmwe": [
+        -2.3264376903546804,
+        18.39080669372722,
+        21.865306216891852
+      ]
+    },
+    "forward__large_gap_40mm__left__saturated": {
+      "primary_mae_mmwe": 14.212997831103209,
+      "secondary_absolute_total_bias_mmwe": 33.90691930788728,
+      "period_signed_errors_mmwe": [
+        -4.366037092711174,
+        17.574002851492644,
+        20.69895354910581
+      ]
+    },
+    "forward__large_gap_40mm__right__dry": {
+      "primary_mae_mmwe": 14.2678835159214,
+      "secondary_absolute_total_bias_mmwe": 33.36552655590095,
+      "period_signed_errors_mmwe": [
+        -4.719061995931625,
+        17.485514654427,
+        20.599073897405574
+      ]
+    },
+    "forward__middle_gap_20mm__right__saturated": {
+      "primary_mae_mmwe": 14.213974492282075,
+      "secondary_absolute_total_bias_mmwe": 33.46194656555105,
+      "period_signed_errors_mmwe": [
+        -4.589988455647585,
+        17.48475506346758,
+        20.567179957731057
+      ]
+    },
+    "derivative_OLS__large_gap_40mm__right__dry": {
+      "primary_mae_mmwe": 14.358431239407958,
+      "secondary_absolute_total_bias_mmwe": 39.111299629519664,
+      "period_signed_errors_mmwe": [
+        -1.9819970443521058,
+        18.746363008973923,
+        22.346933664897847
+      ]
+    },
+    "positive_buried_T_DT1": {
+      "primary_mae_mmwe": 14.19251784889744,
+      "secondary_absolute_total_bias_mmwe": 35.352587560783014,
+      "period_signed_errors_mmwe": [
+        -3.6124829929546536,
+        18.277795241309725,
+        20.687275312427943
+      ]
+    },
+    "forward__large_gap_40mm__right__proxy": {
+      "primary_mae_mmwe": 14.247756835793545,
+      "secondary_absolute_total_bias_mmwe": 33.448631617566896,
+      "period_signed_errors_mmwe": [
+        -4.64731944490687,
+        17.49662584452664,
+        20.599325217947126
+      ]
+    },
+    "derivative_OLS__middle_gap_20mm__right__dry": {
+      "primary_mae_mmwe": 14.30814037149534,
+      "secondary_absolute_total_bias_mmwe": 38.81638590403673,
+      "period_signed_errors_mmwe": [
+        -2.0540176052246437,
+        18.652779983236123,
+        22.21762352602525
+      ]
+    },
+    "forward__middle_gap_20mm__left__proxy": {
+      "primary_mae_mmwe": 14.22036729677732,
+      "secondary_absolute_total_bias_mmwe": 33.749563683863116,
+      "period_signed_errors_mmwe": [
+        -4.455769103234424,
+        17.539117841683115,
+        20.666214945414424
+      ]
+    },
+    "forward__middle_gap_20mm__right__proxy": {
+      "primary_mae_mmwe": 14.234537352122063,
+      "secondary_absolute_total_bias_mmwe": 33.376822140989454,
+      "period_signed_errors_mmwe": [
+        -4.663394957688368,
+        17.473295805675797,
+        20.566921293002025
+      ]
+    },
+    "derivative_OLS__small_gap_5mm__left__proxy": {
+      "primary_mae_mmwe": 14.234295636181956,
+      "secondary_absolute_total_bias_mmwe": 38.38860866415552,
+      "period_signed_errors_mmwe": [
+        -2.1571391221951757,
+        18.513510093723504,
+        22.03223769262719
+      ]
+    },
+    "derivative_OLS__large_gap_40mm__right__saturated": {
+      "primary_mae_mmwe": 14.356553883295113,
+      "secondary_absolute_total_bias_mmwe": 39.11778347447608,
+      "period_signed_errors_mmwe": [
+        -1.9759390877046314,
+        18.746773047591766,
+        22.346949514588943
+      ]
+    },
+    "forward__large_gap_40mm__left__dry": {
+      "primary_mae_mmwe": 14.253761007361334,
+      "secondary_absolute_total_bias_mmwe": 33.7382959399563,
+      "period_signed_errors_mmwe": [
+        -4.5114935410638495,
+        17.55134917949251,
+        20.69844030152764
+      ]
+    },
+    "forward__small_gap_5mm__left__saturated": {
+      "primary_mae_mmwe": 14.185392971801503,
+      "secondary_absolute_total_bias_mmwe": 33.5550229956717,
+      "period_signed_errors_mmwe": [
+        -4.500577959866405,
+        17.492090972817017,
+        20.563509982721087
+      ]
+    },
+    "forward__small_gap_5mm__right__saturated": {
+      "primary_mae_mmwe": 14.202478057077526,
+      "secondary_absolute_total_bias_mmwe": 33.205678686591035,
+      "period_signed_errors_mmwe": [
+        -4.70087774232077,
+        17.432958216908226,
+        20.47359821200358
+      ]
+    },
+    "derivative_OLS__large_gap_40mm__left__saturated": {
+      "primary_mae_mmwe": 14.399261397225798,
+      "secondary_absolute_total_bias_mmwe": 39.56117684854815,
+      "period_signed_errors_mmwe": [
+        -1.818303671564621,
+        18.868134153398422,
+        22.51134636671435
+      ]
+    },
+    "forward__large_gap_40mm__left__proxy": {
+      "primary_mae_mmwe": 14.233600915424818,
+      "secondary_absolute_total_bias_mmwe": 33.82158306275564,
+      "period_signed_errors_mmwe": [
+        -4.439609841759406,
+        17.562499712697765,
+        20.698693191817284
+      ]
+    },
+    "forward__small_gap_5mm__left__proxy": {
+      "primary_mae_mmwe": 14.207977304203174,
+      "secondary_absolute_total_bias_mmwe": 33.45967582009614,
+      "period_signed_errors_mmwe": [
+        -4.582128046256692,
+        17.478586404988953,
+        20.563217461363877
+      ]
+    },
+    "forward__middle_gap_20mm__left__dry": {
+      "primary_mae_mmwe": 14.240521422901027,
+      "secondary_absolute_total_bias_mmwe": 33.666301207547725,
+      "period_signed_errors_mmwe": [
+        -4.527631530577679,
+        17.527970608164857,
+        20.665962129960548
+      ]
+    },
+    "forward__middle_gap_20mm__right__dry": {
+      "primary_mae_mmwe": 14.25465808456871,
+      "secondary_absolute_total_bias_mmwe": 33.2937416378901,
+      "period_signed_errors_mmwe": [
+        -4.735116307908015,
+        17.462187899069328,
+        20.566670046728788
+      ]
+    },
+    "derivative_OLS__small_gap_5mm__left__dry": {
+      "primary_mae_mmwe": 14.235624945581916,
+      "secondary_absolute_total_bias_mmwe": 38.384058547627085,
+      "period_signed_errors_mmwe": [
+        -2.1614081445593314,
+        18.513239460646055,
+        22.03222723154036
+      ]
+    },
+    "derivative_OLS__middle_gap_20mm__left__dry": {
+      "primary_mae_mmwe": 14.350589833554482,
+      "secondary_absolute_total_bias_mmwe": 39.25988591863676,
+      "period_signed_errors_mmwe": [
+        -1.8959417910133425,
+        18.77398453471084,
+        22.381843174939263
+      ]
+    },
+    "forward__middle_gap_20mm__left__saturated": {
+      "primary_mae_mmwe": 14.19977030935965,
+      "secondary_absolute_total_bias_mmwe": 33.8348746761305,
+      "period_signed_errors_mmwe": [
+        -4.3822181259742266,
+        17.550617576447216,
+        20.666475225657507
+      ]
+    },
+    "derivative_OLS__small_gap_5mm__right__saturated": {
+      "primary_mae_mmwe": 14.1925927114878,
+      "secondary_absolute_total_bias_mmwe": 37.93511680240013,
+      "period_signed_errors_mmwe": [
+        -2.321330666031635,
+        18.391128800710653,
+        21.865318667721112
+      ]
+    }
+  },
+  "primary_comparisons": {
+    "derivative_OLS__middle_gap_20mm__left__proxy": {
+      "difference_mmwe": -0.12934227858686498,
+      "status": "candidate_nominal_win"
+    },
+    "constant_rate": {
+      "difference_mmwe": -3.9526900750473164,
+      "status": "candidate_nominal_win"
+    },
+    "positive_buried_T_DT1": {
+      "difference_mmwe": 0.02784944787988053,
+      "status": "baseline_nominal_win"
+    },
+    "positive_air_TA3_linear_gapfill18h": {
+      "difference_mmwe": 4.349539936725225,
+      "status": "baseline_nominal_win"
+    }
+  },
+  "descriptive18_forward_scenario_win_counts": {
+    "derivative_OLS__middle_gap_20mm__left__proxy": 15,
+    "constant_rate": 18,
+    "positive_buried_T_DT1": 1,
+    "positive_air_TA3_linear_gapfill18h": 0
+  },
+  "descriptive18_forward_scenarios_beating_all_four": 0,
+  "scenarios_are_not_probabilities_or_independent_samples": true,
+  "conditional_fixed_issued_forecast_bounds": {
+    "0.0": {
+      "assumed_per_reading_absolute_error_m_ice": 0.0,
+      "assumption_is_not_a_measured_precision": true,
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__proxy": {
+          "nominal_candidate_minus_baseline_mae": -0.12934227858686378,
+          "certified_conservative_difference_interval": [
+            -0.12934227858686378,
+            -0.12934227858686378
+          ],
+          "conclusion": "candidate_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "constant_rate": {
+          "nominal_candidate_minus_baseline_mae": -3.952690075047317,
+          "certified_conservative_difference_interval": [
+            -3.952690075047317,
+            -3.952690075047317
+          ],
+          "conclusion": "candidate_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_buried_T_DT1": {
+          "nominal_candidate_minus_baseline_mae": 0.02784944787988053,
+          "certified_conservative_difference_interval": [
+            0.02784944787988053,
+            0.02784944787988053
+          ],
+          "conclusion": "baseline_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_air_TA3_linear_gapfill18h": {
+          "nominal_candidate_minus_baseline_mae": 4.349539936725226,
+          "certified_conservative_difference_interval": [
+            4.349539936725226,
+            4.349539936725226
+          ],
+          "conclusion": "baseline_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        }
+      }
+    },
+    "0.0001": {
+      "assumed_per_reading_absolute_error_m_ice": 0.0001,
+      "assumption_is_not_a_measured_precision": true,
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__proxy": {
+          "nominal_candidate_minus_baseline_mae": -0.12934227858686378,
+          "certified_conservative_difference_interval": [
+            -0.49614227858686377,
+            0.23745772141313623
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "constant_rate": {
+          "nominal_candidate_minus_baseline_mae": -3.952690075047317,
+          "certified_conservative_difference_interval": [
+            -4.319490075047317,
+            -3.585890075047317
+          ],
+          "conclusion": "candidate_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_buried_T_DT1": {
+          "nominal_candidate_minus_baseline_mae": 0.02784944787988053,
+          "certified_conservative_difference_interval": [
+            -0.3389505521201195,
+            0.39464944787988054
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_air_TA3_linear_gapfill18h": {
+          "nominal_candidate_minus_baseline_mae": 4.349539936725226,
+          "certified_conservative_difference_interval": [
+            3.9827399367252263,
+            4.716339936725227
+          ],
+          "conclusion": "baseline_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        }
+      }
+    },
+    "0.0005": {
+      "assumed_per_reading_absolute_error_m_ice": 0.0005,
+      "assumption_is_not_a_measured_precision": true,
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__proxy": {
+          "nominal_candidate_minus_baseline_mae": -0.12934227858686378,
+          "certified_conservative_difference_interval": [
+            -1.9633422785868642,
+            1.7046577214131364
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "constant_rate": {
+          "nominal_candidate_minus_baseline_mae": -3.952690075047317,
+          "certified_conservative_difference_interval": [
+            -5.786690075047317,
+            -2.1186900750473168
+          ],
+          "conclusion": "candidate_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_buried_T_DT1": {
+          "nominal_candidate_minus_baseline_mae": 0.02784944787988053,
+          "certified_conservative_difference_interval": [
+            -1.8061505521201198,
+            1.8618494478798808
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_air_TA3_linear_gapfill18h": {
+          "nominal_candidate_minus_baseline_mae": 4.349539936725226,
+          "certified_conservative_difference_interval": [
+            2.515539936725226,
+            6.183539936725227
+          ],
+          "conclusion": "baseline_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        }
+      }
+    },
+    "0.001": {
+      "assumed_per_reading_absolute_error_m_ice": 0.001,
+      "assumption_is_not_a_measured_precision": true,
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__proxy": {
+          "nominal_candidate_minus_baseline_mae": -0.12934227858686378,
+          "certified_conservative_difference_interval": [
+            -3.7973422785868642,
+            3.538657721413137
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "constant_rate": {
+          "nominal_candidate_minus_baseline_mae": -3.952690075047317,
+          "certified_conservative_difference_interval": [
+            -7.620690075047317,
+            -0.28469007504731625
+          ],
+          "conclusion": "candidate_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_buried_T_DT1": {
+          "nominal_candidate_minus_baseline_mae": 0.02784944787988053,
+          "certified_conservative_difference_interval": [
+            -3.64015055212012,
+            3.695849447879881
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_air_TA3_linear_gapfill18h": {
+          "nominal_candidate_minus_baseline_mae": 4.349539936725226,
+          "certified_conservative_difference_interval": [
+            0.6815399367252257,
+            8.017539936725226
+          ],
+          "conclusion": "baseline_strictly_better_throughout_box",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        }
+      }
+    },
+    "0.002": {
+      "assumed_per_reading_absolute_error_m_ice": 0.002,
+      "assumption_is_not_a_measured_precision": true,
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__proxy": {
+          "nominal_candidate_minus_baseline_mae": -0.12934227858686378,
+          "certified_conservative_difference_interval": [
+            -7.465342278586865,
+            7.206657721413137
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "constant_rate": {
+          "nominal_candidate_minus_baseline_mae": -3.952690075047317,
+          "certified_conservative_difference_interval": [
+            -11.288690075047318,
+            3.3833099249526843
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_buried_T_DT1": {
+          "nominal_candidate_minus_baseline_mae": 0.02784944787988053,
+          "certified_conservative_difference_interval": [
+            -7.308150552120121,
+            7.363849447879882
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_air_TA3_linear_gapfill18h": {
+          "nominal_candidate_minus_baseline_mae": 4.349539936725226,
+          "certified_conservative_difference_interval": [
+            -2.986460063274775,
+            11.685539936725228
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        }
+      }
+    },
+    "0.005": {
+      "assumed_per_reading_absolute_error_m_ice": 0.005,
+      "assumption_is_not_a_measured_precision": true,
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__proxy": {
+          "nominal_candidate_minus_baseline_mae": -0.12934227858686378,
+          "certified_conservative_difference_interval": [
+            -18.469342278586865,
+            18.210657721413135
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "constant_rate": {
+          "nominal_candidate_minus_baseline_mae": -3.952690075047317,
+          "certified_conservative_difference_interval": [
+            -22.292690075047318,
+            14.387309924952683
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_buried_T_DT1": {
+          "nominal_candidate_minus_baseline_mae": 0.02784944787988053,
+          "certified_conservative_difference_interval": [
+            -18.31215055212012,
+            18.36784944787988
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_air_TA3_linear_gapfill18h": {
+          "nominal_candidate_minus_baseline_mae": 4.349539936725226,
+          "certified_conservative_difference_interval": [
+            -13.990460063274774,
+            22.689539936725225
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        }
+      }
+    },
+    "0.01": {
+      "assumed_per_reading_absolute_error_m_ice": 0.01,
+      "assumption_is_not_a_measured_precision": true,
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__proxy": {
+          "nominal_candidate_minus_baseline_mae": -0.12934227858686378,
+          "certified_conservative_difference_interval": [
+            -36.80934227858686,
+            36.55065772141314
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "constant_rate": {
+          "nominal_candidate_minus_baseline_mae": -3.952690075047317,
+          "certified_conservative_difference_interval": [
+            -40.632690075047314,
+            32.727309924952685
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_buried_T_DT1": {
+          "nominal_candidate_minus_baseline_mae": 0.02784944787988053,
+          "certified_conservative_difference_interval": [
+            -36.65215055212012,
+            36.70784944787988
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        },
+        "positive_air_TA3_linear_gapfill18h": {
+          "nominal_candidate_minus_baseline_mae": 4.349539936725226,
+          "certified_conservative_difference_interval": [
+            -32.33046006327477,
+            41.02953993672523
+          ],
+          "conclusion": "unresolved_by_conservative_bound",
+          "exact_extrema_claim": false,
+          "confidence_interval": false,
+          "source_bounds_independently_verified_by_this_function": false
+        }
+      }
+    }
+  },
+  "source_camera_precision_known": false,
+  "conditional_bounds_are_not_confidence_intervals": true,
+  "max_raw_physical_relative_energy_residual": 2.0630267566306995e-13,
+  "cumulative_raw_ice_equivalent_retreat_m_range": [
+    0.3239396870683965,
+    3.088468319127345
+  ],
+  "full_physical_trace_not_duplicated_by_this_audit": true,
+  "raw_camera_files_opened": false,
+  "statistical_or_professional_superiority_established": false
+}

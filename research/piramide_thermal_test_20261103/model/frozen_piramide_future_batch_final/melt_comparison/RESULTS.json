@@ -1,0 +1,1536 @@
+{
+  "prediction_sha256": "f1e50fe1107b2abccb80beca8ae5e5b4440b6fa0059b815f886d3e77e3d9c683",
+  "freeze_commit_supplied": "ebd47166c8bd1715eff3668337d5f18d4ead4e52",
+  "commit_publication_verified_by_this_function": false,
+  "scorer_sha256": "044fe2893ef7fba38b94a1539af54254818b56e31f237fceef3196ba8c935435",
+  "source_id": "zenodo.11581073_Tower1_2022",
+  "target_operator": {
+    "quantity": "native_ice_ablation_mmwe",
+    "clock_basis": "source_local_naive_no_utc_claim",
+    "observation_method": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+    "ice_density_kg_m3": 917.0,
+    "camera_source_manifest_sha256": "58755b5d26c95ce31adc35f56aab76ededcf64aad072944d700be5a68ab2205c",
+    "footprint": "Tower1 marked ablation stake"
+  },
+  "start": "2022-12-30T00:00:00",
+  "end": "2023-02-10T03:00:00",
+  "primary_candidate": "forward__middle_gap_20mm__left__proxy",
+  "model_metrics": {
+    "forward__small_gap_5mm__left__dry": {
+      "predicted_total_mmwe": 242.9178318331249,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.36649185088578,
+      "signed_total_bias_mmwe": 33.36649185088578,
+      "mean_absolute_period_ablation_error_mmwe": 14.230119420493594,
+      "secondary_absolute_total_bias_mmwe": 33.36649185088578,
+      "secondary_interval_mae_mmwe": 14.230119420493594,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.38418338365653,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.661933205297508,
+          "absolute_error_mmwe": 4.661933205297508
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.91664630861308,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.465491882605285,
+          "absolute_error_mmwe": 17.465491882605285
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.61700214085528,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.56293317357799,
+          "absolute_error_mmwe": 20.56293317357799
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.122163950295255,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__small_gap_5mm__left__proxy": {
+      "predicted_total_mmwe": 243.01101580233527,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.45967582009615,
+      "signed_total_bias_mmwe": 33.45967582009615,
+      "mean_absolute_period_ablation_error_mmwe": 14.207977304203174,
+      "secondary_absolute_total_bias_mmwe": 33.45967582009615,
+      "secondary_interval_mae_mmwe": 14.207977304203174,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.463988542697344,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.582128046256692,
+          "absolute_error_mmwe": 4.582128046256692
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.92974083099675,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.478586404988953,
+          "absolute_error_mmwe": 17.478586404988953
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.61728642864117,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.563217461363877,
+          "absolute_error_mmwe": 20.563217461363877
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.15322527336538,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__small_gap_5mm__left__saturated": {
+      "predicted_total_mmwe": 243.1063629779108,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.55502299567169,
+      "signed_total_bias_mmwe": 33.55502299567169,
+      "mean_absolute_period_ablation_error_mmwe": 14.185392971801503,
+      "secondary_absolute_total_bias_mmwe": 33.55502299567169,
+      "secondary_interval_mae_mmwe": 14.185392971801503,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.54553862908763,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.500577959866405,
+          "absolute_error_mmwe": 4.500577959866405
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.94324539882481,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.492090972817017,
+          "absolute_error_mmwe": 17.492090972817017
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.61757894999838,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.563509982721087,
+          "absolute_error_mmwe": 20.563509982721087
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.1850076652239,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__small_gap_5mm__left__dry": {
+      "predicted_total_mmwe": 247.9353985298662,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 38.38405854762709,
+      "signed_total_bias_mmwe": 38.38405854762709,
+      "mean_absolute_period_ablation_error_mmwe": 14.235624945581916,
+      "secondary_absolute_total_bias_mmwe": 38.38405854762709,
+      "secondary_interval_mae_mmwe": 14.235624945581916,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 56.884708444394704,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -2.1614081445593314,
+          "absolute_error_mmwe": 2.1614081445593314
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.96439388665385,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.513239460646055,
+          "absolute_error_mmwe": 18.513239460646055
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.08629619881765,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.03222723154036,
+          "absolute_error_mmwe": 22.03222723154036
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 12.794686182542362,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__small_gap_5mm__left__proxy": {
+      "predicted_total_mmwe": 247.93994864639464,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 38.38860866415553,
+      "signed_total_bias_mmwe": 38.38860866415553,
+      "mean_absolute_period_ablation_error_mmwe": 14.234295636181956,
+      "secondary_absolute_total_bias_mmwe": 38.38860866415553,
+      "secondary_interval_mae_mmwe": 14.234295636181956,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 56.88897746675886,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -2.1571391221951757,
+          "absolute_error_mmwe": 2.1571391221951757
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.9646645197313,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.513510093723504,
+          "absolute_error_mmwe": 18.513510093723504
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.08630665990448,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.03223769262719,
+          "absolute_error_mmwe": 22.03223769262719
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 12.79620288805184,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__small_gap_5mm__left__saturated": {
+      "predicted_total_mmwe": 247.94540144006535,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 38.39406145782624,
+      "signed_total_bias_mmwe": 38.39406145782624,
+      "mean_absolute_period_ablation_error_mmwe": 14.232702622024865,
+      "secondary_absolute_total_bias_mmwe": 38.39406145782624,
+      "secondary_interval_mae_mmwe": 14.232702622024865,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 56.89409338482985,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -2.152023204124184,
+          "absolute_error_mmwe": 2.152023204124184
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.96498885830569,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.51383443229789,
+          "absolute_error_mmwe": 18.51383443229789
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.08631919692981,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.03225022965252,
+          "absolute_error_mmwe": 22.03225022965252
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 12.798020485942075,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__small_gap_5mm__right__dry": {
+      "predicted_total_mmwe": 242.56888199655393,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.01754201431481,
+      "signed_total_bias_mmwe": 33.01754201431481,
+      "mean_absolute_period_ablation_error_mmwe": 14.247134184098536,
+      "secondary_absolute_total_bias_mmwe": 33.01754201431481,
+      "secondary_interval_mae_mmwe": 14.247134184098536,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.184186319963636,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.861930268990399,
+          "absolute_error_mmwe": 4.861930268990399
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.85760178059647,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.40644735458867,
+          "absolute_error_mmwe": 17.40644735458867
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.52709389599383,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.47302492871654,
+          "absolute_error_mmwe": 20.47302492871654
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.005847338104937,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__small_gap_5mm__right__proxy": {
+      "predicted_total_mmwe": 242.66187091215943,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.110530929920316,
+      "signed_total_bias_mmwe": 33.110530929920316,
+      "mean_absolute_period_ablation_error_mmwe": 14.225026935247675,
+      "secondary_absolute_total_bias_mmwe": 33.110530929920316,
+      "secondary_interval_mae_mmwe": 14.225026935247675,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.263841651042675,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.78227493791136,
+          "absolute_error_mmwe": 4.78227493791136
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.87065281510002,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.41949838909222,
+          "absolute_error_mmwe": 17.41949838909222
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.52737644601673,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.473307478739443,
+          "absolute_error_mmwe": 20.473307478739443
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.036843643306767,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__small_gap_5mm__right__saturated": {
+      "predicted_total_mmwe": 242.75701866883014,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.20567868659103,
+      "signed_total_bias_mmwe": 33.20567868659103,
+      "mean_absolute_period_ablation_error_mmwe": 14.202478057077526,
+      "secondary_absolute_total_bias_mmwe": 33.20567868659103,
+      "secondary_interval_mae_mmwe": 14.202478057077526,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.345238846633265,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.70087774232077,
+          "absolute_error_mmwe": 4.70087774232077
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.88411264291602,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.432958216908226,
+          "absolute_error_mmwe": 17.432958216908226
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.52766717928087,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.47359821200358,
+          "absolute_error_mmwe": 20.47359821200358
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.068559562197011,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__small_gap_5mm__right__dry": {
+      "predicted_total_mmwe": 247.47647444150806,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 37.925134459268946,
+      "signed_total_bias_mmwe": 37.925134459268946,
+      "mean_absolute_period_ablation_error_mmwe": 14.195511013878118,
+      "secondary_absolute_total_bias_mmwe": 37.925134459268946,
+      "secondary_interval_mae_mmwe": 14.195511013878118,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 56.71541729777133,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -2.330699291182704,
+          "absolute_error_mmwe": 2.330699291182704
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.8416923487311,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.390537922723304,
+          "absolute_error_mmwe": 18.390537922723304
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 110.91936479500563,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 21.865295827728346,
+          "absolute_error_mmwe": 21.865295827728346
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 12.641711486422983,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__small_gap_5mm__right__proxy": {
+      "predicted_total_mmwe": 247.4810152025035,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 37.929675220264386,
+      "signed_total_bias_mmwe": 37.929675220264386,
+      "mean_absolute_period_ablation_error_mmwe": 14.194183533657919,
+      "secondary_absolute_total_bias_mmwe": 37.929675220264386,
+      "secondary_interval_mae_mmwe": 14.194183533657919,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 56.719678898599355,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -2.3264376903546804,
+          "absolute_error_mmwe": 2.3264376903546804
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.84196111973502,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.39080669372722,
+          "absolute_error_mmwe": 18.39080669372722
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 110.91937518416914,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 21.865306216891852,
+          "absolute_error_mmwe": 21.865306216891852
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 12.643225073421464,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__small_gap_5mm__right__saturated": {
+      "predicted_total_mmwe": 247.48645678463924,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 37.93511680240013,
+      "signed_total_bias_mmwe": 37.93511680240013,
+      "mean_absolute_period_ablation_error_mmwe": 14.1925927114878,
+      "secondary_absolute_total_bias_mmwe": 37.93511680240013,
+      "secondary_interval_mae_mmwe": 14.1925927114878,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 56.7247859229224,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -2.321330666031635,
+          "absolute_error_mmwe": 2.321330666031635
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.84228322671845,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.391128800710653,
+          "absolute_error_mmwe": 18.391128800710653
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 110.9193876349984,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 21.865318667721112,
+          "absolute_error_mmwe": 21.865318667721112
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 12.645038934133376,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__middle_gap_20mm__left__dry": {
+      "predicted_total_mmwe": 243.21764118978683,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.66630120754772,
+      "signed_total_bias_mmwe": 33.66630120754772,
+      "mean_absolute_period_ablation_error_mmwe": 14.240521422901027,
+      "secondary_absolute_total_bias_mmwe": 33.66630120754772,
+      "secondary_interval_mae_mmwe": 14.240521422901027,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.518485058376356,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.527631530577679,
+          "absolute_error_mmwe": 4.527631530577679
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.97912503417265,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.527970608164857,
+          "absolute_error_mmwe": 17.527970608164857
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.72003109723784,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.665962129960548,
+          "absolute_error_mmwe": 20.665962129960548
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.222100402515908,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__middle_gap_20mm__left__proxy": {
+      "predicted_total_mmwe": 243.30090366610224,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.74956368386313,
+      "signed_total_bias_mmwe": 33.74956368386313,
+      "mean_absolute_period_ablation_error_mmwe": 14.22036729677732,
+      "secondary_absolute_total_bias_mmwe": 33.74956368386313,
+      "secondary_interval_mae_mmwe": 14.22036729677732,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.59034748571961,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.455769103234424,
+          "absolute_error_mmwe": 4.455769103234424
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.99027226769091,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.539117841683115,
+          "absolute_error_mmwe": 17.539117841683115
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.72028391269171,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.666214945414424,
+          "absolute_error_mmwe": 20.666214945414424
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.249854561287705,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__middle_gap_20mm__left__saturated": {
+      "predicted_total_mmwe": 243.38621465836962,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.83487467613051,
+      "signed_total_bias_mmwe": 33.83487467613051,
+      "mean_absolute_period_ablation_error_mmwe": 14.19977030935965,
+      "secondary_absolute_total_bias_mmwe": 33.83487467613051,
+      "secondary_interval_mae_mmwe": 14.19977030935965,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.66389846297981,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.3822181259742266,
+          "absolute_error_mmwe": 4.3822181259742266
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.00177200245501,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.550617576447216,
+          "absolute_error_mmwe": 17.550617576447216
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.7205441929348,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.666475225657507,
+          "absolute_error_mmwe": 20.666475225657507
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.278291558710166,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__middle_gap_20mm__left__dry": {
+      "predicted_total_mmwe": 248.81122590087588,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 39.25988591863677,
+      "signed_total_bias_mmwe": 39.25988591863677,
+      "mean_absolute_period_ablation_error_mmwe": 14.350589833554482,
+      "secondary_absolute_total_bias_mmwe": 39.25988591863677,
+      "secondary_interval_mae_mmwe": 14.350589833554482,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 57.15017479794069,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -1.8959417910133425,
+          "absolute_error_mmwe": 1.8959417910133425
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.22513896071864,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.77398453471084,
+          "absolute_error_mmwe": 18.77398453471084
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.43591214221655,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.381843174939263,
+          "absolute_error_mmwe": 22.381843174939263
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 13.086628639545587,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__middle_gap_20mm__left__proxy": {
+      "predicted_total_mmwe": 248.8142664600058,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 39.26292647776668,
+      "signed_total_bias_mmwe": 39.26292647776668,
+      "mean_absolute_period_ablation_error_mmwe": 14.349709575364185,
+      "secondary_absolute_total_bias_mmwe": 39.26292647776668,
+      "secondary_interval_mae_mmwe": 14.349709575364185,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 57.153015464791096,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -1.8931011241629392,
+          "absolute_error_mmwe": 1.8931011241629392
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.22533141392117,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.77417698791337,
+          "absolute_error_mmwe": 18.77417698791337
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.43591958129353,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.381850614016244,
+          "absolute_error_mmwe": 22.381850614016244
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 13.087642159255559,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__middle_gap_20mm__left__saturated": {
+      "predicted_total_mmwe": 248.81790920159148,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 39.26656921935236,
+      "signed_total_bias_mmwe": 39.26656921935236,
+      "mean_absolute_period_ablation_error_mmwe": 14.348654989698941,
+      "secondary_absolute_total_bias_mmwe": 39.26656921935236,
+      "secondary_interval_mae_mmwe": 14.348654989698941,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 57.156418714081795,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -1.8896978748722404,
+          "absolute_error_mmwe": 1.8896978748722404
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.22556199340801,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.77440756740021,
+          "absolute_error_mmwe": 18.77440756740021
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.43592849410166,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.38185952682437,
+          "absolute_error_mmwe": 22.38185952682437
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 13.08885640645078,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__middle_gap_20mm__right__dry": {
+      "predicted_total_mmwe": 242.84508162012924,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.29374163789012,
+      "signed_total_bias_mmwe": 33.29374163789012,
+      "mean_absolute_period_ablation_error_mmwe": 14.25465808456871,
+      "secondary_absolute_total_bias_mmwe": 33.29374163789012,
+      "secondary_interval_mae_mmwe": 14.25465808456871,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.31100028104602,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.735116307908015,
+          "absolute_error_mmwe": 4.735116307908015
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.91334232507712,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.462187899069328,
+          "absolute_error_mmwe": 17.462187899069328
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.62073901400608,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.566670046728788,
+          "absolute_error_mmwe": 20.566670046728788
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.0979138792967,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__middle_gap_20mm__right__proxy": {
+      "predicted_total_mmwe": 242.92816212322856,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.37682214098945,
+      "signed_total_bias_mmwe": 33.37682214098945,
+      "mean_absolute_period_ablation_error_mmwe": 14.234537352122063,
+      "secondary_absolute_total_bias_mmwe": 33.37682214098945,
+      "secondary_interval_mae_mmwe": 14.234537352122063,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.38272163126567,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.663394957688368,
+          "absolute_error_mmwe": 4.663394957688368
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.9244502316836,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.473295805675797,
+          "absolute_error_mmwe": 17.473295805675797
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.62099026027931,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.566921293002025,
+          "absolute_error_mmwe": 20.566921293002025
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.125607380329818,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__middle_gap_20mm__right__saturated": {
+      "predicted_total_mmwe": 243.0132865477902,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.461946565551074,
+      "signed_total_bias_mmwe": 33.461946565551074,
+      "mean_absolute_period_ablation_error_mmwe": 14.213974492282075,
+      "secondary_absolute_total_bias_mmwe": 33.461946565551074,
+      "secondary_interval_mae_mmwe": 14.213974492282075,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.45612813330645,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.589988455647585,
+          "absolute_error_mmwe": 4.589988455647585
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.93590948947538,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.48475506346758,
+          "absolute_error_mmwe": 17.48475506346758
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.62124892500835,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.567179957731057,
+          "absolute_error_mmwe": 20.567179957731057
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.153982188517018,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__middle_gap_20mm__right__dry": {
+      "predicted_total_mmwe": 248.36772588627585,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 38.816385904036736,
+      "signed_total_bias_mmwe": 38.816385904036736,
+      "mean_absolute_period_ablation_error_mmwe": 14.30814037149534,
+      "secondary_absolute_total_bias_mmwe": 38.816385904036736,
+      "secondary_interval_mae_mmwe": 14.30814037149534,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 56.99209898372939,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -2.0540176052246437,
+          "absolute_error_mmwe": 2.0540176052246437
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.10393440924392,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.652779983236123,
+          "absolute_error_mmwe": 18.652779983236123
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.27169249330254,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.21762352602525,
+          "absolute_error_mmwe": 22.21762352602525
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 12.938795301345577,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__middle_gap_20mm__right__proxy": {
+      "predicted_total_mmwe": 248.37076031459006,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 38.819420332350944,
+      "signed_total_bias_mmwe": 38.819420332350944,
+      "mean_absolute_period_ablation_error_mmwe": 14.307261245299282,
+      "secondary_absolute_total_bias_mmwe": 38.819420332350944,
+      "secondary_interval_mae_mmwe": 14.307261245299282,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 56.994934887180584,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -2.0511817017734515,
+          "absolute_error_mmwe": 2.0511817017734515
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.10412554588187,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.652971119874074,
+          "absolute_error_mmwe": 18.652971119874074
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.27169988152761,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.21763091425032,
+          "absolute_error_mmwe": 22.21763091425032
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 12.939806777450315,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__middle_gap_20mm__right__saturated": {
+      "predicted_total_mmwe": 248.37439571115266,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 38.823055728913545,
+      "signed_total_bias_mmwe": 38.823055728913545,
+      "mean_absolute_period_ablation_error_mmwe": 14.306208015767693,
+      "secondary_absolute_total_bias_mmwe": 38.823055728913545,
+      "secondary_interval_mae_mmwe": 14.306208015767693,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 56.99833242975926,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -2.0477841591947765,
+          "absolute_error_mmwe": 2.0477841591947765
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.10435454798363,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.653200121975836,
+          "absolute_error_mmwe": 18.653200121975836
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.27170873340975,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.217639766132464,
+          "absolute_error_mmwe": 22.217639766132464
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 12.941018576304508,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__large_gap_40mm__left__dry": {
+      "predicted_total_mmwe": 243.28963592219543,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.738295939956316,
+      "signed_total_bias_mmwe": 33.738295939956316,
+      "mean_absolute_period_ablation_error_mmwe": 14.253761007361334,
+      "secondary_absolute_total_bias_mmwe": 33.738295939956316,
+      "secondary_interval_mae_mmwe": 14.253761007361334,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.534623047890186,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.5114935410638495,
+          "absolute_error_mmwe": 4.5114935410638495
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.00250360550031,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.55134917949251,
+          "absolute_error_mmwe": 17.55134917949251
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.75250926880493,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.69844030152764,
+          "absolute_error_mmwe": 20.69844030152764
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.2460986466521,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__large_gap_40mm__left__proxy": {
+      "predicted_total_mmwe": 243.37292304499476,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.82158306275565,
+      "signed_total_bias_mmwe": 33.82158306275565,
+      "mean_absolute_period_ablation_error_mmwe": 14.233600915424818,
+      "secondary_absolute_total_bias_mmwe": 33.82158306275565,
+      "secondary_interval_mae_mmwe": 14.233600915424818,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.60650674719463,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.439609841759406,
+          "absolute_error_mmwe": 4.439609841759406
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.01365413870556,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.562499712697765,
+          "absolute_error_mmwe": 17.562499712697765
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.75276215909457,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.698693191817284,
+          "absolute_error_mmwe": 20.698693191817284
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.273861020918547,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__large_gap_40mm__left__saturated": {
+      "predicted_total_mmwe": 243.4582592901264,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.90691930788728,
+      "signed_total_bias_mmwe": 33.90691930788728,
+      "mean_absolute_period_ablation_error_mmwe": 14.212997831103209,
+      "secondary_absolute_total_bias_mmwe": 33.90691930788728,
+      "secondary_interval_mae_mmwe": 14.212997831103209,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.68007949624286,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.366037092711174,
+          "absolute_error_mmwe": 4.366037092711174
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.02515727750044,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.574002851492644,
+          "absolute_error_mmwe": 17.574002851492644
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.7530225163831,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.69895354910581,
+          "absolute_error_mmwe": 20.69895354910581
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.302306435962427,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__large_gap_40mm__left__dry": {
+      "predicted_total_mmwe": 249.10601989134034,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 39.554679909101225,
+      "signed_total_bias_mmwe": 39.554679909101225,
+      "mean_absolute_period_ablation_error_mmwe": 14.401141162766598,
+      "secondary_absolute_total_bias_mmwe": 39.554679909101225,
+      "secondary_interval_mae_mmwe": 14.401141162766598,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 57.221744799354745,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -1.8243717895992901,
+          "absolute_error_mmwe": 1.8243717895992901
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.31887571676201,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.86772129075421,
+          "absolute_error_mmwe": 18.86772129075421
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.56539937522358,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.51133040794629,
+          "absolute_error_mmwe": 22.51133040794629
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 13.184893303033737,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__large_gap_40mm__left__proxy": {
+      "predicted_total_mmwe": 249.1089747650913,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 39.557634782852176,
+      "signed_total_bias_mmwe": 39.557634782852176,
+      "mean_absolute_period_ablation_error_mmwe": 14.400286223035218,
+      "secondary_absolute_total_bias_mmwe": 39.557634782852176,
+      "secondary_interval_mae_mmwe": 14.400286223035218,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 57.22450464582729,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -1.8216119431267472,
+          "absolute_error_mmwe": 1.8216119431267472
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.31906348601862,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.867909060010824,
+          "absolute_error_mmwe": 18.867909060010824
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.56540663324537,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.511337665968085,
+          "absolute_error_mmwe": 22.511337665968085
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 13.185878260950721,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__large_gap_40mm__left__saturated": {
+      "predicted_total_mmwe": 249.11251683078729,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 39.56117684854817,
+      "signed_total_bias_mmwe": 39.56117684854817,
+      "mean_absolute_period_ablation_error_mmwe": 14.399261397225798,
+      "secondary_absolute_total_bias_mmwe": 39.56117684854817,
+      "secondary_interval_mae_mmwe": 14.399261397225798,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 57.227812917389414,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -1.818303671564621,
+          "absolute_error_mmwe": 1.818303671564621
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.31928857940622,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.868134153398422,
+          "absolute_error_mmwe": 18.868134153398422
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.56541533399164,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.51134636671435,
+          "absolute_error_mmwe": 22.51134636671435
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 13.18705894951605,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__large_gap_40mm__right__dry": {
+      "predicted_total_mmwe": 242.91686653814008,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.36552655590097,
+      "signed_total_bias_mmwe": 33.36552655590097,
+      "mean_absolute_period_ablation_error_mmwe": 14.2678835159214,
+      "secondary_absolute_total_bias_mmwe": 33.36552655590097,
+      "secondary_interval_mae_mmwe": 14.2678835159214,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.32705459302241,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.719061995931625,
+          "absolute_error_mmwe": 4.719061995931625
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.9366690804348,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.485514654427,
+          "absolute_error_mmwe": 17.485514654427
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.65314286468286,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.599073897405574,
+          "absolute_error_mmwe": 20.599073897405574
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.121842185300316,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__large_gap_40mm__right__proxy": {
+      "predicted_total_mmwe": 242.99997159980603,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.44863161756692,
+      "signed_total_bias_mmwe": 33.44863161756692,
+      "mean_absolute_period_ablation_error_mmwe": 14.247756835793545,
+      "secondary_absolute_total_bias_mmwe": 33.44863161756692,
+      "secondary_interval_mae_mmwe": 14.247756835793545,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.398797144047165,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.64731944490687,
+          "absolute_error_mmwe": 4.64731944490687
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.94778027053444,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.49662584452664,
+          "absolute_error_mmwe": 17.49662584452664
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.65339418522441,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.599325217947126,
+          "absolute_error_mmwe": 20.599325217947126
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.1495438725223,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "forward__large_gap_40mm__right__saturated": {
+      "predicted_total_mmwe": 243.08512118711664,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 33.53378120487753,
+      "signed_total_bias_mmwe": 33.53378120487753,
+      "mean_absolute_period_ablation_error_mmwe": 14.227187897579654,
+      "secondary_absolute_total_bias_mmwe": 33.53378120487753,
+      "secondary_interval_mae_mmwe": 14.227187897579654,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 54.47222534502331,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -4.573891243930724,
+          "absolute_error_mmwe": 4.573891243930724
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 78.95924291567867,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 17.508088489670875,
+          "absolute_error_mmwe": 17.508088489670875
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.65365292641465,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.599583959137362,
+          "absolute_error_mmwe": 20.599583959137362
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.177927068292504,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__large_gap_40mm__right__dry": {
+      "predicted_total_mmwe": 248.66263961175878,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 39.111299629519664,
+      "signed_total_bias_mmwe": 39.111299629519664,
+      "mean_absolute_period_ablation_error_mmwe": 14.358431239407958,
+      "secondary_absolute_total_bias_mmwe": 39.111299629519664,
+      "secondary_interval_mae_mmwe": 14.358431239407958,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 57.06411954460193,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -1.9819970443521058,
+          "absolute_error_mmwe": 1.9819970443521058
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.19751743498172,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.746363008973923,
+          "absolute_error_mmwe": 18.746363008973923
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.40100263217514,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.346933664897847,
+          "absolute_error_mmwe": 22.346933664897847
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 13.037099876506554,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__large_gap_40mm__right__proxy": {
+      "predicted_total_mmwe": 248.6655885300031,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 39.11424854776399,
+      "signed_total_bias_mmwe": 39.11424854776399,
+      "mean_absolute_period_ablation_error_mmwe": 14.357577395531804,
+      "secondary_absolute_total_bias_mmwe": 39.11424854776399,
+      "secondary_interval_mae_mmwe": 14.357577395531804,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 57.066874769538316,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -1.9792418194157193,
+          "absolute_error_mmwe": 1.9792418194157193
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.19770391987583,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.746549493868038,
+          "absolute_error_mmwe": 18.746549493868038
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.40100984058894,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.346940873311652,
+          "absolute_error_mmwe": 22.346940873311652
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 13.038082849254657,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "derivative_OLS__large_gap_40mm__right__saturated": {
+      "predicted_total_mmwe": 248.6691234567152,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 39.117783474476084,
+      "signed_total_bias_mmwe": 39.117783474476084,
+      "mean_absolute_period_ablation_error_mmwe": 14.356553883295113,
+      "secondary_absolute_total_bias_mmwe": 39.117783474476084,
+      "secondary_interval_mae_mmwe": 14.356553883295113,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 57.070177501249404,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -1.9759390877046314,
+          "absolute_error_mmwe": 1.9759390877046314
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 80.19792747359956,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.746773047591766,
+          "absolute_error_mmwe": 18.746773047591766
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 111.40101848186623,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 22.346949514588943,
+          "absolute_error_mmwe": 22.346949514588943
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 13.039261158158693,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "constant_rate": {
+      "predicted_total_mmwe": 256.365664539685,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 46.81432455744587,
+      "signed_total_bias_mmwe": 46.81432455744587,
+      "mean_absolute_period_ablation_error_mmwe": 18.173057371824637,
+      "secondary_absolute_total_bias_mmwe": 46.81432455744587,
+      "secondary_interval_mae_mmwe": 18.173057371824637,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 85.96237416315846,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": 26.916257574204423,
+          "absolute_error_mmwe": 26.916257574204423
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 85.20164518826326,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 23.75049076225546,
+          "absolute_error_mmwe": 23.75049076225546
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 85.20164518826326,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": -3.852423779014032,
+          "absolute_error_mmwe": 3.852423779014032
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 15.60477485248195,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "positive_buried_T_DT1": {
+      "predicted_total_mmwe": 244.90392754302212,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 35.35258756078301,
+      "signed_total_bias_mmwe": 35.35258756078301,
+      "mean_absolute_period_ablation_error_mmwe": 14.19251784889744,
+      "secondary_absolute_total_bias_mmwe": 35.35258756078301,
+      "secondary_interval_mae_mmwe": 14.19251784889744,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 55.43363359599938,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -3.6124829929546536,
+          "absolute_error_mmwe": 3.6124829929546536
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 79.72894966731752,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 18.277795241309725,
+          "absolute_error_mmwe": 18.277795241309725
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 109.74134427970523,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 20.687275312427943,
+          "absolute_error_mmwe": 20.687275312427943
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 11.784195853594339,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    },
+    "positive_air_TA3_linear_gapfill18h": {
+      "predicted_total_mmwe": 239.07930473296227,
+      "observed_total_mmwe": 209.5513399822391,
+      "absolute_total_ablation_error_mmwe": 29.527964750723157,
+      "signed_total_bias_mmwe": 29.527964750723157,
+      "mean_absolute_period_ablation_error_mmwe": 9.870827360052095,
+      "secondary_absolute_total_bias_mmwe": 29.527964750723157,
+      "secondary_interval_mae_mmwe": 9.870827360052095,
+      "period_errors": [
+        {
+          "start": "2022-12-30T00:00:00",
+          "end": "2023-01-13T03:00:00",
+          "predicted_mmwe": 59.00385792423747,
+          "observed_mmwe": 59.046116588954035,
+          "signed_error_mmwe": -0.04225866471656303,
+          "absolute_error_mmwe": 0.04225866471656303
+        },
+        {
+          "start": "2023-01-13T03:00:00",
+          "end": "2023-01-27T03:00:00",
+          "predicted_mmwe": 74.1755937489055,
+          "observed_mmwe": 61.4511544260078,
+          "signed_error_mmwe": 12.724439322897702,
+          "absolute_error_mmwe": 12.724439322897702
+        },
+        {
+          "start": "2023-01-27T03:00:00",
+          "end": "2023-02-10T03:00:00",
+          "predicted_mmwe": 105.8998530598193,
+          "observed_mmwe": 89.05406896727729,
+          "signed_error_mmwe": 16.84578409254202,
+          "absolute_error_mmwe": 16.84578409254202
+        }
+      ],
+      "secondary_mean_interval_bias_mmwe": 9.842654916907719,
+      "negative_predicted_intervals": 0,
+      "interval_count": 3
+    }
+  },
+  "primary_comparisons": {
+    "derivative_OLS__middle_gap_20mm__left__proxy": {
+      "candidate_minus_baseline_mean_absolute_period_error_mmwe": -0.12934227858686498,
+      "status": "candidate_nominal_win"
+    },
+    "constant_rate": {
+      "candidate_minus_baseline_mean_absolute_period_error_mmwe": -3.9526900750473164,
+      "status": "candidate_nominal_win"
+    },
+    "positive_buried_T_DT1": {
+      "candidate_minus_baseline_mean_absolute_period_error_mmwe": 0.02784944787988053,
+      "status": "baseline_nominal_win"
+    },
+    "positive_air_TA3_linear_gapfill18h": {
+      "candidate_minus_baseline_mean_absolute_period_error_mmwe": 4.349539936725225,
+      "status": "baseline_nominal_win"
+    }
+  },
+  "candidate_nominally_beats_every_predeclared_baseline": false,
+  "observed_negative_intervals": 0,
+  "uncertainty_semantics": "unknown",
+  "source_uncertainty_semantics_unknown": true,
+  "evaluation_calendar_periods": 3,
+  "serial_periods_share_observation_endpoints": true,
+  "independent_evaluation_calendar_blocks": null,
+  "frames_or_intervals_treated_as_independent": false,
+  "confidence_interval_computed": false,
+  "bootstrap_performed": false,
+  "statistical_superiority_established": false,
+  "professional_energy_balance_superiority_established": false,
+  "universal_superiority_established": false,
+  "primary_metric": "mean_absolute_period_ablation_error_mmwe",
+  "tie_tolerance_mmwe": 1e-06,
+  "interpretation": "Three locked serial calendar periods: primary mean absolute period error; cumulative bias is secondary. Shared endpoints/one glacier do not supply three independent glaciers. All39 methods retained."
+}
