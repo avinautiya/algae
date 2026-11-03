@@ -1,0 +1,39 @@
+{
+  "audited_source_pin": "f1f85ee496dd39617fedf0f58202b943b3af3168",
+  "checkout_commit": "10ee9706492160233e7b67cfcedbc29c5b2a3dd8",
+  "source_identity": "packet hashes and installed solver copies verified; checkout identity is recorded separately",
+  "scope": {
+    "mode": "conditional_quasi",
+    "covered": true,
+    "environmental_validation": false,
+    "physical_covered_supported": false
+  },
+  "original_packet_unchanged": true,
+  "stages": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "verify_repairs.py"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "wall_s": 3.882445529999984,
+      "log": "tests.log",
+      "threads_per_process": 1
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-c",
+        "import numpy as np\nfrom phase.swe2d_v5 import Sim\nfor mode in ('solid','porous'):\n s=Sim(dx=.1,Lpool=.2,Lr=.4,Ltail=.2,Wl=.2,Q=.02,Tw=.5,ramp_ratio=0.)\n H=np.zeros((s.nx,s.ny));H[s.i0-1:s.i1,:s.nw]=.2\n s.set_deposit(H,mode);h=s.h.copy();z=s.zb.copy();ht=s.hT.copy()\n try:s.step_physical(.01)\n except ValueError as e:assert 'closure' in str(e) or 'covered' in str(e)\n else:raise AssertionError('unsupported covered physical source accepted')\n assert np.array_equal(h,s.h) and np.array_equal(z,s.zb) and np.array_equal(ht,s.hT)\nprint('both covered-source guards refuse before mutation')\n"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "wall_s": 0.31629583400001593,
+      "log": "covered_guard.log",
+      "threads_per_process": 1
+    }
+  ],
+  "tests_passed": 66,
+  "preflight_passed": true
+}
