@@ -1,0 +1,59 @@
+{
+  "scope": "OnlypublishedroleTower2endpointsourceaudit; no model fit or alternate scoringoperator",
+  "role": "train",
+  "receipt_sha256": "aeeb8ace73d0584e87f379a5649922d2bda7c35524f4dd011e6a430d683e4835",
+  "source_audit": {
+    "scope": "Authorized train endpoints only",
+    "receipt_sha256": "aeeb8ace73d0584e87f379a5649922d2bda7c35524f4dd011e6a430d683e4835",
+    "source_sha256": "8cedbab5be9b12e64e77b725adba3e1d6502d5490b28efbec91b2916af5246b8",
+    "source_fields_have_units": false,
+    "endpoints": [
+      {
+        "source_local_label": "2022-12-02 03:00:00",
+        "distance_source_m": 0.2515815971012188,
+        "provided_ablation_source_units_unverified": 0.07596557498875182
+      },
+      {
+        "source_local_label": "2022-12-16 03:00:00",
+        "distance_source_m": 0.3381245480588477,
+        "provided_ablation_source_units_unverified": 0.1553254610168975
+      }
+    ],
+    "intervals": [
+      {
+        "start": "2022-12-02T03:00:00",
+        "end": "2022-12-16T03:00:00",
+        "raw_distance_change_m_ice": 0.08654295095762887,
+        "independent_ice_conversion_mmwe": 79.35988602814568,
+        "provided_ablation_change_source_units_unverified": 0.07935988602814568,
+        "provided_delta_over_distance_delta": 0.9170000000000001,
+        "negative_distance_change": false,
+        "frozen_target_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+        "operator_changed": false,
+        "candidate_expected_scalings_not_selected": {
+          "m_water_per_m_ice": 0.917,
+          "mm_water_per_m_ice": 917.0
+        },
+        "reset_assessment": "Only released endpoints inspected; interior reset/manual correction cannot be ruled out"
+      }
+    ],
+    "uncertainty": "No quantitative camera precision established. Scaling agreement cannot establish camera accuracy.",
+    "validation_claim": "Source/operator audit only; no new prediction comparison or model tuning"
+  },
+  "unit_checks": [
+    {
+      "start": "2022-12-02T03:00:00",
+      "end": "2022-12-16T03:00:00",
+      "distance_delta_times917_mmwe": 79.35988602814568,
+      "provided_ablation_delta_times1000_mmwe": 79.35988602814568,
+      "absolute_unit_difference_mmwe": 0.0,
+      "unit_scaling_consistent": true,
+      "operator_changed": false,
+      "negative_endpoint_difference": false
+    }
+  ],
+  "excluded_Tower1Feb24_and_all_Tower3_outcomes_accessed": false,
+  "camera_endpoint_precision": "Unknown; no confidenceinterval",
+  "corrections_reset_scope": "Onlyauthorizedendpoints; fullinteriorcorrectionandresetcontinuity unverified",
+  "moisture_QA": "ProcesssoiltemperatureQCflagsareproxychecks, notabsolutefieldaccuracycertification; independentdriftuncertaintyremains"
+}

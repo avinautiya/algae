@@ -1,6 +1,6 @@
 # Inverse heat transport: development, identifiability and independent data gates
 
-This package follows the failed all-baseline Pirámide field comparisons. It implements and checks stronger physical inference, rather than treating a temperature fit as proof of correct melt. **No new field superiority, Nature-level discovery or historical mathematical originality is claimed.** The second tower's camera outcomes remain unopened.
+This package follows the failed all-baseline Pirámide field comparisons. It implements and checks stronger physical inference, rather than treating a temperature fit as proof of correct melt. **No new field superiority, Nature-level discovery or historical mathematical originality is claimed.** A new locked Tower2 field test is now complete: the primary moisture correction has MAE13.353mm water equivalent versus7.265 for air exposure and3.435 for the calendar baseline. Independent source and scoring audits confirm the failed-primary result. Read `FINAL_TRANSFER_REPORT.md` and `CLAUDE_HANDOFF.md`.
 
 ## Implemented work
 
@@ -13,7 +13,7 @@ This package follows the failed all-baseline Pirámide field comparisons. It imp
 
 ## Actual development findings
 
-Two-layer temperature fitting reduces raw TRAIN melt from371.8 to264.0mm water equivalent, still far above the already known85.2mm TRAIN observation. The fitted warm temperatures can remain identical while plausible capacity/conductivity scaling changes melt from170.6 to432.2mm. This is an exact model symmetry, not evidence that the field itself has that exact uncertainty interval.
+Two-layer temperature fitting reduces raw TRAIN melt from371.8 to264.0mm water equivalent, still far above the already known85.2mm TRAIN observation. The fitted warm temperatures can remain identical while specified capacity/conductivity scaling changes melt from170.6 to432.2mm. This is an exact model symmetry, not evidence that the field itself has that exact uncertainty interval.
 
 The new integrated energy estimator recovers heterogeneous conductances on independently generated synthetic data. On real TRAIN profiles its inferred deepest conductivity changes from2.81 to0.419W/m/K when window length changes from6h to24h. With the stated conditional sensor bounds and assumed conductivity prior [.05,6]W/m/K, a necessary LP enclosure still permits approximately [.244,6]W/m/K on that edge. Its upper endpoint is a prior restriction, not a measured bound. The returned edge heat is not automatically heat delivered to the ice.
 
@@ -30,3 +30,7 @@ Run `python3 verify.py`. `python3 theory/reproduce_training_graph.py NEW_OUTPUT.
 ## Research decision
 
 This is development evidence and an executable inference foundation, not a successful new melt benchmark. Layering, goal-oriented inversion, thermal-admittance identification and RC-network regression have substantial prior art. The potential specific contribution is conservative inverse-flux feasibility with source-error controls and honest abstention, followed by a stable, independently blocked test. A new test should proceed only after the estimator's practical identification and claimed novelty survive the documented gates. The four previously scored periods must remain in the record.
+
+## New field transfer release
+
+`moisture/frozen_tower2_final/` holds the final method, normalized predictions, local training calibration, externally published absolute predictions, role-release receipts and all-nine-model results. Predictions were published before native evaluation access. Source files include evaluation values after release; historical pre-release documents remain snapshots. No Tower2 retuning was performed. `moisture/figures/` contains reproducible comparison figures.

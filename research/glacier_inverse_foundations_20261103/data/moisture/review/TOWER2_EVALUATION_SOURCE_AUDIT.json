@@ -1,0 +1,152 @@
+{
+  "scope": "OnlypublishedroleTower2endpointsourceaudit; no model fit or alternate scoringoperator",
+  "role": "evaluation",
+  "receipt_sha256": "82a5e65ff1701f04feea02748ace72d71478478cc0cbbb5ababf6567a6eca92f",
+  "source_audit": {
+    "scope": "Authorized evaluation endpoints only",
+    "receipt_sha256": "82a5e65ff1701f04feea02748ace72d71478478cc0cbbb5ababf6567a6eca92f",
+    "source_sha256": "8cedbab5be9b12e64e77b725adba3e1d6502d5490b28efbec91b2916af5246b8",
+    "source_fields_have_units": false,
+    "endpoints": [
+      {
+        "source_local_label": "2022-12-16 03:00:00",
+        "distance_source_m": 0.3381245480588477,
+        "provided_ablation_source_units_unverified": 0.1553254610168975
+      },
+      {
+        "source_local_label": "2022-12-30 03:00:00",
+        "distance_source_m": 0.39729189521056174,
+        "provided_ablation_source_units_unverified": 0.2095819183550193
+      },
+      {
+        "source_local_label": "2023-01-13 03:00:00",
+        "distance_source_m": 0.4505967820568629,
+        "provided_ablation_source_units_unverified": 0.25846249959307743
+      },
+      {
+        "source_local_label": "2023-01-27 03:00:00",
+        "distance_source_m": 0.5227659227608471,
+        "provided_ablation_source_units_unverified": 0.324641601618631
+      },
+      {
+        "source_local_label": "2023-02-10 03:00:00",
+        "distance_source_m": 0.6055686253431564,
+        "provided_ablation_source_units_unverified": 0.4005716798866086
+      }
+    ],
+    "intervals": [
+      {
+        "start": "2022-12-16T03:00:00",
+        "end": "2022-12-30T03:00:00",
+        "raw_distance_change_m_ice": 0.05916734715171407,
+        "independent_ice_conversion_mmwe": 54.2564573381218,
+        "provided_ablation_change_source_units_unverified": 0.05425645733812179,
+        "provided_delta_over_distance_delta": 0.9169999999999998,
+        "negative_distance_change": false,
+        "frozen_target_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+        "operator_changed": false,
+        "candidate_expected_scalings_not_selected": {
+          "m_water_per_m_ice": 0.917,
+          "mm_water_per_m_ice": 917.0
+        },
+        "reset_assessment": "Only released endpoints inspected; interior reset/manual correction cannot be ruled out"
+      },
+      {
+        "start": "2022-12-30T03:00:00",
+        "end": "2023-01-13T03:00:00",
+        "raw_distance_change_m_ice": 0.053304886846301136,
+        "independent_ice_conversion_mmwe": 48.88058123805814,
+        "provided_ablation_change_source_units_unverified": 0.048880581238058135,
+        "provided_delta_over_distance_delta": 0.9169999999999999,
+        "negative_distance_change": false,
+        "frozen_target_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+        "operator_changed": false,
+        "candidate_expected_scalings_not_selected": {
+          "m_water_per_m_ice": 0.917,
+          "mm_water_per_m_ice": 917.0
+        },
+        "reset_assessment": "Only released endpoints inspected; interior reset/manual correction cannot be ruled out"
+      },
+      {
+        "start": "2023-01-13T03:00:00",
+        "end": "2023-01-27T03:00:00",
+        "raw_distance_change_m_ice": 0.07216914070398422,
+        "independent_ice_conversion_mmwe": 66.17910202555353,
+        "provided_ablation_change_source_units_unverified": 0.06617910202555355,
+        "provided_delta_over_distance_delta": 0.9170000000000003,
+        "negative_distance_change": false,
+        "frozen_target_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+        "operator_changed": false,
+        "candidate_expected_scalings_not_selected": {
+          "m_water_per_m_ice": 0.917,
+          "mm_water_per_m_ice": 917.0
+        },
+        "reset_assessment": "Only released endpoints inspected; interior reset/manual correction cannot be ruled out"
+      },
+      {
+        "start": "2023-01-27T03:00:00",
+        "end": "2023-02-10T03:00:00",
+        "raw_distance_change_m_ice": 0.08280270258230926,
+        "independent_ice_conversion_mmwe": 75.93007826797759,
+        "provided_ablation_change_source_units_unverified": 0.0759300782679776,
+        "provided_delta_over_distance_delta": 0.917,
+        "negative_distance_change": false,
+        "frozen_target_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+        "operator_changed": false,
+        "candidate_expected_scalings_not_selected": {
+          "m_water_per_m_ice": 0.917,
+          "mm_water_per_m_ice": 917.0
+        },
+        "reset_assessment": "Only released endpoints inspected; interior reset/manual correction cannot be ruled out"
+      }
+    ],
+    "uncertainty": "No quantitative camera precision established. Scaling agreement cannot establish camera accuracy.",
+    "validation_claim": "Source/operator audit only; no new prediction comparison or model tuning"
+  },
+  "unit_checks": [
+    {
+      "start": "2022-12-16T03:00:00",
+      "end": "2022-12-30T03:00:00",
+      "distance_delta_times917_mmwe": 54.2564573381218,
+      "provided_ablation_delta_times1000_mmwe": 54.25645733812179,
+      "absolute_unit_difference_mmwe": 7.105427357601002e-15,
+      "unit_scaling_consistent": true,
+      "operator_changed": false,
+      "negative_endpoint_difference": false
+    },
+    {
+      "start": "2022-12-30T03:00:00",
+      "end": "2023-01-13T03:00:00",
+      "distance_delta_times917_mmwe": 48.88058123805814,
+      "provided_ablation_delta_times1000_mmwe": 48.880581238058134,
+      "absolute_unit_difference_mmwe": 7.105427357601002e-15,
+      "unit_scaling_consistent": true,
+      "operator_changed": false,
+      "negative_endpoint_difference": false
+    },
+    {
+      "start": "2023-01-13T03:00:00",
+      "end": "2023-01-27T03:00:00",
+      "distance_delta_times917_mmwe": 66.17910202555353,
+      "provided_ablation_delta_times1000_mmwe": 66.17910202555355,
+      "absolute_unit_difference_mmwe": 1.4210854715202004e-14,
+      "unit_scaling_consistent": true,
+      "operator_changed": false,
+      "negative_endpoint_difference": false
+    },
+    {
+      "start": "2023-01-27T03:00:00",
+      "end": "2023-02-10T03:00:00",
+      "distance_delta_times917_mmwe": 75.93007826797759,
+      "provided_ablation_delta_times1000_mmwe": 75.93007826797759,
+      "absolute_unit_difference_mmwe": 0.0,
+      "unit_scaling_consistent": true,
+      "operator_changed": false,
+      "negative_endpoint_difference": false
+    }
+  ],
+  "excluded_Tower1Feb24_and_all_Tower3_outcomes_accessed": false,
+  "camera_endpoint_precision": "Unknown; no confidenceinterval",
+  "corrections_reset_scope": "Onlyauthorizedendpoints; fullinteriorcorrectionandresetcontinuity unverified",
+  "moisture_QA": "ProcesssoiltemperatureQCflagsareproxychecks, notabsolutefieldaccuracycertification; independentdriftuncertaintyremains"
+}

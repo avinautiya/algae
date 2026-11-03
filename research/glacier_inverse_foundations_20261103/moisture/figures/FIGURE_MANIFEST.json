@@ -1,0 +1,61 @@
+{
+  "script_sha256": "09692081064e94551519009635f66c2fe59d381e25f9203c202ba9e4a2e8fbc4",
+  "source_sha256": {
+    "frozen_tower2_final/FREEZE.json": "d543df0265b6e626ce9f2f29b35cf4bf8961648f85a3061008c1fd83bb0af2fd",
+    "frozen_tower2_final/PREDICTIONS.json": "3e2c64f9059416e8b3da77268b5f1b70ccd17ad10072101d9592e674ef81e225",
+    "frozen_tower2_final/RESULTS.json": "f50ffd5eb87b58338a8abbe496a17945e1cc55dc9d657845a8ddeeeeaa3690dd",
+    "DEVELOPMENT_FIT.json": "9043fe3e39a188eacbaf81275daba9c6931b4839a83df17827af06903deb9ebc"
+  },
+  "figures": [
+    "figure1_all_nine_mae.png",
+    "figure2_period_predictions.png",
+    "figure3_development_transfer.png",
+    "figure4_moisture_transfer.png"
+  ],
+  "fitting_performed": false,
+  "visual_inspection_complete": true,
+  "inspected_pngs": [
+    "figure1_all_nine_mae.png",
+    "figure2_period_predictions.png",
+    "figure3_development_transfer.png",
+    "figure4_moisture_transfer.png"
+  ],
+  "visual_checks": {
+    "labels_and_units_readable": true,
+    "all_nine_models_retained": true,
+    "primary_unchanged": true,
+    "figure3_legend_outside_axes": true,
+    "no_obscured_data_or_clipped_text_detected": true,
+    "uncertainty_and_scope_labels_preserved": true
+  },
+  "output_sha256": {
+    "figure1_all_nine_mae.png": "381ce799323e31e3211536dfe78b8c7b62a3a65a67671a48b95246110d92290e",
+    "figure2_period_predictions.png": "9a4ceeed5d94e9920bf9f4ee53697dc92d6bb0e25a83d3ffd79d9514021392fc",
+    "figure3_development_transfer.png": "16b682ce3d2800993bd27568df1bba88e19286d8ddafd66b8357195838fd3d19",
+    "figure4_moisture_transfer.png": "802fa3e5eace5cedf30d831ed378ee4d764b9df559164d46b7a0bdf94b142d8e",
+    "figure1_all_nine_mae.svg": "59a672ee19f41e2da60aafb0ae12d8d7f1a22c0d277022687f9914f52cd1b15b",
+    "figure2_period_predictions.svg": "d7462f688d7e041901a0ee86e64c90dca22514499059f33ee0767860c793cc96",
+    "figure3_development_transfer.svg": "c729f458e7ed2ac5085a66506db5e855890f0228a76b6d90d588ab2d28b79645",
+    "figure4_moisture_transfer.svg": "cdb2ec947844a238eae3e1ab4348de352e77c26e0c67a2beeb81a9ef28a8386f",
+    "FIGURE_NUMBERS.json": "f7bdba68fe5f6c27385a71db6f46f83648bc83ab05ed38c67c6b55956ab8c375",
+    "README.md": "1b4b7035f1d3bce735af9eb0b181a1ac4b04338f7ed097f8e9c049fde7778e00"
+  },
+  "png_pixels": {
+    "figure3_development_transfer.png": [
+      2522,
+      1768
+    ],
+    "figure1_all_nine_mae.png": [
+      2522,
+      1664
+    ],
+    "figure4_moisture_transfer.png": [
+      2860,
+      1274
+    ],
+    "figure2_period_predictions.png": [
+      2392,
+      1820
+    ]
+  }
+}

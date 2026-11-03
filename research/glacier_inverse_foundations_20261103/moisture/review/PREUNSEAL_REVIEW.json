@@ -1,0 +1,47 @@
+{
+  "reviewed_freeze_sha256": "d543df0265b6e626ce9f2f29b35cf4bf8961648f85a3061008c1fd83bb0af2fd",
+  "source_and_input_hashes_match": {
+    "moisture/anomaly_index.py": true,
+    "moisture/experiment.py": true,
+    "moisture/review/moisture_scorer.py": true,
+    "paths.py": true,
+    "moisture/PROTOCOL.md": true,
+    "data/moisture/CANONICAL_FEATURE_MANIFEST.json": true,
+    "data/moisture/Tower1_CANONICAL_FEATURES.csv": true,
+    "data/moisture/Tower2_CANONICAL_FEATURES.csv": true,
+    "data/moisture/Tower1_NATIVE_AIR_TA3.csv": true,
+    "data/moisture/Tower2_NATIVE_AIR_TA3.csv": true,
+    "data/moisture/build_canonical_features.py": true,
+    "data/moisture/EXPONENTIAL_PROXY_FREEZE_CONTRACT.md": true,
+    "data/moisture/MOISTURE_TRANSFER_FEATURE_AUDIT.json": true,
+    "data/moisture/test_moisture_invariance.py": true,
+    "moisture/DEVELOPMENT_FIT.json": true,
+    "data/moisture/TOWER2_CAMERA_FREEZE_SPEC.json": true
+  },
+  "external_source_hashes_match": {
+    "data/decoded/debtemp_Tower2.csv": true,
+    "data/decoded/DECODE_VERIFICATION.json": true,
+    "data/camera/SEALED_SOURCE_MANIFEST.json": true,
+    "data/camera/Ablation_Tower2.mat": true
+  },
+  "target_loader_hash_matches": true,
+  "synthetic_nine_model_equal_training_target_errors_mmwe": {
+    "anomaly_exp_air": 0.0,
+    "air_pdd": 0.0,
+    "buried_pdd": 0.0,
+    "gradient_index": 0.0,
+    "constant_rate": 0.0,
+    "shifted_ratio_air": 0.0,
+    "centered_softplus_air": 1.4210854715202004e-14,
+    "calendar_exp_air": 0.0,
+    "moisture_only_exp": 0.0
+  },
+  "exponential_offset_invariance_error": 0.0,
+  "exponential_reference_independence_error": 1.1102230246251565e-16,
+  "centered_softplus_offset_invariance_error": 2.220446049250313e-16,
+  "centered_softplus_reference_change_effect": 0.03446950725837428,
+  "camera_target_reader_calls": 0,
+  "actual_Tower2_predictions_computed_by_reviewer": false,
+  "no_must_fix_identified": true,
+  "claim_scope": "applied invariance property with explicit functional assumptions; no historical novelty or energy-conservation certificate"
+}

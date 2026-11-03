@@ -1,0 +1,117 @@
+{
+  "model_order": [
+    "calendar_exp_air",
+    "air_pdd",
+    "gradient_index",
+    "buried_pdd",
+    "shifted_ratio_air",
+    "centered_softplus_air",
+    "anomaly_exp_air",
+    "constant_rate",
+    "moisture_only_exp"
+  ],
+  "development_MAE_mmwe": {
+    "anomaly_exp_air": 2.812753479299218,
+    "air_pdd": 7.906104837496814,
+    "buried_pdd": 12.248945262267592,
+    "gradient_index": 16.62170703842422,
+    "constant_rate": 20.48093118018791,
+    "shifted_ratio_air": 2.7288112466488172,
+    "centered_softplus_air": 2.7995046735622875,
+    "calendar_exp_air": 2.2527679844970674,
+    "moisture_only_exp": 14.079695842076084
+  },
+  "Tower2_MAE_mmwe": {
+    "anomaly_exp_air": 13.353385948667134,
+    "air_pdd": 7.265305383883549,
+    "buried_pdd": 8.358886534842739,
+    "gradient_index": 7.71676064741367,
+    "constant_rate": 18.048331310717913,
+    "shifted_ratio_air": 10.625866274724444,
+    "centered_softplus_air": 13.169710554544942,
+    "calendar_exp_air": 3.434992035009955,
+    "moisture_only_exp": 37.1052634192101
+  },
+  "primary": "anomaly_exp_air",
+  "primary_unchanged": true,
+  "observed_Tower2_period_mmwe": [
+    54.2564573381218,
+    48.88058123805814,
+    66.17910202555353,
+    75.93007826797759
+  ],
+  "development_predictions_fixed_parameters": {
+    "anomaly_exp_air": [
+      53.65223319334929,
+      55.11436329551986,
+      65.26704712434085,
+      89.17330647796591
+    ],
+    "air_pdd": [
+      59.04830087792141,
+      59.00385792423739,
+      74.17559374890541,
+      105.89985305981918
+    ],
+    "buried_pdd": [
+      63.45459111046859,
+      55.43363359599936,
+      79.72894966731732,
+      109.74134427970517
+    ],
+    "gradient_index": [
+      63.54318675753078,
+      53.39730825998024,
+      82.26956773821757,
+      122.56685233035013
+    ],
+    "constant_rate": [
+      84.44091621336804,
+      85.96237416315846,
+      85.20164518826326,
+      85.20164518826326
+    ],
+    "shifted_ratio_air": [
+      54.18106862330886,
+      55.573322887035324,
+      65.85099940496725,
+      89.24138028821294
+    ],
+    "centered_softplus_air": [
+      53.627649423632654,
+      55.10674607187678,
+      65.19676620658542,
+      88.94974675514068
+    ],
+    "calendar_exp_air": [
+      56.6789842697086,
+      54.16029761002593,
+      65.15615667202295,
+      89.11694034194059
+    ],
+    "moisture_only_exp": [
+      66.21981956919376,
+      71.97764338627502,
+      61.3845232516733,
+      54.91689953173188
+    ]
+  },
+  "moisture_to_plain_prediction_factors": {
+    "Tower1": [
+      0.9086160379834104,
+      0.9340806725941249,
+      0.879899220561399,
+      0.8420531653390961
+    ],
+    "Tower2": [
+      1.0260197929892423,
+      1.1242876923089506,
+      1.0957252846586363,
+      1.1003437191383474
+    ]
+  },
+  "field_parameters_refitted": false,
+  "all_nine_models_plotted": true,
+  "camera_uncertainty": "unknown; no error bars/confidence intervals",
+  "scope": "one glacier, two stakes, four serial evaluation periods; empirical conditional hindcast"
+}

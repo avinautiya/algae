@@ -1,0 +1,25 @@
+{
+  "scope": "Tower1 TRAIN development only",
+  "physics_tests_passed": 4,
+  "finite_temperature_candidates": 64,
+  "Tower2_camera_opened": false,
+  "new_field_validation_claim": false,
+  "global_continuous_model_class_falsified": false,
+  "absolute_heat_scale_identified": false,
+  "smallest_Jacobian_singular_value_h2_truncation_verified": true,
+  "all_tested_parameter_pairs_fail_linearized_source_error_boxes": true,
+  "figures_opened_and_visually_checked": true,
+  "sha256": {
+    "layered_column.py": "b563a329c39d4a04c44bb211833237647e707af5fd055b63bef4093b7a03d70f",
+    "test_layered_column.py": "43affd095671103e792c1540b178d03a71d339b4a3dd0563d94bd1828901e3be",
+    "run_training_diagnosis.py": "b2593576789d47a84b764df99abe27843270d193b7f528a0973cde3dfe2d2ed0",
+    "additional_identifiability.py": "9ec0aeab221a7177373a956a53bdcc44df83fdeb0baf267646d34d8f094ebda2",
+    "make_diagnosis_figures.py": "0ebc1679820a5f16591d964b31f9fd27f1a37ad63e0064be8515a9cb359c31b0",
+    "STUDY_PLAN.json": "7f5f5c286932788b179db1180d70f1f01d22b4573e4ae54be3f24dca93ddef72",
+    "TRAINING_DIAGNOSIS.json": "c79d922839f7aeefbac98134e2c1f01d404a5823e623bed19366ce1c55834e5a",
+    "ADDITIONAL_IDENTIFIABILITY.json": "cf7e20c05a34f57d382b02895301eaa4f519f6a66a9fb8b52c01e4d2e356eb21",
+    "DERIVATIONS_AND_TRAIN_FINDINGS.md": "77513ce63151686f25717728a7203b8fe4b36bd4623797e76223c817121cf3ff",
+    "figures/training_physics_diagnosis.png": "7bb8e51a126c0a13d52048b8698ee09b4fe09089cc597975404756c1aa37df3b",
+    "figures/training_physics_diagnosis.svg": "5232b4913b3708b3978a4dcf905c1b0f56e9c36657f85b6c4d73927245820d5c"
+  }
+}
