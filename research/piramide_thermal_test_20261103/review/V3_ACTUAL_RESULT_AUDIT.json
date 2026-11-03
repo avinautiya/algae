@@ -1,0 +1,3482 @@
+{
+  "all_checks_pass": true,
+  "checks": [
+    {
+      "pass_": true,
+      "check": "normalized source hash"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical V2 freeze hash"
+    },
+    {
+      "pass_": true,
+      "check": "analysis specification hash"
+    },
+    {
+      "pass_": true,
+      "check": "final prediction seal/result source hash"
+    },
+    {
+      "pass_": true,
+      "check": "scorer/result hash agreement"
+    },
+    {
+      "pass_": true,
+      "check": "predetermined primary unchanged"
+    },
+    {
+      "pass_": true,
+      "check": "entire primary baseline family unchanged"
+    },
+    {
+      "pass_": true,
+      "check": "identical native917 observation operator"
+    },
+    {
+      "pass_": true,
+      "check": "exact predeclared training/evaluation dates"
+    },
+    {
+      "pass_": true,
+      "check": "all3 frozen dry/proxy/saturated capacity scenarios retained"
+    },
+    {
+      "pass_": true,
+      "check": "V2 complementary latent model and fixed primary capacity"
+    },
+    {
+      "pass_": true,
+      "check": "normalized physical predictions predate camera fitting"
+    },
+    {
+      "pass_": true,
+      "check": "all39 models retained"
+    },
+    {
+      "pass_": true,
+      "check": "seal retains all39 models"
+    },
+    {
+      "pass_": true,
+      "check": "finite native training/evaluation observations"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "training-only gain inputs derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "gain=training/native dose derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "scaled capacity diagnostic arithmetic NOT physical capacity derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical gain relative to raw physical component derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical correction not mislabelled physical heat capacity derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all frozen methods eligible derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "positive fixed physical scenario capacity derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw LATENT normalization and native mass units derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "no trace straddles frozen split derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent trace heat integration derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw physical melt totals derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "empirical rescale equivalence without relabelling ledger derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "unscaled sensible-plus-latent ledger identity derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "raw ledger distinguished from empirical predictions derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "nonnegative phase mass and complementarity derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "frozen alpha and explicit physical omissions derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "all36 normalized thermal scenarios uniquely retained"
+    },
+    {
+      "pass_": true,
+      "check": "PDD input source hashes positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "independent feature integration positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "declared source reconstruction positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "training-only PDD gain positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "PDD input source hashes positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "independent feature integration positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "declared source reconstruction positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "training-only PDD gain positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__small_gap_5mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__middle_gap_20mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__middle_gap_20mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__middle_gap_20mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__small_gap_5mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__small_gap_5mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__small_gap_5mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__middle_gap_20mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__large_gap_40mm__left__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__large_gap_40mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__large_gap_40mm__left__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__small_gap_5mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__large_gap_40mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__large_gap_40mm__right__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__small_gap_5mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity derivative_OLS__middle_gap_20mm__right__saturated"
+    },
+    {
+      "pass_": true,
+      "check": "same one-block prediction support forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "Ypred=Ytrain*dose1/dose0 forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "same observed/predicted totals forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent cumulative error and bias forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "one-block secondary MAE identity forward__large_gap_40mm__right__dry"
+    },
+    {
+      "pass_": true,
+      "check": "independent nominal outcome derivative_OLS__middle_gap_20mm__left__proxy"
+    },
+    {
+      "pass_": true,
+      "check": "independent nominal outcome constant_rate"
+    },
+    {
+      "pass_": true,
+      "check": "independent nominal outcome positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "independent nominal outcome positive_air_TA3_linear_gapfill18h"
+    },
+    {
+      "pass_": true,
+      "check": "nonvacuous all-baseline verdict"
+    }
+  ],
+  "source_results_sha256": "c735749a0abca928b93da76d0530aa3e5986a099a66a303b4d1d161198534ff5",
+  "models": 39,
+  "descriptive_scenario_comparisons": [
+    {
+      "forward_id": "forward__small_gap_5mm__left__dry",
+      "comparisons": {
+        "derivative_OLS__small_gap_5mm__left__dry": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__small_gap_5mm__left__proxy",
+      "comparisons": {
+        "derivative_OLS__small_gap_5mm__left__proxy": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__small_gap_5mm__left__saturated",
+      "comparisons": {
+        "derivative_OLS__small_gap_5mm__left__saturated": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__small_gap_5mm__right__dry",
+      "comparisons": {
+        "derivative_OLS__small_gap_5mm__right__dry": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__small_gap_5mm__right__proxy",
+      "comparisons": {
+        "derivative_OLS__small_gap_5mm__right__proxy": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__small_gap_5mm__right__saturated",
+      "comparisons": {
+        "derivative_OLS__small_gap_5mm__right__saturated": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__middle_gap_20mm__left__dry",
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__dry": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__middle_gap_20mm__left__proxy",
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__proxy": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__middle_gap_20mm__left__saturated",
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__left__saturated": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__middle_gap_20mm__right__dry",
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__right__dry": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__middle_gap_20mm__right__proxy",
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__right__proxy": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__middle_gap_20mm__right__saturated",
+      "comparisons": {
+        "derivative_OLS__middle_gap_20mm__right__saturated": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__large_gap_40mm__left__dry",
+      "comparisons": {
+        "derivative_OLS__large_gap_40mm__left__dry": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__large_gap_40mm__left__proxy",
+      "comparisons": {
+        "derivative_OLS__large_gap_40mm__left__proxy": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__large_gap_40mm__left__saturated",
+      "comparisons": {
+        "derivative_OLS__large_gap_40mm__left__saturated": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__large_gap_40mm__right__dry",
+      "comparisons": {
+        "derivative_OLS__large_gap_40mm__right__dry": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__large_gap_40mm__right__proxy",
+      "comparisons": {
+        "derivative_OLS__large_gap_40mm__right__proxy": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    },
+    {
+      "forward_id": "forward__large_gap_40mm__right__saturated",
+      "comparisons": {
+        "derivative_OLS__large_gap_40mm__right__saturated": "forward_nominal_win",
+        "constant_rate": "forward_nominal_win",
+        "positive_buried_T_DT1": "forward_nominal_win",
+        "positive_air_TA3_linear_gapfill18h": "baseline_nominal_win"
+      },
+      "all_four_nominal_wins": false
+    }
+  ],
+  "descriptive_forward_scenarios_beating_all_four_baselines": 0,
+  "scenarios_are_not_independent_samples": true,
+  "primary_comparison": {
+    "derivative_OLS__middle_gap_20mm__left__proxy": {
+      "status": "candidate_nominal_win",
+      "error_difference_mmwe": -2.1073908254804437,
+      "precision_thresholds": {
+        "identical_prediction_ratios": false,
+        "strict_ranking_possible": true,
+        "input_error_sensitivity_per_shared_reading_error_must_be_strictly_below_mmwe": 1.5611906580055022,
+        "input_error_sensitivity_per_shared_reading_ice_error_must_be_strictly_below_m": 0.0017024979912818997,
+        "input_error_sensitivity_per_interval_error_must_be_strictly_below_mmwe": 3.1223813160110043,
+        "fixed_issued_forecast_per_shared_reading_error_must_be_strictly_below_mmwe": 2.7054415460132013,
+        "source_precision_or_bound_known": false,
+        "achieved_robust_ranking_established": false,
+        "interpretation": "Conditional bounds; not a standard deviation, confidence interval, or measured camera precision."
+      }
+    },
+    "constant_rate": {
+      "status": "candidate_nominal_win",
+      "error_difference_mmwe": -23.047364925991566,
+      "precision_thresholds": {
+        "identical_prediction_ratios": false,
+        "strict_ranking_possible": true,
+        "input_error_sensitivity_per_shared_reading_error_must_be_strictly_below_mmwe": 4.278667646223029,
+        "input_error_sensitivity_per_shared_reading_ice_error_must_be_strictly_below_m": 0.004665940726524568,
+        "input_error_sensitivity_per_interval_error_must_be_strictly_below_mmwe": 8.557335292446059,
+        "fixed_issued_forecast_per_shared_reading_error_must_be_strictly_below_mmwe": 7.940435071140982,
+        "source_precision_or_bound_known": false,
+        "achieved_robust_ranking_established": false,
+        "interpretation": "Conditional bounds; not a standard deviation, confidence interval, or measured camera precision."
+      }
+    },
+    "positive_buried_T_DT1": {
+      "status": "candidate_nominal_win",
+      "error_difference_mmwe": -2.0610398230920524,
+      "precision_thresholds": {
+        "identical_prediction_ratios": false,
+        "strict_ranking_possible": true,
+        "input_error_sensitivity_per_shared_reading_error_must_be_strictly_below_mmwe": 1.554747918473246,
+        "input_error_sensitivity_per_shared_reading_ice_error_must_be_strictly_below_m": 0.0016954721030242596,
+        "input_error_sensitivity_per_interval_error_must_be_strictly_below_mmwe": 3.109495836946492,
+        "fixed_issued_forecast_per_shared_reading_error_must_be_strictly_below_mmwe": 2.6938537954161,
+        "source_precision_or_bound_known": false,
+        "achieved_robust_ranking_established": false,
+        "interpretation": "Conditional bounds; not a standard deviation, confidence interval, or measured camera precision."
+      }
+    },
+    "positive_air_TA3_linear_gapfill18h": {
+      "status": "baseline_nominal_win",
+      "error_difference_mmwe": 2.345250409455055,
+      "precision_thresholds": {
+        "identical_prediction_ratios": false,
+        "strict_ranking_possible": true,
+        "input_error_sensitivity_per_shared_reading_error_must_be_strictly_below_mmwe": 0.9329018173242667,
+        "input_error_sensitivity_per_shared_reading_ice_error_must_be_strictly_below_m": 0.0010173411312151218,
+        "input_error_sensitivity_per_interval_error_must_be_strictly_below_mmwe": 1.8658036346485334,
+        "fixed_issued_forecast_per_shared_reading_error_must_be_strictly_below_mmwe": 1.5922812372793231,
+        "source_precision_or_bound_known": false,
+        "achieved_robust_ranking_established": false,
+        "interpretation": "Conditional bounds; not a standard deviation, confidence interval, or measured camera precision."
+      }
+    }
+  },
+  "candidate_nominally_beats_all_primary_baselines": false,
+  "feature_support": {
+    "positive_buried_T_DT1": {
+      "train_max_gap_s": 1800.0,
+      "evaluation_max_gap_s": 1800.0,
+      "declared_max_gap_s": 1800.0,
+      "native_complete_source_not_established": false
+    },
+    "positive_air_TA3_linear_gapfill18h": {
+      "train_max_gap_s": 5400.0,
+      "evaluation_max_gap_s": 60600.0,
+      "declared_max_gap_s": 64800.0,
+      "native_complete_source_not_established": true
+    }
+  },
+  "training_ablation_mmwe": 85.20164518826326,
+  "evaluation_ablation_mmwe": 57.03636360809031,
+  "evaluation_calendar_blocks": 1,
+  "source_camera_precision_known": false,
+  "statistical_confidence_interval": false,
+  "independent_field_superiority_established": false,
+  "new_field_observations_or_models_fitted": false,
+  "physical_initial_ice_temperature_C": 0.0,
+  "physical_ice_domain_depth_m": 2.0,
+  "physical_initial_ice_state_is_assumed_not_measured": true,
+  "wet_debris_phase_change_accounted_for": false,
+  "moving_geometry_accounted_for": false,
+  "raw_solver_ledger_is_empirically_scaled": false,
+  "interpretation": "Empirically corrected V2 conductive component, not an independently measured capacity or conserved scaled-forecast ledger; fixed geometry, assumed initial ice, wet phase omitted."
+}

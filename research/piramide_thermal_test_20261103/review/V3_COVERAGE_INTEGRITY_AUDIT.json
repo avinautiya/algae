@@ -1,0 +1,386 @@
+{
+  "all_checks_pass": true,
+  "checks": [
+    {
+      "pass_": true,
+      "check": "original physical freeze preserved and linked"
+    },
+    {
+      "pass_": true,
+      "check": "availability audit linked by hash"
+    },
+    {
+      "pass_": true,
+      "check": "V2 missing endpoint has no scored error"
+    },
+    {
+      "pass_": true,
+      "check": "V2 has no silently substituted result artifact"
+    },
+    {
+      "pass_": true,
+      "check": "frozen availability audit used missingness only"
+    },
+    {
+      "pass_": true,
+      "check": "independent nearest-finite/tie-earlier endpoint selection"
+    },
+    {
+      "pass_": true,
+      "check": "original endpoint retained in deviation record"
+    },
+    {
+      "pass_": true,
+      "check": "only physical-horizon and camera-coverage config changed"
+    },
+    {
+      "pass_": true,
+      "check": "old authorized EVAL endpoint matches original horizon"
+    },
+    {
+      "pass_": true,
+      "check": "only camera EVAL end permission changed; TRAIN roles/operator unchanged"
+    },
+    {
+      "pass_": true,
+      "check": "all previously frozen source_hashes unchanged"
+    },
+    {
+      "pass_": true,
+      "check": "all previously frozen input_hashes unchanged"
+    },
+    {
+      "pass_": true,
+      "check": "all previously frozen analysis_source_hashes unchanged"
+    },
+    {
+      "pass_": true,
+      "check": "all previously frozen analysis_input_hashes unchanged"
+    },
+    {
+      "pass_": true,
+      "check": "same primary and full model family"
+    },
+    {
+      "pass_": true,
+      "check": "all39 issued methods retained"
+    },
+    {
+      "pass_": true,
+      "check": "all training targets/doses/gains/diagnostics unchanged"
+    },
+    {
+      "pass_": true,
+      "check": "native observation operator/density/footprint unchanged"
+    },
+    {
+      "pass_": true,
+      "check": "all36 physical scenario IDs retained"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'small_gap_5mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'small_gap_5mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'small_gap_5mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'small_gap_5mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'small_gap_5mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'small_gap_5mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'small_gap_5mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'small_gap_5mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'small_gap_5mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'small_gap_5mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'small_gap_5mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'small_gap_5mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'small_gap_5mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'middle_gap_20mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'middle_gap_20mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'middle_gap_20mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'middle_gap_20mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'middle_gap_20mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'middle_gap_20mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'middle_gap_20mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'middle_gap_20mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'middle_gap_20mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'middle_gap_20mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'middle_gap_20mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'middle_gap_20mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'middle_gap_20mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'large_gap_40mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'large_gap_40mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'large_gap_40mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'large_gap_40mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'large_gap_40mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'large_gap_40mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'left', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'left', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'left', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'large_gap_40mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'large_gap_40mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'large_gap_40mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'large_gap_40mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_temperature_forward_fit', 'large_gap_40mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_temperature_forward_fit', 'large_gap_40mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'right', 'dry')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'right', 'proxy')"
+    },
+    {
+      "pass_": true,
+      "check": "identical parameters/TRAIN heat ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "causal physical trace exact unchanged prefix ('training_derivative_OLS_NOT_source_NTLS', 'large_gap_40mm', 'right', 'saturated')"
+    },
+    {
+      "pass_": true,
+      "check": "PDD training forcing/dose unchanged positive_buried_T_DT1"
+    },
+    {
+      "pass_": true,
+      "check": "PDD training forcing/dose unchanged positive_air_TA3_linear_gapfill18h"
+    }
+  ],
+  "original_end": "2022-12-30T03:00:00",
+  "amended_end": "2022-12-30T00:00:00",
+  "endpoint_shift_s": -10800.0,
+  "v2_formally_unscorable": true,
+  "v3_is_transparent_protocol_amendment_not_original_freeze_success": true,
+  "all_parameters_and_train_gains_unchanged": true,
+  "raw_camera_values_read": false,
+  "performance_based_endpoint_selection_established": false,
+  "statistical_confidence_interval": false
+}

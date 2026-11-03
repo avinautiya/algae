@@ -1,0 +1,38 @@
+{
+  "scope": "Authorized train endpoints only",
+  "receipt_sha256": "b86d1a235df1bcf681a9f9b6701a0718373d4f66ad1eab230170e86d84b4e376",
+  "source_sha256": "7ddfe5f549473eab7c99851a82a8479d45ddee5bf4b9e7fa90c113793adb718e",
+  "source_fields_have_units": false,
+  "endpoints": [
+    {
+      "source_local_label": "2022-12-02 03:00:00",
+      "distance_source_m": 0.25512453821614256,
+      "provided_ablation_source_units_unverified": 0.05053756770494459
+    },
+    {
+      "source_local_label": "2022-12-16 03:00:00",
+      "distance_source_m": 0.34803800079876335,
+      "provided_ablation_source_units_unverified": 0.13573921289320784
+    }
+  ],
+  "intervals": [
+    {
+      "start": "2022-12-02T03:00:00",
+      "end": "2022-12-16T03:00:00",
+      "raw_distance_change_m_ice": 0.09291346258262079,
+      "independent_ice_conversion_mmwe": 85.20164518826326,
+      "provided_ablation_change_source_units_unverified": 0.08520164518826326,
+      "provided_delta_over_distance_delta": 0.9169999999999999,
+      "negative_distance_change": false,
+      "frozen_target_operator": "exposed_stake_distance_endpoint_difference_m_ice_times_917_to_mmwe",
+      "operator_changed": false,
+      "candidate_expected_scalings_not_selected": {
+        "m_water_per_m_ice": 0.917,
+        "mm_water_per_m_ice": 917.0
+      },
+      "reset_assessment": "Only released endpoints inspected; interior reset/manual correction cannot be ruled out"
+    }
+  ],
+  "uncertainty": "No quantitative camera precision established. Scaling agreement cannot establish camera accuracy.",
+  "validation_claim": "Source/operator audit only; no new prediction comparison or model tuning"
+}
