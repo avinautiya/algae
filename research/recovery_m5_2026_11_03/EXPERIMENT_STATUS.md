@@ -9,7 +9,7 @@ Basis `f1f85ee496dd39617fedf0f58202b943b3af3168`, reconciled with packet commit 
 |---|---|
 | Packet MANIFEST.json | all 12 sha256 verified |
 | `baseline/screen.py` rerun on a **scratch copy** (committed RESULTS.json untouched) | 12 cases, 0 viable; differs from committed JSON by ≤2.4e-13 relative (floating-point last digits only) |
-| Independent re-derivation (`viability/independent_check.py`, no import of screen.py) | bound reproduced to 1e-16 relative in the bound; minimum repair time 3197 / 6393 / 12784 / 25566 d for Q0, 2Q0, 4Q0, 8Q0 |
+| Independent re-derivation (`viability/independent_check.py`, no import of screen.py) | bound reproduced to 2.4e-13 relative; minimum repair time 3197 / 6393 / 12784 / 25566 d for Q0, 2Q0, 4Q0, 8Q0 |
 | Full ODE of the ideal model, 12 cases + toe-area sweep 1e-3…100 m², dt 900 s and 450 s | repair in 21 d is 0 in every case (the gap grows); all ≤ bound; none reaches the critical gap (0.1889 m); dt difference ≤8e-12 m |
 
 **What the bound is.** Gap g = z_toe − z_bypass; repair means the toe route lowers faster than the bypass. For equal-K critical controls and g ≥ 0, the bypass carries q_b ≥ Q/2. The finite-water floor melt rate e(q/A) = ρcqT(1−e^{−hA/(ρcq)})/(ρ_iLA) is increasing in q and bounded by the film limit hT/(ρ_iL) (28.2 mm/d at h = 200 W m⁻² K⁻¹, T = 0.5 K). Hence dg/dt ≥ −[hT/(ρ_iL) − e(Q/2, A_b)] throughout the interval, for any toe area and any gap. Multiplying by 21 d bounds *all possible* repair for a constant pulse; this is not an extrapolated initial derivative (the initial derivative is in fact negative: the gap grows). Required repair 61.1 mm; bound 0.40 mm (Q0) … 0.05 mm (8Q0).
