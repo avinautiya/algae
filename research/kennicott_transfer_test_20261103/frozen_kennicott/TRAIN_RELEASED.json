@@ -1,0 +1,26 @@
+{
+  "access_role": "train",
+  "receipt_sha256": "31a96c62dab00ddeffca7c64e4ca0367300233b66cab2c90a3a7ae316b80e325",
+  "spec_sha256": "a779f95c77ac14e8a4a8041a7c823a42ed3aec92c24c4e96c8217212bea98a65",
+  "predictions_sha256": "0c2dd924bbfd1b802aef28c6d0bd68f22db0c24e3a7a06636b8d4991da75c579",
+  "source_csv_sha256": "4b1fd8e9d7d0a9aa7365bfc40d3e90ac70948361aaa4cccb993412f2b39e8cd8",
+  "source_crc32": 1387455814,
+  "rows": [
+    {
+      "site": "P_AWS_1",
+      "start": "2020-07-25",
+      "end": "2020-09-06",
+      "period_days": 43,
+      "debris_mm": 210,
+      "observed_net_ablation_mmwe": 360.0,
+      "negative_net_ablation_retained": false,
+      "operator": "negative_source_mass_change",
+      "density_multiplier_applied": false,
+      "native_unit": "kg_m2_equivalent_mmwe",
+      "native_source_field": "mass_change_kg_m2",
+      "conditional_interpretation": "net loss; not independently verified gross phase-change melt",
+      "uncertainty": "No statistical measurement interval inferred from source rounding or sample count"
+    }
+  ],
+  "release_scope": "Only exact native rows for authorized role converted and returned; no complete outcome table exported."
+}

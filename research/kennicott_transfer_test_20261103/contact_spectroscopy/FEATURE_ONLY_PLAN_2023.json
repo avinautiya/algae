@@ -1,0 +1,89 @@
+{
+  "state": "DECLARED_BEFORE_2023_FEATURE_FIT_NO_MASS_ACCESS",
+  "fit_start_UTC": "2023-06-15T20:00:00",
+  "fit_end_UTC": "2023-06-29T20:00:00",
+  "profiles": [
+    {
+      "profile": "KDT_2023a",
+      "stake": "P11",
+      "profile_d_m": 0.24,
+      "stake_d_m": 0.24,
+      "upper_z_m": 0.02,
+      "deep_z_m": 0.22,
+      "upper_column": "Depth: 2 cm",
+      "deep_column": "Depth: 22 cm",
+      "source_sha256": "8227ce95c99dc687b1e5d5bfec25e7f191ca927d1f5c5b4d8854ab34f4d857b7",
+      "geometry_scenes_m": {
+        "nominal_profile": 0.24,
+        "paired_stake": 0.24,
+        "extra_clearance_5mm": 0.245,
+        "extra_clearance_20mm": 0.26
+      }
+    },
+    {
+      "profile": "KDT_2023b",
+      "stake": "P12",
+      "profile_d_m": 0.32,
+      "stake_d_m": 0.29,
+      "upper_z_m": 0.09,
+      "deep_z_m": 0.315,
+      "upper_column": "Depth: 9.0 cm",
+      "deep_column": "Depth: 31.5 cm",
+      "source_sha256": "2f85950203fe413bd7e371d042e5510c226e7de617779dbe615dd112e1c2c7cf",
+      "geometry_scenes_m": {
+        "nominal_profile": 0.32,
+        "paired_stake": 0.29,
+        "extra_clearance_5mm": 0.325,
+        "extra_clearance_20mm": 0.34
+      }
+    },
+    {
+      "profile": "KDT_2023c",
+      "stake": "P13",
+      "profile_d_m": 0.26,
+      "stake_d_m": 0.255,
+      "upper_z_m": 0.02,
+      "deep_z_m": 0.245,
+      "upper_column": "Depth: 2.0 cm",
+      "deep_column": "Depth: 24.5 cm",
+      "source_sha256": "30b1324bb27b02e45468580446ca0d626d6964de8744b624509d28d17992d798",
+      "geometry_scenes_m": {
+        "nominal_profile": 0.26,
+        "paired_stake": 0.255,
+        "extra_clearance_5mm": 0.265,
+        "extra_clearance_20mm": 0.28
+      }
+    }
+  ],
+  "inherits_2020_method": {
+    "alpha_bounds_m2_s": [
+      1e-08,
+      5e-06
+    ],
+    "b_kR_bounds_m": [
+      0,
+      0.3
+    ],
+    "bounds_provenance": "Fixed engineering search bounds, not independent material measurements",
+    "coarse_grid": [
+      61,
+      61
+    ],
+    "local_refinement": "three predetermined 21x21 logalpha/b grids around the previous optimum",
+    "OLS_basis": [
+      "constant",
+      "centered linear days",
+      "cos daily",
+      "sin daily",
+      "cos twice daily",
+      "sin twice daily"
+    ],
+    "primary_goal": "weighted residuals of DC ratio and complex daily and twice-daily ratios",
+    "diagnostic_goal": "same harmonic ratios without DC, no post-result winner selection",
+    "ratio_scales": "OLS row-L1 propagated source +/-0.2C deterministic bound; not Gaussian sigma or statistical confidence",
+    "null": "b=0 with same alpha bounds, observation ratios and weights",
+    "rank_check": "weighted local Jacobian in log(alpha), b/L; finite difference h=1e-4"
+  },
+  "geometry_policy": "Use fixed sensor depths; refuse any thickness placing probe below ice. +5/+20mm are engineering sensitivity, not source measurement uncertainty.",
+  "mass_values_used": false
+}

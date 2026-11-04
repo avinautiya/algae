@@ -1,0 +1,1141 @@
+{
+  "plan_sha256": "98eadecba0c9466d42ec4009b49df6a2395aa89bcf02c5d7643de49356dc6df4",
+  "base_OLS_sha256": "5851c1f03470d8151a5bb605a7444ce4bbece974e0434600e494d9766794801c",
+  "geometry_fit_sha256": "9556888bc12ec447a960c043ccdb1c0fac555797ccc16633b070c7a3fb77f839",
+  "runner_sha256": "7099398c086004085e9690189cb4fbaa533f19c9bd8c1bda85fa927214bcbd5f",
+  "2023_mass_values_used": false,
+  "scope": "Fixed-geometry periodic thermal-response fit; no historical priority or field accuracy claim.",
+  "profiles": [
+    {
+      "profile": "KDT_2023a",
+      "stake": "P11",
+      "rows": 4033,
+      "geometry_scenes": [
+        {
+          "scene": "nominal_profile",
+          "d_m": 0.24,
+          "L_m": 0.22,
+          "x_m": 0.2,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 7.367622751465201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.01101509753266368,
+              "per_ratio_error_scale_residuals": [
+                0.056387882704012876,
+                0.0782625067212022,
+                0.04135800114289792
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  44.93316189021676,
+                  1.032522161403971
+                ],
+                "condition_number": 43.517866802121645,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 7.367622751465201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.01101509753266368,
+              "per_ratio_error_scale_residuals": [
+                0.056387882704012876,
+                0.0782625067212022,
+                0.04135800114289792
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 7.367622751465201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.007835504216822166,
+              "per_ratio_error_scale_residuals": [
+                0.0782625067212022,
+                0.04135800114289792
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  13.617248635722783,
+                  1.0201765463883719
+                ],
+                "condition_number": 13.347933437531529,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 7.367622751465201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.007835504216822166,
+              "per_ratio_error_scale_residuals": [
+                0.0782625067212022,
+                0.04135800114289792
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        },
+        {
+          "scene": "paired_stake",
+          "d_m": 0.24,
+          "L_m": 0.22,
+          "x_m": 0.2,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 7.367622751465201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.01101509753266368,
+              "per_ratio_error_scale_residuals": [
+                0.056387882704012876,
+                0.0782625067212022,
+                0.04135800114289792
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  44.93316189021676,
+                  1.032522161403971
+                ],
+                "condition_number": 43.517866802121645,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 7.367622751465201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.01101509753266368,
+              "per_ratio_error_scale_residuals": [
+                0.056387882704012876,
+                0.0782625067212022,
+                0.04135800114289792
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 7.367622751465201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.007835504216822166,
+              "per_ratio_error_scale_residuals": [
+                0.0782625067212022,
+                0.04135800114289792
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  13.617248635722783,
+                  1.0201765463883719
+                ],
+                "condition_number": 13.347933437531529,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 7.367622751465201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.007835504216822166,
+              "per_ratio_error_scale_residuals": [
+                0.0782625067212022,
+                0.04135800114289792
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        },
+        {
+          "scene": "extra_clearance_5mm",
+          "d_m": 0.245,
+          "L_m": 0.225,
+          "x_m": 0.2,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 6.963245964287891e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 1.1542775675770702,
+              "per_ratio_error_scale_residuals": [
+                1.0080470327536182,
+                0.37026427119689,
+                0.031986197159587136
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  43.788285078987116,
+                  1.3355481019975168
+                ],
+                "condition_number": 32.78675250520369,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 6.963245964287891e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 1.1542775675770702,
+              "per_ratio_error_scale_residuals": [
+                1.0080470327536182,
+                0.37026427119689,
+                0.031986197159587136
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 6.963245964287891e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.13811874733369608,
+              "per_ratio_error_scale_residuals": [
+                0.37026427119689,
+                0.031986197159587136
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  12.823816223709192,
+                  1.3227269198407405
+                ],
+                "condition_number": 9.694983924008449,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 6.963245964287891e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.13811874733369608,
+              "per_ratio_error_scale_residuals": [
+                0.37026427119689,
+                0.031986197159587136
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        },
+        {
+          "scene": "extra_clearance_20mm",
+          "d_m": 0.26,
+          "L_m": 0.24000000000000002,
+          "x_m": 0.2,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 5.761534062865453e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 14.374087055056913,
+              "per_ratio_error_scale_residuals": [
+                3.6251096953900346,
+                1.106230277473384,
+                0.09445276410589458
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  40.55126227742659,
+                  2.2781288794368977
+                ],
+                "condition_number": 17.800249425506582,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 5.761534062865453e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 14.374087055056913,
+              "per_ratio_error_scale_residuals": [
+                3.6251096953900346,
+                1.106230277473384,
+                0.09445276410589458
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 5.761534062865453e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 1.232666751446084,
+              "per_ratio_error_scale_residuals": [
+                1.106230277473384,
+                0.09445276410589458
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  10.183730197159809,
+                  2.272822420898982
+                ],
+                "condition_number": 4.480653703306826,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 5.761534062865453e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 1.232666751446084,
+              "per_ratio_error_scale_residuals": [
+                1.106230277473384,
+                0.09445276410589458
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        }
+      ],
+      "negative_temperatures_count": 0,
+      "harmonic_extraction": {
+        "observations": [
+          {
+            "omega_rad_s": 0,
+            "ratio_real": 0.08971207709855142,
+            "ratio_imag": 0.0,
+            "upper_amplitude_C": 10.466641243994903,
+            "lower_amplitude_C": 0.938984126244149,
+            "coefficient_complex_error_bound_C": 0.19999999999999946,
+            "ratio_error_scale": 0.021228209912096337
+          },
+          {
+            "omega_rad_s": 7.27220521664304e-05,
+            "ratio_real": 0.05651282570485411,
+            "ratio_imag": -0.051796891435745805,
+            "upper_amplitude_C": 7.070928599440705,
+            "lower_amplitude_C": 0.5420510142379685,
+            "coefficient_complex_error_bound_C": 0.36012995325925795,
+            "ratio_error_scale": 0.05777809935543654
+          },
+          {
+            "omega_rad_s": 0.0001454441043328608,
+            "ratio_real": 0.018973569168573057,
+            "ratio_imag": -0.07884210117403002,
+            "upper_amplitude_C": 1.234049047173871,
+            "lower_amplitude_C": 0.10007272869607238,
+            "coefficient_complex_error_bound_C": 0.36009085451161577,
+            "ratio_error_scale": 0.4454351504760353
+          }
+        ],
+        "upper_coefficients": [
+          10.466641243994903,
+          -0.004404204306829064,
+          2.9278799858197972,
+          6.436268332428687,
+          -0.27401701729730105,
+          1.2032421722422422
+        ],
+        "lower_coefficients": [
+          0.938984126244149,
+          -0.013416857565434802,
+          -0.16791592074277248,
+          0.5153867922226154,
+          -0.10006522191183895,
+          0.0012257211804225295
+        ],
+        "basis": "constant,centered trendC/day,cos1,sin1,cos2,sin2",
+        "fit_reconstruction": {
+          "upper": {
+            "RMSE_C": 2.8112255737203515,
+            "max_absolute_C": 8.341632833814831
+          },
+          "lower": {
+            "RMSE_C": 0.21746318027291198,
+            "max_absolute_C": 0.6253783389817147
+          }
+        },
+        "n": 4033,
+        "source_accuracy_C": 0.2,
+        "scale_interpretation": "deterministic ratio perturbation scale, not a standard deviation"
+      },
+      "status": "FEATURE_FIT_COMPLETE"
+    },
+    {
+      "profile": "KDT_2023b",
+      "stake": "P12",
+      "rows": 4033,
+      "geometry_scenes": [
+        {
+          "scene": "nominal_profile",
+          "d_m": 0.32,
+          "L_m": 0.23,
+          "x_m": 0.225,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 7.064953907384893e-07,
+              "b_kR_m": 0.012924999999999999,
+              "weighted_objective": 0.01529615547933648,
+              "per_ratio_error_scale_residuals": [
+                0.025440212701049503,
+                0.11990621186259343,
+                0.016475782646803154
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": false,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  41.348123056564674,
+                  0.6855329168694341
+                ],
+                "condition_number": 60.31529929355646,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 8.75616150919189e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 6.049317567198088,
+              "per_ratio_error_scale_residuals": [
+                2.4229565015496908,
+                0.42151142093425864,
+                0.03045456974172973
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 7.46595182070285e-07,
+              "b_kR_m": 0.009804999999999998,
+              "weighted_objective": 0.00024017790507790612,
+              "per_ratio_error_scale_residuals": [
+                0.0012131229682809115,
+                0.015450120962042188
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": false,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  9.372604975481108,
+                  0.5371623020241486
+                ],
+                "condition_number": 17.448366983615603,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 8.75616150919189e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.17859935879617167,
+              "per_ratio_error_scale_residuals": [
+                0.42151142093425864,
+                0.03045456974172973
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        },
+        {
+          "scene": "paired_stake",
+          "d_m": 0.29,
+          "L_m": 0.19999999999999998,
+          "x_m": 0.225,
+          "status": "REFUSED_GEOMETRY",
+          "reason": "Deep probe below modeled ice boundary; do not relabel/move probe"
+        },
+        {
+          "scene": "extra_clearance_5mm",
+          "d_m": 0.325,
+          "L_m": 0.23500000000000001,
+          "x_m": 0.225,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 7.088409247320561e-07,
+              "b_kR_m": 0.007925000000000001,
+              "weighted_objective": 0.01541863181894787,
+              "per_ratio_error_scale_residuals": [
+                0.025440212701048227,
+                0.12041206723460993,
+                0.01650337725924829
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": false,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  42.248060008121705,
+                  0.6862942167159848
+                ],
+                "condition_number": 61.55969113405132,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 8.097514314235962e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 2.1835380461360105,
+              "per_ratio_error_scale_residuals": [
+                1.4642065209438113,
+                0.1980712245633024,
+                0.020127100179236208
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 7.481433839161747e-07,
+              "b_kR_m": 0.0048000000000000004,
+              "weighted_objective": 0.0002403552715590884,
+              "per_ratio_error_scale_residuals": [
+                0.00124552682010569,
+                0.015453282321225023
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": false,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  9.580178839478455,
+                  0.5380501744212319
+                ],
+                "condition_number": 17.805363319106124,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 8.097514314235962e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.039637310161631176,
+              "per_ratio_error_scale_residuals": [
+                0.1980712245633024,
+                0.020127100179236208
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        },
+        {
+          "scene": "extra_clearance_20mm",
+          "d_m": 0.34,
+          "L_m": 0.25,
+          "x_m": 0.225,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 6.26641584565389e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 1.5325060268000383,
+              "per_ratio_error_scale_residuals": [
+                1.1819434255284111,
+                0.36722857812814946,
+                0.025669769305178152
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  42.26695292527481,
+                  0.9988841358802305
+                ],
+                "condition_number": 42.3141697891003,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 6.26641584565389e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 1.5325060268000383,
+              "per_ratio_error_scale_residuals": [
+                1.1819434255284111,
+                0.36722857812814946,
+                0.025669769305178152
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 6.26641584565389e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.13551576565020343,
+              "per_ratio_error_scale_residuals": [
+                0.36722857812814946,
+                0.025669769305178152
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  8.261310628584585,
+                  0.9790884717938112
+                ],
+                "condition_number": 8.437757022558792,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 6.26641584565389e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.13551576565020343,
+              "per_ratio_error_scale_residuals": [
+                0.36722857812814946,
+                0.025669769305178152
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        }
+      ],
+      "negative_temperatures_count": 0,
+      "harmonic_extraction": {
+        "observations": [
+          {
+            "omega_rad_s": 0,
+            "ratio_real": 0.07434050261314197,
+            "ratio_imag": 0.0,
+            "upper_amplitude_C": 10.09738555434718,
+            "lower_amplitude_C": 0.7506447171888486,
+            "coefficient_complex_error_bound_C": 0.19999999999999946,
+            "ratio_error_scale": 0.021709581721634792
+          },
+          {
+            "omega_rad_s": 7.27220521664304e-05,
+            "ratio_real": 0.033849333331050356,
+            "ratio_imag": -0.04073392960238803,
+            "upper_amplitude_C": 5.099659801045227,
+            "lower_amplitude_C": 0.27009092390120776,
+            "coefficient_complex_error_bound_C": 0.36012995325925795,
+            "ratio_error_scale": 0.08000864254977162
+          },
+          {
+            "omega_rad_s": 0.0001454441043328608,
+            "ratio_real": 0.015072168911931421,
+            "ratio_imag": -0.05006020422679687,
+            "upper_amplitude_C": 0.6757405967777111,
+            "lower_amplitude_C": 0.03532769205067623,
+            "coefficient_complex_error_bound_C": 0.36009085451161577,
+            "ratio_error_scale": 1.2004330737744926
+          }
+        ],
+        "upper_coefficients": [
+          10.09738555434718,
+          0.007705457043114548,
+          0.07004769036579515,
+          5.099178699307474,
+          -0.4209883724863077,
+          0.528577472434105
+        ],
+        "lower_coefficients": [
+          0.7506447171888486,
+          0.011739200868106169,
+          -0.20533851854732524,
+          0.17545711719562065,
+          -0.03280590407980812,
+          -0.01310795495620279
+        ],
+        "basis": "constant,centered trendC/day,cos1,sin1,cos2,sin2",
+        "fit_reconstruction": {
+          "upper": {
+            "RMSE_C": 2.251337926845658,
+            "max_absolute_C": 6.087748464194554
+          },
+          "lower": {
+            "RMSE_C": 0.13240116126976206,
+            "max_absolute_C": 0.3684169149376405
+          }
+        },
+        "n": 4033,
+        "source_accuracy_C": 0.2,
+        "scale_interpretation": "deterministic ratio perturbation scale, not a standard deviation"
+      },
+      "status": "FEATURE_FIT_COMPLETE"
+    },
+    {
+      "profile": "KDT_2023c",
+      "stake": "P13",
+      "rows": 4033,
+      "geometry_scenes": [
+        {
+          "scene": "nominal_profile",
+          "d_m": 0.26,
+          "L_m": 0.24000000000000002,
+          "x_m": 0.225,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 4.847376663407563e-07,
+              "b_kR_m": 0.0015325,
+              "weighted_objective": 0.00039985789922481553,
+              "per_ratio_error_scale_residuals": [
+                0.00013511223455949168,
+                0.002233385206252819,
+                0.019870874022784677
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": false,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  52.85631912507087,
+                  1.0737690812797396
+                ],
+                "condition_number": 49.22503361903068,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 4.947301588939774e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.11531938401652635,
+              "per_ratio_error_scale_residuals": [
+                0.3313952780529825,
+                0.07030180251752972,
+                0.023541670788179078
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 4.848883124760542e-07,
+              "b_kR_m": 0.001505,
+              "weighted_objective": 0.00039832020101165905,
+              "per_ratio_error_scale_residuals": [
+                0.0009598330593660121,
+                0.01993486697998778
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": false,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  11.696856616027747,
+                  1.0270557720492757
+                ],
+                "condition_number": 11.388725845617037,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 4.947301588939774e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.005496553700712753,
+              "per_ratio_error_scale_residuals": [
+                0.07030180251752972,
+                0.023541670788179078
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        },
+        {
+          "scene": "paired_stake",
+          "d_m": 0.255,
+          "L_m": 0.23500000000000001,
+          "x_m": 0.225,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 4.844365144648078e-07,
+              "b_kR_m": 0.00653,
+              "weighted_objective": 0.00040018079007308257,
+              "per_ratio_error_scale_residuals": [
+                0.0006720808472862087,
+                0.001915120717472162,
+                0.01990129166776123
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": false,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  51.755912505394654,
+                  1.0731662367383477
+                ],
+                "condition_number": 48.227302288874974,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 5.297879045011201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 2.1868387848588395,
+              "per_ratio_error_scale_residuals": [
+                1.4422223371698266,
+                0.32474925219819867,
+                0.03703293431465454
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 4.845870670085212e-07,
+              "b_kR_m": 0.00651,
+              "weighted_objective": 0.00039887718743890436,
+              "per_ratio_error_scale_residuals": [
+                0.0010046893873021795,
+                0.019946623440420856
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": false,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  11.450898973269611,
+                  1.02529885192558
+                ],
+                "condition_number": 11.168352477684,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 5.297879045011201e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.10683351502724275,
+              "per_ratio_error_scale_residuals": [
+                0.32474925219819867,
+                0.03703293431465454
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        },
+        {
+          "scene": "extra_clearance_5mm",
+          "d_m": 0.265,
+          "L_m": 0.24500000000000002,
+          "x_m": 0.225,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 4.6343007867071905e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.5637618846318,
+              "per_ratio_error_scale_residuals": [
+                0.7340919010999081,
+                0.1571681504926261,
+                0.01300530053670766
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  52.29518851084599,
+                  1.2919789717776486
+                ],
+                "condition_number": 40.47681088717136,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 4.6343007867071905e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.5637618846318,
+              "per_ratio_error_scale_residuals": [
+                0.7340919010999081,
+                0.1571681504926261,
+                0.01300530053670766
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 4.6343007867071905e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.02487096537132286,
+              "per_ratio_error_scale_residuals": [
+                0.1571681504926261,
+                0.01300530053670766
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  10.944638635098318,
+                  1.2442261123299392
+                ],
+                "condition_number": 8.796342181408953,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 4.6343007867071905e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.02487096537132286,
+              "per_ratio_error_scale_residuals": [
+                0.1571681504926261,
+                0.01300530053670766
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        },
+        {
+          "scene": "extra_clearance_20mm",
+          "d_m": 0.28,
+          "L_m": 0.26,
+          "x_m": 0.225,
+          "primary_DC_and_harmonics": {
+            "Robin_fit": {
+              "alpha_m2_s": 3.8901220707225585e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 14.058478456962979,
+              "per_ratio_error_scale_residuals": [
+                3.684671781830986,
+                0.6934542649915723,
+                0.02816912328139352
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  48.79779200541125,
+                  2.090031233047595
+                ],
+                "condition_number": 23.347876928258327,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 3.8901220707225585e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 14.058478456962979,
+              "per_ratio_error_scale_residuals": [
+                3.684671781830986,
+                0.6934542649915723,
+                0.02816912328139352
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "diagnostic_harmonics_only": {
+            "Robin_fit": {
+              "alpha_m2_s": 3.8901220707225585e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.4816723171414441,
+              "per_ratio_error_scale_residuals": [
+                0.6934542649915723,
+                0.02816912328139352
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true,
+              "local_rank": {
+                "coordinates": [
+                  "logalpha",
+                  "b/L"
+                ],
+                "singular_values": [
+                  7.697886209032194,
+                  2.0623520660776107
+                ],
+                "condition_number": 3.732576186020853,
+                "scope": "local fixed-geometry response, not global physical identifiability"
+              }
+            },
+            "b0_null": {
+              "alpha_m2_s": 3.8901220707225585e-07,
+              "b_kR_m": 0.0,
+              "weighted_objective": 0.4816723171414441,
+              "per_ratio_error_scale_residuals": [
+                0.6934542649915723,
+                0.02816912328139352
+              ],
+              "alpha_at_bound": false,
+              "b_at_bound": true
+            },
+            "not_a_likelihood_ratio_test": true
+          },
+          "status": "FEATURE_FIT_COMPLETE"
+        }
+      ],
+      "negative_temperatures_count": 0,
+      "harmonic_extraction": {
+        "observations": [
+          {
+            "omega_rad_s": 0,
+            "ratio_real": 0.0684507716330822,
+            "ratio_imag": 0.0,
+            "upper_amplitude_C": 12.100289992068664,
+            "lower_amplitude_C": 0.8282741869411622,
+            "coefficient_complex_error_bound_C": 0.19999999999999946,
+            "ratio_error_scale": 0.017956718237037636
+          },
+          {
+            "omega_rad_s": 7.27220521664304e-05,
+            "ratio_real": 0.013916675197268736,
+            "ratio_imag": -0.04750221946267184,
+            "upper_amplitude_C": 7.377327018974846,
+            "lower_amplitude_C": 0.3651690955411388,
+            "coefficient_complex_error_bound_C": 0.36012995325925795,
+            "ratio_error_scale": 0.05386138695919083
+          },
+          {
+            "omega_rad_s": 0.0001454441043328608,
+            "ratio_real": -0.02641171641007036,
+            "ratio_imag": -0.030716413182892425,
+            "upper_amplitude_C": 1.0062075912469501,
+            "lower_amplitude_C": 0.040761676953998204,
+            "coefficient_complex_error_bound_C": 0.36009085451161577,
+            "ratio_error_scale": 0.5798924373245613
+          }
+        ],
+        "upper_coefficients": [
+          12.100289992068664,
+          0.013727401758995691,
+          4.181006357572567,
+          6.078169114366107,
+          0.18445562939726196,
+          0.9891561239089861
+        ],
+        "lower_coefficients": [
+          0.8282741869411622,
+          0.005779067986112397,
+          -0.23054081572579943,
+          0.2831949869309419,
+          -0.035255117978258275,
+          -0.020459495703491783
+        ],
+        "basis": "constant,centered trendC/day,cos1,sin1,cos2,sin2",
+        "fit_reconstruction": {
+          "upper": {
+            "RMSE_C": 3.0420636442295836,
+            "max_absolute_C": 9.25160904784363
+          },
+          "lower": {
+            "RMSE_C": 0.14022434110354093,
+            "max_absolute_C": 0.40052856769343814
+          }
+        },
+        "n": 4033,
+        "source_accuracy_C": 0.2,
+        "scale_interpretation": "deterministic ratio perturbation scale, not a standard deviation"
+      },
+      "status": "FEATURE_FIT_COMPLETE"
+    }
+  ]
+}

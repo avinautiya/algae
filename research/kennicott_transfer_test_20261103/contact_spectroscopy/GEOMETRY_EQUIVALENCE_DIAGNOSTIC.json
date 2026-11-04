@@ -1,0 +1,110 @@
+{
+  "mass_values_used": false,
+  "scope": "Change in temperature response at same probe position; not a continuous geometry bound or proof equivalent physical melt.",
+  "profiles": [
+    {
+      "profile": "KDT_2020b",
+      "alpha_m2_s": 8.054018392799412e-07,
+      "effective_contact_length_m": 0.01914,
+      "pure_geometry_alternative_d_extension_m": 0.01914,
+      "rows": [
+        {
+          "omega_rad_s": 0,
+          "absolute_Robin_minus_geometric_extension": 5.551115123125783e-17,
+          "difference_in_source_error_scales": 1.5402570232538345e-15,
+          "exact_complex_shift_identity_error": 5.551115123125783e-17
+        },
+        {
+          "omega_rad_s": 7.27220521664304e-05,
+          "absolute_Robin_minus_geometric_extension": 0.0005310350420745534,
+          "difference_in_source_error_scales": 0.005552185549353188,
+          "exact_complex_shift_identity_error": 1.1443916996305594e-16
+        },
+        {
+          "omega_rad_s": 0.0001454441043328608,
+          "absolute_Robin_minus_geometric_extension": 0.0008143914389668342,
+          "difference_in_source_error_scales": 0.0013109089717508393,
+          "exact_complex_shift_identity_error": 5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "profile": "KDT_2023a",
+      "alpha_m2_s": 7.367622751465201e-07,
+      "effective_contact_length_m": 0.0,
+      "pure_geometry_alternative_d_extension_m": 0.0,
+      "rows": [
+        {
+          "omega_rad_s": 0,
+          "absolute_Robin_minus_geometric_extension": 0.0,
+          "difference_in_source_error_scales": 0.0,
+          "exact_complex_shift_identity_error": 0.0
+        },
+        {
+          "omega_rad_s": 7.27220521664304e-05,
+          "absolute_Robin_minus_geometric_extension": 0.0,
+          "difference_in_source_error_scales": 0.0,
+          "exact_complex_shift_identity_error": 0.0
+        },
+        {
+          "omega_rad_s": 0.0001454441043328608,
+          "absolute_Robin_minus_geometric_extension": 0.0,
+          "difference_in_source_error_scales": 0.0,
+          "exact_complex_shift_identity_error": 0.0
+        }
+      ]
+    },
+    {
+      "profile": "KDT_2023b",
+      "alpha_m2_s": 7.064953907384893e-07,
+      "effective_contact_length_m": 0.012924999999999999,
+      "pure_geometry_alternative_d_extension_m": 0.012924999999999999,
+      "rows": [
+        {
+          "omega_rad_s": 0,
+          "absolute_Robin_minus_geometric_extension": 4.163336342344337e-17,
+          "difference_in_source_error_scales": 1.917741389828503e-15,
+          "exact_complex_shift_identity_error": 4.163336342344337e-17
+        },
+        {
+          "omega_rad_s": 7.27220521664304e-05,
+          "absolute_Robin_minus_geometric_extension": 0.0002272930634789403,
+          "difference_in_source_error_scales": 0.0028408563904523975,
+          "exact_complex_shift_identity_error": 2.1942709178604383e-17
+        },
+        {
+          "omega_rad_s": 0.0001454441043328608,
+          "absolute_Robin_minus_geometric_extension": 0.00030324335299331635,
+          "difference_in_source_error_scales": 0.0002526116279351048,
+          "exact_complex_shift_identity_error": 1.6365348541700844e-17
+        }
+      ]
+    },
+    {
+      "profile": "KDT_2023c",
+      "alpha_m2_s": 4.847376663407563e-07,
+      "effective_contact_length_m": 0.0015325,
+      "pure_geometry_alternative_d_extension_m": 0.0015325,
+      "rows": [
+        {
+          "omega_rad_s": 0,
+          "absolute_Robin_minus_geometric_extension": 2.7755575615628914e-17,
+          "difference_in_source_error_scales": 1.5456931076849052e-15,
+          "exact_complex_shift_identity_error": 2.7755575615628914e-17
+        },
+        {
+          "omega_rad_s": 7.27220521664304e-05,
+          "absolute_Robin_minus_geometric_extension": 4.71355348655478e-07,
+          "difference_in_source_error_scales": 8.751266450167909e-06,
+          "exact_complex_shift_identity_error": 2.1457344368072987e-17
+        },
+        {
+          "omega_rad_s": 0.0001454441043328608,
+          "absolute_Robin_minus_geometric_extension": 5.297489913634638e-07,
+          "difference_in_source_error_scales": 9.135297466674279e-07,
+          "exact_complex_shift_identity_error": 2.4532694666933986e-17
+        }
+      ]
+    }
+  ]
+}

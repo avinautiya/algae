@@ -1,0 +1,218 @@
+{
+  "scope": "Unused2020b15cmprocesssensor diagnostic aftermassTRAINfit; noR/Crefit orselection",
+  "source_sha256": "83538ec8e9fc08f6b8ac05429e6ff85c3437d17bba3a730533144bf6cdfc9ae5",
+  "probe_source": "REAL15cm column, notzero22cm appendedboundary",
+  "independent_of_alpha_inference": "alpha from2020a11/18/25cm;2020b15cm excluded",
+  "independent_of_upper_forcing": "upperboundary2020b5cm only",
+  "source_sensor_accuracy_C": 0.2,
+  "accuracy_is_not_statistical_confidence": true,
+  "calibration_artifact_sha256": "9c12d4c683854f75b8467d7aa116d29bb52da898ad569cd3ff994eada252b406",
+  "capacity_scenes": [
+    {
+      "capacity_J_m3K": 1500000.0,
+      "contact_fit_R_m2K_W": 0.129425048828125,
+      "models": [
+        {
+          "label": "zero_contact",
+          "R_m2K_W": 0.0,
+          "physical_melt_mmwe": 756.4942770120695,
+          "full_postreset": {
+            "n": 877,
+            "bias_C": -0.18803855213805315,
+            "RMSE_C": 0.37802542729650784,
+            "MAE_C": 0.31324105243956957,
+            "nominal_errors_within_point2C_count": 304,
+            "error_range_C": [
+              -1.3049800743370694,
+              1.1455652490490191
+            ]
+          },
+          "same_feature_fit_window_Aug1_to_Aug15": {
+            "n": 337,
+            "bias_C": -0.251330468907133,
+            "RMSE_C": 0.41440774452199036,
+            "MAE_C": 0.3369317458326658,
+            "nominal_errors_within_point2C_count": 122,
+            "error_range_C": [
+              -1.3049800743370694,
+              0.6524282315824621
+            ]
+          },
+          "ledger_relative_residual": 3.438470856427886e-16,
+          "first_full_UTC": "2020-08-01T08:00:00Z",
+          "last_full_UTC": "2020-09-06T20:00:00Z"
+        },
+        {
+          "label": "TRAIN_fitted_contact",
+          "R_m2K_W": 0.129425048828125,
+          "physical_melt_mmwe": 360.0000008898072,
+          "full_postreset": {
+            "n": 877,
+            "bias_C": 2.055040233098866,
+            "RMSE_C": 2.3552331123806263,
+            "MAE_C": 2.0576703898097946,
+            "nominal_errors_within_point2C_count": 8,
+            "error_range_C": [
+              -0.33313848124518625,
+              6.894415912751288
+            ]
+          },
+          "same_feature_fit_window_Aug1_to_Aug15": {
+            "n": 337,
+            "bias_C": 2.1872251124775928,
+            "RMSE_C": 2.4499447085642254,
+            "MAE_C": 2.1872251124775928,
+            "nominal_errors_within_point2C_count": 0,
+            "error_range_C": [
+              0.8280350968664376,
+              5.500471162790474
+            ]
+          },
+          "ledger_relative_residual": 1.5304103749575675e-14,
+          "first_full_UTC": "2020-08-01T08:00:00Z",
+          "last_full_UTC": "2020-09-06T20:00:00Z"
+        }
+      ],
+      "contact_improves_full_RMSE": false,
+      "contact_improves_window_RMSE": false
+    },
+    {
+      "capacity_J_m3K": 800000.0,
+      "contact_fit_R_m2K_W": 0.0265960693359375,
+      "models": [
+        {
+          "label": "zero_contact",
+          "R_m2K_W": 0.0,
+          "physical_melt_mmwe": 403.4612850126007,
+          "full_postreset": {
+            "n": 877,
+            "bias_C": -0.18790274312494035,
+            "RMSE_C": 0.37800150723197123,
+            "MAE_C": 0.3131803911122387,
+            "nominal_errors_within_point2C_count": 305,
+            "error_range_C": [
+              -1.3049800743370605,
+              1.1455652490490298
+            ]
+          },
+          "same_feature_fit_window_Aug1_to_Aug15": {
+            "n": 337,
+            "bias_C": -0.2513304689071264,
+            "RMSE_C": 0.41440774452198625,
+            "MAE_C": 0.33693174583266217,
+            "nominal_errors_within_point2C_count": 122,
+            "error_range_C": [
+              -1.3049800743370605,
+              0.6524282315824745
+            ]
+          },
+          "ledger_relative_residual": 6.952249516846418e-15,
+          "first_full_UTC": "2020-08-01T08:00:00Z",
+          "last_full_UTC": "2020-09-06T20:00:00Z"
+        },
+        {
+          "label": "TRAIN_fitted_contact",
+          "R_m2K_W": 0.0265960693359375,
+          "physical_melt_mmwe": 360.00350333658054,
+          "full_postreset": {
+            "n": 877,
+            "bias_C": 0.27234377586923064,
+            "RMSE_C": 0.479655431154861,
+            "MAE_C": 0.3250347251062005,
+            "nominal_errors_within_point2C_count": 464,
+            "error_range_C": [
+              -0.5215565160256102,
+              2.3733825018109123
+            ]
+          },
+          "same_feature_fit_window_Aug1_to_Aug15": {
+            "n": 337,
+            "bias_C": 0.2500528575041185,
+            "RMSE_C": 0.4435681618774385,
+            "MAE_C": 0.30798316797923453,
+            "nominal_errors_within_point2C_count": 181,
+            "error_range_C": [
+              -0.5215565160256102,
+              1.6829768157000995
+            ]
+          },
+          "ledger_relative_residual": 1.680374066771423e-14,
+          "first_full_UTC": "2020-08-01T08:00:00Z",
+          "last_full_UTC": "2020-09-06T20:00:00Z"
+        }
+      ],
+      "contact_improves_full_RMSE": false,
+      "contact_improves_window_RMSE": false
+    },
+    {
+      "capacity_J_m3K": 3500000.0,
+      "contact_fit_R_m2K_W": 0.1965789794921875,
+      "models": [
+        {
+          "label": "zero_contact",
+          "R_m2K_W": 0.0,
+          "physical_melt_mmwe": 1765.168110300163,
+          "full_postreset": {
+            "n": 877,
+            "bias_C": -0.18823869625341907,
+            "RMSE_C": 0.37806829271664294,
+            "MAE_C": 0.3133277473462973,
+            "nominal_errors_within_point2C_count": 305,
+            "error_range_C": [
+              -1.304980074337081,
+              1.145565249048996
+            ]
+          },
+          "same_feature_fit_window_Aug1_to_Aug15": {
+            "n": 337,
+            "bias_C": -0.25133046890714,
+            "RMSE_C": 0.414407744521995,
+            "MAE_C": 0.3369317458326697,
+            "nominal_errors_within_point2C_count": 122,
+            "error_range_C": [
+              -1.304980074337081,
+              0.6524282315824426
+            ]
+          },
+          "ledger_relative_residual": 4.131124810701085e-15,
+          "first_full_UTC": "2020-08-01T08:00:00Z",
+          "last_full_UTC": "2020-09-06T20:00:00Z"
+        },
+        {
+          "label": "TRAIN_fitted_contact",
+          "R_m2K_W": 0.1965789794921875,
+          "physical_melt_mmwe": 359.999119865657,
+          "full_postreset": {
+            "n": 877,
+            "bias_C": 3.222286387305361,
+            "RMSE_C": 3.6128665112358087,
+            "MAE_C": 3.223724392351375,
+            "nominal_errors_within_point2C_count": 7,
+            "error_range_C": [
+              -0.26027948932227074,
+              9.479013630628035
+            ]
+          },
+          "same_feature_fit_window_Aug1_to_Aug15": {
+            "n": 337,
+            "bias_C": 3.4512853053511727,
+            "RMSE_C": 3.7940341098576376,
+            "MAE_C": 3.4512853053511727,
+            "nominal_errors_within_point2C_count": 0,
+            "error_range_C": [
+              1.417109204837854,
+              7.934467768297651
+            ]
+          },
+          "ledger_relative_residual": 5.3337205085676425e-15,
+          "first_full_UTC": "2020-08-01T08:00:00Z",
+          "last_full_UTC": "2020-09-06T20:00:00Z"
+        }
+      ],
+      "contact_improves_full_RMSE": false,
+      "contact_improves_window_RMSE": false
+    }
+  ],
+  "TEST_melt_targets_read": false,
+  "contact_mechanism_independently_established": false
+}

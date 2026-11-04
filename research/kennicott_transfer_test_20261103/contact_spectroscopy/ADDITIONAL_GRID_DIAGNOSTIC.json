@@ -1,0 +1,32 @@
+{
+  "DC_and_harmonics": {
+    "accepted_finite_grid_points": 56,
+    "alpha_grid_range": [
+      5.120916205043556e-07,
+      1.600143150634273e-06
+    ],
+    "b_grid_range_m": [
+      0.01,
+      0.029999999999999995
+    ],
+    "b0_accepted_on_finite_grid": false,
+    "criterion": "Each complex-ratio residual <= its deterministic propagated source-error scale",
+    "not_statistical_confidence_or_continuous_enclosure": true,
+    "finite_window_model_discrepancy_not_included": true
+  },
+  "harmonics_only": {
+    "accepted_finite_grid_points": 124,
+    "alpha_grid_range": [
+      5.120916205043556e-07,
+      1.600143150634273e-06
+    ],
+    "b_grid_range_m": [
+      0.0,
+      0.065
+    ],
+    "b0_accepted_on_finite_grid": true,
+    "criterion": "Each complex-ratio residual <= its deterministic propagated source-error scale",
+    "not_statistical_confidence_or_continuous_enclosure": true,
+    "finite_window_model_discrepancy_not_included": true
+  }
+}

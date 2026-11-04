@@ -1,0 +1,218 @@
+{
+  "plan_sha256": "65e768790334e8fc56ce6627937f080331c560f931ecf07a4828fa3de6359292",
+  "code_sha256": "5851c1f03470d8151a5bb605a7444ce4bbece974e0434600e494d9766794801c",
+  "run_code_sha256": "f9109d973f9522e556d0e1243191900bb3f338769b49a208b0575fafca3adce4",
+  "mass_values_used": false,
+  "source_zero_22cm_used": false,
+  "native_rows": 4033,
+  "native_cadence_s": [
+    300.0
+  ],
+  "input_or_output_negative_count": 0,
+  "scope": "Effective periodic homogeneous Robin response, fixedgeometry; not independent material-contact identification.",
+  "harmonic_extraction": {
+    "observations": [
+      {
+        "omega_rad_s": 0,
+        "ratio_real": 0.4716199325155408,
+        "ratio_imag": 0.0,
+        "upper_amplitude_C": 8.36654991417669,
+        "lower_amplitude_C": 3.9458317059119143,
+        "coefficient_complex_error_bound_C": 0.19999999999999946,
+        "ratio_error_scale": 0.036040187055267583
+      },
+      {
+        "omega_rad_s": 7.27220521664304e-05,
+        "ratio_real": 0.40771174843377117,
+        "ratio_imag": -0.17752161578177406,
+        "upper_amplitude_C": 5.799799759890569,
+        "lower_amplitude_C": 2.579071204915933,
+        "coefficient_complex_error_bound_C": 0.36012995325925795,
+        "ratio_error_scale": 0.09564432552806476
+      },
+      {
+        "omega_rad_s": 0.0001454441043328608,
+        "ratio_real": 0.33717523215655437,
+        "ratio_imag": -0.2257902218208471,
+        "upper_amplitude_C": 1.1749320124233469,
+        "lower_amplitude_C": 0.47677976896151725,
+        "coefficient_complex_error_bound_C": 0.36009085451161577,
+        "ratio_error_scale": 0.6212417921582607
+      }
+    ],
+    "upper_coefficients": [
+      8.36654991417669,
+      -0.00871361802149418,
+      -2.5511862435870043,
+      -5.208562758128113,
+      -0.43761763107248014,
+      1.0903926094722425
+    ],
+    "lower_coefficients": [
+      3.9458317059119143,
+      -0.007273019069165779,
+      -0.11551612722936606,
+      -2.576482933065238,
+      -0.3937538155172148,
+      0.2688435992480256
+    ],
+    "basis": "constant,centered trendC/day,cos1,sin1,cos2,sin2",
+    "fit_reconstruction": {
+      "upper": {
+        "RMSE_C": 2.2906853938497553,
+        "max_absolute_C": 9.615505671411912
+      },
+      "lower": {
+        "RMSE_C": 0.8519779973544795,
+        "max_absolute_C": 2.7669719396401984
+      }
+    },
+    "n": 4033,
+    "source_accuracy_C": 0.2,
+    "scale_interpretation": "deterministic ratio perturbation scale, not a standard deviation"
+  },
+  "primary_DC_and_harmonics": {
+    "Robin_fit": {
+      "alpha_m2_s": 8.054018392799412e-07,
+      "b_kR_m": 0.01914,
+      "weighted_objective": 0.013720791796914076,
+      "alpha_at_bound": false,
+      "b_at_bound": false,
+      "bounds_engineering_not_measurement": true,
+      "local_rank": {
+        "coordinates": [
+          "logalpha",
+          "b/L"
+        ],
+        "singular_values": [
+          13.935364134270445,
+          1.9135230978233642
+        ],
+        "condition_number": 7.282569073831378,
+        "rank_scope": "local response sensitivity conditional on fixedgeometry/model/error scales; not global physical identifiability or confidence"
+      },
+      "conditional_capacity_resistance": [
+        {
+          "C_J_m3_K": 800000.0,
+          "k_W_m_K": 0.6443214714239529,
+          "R_m2_K_W": 0.029705668441718274,
+          "interpretation": "assumedC; not independently measuredR"
+        },
+        {
+          "C_J_m3_K": 1500000.0,
+          "k_W_m_K": 1.2081027589199118,
+          "R_m2_K_W": 0.01584302316891641,
+          "interpretation": "assumedC; not independently measuredR"
+        },
+        {
+          "C_J_m3_K": 3500000.0,
+          "k_W_m_K": 2.818906437479794,
+          "R_m2_K_W": 0.006789867072392749,
+          "interpretation": "assumedC; not independently measuredR"
+        }
+      ],
+      "ratio_residuals": [
+        {
+          "omega_rad_s": 0,
+          "predicted_real": 0.47129110711642175,
+          "predicted_imag": 0.0,
+          "residual_absolute": 0.0003288253991190482,
+          "residual_in_declared_sensor_error_scales": 0.009123853841679424
+        },
+        {
+          "omega_rad_s": 7.27220521664304e-05,
+          "predicted_real": 0.4109727629501955,
+          "predicted_imag": -0.17699449904869408,
+          "residual_absolute": 0.00330334190277411,
+          "residual_in_declared_sensor_error_scales": 0.03453777194345749
+        },
+        {
+          "omega_rad_s": 0.0001454441043328608,
+          "predicted_real": 0.28434723798631306,
+          "predicted_imag": -0.27064692072392976,
+          "residual_absolute": 0.0693031053022364,
+          "residual_in_declared_sensor_error_scales": 0.11155576810354303
+        }
+      ]
+    },
+    "b0_null": {
+      "alpha_m2_s": 7.493842566191764e-07,
+      "b_kR_m": 0.0,
+      "weighted_objective": 3.055665573526874,
+      "alpha_at_bound": false,
+      "b_at_bound": true,
+      "bounds_engineering_not_measurement": true
+    },
+    "objective_difference_null_minus_robin": 3.04194478172996,
+    "not_a_likelihood_ratio_test": true
+  },
+  "diagnostic_harmonics_only": {
+    "Robin_fit": {
+      "alpha_m2_s": 8.029030950730176e-07,
+      "b_kR_m": 0.018085,
+      "weighted_objective": 0.012887614259368619,
+      "alpha_at_bound": false,
+      "b_at_bound": false,
+      "bounds_engineering_not_measurement": true,
+      "local_rank": {
+        "coordinates": [
+          "logalpha",
+          "b/L"
+        ],
+        "singular_values": [
+          4.587533922193097,
+          1.8471591380837094
+        ],
+        "condition_number": 2.4835618261631334,
+        "rank_scope": "local response sensitivity conditional on fixedgeometry/model/error scales; not global physical identifiability or confidence"
+      },
+      "conditional_capacity_resistance": [
+        {
+          "C_J_m3_K": 800000.0,
+          "k_W_m_K": 0.6423224760584141,
+          "R_m2_K_W": 0.028155639377556694,
+          "interpretation": "assumedC; not independently measuredR"
+        },
+        {
+          "C_J_m3_K": 1500000.0,
+          "k_W_m_K": 1.2043546426095264,
+          "R_m2_K_W": 0.01501634100136357,
+          "interpretation": "assumedC; not independently measuredR"
+        },
+        {
+          "C_J_m3_K": 3500000.0,
+          "k_W_m_K": 2.8101608327555616,
+          "R_m2_K_W": 0.006435574714870102,
+          "interpretation": "assumedC; not independently measuredR"
+        }
+      ],
+      "ratio_residuals": [
+        {
+          "omega_rad_s": 7.27220521664304e-05,
+          "predicted_real": 0.40891410762456853,
+          "predicted_imag": -0.1753866289421098,
+          "residual_absolute": 0.0024502727254806715,
+          "residual_in_declared_sensor_error_scales": 0.025618589623089473
+        },
+        {
+          "omega_rad_s": 0.0001454441043328608,
+          "predicted_real": 0.28367628759195146,
+          "predicted_imag": -0.26889971451202616,
+          "residual_absolute": 0.068706371099173,
+          "residual_in_declared_sensor_error_scales": 0.1105952174603059
+        }
+      ]
+    },
+    "b0_null": {
+      "alpha_m2_s": 7.493842566191764e-07,
+      "b_kR_m": 0.0,
+      "weighted_objective": 0.29743805980466687,
+      "alpha_at_bound": false,
+      "b_at_bound": true,
+      "bounds_engineering_not_measurement": true
+    },
+    "objective_difference_null_minus_robin": 0.28455044554529824,
+    "not_a_likelihood_ratio_test": true
+  },
+  "status": "BOUNDED_FEATURE_FIT_COMPLETE"
+}

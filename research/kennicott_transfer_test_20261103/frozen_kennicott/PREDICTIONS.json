@@ -1,0 +1,285 @@
+{
+  "primary": "physical_layered_local",
+  "models": {
+    "physical_layered_local": {
+      "status": "refused",
+      "reason": "TRAINtargetoutsideengineeredphysicalcapacitybracket; nooutputrescaling"
+    },
+    "physical_homogeneous_local": {
+      "status": "predicted",
+      "rows": [
+        {
+          "site": "P11",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 242.87181899662275,
+          "relative_energy_residual": -8.292076927082256e-14
+        },
+        {
+          "site": "P12",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 116.07677263562731,
+          "relative_energy_residual": 1.4810827063394703e-14
+        },
+        {
+          "site": "P13",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 1458.6188530721024,
+          "relative_energy_residual": 2.4246399969648184e-14
+        }
+      ]
+    },
+    "physical_fixed2020_layered": {
+      "status": "refused",
+      "reason": "TRAINtargetoutsideengineeredphysicalcapacitybracket; nooutputrescaling"
+    },
+    "physical_weather_boundary_layered": {
+      "status": "refused",
+      "reason": "TRAINtargetoutsideengineeredphysicalcapacitybracket; nooutputrescaling"
+    },
+    "homogeneous_empirical_scale": {
+      "status": "predicted",
+      "rows": [
+        {
+          "site": "P11",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 242.87192631354685
+        },
+        {
+          "site": "P12",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 116.07682392606128
+        },
+        {
+          "site": "P13",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 1458.619497586857
+        }
+      ],
+      "global_training_gain": 1.641744703296237,
+      "physical_energy_conservation_claim": false
+    },
+    "air_pdd": {
+      "status": "predicted",
+      "rows": [
+        {
+          "site": "P11",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 837.1854252022881
+        },
+        {
+          "site": "P12",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 837.1854252022881
+        },
+        {
+          "site": "P13",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 837.1854252022881
+        }
+      ],
+      "global_training_gain": 1.1560156517223333e-05,
+      "physical_energy_conservation_claim": false
+    },
+    "buried_temp_exposure": {
+      "status": "predicted",
+      "rows": [
+        {
+          "site": "P11",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 906.7058827187104
+        },
+        {
+          "site": "P12",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 836.7765737358507
+        },
+        {
+          "site": "P13",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 1039.3684775100974
+        }
+      ],
+      "global_training_gain": 1.214785293659258e-05,
+      "physical_energy_conservation_claim": false
+    },
+    "conventional_gradient": {
+      "status": "predicted",
+      "rows": [
+        {
+          "site": "P11",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 659.4224601590621
+        },
+        {
+          "site": "P12",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 669.4212589886805
+        },
+        {
+          "site": "P13",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 707.6551336238958
+        }
+      ],
+      "global_training_gain": 1.9436564698548126e-06,
+      "physical_energy_conservation_claim": false
+    },
+    "depth_corrected_air_pdd": {
+      "status": "predicted",
+      "rows": [
+        {
+          "site": "P11",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 608.8621274198458
+        },
+        {
+          "site": "P12",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 669.7483401618305
+        },
+        {
+          "site": "P13",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 569.9985873717706
+        }
+      ],
+      "global_training_gain": 1.849625042755733e-06,
+      "physical_energy_conservation_claim": false
+    },
+    "constant_rate": {
+      "status": "predicted",
+      "rows": [
+        {
+          "site": "P11",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 720.0
+        },
+        {
+          "site": "P12",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 720.0
+        },
+        {
+          "site": "P13",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "predicted_mmwe": 720.0
+        }
+      ],
+      "global_training_gain": 9.689922480620155e-05,
+      "physical_energy_conservation_claim": false
+    }
+  },
+  "calibrations": {
+    "physical_layered_local": {
+      "status": "refused",
+      "reason": "TRAINtargetoutsideengineeredphysicalcapacitybracket; nooutputrescaling"
+    },
+    "physical_homogeneous_local": {
+      "status": "calibrated",
+      "capacity_J_m3K": 2462615.966796875,
+      "physical_TRAIN_melt_mmwe": 359.9997983602079,
+      "TRAIN_mass_loss_kg_m2": 360.0,
+      "history": [
+        {
+          "C": 800000.0,
+          "melt": 116.94876749449601
+        },
+        {
+          "C": 3500000.0,
+          "melt": 511.650693491374
+        },
+        {
+          "C": 2150000.0,
+          "melt": 314.2997545819212
+        },
+        {
+          "C": 2825000.0,
+          "melt": 412.97522853033286
+        },
+        {
+          "C": 2487500.0,
+          "melt": 363.6374928370204
+        },
+        {
+          "C": 2318750.0,
+          "melt": 338.9686240521698
+        },
+        {
+          "C": 2403125.0,
+          "melt": 351.3030585273274
+        },
+        {
+          "C": 2445312.5,
+          "melt": 357.47027570249884
+        },
+        {
+          "C": 2466406.25,
+          "melt": 360.5538842747995
+        },
+        {
+          "C": 2455859.375,
+          "melt": 359.01207998991305
+        },
+        {
+          "C": 2461132.8125,
+          "melt": 359.78298213267266
+        },
+        {
+          "C": 2463769.53125,
+          "melt": 360.16843320381395
+        },
+        {
+          "C": 2462451.171875,
+          "melt": 359.97570766826203
+        },
+        {
+          "C": 2463110.3515625,
+          "melt": 360.07207043604365
+        },
+        {
+          "C": 2462780.76171875,
+          "melt": 360.02388905215184
+        },
+        {
+          "C": 2462615.966796875,
+          "melt": 359.9997983602079
+        }
+      ],
+      "physical_energy_ledger_rescaled": false,
+      "source_mass_density_reconverted": false
+    },
+    "physical_weather_boundary_layered": {
+      "status": "refused",
+      "reason": "TRAINtargetoutsideengineeredphysicalcapacitybracket; nooutputrescaling"
+    },
+    "physical_fixed2020_layered": {
+      "status": "refused",
+      "reason": "TRAINtargetoutsideengineeredphysicalcapacitybracket; nooutputrescaling"
+    }
+  },
+  "training_net_ablation_loss_mmwe": 360.0,
+  "unit": "mmwe",
+  "scope": "Locked retrospective conditional whole-season net-loss inference; no evaluation outcomes read",
+  "evaluation_values_opened": false
+}

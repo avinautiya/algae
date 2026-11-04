@@ -1,0 +1,78 @@
+{
+  "native_outcome_release": {
+    "approved_operator": "negative_source_mass_change",
+    "unit": "mmwe",
+    "source_csv_sha256": "4b1fd8e9d7d0a9aa7365bfc40d3e90ac70948361aaa4cccb993412f2b39e8cd8",
+    "source_member_crc32": 1387455814,
+    "source_member": "Petersen_etal_2025_Kennicott_Glacier_Data/Point_Mass_Balance/point_mass_balance.csv",
+    "bindings": {
+      "train": [
+        {
+          "site": "P_AWS_1",
+          "start": "2020-07-25",
+          "end": "2020-09-06",
+          "period_days": 43,
+          "debris_mm": 210
+        }
+      ],
+      "evaluation": [
+        {
+          "site": "P11",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "period_days": 86,
+          "debris_mm": 240
+        },
+        {
+          "site": "P12",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "period_days": 86,
+          "debris_mm": 290
+        },
+        {
+          "site": "P13",
+          "start": "2023-06-08",
+          "end": "2023-09-02",
+          "period_days": 86,
+          "debris_mm": 255
+        }
+      ]
+    },
+    "target_interpretation": "conditional_net_ice_ablation_loss_not_verified_gross_melt",
+    "logical_public_source_gate_not_cryptographic_blind": true
+  },
+  "source_hashes": {
+    "contact_spectroscopy/test_profile_fit.py": "715996acef21a13e5c67bb60dc4536b7dbfbef1719bc3a660b0b9031b1a5e702",
+    "contact_spectroscopy/run_feature_fit.py": "f9109d973f9522e556d0e1243191900bb3f338769b49a208b0575fafca3adce4",
+    "contact_spectroscopy/grid_diagnostic.py": "cb3c568d4c454eb5a3cee721ab6d332fa6fc3c8fcf70f8d21b417e7240d676bf",
+    "contact_spectroscopy/spectroscopy.py": "5851c1f03470d8151a5bb605a7444ce4bbece974e0434600e494d9766794801c",
+    "contact_spectroscopy/profile_fit.py": "9556888bc12ec447a960c043ccdb1c0fac555797ccc16633b070c7a3fb77f839",
+    "contact_spectroscopy/test_spectroscopy.py": "cd3eea30b4de200ad9a10624f3512621dfb4783fe8d09f50e2c72648618831bb",
+    "contact_spectroscopy/geometry_equivalence.py": "8f9d7bc4c4e386db9afc1d4fc76e08324c5ec5326ad4fa0ee77adbe2374ccd1d",
+    "contact_spectroscopy/check_calorimetry.py": "c68dda954f39a7a582b3215f8b41e24691be32b46472ea0ca174387ec4496578",
+    "contact_spectroscopy/run_feature_fit_2023.py": "7099398c086004085e9690189cb4fbaa533f19c9bd8c1bda85fa927214bcbd5f",
+    "contact_spectroscopy/score_transfer.py": "a3ed574660c4cc6c4542c9ec43eaa0cffca9900922e9d40f5b01003784ab0c5d",
+    "contact_spectroscopy/predict_from_thermal_fits.py": "983d327c33c732ee1469254bf2e5c8f6501c4aa641ecb3f95c0e301994433e72",
+    "contact_spectroscopy/NOMINAL_THERMAL_FITS.json": "0f1e8d40010664cd27d970c1a5d8f85004a73e8454575b21eb5844adf5465c8d",
+    "contact_spectroscopy/RESULTS_FEATURE_ONLY_2023.json": "065e7531a4a7e03dc2ff2614d259312e3643d43f97e3dbc3283fe56669edf6f6",
+    "contact_spectroscopy/CALORIMETRY_NULL.json": "9b107fbd1c97720ef9c1d611bd76b0e8837aad40af1a6a6c068509dbc4213614",
+    "contact_spectroscopy/ADDITIONAL_GRID_DIAGNOSTIC.json": "3ec77d0d898b775ca9a7a7bc479d8db1cb6e3b41b54492ac531dcb4119d17cbe",
+    "contact_spectroscopy/TRANSFER_PREDICTIONS.json": "18122aefb3c5d7c9e10756d49be512aa3b2f94f37c10a1ee48fc53bfc9219f87",
+    "contact_spectroscopy/CANDIDATE_PREDICTIONS.json": "7b4c191700e886d31efadcda842f0862ca2834688d23e9d439dc8bd81eafbda2",
+    "contact_spectroscopy/FEATURE_ONLY_PLAN_2023.json": "98eadecba0c9466d42ec4009b49df6a2395aa89bcf02c5d7643de49356dc6df4",
+    "contact_spectroscopy/RESULTS_FEATURE_ONLY.json": "314dd780a87be10308c0412381ceb68cd9b9439ac6135d83b2e15b80c831ed8d",
+    "contact_spectroscopy/CALORIMETRY_CHECK.json": "85eb8ebd7211bb1055d77915c5c956f7838f04d36d60af23cc51b1065d4c33f9",
+    "contact_spectroscopy/FEATURE_ONLY_PLAN.json": "65e768790334e8fc56ce6627937f080331c560f931ecf07a4828fa3de6359292",
+    "contact_spectroscopy/GEOMETRY_EQUIVALENCE_DIAGNOSTIC.json": "b1797af0d3a7a6a18d50fc2427f69cec2fc0b3e1057d94a1c22b43bc9585f275",
+    "contact_spectroscopy/NULL_PREDICTIONS.json": "f167a20109c7c09a549326d033593d8b9d14c85b454637513773d21772b980f2",
+    "contact_spectroscopy/NULL_THERMAL_FITS.json": "37f5034fd4127d9392217d03678ecafa300200d92f0360b992ab756745f89b95",
+    "kennicott_protocol/outcome_loader.py": "655472a41df26d1c036d4472b8772fadb6b1d3e431ddc360c2eb42082472d9f9",
+    "review/decision_rule.py": "8b05a63af1a9f054f858db3b27d5c3da1081738248c3817f1e61f7be2a36d94d"
+  },
+  "timing": "Method developed after the 2020 training result, before 2023 melt inspection",
+  "primary": "thermal_robin",
+  "closest": "thermal_robin_null",
+  "decision": "At least 10% lower MAE than every scorable comparator and strict wins at two of three stakes versus the null",
+  "scope": "Nominal source geometry and visit clock, temperature-assisted retrospective transfer. Geometry sensitivity prevents attribution to physical contact."
+}

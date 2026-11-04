@@ -1,0 +1,33 @@
+{
+  "scope": "2020 development only, effective homogeneous Robin boundary",
+  "alpha_m2_s": 7.493842566191764e-07,
+  "extrapolation_length_m": 0.0,
+  "target_mmwe": 360.0,
+  "probes": [
+    {
+      "capacity_J_m3K": 800000.0,
+      "resistance_m2K_W": 0.0,
+      "melt_mmwe": 333.409224645815,
+      "relative_energy_residual": 5.01729808553114e-15
+    },
+    {
+      "capacity_J_m3K": 1500000.0,
+      "resistance_m2K_W": 0.0,
+      "melt_mmwe": 625.1439249132104,
+      "relative_energy_residual": 2.2808357605631266e-14
+    },
+    {
+      "capacity_J_m3K": 3500000.0,
+      "resistance_m2K_W": 0.0,
+      "melt_mmwe": 1458.6745780731437,
+      "relative_energy_residual": -2.0763575474919376e-15
+    }
+  ],
+  "calibrated": {
+    "capacity_J_m3K": 863796.2341308594,
+    "resistance_m2K_W": 0.0,
+    "melt_mmwe": 359.99714847031635,
+    "relative_energy_residual": 3.781168131223873e-15
+  },
+  "accessed_2023_melt": false
+}
