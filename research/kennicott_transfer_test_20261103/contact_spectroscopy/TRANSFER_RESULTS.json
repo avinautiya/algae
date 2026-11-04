@@ -1,0 +1,225 @@
+{
+  "observations": [
+    {
+      "site": "P11",
+      "start": "2023-06-08",
+      "end": "2023-09-02",
+      "period_days": 86,
+      "debris_mm": 240,
+      "observed_net_ablation_mmwe": 1035.0,
+      "negative_net_ablation_retained": false,
+      "operator": "negative_source_mass_change",
+      "density_multiplier_applied": false,
+      "native_unit": "kg_m2_equivalent_mmwe",
+      "native_source_field": "mass_change_kg_m2",
+      "conditional_interpretation": "net loss; not independently verified gross phase-change melt",
+      "uncertainty": "No statistical measurement interval inferred from source rounding or sample count"
+    },
+    {
+      "site": "P12",
+      "start": "2023-06-08",
+      "end": "2023-09-02",
+      "period_days": 86,
+      "debris_mm": 290,
+      "observed_net_ablation_mmwe": 873.0,
+      "negative_net_ablation_retained": false,
+      "operator": "negative_source_mass_change",
+      "density_multiplier_applied": false,
+      "native_unit": "kg_m2_equivalent_mmwe",
+      "native_source_field": "mass_change_kg_m2",
+      "conditional_interpretation": "net loss; not independently verified gross phase-change melt",
+      "uncertainty": "No statistical measurement interval inferred from source rounding or sample count"
+    },
+    {
+      "site": "P13",
+      "start": "2023-06-08",
+      "end": "2023-09-02",
+      "period_days": 86,
+      "debris_mm": 255,
+      "observed_net_ablation_mmwe": 688.0,
+      "negative_net_ablation_retained": false,
+      "operator": "negative_source_mass_change",
+      "density_multiplier_applied": false,
+      "native_unit": "kg_m2_equivalent_mmwe",
+      "native_source_field": "mass_change_kg_m2",
+      "conditional_interpretation": "net loss; not independently verified gross phase-change melt",
+      "uncertainty": "No statistical measurement interval inferred from source rounding or sample count"
+    }
+  ],
+  "metrics": {
+    "physical_homogeneous_local": {
+      "MAE_mmwe": 773.2234204799507,
+      "absolute_errors_mmwe": [
+        792.1281810033772,
+        756.9232273643727,
+        770.6188530721024
+      ],
+      "signed_errors_mmwe": [
+        -792.1281810033772,
+        -756.9232273643727,
+        770.6188530721024
+      ]
+    },
+    "homogeneous_empirical_scale": {
+      "MAE_mmwe": 773.223582449083,
+      "absolute_errors_mmwe": [
+        792.1280736864531,
+        756.9231760739387,
+        770.619497586857
+      ],
+      "signed_errors_mmwe": [
+        -792.1280736864531,
+        -756.9231760739387,
+        770.619497586857
+      ]
+    },
+    "air_pdd": {
+      "MAE_mmwe": 127.60485826590396,
+      "absolute_errors_mmwe": [
+        197.81457479771188,
+        35.814574797711884,
+        149.18542520228812
+      ],
+      "signed_errors_mmwe": [
+        -197.81457479771188,
+        -35.814574797711884,
+        149.18542520228812
+      ]
+    },
+    "buried_temp_exposure": {
+      "MAE_mmwe": 171.96200701851208,
+      "absolute_errors_mmwe": [
+        128.29411728128957,
+        36.22342626414934,
+        351.36847751009736
+      ],
+      "signed_errors_mmwe": [
+        -128.29411728128957,
+        -36.22342626414934,
+        351.36847751009736
+      ]
+    },
+    "conventional_gradient": {
+      "MAE_mmwe": 199.6038048253844,
+      "absolute_errors_mmwe": [
+        375.5775398409379,
+        203.5787410113195,
+        19.655133623895836
+      ],
+      "signed_errors_mmwe": [
+        -375.5775398409379,
+        -203.5787410113195,
+        19.655133623895836
+      ]
+    },
+    "depth_corrected_air_pdd": {
+      "MAE_mmwe": 249.1303150155177,
+      "absolute_errors_mmwe": [
+        426.1378725801542,
+        203.25165983816953,
+        118.00141262822945
+      ],
+      "signed_errors_mmwe": [
+        -426.1378725801542,
+        -203.25165983816953,
+        -118.00141262822945
+      ]
+    },
+    "constant_rate": {
+      "MAE_mmwe": 166.66666666666666,
+      "absolute_errors_mmwe": [
+        315.0,
+        153.0,
+        32.0
+      ],
+      "signed_errors_mmwe": [
+        -315.0,
+        -153.0,
+        32.0
+      ]
+    },
+    "thermal_robin": {
+      "MAE_mmwe": 276.34456497827523,
+      "absolute_errors_mmwe": [
+        359.7279273021603,
+        255.69483848784273,
+        213.6109291448227
+      ],
+      "signed_errors_mmwe": [
+        -359.7279273021603,
+        -255.69483848784273,
+        -213.6109291448227
+      ]
+    },
+    "thermal_robin_null": {
+      "MAE_mmwe": 232.91782575418833,
+      "absolute_errors_mmwe": [
+        386.9360163036274,
+        91.4816131471058,
+        220.3358478118318
+      ],
+      "signed_errors_mmwe": [
+        -386.9360163036274,
+        -91.4816131471058,
+        -220.3358478118318
+      ]
+    }
+  },
+  "refusals": {
+    "physical_layered_local": {
+      "status": "refused",
+      "reason": "TRAINtargetoutsideengineeredphysicalcapacitybracket; nooutputrescaling"
+    },
+    "physical_fixed2020_layered": {
+      "status": "refused",
+      "reason": "TRAINtargetoutsideengineeredphysicalcapacitybracket; nooutputrescaling"
+    },
+    "physical_weather_boundary_layered": {
+      "status": "refused",
+      "reason": "TRAINtargetoutsideengineeredphysicalcapacitybracket; nooutputrescaling"
+    }
+  },
+  "decision": {
+    "flag": false,
+    "all_scorable_baseline_checks": {
+      "physical_homogeneous_local": {
+        "MAE_mmwe": 773.2234204799507,
+        "at_least_10percent_and_strictly_lower": true
+      },
+      "homogeneous_empirical_scale": {
+        "MAE_mmwe": 773.223582449083,
+        "at_least_10percent_and_strictly_lower": true
+      },
+      "air_pdd": {
+        "MAE_mmwe": 127.60485826590396,
+        "at_least_10percent_and_strictly_lower": false
+      },
+      "buried_temp_exposure": {
+        "MAE_mmwe": 171.96200701851208,
+        "at_least_10percent_and_strictly_lower": false
+      },
+      "conventional_gradient": {
+        "MAE_mmwe": 199.6038048253844,
+        "at_least_10percent_and_strictly_lower": false
+      },
+      "depth_corrected_air_pdd": {
+        "MAE_mmwe": 249.1303150155177,
+        "at_least_10percent_and_strictly_lower": false
+      },
+      "constant_rate": {
+        "MAE_mmwe": 166.66666666666666,
+        "at_least_10percent_and_strictly_lower": false
+      },
+      "thermal_robin_null": {
+        "MAE_mmwe": 232.91782575418833,
+        "at_least_10percent_and_strictly_lower": false
+      }
+    },
+    "strict_stake_wins_vs_closest": 2,
+    "required_stake_wins": 2,
+    "n_stakes": 3,
+    "interpretation": "Predeclared engineering decision only; one glacier/year, no statistical confidence claim",
+    "unscorable_methods": "Must be listed separately; never counted as wins"
+  },
+  "scope": "Conditional nominal three-stake comparison, one glacier and year"
+}
