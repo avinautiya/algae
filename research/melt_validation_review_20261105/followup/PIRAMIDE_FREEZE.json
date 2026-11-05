@@ -1,0 +1,153 @@
+{
+  "created_UTC": "2026-11-05T19:35:48.913465+00:00",
+  "source": "Zenodo11581073 new2022-2023Piramide data; file bodies unopened",
+  "source_checksum": "md5:964e16d7cba6117565384c7ab9b81c69",
+  "models": {
+    "robust_candidate": {
+      "features": [
+        "pdd_over_h",
+        "shortwave_over_h"
+      ],
+      "beta": [
+        0.3810059601875537,
+        0.6028618318582597
+      ],
+      "feature_scale": [
+        63.41075833116007,
+        1518.3643022736032
+      ],
+      "target_scale": 0.0008440467713434297,
+      "rate": true,
+      "penalty": 0,
+      "donors": [
+        "Arolla",
+        "Kennicott",
+        "Miage",
+        "Tasman"
+      ]
+    },
+    "previous_candidate": {
+      "features": [
+        "pdd_over_h",
+        "shortwave_over_h"
+      ],
+      "beta": [
+        0.35019336040995613,
+        0.356614792996786
+      ],
+      "feature_scale": [
+        84073.08104832575,
+        1596185.0386203807
+      ],
+      "target_scale": 1.1334953703703703,
+      "penalty": 1,
+      "donors": [
+        "Arolla",
+        "Kennicott",
+        "Miage",
+        "Tasman"
+      ]
+    },
+    "constant": {
+      "features": [
+        "constant"
+      ],
+      "beta": [
+        1.062860162859214
+      ],
+      "feature_scale": [
+        1677.816438112346
+      ],
+      "target_scale": 1.1334953703703703,
+      "penalty": 0.0,
+      "donors": [
+        "Arolla",
+        "Kennicott",
+        "Miage",
+        "Tasman"
+      ]
+    },
+    "pdd": {
+      "features": [
+        "pdd"
+      ],
+      "beta": [
+        1.0440922852104935
+      ],
+      "feature_scale": [
+        20337.138830861535
+      ],
+      "target_scale": 1.1334953703703703,
+      "penalty": 0.0,
+      "donors": [
+        "Arolla",
+        "Kennicott",
+        "Miage",
+        "Tasman"
+      ]
+    },
+    "shortwave": {
+      "features": [
+        "shortwave"
+      ],
+      "beta": [
+        1.082118160070949
+      ],
+      "feature_scale": [
+        361330.55221951706
+      ],
+      "target_scale": 1.1334953703703703,
+      "penalty": 0.0,
+      "donors": [
+        "Arolla",
+        "Kennicott",
+        "Miage",
+        "Tasman"
+      ]
+    },
+    "pdd_over_h": {
+      "features": [
+        "pdd_over_h"
+      ],
+      "beta": [
+        1.0495132932995237
+      ],
+      "feature_scale": [
+        84073.08104832577
+      ],
+      "target_scale": 1.1334953703703703,
+      "penalty": 0.0,
+      "donors": [
+        "Arolla",
+        "Kennicott",
+        "Miage",
+        "Tasman"
+      ]
+    },
+    "shortwave_over_h": {
+      "features": [
+        "shortwave_over_h"
+      ],
+      "beta": [
+        1.0560695635436539
+      ],
+      "feature_scale": [
+        1596185.0386203805
+      ],
+      "target_scale": 1.1334953703703703,
+      "penalty": 0.0,
+      "donors": [
+        "Arolla",
+        "Kennicott",
+        "Miage",
+        "Tasman"
+      ]
+    }
+  },
+  "selection": "reuse existing recipient-excluded fitted models, no refitting against new outcomes",
+  "eligibility": "direct stake and independently measured h applicable to pit, native meteorological T SWIN SWOUT or justified measured netshortwave, dates/clocks supported, no new gapfill; reject if cannot decode MATLAB timetable or data missing",
+  "operator": "source stake m water-equivalent converted to m ice only by documented917kgm3; preserve signed increments and separate accumulation; metadata quality dates only; no outcome-based clipping",
+  "candidate_choice": "primary remains robust_candidate; all seven models reported",
+  "claim": "new campaign test with glacier excluded from all candidate calibration; no universal conclusion; prior project global outcome exposure not provable",
+  "external_models": "KP1published2020fixed-effects; DETI original published0.13albedo only if threshold and lag implementation resolved; otherwise label reconstruction variants"
+}

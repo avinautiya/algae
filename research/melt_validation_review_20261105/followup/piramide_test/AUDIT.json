@@ -1,0 +1,51 @@
+{
+  "frozen_model_hash_verified": true,
+  "no_recipient_training": true,
+  "native_units_identity_checked": true,
+  "predictions_recomputed": 1808,
+  "score_summaries_recomputed": 32,
+  "matched_published_support_verified": true,
+  "pooled_day_diagnostic": [
+    {
+      "method": "pdd_over_h",
+      "n": 112,
+      "pooled_day_MAE_m": 0.002962337015127118
+    },
+    {
+      "method": "published_KP1_2020_fixed_effects",
+      "n": 112,
+      "pooled_day_MAE_m": 0.0034339792083567583
+    },
+    {
+      "method": "shortwave",
+      "n": 112,
+      "pooled_day_MAE_m": 0.016933007808827828
+    },
+    {
+      "method": "robust_candidate",
+      "n": 112,
+      "pooled_day_MAE_m": 0.0030980061629832406
+    },
+    {
+      "method": "pdd",
+      "n": 112,
+      "pooled_day_MAE_m": 0.005998698801279837
+    },
+    {
+      "method": "constant",
+      "n": 112,
+      "pooled_day_MAE_m": 0.011336598926186135
+    },
+    {
+      "method": "previous_candidate",
+      "n": 112,
+      "pooled_day_MAE_m": 0.0029877325600266647
+    },
+    {
+      "method": "shortwave_over_h",
+      "n": 112,
+      "pooled_day_MAE_m": 0.005981775436114445
+    }
+  ],
+  "interpretation": "one external campaign with measured stakes; frozen coefficients, audited endpoint definitions; not an independently preregistered multi-glacier confirmation"
+}

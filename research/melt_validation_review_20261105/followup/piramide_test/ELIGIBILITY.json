@@ -1,0 +1,19 @@
+{
+  "primary": "all complete03:00-to03:00 camera-endpoint days",
+  "geometry_m": [
+    0.5,
+    0.45,
+    0.24
+  ],
+  "forcing": "raw Hour.Pir Ta SW_in SW_out with actual timestamps; piecewise-constant hourly means; both start/end label interpretations",
+  "secondary": "source-code snow-screen stratum: midday radiation ratio <=0.3; all-day primary retained",
+  "unit": "native distance increment metres ice; ablation column independently satisfies0.917*distance+constant in metres water equivalent despite README mm label",
+  "models_fixed_sha256": "7cff2eb0c069a42f4e6bf6e06827cae370f5afcb80115ed6614bd7d891546863",
+  "limitations": [
+    "timestamps and camera quality inherited from source; no new fill",
+    "three sites, same glacier campaign",
+    "03:00anchor chosen from published camera schedule after decoding table headers/values but before computing scores; not a pristine preregistered endpoint",
+    "no independent quantified camera-reading error model",
+    "published KP1 original training provenance not fully disjoint from old glacier studies"
+  ]
+}
